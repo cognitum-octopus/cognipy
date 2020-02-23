@@ -1,0 +1,1 @@
+nuget push FluentEditorClientLib.1.1.16.nupkg -source https://cognugetserver.azurewebsites.net/nuget {AA747F70-CA56-4CEE-BF96-809A1FE5E41C} -Timeout 10000 -verbosity detailed 

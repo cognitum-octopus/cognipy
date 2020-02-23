@@ -1,0 +1,646 @@
+Namespace: 'http://www.cognitum.eu/telstra/dev#'.
+
+Every element-1-form is a form[sfo].
+Every element-1-form must concern[sfo] an element-1-1-section.
+Every element-1-1-section is a section[sfo].
+Every element-1-1-section must have-field-1-1-1 a field-1-1-1.
+Every element-1-1-section must have-field-1-1-2 a field-1-1-2.
+Every element-1-1-section must have-field-1-1-3 a field-1-1-3.
+Every element-1-1-section must have-field-1-1-4 a field-1-1-4.
+Every element-1-1-section must have-field-1-1-5 a field-1-1-5.
+Every element-1-1-section must have-field-1-1-6 (some string value).
+Every element-1-1-section must have-field-1-1-7 a field-1-1-7.
+Every field-1-1-1 is a field[sfo].
+Something is a field-1-1-1 if-and-only-if-it is either Answer-1-1-1-1, Answer-1-1-1-2, Answer-1-1-1-3, Answer-1-1-1-4, Answer-1-1-1-5, Answer-1-1-1-6, Answer-1-1-1-7, Answer-1-1-1-8, Answer-1-1-1-9, Answer-1-1-1-10, Answer-1-1-1-11, Answer-1-1-1-12, Answer-1-1-1-13, Answer-1-1-1-14, Answer-1-1-1-15, Answer-1-1-1-16, Answer-1-1-1-17 or Answer-1-1-1-18.
+Every field-1-1-2 is a field[sfo].
+Something is a field-1-1-2 if-and-only-if-it is either Answer-1-1-2-1 or Answer-1-1-2-2.
+Every field-1-1-3 is a field[sfo].
+Something is a field-1-1-3 if-and-only-if-it is either Answer-1-1-3-1, Answer-1-1-3-2, Answer-1-1-3-3, Answer-1-1-3-4 or Answer-1-1-3-5.
+Every field-1-1-4 is a field[sfo].
+Something is a field-1-1-4 if-and-only-if-it is either Answer-1-1-4-1, Answer-1-1-4-2, Answer-1-1-4-3 or Answer-1-1-4-4.
+Every field-1-1-5 is a field[sfo].
+Something is a field-1-1-5 if-and-only-if-it is either Answer-1-1-5-1, Answer-1-1-5-2, Answer-1-1-5-3, Answer-1-1-5-4 or Answer-1-1-5-5.
+Every field-1-1-7 is a field[sfo].
+Something is a field-1-1-7 if-and-only-if-it is either Answer-1-1-7-1, Answer-1-1-7-2, Answer-1-1-7-3, Answer-1-1-7-4 or Answer-1-1-7-5.
+Every element-2-form is a form[sfo].
+Every element-2-form must concern[sfo] an element-2-1-section.
+Every element-2-1-section is a section[sfo].
+Every element-2-1-section must have-field-2-1-1 a field-2-1-1.
+Every element-2-1-section must have-field-2-1-2 a field-2-1-2.
+Every element-2-1-section must have-field-2-1-3 a field-2-1-3.
+Every element-2-1-section must have-field-2-1-4 a field-2-1-4.
+Every element-2-1-section must have-field-2-1-5 a field-2-1-5.
+Every element-2-1-section must have-field-2-1-6 a field-2-1-6.
+Every element-2-1-section must have-field-2-1-7 a field-2-1-7.
+Every element-2-1-section must have-field-2-1-8 a field-2-1-8.
+Every element-2-1-section must have-field-2-1-9 a field-2-1-9.
+Every element-2-1-section must have-field-2-1-10 a field-2-1-10.
+Every element-2-1-section must have-field-2-1-11 a field-2-1-11.
+Every element-2-1-section must have-field-2-1-12 a field-2-1-12.
+Every element-2-1-section must have-field-2-1-13 a field-2-1-13.
+Every field-2-1-1 is a field[sfo].
+Something is a field-2-1-1 if-and-only-if-it is either Answer-2-1-1-1, Answer-2-1-1-2, Answer-2-1-1-3, Answer-2-1-1-4 or Answer-2-1-1-5.
+Answer-2-1-1-1 recommends[sfo] Recommendation-1.
+Answer-2-1-1-2 recommends[sfo] Recommendation-2.
+Answer-2-1-1-3 recommends[sfo] Recommendation-3.
+Answer-2-1-1-4 recommends[sfo] Recommendation-2.
+Answer-2-1-1-5 recommends[sfo] Recommendation-4.
+Dynamic[sfo] have-field-2-1-1 Answer-2-1-1-1.
+Dynamic[sfo] have-field-2-1-1 Answer-2-1-1-2.
+Dynamic[sfo] have-field-2-1-1 Answer-2-1-1-3.
+Dynamic[sfo] have-field-2-1-1 Answer-2-1-1-4.
+Every field-2-1-2 is a field[sfo].
+Something is a field-2-1-2 if-and-only-if-it is either Answer-2-1-2-1, Answer-2-1-2-2, Answer-2-1-2-3, Answer-2-1-2-4 or Answer-2-1-2-5.
+Answer-2-1-2-1 recommends[sfo] Recommendation-5.
+Answer-2-1-2-2 recommends[sfo] Recommendation-2.
+Answer-2-1-2-3 recommends[sfo] Recommendation-3.
+Answer-2-1-2-4 recommends[sfo] Recommendation-6.
+Answer-2-1-2-5 recommends[sfo] Recommendation-4.
+Every field-2-1-3 is a field[sfo].
+Something is a field-2-1-3 if-and-only-if-it is either Answer-2-1-3-1, Answer-2-1-3-2, Answer-2-1-3-3, Answer-2-1-3-4 or Answer-2-1-3-5.
+Answer-2-1-3-1 recommends[sfo] Recommendation-7.
+Answer-2-1-3-2 recommends[sfo] Recommendation-2.
+Answer-2-1-3-3 recommends[sfo] Recommendation-2.
+Answer-2-1-3-4 recommends[sfo] Recommendation-8.
+Answer-2-1-3-5 recommends[sfo] Recommendation-9.
+Every field-2-1-4 is a field[sfo].
+Something is a field-2-1-4 if-and-only-if-it is either Answer-2-1-4-1, Answer-2-1-4-2, Answer-2-1-4-3, Answer-2-1-4-4 or Answer-2-1-4-5.
+Answer-2-1-4-1 recommends[sfo] Recommendation-10.
+Answer-2-1-4-2 recommends[sfo] Recommendation-10.
+Answer-2-1-4-3 recommends[sfo] Recommendation-10.
+Answer-2-1-4-4 recommends[sfo] Recommendation-10.
+Answer-2-1-4-5 recommends[sfo] Recommendation-10.
+Every field-2-1-5 is a field[sfo].
+Something is a field-2-1-5 if-and-only-if-it is either Answer-2-1-5-1, Answer-2-1-5-2, Answer-2-1-5-3, Answer-2-1-5-4 or Answer-2-1-5-5.
+Answer-2-1-5-1 recommends[sfo] Recommendation-2.
+Answer-2-1-5-1 recommends[sfo] Recommendation-11.
+Answer-2-1-5-2 recommends[sfo] Recommendation-2.
+Answer-2-1-5-2 recommends[sfo] Recommendation-11.
+Answer-2-1-5-3 recommends[sfo] Recommendation-2.
+Answer-2-1-5-3 recommends[sfo] Recommendation-11.
+Answer-2-1-5-4 recommends[sfo] Recommendation-2.
+Answer-2-1-5-4 recommends[sfo] Recommendation-11.
+Answer-2-1-5-5 recommends[sfo] Recommendation-11.
+Every field-2-1-6 is a field[sfo].
+Something is a field-2-1-6 if-and-only-if-it is either Answer-2-1-6-1, Answer-2-1-6-2, Answer-2-1-6-3, Answer-2-1-6-4 or Answer-2-1-6-5.
+Answer-2-1-6-1 recommends[sfo] Recommendation-3.
+Answer-2-1-6-2 recommends[sfo] Recommendation-3.
+Answer-2-1-6-3 recommends[sfo] Recommendation-3.
+Answer-2-1-6-4 recommends[sfo] Recommendation-4.
+Answer-2-1-6-4 recommends[sfo] Recommendation-3.
+Answer-2-1-6-5 recommends[sfo] Recommendation-3.
+Every field-2-1-7 is a field[sfo].
+Something is a field-2-1-7 if-and-only-if-it is either Answer-2-1-7-1, Answer-2-1-7-2, Answer-2-1-7-3, Answer-2-1-7-4 or Answer-2-1-7-5.
+Answer-2-1-7-1 recommends[sfo] Recommendation-12.
+Answer-2-1-7-1 recommends[sfo] Recommendation-13.
+Answer-2-1-7-2 recommends[sfo] Recommendation-12.
+Answer-2-1-7-2 recommends[sfo] Recommendation-13.
+Answer-2-1-7-3 recommends[sfo] Recommendation-12.
+Answer-2-1-7-4 recommends[sfo] Recommendation-13.
+Answer-2-1-7-5 recommends[sfo] Recommendation-12.
+Answer-2-1-7-5 recommends[sfo] Recommendation-13.
+Every field-2-1-8 is a field[sfo].
+Something is a field-2-1-8 if-and-only-if-it is either Answer-2-1-8-1, Answer-2-1-8-2, Answer-2-1-8-3, Answer-2-1-8-4 or Answer-2-1-8-5.
+Answer-2-1-8-1 recommends[sfo] Recommendation-8.
+Answer-2-1-8-1 recommends[sfo] Recommendation-4.
+Answer-2-1-8-2 recommends[sfo] Recommendation-8.
+Answer-2-1-8-2 recommends[sfo] Recommendation-4.
+Answer-2-1-8-3 recommends[sfo] Recommendation-8.
+Answer-2-1-8-3 recommends[sfo] Recommendation-4.
+Answer-2-1-8-4 recommends[sfo] Recommendation-8.
+Answer-2-1-8-5 recommends[sfo] Recommendation-14.
+Every field-2-1-9 is a field[sfo].
+Something is a field-2-1-9 if-and-only-if-it is either Answer-2-1-9-1, Answer-2-1-9-2 or Answer-2-1-9-3.
+Answer-2-1-9-1 recommends[sfo] Recommendation-2.
+Answer-2-1-9-1 recommends[sfo] Recommendation-11.
+Answer-2-1-9-2 recommends[sfo] Recommendation-2.
+Answer-2-1-9-2 recommends[sfo] Recommendation-11.
+Answer-2-1-9-3 recommends[sfo] Recommendation-2.
+Answer-2-1-9-3 recommends[sfo] Recommendation-11.
+Dynamic[sfo] have-field-2-1-9 Answer-2-1-9-2.
+Every field-2-1-10 is a field[sfo].
+Something is a field-2-1-10 if-and-only-if-it is either Answer-2-1-10-1, Answer-2-1-10-2, Answer-2-1-10-3, Answer-2-1-10-4 or Answer-2-1-10-5.
+Answer-2-1-10-1 recommends[sfo] Recommendation-8.
+Answer-2-1-10-1 recommends[sfo] Recommendation-9.
+Answer-2-1-10-2 recommends[sfo] Recommendation-8.
+Answer-2-1-10-2 recommends[sfo] Recommendation-9.
+Answer-2-1-10-3 recommends[sfo] Recommendation-8.
+Answer-2-1-10-3 recommends[sfo] Recommendation-9.
+Answer-2-1-10-4 recommends[sfo] Recommendation-2.
+Answer-2-1-10-4 recommends[sfo] Recommendation-11.
+Answer-2-1-10-4 recommends[sfo] Recommendation-14.
+Answer-2-1-10-5 recommends[sfo] Recommendation-9.
+Answer-2-1-10-5 recommends[sfo] Recommendation-14.
+Every field-2-1-11 is a field[sfo].
+Something is a field-2-1-11 if-and-only-if-it is either Answer-2-1-11-1, Answer-2-1-11-2, Answer-2-1-11-3, Answer-2-1-11-4 or Answer-2-1-11-5.
+Answer-2-1-11-1 recommends[sfo] Recommendation-2.
+Answer-2-1-11-1 recommends[sfo] Recommendation-11.
+Answer-2-1-11-2 recommends[sfo] Recommendation-2.
+Answer-2-1-11-2 recommends[sfo] Recommendation-11.
+Answer-2-1-11-3 recommends[sfo] Recommendation-2.
+Answer-2-1-11-3 recommends[sfo] Recommendation-11.
+Answer-2-1-11-4 recommends[sfo] Recommendation-2.
+Answer-2-1-11-4 recommends[sfo] Recommendation-11.
+Answer-2-1-11-5 recommends[sfo] Recommendation-2.
+Answer-2-1-11-5 recommends[sfo] Recommendation-11.
+Dynamic[sfo] have-field-2-1-11 Answer-2-1-11-1.
+Dynamic[sfo] have-field-2-1-11 Answer-2-1-11-2.
+Dynamic[sfo] have-field-2-1-11 Answer-2-1-11-3.
+Dynamic[sfo] have-field-2-1-11 Answer-2-1-11-4.
+Every field-2-1-12 is a field[sfo].
+Something is a field-2-1-12 if-and-only-if-it is either Answer-2-1-12-1, Answer-2-1-12-2, Answer-2-1-12-3, Answer-2-1-12-4 or Answer-2-1-12-5.
+Answer-2-1-12-1 recommends[sfo] Recommendation-15.
+Answer-2-1-12-1 recommends[sfo] Recommendation-8.
+Answer-2-1-12-1 recommends[sfo] Recommendation-16.
+Answer-2-1-12-2 recommends[sfo] Recommendation-15.
+Answer-2-1-12-2 recommends[sfo] Recommendation-8.
+Answer-2-1-12-2 recommends[sfo] Recommendation-16.
+Answer-2-1-12-3 recommends[sfo] Recommendation-15.
+Answer-2-1-12-3 recommends[sfo] Recommendation-8.
+Answer-2-1-12-3 recommends[sfo] Recommendation-16.
+Answer-2-1-12-4 recommends[sfo] Recommendation-15.
+Answer-2-1-12-4 recommends[sfo] Recommendation-8.
+Answer-2-1-12-4 recommends[sfo] Recommendation-16.
+Answer-2-1-12-5 recommends[sfo] Recommendation-15.
+Answer-2-1-12-5 recommends[sfo] Recommendation-8.
+Answer-2-1-12-5 recommends[sfo] Recommendation-16.
+Every field-2-1-13 is a field[sfo].
+Something is a field-2-1-13 if-and-only-if-it is either Answer-2-1-13-1, Answer-2-1-13-2, Answer-2-1-13-3, Answer-2-1-13-4 or Answer-2-1-13-5.
+Answer-2-1-13-1 recommends[sfo] Recommendation-14.
+Answer-2-1-13-2 recommends[sfo] Recommendation-14.
+Answer-2-1-13-3 recommends[sfo] Recommendation-4.
+Answer-2-1-13-3 recommends[sfo] Recommendation-3.
+Answer-2-1-13-4 recommends[sfo] Recommendation-4.
+Answer-2-1-13-4 recommends[sfo] Recommendation-3.
+Answer-2-1-13-5 recommends[sfo] Recommendation-4.
+Answer-2-1-13-5 recommends[sfo] Recommendation-14.
+Every element-2-1-ext-1-section is a section[sfo].
+Every element-2-1-ext-1-section must have-field-2-1-ext-1-1 a field-2-1-ext-1-1.
+Every field-2-1-ext-1-1 is a field[sfo].
+Something is a field-2-1-ext-1-1 if-and-only-if-it is either Answer-2-1-Ext-1-1-1, Answer-2-1-Ext-1-1-2 or Answer-2-1-Ext-1-1-3.
+Every element-2-1-ext-2-section is a section[sfo].
+Every element-2-1-ext-2-section must have-field-2-1-ext-2-1 a field-2-1-ext-2-1.
+Every field-2-1-ext-2-1 is a field[sfo].
+Something is a field-2-1-ext-2-1 if-and-only-if-it is either Answer-2-1-Ext-2-1-1, Answer-2-1-Ext-2-1-2 or Answer-2-1-Ext-2-1-3.
+Every element-2-1-ext-3-section is a section[sfo].
+Every element-2-1-ext-3-section must have-field-2-1-ext-3-1 a field-2-1-ext-3-1.
+Every field-2-1-ext-3-1 is a field[sfo].
+Something is a field-2-1-ext-3-1 if-and-only-if-it is either Answer-2-1-Ext-3-1-1, Answer-2-1-Ext-3-1-2 or Answer-2-1-Ext-3-1-3.
+Every element-2-1-ext-4-section is a section[sfo].
+Every element-2-1-ext-4-section must have-field-2-1-ext-4-1 a field-2-1-ext-4-1.
+Every field-2-1-ext-4-1 is a field[sfo].
+Something is a field-2-1-ext-4-1 if-and-only-if-it is either Answer-2-1-Ext-4-1-1, Answer-2-1-Ext-4-1-2 or Answer-2-1-Ext-4-1-3.
+Every element-2-1-ext-5-section is a section[sfo].
+Every element-2-1-ext-5-section must have-field-2-1-ext-5-1 a field-2-1-ext-5-1.
+Every element-2-1-ext-5-section must have-field-2-1-ext-5-2 a field-2-1-ext-5-2.
+Every element-2-1-ext-5-section must have-field-2-1-ext-5-3 a field-2-1-ext-5-3.
+Every field-2-1-ext-5-1 is a field[sfo].
+Something is a field-2-1-ext-5-1 if-and-only-if-it is either Answer-2-1-Ext-5-1-1, Answer-2-1-Ext-5-1-2 or Answer-2-1-Ext-5-1-3.
+Every field-2-1-ext-5-2 is a field[sfo].
+Something is a field-2-1-ext-5-2 if-and-only-if-it is either Answer-2-1-Ext-5-2-1, Answer-2-1-Ext-5-2-2 or Answer-2-1-Ext-5-2-3.
+Every field-2-1-ext-5-3 is a field[sfo].
+Something is a field-2-1-ext-5-3 if-and-only-if-it is either Answer-2-1-Ext-5-3-1, Answer-2-1-Ext-5-3-2 or Answer-2-1-Ext-5-3-3.
+Every element-2-1-ext-6-section is a section[sfo].
+Every element-2-1-ext-6-section must have-field-2-1-ext-6-1 a field-2-1-ext-6-1.
+Every field-2-1-ext-6-1 is a field[sfo].
+Something is a field-2-1-ext-6-1 if-and-only-if-it is either Answer-2-1-Ext-6-1-1, Answer-2-1-Ext-6-1-2 or Answer-2-1-Ext-6-1-3.
+Every element-2-1-ext-7-section is a section[sfo].
+Every element-2-1-ext-7-section must have-field-2-1-ext-7-1 a field-2-1-ext-7-1.
+Every field-2-1-ext-7-1 is a field[sfo].
+Something is a field-2-1-ext-7-1 if-and-only-if-it is either Answer-2-1-Ext-7-1-1, Answer-2-1-Ext-7-1-2 or Answer-2-1-Ext-7-1-3.
+Every element-2-1-ext-8-section is a section[sfo].
+Every element-2-1-ext-8-section must have-field-2-1-ext-8-1 a field-2-1-ext-8-1.
+Every field-2-1-ext-8-1 is a field[sfo].
+Something is a field-2-1-ext-8-1 if-and-only-if-it is either Answer-2-1-Ext-8-1-1, Answer-2-1-Ext-8-1-2 or Answer-2-1-Ext-8-1-3.
+Every element-2-1-ext-9-section is a section[sfo].
+Every element-2-1-ext-9-section must have-field-2-1-ext-9-1 a field-2-1-ext-9-1.
+Every field-2-1-ext-9-1 is a field[sfo].
+Something is a field-2-1-ext-9-1 if-and-only-if-it is either Answer-2-1-Ext-9-1-1, Answer-2-1-Ext-9-1-2 or Answer-2-1-Ext-9-1-3.
+If an element-2-form concern[sfo] an element-2-1-section
+and the element-2-1-section have-field-2-1-1 Answer-2-1-1-1
+then the element-2-1-section is an element-2-1-ext-1-section.
+If an element-2-form concern[sfo] an element-2-1-section
+and the element-2-1-section have-field-2-1-1 Answer-2-1-1-2
+then the element-2-1-section is an element-2-1-ext-2-section.
+If an element-2-form concern[sfo] an element-2-1-section
+and the element-2-1-section have-field-2-1-1 Answer-2-1-1-3
+then the element-2-1-section is an element-2-1-ext-3-section.
+If an element-2-form concern[sfo] an element-2-1-section
+and the element-2-1-section have-field-2-1-1 Answer-2-1-1-4
+then the element-2-1-section is an element-2-1-ext-4-section.
+If an element-2-form concern[sfo] an element-2-1-section
+and the element-2-1-section have-field-2-1-9 Answer-2-1-9-2
+then the element-2-1-section is an element-2-1-ext-5-section.
+If an element-2-form concern[sfo] an element-2-1-section
+and the element-2-1-section have-field-2-1-11 Answer-2-1-11-1
+then the element-2-1-section is an element-2-1-ext-6-section.
+If an element-2-form concern[sfo] an element-2-1-section
+and the element-2-1-section have-field-2-1-11 Answer-2-1-11-2
+then the element-2-1-section is an element-2-1-ext-7-section.
+If an element-2-form concern[sfo] an element-2-1-section
+and the element-2-1-section have-field-2-1-11 Answer-2-1-11-3
+then the element-2-1-section is an element-2-1-ext-8-section.
+If an element-2-form concern[sfo] an element-2-1-section
+and the element-2-1-section have-field-2-1-11 Answer-2-1-11-4
+then the element-2-1-section is an element-2-1-ext-9-section.
+Every element-1-form is a starting-form[sfo].
+If an element-1-form has-status[sfo] Submitted[sfo]
+then the element-1-form is followed[sfo] by Element-2-Form.
+
+References:
+  [sfo] ('SFO.encnl')
+.
+
+Annotations:
+_Answer-1-1-1-1 Instance: "label":rdfs 'Accommodation and Food Services'@en
+_Answer-1-1-1-1 Instance: option-position '10'@en
+_Answer-1-1-1-2 Instance: "label":rdfs 'Administrative and Support Services'@en
+_Answer-1-1-1-2 Instance: option-position '20'@en
+_Answer-1-1-1-3 Instance: "label":rdfs 'Arts and Recreation Services'@en
+_Answer-1-1-1-3 Instance: option-position '30'@en
+_Answer-1-1-1-4 Instance: "label":rdfs 'Construction'@en
+_Answer-1-1-1-4 Instance: option-position '40'@en
+_Answer-1-1-1-5 Instance: "label":rdfs 'Education and Training'@en
+_Answer-1-1-1-5 Instance: option-position '50'@en
+_Answer-1-1-1-6 Instance: "label":rdfs 'Electricity, Gas, Water and Waste Services'@en
+_Answer-1-1-1-6 Instance: option-position '60'@en
+_Answer-1-1-1-7 Instance: "label":rdfs 'Financial and Insurance Services'@en
+_Answer-1-1-1-7 Instance: option-position '70'@en
+_Answer-1-1-1-8 Instance: "label":rdfs 'Health Care and Social Assistance'@en
+_Answer-1-1-1-8 Instance: option-position '80'@en
+_Answer-1-1-1-9 Instance: "label":rdfs 'Information Media and Telecommunications'@en
+_Answer-1-1-1-9 Instance: option-position '90'@en
+_Answer-1-1-1-10 Instance: "label":rdfs 'Manufacturing'@en
+_Answer-1-1-1-10 Instance: option-position '100'@en
+_Answer-1-1-1-11 Instance: "label":rdfs 'Mining'@en
+_Answer-1-1-1-11 Instance: option-position '110'@en
+_Answer-1-1-1-12 Instance: "label":rdfs 'Professional, Scientific and Technical Services'@en
+_Answer-1-1-1-12 Instance: option-position '120'@en
+_Answer-1-1-1-13 Instance: "label":rdfs 'Public Administration and Safety'@en
+_Answer-1-1-1-13 Instance: option-position '130'@en
+_Answer-1-1-1-14 Instance: "label":rdfs 'Rental, Hiring and Real Estate Services'@en
+_Answer-1-1-1-14 Instance: option-position '140'@en
+_Answer-1-1-1-15 Instance: "label":rdfs 'Retail Trade'@en
+_Answer-1-1-1-15 Instance: option-position '150'@en
+_Answer-1-1-1-16 Instance: "label":rdfs 'Transport, Postal and Warehousing'@en
+_Answer-1-1-1-16 Instance: option-position '160'@en
+_Answer-1-1-1-17 Instance: "label":rdfs 'Wholesale Trade'@en
+_Answer-1-1-1-17 Instance: option-position '170'@en
+_Answer-1-1-1-18 Instance: "label":rdfs 'Other Services'@en
+_Answer-1-1-1-18 Instance: option-position '180'@en
+have-field-1-1-1 Role: "label":rdfs 'Industry'@en
+have-field-1-1-1 Role: option-position '10'@en
+_Answer-1-1-2-1 Instance: "label":rdfs 'Australia'@en
+_Answer-1-1-2-1 Instance: option-position '10'@en
+_Answer-1-1-2-2 Instance: "label":rdfs 'International'@en
+_Answer-1-1-2-2 Instance: option-position '20'@en
+have-field-1-1-2 Role: "label":rdfs 'Location'@en
+have-field-1-1-2 Role: option-position '20'@en
+_Answer-1-1-3-1 Instance: "label":rdfs '1-5'@en
+_Answer-1-1-3-1 Instance: option-position '10'@en
+_Answer-1-1-3-2 Instance: "label":rdfs '6-20'@en
+_Answer-1-1-3-2 Instance: option-position '20'@en
+_Answer-1-1-3-3 Instance: "label":rdfs '21-100'@en
+_Answer-1-1-3-3 Instance: option-position '30'@en
+_Answer-1-1-3-4 Instance: "label":rdfs '100-499'@en
+_Answer-1-1-3-4 Instance: option-position '40'@en
+_Answer-1-1-3-5 Instance: "label":rdfs '500+'@en
+_Answer-1-1-3-5 Instance: option-position '50'@en
+have-field-1-1-3 Role: "label":rdfs 'Staff Size'@en
+have-field-1-1-3 Role: option-position '30'@en
+_Answer-1-1-4-1 Instance: "label":rdfs '&lt; 1%'@en
+_Answer-1-1-4-1 Instance: option-position '10'@en
+_Answer-1-1-4-2 Instance: "label":rdfs '1-3%'@en
+_Answer-1-1-4-2 Instance: option-position '20'@en
+_Answer-1-1-4-3 Instance: "label":rdfs '4-10%'@en
+_Answer-1-1-4-3 Instance: option-position '30'@en
+_Answer-1-1-4-4 Instance: "label":rdfs '&gt; 10%'@en
+_Answer-1-1-4-4 Instance: option-position '40'@en
+have-field-1-1-4 Role: "label":rdfs 'Spend on security last year (%revenue)'@en
+have-field-1-1-4 Role: option-position '40'@en
+_Answer-1-1-5-1 Instance: "label":rdfs '1 - Non existent'@en
+_Answer-1-1-5-1 Instance: option-position '10'@en
+_Answer-1-1-5-2 Instance: "label":rdfs '2'@en
+_Answer-1-1-5-2 Instance: option-position '20'@en
+_Answer-1-1-5-3 Instance: "label":rdfs '3'@en
+_Answer-1-1-5-3 Instance: option-position '30'@en
+_Answer-1-1-5-4 Instance: "label":rdfs '4'@en
+_Answer-1-1-5-4 Instance: option-position '40'@en
+_Answer-1-1-5-5 Instance: "label":rdfs '5 - Fully implemented and optimised'@en
+_Answer-1-1-5-5 Instance: option-position '50'@en
+have-field-1-1-5 Role: "label":rdfs 'How would you rate yourself (1-5 scale) on your CS maturity?'@en
+have-field-1-1-5 Role: option-position '50'@en
+have-field-1-1-6 Role: "label":rdfs 'Why did you rate yourself at this level?'@en
+have-field-1-1-6 Role: option-position '60'@en
+have-field-1-1-7 Role: render-opts 'checkboxlist'@en
+have-field-1-1-7 Role: min-required-answers '1'@en
+_Answer-1-1-7-1 Instance: "label":rdfs 'None'@en
+_Answer-1-1-7-1 Instance: option-position '10'@en
+_Answer-1-1-7-2 Instance: "label":rdfs 'Privacy Act (NDB)'@en
+_Answer-1-1-7-2 Instance: option-position '20'@en
+_Answer-1-1-7-3 Instance: "label":rdfs 'GDPR'@en
+_Answer-1-1-7-3 Instance: option-position '30'@en
+_Answer-1-1-7-4 Instance: "label":rdfs 'Industry specific'@en
+_Answer-1-1-7-4 Instance: option-position '40'@en
+_Answer-1-1-7-5 Instance: "label":rdfs 'Unsure'@en
+_Answer-1-1-7-5 Instance: option-position '50'@en
+have-field-1-1-7 Role: "label":rdfs 'What are your security and privacy compliance requirements (can select multiple answers)'@en
+have-field-1-1-7 Role: option-position '70'@en
+element-1-1-section Concept: "label":rdfs '&#32;'@en
+element-1-1-section Concept: option-position '10'@en
+element-1-form Concept: "label":rdfs 'Business Profile'@en
+element-1-form Concept: option-position '10'@en
+_Answer-2-1-1-1 Instance: "label":rdfs 'Client Data'@en
+_Answer-2-1-1-1 Instance: option-position '10'@en
+_Answer-2-1-1-2 Instance: "label":rdfs 'Physical Goods/Production Facilities'@en
+_Answer-2-1-1-2 Instance: option-position '20'@en
+_Answer-2-1-1-3 Instance: "label":rdfs 'Intellectual Property'@en
+_Answer-2-1-1-3 Instance: option-position '30'@en
+_Answer-2-1-1-4 Instance: "label":rdfs 'People/Living Objects'@en
+_Answer-2-1-1-4 Instance: option-position '40'@en
+_Answer-2-1-1-5 Instance: "label":rdfs 'Dont know'@en
+_Answer-2-1-1-5 Instance: option-position '50'@en
+have-field-2-1-1 Role: "label":rdfs 'What is your business&#39; highest value asset / crown jewels / critical service category?'@en
+have-field-2-1-1 Role: option-position '80'@en
+_Answer-2-1-2-1 Instance: "label":rdfs 'Firewall and endpoint (eg anti-virus) protection'@en
+_Answer-2-1-2-1 Instance: option-position '10'@en
+_Answer-2-1-2-2 Instance: "label":rdfs 'Best of breed technology solutions and services'@en
+_Answer-2-1-2-2 Instance: option-position '20'@en
+_Answer-2-1-2-3 Instance: "label":rdfs 'Security training for all staff according to their role and responsibilities'@en
+_Answer-2-1-2-3 Instance: option-position '30'@en
+_Answer-2-1-2-4 Instance: "label":rdfs 'Information security management system, cyber security included in strategy'@en
+_Answer-2-1-2-4 Instance: option-position '40'@en
+_Answer-2-1-2-5 Instance: "label":rdfs 'Don&#39;t know'@en
+_Answer-2-1-2-5 Instance: option-position '50'@en
+have-field-2-1-2 Role: "label":rdfs 'What is your strategy to provide 24/7 protection to your business&#39; highest value asset / crown jewels / critical services?'@en
+have-field-2-1-2 Role: option-position '130'@en
+_Answer-2-1-3-1 Instance: "label":rdfs 'Cloud'@en
+_Answer-2-1-3-1 Instance: option-position '10'@en
+_Answer-2-1-3-2 Instance: "label":rdfs 'Mixed'@en
+_Answer-2-1-3-2 Instance: option-position '20'@en
+_Answer-2-1-3-3 Instance: "label":rdfs 'On premise'@en
+_Answer-2-1-3-3 Instance: option-position '30'@en
+_Answer-2-1-3-4 Instance: "label":rdfs 'Outsourced'@en
+_Answer-2-1-3-4 Instance: option-position '40'@en
+_Answer-2-1-3-5 Instance: "label":rdfs 'Don&#39;t know'@en
+_Answer-2-1-3-5 Instance: option-position '50'@en
+have-field-2-1-3 Role: "label":rdfs 'Where are your business&#39; highest value asset / crown jewels / critical services located?'@en
+have-field-2-1-3 Role: option-position '140'@en
+_Answer-2-1-4-1 Instance: "label":rdfs 'As approved by the IT security manager'@en
+_Answer-2-1-4-1 Instance: option-position '10'@en
+_Answer-2-1-4-2 Instance: "label":rdfs 'As approved by the corporate facilities manager'@en
+_Answer-2-1-4-2 Instance: option-position '20'@en
+_Answer-2-1-4-3 Instance: "label":rdfs 'All staff'@en
+_Answer-2-1-4-3 Instance: option-position '30'@en
+_Answer-2-1-4-4 Instance: "label":rdfs 'All staff plus extrernal stakeholders'@en
+_Answer-2-1-4-4 Instance: option-position '40'@en
+_Answer-2-1-4-5 Instance: "label":rdfs 'Dont know'@en
+_Answer-2-1-4-5 Instance: option-position '50'@en
+have-field-2-1-4 Role: "label":rdfs 'Who has access to your business&#39; highest value asset / crown jewels / critical services?'@en
+have-field-2-1-4 Role: option-position '150'@en
+_Answer-2-1-5-1 Instance: "label":rdfs 'IT Manager or Systems Administrator'@en
+_Answer-2-1-5-1 Instance: option-position '10'@en
+_Answer-2-1-5-2 Instance: "label":rdfs 'Security specialist reporting to the CIO/CTO'@en
+_Answer-2-1-5-2 Instance: option-position '20'@en
+_Answer-2-1-5-3 Instance: "label":rdfs 'We outsourced our cyber security to a trusted partner'@en
+_Answer-2-1-5-3 Instance: option-position '30'@en
+_Answer-2-1-5-4 Instance: "label":rdfs 'Chief Information Security Officer, Chief Operating Officer, Chief Risk Officer'@en
+_Answer-2-1-5-4 Instance: option-position '40'@en
+_Answer-2-1-5-5 Instance: "label":rdfs 'Don&#39;t know'@en
+_Answer-2-1-5-5 Instance: option-position '50'@en
+have-field-2-1-5 Role: "label":rdfs 'Who is accountable for protecting your business&#39; highest value asset / crown jewels / critical services?'@en
+have-field-2-1-5 Role: option-position '160'@en
+_Answer-2-1-6-1 Instance: "label":rdfs 'Initial induction training includes cyber security'@en
+_Answer-2-1-6-1 Instance: option-position '10'@en
+_Answer-2-1-6-2 Instance: "label":rdfs 'We need to implement a training package or plan'@en
+_Answer-2-1-6-2 Instance: option-position '20'@en
+_Answer-2-1-6-3 Instance: "label":rdfs 'As part of an ongoing training program'@en
+_Answer-2-1-6-3 Instance: option-position '30'@en
+_Answer-2-1-6-4 Instance: "label":rdfs 'As per security policy'@en
+_Answer-2-1-6-4 Instance: option-position '40'@en
+_Answer-2-1-6-5 Instance: "label":rdfs 'Don&#39;t know'@en
+_Answer-2-1-6-5 Instance: option-position '50'@en
+have-field-2-1-6 Role: "label":rdfs 'How are those with access to your highest value asset(s) trained on your security requirements?'@en
+have-field-2-1-6 Role: option-position '170'@en
+_Answer-2-1-7-1 Instance: "label":rdfs 'We do not have a head of cyber security'@en
+_Answer-2-1-7-1 Instance: option-position '10'@en
+_Answer-2-1-7-2 Instance: "label":rdfs '&lt; 1 year in cyber security'@en
+_Answer-2-1-7-2 Instance: option-position '20'@en
+_Answer-2-1-7-3 Instance: "label":rdfs '&gt; 1 year in cyber security'@en
+_Answer-2-1-7-3 Instance: option-position '30'@en
+_Answer-2-1-7-4 Instance: "label":rdfs '&gt; 3 years in cyber security'@en
+_Answer-2-1-7-4 Instance: option-position '40'@en
+_Answer-2-1-7-5 Instance: "label":rdfs 'Don&#39;t know'@en
+_Answer-2-1-7-5 Instance: option-position '50'@en
+have-field-2-1-7 Role: "label":rdfs 'What experience does your head of cyber security have?'@en
+have-field-2-1-7 Role: option-position '180'@en
+_Answer-2-1-8-1 Instance: "label":rdfs '0'@en
+_Answer-2-1-8-1 Instance: option-position '10'@en
+_Answer-2-1-8-2 Instance: "label":rdfs '1'@en
+_Answer-2-1-8-2 Instance: option-position '20'@en
+_Answer-2-1-8-3 Instance: "label":rdfs '2'@en
+_Answer-2-1-8-3 Instance: option-position '30'@en
+_Answer-2-1-8-4 Instance: "label":rdfs '3+'@en
+_Answer-2-1-8-4 Instance: option-position '40'@en
+_Answer-2-1-8-5 Instance: "label":rdfs 'Don&#39;t know'@en
+_Answer-2-1-8-5 Instance: option-position '50'@en
+have-field-2-1-8 Role: "label":rdfs 'How many cyber security risks are in your risk register?'@en
+have-field-2-1-8 Role: option-position '190'@en
+_Answer-2-1-9-1 Instance: "label":rdfs 'Haven&#39;t had a security incident yet'@en
+_Answer-2-1-9-1 Instance: option-position '10'@en
+_Answer-2-1-9-2 Instance: "label":rdfs 'Yes, I had a security incident'@en
+_Answer-2-1-9-2 Instance: option-position '20'@en
+_Answer-2-1-9-3 Instance: "label":rdfs 'Don&#39;t know'@en
+_Answer-2-1-9-3 Instance: option-position '30'@en
+have-field-2-1-9 Role: "label":rdfs 'Have you had a significant security incident recently?'@en
+have-field-2-1-9 Role: option-position '200'@en
+_Answer-2-1-10-1 Instance: "label":rdfs 'We get alerts from our vendors or service providers'@en
+_Answer-2-1-10-1 Instance: option-position '10'@en
+_Answer-2-1-10-2 Instance: "label":rdfs 'Informal or ad-hoc testing eg of applications'@en
+_Answer-2-1-10-2 Instance: option-position '20'@en
+_Answer-2-1-10-3 Instance: "label":rdfs 'Annual vulnerability assessment or penetration testing'@en
+_Answer-2-1-10-3 Instance: option-position '30'@en
+_Answer-2-1-10-4 Instance: "label":rdfs 'Continuous vulnerability scanning'@en
+_Answer-2-1-10-4 Instance: option-position '40'@en
+_Answer-2-1-10-5 Instance: "label":rdfs 'Don&#39;t know'@en
+_Answer-2-1-10-5 Instance: option-position '50'@en
+have-field-2-1-10 Role: "label":rdfs 'How do you track vulnerabilities and weaknesses?'@en
+have-field-2-1-10 Role: option-position '240'@en
+_Answer-2-1-11-1 Instance: "label":rdfs 'We respond to ad-hoc notifications'@en
+_Answer-2-1-11-1 Instance: option-position '10'@en
+_Answer-2-1-11-2 Instance: "label":rdfs 'We need to implement a better monitoring solution'@en
+_Answer-2-1-11-2 Instance: option-position '20'@en
+_Answer-2-1-11-3 Instance: "label":rdfs 'We receive 24x7 alerts'@en
+_Answer-2-1-11-3 Instance: option-position '30'@en
+_Answer-2-1-11-4 Instance: "label":rdfs 'Monitoring in accordance with policy and compliance requirements'@en
+_Answer-2-1-11-4 Instance: option-position '40'@en
+_Answer-2-1-11-5 Instance: "label":rdfs 'Don&#39;t know'@en
+_Answer-2-1-11-5 Instance: option-position '50'@en
+have-field-2-1-11 Role: "label":rdfs 'How do you monitor your online environment?'@en
+have-field-2-1-11 Role: option-position '250'@en
+_Answer-2-1-12-1 Instance: "label":rdfs 'Informal or ad-hoc'@en
+_Answer-2-1-12-1 Instance: option-position '10'@en
+_Answer-2-1-12-2 Instance: "label":rdfs 'We have automated patching configured'@en
+_Answer-2-1-12-2 Instance: option-position '20'@en
+_Answer-2-1-12-3 Instance: "label":rdfs 'We respond to identified vulnerabilities'@en
+_Answer-2-1-12-3 Instance: option-position '30'@en
+_Answer-2-1-12-4 Instance: "label":rdfs 'As per our patching policy'@en
+_Answer-2-1-12-4 Instance: option-position '40'@en
+_Answer-2-1-12-5 Instance: "label":rdfs 'Don&#39;t know'@en
+_Answer-2-1-12-5 Instance: option-position '50'@en
+have-field-2-1-12 Role: "label":rdfs 'How do you manage patches and updates?'@en
+have-field-2-1-12 Role: option-position '300'@en
+_Answer-2-1-13-1 Instance: "label":rdfs 'Implement additional technology/ service offerings where required'@en
+_Answer-2-1-13-1 Instance: option-position '10'@en
+_Answer-2-1-13-2 Instance: "label":rdfs 'Review current technology solutions and improve their application'@en
+_Answer-2-1-13-2 Instance: option-position '20'@en
+_Answer-2-1-13-3 Instance: "label":rdfs 'Develop and implement policy, procedures and awareness'@en
+_Answer-2-1-13-3 Instance: option-position '30'@en
+_Answer-2-1-13-4 Instance: "label":rdfs 'Improve policy, procedures and awareness in response to changing threat landscape and security plan'@en
+_Answer-2-1-13-4 Instance: option-position '40'@en
+_Answer-2-1-13-5 Instance: "label":rdfs 'Don&#39;t know'@en
+_Answer-2-1-13-5 Instance: option-position '50'@en
+have-field-2-1-13 Role: "label":rdfs 'What do you see as your priorities to improve your security profile?'@en
+have-field-2-1-13 Role: option-position '310'@en
+element-2-1-section Concept: "label":rdfs '&#32;'@en
+element-2-1-section Concept: option-position '80'@en
+_Answer-2-1-Ext-1-1-1 Instance: "label":rdfs 'As data Controller [GDPR] or owner'@en
+_Answer-2-1-Ext-1-1-1 Instance: option-position '10'@en
+_Answer-2-1-Ext-1-1-2 Instance: "label":rdfs 'As data Processor [GDPR] or under contract to the owner'@en
+_Answer-2-1-Ext-1-1-2 Instance: option-position '20'@en
+_Answer-2-1-Ext-1-1-3 Instance: "label":rdfs 'As data repository'@en
+_Answer-2-1-Ext-1-1-3 Instance: option-position '30'@en
+have-field-2-1-ext-1-1 Role: "label":rdfs 'How would you best define your responsibility ?'@en
+have-field-2-1-ext-1-1 Role: option-position '90'@en
+_Answer-2-1-Ext-2-1-1 Instance: "label":rdfs 'Control systems (ICS, SCADA, IOT, other physical control systems)'@en
+_Answer-2-1-Ext-2-1-1 Instance: option-position '10'@en
+_Answer-2-1-Ext-2-1-2 Instance: "label":rdfs 'Stock or Goods under your direct control or in transit'@en
+_Answer-2-1-Ext-2-1-2 Instance: option-position '20'@en
+_Answer-2-1-Ext-2-1-3 Instance: "label":rdfs 'Production lines, manufacturing'@en
+_Answer-2-1-Ext-2-1-3 Instance: option-position '30'@en
+have-field-2-1-ext-2-1 Role: "label":rdfs 'Which is your primary focus ?'@en
+have-field-2-1-ext-2-1 Role: option-position '100'@en
+_Answer-2-1-Ext-3-1-1 Instance: "label":rdfs '[Your] Trade secrets, Designs, Research and Development data'@en
+_Answer-2-1-Ext-3-1-1 Instance: option-position '10'@en
+_Answer-2-1-Ext-3-1-2 Instance: "label":rdfs 'Source Code and documentation'@en
+_Answer-2-1-Ext-3-1-2 Instance: option-position '20'@en
+_Answer-2-1-Ext-3-1-3 Instance: "label":rdfs 'Other parties Intellectual property you hold or process'@en
+_Answer-2-1-Ext-3-1-3 Instance: option-position '30'@en
+have-field-2-1-ext-3-1 Role: "label":rdfs 'Which type of Intellectual Property is your highest concern?'@en
+have-field-2-1-ext-3-1 Role: option-position '110'@en
+_Answer-2-1-Ext-4-1-1 Instance: "label":rdfs 'Staff'@en
+_Answer-2-1-Ext-4-1-1 Instance: option-position '10'@en
+_Answer-2-1-Ext-4-1-2 Instance: "label":rdfs 'Customers, clients, public stakeholders'@en
+_Answer-2-1-Ext-4-1-2 Instance: option-position '20'@en
+_Answer-2-1-Ext-4-1-3 Instance: "label":rdfs 'Biological, agricultural or zoological'@en
+_Answer-2-1-Ext-4-1-3 Instance: option-position '30'@en
+have-field-2-1-ext-4-1 Role: "label":rdfs 'Who / What is the most important to you?'@en
+have-field-2-1-ext-4-1 Role: option-position '120'@en
+_Answer-2-1-Ext-5-1-1 Instance: "label":rdfs 'Staff'@en
+_Answer-2-1-Ext-5-1-1 Instance: option-position '10'@en
+_Answer-2-1-Ext-5-1-2 Instance: "label":rdfs 'Customers / External alert'@en
+_Answer-2-1-Ext-5-1-2 Instance: option-position '20'@en
+_Answer-2-1-Ext-5-1-3 Instance: "label":rdfs 'Security Technology alert report'@en
+_Answer-2-1-Ext-5-1-3 Instance: option-position '30'@en
+have-field-2-1-ext-5-1 Role: "label":rdfs 'How were you notified ?'@en
+have-field-2-1-ext-5-1 Role: option-position '210'@en
+_Answer-2-1-Ext-5-2-1 Instance: "label":rdfs 'Internal IT Team'@en
+_Answer-2-1-Ext-5-2-1 Instance: option-position '10'@en
+_Answer-2-1-Ext-5-2-2 Instance: "label":rdfs 'Internal Crisis Management Team'@en
+_Answer-2-1-Ext-5-2-2 Instance: option-position '20'@en
+_Answer-2-1-Ext-5-2-3 Instance: "label":rdfs 'Triaged issue and where appropriate engaged external assistance or specialist support for cyber, communications or both'@en
+_Answer-2-1-Ext-5-2-3 Instance: option-position '30'@en
+have-field-2-1-ext-5-2 Role: "label":rdfs 'How did you respond ?'@en
+have-field-2-1-ext-5-2 Role: option-position '220'@en
+_Answer-2-1-Ext-5-3-1 Instance: "label":rdfs 'Nothing - the playbook / processes / practices addressed the incident'@en
+_Answer-2-1-Ext-5-3-1 Instance: option-position '10'@en
+_Answer-2-1-Ext-5-3-2 Instance: "label":rdfs 'Changes after the post incident review'@en
+_Answer-2-1-Ext-5-3-2 Instance: option-position '20'@en
+_Answer-2-1-Ext-5-3-3 Instance: "label":rdfs 'Major investigation initiated'@en
+_Answer-2-1-Ext-5-3-3 Instance: option-position '30'@en
+have-field-2-1-ext-5-3 Role: "label":rdfs 'What changed after the incident?'@en
+have-field-2-1-ext-5-3 Role: option-position '230'@en
+_Answer-2-1-Ext-6-1-1 Instance: "label":rdfs 'Next Business day'@en
+_Answer-2-1-Ext-6-1-1 Instance: option-position '10'@en
+_Answer-2-1-Ext-6-1-2 Instance: "label":rdfs 'As Soon As Possible - no SLA'@en
+_Answer-2-1-Ext-6-1-2 Instance: option-position '20'@en
+_Answer-2-1-Ext-6-1-3 Instance: "label":rdfs 'Response outsourced to external party - response time proportional to severity'@en
+_Answer-2-1-Ext-6-1-3 Instance: option-position '30'@en
+have-field-2-1-ext-6-1 Role: "label":rdfs 'When do you respond?'@en
+have-field-2-1-ext-6-1 Role: option-position '260'@en
+_Answer-2-1-Ext-7-1-1 Instance: "label":rdfs 'Consistent Reporting'@en
+_Answer-2-1-Ext-7-1-1 Instance: option-position '10'@en
+_Answer-2-1-Ext-7-1-2 Instance: "label":rdfs 'Data collated for next business day response'@en
+_Answer-2-1-Ext-7-1-2 Instance: option-position '20'@en
+_Answer-2-1-Ext-7-1-3 Instance: "label":rdfs '24 x 7 response capability proprtional to severity / type of alert'@en
+_Answer-2-1-Ext-7-1-3 Instance: option-position '30'@en
+have-field-2-1-ext-7-1 Role: "label":rdfs 'What is the key requirement for &quot;better monitoring&quot;'@en
+have-field-2-1-ext-7-1 Role: option-position '270'@en
+_Answer-2-1-Ext-8-1-1 Instance: "label":rdfs 'Email or SMS / text'@en
+_Answer-2-1-Ext-8-1-1 Instance: option-position '10'@en
+_Answer-2-1-Ext-8-1-2 Instance: "label":rdfs 'Integrated notification platform (eg Whispir)'@en
+_Answer-2-1-Ext-8-1-2 Instance: option-position '20'@en
+_Answer-2-1-Ext-8-1-3 Instance: "label":rdfs 'Incident management system'@en
+_Answer-2-1-Ext-8-1-3 Instance: option-position '30'@en
+have-field-2-1-ext-8-1 Role: "label":rdfs 'How do you action alerts'@en
+have-field-2-1-ext-8-1 Role: option-position '280'@en
+_Answer-2-1-Ext-9-1-1 Instance: "label":rdfs 'Regular independent audit (at least annually)'@en
+_Answer-2-1-Ext-9-1-1 Instance: option-position '10'@en
+_Answer-2-1-Ext-9-1-2 Instance: "label":rdfs 'Regular internal review'@en
+_Answer-2-1-Ext-9-1-2 Instance: option-position '20'@en
+_Answer-2-1-Ext-9-1-3 Instance: "label":rdfs 'In response to a major event or incident'@en
+_Answer-2-1-Ext-9-1-3 Instance: option-position '30'@en
+have-field-2-1-ext-9-1 Role: "label":rdfs 'When was your last audit of this capability?'@en
+have-field-2-1-ext-9-1 Role: option-position '290'@en
+element-2-form Concept: "label":rdfs 'Cyber Security Health Check'@en
+element-2-form Concept: option-position '80'@en
+_Recommendation-2 Instance: "description":dcterms 'Telstra’s Security Monitoring service provides customers visibility of identified security risks and enables a targeted and effective response to mitigate those risks. It does this by ingesting data from the customer’s network and end points devices. We use the underlying platform for machine learning and analytics to correlate event data with security threat intelligence data, and contextualises the threat in the customer’s environment. Once a potential incident is identified, the service provides notification services to the customer following our defined incident response process.'@en
+_Recommendation-2 Instance: "label":rdfs 'Security Monitoring/SOC'@en
+_Recommendation-2 Instance: offer-type 'Product'@en
+_Recommendation-11 Instance: "description":dcterms 'Telstra’s Incident Response service provides customers with access to a highly skilled team to contain and respond to a significant security incident. This service augments a customer’s own staff with world class expertise - the same people and intelligence assets as used by Telstra itself.'@en
+_Recommendation-11 Instance: "label":rdfs 'Incident Response'@en
+_Recommendation-11 Instance: offer-type 'Product'@en
+_Recommendation-3 Instance: "description":dcterms 'Using a combination of on-line and in-person delivery, Telstra’s Security Awareness Training supports increased staff awareness at all levels within the organisation. Managed campaigns in the workplace across multiple vectors (email,, text, social media etc) can be targetted to cover all staff and focus on staff with the highest levels of access. All organisations carry this risk in a threat environment that is constantly changing so requires Telstra’s flexible and responsive service based on our detailed awareness of the latest attacks.'@en
+_Recommendation-3 Instance: "label":rdfs 'Security Awareness Training (PhishMe)'@en
+_Recommendation-3 Instance: offer-type 'Product'@en
+_Recommendation-5 Instance: "description":dcterms 'Telstra applies proven engineering methodology that adheres to vendor-specified architectural best practices to design and deploy best protection for clients giving full visibility and protection. Telstra  leverages it’s knowledge and experience gained through engagements across a variety of industries'@en
+_Recommendation-5 Instance: "label":rdfs 'Perimeter Protection/ Network Security'@en
+_Recommendation-5 Instance: offer-type 'Product'@en
+_Recommendation-14 Instance: "description":dcterms 'Telstra offers a Cyber Security Health Check based on the globally accepted NIST Cyber Security Framework. This assessment highlights the areas of greatest risk to the customer and identifies the best return on investment to address these risks'@en
+_Recommendation-14 Instance: "label":rdfs 'CSHC (enhanced)'@en
+_Recommendation-14 Instance: offer-type 'Product'@en
+_Recommendation-8 Instance: "description":dcterms 'Telstra’s Vulnerability Management Service is used to identify and provide remediation steps for technical vulnerabilities on information systems and devices. Proactively identifying and remediating vulnerabilities reduces the threat from attackers that may compromise applications and systems vulnerable to known weaknesses.'@en
+_Recommendation-8 Instance: "label":rdfs 'Vulnerability management'@en
+_Recommendation-8 Instance: offer-type 'Product'@en
+_Recommendation-9 Instance: "description":dcterms 'Knowing what is in a client’s environment is an essential starting point for any security design or uplift. Telstra can deliver this through a range of “Know your Enterprise” assessment services.'@en
+_Recommendation-9 Instance: "label":rdfs 'Asset discovery (related to vul mgmt)'@en
+_Recommendation-9 Instance: offer-type 'Product'@en
+_Recommendation-10 Instance: "description":dcterms 'Every day Telstra secures who has access to most of Australia’s phone and data traffic.Just like telstra, to be cyber-safe, a customer must know who has access to what assets. Many of the worst cyber compromises start with ineffective or inadequate Identity and Access management. Starting with Telstra’s &quot;5 knows&quot; assessment, Telstra provides services to enhance the customer’s own processes supported by technology integration and best of breed monitoring. The outcome is real awareness of who is on your systems and what they access.'@en
+_Recommendation-10 Instance: "label":rdfs 'Identity &amp; Access Management'@en
+_Recommendation-10 Instance: offer-type 'Product'@en
+_Recommendation-7 Instance: "description":dcterms '&#32;'@en
+_Recommendation-7 Instance: "label":rdfs 'CASB (DLP)'@en
+_Recommendation-7 Instance: offer-type 'Product'@en
+_Recommendation-12 Instance: "description":dcterms 'Telstra is aware that there is a massive shortage of skilled cyber security staff, especially experienced managers who can communicate clearly with senior stakeholders about the cyber risk and the customer’s cyber security posture. Telstra provides senior managers experienced in implementing cyber strategies for customers across all industries to support customer executives in improving the customer’s cyber posture and cost-effectively reducing cyber risk.'@en
+_Recommendation-12 Instance: "label":rdfs 'Virtual Security Manager'@en
+_Recommendation-12 Instance: offer-type 'Service'@en
+_Recommendation-16 Instance: "description":dcterms 'Telstra’s Security Red Team members hunt for vulnerabilities within infrastructure, applications, web applications or software within an environment. Leveraging experience and the latest attack vector approaches to find advanced persistent threats. This may include chaining of attacks to reach real high value assets (such as database contents) or proof of concept demonstrations depending on the appetite for engagement. This covers all client assets including Infrastructure, Application, Web-application and Cloud.'@en
+_Recommendation-16 Instance: "label":rdfs 'Penetration Testing'@en
+_Recommendation-16 Instance: offer-type 'Service'@en
+_Recommendation-15 Instance: "description":dcterms 'Telstra’s security professionals identify and qualify current online vulnerabilities and cyber threats to a client’s business and educate them on the potential exposure to risks they pose. Achieved by examining and understanding the infrastructure, applications and software utilised and documenting the vulnerabilities that these assets expose.'@en
+_Recommendation-15 Instance: "label":rdfs 'Vulnerability Assessment'@en
+_Recommendation-15 Instance: offer-type 'Service'@en
+_Recommendation-6 Instance: "description":dcterms 'A Customer’s Information Security Management System (ISMS) is the driving set of policies, standards and practices that ensure completeness of cyber risk coverage and protection to the customer and its stakeholders. Telstra’s consultants have the real world experience to support development and implementation of an ISMS tailored for the specific customer, honouring the values and individuality of that organisation.'@en
+_Recommendation-6 Instance: "label":rdfs 'ISMS Consulting'@en
+_Recommendation-6 Instance: offer-type 'Service'@en
+_Recommendation-1 Instance: "description":dcterms 'Telstra offers its customers the highly skilled and pragmatic people who implement and maintain Telstra’s own compliance regimes. Telstra’s cyber security consulting services draw on staff with acknowledged expertise in each compliance requirement and practical, hands-on experience of implementing compliance and assurance practices that support each customer meet its compliance obligations'@en
+_Recommendation-1 Instance: "label":rdfs 'Compliance Consulting (PCI, GDPR, VPDSS, PSPF/ISM etc)'@en
+_Recommendation-1 Instance: offer-type 'Service'@en
+_Recommendation-4 Instance: "description":dcterms 'Telstra’s experience shows that cyber technology on its own is not enough to protect itself or its customers. Cyber needs to be an integrated component of each customer’s governance regime to ensure investment is effective. Governance is required so that cyber expenditure is targetted to addressing the unique risks that the cyber threat landscape creates for each customer.'@en
+_Recommendation-4 Instance: "label":rdfs 'Governance Consulting'@en
+_Recommendation-4 Instance: offer-type 'Service'@en
+_Recommendation-13 Instance: "description":dcterms 'Telstra is aware that there is a massive shortage of skilled cyber security staff and offers to provide temporary and surge capacity of highly skilled technical and business trained cyber staff. This allows the customer to adddress the rapidly changing cyber landscape, upgrade legacy protection to more cost effective services and respond to legislative, regulatory and compliance changes without incurring hiring delays and reducing dependence on individual staff or contractors.'@en
+_Recommendation-13 Instance: "label":rdfs 'Staff Augmentation'@en
+_Recommendation-13 Instance: offer-type 'Service'@en
+.
+

@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cognitum.OwlApi.Net.HermiT", "Cognitum.OwlApi.Net.HermiT\Cognitum.OwlApi.Net.HermiT.csproj", "{EBB0125B-8375-4662-B357-6CEC5209863F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cognitum.OwlApi.Net.ReasonerInterface", "Cognitum.OwlApi.Net.ReasonerInterface\Cognitum.OwlApi.Net.ReasonerInterface.csproj", "{0C89C236-05D4-47F3-B21F-7424A30A6D4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cognitum.OwlApi.Net.Pellet", "Cognitum.OwlApi.Net.Pellet\Cognitum.OwlApi.Net.Pellet.csproj", "{76F5386C-1E15-4FAA-9A3F-E0F51A3A8D92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cognitum.OwlApi.Net.Test", "Cognitum.OwlApi.Net.Test\Cognitum.OwlApi.Net.Test.csproj", "{EB94C643-F365-4D18-961F-A4E24506D199}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cognitum.OwlApi.Net.ELK", "Cognitum.OwlApi.Net.ELK\Cognitum.OwlApi.Net.ELK.csproj", "{5B32D6EF-C5EB-452A-ADC7-FFE2495F32E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cognitum.OwlApi.Net.JFact", "Cognitum.OwlApi.Net.JFact\Cognitum.OwlApi.Net.JFact.csproj", "{0B7E89F8-A204-420C-AAA3-41A5A71E1080}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EBB0125B-8375-4662-B357-6CEC5209863F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBB0125B-8375-4662-B357-6CEC5209863F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBB0125B-8375-4662-B357-6CEC5209863F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBB0125B-8375-4662-B357-6CEC5209863F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C89C236-05D4-47F3-B21F-7424A30A6D4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C89C236-05D4-47F3-B21F-7424A30A6D4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C89C236-05D4-47F3-B21F-7424A30A6D4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C89C236-05D4-47F3-B21F-7424A30A6D4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76F5386C-1E15-4FAA-9A3F-E0F51A3A8D92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76F5386C-1E15-4FAA-9A3F-E0F51A3A8D92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76F5386C-1E15-4FAA-9A3F-E0F51A3A8D92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76F5386C-1E15-4FAA-9A3F-E0F51A3A8D92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB94C643-F365-4D18-961F-A4E24506D199}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB94C643-F365-4D18-961F-A4E24506D199}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB94C643-F365-4D18-961F-A4E24506D199}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB94C643-F365-4D18-961F-A4E24506D199}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B32D6EF-C5EB-452A-ADC7-FFE2495F32E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B32D6EF-C5EB-452A-ADC7-FFE2495F32E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B32D6EF-C5EB-452A-ADC7-FFE2495F32E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B32D6EF-C5EB-452A-ADC7-FFE2495F32E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B7E89F8-A204-420C-AAA3-41A5A71E1080}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B7E89F8-A204-420C-AAA3-41A5A71E1080}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B7E89F8-A204-420C-AAA3-41A5A71E1080}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B7E89F8-A204-420C-AAA3-41A5A71E1080}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

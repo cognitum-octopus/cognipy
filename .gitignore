@@ -1,0 +1,24 @@
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+.vs/
+packages/
+*.suo
+*.user
+/dokr.egg-info/
+/dist/
+build/
+.settings/
+.project
+.classpath
+*.pyc
+/dokenv/
+/__pycache__/ 

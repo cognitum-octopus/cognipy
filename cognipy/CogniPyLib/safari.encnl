@@ -1,0 +1,118 @@
+﻿Title: 'African Wildlife'.
+Author: 'Pawel Kaplanski'.
+Based-On: 
+ 'A Semantic Web Primer.'
+ 'Antoniou, G, van Harmelen, F.'
+ 'MIT Press, 2003.'
+ 'http://www.csd.uoc.gr/~hy566/SWbook.pdf'
+.
+
+Part-1: 'simple hierarchy of beings'.
+
+Comment: 'Lets name our instances'.
+Sophie is a giraffe.
+Leo is a lion.
+
+Comment: 'Lets specify the hierarchy of beings'. 
+Comment: 'What is what?'.
+Every lion is an animal.
+Every giraffe is an animal.
+
+Comment: 'Moreover'.
+Every impala is an animal.
+Every omnivore is an animal.
+Every rock-dassie is an animal.
+Every warthog is an animal.
+Every carnivore is an animal.
+Every herbivore is an animal.
+Every elephant is a herbivore.
+
+Comment: 'There are also plants there:'.
+Every tree is a plant.
+Every grass is a plant.
+Every palm-tree is a plant.
+
+Part-2: adjectives and specifications.
+
+Comment: 'We cannot use adjectives directly'.
+Comment: 'To specify adjectives we need to transform them into sets that have form of buzzy-words'.
+
+Every tasty-plant is a plant.
+Every carnivorous-plant is a plant.
+
+Comment: 'Similarly we can do to make something more and more specific'.
+Every branch is a plant-part.
+Every phloem is a plant-part.
+Every root is a plant-part.
+Every parsnip is a root.
+Every stem is a plant-part.
+Every twig is a plant-part.
+Every xylem is a plant-part.
+Every leaf is a plant-part.
+Every fruiting-body is a plant-part.
+Every berry is a fruiting-body.
+Every apple is a fruiting-body.
+
+Part-3: Disjointnes.
+
+Comment: 'We deal with Open World Assumption, therefore we need to specify explictly if two things are different'.
+Comment: 'E.g.: We need to specify explicitly that animal is not a plant'.
+Every animal is not a plant.
+Every giraffe is not a lion.
+Every palm-tree is not a tree.
+
+Comment: 'Or we can use it - it means the same'.
+Every animal is not a plant.
+
+Part-4: Simple relations.
+
+Comment: To specify relation beetween beings.
+Every lion eats an impala.
+Every carnivorous-plant eats an animal.
+
+Comment: 'Eg. be part of is a part-whole relation'.
+Every branch is-part-of a tree.
+Every plant-part is-proper-part-of a plant.
+Every xylem is-proper-part-of a stem.
+Every phloem is-proper-part-of a stem.
+
+Comment:  'Specifying the range of relation. The difference? One is that lion eats impala. Second that it eats only herbivore' -> impala must be herbivore.
+Every lion eats nothing-but herbivores.
+
+Part-5: 'Complex relations'.
+
+Every palm-tree has-part that is not a branch.
+Every warthog eats an animal and eats a fruiting-body and eats a grass and eats a root.
+Every giraffe eats nothing-but things that are leaves and-or are twigs.
+Every leaf is-part-of something that is a branch and-or is a twig.
+Every tasty-plant is-eaten-by a carnivore and is-eaten-by a herbivore.
+Every-single-thing eats nothing-but things that are animals and-or are plants and-or are-part-of animals and-or are-part-of plants.
+
+Part-6: 'Reflexion'.
+
+Nothing is-proper-part-of itself.
+
+Part-7: Equivalence.
+
+Comment: 'What it means to be a carnivore, omnivore or herbivore? We specify exact definitions here.'.
+Something is a carnivore if-and-only-if-it eats nothing-but animals and-or eats nothing-but things that are-part-of animals.
+Something is an omnivore if-and-only-if-it eats an animal and eats a plant and eats something that is-part-of an animal and-or is-part-of a plant.
+Something is a herbivore if-and-only-if-it eats nothing-but plants and-or eats nothing-but things that are-part-of plants.
+
+Part-8: 'Disjointness'.
+
+Anything either is a carnivore, is a herbivore or is an omnivore or-something-else.
+Anything either is a branch, is a leaf or is a twig or-something-else.
+
+Part-9: 'Relations beeetween roles'.
+
+Comment: 'Role equivalence and inverted roles'.
+X has-part Y if-and-only-if Y is-part-of X.
+X eats Y if-and-only-if Y is-eaten-by X.
+
+Comment: 'Role subsumptions'.
+If X is-proper-part-of Y then X is-part-of Y.
+If X has-part something that has-part Y then X has-part Y.
+
+Comment: 'Complex role subsumptions'.
+If X is-part-of something that is-part-of Y then X is-part-of Y.

@@ -1,0 +1,35 @@
+#------------------------------
+#The Semantics of Classes 
+#------------------------------
+
+[cls-nothing2:
+		(?x rdf:type owl:Nothing) -> ontologyError('inconsistency', 'Instance of nothing', ?x)]
+
+[cls-com:
+        (?C1 owl:complementOf ?C2), (?X rdf:type ?C1), (?X rdf:type ?C2) 
+		-> ontologyError('inconsistency', 'Complement classes', ?X, ?C1, ?C2 )]
+
+[cls-maxc1: 
+	(?R owl:onProperty ?P), 
+	(?R owl:maxCardinality 0),
+	(?X rdf:type ?R ), 
+	(?X ?P ?Y)	
+	-> ontologyError('too many values', 'Value for max-0 property (prop, class)', ?X, ?Y, ?P )]
+
+[cls-maxqc1: 
+	(?R owl:maxQualifiedCardinality 0), 
+	(?R owl:onProperty ?P),
+	(?R owl:onClass ?C),
+	(?X rdf:type ?R ), 
+	(?X ?P ?Y), 
+	(?Y rdf:type ?C ) 
+	-> ontologyError('max qualified violation', 'Max qualified violation on the class on the property (class, prop)',?X, ?C, ?P )]
+
+[cls-maxqc2: 
+	(?R owl:maxQualifiedCardinality 0), 
+	(?R owl:onProperty ?P),
+	(?R owl:onClass owl:Thing),
+	(?X rdf:type ?R ), 
+	(?X ?P ?Y) 
+	-> ontologyError('max qualified violation', 'Max qualified violation on the owl:Thing class on the property', ?X, ?P )]
+

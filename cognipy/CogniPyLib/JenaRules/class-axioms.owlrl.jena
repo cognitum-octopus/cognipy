@@ -1,0 +1,15 @@
+#------------------------------
+#The Semantics of Class Axioms 
+#------------------------------
+
+[cax-sco: 
+	(?C rdfs:subClassOf ?D),
+	notEqual(?C ?D), (?X rdf:type ?C ), notEqual(?D owl:Thing) -> (?X rdf:type ?D )]
+
+[cax-eqc1: 
+	(?C owl:equivalentClass ?D),
+	notEqual(?C ?D), (?X rdf:type ?C ), notEqual(?D owl:Thing), notEqual(?C owl:Thing) -> (?X rdf:type ?D )]
+
+[cax-eqc2: 
+	(?C owl:equivalentClass ?D),
+	notEqual(?C ?D), (?X rdf:type ?D ),notEqual(?D owl:Thing), notEqual(?C owl:Thing) -> (?X rdf:type ?C )]

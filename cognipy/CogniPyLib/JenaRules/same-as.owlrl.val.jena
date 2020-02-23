@@ -1,0 +1,18 @@
+#------------------------------
+# The Semantics of Equality 
+#------------------------------
+
+[eq-diff1: (?X owl:sameAs ?Y), (?X owl:differentFrom ?Y)
+        -> ontologyError('conflict', 'Two individuals both same and different, may be due to disjoint classes or functional properties', ?X, ?Y)]
+
+
+[eq-diff2: (?X rdf:type owl:AllDifferent), (?X owl:members ?Y), listAnyTwoEqualMembers(?Y)
+        -> ontologyError('conflict', 'At least two individuals both same and different, may be due to disjoint classes or functional properties', ?X, ?Y)]
+
+[eq-diff3: (?X rdf:type owl:AllDifferent), (?X owl:distinctMembers ?Y), listAnyTwoEqualMembers(?Y)
+        -> ontologyError('conflict', 'At least two individuals both same and different, may be due to disjoint classes or functional properties', ?X, ?Y)]
+
+[validationIndiv3: 
+	(?I rdf:type owl:Nothing) -> ontologyError('conflict', 'Individual a member of Nothing', ?I)]
+
+

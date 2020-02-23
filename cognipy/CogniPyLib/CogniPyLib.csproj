@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C1D94BE7-781F-471E-89AA-FB20010DA157}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CogniPyLib</RootNamespace>
+    <AssemblyName>CogniPyLib</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;RUNNINGPARSER</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="elk, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Reasoners\ELK\elk.dll</HintPath>
+    </Reference>
+    <Reference Include="hermit">
+      <HintPath>Reasoners\HermiT\hermit.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.AWT.WinForms, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.AWT.WinForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Beans, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Beans.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Charsets, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Charsets.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Cldrdata, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Cldrdata.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Corba, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Corba.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Core, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Jdbc, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Jdbc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Localedata, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Localedata.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Management, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Management.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Media, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Media.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Misc, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Misc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Naming, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Naming.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Nashorn, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Nashorn.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Remoting, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Remoting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Security, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.SwingAWT, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.SwingAWT.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Text, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Text.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Tools, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Tools.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Util, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Util.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.API, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.XML.API.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.Bind, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.XML.Bind.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.Crypto, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.XML.Crypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.Parse, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.XML.Parse.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.Transform, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.XML.Transform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.WebServices, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.XML.WebServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.XPath, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.XML.XPath.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.Runtime, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IKVM.Runtime.JNI, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.Runtime.JNI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="jena">
+      <HintPath>Reasoners\Jena\jena.dll</HintPath>
+    </Reference>
+    <Reference Include="owlapi">
+      <HintPath>Reasoners\owlapi.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CNL\DLModSimplifier.cs">
+      <Link>DLModSimplifier.cs</Link>
+    </Compile>
+    <Compile Include="CNL\SwrlBuiltinsExtractor.cs">
+      <Link>SwrlBuiltinsExtractor.cs</Link>
+    </Compile>
+    <Compile Include="Encode\CRC.cs">
+      <Link>CRC.cs</Link>
+    </Compile>
+    <Compile Include="Encode\MD5.cs">
+      <Link>MD5.cs</Link>
+    </Compile>
+    <Compile Include="GraphEntity.cs" />
+    <Compile Include="JenaRules\CalcDynamicDepths.cs">
+      <Link>CalcDynamicDepths.cs</Link>
+    </Compile>
+    <Compile Include="JenaRules\dl.to.jena.cs">
+      <Link>dl.to.jena.cs</Link>
+    </Compile>
+    <Compile Include="JenaRules\GenerateJenaRules.cs">
+      <Link>GenerateJenaRules.cs</Link>
+    </Compile>
+    <Compile Include="JenaRules\ImpliKBVisitor.cs">
+      <Link>ImpliKBVisitor.cs</Link>
+    </Compile>
+    <Compile Include="JenaRules\InfAxGens.cs">
+      <Link>InfAxGens.cs</Link>
+    </Compile>
+    <Compile Include="JenaRules\JenaRuleManager.cs">
+      <Link>JenaRuleManager.cs</Link>
+    </Compile>
+    <Compile Include="JenaRules\ReactiveRuleCompiler.cs">
+      <Link>ReactiveRuleCompiler.cs</Link>
+    </Compile>
+    <Compile Include="JenaRules\SwrlIterateProc.cs">
+      <Link>SwrlIterateProc.cs</Link>
+    </Compile>
+    <Compile Include="OWL\dl.to.ow.nc.cs">
+      <Link>dl.to.ow.nc.cs</Link>
+    </Compile>
+    <Compile Include="OWL\dl.to.owlapi.cs">
+      <Link>dl.to.owlapi.cs</Link>
+    </Compile>
+    <Compile Include="OWL\dl.to.sparql.cs">
+      <Link>dl.to.sparql.cs</Link>
+    </Compile>
+    <Compile Include="OWL\owl.nameing.cs">
+      <Link>owl.nameing.cs</Link>
+    </Compile>
+    <Compile Include="OWL\owlapi.to.dl.cs">
+      <Link>owlapi.to.dl.cs</Link>
+    </Compile>
+    <Compile Include="DLToys.cs" />
+    <Compile Include="OWLConverter.cs">
+      <Link>OWLConverter.cs</Link>
+    </Compile>
+    <Compile Include="OWLPathUriTools.cs">
+      <Link>OWLPathUriTools.cs</Link>
+    </Compile>
+    <Compile Include="ReferenceManager.cs">
+      <Link>ReferenceManager.cs</Link>
+    </Compile>
+    <Compile Include="DLENConverter.cs" />
+    <Compile Include="FeClientStatement.cs" />
+    <Compile Include="CogniPySvr.cs" />
+    <Compile Include="FluentEditorLibGraphEntity.cs" />
+    <Compile Include="ICogniPySvr.cs" />
+    <Compile Include="models\AnnotationResult.cs" />
+    <Compile Include="models\ConstraintResult.cs" />
+    <Compile Include="models\InstanceDescription.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReasoningService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="JenaRules\class-axioms.owlrl.jena">
+      <Link>rules\class-axioms.owlrl.jena</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JenaRules\cls.owlrl.jena">
+      <Link>rules\cls.owlrl.jena</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JenaRules\datatypes.owlrl.jena">
+      <Link>rules\datatypes.owlrl.jena</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JenaRules\more.owlrl.jena">
+      <Link>rules\more.owlrl.jena</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JenaRules\props.owlrl.jena">
+      <Link>rules\props.owlrl.jena</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JenaRules\schema.owlrl.jena">
+      <Link>rules\schema.owlrl.jena</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="JenaRules\class-axioms.owlrl.val.jena">
+      <Link>rules\class-axioms.owlrl.val.jena</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JenaRules\cls.owlrl.val.jena">
+      <Link>rules\cls.owlrl.val.jena</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JenaRules\datatypes.owlrl.val.jena">
+      <Link>rules\datatypes.owlrl.val.jena</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JenaRules\more.owlrl.val.jena">
+      <Link>rules\more.owlrl.val.jena</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JenaRules\props.owlrl.val.jena">
+      <Link>rules\props.owlrl.val.jena</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JenaRules\same-as.owlrl.jena">
+      <Link>rules\same-as.owlrl.jena</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JenaRules\same-as.owlrl.val.jena">
+      <Link>rules\same-as.owlrl.val.jena</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CNL\CNLTools.cs">
+      <Link>CNLTools.cs</Link>
+    </Compile>
+    <Compile Include="CNL\dfa.cs">
+      <Link>dfa.cs</Link>
+    </Compile>
+    <Compile Include="CNL\dl.ast.cs">
+      <Link>dl.ast.cs</Link>
+    </Compile>
+    <Compile Include="CNL\dl.genericvisitor.cs">
+      <Link>dl.genericvisitor.cs</Link>
+    </Compile>
+    <Compile Include="CNL\dl.lexer.cs">
+      <Link>dl.lexer.cs</Link>
+    </Compile>
+    <Compile Include="CNL\dl.nameing.cs">
+      <Link>dl.nameing.cs</Link>
+    </Compile>
+    <Compile Include="CNL\dl.parser.cs">
+      <Link>dl.parser.cs</Link>
+    </Compile>
+    <Compile Include="CNL\dl.removedefaultpfx.cs">
+      <Link>dl.removedefaultpfx.cs</Link>
+    </Compile>
+    <Compile Include="CNL\dl.serializer.cs">
+      <Link>dl.serializer.cs</Link>
+    </Compile>
+    <Compile Include="CNL\dl.setdefaultpfx.cs">
+      <Link>dl.setdefaultpfx.cs</Link>
+    </Compile>
+    <Compile Include="CNL\dl.visitor.cs">
+      <Link>dl.visitor.cs</Link>
+    </Compile>
+    <Compile Include="CNL\lexer.cs">
+      <Link>lexer.cs</Link>
+    </Compile>
+    <Compile Include="CNL\olist.cs">
+      <Link>olist.cs</Link>
+    </Compile>
+    <Compile Include="CNL\Pair.cs">
+      <Link>Pair.cs</Link>
+    </Compile>
+    <Compile Include="CNL\parser.cs">
+      <Link>parser.cs</Link>
+    </Compile>
+    <Compile Include="CNL\Populator.cs">
+      <Link>Populator.cs</Link>
+    </Compile>
+    <Compile Include="CNL\serialise.cs">
+      <Link>serialise.cs</Link>
+    </Compile>
+    <Compile Include="CNL\SwrlBodyHeadExtractor.cs">
+      <Link>SwrlBodyHeadExtractor.cs</Link>
+    </Compile>
+    <Compile Include="CNL\VisitingParam.cs">
+      <Link>VisitingParam.cs</Link>
+    </Compile>
+    <Compile Include="AnnotationManager.cs" />
+    <Compile Include="dl.standardized.serializer.cs" />
+    <Compile Include="FullUriVisitor.cs" />
+    <Compile Include="ModalityVisitory.cs" />
+    <Compile Include="Taxonomy\SortedCollection.cs" />
+    <Compile Include="Taxonomy\SortedObservableCollection.cs" />
+    <Compile Include="Taxonomy\TaxonomyInterface.cs" />
+    <Compile Include="Taxonomy\TaxonomyNode.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CNL\dl.lexer">
+      <Link>dl.lexer</Link>
+    </None>
+    <None Include="CNL\dl.parser">
+      <Link>dl.parser</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CNL\dl.to.endl.cs">
+      <Link>dl.to.endl.cs</Link>
+    </Compile>
+    <Compile Include="CNL\EN.CNLFactory.cs">
+      <Link>EN.CNLFactory.cs</Link>
+    </Compile>
+    <Compile Include="CNL\endict.cs">
+      <Link>endict.cs</Link>
+    </Compile>
+    <Compile Include="CNL\endl.ast.cs">
+      <Link>endl.ast.cs</Link>
+    </Compile>
+    <Compile Include="CNL\endl.KeyWords.cs">
+      <Link>endl.KeyWords.cs</Link>
+    </Compile>
+    <Compile Include="CNL\endl.lexer.cs">
+      <Link>endl.lexer.cs</Link>
+    </Compile>
+    <Compile Include="CNL\endl.nameing.cs">
+      <Link>endl.nameing.cs</Link>
+    </Compile>
+    <Compile Include="CNL\endl.parser.cs">
+      <Link>endl.parser.cs</Link>
+    </Compile>
+    <Compile Include="CNL\endl.serializer.cs">
+      <Link>endl.serializer.cs</Link>
+    </Compile>
+    <Compile Include="CNL\endl.to.dl.cs">
+      <Link>endl.to.dl.cs</Link>
+    </Compile>
+    <Compile Include="CNL\endl.visitor.cs">
+      <Link>endl.visitor.cs</Link>
+    </Compile>
+    <Compile Include="TaxonomyNodeEN.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CNL\en.dict">
+      <Link>en.dict</Link>
+    </EmbeddedResource>
+    <None Include="CNL\endl.bat">
+      <Link>endl.bat</Link>
+    </None>
+    <None Include="CNL\endl.KeyWords.cs.tpl">
+      <Link>endl.KeyWords.cs.tpl</Link>
+    </None>
+    <None Include="CNL\endl.kwd">
+      <Link>endl.kwd</Link>
+    </None>
+    <None Include="CNL\endl.lexer.tpl">
+      <Link>endl.lexer.tpl</Link>
+    </None>
+    <None Include="CNL\endl.parser">
+      <Link>endl.parser</Link>
+    </None>
+    <EmbeddedResource Include="CNL\ssc">
+      <Link>ssc</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConfigurationManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="rules\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
