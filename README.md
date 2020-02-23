@@ -21,8 +21,9 @@ pip install cognipy
 ### Building new version
 
 ```
+nuget restore cognipy\CogniPy.sln
 msbuild cognipy\CogniPy.sln /t:Rebuild /p:Configuration=Release /p:Platform="any cpu"
-bumpversion --current-version 0.1.1 patch setup.py
+bumpversion --current-version 0.1.2 patch setup.py
 python setup.py bdist_wheel
 python -m twine upload dist/* --verbose
 ```

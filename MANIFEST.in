@@ -1,0 +1,2 @@
+include cognipy/edit.js
+include cognipy/CogniPyCLI/bin/Release/*.*
