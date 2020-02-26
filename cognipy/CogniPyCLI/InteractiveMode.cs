@@ -10,7 +10,7 @@ namespace CogniPyCLI
 {
     class InteractiveMode
     {
-        public static void EntryPoint(Options options)
+        public static void EntryPoint(string[] args)
         {
             Stream inputStream = Console.OpenStandardInput();
             Stream outputStream = Console.OpenStandardOutput();
