@@ -171,72 +171,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CNL\DLModSimplifier.cs">
-      <Link>DLModSimplifier.cs</Link>
-    </Compile>
-    <Compile Include="CNL\SwrlBuiltinsExtractor.cs">
-      <Link>SwrlBuiltinsExtractor.cs</Link>
-    </Compile>
-    <Compile Include="Encode\CRC.cs">
-      <Link>CRC.cs</Link>
-    </Compile>
-    <Compile Include="Encode\MD5.cs">
-      <Link>MD5.cs</Link>
-    </Compile>
-    <Compile Include="GraphEntity.cs" />
-    <Compile Include="JenaRules\CalcDynamicDepths.cs">
-      <Link>CalcDynamicDepths.cs</Link>
-    </Compile>
-    <Compile Include="JenaRules\dl.to.jena.cs">
-      <Link>dl.to.jena.cs</Link>
-    </Compile>
-    <Compile Include="JenaRules\GenerateJenaRules.cs">
-      <Link>GenerateJenaRules.cs</Link>
-    </Compile>
-    <Compile Include="JenaRules\ImpliKBVisitor.cs">
-      <Link>ImpliKBVisitor.cs</Link>
-    </Compile>
-    <Compile Include="JenaRules\InfAxGens.cs">
-      <Link>InfAxGens.cs</Link>
-    </Compile>
-    <Compile Include="JenaRules\JenaRuleManager.cs">
-      <Link>JenaRuleManager.cs</Link>
-    </Compile>
-    <Compile Include="JenaRules\ReactiveRuleCompiler.cs">
-      <Link>ReactiveRuleCompiler.cs</Link>
-    </Compile>
-    <Compile Include="JenaRules\SwrlIterateProc.cs">
-      <Link>SwrlIterateProc.cs</Link>
-    </Compile>
-    <Compile Include="OWL\dl.to.ow.nc.cs">
-      <Link>dl.to.ow.nc.cs</Link>
-    </Compile>
-    <Compile Include="OWL\dl.to.owlapi.cs">
-      <Link>dl.to.owlapi.cs</Link>
-    </Compile>
-    <Compile Include="OWL\dl.to.sparql.cs">
-      <Link>dl.to.sparql.cs</Link>
-    </Compile>
-    <Compile Include="OWL\owl.nameing.cs">
-      <Link>owl.nameing.cs</Link>
-    </Compile>
-    <Compile Include="OWL\owlapi.to.dl.cs">
-      <Link>owlapi.to.dl.cs</Link>
-    </Compile>
-    <Compile Include="DLToys.cs" />
-    <Compile Include="OWLConverter.cs">
-      <Link>OWLConverter.cs</Link>
-    </Compile>
-    <Compile Include="OWLPathUriTools.cs">
-      <Link>OWLPathUriTools.cs</Link>
-    </Compile>
-    <Compile Include="ReferenceManager.cs">
-      <Link>ReferenceManager.cs</Link>
-    </Compile>
-    <Compile Include="DLENConverter.cs" />
-    <Compile Include="CogniPyStatement.cs" />
-    <Compile Include="CogniPySvr.cs" />
+    <Compile Include="CNL\DLModSimplifier.cs" />
+    <Compile Include="CNL\SwrlBuiltinsExtractor.cs" />
     <Compile Include="CogniPyGraphEntity.cs" />
+    <Compile Include="CogniPyStatement.cs" />
+    <Compile Include="Encode\CRC.cs" />
+    <Compile Include="Encode\MD5.cs" />
+    <Compile Include="GraphEntity.cs" />
+    <Compile Include="JenaRules\CalcDynamicDepths.cs" />
+    <Compile Include="JenaRules\dl.to.jena.cs" />
+    <Compile Include="JenaRules\GenerateJenaRules.cs" />
+    <Compile Include="JenaRules\ImpliKBVisitor.cs" />
+    <Compile Include="JenaRules\InfAxGens.cs" />
+    <Compile Include="JenaRules\JenaRuleManager.cs" />
+    <Compile Include="JenaRules\ReactiveRuleCompiler.cs" />
+    <Compile Include="JenaRules\SwrlIterateProc.cs" />
+    <Compile Include="OWL\dl.to.ow.nc.cs" />
+    <Compile Include="OWL\dl.to.owlapi.cs" />
+    <Compile Include="OWL\dl.to.sparql.cs" />
+    <Compile Include="OWL\owl.nameing.cs" />
+    <Compile Include="OWL\owlapi.to.dl.cs" />
+    <Compile Include="DLToys.cs" />
+    <Compile Include="OWLConverter.cs" />
+    <Compile Include="OWLPathUriTools.cs" />
+    <Compile Include="ReferenceManager.cs" />
+    <Compile Include="DLENConverter.cs" />
+    <Compile Include="CogniPySvr.cs" />
     <Compile Include="ICogniPySvr.cs" />
     <Compile Include="models\AnnotationResult.cs" />
     <Compile Include="models\ConstraintResult.cs" />
@@ -245,106 +205,40 @@
     <Compile Include="ReasoningService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="JenaRules\class-axioms.owlrl.jena">
-      <Link>rules\class-axioms.owlrl.jena</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="JenaRules\cls.owlrl.jena">
-      <Link>rules\cls.owlrl.jena</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="JenaRules\datatypes.owlrl.jena">
-      <Link>rules\datatypes.owlrl.jena</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="JenaRules\more.owlrl.jena">
-      <Link>rules\more.owlrl.jena</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="JenaRules\props.owlrl.jena">
-      <Link>rules\props.owlrl.jena</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="JenaRules\schema.owlrl.jena">
-      <Link>rules\schema.owlrl.jena</Link>
-    </EmbeddedResource>
+    <EmbeddedResource Include="JenaRules\class-axioms.owlrl.jena" />
+    <EmbeddedResource Include="JenaRules\cls.owlrl.jena" />
+    <EmbeddedResource Include="JenaRules\datatypes.owlrl.jena" />
+    <EmbeddedResource Include="JenaRules\more.owlrl.jena" />
+    <EmbeddedResource Include="JenaRules\props.owlrl.jena" />
+    <EmbeddedResource Include="JenaRules\schema.owlrl.jena" />
+    <EmbeddedResource Include="JenaRules\class-axioms.owlrl.val.jena" />
+    <EmbeddedResource Include="JenaRules\cls.owlrl.val.jena" />
+    <EmbeddedResource Include="JenaRules\datatypes.owlrl.val.jena" />
+    <EmbeddedResource Include="JenaRules\more.owlrl.val.jena" />
+    <EmbeddedResource Include="JenaRules\props.owlrl.val.jena" />
+    <EmbeddedResource Include="JenaRules\same-as.owlrl.jena" />
+    <EmbeddedResource Include="JenaRules\same-as.owlrl.val.jena" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="JenaRules\class-axioms.owlrl.val.jena">
-      <Link>rules\class-axioms.owlrl.val.jena</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="JenaRules\cls.owlrl.val.jena">
-      <Link>rules\cls.owlrl.val.jena</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="JenaRules\datatypes.owlrl.val.jena">
-      <Link>rules\datatypes.owlrl.val.jena</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="JenaRules\more.owlrl.val.jena">
-      <Link>rules\more.owlrl.val.jena</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="JenaRules\props.owlrl.val.jena">
-      <Link>rules\props.owlrl.val.jena</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="JenaRules\same-as.owlrl.jena">
-      <Link>rules\same-as.owlrl.jena</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="JenaRules\same-as.owlrl.val.jena">
-      <Link>rules\same-as.owlrl.val.jena</Link>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="CNL\CNLTools.cs">
-      <Link>CNLTools.cs</Link>
-    </Compile>
-    <Compile Include="CNL\dfa.cs">
-      <Link>dfa.cs</Link>
-    </Compile>
-    <Compile Include="CNL\dl.ast.cs">
-      <Link>dl.ast.cs</Link>
-    </Compile>
-    <Compile Include="CNL\dl.genericvisitor.cs">
-      <Link>dl.genericvisitor.cs</Link>
-    </Compile>
-    <Compile Include="CNL\dl.lexer.cs">
-      <Link>dl.lexer.cs</Link>
-    </Compile>
-    <Compile Include="CNL\dl.nameing.cs">
-      <Link>dl.nameing.cs</Link>
-    </Compile>
-    <Compile Include="CNL\dl.parser.cs">
-      <Link>dl.parser.cs</Link>
-    </Compile>
-    <Compile Include="CNL\dl.removedefaultpfx.cs">
-      <Link>dl.removedefaultpfx.cs</Link>
-    </Compile>
-    <Compile Include="CNL\dl.serializer.cs">
-      <Link>dl.serializer.cs</Link>
-    </Compile>
-    <Compile Include="CNL\dl.setdefaultpfx.cs">
-      <Link>dl.setdefaultpfx.cs</Link>
-    </Compile>
-    <Compile Include="CNL\dl.visitor.cs">
-      <Link>dl.visitor.cs</Link>
-    </Compile>
-    <Compile Include="CNL\lexer.cs">
-      <Link>lexer.cs</Link>
-    </Compile>
-    <Compile Include="CNL\olist.cs">
-      <Link>olist.cs</Link>
-    </Compile>
-    <Compile Include="CNL\Pair.cs">
-      <Link>Pair.cs</Link>
-    </Compile>
-    <Compile Include="CNL\parser.cs">
-      <Link>parser.cs</Link>
-    </Compile>
-    <Compile Include="CNL\Populator.cs">
-      <Link>Populator.cs</Link>
-    </Compile>
-    <Compile Include="CNL\serialise.cs">
-      <Link>serialise.cs</Link>
-    </Compile>
-    <Compile Include="CNL\SwrlBodyHeadExtractor.cs">
-      <Link>SwrlBodyHeadExtractor.cs</Link>
-    </Compile>
-    <Compile Include="CNL\VisitingParam.cs">
-      <Link>VisitingParam.cs</Link>
-    </Compile>
+    <Compile Include="CNL\CNLTools.cs" />
+    <Compile Include="CNL\dfa.cs" />
+    <Compile Include="CNL\dl.ast.cs" />
+    <Compile Include="CNL\dl.genericvisitor.cs" />
+    <Compile Include="CNL\dl.lexer.cs" />
+    <Compile Include="CNL\dl.nameing.cs" />
+    <Compile Include="CNL\dl.parser.cs" />
+    <Compile Include="CNL\dl.removedefaultpfx.cs" />
+    <Compile Include="CNL\dl.serializer.cs" />
+    <Compile Include="CNL\dl.setdefaultpfx.cs" />
+    <Compile Include="CNL\dl.visitor.cs" />
+    <Compile Include="CNL\lexer.cs" />
+    <Compile Include="CNL\olist.cs" />
+    <Compile Include="CNL\Pair.cs" />
+    <Compile Include="CNL\parser.cs" />
+    <Compile Include="CNL\Populator.cs" />
+    <Compile Include="CNL\serialise.cs" />
+    <Compile Include="CNL\SwrlBodyHeadExtractor.cs" />
+    <Compile Include="CNL\VisitingParam.cs" />
     <Compile Include="AnnotationManager.cs" />
     <Compile Include="dl.standardized.serializer.cs" />
     <Compile Include="FullUriVisitor.cs" />
@@ -353,73 +247,22 @@
     <Compile Include="Taxonomy\SortedObservableCollection.cs" />
     <Compile Include="Taxonomy\TaxonomyInterface.cs" />
     <Compile Include="Taxonomy\TaxonomyNode.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="CNL\dl.lexer">
-      <Link>dl.lexer</Link>
-    </None>
-    <None Include="CNL\dl.parser">
-      <Link>dl.parser</Link>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="CNL\dl.to.endl.cs">
-      <Link>dl.to.endl.cs</Link>
-    </Compile>
-    <Compile Include="CNL\EN.CNLFactory.cs">
-      <Link>EN.CNLFactory.cs</Link>
-    </Compile>
-    <Compile Include="CNL\endict.cs">
-      <Link>endict.cs</Link>
-    </Compile>
-    <Compile Include="CNL\endl.ast.cs">
-      <Link>endl.ast.cs</Link>
-    </Compile>
-    <Compile Include="CNL\endl.KeyWords.cs">
-      <Link>endl.KeyWords.cs</Link>
-    </Compile>
-    <Compile Include="CNL\endl.lexer.cs">
-      <Link>endl.lexer.cs</Link>
-    </Compile>
-    <Compile Include="CNL\endl.nameing.cs">
-      <Link>endl.nameing.cs</Link>
-    </Compile>
-    <Compile Include="CNL\endl.parser.cs">
-      <Link>endl.parser.cs</Link>
-    </Compile>
-    <Compile Include="CNL\endl.serializer.cs">
-      <Link>endl.serializer.cs</Link>
-    </Compile>
-    <Compile Include="CNL\endl.to.dl.cs">
-      <Link>endl.to.dl.cs</Link>
-    </Compile>
-    <Compile Include="CNL\endl.visitor.cs">
-      <Link>endl.visitor.cs</Link>
-    </Compile>
+    <Compile Include="CNL\dl.to.endl.cs" />
+    <Compile Include="CNL\EN.CNLFactory.cs" />
+    <Compile Include="CNL\endict.cs" />
+    <Compile Include="CNL\endl.ast.cs" />
+    <Compile Include="CNL\endl.KeyWords.cs" />
+    <Compile Include="CNL\endl.lexer.cs" />
+    <Compile Include="CNL\endl.nameing.cs" />
+    <Compile Include="CNL\endl.parser.cs" />
+    <Compile Include="CNL\endl.serializer.cs" />
+    <Compile Include="CNL\endl.to.dl.cs" />
+    <Compile Include="CNL\endl.visitor.cs" />
     <Compile Include="TaxonomyNodeEN.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CNL\en.dict">
-      <Link>en.dict</Link>
-    </EmbeddedResource>
-    <None Include="CNL\endl.bat">
-      <Link>endl.bat</Link>
-    </None>
-    <None Include="CNL\endl.KeyWords.cs.tpl">
-      <Link>endl.KeyWords.cs.tpl</Link>
-    </None>
-    <None Include="CNL\endl.kwd">
-      <Link>endl.kwd</Link>
-    </None>
-    <None Include="CNL\endl.lexer.tpl">
-      <Link>endl.lexer.tpl</Link>
-    </None>
-    <None Include="CNL\endl.parser">
-      <Link>endl.parser</Link>
-    </None>
-    <EmbeddedResource Include="CNL\ssc">
-      <Link>ssc</Link>
-    </EmbeddedResource>
+    <EmbeddedResource Include="CNL\en.dict" />
+    <EmbeddedResource Include="CNL\ssc" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigurationManager.cs" />
@@ -427,9 +270,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="rules\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
