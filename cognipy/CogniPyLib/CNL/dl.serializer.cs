@@ -1,13 +1,13 @@
 ﻿
-using Ontorion.ARS;
+using CogniPy.ARS;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 
-namespace Ontorion.CNL.DL
+namespace CogniPy.CNL.DL
 {
-    public class Serializer : Ontorion.CNL.DL.IVisitor
+    public class Serializer : CogniPy.CNL.DL.IVisitor
     {
         HashSet<Tuple<EntityKind, string>> signature = new HashSet<Tuple<EntityKind, string>>();
         Dictionary<string, Value> foundValues = new Dictionary<string, Value>();
@@ -122,7 +122,7 @@ namespace Ontorion.CNL.DL
             }
         }
 
-        public string Serialize(Ontorion.CNL.DL.Paragraph p)
+        public string Serialize(CogniPy.CNL.DL.Paragraph p)
         {
             signature = new HashSet<Tuple<EntityKind, string>>();
             dataValues = new HashSet<Tuple<string, string, string>>();
@@ -132,7 +132,7 @@ namespace Ontorion.CNL.DL
             return p.accept(this) as string;
         }
 
-        public string Serialize(Ontorion.CNL.DL.Statement s)
+        public string Serialize(CogniPy.CNL.DL.Statement s)
         {
             signature = new HashSet<Tuple<EntityKind, string>>();
             dataValues = new HashSet<Tuple<string, string, string>>();
@@ -142,7 +142,7 @@ namespace Ontorion.CNL.DL
             return s.accept(this) as string;
         }
 
-        public string Serialize(Ontorion.CNL.DL.Node n)
+        public string Serialize(CogniPy.CNL.DL.Node n)
         {
             signature = new HashSet<Tuple<EntityKind, string>>();
             dataValues = new HashSet<Tuple<string, string, string>>();
@@ -152,7 +152,7 @@ namespace Ontorion.CNL.DL
             return n.accept(this) as string;
         }
 
-        public string Serialize(Ontorion.CNL.DL.Instance n)
+        public string Serialize(CogniPy.CNL.DL.Instance n)
         {
             signature = new HashSet<Tuple<EntityKind, string>>();
             dataValues = new HashSet<Tuple<string, string, string>>();
@@ -162,7 +162,7 @@ namespace Ontorion.CNL.DL
             return n.accept(this) as string;
         }
 
-        public object Visit(Ontorion.CNL.DL.Paragraph e)
+        public object Visit(CogniPy.CNL.DL.Paragraph e)
         {
             StringBuilder sb = new StringBuilder();
             foreach (var x in e.Statements)
@@ -177,7 +177,7 @@ namespace Ontorion.CNL.DL
             return sb.ToString();
         }
 
-        public string Modality(Ontorion.CNL.DL.Statement.Modality m)
+        public string Modality(CogniPy.CNL.DL.Statement.Modality m)
         {
             switch (m)
             {
@@ -191,7 +191,7 @@ namespace Ontorion.CNL.DL
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.Subsumption e)
+        public object Visit(CogniPy.CNL.DL.Subsumption e)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(e.C.accept(this));
@@ -201,7 +201,7 @@ namespace Ontorion.CNL.DL
             return sb.ToString();
         }
 
-        public object Visit(Ontorion.CNL.DL.Equivalence e)
+        public object Visit(CogniPy.CNL.DL.Equivalence e)
         {
             StringBuilder sb = new StringBuilder();
             if (e.Equivalents.Count == 2)
@@ -230,7 +230,7 @@ namespace Ontorion.CNL.DL
             return sb.ToString();
         }
 
-        public object Visit(Ontorion.CNL.DL.Disjoint e)
+        public object Visit(CogniPy.CNL.DL.Disjoint e)
         {
             StringBuilder sb = new StringBuilder();
             if (e.Disjoints.Count == 2)
@@ -270,7 +270,7 @@ namespace Ontorion.CNL.DL
             return sb.ToString();
         }
 
-        public object Visit(Ontorion.CNL.DL.DisjointUnion e)
+        public object Visit(CogniPy.CNL.DL.DisjointUnion e)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(e.name);
@@ -288,7 +288,7 @@ namespace Ontorion.CNL.DL
             return sb.ToString();
         }
 
-        public object Visit(Ontorion.CNL.DL.RoleInclusion e)
+        public object Visit(CogniPy.CNL.DL.RoleInclusion e)
         {
             using (isKindOf.set(EntityKind.Role))
             {
@@ -301,7 +301,7 @@ namespace Ontorion.CNL.DL
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.RoleEquivalence e)
+        public object Visit(CogniPy.CNL.DL.RoleEquivalence e)
         {
             using (isKindOf.set(EntityKind.Role))
             {
@@ -330,7 +330,7 @@ namespace Ontorion.CNL.DL
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.RoleDisjoint e)
+        public object Visit(CogniPy.CNL.DL.RoleDisjoint e)
         {
             using (isKindOf.set(EntityKind.Role))
             {
@@ -359,7 +359,7 @@ namespace Ontorion.CNL.DL
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.ComplexRoleInclusion e)
+        public object Visit(CogniPy.CNL.DL.ComplexRoleInclusion e)
         {
             using (isKindOf.set(EntityKind.Role))
             {
@@ -380,7 +380,7 @@ namespace Ontorion.CNL.DL
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.DataRoleInclusion e)
+        public object Visit(CogniPy.CNL.DL.DataRoleInclusion e)
         {
             using (isKindOf.set(EntityKind.DataRole))
             {
@@ -393,7 +393,7 @@ namespace Ontorion.CNL.DL
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.DataRoleEquivalence e)
+        public object Visit(CogniPy.CNL.DL.DataRoleEquivalence e)
         {
             using (isKindOf.set(EntityKind.DataRole))
             {
@@ -422,7 +422,7 @@ namespace Ontorion.CNL.DL
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.DataRoleDisjoint e)
+        public object Visit(CogniPy.CNL.DL.DataRoleDisjoint e)
         {
             using (isKindOf.set(EntityKind.DataRole))
             {
@@ -451,7 +451,7 @@ namespace Ontorion.CNL.DL
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.InstanceOf e)
+        public object Visit(CogniPy.CNL.DL.InstanceOf e)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(e.C.accept(this));
@@ -464,7 +464,7 @@ namespace Ontorion.CNL.DL
             return sb.ToString();
         }
 
-        public object Visit(Ontorion.CNL.DL.RelatedInstances e)
+        public object Visit(CogniPy.CNL.DL.RelatedInstances e)
         {
             StringBuilder sb = new StringBuilder();
             using (isKindOf.set(EntityKind.Role))
@@ -484,7 +484,7 @@ namespace Ontorion.CNL.DL
             return sb.ToString();
         }
 
-        public object Visit(Ontorion.CNL.DL.NamedInstance e)
+        public object Visit(CogniPy.CNL.DL.NamedInstance e)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(e.name);
@@ -492,7 +492,7 @@ namespace Ontorion.CNL.DL
             return sb.ToString();
         }
 
-        public object Visit(Ontorion.CNL.DL.UnnamedInstance e)
+        public object Visit(CogniPy.CNL.DL.UnnamedInstance e)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("[");
@@ -510,7 +510,7 @@ namespace Ontorion.CNL.DL
             return sb.ToString();
         }
 
-        public object Visit(Ontorion.CNL.DL.InstanceValue e)
+        public object Visit(CogniPy.CNL.DL.InstanceValue e)
         {
             instanceValues.Add(e);
             StringBuilder sb = new StringBuilder();
@@ -530,7 +530,7 @@ namespace Ontorion.CNL.DL
             return sb.ToString();
         }
 
-        public object Visit(Ontorion.CNL.DL.SameInstances e)
+        public object Visit(CogniPy.CNL.DL.SameInstances e)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("=");
@@ -549,7 +549,7 @@ namespace Ontorion.CNL.DL
             return sb.ToString();
         }
 
-        public object Visit(Ontorion.CNL.DL.DifferentInstances e)
+        public object Visit(CogniPy.CNL.DL.DifferentInstances e)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("≠");
@@ -568,7 +568,7 @@ namespace Ontorion.CNL.DL
             return sb.ToString();
         }
 
-        public object Visit(Ontorion.CNL.DL.HasKey e)
+        public object Visit(CogniPy.CNL.DL.HasKey e)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(e.C.accept(this));
@@ -611,7 +611,7 @@ namespace Ontorion.CNL.DL
             return sb.ToString();
         }
 
-        public object Visit(Ontorion.CNL.DL.Number e)
+        public object Visit(CogniPy.CNL.DL.Number e)
         {
             var sval = e.val.ToString();
             if(attributeName.get()!=null)
@@ -636,7 +636,7 @@ namespace Ontorion.CNL.DL
             }
             return sval;
         }
-        public object Visit(Ontorion.CNL.DL.String e)
+        public object Visit(CogniPy.CNL.DL.String e)
         {
             var sval = e.val;
             if (attributeName.get() != null)
@@ -645,7 +645,7 @@ namespace Ontorion.CNL.DL
                 foundValues.Add(e.getTypeTag() + ":" + sval, e);
             return sval;
         }
-        public object Visit(Ontorion.CNL.DL.Float e)
+        public object Visit(CogniPy.CNL.DL.Float e)
         {
             var sval = e.val.ToString();
             if (attributeName.get() != null)
@@ -654,7 +654,7 @@ namespace Ontorion.CNL.DL
                 foundValues.Add(e.getTypeTag() + ":" + sval, e);
             return sval;
         }
-        public object Visit(Ontorion.CNL.DL.Bool e)
+        public object Visit(CogniPy.CNL.DL.Bool e)
         {
             var sval = e.val.ToString();
             if (attributeName.get() != null)
@@ -663,7 +663,7 @@ namespace Ontorion.CNL.DL
                 foundValues.Add(e.getTypeTag() + ":" + sval, e);
             return sval;
         }
-        public object Visit(Ontorion.CNL.DL.DateTimeVal e)
+        public object Visit(CogniPy.CNL.DL.DateTimeVal e)
         {
             var sval = e.val.ToString();
             if (attributeName.get() != null)
@@ -714,7 +714,7 @@ namespace Ontorion.CNL.DL
             return sb.ToString();
         }
 
-        public object Visit(Ontorion.CNL.DL.BoundFacets e)
+        public object Visit(CogniPy.CNL.DL.BoundFacets e)
         {
             return e.FL.accept(this);
         }
@@ -759,7 +759,7 @@ namespace Ontorion.CNL.DL
             return e.Kind + e.V.accept(this);
         }
 
-        public object Visit(Ontorion.CNL.DL.TotalBound e)
+        public object Visit(CogniPy.CNL.DL.TotalBound e)
         {
             using (attributeName.set(null))
                 return "≤⊔≥" + e.V.accept(this);
@@ -773,12 +773,12 @@ namespace Ontorion.CNL.DL
             return "≤⊔≥" + e.name;
         }
 
-        public object Visit(Ontorion.CNL.DL.TopBound e)
+        public object Visit(CogniPy.CNL.DL.TopBound e)
         {
             return "⊤";
         }
 
-        public object Visit(Ontorion.CNL.DL.ValueSet e)
+        public object Visit(CogniPy.CNL.DL.ValueSet e)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("{");
@@ -795,27 +795,27 @@ namespace Ontorion.CNL.DL
             return sb.ToString();
         }
 
-        public object Visit(Ontorion.CNL.DL.Atomic e)
+        public object Visit(CogniPy.CNL.DL.Atomic e)
         {
             signature.Add(Tuple.Create(isKindOf.get(), e.id));
             return e.id;
         }
-        public object Visit(Ontorion.CNL.DL.Top e)
+        public object Visit(CogniPy.CNL.DL.Top e)
         {
             return "⊤";
         }
-        public object Visit(Ontorion.CNL.DL.Bottom e)
+        public object Visit(CogniPy.CNL.DL.Bottom e)
         {
             return "⊥";
         }
-        public object Visit(Ontorion.CNL.DL.RoleInversion e)
+        public object Visit(CogniPy.CNL.DL.RoleInversion e)
         {
             using (isKindOf.set(EntityKind.Role))
             {
                 return brack(e, e.R) + "⁻";
             }
         }
-        public object Visit(Ontorion.CNL.DL.InstanceSet e)
+        public object Visit(CogniPy.CNL.DL.InstanceSet e)
         {
             using (isKindOf.set(EntityKind.Instance))
             {
@@ -834,7 +834,7 @@ namespace Ontorion.CNL.DL
                 return sb.ToString();
             }
         }
-        public object Visit(Ontorion.CNL.DL.ConceptOr e)
+        public object Visit(CogniPy.CNL.DL.ConceptOr e)
         {
             using (isKindOf.set(EntityKind.Concept))
             {
@@ -851,7 +851,7 @@ namespace Ontorion.CNL.DL
                 return sb.ToString();
             }
         }
-        public object Visit(Ontorion.CNL.DL.ConceptAnd e)
+        public object Visit(CogniPy.CNL.DL.ConceptAnd e)
         {
             using (isKindOf.set(EntityKind.Concept))
             {
@@ -868,14 +868,14 @@ namespace Ontorion.CNL.DL
                 return sb.ToString();
             }
         }
-        public object Visit(Ontorion.CNL.DL.ConceptNot e)
+        public object Visit(CogniPy.CNL.DL.ConceptNot e)
         {
             using (isKindOf.set(EntityKind.Concept))
             {
                 return "￢" + brack(e, e.C);
             }
         }
-        public object Visit(Ontorion.CNL.DL.OnlyRestriction e)
+        public object Visit(CogniPy.CNL.DL.OnlyRestriction e)
         {
             StringBuilder sb = new StringBuilder();
             using (isKindOf.set(EntityKind.Role))
@@ -888,7 +888,7 @@ namespace Ontorion.CNL.DL
             }
             return sb.ToString();
         }
-        public object Visit(Ontorion.CNL.DL.SomeRestriction e)
+        public object Visit(CogniPy.CNL.DL.SomeRestriction e)
         {
             StringBuilder sb = new StringBuilder();
             using (isKindOf.set(EntityKind.Role))
@@ -901,7 +901,7 @@ namespace Ontorion.CNL.DL
             }
             return sb.ToString();
         }
-        public object Visit(Ontorion.CNL.DL.OnlyValueRestriction e)
+        public object Visit(CogniPy.CNL.DL.OnlyValueRestriction e)
         {
             StringBuilder sb = new StringBuilder();
             string attrName;
@@ -914,7 +914,7 @@ namespace Ontorion.CNL.DL
                 sb.Append(e.B.accept(this));
             return sb.ToString();
         }
-        public object Visit(Ontorion.CNL.DL.SomeValueRestriction e)
+        public object Visit(CogniPy.CNL.DL.SomeValueRestriction e)
         {
             StringBuilder sb = new StringBuilder();
             string attrName;
@@ -927,14 +927,14 @@ namespace Ontorion.CNL.DL
                 sb.Append(e.B.accept(this));
             return sb.ToString();
         }
-        public object Visit(Ontorion.CNL.DL.SelfReference e)
+        public object Visit(CogniPy.CNL.DL.SelfReference e)
         {
             using (isKindOf.set(EntityKind.Role))
             {
                 return "∃" + brack(e, e.R) + ".○";
             }
         }
-        public object Visit(Ontorion.CNL.DL.NumberRestriction e)
+        public object Visit(CogniPy.CNL.DL.NumberRestriction e)
         {
             StringBuilder sb = new StringBuilder();
             using (isKindOf.set(EntityKind.Role))
@@ -947,7 +947,7 @@ namespace Ontorion.CNL.DL
             }
             return sb.ToString();
         }
-        public object Visit(Ontorion.CNL.DL.NumberValueRestriction e)
+        public object Visit(CogniPy.CNL.DL.NumberValueRestriction e)
         {
             StringBuilder sb = new StringBuilder();
             string attrName;
@@ -970,7 +970,7 @@ namespace Ontorion.CNL.DL
         public object Visit(DLAnnotationAxiom a)
         {
             signature.Add(Tuple.Create(EntityKind.Annotation,a.annotName));
-            Ontorion.ARS.EntityKind result = Ontorion.CNL.AnnotationManager.ParseSubjectKind(a.subjKind);
+            CogniPy.ARS.EntityKind result = CogniPy.CNL.AnnotationManager.ParseSubjectKind(a.subjKind);
             if (result != EntityKind.Statement)
                 signature.Add(Tuple.Create(result, a.subject));
             // in case the annotation is a statement, the subject is not added to the signature. We could do this but we would need to parse the statement and it could be time consuming.
@@ -1012,7 +1012,7 @@ namespace Ontorion.CNL.DL
             return retur;
         }
 
-        public object Visit(Ontorion.CNL.DL.SwrlStatement e)
+        public object Visit(CogniPy.CNL.DL.SwrlStatement e)
         {
             swrlAttrsBody = new HashSet<string>();
             swrlAttrsHead = new HashSet<string>();
@@ -1060,7 +1060,7 @@ namespace Ontorion.CNL.DL
             return sb.ToString();
         }
         
-        public object Visit(Ontorion.CNL.DL.SwrlItemList e)
+        public object Visit(CogniPy.CNL.DL.SwrlItemList e)
         {
             StringBuilder sb = new StringBuilder();
             bool first = true;
@@ -1073,7 +1073,7 @@ namespace Ontorion.CNL.DL
             return sb.ToString();
         }
 
-        public object Visit(Ontorion.CNL.DL.SwrlInstance e)
+        public object Visit(CogniPy.CNL.DL.SwrlInstance e)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("○");
@@ -1086,7 +1086,7 @@ namespace Ontorion.CNL.DL
             return sb.ToString();
         }
 
-        public object Visit(Ontorion.CNL.DL.SwrlRole e)
+        public object Visit(CogniPy.CNL.DL.SwrlRole e)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(e.R);
@@ -1101,7 +1101,7 @@ namespace Ontorion.CNL.DL
             return sb.ToString();
         }
 
-        public object Visit(Ontorion.CNL.DL.SwrlSameAs e)
+        public object Visit(CogniPy.CNL.DL.SwrlSameAs e)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("=(");
@@ -1115,7 +1115,7 @@ namespace Ontorion.CNL.DL
         }
 
 
-        public object Visit(Ontorion.CNL.DL.SwrlDifferentFrom e)
+        public object Visit(CogniPy.CNL.DL.SwrlDifferentFrom e)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("≠(");
@@ -1128,7 +1128,7 @@ namespace Ontorion.CNL.DL
             return sb.ToString();
         }
 
-        public object Visit(Ontorion.CNL.DL.SwrlDataProperty e)
+        public object Visit(CogniPy.CNL.DL.SwrlDataProperty e)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("°");
@@ -1146,7 +1146,7 @@ namespace Ontorion.CNL.DL
             return sb.ToString();
         }
 
-        public object Visit(Ontorion.CNL.DL.SwrlDataRange e)
+        public object Visit(CogniPy.CNL.DL.SwrlDataRange e)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("°");

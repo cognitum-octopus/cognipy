@@ -1,5 +1,5 @@
 ﻿
-namespace Ontorion.CNL.DL
+namespace CogniPy.CNL.DL
 {
     public class Pair<C,D>
     {

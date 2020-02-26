@@ -1,6 +1,5 @@
 ﻿using CogniPy;
 using NUnit.Framework;
-using Ontorion.FluentEditorClient;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

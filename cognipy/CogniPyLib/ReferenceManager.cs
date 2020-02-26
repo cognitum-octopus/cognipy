@@ -6,16 +6,16 @@ using System.Text;
 using java.io;
 using org.semanticweb.owlapi.model;
 using org.semanticweb.owlapi.apibinding;
-using Ontorion.OWL;
-using Ontorion.CNL;
+using CogniPy.OWL;
+using CogniPy.CNL;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using System.Xml;
 using System.Net;
-using Ontorion.ARS;
+using CogniPy.ARS;
 
-namespace Ontorion
+namespace CogniPy
 {
     public class ReferenceManager
     {
@@ -340,9 +340,9 @@ namespace Ontorion
             return allAnnot;
         }
 
-        public List<Ontorion.CNL.W3CAnnotation> getAnnotationForEntity(Ontorion.CNL.DL.DlName dlName, Ontorion.ARS.EntityKind kind, Func<string, string> pfx2ns)
+        public List<CogniPy.CNL.W3CAnnotation> getAnnotationForEntity(CogniPy.CNL.DL.DlName dlName, CogniPy.ARS.EntityKind kind, Func<string, string> pfx2ns)
         {
-            List<Ontorion.CNL.W3CAnnotation> allAnnot = new List<Ontorion.CNL.W3CAnnotation>();
+            List<CogniPy.CNL.W3CAnnotation> allAnnot = new List<CogniPy.CNL.W3CAnnotation>();
 
             List<OWLOntology> loadedOntologies = new List<OWLOntology>();
             var ontIt = owlManager.Value.getOntologies().iterator();
@@ -354,7 +354,7 @@ namespace Ontorion
             if (loadedOntologies.Count == 0)
                 return allAnnot;
 
-            Ontorion.ARS.OwlNameingConventionCamelCase owlNameing = new Ontorion.ARS.OwlNameingConventionCamelCase();
+            CogniPy.ARS.OwlNameingConventionCamelCase owlNameing = new CogniPy.ARS.OwlNameingConventionCamelCase();
             ARS.OwlName owlName = owlNameing.FromDL(dlName, CNL.EN.CNLFactory.lex, pfx2ns, kind);
 
             foreach (OWLOntology ont in loadedOntologies)
@@ -362,7 +362,7 @@ namespace Ontorion
                 ////////////////////////////////////////
                 if (owlManager.Value.getOntologyFormat(ont) == null)
                     continue;
-                var invtransform = new Ontorion.ARS.InvTransform(owlManager.Value,ont,null);
+                var invtransform = new CogniPy.ARS.InvTransform(owlManager.Value,ont,null);
                 ////////////////////////////////////////
 
                 var signIt = ont.getEntitiesInSignature(owlName.iri).iterator();
@@ -380,7 +380,7 @@ namespace Ontorion
                     while (annotIt.hasNext())
                     {
                         OWLAnnotationAssertionAxiom annot = (OWLAnnotationAssertionAxiom)annotIt.next();
-                        Ontorion.CNL.DL.DLAnnotationAxiom dlNameAnnot = (Ontorion.CNL.DL.DLAnnotationAxiom) invtransform.Convert(annot);
+                        CogniPy.CNL.DL.DLAnnotationAxiom dlNameAnnot = (CogniPy.CNL.DL.DLAnnotationAxiom) invtransform.Convert(annot);
                         allAnnot.Add(new W3CAnnotation(true) { External=true, Language=dlNameAnnot.language,Type=dlNameAnnot.annotName,Value=dlNameAnnot.value});
                     }
                 }
@@ -474,7 +474,7 @@ namespace Ontorion
         
         List<string> recursivelyLoadedOntologies = new List<string>();
 
-        public bool LoadOntology(WhatToLoad whatToLoad, CNLTools tools, string source, out HashSet<string> brokenImports, out ReferenceTags tags, out CNL.DL.Paragraph dlast, string rootontology = null, Ontorion.ARS.NameingConventionKind nck = Ontorion.ARS.NameingConventionKind.CamelCase, string defaultPfx = null, bool convertToAst = true, bool insertDependentAsts = true, OWLMissingOntologyReferencesStrategy missingReferencesStrategy = OWLMissingOntologyReferencesStrategy.Throw_Exception, bool loadAnnotations = true, bool useDefaultNamespaceAsFullUri = false, bool isFirstLevel=true)
+        public bool LoadOntology(WhatToLoad whatToLoad, CNLTools tools, string source, out HashSet<string> brokenImports, out ReferenceTags tags, out CNL.DL.Paragraph dlast, string rootontology = null, CogniPy.ARS.NameingConventionKind nck = CogniPy.ARS.NameingConventionKind.CamelCase, string defaultPfx = null, bool convertToAst = true, bool insertDependentAsts = true, OWLMissingOntologyReferencesStrategy missingReferencesStrategy = OWLMissingOntologyReferencesStrategy.Throw_Exception, bool loadAnnotations = true, bool useDefaultNamespaceAsFullUri = false, bool isFirstLevel=true)
         {
 
         RETRY:
@@ -592,7 +592,7 @@ namespace Ontorion
                                     {
                                         ReferenceTags innertags;
                                         HashSet<string> innerbrokenImports;
-                                        Ontorion.CNL.DL.Paragraph innerdlast;
+                                        CogniPy.CNL.DL.Paragraph innerdlast;
 
                                         if ((String.IsNullOrWhiteSpace(onto) || !loadAnnotations) && !AllReferences.ContainsKey(pfx)) // shortcut for load annotations
                                         {
@@ -674,7 +674,7 @@ namespace Ontorion
 
                                     if (!string.IsNullOrEmpty(defaultPfx))
                                     {
-                                        Ontorion.CNL.DL.SetDefaultPfxVisitor defPfxVis = new Ontorion.CNL.DL.SetDefaultPfxVisitor(defaultPfx);
+                                        CogniPy.CNL.DL.SetDefaultPfxVisitor defPfxVis = new CogniPy.CNL.DL.SetDefaultPfxVisitor(defaultPfx);
                                         defPfxVis.Visit(ast);
                                     }
 
@@ -686,12 +686,12 @@ namespace Ontorion
                                         var inam = smb.Item2;
                                         if (smb.Item1 == ARS.EntityKind.Instance)
                                         {
-                                            var en = Ontorion.CNL.EN.ENNameingConvention.FromDL(new Ontorion.CNL.DL.DlName() { id = inam }, true).Split();
+                                            var en = CogniPy.CNL.EN.ENNameingConvention.FromDL(new CogniPy.CNL.DL.DlName() { id = inam }, true).Split();
                                             tags.instances.Add(inam);//(en.Combine().id);
                                         }
                                         else
                                         {
-                                            var en = Ontorion.CNL.EN.ENNameingConvention.FromDL(new Ontorion.CNL.DL.DlName() { id = inam }, false).Split();
+                                            var en = CogniPy.CNL.EN.ENNameingConvention.FromDL(new CogniPy.CNL.DL.DlName() { id = inam }, false).Split();
                                             if (smb.Item1 == ARS.EntityKind.Role)
                                                 tags.roles.Add(inam);//(en.Combine().id);
                                             else if (smb.Item1 == ARS.EntityKind.DataRole)
@@ -880,7 +880,7 @@ namespace Ontorion
 
                         if (convertToAst)
                         {
-                            Ontorion.ARS.InvTransform invtransform = new Ontorion.ARS.InvTransform(owlManager.Value,ontology,source,nck,getForms);
+                            CogniPy.ARS.InvTransform invtransform = new CogniPy.ARS.InvTransform(owlManager.Value,ontology,source,nck,getForms);
 
                             dlast = SetOWLOntologyTagsAndAst(ontology, invtransform, source, defaultPfx, out tags, useDefaultNamespaceAsFullUri);
 
@@ -1052,7 +1052,7 @@ namespace Ontorion
             return false;
         }
 
-        internal CNL.DL.Paragraph SetOWLOntologyTagsAndAst(OWLOntology ontology, Ontorion.ARS.InvTransform invtransform, string source, string defaultPfx, out ReferenceTags tags, bool useDefaultNamespaceAsFullUri = false)
+        internal CNL.DL.Paragraph SetOWLOntologyTagsAndAst(OWLOntology ontology, CogniPy.ARS.InvTransform invtransform, string source, string defaultPfx, out ReferenceTags tags, bool useDefaultNamespaceAsFullUri = false)
         {
             tags = new ReferenceTags();
             CNL.DL.Paragraph dlast = invtransform.Convert(ontology);
@@ -1080,16 +1080,16 @@ namespace Ontorion
 
             if (!string.IsNullOrEmpty(defaultPfx))
             {
-                Ontorion.CNL.DL.SetDefaultPfxVisitor defPfxVis = new Ontorion.CNL.DL.SetDefaultPfxVisitor(defaultPfx);
+                CogniPy.CNL.DL.SetDefaultPfxVisitor defPfxVis = new CogniPy.CNL.DL.SetDefaultPfxVisitor(defaultPfx);
                 defPfxVis.Visit(dlast);
             }
             else if (useDefaultNamespaceAsFullUri && !String.IsNullOrWhiteSpace(tags.baseNamespace))
             {
-                Ontorion.CNL.DL.SetDefaultPfxVisitor defPfxVis = new Ontorion.CNL.DL.SetDefaultPfxVisitor(null,tags.baseNamespace);
+                CogniPy.CNL.DL.SetDefaultPfxVisitor defPfxVis = new CogniPy.CNL.DL.SetDefaultPfxVisitor(null,tags.baseNamespace);
                 defPfxVis.Visit(dlast);
             }
 
-            var ser = new Ontorion.CNL.DL.Serializer(false);
+            var ser = new CogniPy.CNL.DL.Serializer(false);
             ser.Serialize(dlast);
             var sign = ser.GetTaggedSignature();
 

@@ -7,15 +7,15 @@ using org.semanticweb.owlapi.model;
 using org.semanticweb.owlapi.vocab;
 using System.Globalization;
 using org.semanticweb.owlapi.reasoner;
-using Ontorion.CNL.DL;
-using Ontorion.CNL.EN;
+using CogniPy.CNL.DL;
+using CogniPy.CNL.EN;
 using org.coode.xml;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
 using org.semanticweb.owlapi.util;
-using Ontorion.ARS;
+using CogniPy.ARS;
 
-namespace Ontorion.Executing.HermiT
+namespace CogniPy.Executing.HermiT
 {
     public abstract class JenaNode
     {
@@ -113,7 +113,7 @@ namespace Ontorion.Executing.HermiT
             return ret.ToString();
         }
 
-        public static string GetLiteralVal(Ontorion.CNL.DL.Value v)
+        public static string GetLiteralVal(CogniPy.CNL.DL.Value v)
         {
             if (v is CNL.DL.Bool) return escapeString(v.ToBool() ? "true" : "false") + "^^xsd:boolean";
             if (v is CNL.DL.String) return escapeString(v.ToString()) + "^^xsd:string";
@@ -286,7 +286,7 @@ namespace Ontorion.Executing.HermiT
         }
     }
     
-    public class TransformToJenaRules : Ontorion.CNL.DL.GenericVisitor
+    public class TransformToJenaRules : CogniPy.CNL.DL.GenericVisitor
     {
 
         DLToOWLNameConv owlNC;
@@ -413,7 +413,7 @@ namespace Ontorion.Executing.HermiT
             return new JenaAnd(owlNC, activeFreeVarId.get(), nodes);
         }
 
-        public override object Visit(Ontorion.CNL.DL.BoundFacets e)
+        public override object Visit(CogniPy.CNL.DL.BoundFacets e)
         {
             var nodes = (from x in e.FL.List
                          select new JenaRelatedToValueFilter(owlNC, activeFreeVarId.get(),
@@ -425,7 +425,7 @@ namespace Ontorion.Executing.HermiT
                 return new JenaAnd(owlNC, activeFreeVarId.get(), nodes);
         }
 
-        public override object Visit(Ontorion.CNL.DL.FacetList e)
+        public override object Visit(CogniPy.CNL.DL.FacetList e)
         {
             var r = new List<Tuple<string, CNL.DL.Value>>();
             foreach (var F in e.List)

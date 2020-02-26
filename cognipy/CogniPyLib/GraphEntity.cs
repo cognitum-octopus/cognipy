@@ -1,4 +1,4 @@
-namespace Ontorion
+namespace CogniPy
 {
     public struct GraphEntity
     {

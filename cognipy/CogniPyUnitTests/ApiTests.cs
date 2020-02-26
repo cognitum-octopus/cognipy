@@ -1,6 +1,5 @@
 ﻿using CogniPy;
 using NUnit.Framework;
-using Ontorion.FluentEditorClient;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,7 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using static Ontorion.CNL.DL.Statement;
+using static CogniPy.CNL.DL.Statement;
 
 namespace CogniPyUnitTests
 {

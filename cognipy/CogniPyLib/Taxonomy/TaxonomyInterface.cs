@@ -1,4 +1,4 @@
-﻿using Ontorion.Collections;
+﻿using CogniPy.Collections;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -32,7 +32,7 @@ namespace CNL.NET
         /// Add a DL paragraph to the current taxonomy
         /// </summary>
         /// <param name="p"></param>
-        void Add(Ontorion.CNL.DL.Paragraph p);
+        void Add(CogniPy.CNL.DL.Paragraph p);
 
         /// <summary>
         /// 
@@ -63,6 +63,6 @@ namespace CNL.NET
         /// </summary>
         /// <param name="annotMan">Annotation manager containing the nodes that have annotations</param>
         /// <returns></returns>
-        void updateAnnotationPropertyForNodes(Ontorion.CNL.AnnotationManager annotMan);
+        void updateAnnotationPropertyForNodes(CogniPy.CNL.AnnotationManager annotMan);
     }
 }

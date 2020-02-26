@@ -2,44 +2,43 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
-using Ontorion.CNL.EN;
-using Ontorion.CNL.DL;
+using CogniPy.CNL.EN;
+using CogniPy.CNL.DL;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
 
-namespace Ontorion.CNL.EN
+namespace CogniPy.CNL.EN
 {
-    public class InvTransform : Ontorion.CNL.EN.IVisitor
+    public class InvTransform : CogniPy.CNL.EN.IVisitor
     {
         public enum EntityKind { Concept, AnyRole, DataRole, DataType, Instance, Annotation }
 
         private endict.WordKind markerForm = endict.WordKind.NormalForm;
         private EntityKind markerKind = EntityKind.Concept;
         private string marker = null;
-        string ToDL(string name, Ontorion.ARS.EntityKind kind, endict.WordKind form)
+        string ToDL(string name, CogniPy.ARS.EntityKind kind, endict.WordKind form)
         {
             EntityKind newKind;
             switch (kind)
             {
-                case Ontorion.ARS.EntityKind.Concept:
+                case CogniPy.ARS.EntityKind.Concept:
                     newKind = EntityKind.Concept;
                     break;
-                case Ontorion.ARS.EntityKind.DataRole:
+                case CogniPy.ARS.EntityKind.DataRole:
                     newKind = EntityKind.DataRole;
                     break;
-                case Ontorion.ARS.EntityKind.Role:
+                case CogniPy.ARS.EntityKind.Role:
                     newKind = EntityKind.AnyRole;
                     break;
-                case Ontorion.ARS.EntityKind.DataType:
+                case CogniPy.ARS.EntityKind.DataType:
                     newKind = EntityKind.DataType;
                     break;
-                case Ontorion.ARS.EntityKind.SWRLVariable:
+                case CogniPy.ARS.EntityKind.SWRLVariable:
                     throw new Exception("Cannot translate from SWRLVariable to EN");
-                    break;
-                case Ontorion.ARS.EntityKind.Instance:
+                case CogniPy.ARS.EntityKind.Instance:
                     newKind = EntityKind.Instance;
                     break;
-                case Ontorion.ARS.EntityKind.Annotation:
+                case CogniPy.ARS.EntityKind.Annotation:
                     newKind = EntityKind.Annotation;
                     break;
                 default:
@@ -109,20 +108,20 @@ namespace Ontorion.CNL.EN
         public InvTransform() { }
         public InvTransform(string marker) { this.marker = marker; }
 
-        public Ontorion.CNL.DL.Paragraph Convert(Ontorion.CNL.EN.paragraph p, bool useFullUri = false, Func<string, string> pfx2Ns = null)
+        public CogniPy.CNL.DL.Paragraph Convert(CogniPy.CNL.EN.paragraph p, bool useFullUri = false, Func<string, string> pfx2Ns = null)
         {
             _useFullUri = useFullUri;
             _pfx2Ns = pfx2Ns;
-            return p.accept(this) as Ontorion.CNL.DL.Paragraph;
+            return p.accept(this) as CogniPy.CNL.DL.Paragraph;
         }
-        public Ontorion.CNL.DL.Statement Convert(Ontorion.CNL.EN.sentence s)
+        public CogniPy.CNL.DL.Statement Convert(CogniPy.CNL.EN.sentence s)
         {
-            return s.accept(this) as Ontorion.CNL.DL.Statement;
+            return s.accept(this) as CogniPy.CNL.DL.Statement;
         }
 
-        public object Visit(Ontorion.CNL.EN.paragraph p)
+        public object Visit(CogniPy.CNL.EN.paragraph p)
         {
-            Ontorion.CNL.DL.Paragraph ret = new CNL.DL.Paragraph(null) { Statements = new List<CNL.DL.Statement>() };
+            CogniPy.CNL.DL.Paragraph ret = new CNL.DL.Paragraph(null) { Statements = new List<CNL.DL.Statement>() };
             foreach (var x in p.sentences)
             {
                 ret.Statements.Add(x.accept(this) as CNL.DL.Statement);
@@ -130,7 +129,7 @@ namespace Ontorion.CNL.EN
             return ret;
         }
 
-        public Ontorion.CNL.DL.Statement.Modality Modality(string tok)
+        public CogniPy.CNL.DL.Statement.Modality Modality(string tok)
         {
             switch (tok)
             {
@@ -144,38 +143,38 @@ namespace Ontorion.CNL.EN
             }
         }
 
-        public object Visit(Ontorion.CNL.EN.subsumption p)
+        public object Visit(CogniPy.CNL.EN.subsumption p)
         {
-            Ontorion.CNL.DL.Subsumption ret = new CNL.DL.Subsumption(null);
+            CogniPy.CNL.DL.Subsumption ret = new CNL.DL.Subsumption(null);
 
-            Ontorion.CNL.DL.Statement.Modality modal = Modality(p.modality);
+            CogniPy.CNL.DL.Statement.Modality modal = Modality(p.modality);
             ret.C = p.c.accept(this) as CNL.DL.Node;
-            using (isModal.set(modal != Ontorion.CNL.DL.Statement.Modality.IS))
+            using (isModal.set(modal != CogniPy.CNL.DL.Statement.Modality.IS))
                 ret.D = p.d.accept(this) as CNL.DL.Node;
             ret.modality = modal;
             return ret;
         }
 
-        public object Visit(Ontorion.CNL.EN.nosubsumption p)
+        public object Visit(CogniPy.CNL.EN.nosubsumption p)
         {
-            Ontorion.CNL.DL.Subsumption ret = new CNL.DL.Subsumption(null);
+            CogniPy.CNL.DL.Subsumption ret = new CNL.DL.Subsumption(null);
 
-            Ontorion.CNL.DL.Statement.Modality modal = Modality(p.modality);
+            CogniPy.CNL.DL.Statement.Modality modal = Modality(p.modality);
             ret.C = p.c.accept(this) as CNL.DL.Node;
-            using (isModal.set(modal != Ontorion.CNL.DL.Statement.Modality.IS))
-                ret.D = new Ontorion.CNL.DL.ConceptNot(null) { C = p.d.accept(this) as CNL.DL.Node };
+            using (isModal.set(modal != CogniPy.CNL.DL.Statement.Modality.IS))
+                ret.D = new CogniPy.CNL.DL.ConceptNot(null) { C = p.d.accept(this) as CNL.DL.Node };
             ret.modality = modal;
 
             return ret;
         }
 
-        public object Visit(Ontorion.CNL.EN.subsumption_if p)
+        public object Visit(CogniPy.CNL.EN.subsumption_if p)
         {
-            Ontorion.CNL.DL.Subsumption ret = new CNL.DL.Subsumption(null);
+            CogniPy.CNL.DL.Subsumption ret = new CNL.DL.Subsumption(null);
 
-            Ontorion.CNL.DL.Statement.Modality modal = Modality(p.modality);
+            CogniPy.CNL.DL.Statement.Modality modal = Modality(p.modality);
             ret.C = p.c.accept(this) as CNL.DL.Node;
-            using (isModal.set(modal != Ontorion.CNL.DL.Statement.Modality.IS))
+            using (isModal.set(modal != CogniPy.CNL.DL.Statement.Modality.IS))
                 ret.D = p.d.accept(this) as CNL.DL.Node;
             ret.modality = modal;
             return ret;
@@ -183,17 +182,17 @@ namespace Ontorion.CNL.EN
 
         public object Visit(datatypedef p)
         {
-            Ontorion.CNL.DL.DataTypeDefinition ret = new DataTypeDefinition(null, new CNL.DL.ID(null) { yytext = ToDL(p.name, EntityKind.DataType, endict.WordKind.NormalForm) }, p.db.accept(this) as AbstractBound);
+            CogniPy.CNL.DL.DataTypeDefinition ret = new DataTypeDefinition(null, new CNL.DL.ID(null) { yytext = ToDL(p.name, EntityKind.DataType, endict.WordKind.NormalForm) }, p.db.accept(this) as AbstractBound);
             return ret;
         }
 
-        public object Visit(Ontorion.CNL.EN.equivalence2 p)
+        public object Visit(CogniPy.CNL.EN.equivalence2 p)
         {
-            Ontorion.CNL.DL.Equivalence ret = new CNL.DL.Equivalence(null) { Equivalents = new List<Node>() };
+            CogniPy.CNL.DL.Equivalence ret = new CNL.DL.Equivalence(null) { Equivalents = new List<Node>() };
 
-            Ontorion.CNL.DL.Statement.Modality modal = Modality(p.modality);
+            CogniPy.CNL.DL.Statement.Modality modal = Modality(p.modality);
             ret.Equivalents.Add(p.c.accept(this) as CNL.DL.Node);
-            using (isModal.set(modal != Ontorion.CNL.DL.Statement.Modality.IS))
+            using (isModal.set(modal != CogniPy.CNL.DL.Statement.Modality.IS))
                 ret.Equivalents.Add(p.d.accept(this) as CNL.DL.Node);
             ret.modality = modal;
             return ret;
@@ -223,12 +222,12 @@ namespace Ontorion.CNL.EN
         //    return ret;
         //}
 
-        public object Visit(Ontorion.CNL.EN.exclusives p)
+        public object Visit(CogniPy.CNL.EN.exclusives p)
         {
-            Ontorion.CNL.DL.Disjoint ret = new CNL.DL.Disjoint(null) { Disjoints = new List<Node>() };
+            CogniPy.CNL.DL.Disjoint ret = new CNL.DL.Disjoint(null) { Disjoints = new List<Node>() };
 
-            Ontorion.CNL.DL.Statement.Modality modal = Modality(p.modality);
-            using (isModal.set(modal != Ontorion.CNL.DL.Statement.Modality.IS))
+            CogniPy.CNL.DL.Statement.Modality modal = Modality(p.modality);
+            using (isModal.set(modal != CogniPy.CNL.DL.Statement.Modality.IS))
             {
 
                 foreach (var e in p.objectRoleExprs)
@@ -255,11 +254,11 @@ namespace Ontorion.CNL.EN
         //    return ret;
         //}
 
-        public object Visit(Ontorion.CNL.EN.exclusiveunion p)
+        public object Visit(CogniPy.CNL.EN.exclusiveunion p)
         {
-            Ontorion.CNL.DL.DisjointUnion ret = new CNL.DL.DisjointUnion(null) { Union = new List<Node>() };
+            CogniPy.CNL.DL.DisjointUnion ret = new CNL.DL.DisjointUnion(null) { Union = new List<Node>() };
 
-            Ontorion.CNL.DL.Statement.Modality modal = Modality(p.modality);
+            CogniPy.CNL.DL.Statement.Modality modal = Modality(p.modality);
 
             ret.name = ToDL(p.name, EntityKind.Concept, endict.WordKind.NormalForm);
 
@@ -274,10 +273,10 @@ namespace Ontorion.CNL.EN
         {
             if (p.subChain.Count == 1)
             {
-                Ontorion.CNL.DL.RoleInclusion ret = new RoleInclusion(null);
-                Ontorion.CNL.DL.Statement.Modality modal = Modality(p.modality);
+                CogniPy.CNL.DL.RoleInclusion ret = new RoleInclusion(null);
+                CogniPy.CNL.DL.Statement.Modality modal = Modality(p.modality);
                 ret.C = p.subChain[0].accept(this) as CNL.DL.Node;
-                using (isModal.set(modal != Ontorion.CNL.DL.Statement.Modality.IS))
+                using (isModal.set(modal != CogniPy.CNL.DL.Statement.Modality.IS))
                 {
                     ret.D = p.superRole.accept(this) as CNL.DL.Node;
                 }
@@ -287,15 +286,15 @@ namespace Ontorion.CNL.EN
             }
             else if (p.subChain.Count > 1)
             {
-                Ontorion.CNL.DL.ComplexRoleInclusion ret = new CNL.DL.ComplexRoleInclusion(null) { RoleChain = new List<Node>() };
-                Ontorion.CNL.DL.Statement.Modality modal = Modality(p.modality);
+                CogniPy.CNL.DL.ComplexRoleInclusion ret = new CNL.DL.ComplexRoleInclusion(null) { RoleChain = new List<Node>() };
+                CogniPy.CNL.DL.Statement.Modality modal = Modality(p.modality);
 
                 foreach (var x in p.subChain)
                 {
                     ret.RoleChain.Add(x.accept(this) as CNL.DL.Node);
                 }
 
-                using (isModal.set(modal != Ontorion.CNL.DL.Statement.Modality.IS))
+                using (isModal.set(modal != CogniPy.CNL.DL.Statement.Modality.IS))
                 {
                     ret.R = p.superRole.accept(this) as CNL.DL.Node;
                 }
@@ -322,11 +321,11 @@ namespace Ontorion.CNL.EN
         //    return ret;
         //}
 
-        public object Visit(Ontorion.CNL.EN.roleequivalence2 p)
+        public object Visit(CogniPy.CNL.EN.roleequivalence2 p)
         {
-            Ontorion.CNL.DL.RoleEquivalence ret = new CNL.DL.RoleEquivalence(null) { Equivalents = new List<Node>() };
+            CogniPy.CNL.DL.RoleEquivalence ret = new CNL.DL.RoleEquivalence(null) { Equivalents = new List<Node>() };
 
-            Ontorion.CNL.DL.Statement.Modality modal = Modality(p.modality);
+            CogniPy.CNL.DL.Statement.Modality modal = Modality(p.modality);
 
             ret.Equivalents.Add(p.r.accept(this) as CNL.DL.Node);
             ret.Equivalents.Add(p.s.accept(this) as CNL.DL.Node);
@@ -348,11 +347,11 @@ namespace Ontorion.CNL.EN
         //    return ret;
         //}
 
-        public object Visit(Ontorion.CNL.EN.roledisjoint2 p)
+        public object Visit(CogniPy.CNL.EN.roledisjoint2 p)
         {
-            Ontorion.CNL.DL.RoleDisjoint ret = new CNL.DL.RoleDisjoint(null) { Disjoints = new List<Node>() };
+            CogniPy.CNL.DL.RoleDisjoint ret = new CNL.DL.RoleDisjoint(null) { Disjoints = new List<Node>() };
 
-            Ontorion.CNL.DL.Statement.Modality modal = Modality(p.modality);
+            CogniPy.CNL.DL.Statement.Modality modal = Modality(p.modality);
 
             ret.Disjoints.Add(p.r.accept(this) as CNL.DL.Node);
             ret.Disjoints.Add(p.s.accept(this) as CNL.DL.Node);
@@ -365,10 +364,10 @@ namespace Ontorion.CNL.EN
         {
             using (isDataRoleStatement.set(true))
             {
-                Ontorion.CNL.DL.DataRoleInclusion ret = new DataRoleInclusion(null);
-                Ontorion.CNL.DL.Statement.Modality modal = Modality(p.modality);
+                CogniPy.CNL.DL.DataRoleInclusion ret = new DataRoleInclusion(null);
+                CogniPy.CNL.DL.Statement.Modality modal = Modality(p.modality);
                 ret.C = p.subRole.accept(this) as CNL.DL.Node;
-                using (isModal.set(modal != Ontorion.CNL.DL.Statement.Modality.IS))
+                using (isModal.set(modal != CogniPy.CNL.DL.Statement.Modality.IS))
                 {
                     ret.D = p.superRole.accept(this) as CNL.DL.Node;
                 }
@@ -391,11 +390,11 @@ namespace Ontorion.CNL.EN
         //    return ret;
         //}
 
-        public object Visit(Ontorion.CNL.EN.dataroleequivalence2 p)
+        public object Visit(CogniPy.CNL.EN.dataroleequivalence2 p)
         {
             using (isDataRoleStatement.set(true))
             {
-                Ontorion.CNL.DL.DataRoleEquivalence ret = new CNL.DL.DataRoleEquivalence(null) { Equivalents = new List<Node>() };
+                CogniPy.CNL.DL.DataRoleEquivalence ret = new CNL.DL.DataRoleEquivalence(null) { Equivalents = new List<Node>() };
 
                 ret.Equivalents.Add(p.r.accept(this) as CNL.DL.Node);
                 ret.Equivalents.Add(p.s.accept(this) as CNL.DL.Node);
@@ -415,13 +414,13 @@ namespace Ontorion.CNL.EN
         //    ret.modality = modal;
         //    return ret;
         //}
-        public object Visit(Ontorion.CNL.EN.dataroledisjoint2 p)
+        public object Visit(CogniPy.CNL.EN.dataroledisjoint2 p)
         {
             using (isDataRoleStatement.set(true))
             {
-                Ontorion.CNL.DL.DataRoleDisjoint ret = new CNL.DL.DataRoleDisjoint(null) { Disjoints = new List<Node>() };
+                CogniPy.CNL.DL.DataRoleDisjoint ret = new CNL.DL.DataRoleDisjoint(null) { Disjoints = new List<Node>() };
 
-                Ontorion.CNL.DL.Statement.Modality modal = Modality(p.modality);
+                CogniPy.CNL.DL.Statement.Modality modal = Modality(p.modality);
 
                 ret.Disjoints.Add(p.r.accept(this) as CNL.DL.Node);
                 using (isModal.set(true))
@@ -432,9 +431,9 @@ namespace Ontorion.CNL.EN
             }
         }
 
-        public object Visit(Ontorion.CNL.EN.haskey p)
+        public object Visit(CogniPy.CNL.EN.haskey p)
         {
-            Ontorion.CNL.DL.HasKey ret = new CNL.DL.HasKey(null) { Roles = new List<Node>(), DataRoles = new List<Node>() };
+            CogniPy.CNL.DL.HasKey ret = new CNL.DL.HasKey(null) { Roles = new List<Node>(), DataRoles = new List<Node>() };
 
             foreach (var e in p.roles)
                 ret.Roles.Add(e.accept(this) as CNL.DL.Node);
@@ -448,34 +447,34 @@ namespace Ontorion.CNL.EN
             return ret;
         }
 
-        public object Visit(Ontorion.CNL.EN.subjectEvery p)
+        public object Visit(CogniPy.CNL.EN.subjectEvery p)
         {
             return p.s.accept(this);
         }
-        public object Visit(Ontorion.CNL.EN.subjectEverything p)
+        public object Visit(CogniPy.CNL.EN.subjectEverything p)
         {
-            return p.t != null ? p.t.accept(this) : new Ontorion.CNL.DL.Top(null);
+            return p.t != null ? p.t.accept(this) : new CogniPy.CNL.DL.Top(null);
         }
 
         //go into nosubsumptions
-        public object Visit(Ontorion.CNL.EN.subjectNo p)
+        public object Visit(CogniPy.CNL.EN.subjectNo p)
         {
             return p.s.accept(this);
         }
         public object Visit(subjectNothing p)
         {
-            return new Ontorion.CNL.DL.Top(null);
+            return new CogniPy.CNL.DL.Top(null);
         }
 
 
-        Ontorion.CNL.DL.Instance BigName(string name)
+        CogniPy.CNL.DL.Instance BigName(string name)
         {
             return new CNL.DL.NamedInstance(null) { name = ToDL(name, EntityKind.Instance, endict.WordKind.NormalForm) };
         }
 
-        Ontorion.CNL.DL.Instance Unnamed(bool only, single s)
+        CogniPy.CNL.DL.Instance Unnamed(bool only, single s)
         {
-            return new CNL.DL.UnnamedInstance(null) { Only = only, C = s.accept(this) as Ontorion.CNL.DL.Node };
+            return new CNL.DL.UnnamedInstance(null) { Only = only, C = s.accept(this) as CogniPy.CNL.DL.Node };
         }
 
         public object Visit(subjectBigName p)
@@ -502,7 +501,7 @@ namespace Ontorion.CNL.EN
             using (roleNode.set(null))
             {
                 if (p.Negated)
-                    return new Ontorion.CNL.DL.ConceptNot(null) { C = p.s.accept(this) as Ontorion.CNL.DL.Node };
+                    return new CogniPy.CNL.DL.ConceptNot(null) { C = p.s.accept(this) as CogniPy.CNL.DL.Node };
                 else
                     return p.s.accept(this);
             }
@@ -589,7 +588,7 @@ namespace Ontorion.CNL.EN
                 using (roleNode.set(p.r.accept(this) as CNL.DL.Node))
                 {
                     if (p.Negated)
-                        return new Ontorion.CNL.DL.ConceptNot(null) { C = p.s.accept(this) as Ontorion.CNL.DL.Node };
+                        return new CogniPy.CNL.DL.ConceptNot(null) { C = p.s.accept(this) as CogniPy.CNL.DL.Node };
                     else
                     {
                         if (p.s != null)
@@ -604,7 +603,7 @@ namespace Ontorion.CNL.EN
         {
             using (isModal.set(isModal.get()))
             {
-                return new Ontorion.CNL.DL.SomeRestriction(null) { C = p.t.accept(this) as CNL.DL.Node, R = p.r.accept(this) as CNL.DL.Node };
+                return new CogniPy.CNL.DL.SomeRestriction(null) { C = p.t.accept(this) as CNL.DL.Node, R = p.r.accept(this) as CNL.DL.Node };
             }
         }
 
@@ -837,7 +836,7 @@ namespace Ontorion.CNL.EN
             {
                 list.Add(e.accept(this) as CNL.DL.Instance);
             }
-            return new Ontorion.CNL.DL.InstanceSet(null) { Instances = list };
+            return new CogniPy.CNL.DL.InstanceSet(null) { Instances = list };
         }
 
         public object Visit(facet p)
@@ -974,7 +973,7 @@ namespace Ontorion.CNL.EN
             newDataValVar = 1;
             newInstanceValVar.Clear();
 
-            Ontorion.CNL.DL.SwrlStatement swrl_statement = new CNL.DL.SwrlStatement(null);
+            CogniPy.CNL.DL.SwrlStatement swrl_statement = new CNL.DL.SwrlStatement(null);
             swrl_statement.slp = p.Predicate.accept(this) as CNL.DL.SwrlItemList;
             swrl_statement.slc = p.Result.accept(this) as CNL.DL.SwrlItemList;
             swrl_statement.modality = Modality(p.modality);
@@ -986,7 +985,7 @@ namespace Ontorion.CNL.EN
             var listT = new List<CNL.DL.SwrlItem>();
             foreach (var e in p.Conditions)
                 listT.AddRange(e.accept(this) as List<CNL.DL.SwrlItem>);
-            return new Ontorion.CNL.DL.SwrlItemList(null) { list = listT };
+            return new CogniPy.CNL.DL.SwrlItemList(null) { list = listT };
         }
 
         public object Visit(clause_result p)
@@ -994,7 +993,7 @@ namespace Ontorion.CNL.EN
             var listT = new List<CNL.DL.SwrlItem>();
             foreach (var e in p.Conditions)
                 listT.AddRange(e.accept(this) as List<CNL.DL.SwrlItem>);
-            return new Ontorion.CNL.DL.SwrlItemList(null) { list = listT };
+            return new CogniPy.CNL.DL.SwrlItemList(null) { list = listT };
         }
 
         public object Visit(condition_is p)
@@ -1449,7 +1448,7 @@ namespace Ontorion.CNL.EN
         public object Visit(duration_w p)
         {
             return new List<ISwrlObject>(){
-                new SwrlDVal(null, new Ontorion.CNL.DL.String(null, "'W'")),
+                new SwrlDVal(null, new CogniPy.CNL.DL.String(null, "'W'")),
                 p.y.accept(this) as SwrlDObject,
                 p.W.accept(this) as SwrlDObject,
                 p.d.accept(this) as SwrlDObject,
@@ -1461,7 +1460,7 @@ namespace Ontorion.CNL.EN
         public object Visit(duration_m p)
         {
             return new List<ISwrlObject>(){
-                new SwrlDVal(null, new Ontorion.CNL.DL.String(null, "'M'")),
+                new SwrlDVal(null, new CogniPy.CNL.DL.String(null, "'M'")),
                 p.y.accept(this) as SwrlDObject,
                 p.M.accept(this) as SwrlDObject,
                 p.d.accept(this) as SwrlDObject,
@@ -1474,7 +1473,7 @@ namespace Ontorion.CNL.EN
         public object Visit(datetime p)
         {
             return new List<ISwrlObject>(){
-                new SwrlDVal(null, new Ontorion.CNL.DL.String(null, "'M'")),
+                new SwrlDVal(null, new CogniPy.CNL.DL.String(null, "'M'")),
                 p.y.accept(this) as SwrlDObject,
                 p.M.accept(this) as SwrlDObject,
                 p.d.accept(this) as SwrlDObject,
@@ -1566,7 +1565,7 @@ namespace Ontorion.CNL.EN
         {
             return new CNL.DL.SwrlInstance(null)
             {
-                C = (class_name == null) ? new Ontorion.CNL.DL.Top(null) as CNL.DL.Node : new Ontorion.CNL.DL.Atomic(null) { id = class_name },
+                C = (class_name == null) ? new CogniPy.CNL.DL.Top(null) as CNL.DL.Node : new CogniPy.CNL.DL.Atomic(null) { id = class_name },
                 I = id
             };
         }
@@ -1682,7 +1681,7 @@ namespace Ontorion.CNL.EN
             newDataValVar = 1;
             newInstanceValVar.Clear();
 
-            Ontorion.CNL.DL.SwrlIterate swrl_statement = new CNL.DL.SwrlIterate(null);
+            CogniPy.CNL.DL.SwrlIterate swrl_statement = new CNL.DL.SwrlIterate(null);
             swrl_statement.slp = p.Predicate.accept(this) as CNL.DL.SwrlItemList;
             swrl_statement.slc = p.Result.accept(this) as CNL.DL.SwrlItemList;
             swrl_statement.vars = p.Collection.accept(this) as CNL.DL.SwrlVarList;
@@ -1733,7 +1732,7 @@ namespace Ontorion.CNL.EN
 
         public object Visit(dlannotationassertion p)
         {
-            Ontorion.ARS.EntityKind result = Ontorion.CNL.AnnotationManager.ParseSubjectKind(p.subjKind);
+            CogniPy.ARS.EntityKind result = CogniPy.CNL.AnnotationManager.ParseSubjectKind(p.subjKind);
 #if !SILVERLIGHT
             return new CNL.DL.DLAnnotationAxiom(null) { subject = p.subject, subjKind = p.subjKind, annotName = p.annotName, value = System.Net.WebUtility.HtmlEncode(p.value), language = p.language };
 #else

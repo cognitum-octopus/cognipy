@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Ontorion.ARS
+namespace CogniPy.ARS
 {
     public enum EntityKind { Concept, Role, DataRole, DataType, Instance, SWRLVariable, Annotation,Statement }
 }
 
-namespace Ontorion.CNL.DL
+namespace CogniPy.CNL.DL
 {
 
     public class DlName

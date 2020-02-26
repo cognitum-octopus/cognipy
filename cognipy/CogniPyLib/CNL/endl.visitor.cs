@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Ontorion.CNL.EN
+namespace CogniPy.CNL.EN
 {
     public interface IVisitor
     {

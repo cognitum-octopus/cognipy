@@ -6,7 +6,7 @@ using Tools;
 using System.IO;
 using System.Reflection;
 
-namespace Ontorion.CNL.EN
+namespace CogniPy.CNL.EN
 {
 
     public class CNLFactory : ICNLFactory
@@ -17,7 +17,7 @@ namespace Ontorion.CNL.EN
             return System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream(name);
         }
         
-        public static Ontorion.CNL.EN.endict lex = new Ontorion.CNL.EN.endict(FindResourceString("en.dict"));
+        public static CogniPy.CNL.EN.endict lex = new CogniPy.CNL.EN.endict(FindResourceString("en.dict"));
 
         [ThreadStatic]
         static Tools.Parser enParser = null;
@@ -25,29 +25,29 @@ namespace Ontorion.CNL.EN
         public Tools.Lexer getLexer()
         {
             if (enParser == null)
-                enParser = new Ontorion.CNL.EN.endl(new yyendl(), new ErrorHandler(false));
+                enParser = new CogniPy.CNL.EN.endl(new yyendl(), new ErrorHandler(false));
             return enParser.m_lexer;
         }
         public Tools.Parser getParser()
         {
             if (enParser == null)
-                enParser = new Ontorion.CNL.EN.endl(new yyendl(), new ErrorHandler(false));
+                enParser = new CogniPy.CNL.EN.endl(new yyendl(), new ErrorHandler(false));
             return enParser;
         }
 
         public bool isEOL(TOKEN tok)
         {
-            return (tok is Ontorion.CNL.EN.END) || (tok is Ontorion.CNL.EN.COMMENT);
+            return (tok is CogniPy.CNL.EN.END) || (tok is CogniPy.CNL.EN.COMMENT);
         }
 
         public bool isANNNOT(TOKEN tok)
         {
-            return (tok is Ontorion.CNL.EN.COMMENT);
+            return (tok is CogniPy.CNL.EN.COMMENT);
         }
 
         public bool isParagraph(SYMBOL smb)
         {
-            return (smb is Ontorion.CNL.EN.paragraph);
+            return (smb is CogniPy.CNL.EN.paragraph);
         }
 
         Func<string, string> pfx2Ns = null;
@@ -58,26 +58,26 @@ namespace Ontorion.CNL.EN
 
         public DL.Paragraph InvConvert(SYMBOL smb, bool useFullUri = false, Func<string, string> pfx2nsEx = null)
         {
-            Ontorion.CNL.EN.InvTransform trans = new Ontorion.CNL.EN.InvTransform();
-            return trans.Convert(smb as Ontorion.CNL.EN.paragraph, useFullUri, (pfx2nsEx != null) ? pfx2nsEx : pfx2Ns);
+            CogniPy.CNL.EN.InvTransform trans = new CogniPy.CNL.EN.InvTransform();
+            return trans.Convert(smb as CogniPy.CNL.EN.paragraph, useFullUri, (pfx2nsEx != null) ? pfx2nsEx : pfx2Ns);
         }
 
         public object Convert(DL.Statement stmast, bool usePrefixes = false, Func<string, string> ns2pfx = null)
         {
-            Ontorion.CNL.EN.Transform trans = new Ontorion.CNL.EN.Transform();
+            CogniPy.CNL.EN.Transform trans = new CogniPy.CNL.EN.Transform();
             return trans.Convert(stmast, usePrefixes, ns2pfx);
         }
 
         public object Convert(DL.Paragraph para, bool usePrefixes = false, Func<string, string> ns2pfx = null)
         {
-            Ontorion.CNL.EN.Transform trans = new Ontorion.CNL.EN.Transform();
+            CogniPy.CNL.EN.Transform trans = new CogniPy.CNL.EN.Transform();
             return trans.Convert(para, usePrefixes, ns2pfx);
         }
 
 
         public object Convert(DL.IAccept nodeast, bool usePrefixes = false, Func<string, string> ns2pfx = null)
         {
-            Ontorion.CNL.EN.Transform trans = new Ontorion.CNL.EN.Transform();
+            CogniPy.CNL.EN.Transform trans = new CogniPy.CNL.EN.Transform();
             return trans.Convert(nodeast, usePrefixes, ns2pfx);
         }
 
@@ -98,32 +98,32 @@ namespace Ontorion.CNL.EN
             }
             else
             {
-                var ser = new Ontorion.CNL.EN.Serializer2();
+                var ser = new CogniPy.CNL.EN.Serializer2();
                 ser.SerializeAnnotations = serializeAnnotations;
                 ser.TemplateMode = templateMode;
-                if (enast is Ontorion.CNL.EN.paragraph)
+                if (enast is CogniPy.CNL.EN.paragraph)
                 {
-                    ret = ser.Serialize(enast as Ontorion.CNL.EN.paragraph);
+                    ret = ser.Serialize(enast as CogniPy.CNL.EN.paragraph);
                 }
-                else if (enast is Ontorion.CNL.EN.sentence)
+                else if (enast is CogniPy.CNL.EN.sentence)
                 {
-                    ret = ser.Serialize(enast as Ontorion.CNL.EN.sentence);
+                    ret = ser.Serialize(enast as CogniPy.CNL.EN.sentence);
                 }
-                else if (enast is Ontorion.CNL.EN.orloop)
+                else if (enast is CogniPy.CNL.EN.orloop)
                 {
-                    ret = ser.Serialize(enast as Ontorion.CNL.EN.orloop);
+                    ret = ser.Serialize(enast as CogniPy.CNL.EN.orloop);
                 }
-                else if (enast is Ontorion.CNL.EN.boundFacets)
+                else if (enast is CogniPy.CNL.EN.boundFacets)
                 {
-                    ret = ser.Serialize(enast as Ontorion.CNL.EN.boundFacets);
+                    ret = ser.Serialize(enast as CogniPy.CNL.EN.boundFacets);
                 }
-                else if (enast is Ontorion.CNL.EN.boundTop)
+                else if (enast is CogniPy.CNL.EN.boundTop)
                 {
-                    ret = ser.Serialize(enast as Ontorion.CNL.EN.boundTop);
+                    ret = ser.Serialize(enast as CogniPy.CNL.EN.boundTop);
                 }
-                else if (enast is Ontorion.CNL.EN.boundTotal)
+                else if (enast is CogniPy.CNL.EN.boundTotal)
                 {
-                    ret = ser.Serialize(enast as Ontorion.CNL.EN.boundTotal);
+                    ret = ser.Serialize(enast as CogniPy.CNL.EN.boundTotal);
                 }
                 else
                     throw new NotImplementedException("Could not serialize. Not implemented.");
@@ -136,7 +136,7 @@ namespace Ontorion.CNL.EN
 
         static string FromDL(string name, endict.WordKind kind, bool bigName)
         {
-            return ENNameingConvention.FromDL(new Ontorion.CNL.DL.DlName() { id = name }, kind, bigName).id;
+            return ENNameingConvention.FromDL(new CogniPy.CNL.DL.DlName() { id = name }, kind, bigName).id;
         }
         public IEnumerable<string> Morphology(IEnumerable<string> col, string str, string form, bool bigName)
         {
@@ -144,13 +144,13 @@ namespace Ontorion.CNL.EN
                 return from r in col where FromDL(r, endict.WordKind.NormalForm, false).StartsWith(str) select FromDL(r, endict.WordKind.NormalForm, bigName);
             else
             {
-                Ontorion.CNL.EN.endict.WordKind k = Ontorion.CNL.EN.endict.WordKind.PastParticiple;
+                CogniPy.CNL.EN.endict.WordKind k = CogniPy.CNL.EN.endict.WordKind.PastParticiple;
                 if (form == "SimplePast")
-                    k = Ontorion.CNL.EN.endict.WordKind.SimplePast;
+                    k = CogniPy.CNL.EN.endict.WordKind.SimplePast;
                 else if (form == "PluralFormNoun")
-                    k = Ontorion.CNL.EN.endict.WordKind.PluralFormNoun;
+                    k = CogniPy.CNL.EN.endict.WordKind.PluralFormNoun;
                 else if (form == "PluralFormVerb")
-                    k = Ontorion.CNL.EN.endict.WordKind.PluralFormVerb;
+                    k = CogniPy.CNL.EN.endict.WordKind.PluralFormVerb;
                 var q = from r in col where FromDL(r, k, bigName).StartsWith(str) select FromDL(r, k, bigName);
                 return q;
             }
@@ -188,8 +188,8 @@ namespace Ontorion.CNL.EN
 
         public void FindMark(SYMBOL smb, string mark, out string kind, out string form)
         {
-            Ontorion.CNL.EN.InvTransform trans = new InvTransform(mark);
-            trans.Convert(smb as Ontorion.CNL.EN.paragraph);
+            CogniPy.CNL.EN.InvTransform trans = new InvTransform(mark);
+            trans.Convert(smb as CogniPy.CNL.EN.paragraph);
             var ckind = trans.GetMarkerKind();
             var cform = trans.GetMarkerForm();
             switch (ckind)

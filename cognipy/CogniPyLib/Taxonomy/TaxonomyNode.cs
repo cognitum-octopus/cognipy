@@ -1,4 +1,4 @@
-﻿using Ontorion.Collections;
+﻿using CogniPy.Collections;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -127,7 +127,7 @@ namespace CNL.NET
             }
         }
 
-        public Ontorion.ARS.EntityKind Kind { get; set; }
+        public CogniPy.ARS.EntityKind Kind { get; set; }
 
         void purgeCache()
         {

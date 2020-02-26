@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Ontorion.CNL.DL
+namespace CogniPy.CNL.DL
 {
-    public class FullUriVisitor : Ontorion.CNL.DL.GenericVisitor
+    public class FullUriVisitor : CogniPy.CNL.DL.GenericVisitor
     {
         Func<string, string> pfx2ns;
         string _defaultNs;

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace FluentEditorClientLib
+namespace CogniPy
 {
     public enum StatementType { Concept, Rule, Role, Instance, Annotation, Constraint }
 
-    public class FeClientStatement
+    public class CogniPyStatement
     {
         public string CnlStatement { get; set; }
         

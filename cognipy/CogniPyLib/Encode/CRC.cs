@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Ontorion.Common
+namespace CogniPy.Common
 {
   /// <summary>
   /// A utility class to compute CRC32.

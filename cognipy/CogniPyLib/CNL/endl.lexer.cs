@@ -1,5 +1,5 @@
 using System;using Tools;
-namespace Ontorion.CNL.EN {
+namespace CogniPy.CNL.EN {
 //%+STR+3
 public partial class STR : TOKEN{
 public override string yyname { get { return "STR"; }}

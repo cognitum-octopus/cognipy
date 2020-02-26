@@ -1,7 +1,7 @@
 ﻿using org.semanticweb.owlapi.model;
 using org.semanticweb.owlapi.util;
 
-namespace Ontorion.Executing.HermiT
+namespace CogniPy.Executing.HermiT
 {
     public class InferredPropertyAssertionGeneratorNoTopProps : InferredPropertyAssertionGenerator
     {

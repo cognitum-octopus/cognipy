@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Ontorion.CNL.EN
+namespace CogniPy.CNL.EN
 {
     public class TaxonomyNodeEN :TaxonomyNode
     {
-        public TaxonomyNodeEN(Ontorion.Collections.IInvokableProvider invokableProvider) :base(invokableProvider)
+        public TaxonomyNodeEN(CogniPy.Collections.IInvokableProvider invokableProvider) :base(invokableProvider)
         {
         }
 
@@ -31,9 +31,9 @@ namespace Ontorion.CNL.EN
 
                         string ident;
                         if (s.EndsWith("⁻"))
-                            ident = Ontorion.CNL.EN.ENNameingConvention.FromDL(new Ontorion.CNL.DL.DlName() { id = s.EndsWith("⁻") ? s.Substring(0, s.Length - 1) : s }, CNL.EN.endict.WordKind.SimplePast, false).id + " by";
+                            ident = CogniPy.CNL.EN.ENNameingConvention.FromDL(new CogniPy.CNL.DL.DlName() { id = s.EndsWith("⁻") ? s.Substring(0, s.Length - 1) : s }, CNL.EN.endict.WordKind.SimplePast, false).id + " by";
                         else
-                            ident = Ontorion.CNL.EN.ENNameingConvention.FromDL(new Ontorion.CNL.DL.DlName() { id = s }, false).id;
+                            ident = CogniPy.CNL.EN.ENNameingConvention.FromDL(new CogniPy.CNL.DL.DlName() { id = s }, false).id;
 
                         if (s.StartsWith("["))
                         {

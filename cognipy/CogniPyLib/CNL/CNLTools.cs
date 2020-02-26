@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using Tools;
 
 
-namespace Ontorion.CNL
+namespace CogniPy.CNL
 {
     public interface ICNLFactory
     {
@@ -152,16 +152,16 @@ namespace Ontorion.CNL
             currentLang = languageSymbol;
         }
 
-        public static bool isSurelyDLEntity(string entity, Ontorion.ARS.EntityKind entKind)
+        public static bool isSurelyDLEntity(string entity, CogniPy.ARS.EntityKind entKind)
         {
             if (String.IsNullOrWhiteSpace(entity))
                 return false;
 
             // if it starts with _ or {" it is an instance and it is already in DL!
-            if (entKind == Ontorion.ARS.EntityKind.Instance && (entity.StartsWith("_") || entity.StartsWith("{\"")))
+            if (entKind == CogniPy.ARS.EntityKind.Instance && (entity.StartsWith("_") || entity.StartsWith("{\"")))
                 return true;
 
-            var nn = new Ontorion.CNL.DL.DlName() { id = entity };
+            var nn = new CogniPy.CNL.DL.DlName() { id = entity };
             var sp = nn.Split();
             if (!String.IsNullOrWhiteSpace(sp.term))
                 return true;
@@ -230,7 +230,7 @@ namespace Ontorion.CNL
                 return entity;
             else
             {
-                var dlName = new Ontorion.CNL.DL.DlName() { id = entity };
+                var dlName = new CogniPy.CNL.DL.DlName() { id = entity };
                 var allParts = dlName.Split();
                 if (!System.String.IsNullOrWhiteSpace(allParts.term) && !allParts.term.StartsWith("<") && !allParts.term.EndsWith(">"))
                 {
@@ -302,7 +302,7 @@ namespace Ontorion.CNL
                 ns = Regex.Replace(ns, @"\r", "");
                 ns = Regex.Replace(ns, @"\n", "");
                 ns = Regex.Replace(ns, "'", "");
-                ns = Ontorion.CNL.CNLTools.GetCanonicalNs(ns);
+                ns = CogniPy.CNL.CNLTools.GetCanonicalNs(ns);
             }
         }
 
@@ -569,7 +569,7 @@ namespace Ontorion.CNL
         public IEnumerable<string> SplitDLIntoLines(string txt)
         {
             var dlast = GetDLAst(txt, true);
-            var ser = new Ontorion.CNL.DL.Serializer(false);
+            var ser = new CogniPy.CNL.DL.Serializer(false);
 
             foreach (var stmt in dlast.Statements)
                 yield return ser.Serialize(stmt);
@@ -744,7 +744,7 @@ namespace Ontorion.CNL
             }
         }
 
-        public Ontorion.CNL.DL.Paragraph GetENDNL2DLForRoleBody(string text, out string pattern, bool throwOnError = true, bool useFullUri = false, Func<string, string> pfx2Ns = null)
+        public CogniPy.CNL.DL.Paragraph GetENDNL2DLForRoleBody(string text, out string pattern, bool throwOnError = true, bool useFullUri = false, Func<string, string> pfx2Ns = null)
         {
             pattern = null;
 
@@ -779,7 +779,7 @@ namespace Ontorion.CNL
             }
         }
 
-        public Ontorion.CNL.DL.Node GetEN2DLNode(string text, bool throwOnError = true,bool useFullUri=false,Func<string,string> pfx2Ns=null)
+        public CogniPy.CNL.DL.Node GetEN2DLNode(string text, bool throwOnError = true,bool useFullUri=false,Func<string,string> pfx2Ns=null)
         {
             if (text.Trim() == "") return null;
             Tools.SYMBOL smb = factory.getParser().Parse("Every loooooked-for is " + text + " .");
@@ -802,7 +802,7 @@ namespace Ontorion.CNL
                         return null;
                 }
                 var stmt = factory.InvConvert(smb,useFullUri,pfx2Ns);
-                return (stmt.Statements.First() as Ontorion.CNL.DL.Subsumption).D;
+                return (stmt.Statements.First() as CogniPy.CNL.DL.Subsumption).D;
             }
         }
 
@@ -843,7 +843,7 @@ namespace Ontorion.CNL
         /// <param name="text">Input EN-CNL text</param>
         /// <param name="throwOnError"></param>
         /// <returns></returns>
-        public Ontorion.CNL.DL.Paragraph GetEN2DLAst(string text, bool throwOnError = true, bool useFullUri = false, Func<string, string> pfx2ns = null)
+        public CogniPy.CNL.DL.Paragraph GetEN2DLAst(string text, bool throwOnError = true, bool useFullUri = false, Func<string, string> pfx2ns = null)
         {
             if (text.Trim() == "") return null;
             Tools.SYMBOL smb = factory.getParser().Parse(text);
@@ -869,7 +869,7 @@ namespace Ontorion.CNL
             }
         }
 
-        public Ontorion.CNL.DL.Paragraph GetDLAstFromEnAst(object smb, bool throwOnError = true, bool useFullUri = false, Func<string, string> pfx2ns = null)
+        public CogniPy.CNL.DL.Paragraph GetDLAstFromEnAst(object smb, bool throwOnError = true, bool useFullUri = false, Func<string, string> pfx2ns = null)
         {
             if (!factory.ValidateSafeness(smb))
             {
@@ -930,10 +930,10 @@ namespace Ontorion.CNL
             }
         }
 
-        public Dictionary<ARS.EntityKind,Ontorion.CNL.DL.Paragraph> GetENAnnotations2DLAst(bool useFullUri=false,Func<string,string> pfx2ns=null)
+        public Dictionary<ARS.EntityKind,CogniPy.CNL.DL.Paragraph> GetENAnnotations2DLAst(bool useFullUri=false,Func<string,string> pfx2ns=null)
         {
             if (annotMan != null){
-                var res = new Dictionary<ARS.EntityKind,Ontorion.CNL.DL.Paragraph>();
+                var res = new Dictionary<ARS.EntityKind,CogniPy.CNL.DL.Paragraph>();
                 var annAx = annotMan.getDLAnnotationAxioms(pfx2ns);
                 foreach(var ann in annAx)
                 {
@@ -947,7 +947,7 @@ namespace Ontorion.CNL
                 return null;
         }
 
-        private Tools.Parser dlParser = new Ontorion.CNL.DL.dl();
+        private Tools.Parser dlParser = new CogniPy.CNL.DL.dl();
 
         /// <summary>
         /// Convert a string representation of DL to a DL ast.
@@ -955,11 +955,11 @@ namespace Ontorion.CNL
         /// <param name="text"></param>
         /// <param name="throwOnError"></param>
         /// <returns></returns>
-        public Ontorion.CNL.DL.Paragraph GetDLAst(string text, bool throwOnError = true)
+        public CogniPy.CNL.DL.Paragraph GetDLAst(string text, bool throwOnError = true)
         {
             if (text.Trim() == "") return null;
             Tools.SYMBOL smb = dlParser.Parse(text);
-            if (!(smb is Ontorion.CNL.DL.Paragraph))   // get null on syntax error
+            if (!(smb is CogniPy.CNL.DL.Paragraph))   // get null on syntax error
             {
                 if (smb is Tools.error)
                 {
@@ -970,33 +970,33 @@ namespace Ontorion.CNL
             }
             else
             {
-                return smb as Ontorion.CNL.DL.Paragraph;
+                return smb as CogniPy.CNL.DL.Paragraph;
             }
         }
 
-        public string SerializeDLAst(Ontorion.CNL.DL.Paragraph dlast, bool simplifyBrackets = false)
+        public string SerializeDLAst(CogniPy.CNL.DL.Paragraph dlast, bool simplifyBrackets = false)
         {
-            var ser = new Ontorion.CNL.DL.Serializer(simplifyBrackets);
+            var ser = new CogniPy.CNL.DL.Serializer(simplifyBrackets);
             return (ser.Serialize(dlast));
         }
 
-        public HashSet<Tuple<Ontorion.ARS.EntityKind,string>> GetDLAstSignature(Ontorion.CNL.DL.Paragraph dlast, bool simplifyBrackets = false)
+        public HashSet<Tuple<CogniPy.ARS.EntityKind,string>> GetDLAstSignature(CogniPy.CNL.DL.Paragraph dlast, bool simplifyBrackets = false)
         {
-            var ser = new Ontorion.CNL.DL.Serializer(simplifyBrackets);
+            var ser = new CogniPy.CNL.DL.Serializer(simplifyBrackets);
             ser.Serialize(dlast);
             return ser.GetTaggedSignature();
         }
 
-        public HashSet<Tuple<string,string,string>> GetDLAstDataSignature(Ontorion.CNL.DL.Paragraph dlast, bool simplifyBrackets = false)
+        public HashSet<Tuple<string,string,string>> GetDLAstDataSignature(CogniPy.CNL.DL.Paragraph dlast, bool simplifyBrackets = false)
         {
-            var ser = new Ontorion.CNL.DL.Serializer(simplifyBrackets);
+            var ser = new CogniPy.CNL.DL.Serializer(simplifyBrackets);
             ser.Serialize(dlast);
             return ser.GetDataValues();
         }
 
-        public Tuple<HashSet<Tuple<Ontorion.ARS.EntityKind,string>>, HashSet<Tuple<string, string, string>>> GetDLAstFullSignature(Ontorion.CNL.DL.Paragraph dlast, bool simplifyBrackets = false)
+        public Tuple<HashSet<Tuple<CogniPy.ARS.EntityKind,string>>, HashSet<Tuple<string, string, string>>> GetDLAstFullSignature(CogniPy.CNL.DL.Paragraph dlast, bool simplifyBrackets = false)
         {
-            var ser = new Ontorion.CNL.DL.Serializer(simplifyBrackets);
+            var ser = new CogniPy.CNL.DL.Serializer(simplifyBrackets);
             ser.Serialize(dlast);
             return Tuple.Create(ser.GetTaggedSignature(), ser.GetDataValues());
         }
@@ -1007,19 +1007,19 @@ namespace Ontorion.CNL
             return ast == null ? null : SerializeDLAst(ast, simplifyBrackets);
         }
 
-        public string GetENDLFromAst(Ontorion.CNL.DL.IAccept nodeast,bool serializeAnnotations=false,Func<string,string> ns2pfx=null)
+        public string GetENDLFromAst(CogniPy.CNL.DL.IAccept nodeast,bool serializeAnnotations=false,Func<string,string> ns2pfx=null)
         {
             var enast = factory.Convert(nodeast, (ns2pfx == null) ? false : true, ns2pfx);
             return factory.Serialize(enast,serializeAnnotations,out _annotMan);
         }
 
-        public string GetENDLFromAst(Ontorion.CNL.DL.Statement stmast, bool serializeAnnotations=false,Func<string,string> ns2pfx=null)
+        public string GetENDLFromAst(CogniPy.CNL.DL.Statement stmast, bool serializeAnnotations=false,Func<string,string> ns2pfx=null)
         {
             var enast = factory.Convert(stmast,(ns2pfx == null)?false:true,ns2pfx);
             return factory.Serialize(enast,serializeAnnotations,out _annotMan);
         }
 
-        public string GetENDLFromAst(Ontorion.CNL.DL.Paragraph dlast,bool serializeAnnotations=false,Func<string,string> ns2pfx=null)
+        public string GetENDLFromAst(CogniPy.CNL.DL.Paragraph dlast,bool serializeAnnotations=false,Func<string,string> ns2pfx=null)
         {
             var enast = factory.Convert(dlast, (ns2pfx == null) ? false : true, ns2pfx);
             return factory.Serialize(enast,serializeAnnotations,out _annotMan);
@@ -1172,7 +1172,7 @@ namespace Ontorion.CNL
             return true;
         }
 
-        public List<string> AutoComplete(Ontorion.CNL.DL.Populator populator, string full, out List<KeyValuePair<string, string>> symbols, int max)
+        public List<string> AutoComplete(CogniPy.CNL.DL.Populator populator, string full, out List<KeyValuePair<string, string>> symbols, int max)
         {
             symbols = new List<KeyValuePair<string, string>>();
             var kv = GetSentenceWitoutLastWord(full);
@@ -1312,7 +1312,7 @@ namespace Ontorion.CNL
         /// <param name="max"></param>
         /// <param name="wordsToSkip"></param>
         /// <returns></returns>
-        public List<string> AutoComplete2(Ontorion.CNL.DL.Populator populator, string full, out List<KeyValuePair<string, string>> symbols, int max,List<string> wordsToSkip= null)
+        public List<string> AutoComplete2(CogniPy.CNL.DL.Populator populator, string full, out List<KeyValuePair<string, string>> symbols, int max,List<string> wordsToSkip= null)
         {
             if (wordsToSkip == null)
                 wordsToSkip = new List<string>();

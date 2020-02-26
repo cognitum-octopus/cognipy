@@ -1,4 +1,4 @@
-﻿using Ontorion.CNL.DL;
+﻿using CogniPy.CNL.DL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Collections.Concurrent;
 using org.apache.jena.reasoner.rulesys;
 using org.apache.jena.graph;
 using org.apache.jena.util;
-using Ontorion.Configuration;
+using CogniPy.Configuration;
 using org.apache.jena.graph.impl;
 using System.Text.RegularExpressions;
 using System.Runtime.CompilerServices;
@@ -15,7 +15,7 @@ using System.Threading;
 using System.Diagnostics;
 using System.IO;
 
-namespace Ontorion.Executing.HermiT
+namespace CogniPy.Executing.HermiT
 {
     public static class RuleExtensions
     {
@@ -193,9 +193,9 @@ namespace Ontorion.Executing.HermiT
                 {
                     var type = ext.GetTypeOfNode(context, n);
                     if (ext.TheAccessObject.PassParamsInCNL)
-                        vals.Add(new Ontorion.GraphEntity() { Name = ext.TheAccessObject.CnlFromUri(n.getURI(), type), Kind=type });
+                        vals.Add(new CogniPy.GraphEntity() { Name = ext.TheAccessObject.CnlFromUri(n.getURI(), type), Kind=type });
                     else
-                        vals.Add(new Ontorion.GraphEntity() { Name = n.getURI().ToString(), Kind = type });
+                        vals.Add(new CogniPy.GraphEntity() { Name = n.getURI().ToString(), Kind = type });
                 }
                 else
                     return;
@@ -593,9 +593,9 @@ public class OntologyError : org.apache.jena.reasoner.rulesys.builtins.BaseBuilt
                 {
                     var type = ext.GetTypeOfNode(context, n);
                     if (ext.TheAccessObject.PassParamsInCNL)
-                        vals.Add(new Ontorion.GraphEntity() { Name = ext.TheAccessObject.CnlFromUri(n.getURI(), type), Kind = type });
+                        vals.Add(new CogniPy.GraphEntity() { Name = ext.TheAccessObject.CnlFromUri(n.getURI(), type), Kind = type });
                     else
-                        vals.Add(new Ontorion.GraphEntity() { Name = n.getURI().ToString(), Kind = type });
+                        vals.Add(new CogniPy.GraphEntity() { Name = n.getURI().ToString(), Kind = type });
                 }
                 else
                     return false;
@@ -2267,7 +2267,7 @@ public class OntologyError : org.apache.jena.reasoner.rulesys.builtins.BaseBuilt
         public Action<string, Dictionary<string, Tuple<string,object>>> DebugAction;
         public dynamic TheAccessObject;
         public dynamic Outer;
-        public Ontorion.ARS.InvTransform TheInvTransform;
+        public CogniPy.ARS.InvTransform TheInvTransform;
         public SwrlIterateProc TheSwrlIterateProc;
 
         ConcurrentDictionary<string, List<LinkedDictionary<string, JenaValue>>> bodies = new ConcurrentDictionary<string, List<LinkedDictionary<string, JenaValue>>>();
@@ -2518,7 +2518,7 @@ public class OntologyError : org.apache.jena.reasoner.rulesys.builtins.BaseBuilt
 
         private static ConditionalWeakTable<GenericRuleReasoner, ReasonerExt> GenericRuleReasonerExt = new ConditionalWeakTable<GenericRuleReasoner, ReasonerExt>();
 
-        public static GenericRuleReasoner CreateReasoner(java.util.List rules, Action<string, Dictionary<string, Tuple<string,object>>> debugAction, Dictionary<int, Tuple<string, List<IExeVar>>> ExeRules, Dictionary<int, SwrlIterate> SwrlIterators, dynamic accessObject, dynamic outer, Ontorion.ARS.InvTransform invTransform, SwrlIterateProc sproc)
+        public static GenericRuleReasoner CreateReasoner(java.util.List rules, Action<string, Dictionary<string, Tuple<string,object>>> debugAction, Dictionary<int, Tuple<string, List<IExeVar>>> ExeRules, Dictionary<int, SwrlIterate> SwrlIterators, dynamic accessObject, dynamic outer, CogniPy.ARS.InvTransform invTransform, SwrlIterateProc sproc)
         {
             var rete_reasoner = new org.apache.jena.reasoner.rulesys.GenericRuleReasoner(rules);
             rete_reasoner.setMode(org.apache.jena.reasoner.rulesys.GenericRuleReasoner.FORWARD_RETE);

@@ -1,10 +1,10 @@
-﻿using Ontorion.CNL.DL;
+﻿using CogniPy.CNL.DL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Ontorion.CNL
+namespace CogniPy.CNL
 {
     internal class SwrlBuiltinsExtractor : GenericVisitor
     {

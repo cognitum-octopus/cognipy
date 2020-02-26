@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Ontorion.FluentEditorClient
+namespace CogniPy
 {
-    public struct FluentEditorLibGraphEntity
+    public struct CogniPyGraphEntity
     {
         public string Name { get; set; }
         public override string ToString()

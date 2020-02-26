@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Ontorion.CNL
+namespace CogniPy.CNL
 {
     public class W3CAnnotation : IEquatable<W3CAnnotation>, IEqualityComparer<W3CAnnotation>, INotifyPropertyChanged
     {
@@ -692,9 +692,9 @@ namespace Ontorion.CNL
             return dlAnnotatedAxioms;
         }
 
-        public static Ontorion.ARS.EntityKind ParseSubjectKind(string kind)
+        public static CogniPy.ARS.EntityKind ParseSubjectKind(string kind)
         {
-            Ontorion.ARS.EntityKind result;
+            CogniPy.ARS.EntityKind result;
             if (Enum.TryParse(kind, true, out result))
             {
                 return result;

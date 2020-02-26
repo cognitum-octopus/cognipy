@@ -5,14 +5,14 @@ using org.semanticweb.owlapi.model;
 using org.semanticweb.owlapi.vocab;
 using System.Globalization;
 using org.semanticweb.owlapi.reasoner;
-using Ontorion.CNL.DL;
-using Ontorion.CNL.EN;
+using CogniPy.CNL.DL;
+using CogniPy.CNL.EN;
 using org.coode.xml;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
 using org.semanticweb.owlapi.util;
 
-namespace Ontorion.ARS
+namespace CogniPy.ARS
 {
     public class IncorectOWLStatementException : Exception
     {
@@ -61,14 +61,14 @@ namespace Ontorion.ARS
         }
     }
 
-    public class Transform : Ontorion.CNL.DL.IVisitor
+    public class Transform : CogniPy.CNL.DL.IVisitor
     {
         DLToOWLNameConv owlNC = new DLToOWLNameConv();
 
         public Dictionary<string, string> InvUriMappings { get { return owlNC.InvUriMappings; } set { owlNC.InvUriMappings = value; } }
         bool forReasoning = false;
 
-        public void setOWLDataFactory(bool forReasoning, string defaultNS, OWLDataFactory factory, PrefixOWLOntologyFormat namespaceManager, Ontorion.CNL.EN.endict lex)
+        public void setOWLDataFactory(bool forReasoning, string defaultNS, OWLDataFactory factory, PrefixOWLOntologyFormat namespaceManager, CogniPy.CNL.EN.endict lex)
         {
             this.owlNC.setOWLFormat(defaultNS,namespaceManager, lex);
             this.factory = factory;
@@ -122,7 +122,7 @@ namespace Ontorion.ARS
         private bool hasAnnotationsForStatement = false;
         private Dictionary<string, List<DLAnnotationAxiom>> annotationsBySubject = null;
 
-        public Axioms Convert(Ontorion.CNL.DL.Paragraph p,Ontorion.CNL.DL.Paragraph paraFromAnnotStatements=null)
+        public Axioms Convert(CogniPy.CNL.DL.Paragraph p,CogniPy.CNL.DL.Paragraph paraFromAnnotStatements=null)
         {
             if (paraFromAnnotStatements != null && paraFromAnnotStatements.Statements.Count > 0)
             {
@@ -155,7 +155,7 @@ namespace Ontorion.ARS
             };
         }
 
-        public KeyValuePair<OWLClassExpression, HashSet<OWLAxiom>> Convert(Ontorion.CNL.DL.Node e)
+        public KeyValuePair<OWLClassExpression, HashSet<OWLAxiom>> Convert(CogniPy.CNL.DL.Node e)
         {
             additionalAxioms = new List<OWLAxiom>();
             additionalHotfixDeclarations = new List<OWLAxiom>();
@@ -173,17 +173,17 @@ namespace Ontorion.ARS
             return owlNC.getIRIFromId(I, kind);
         }
 
-        public OWLObjectPropertyExpression GetObjectProperty(Ontorion.CNL.DL.Node r)
+        public OWLObjectPropertyExpression GetObjectProperty(CogniPy.CNL.DL.Node r)
         {
             using (context.set(VisitingContext.ObjectRole))
                 return r.accept(this) as OWLObjectPropertyExpression;
         }
-        public OWLDataProperty GetDataProperty(Ontorion.CNL.DL.Node r)
+        public OWLDataProperty GetDataProperty(CogniPy.CNL.DL.Node r)
         {
             using (context.set(VisitingContext.DataRole))
                 return r.accept(this) as OWLDataProperty;
         }
-        public object Visit(Ontorion.CNL.DL.Paragraph e)
+        public object Visit(CogniPy.CNL.DL.Paragraph e)
         {
             List<AxiomOrComment> axioms = new List<AxiomOrComment>();
             foreach (var stmt in e.Statements)
@@ -202,12 +202,12 @@ namespace Ontorion.ARS
             return axioms;
         }
 
-        private java.util.Set getOWLAnnotationForStatement(Ontorion.CNL.DL.Statement e)
+        private java.util.Set getOWLAnnotationForStatement(CogniPy.CNL.DL.Statement e)
         {
             java.util.Set annotationsForStatement = new java.util.LinkedHashSet();
             if (hasAnnotationsForStatement)
             {
-                var ser = new Ontorion.CNL.DL.Serializer(false);
+                var ser = new CogniPy.CNL.DL.Serializer(false);
                 var stmtSer = ser.Serialize(new CNL.DL.Paragraph(null) { Statements = new List<CNL.DL.Statement>() { e } }).Replace("\r\n","");
                 if (annotationsBySubject.ContainsKey(stmtSer))
                 {
@@ -220,9 +220,9 @@ namespace Ontorion.ARS
         }
 
         //        Dictionary<string, List<Ontorion.CNL.DL.Statement>> namedStatements4Instances = new Dictionary<string, List<Ontorion.CNL.DL.Statement>>();
-        Dictionary<Ontorion.CNL.DL.UnnamedInstance, List<Ontorion.CNL.DL.Statement>> unnamedStatements4Instances = new Dictionary<Ontorion.CNL.DL.UnnamedInstance, List<Ontorion.CNL.DL.Statement>>();
+        Dictionary<CogniPy.CNL.DL.UnnamedInstance, List<CogniPy.CNL.DL.Statement>> unnamedStatements4Instances = new Dictionary<CogniPy.CNL.DL.UnnamedInstance, List<CogniPy.CNL.DL.Statement>>();
         //        Ontorion.CNL.DL.Statement currentStatement = null;
-        void setCurrentStatement(Ontorion.CNL.DL.Statement stmt)
+        void setCurrentStatement(CogniPy.CNL.DL.Statement stmt)
         {
             //            if (InconsistencyDebugMode) return;
 
@@ -352,39 +352,39 @@ namespace Ontorion.ARS
         ////            }
         //        }
 
-        private Ontorion.CNL.DL.NamedInstance getSingleNamgedInstance(Ontorion.CNL.DL.Node C)
+        private CogniPy.CNL.DL.NamedInstance getSingleNamgedInstance(CogniPy.CNL.DL.Node C)
         {
-            if (C is Ontorion.CNL.DL.InstanceSet)
+            if (C is CogniPy.CNL.DL.InstanceSet)
             {
-                if ((C as Ontorion.CNL.DL.InstanceSet).Instances.Count == 1)
+                if ((C as CogniPy.CNL.DL.InstanceSet).Instances.Count == 1)
                 {
-                    if ((C as Ontorion.CNL.DL.InstanceSet).Instances[0] is Ontorion.CNL.DL.NamedInstance)
+                    if ((C as CogniPy.CNL.DL.InstanceSet).Instances[0] is CogniPy.CNL.DL.NamedInstance)
                     {
-                        return (C as Ontorion.CNL.DL.InstanceSet).Instances[0] as Ontorion.CNL.DL.NamedInstance;
+                        return (C as CogniPy.CNL.DL.InstanceSet).Instances[0] as CogniPy.CNL.DL.NamedInstance;
                     }
                 }
             }
             return null;
         }
 
-        private Ontorion.CNL.DL.Value getSingleEqualValue(Ontorion.CNL.DL.AbstractBound C)
+        private CogniPy.CNL.DL.Value getSingleEqualValue(CogniPy.CNL.DL.AbstractBound C)
         {
-            if (C is Ontorion.CNL.DL.ValueSet)
+            if (C is CogniPy.CNL.DL.ValueSet)
             {
-                if ((C as Ontorion.CNL.DL.ValueSet).Values.Count == 1)
-                    return (C as Ontorion.CNL.DL.ValueSet).Values[0] as Ontorion.CNL.DL.Value;
+                if ((C as CogniPy.CNL.DL.ValueSet).Values.Count == 1)
+                    return (C as CogniPy.CNL.DL.ValueSet).Values[0] as CogniPy.CNL.DL.Value;
             }
-            else if (C is Ontorion.CNL.DL.BoundVal)
+            else if (C is CogniPy.CNL.DL.BoundVal)
             {
-                if ((C as Ontorion.CNL.DL.BoundVal).Kind == "=")
+                if ((C as CogniPy.CNL.DL.BoundVal).Kind == "=")
                 {
-                    return (C as Ontorion.CNL.DL.BoundVal).V;
+                    return (C as CogniPy.CNL.DL.BoundVal).V;
                 }
             }
-            else if (C is Ontorion.CNL.DL.BoundFacets)
+            else if (C is CogniPy.CNL.DL.BoundFacets)
             {
-                if ((C as Ontorion.CNL.DL.BoundFacets).FL.List.Count == 1 && (C as Ontorion.CNL.DL.BoundFacets).FL.List[0].Kind == "=")
-                    return (C as Ontorion.CNL.DL.BoundFacets).FL.List[0].V;
+                if ((C as CogniPy.CNL.DL.BoundFacets).FL.List.Count == 1 && (C as CogniPy.CNL.DL.BoundFacets).FL.List[0].Kind == "=")
+                    return (C as CogniPy.CNL.DL.BoundFacets).FL.List[0].V;
             }
             return null;
         }
@@ -396,7 +396,7 @@ namespace Ontorion.ARS
 
         public object Visit(CNL.DL.DLAnnotationAxiom a)
         {
-            var annotProp = factory.getOWLAnnotationProperty(owlNC.getIRIFromId(a.annotName,Ontorion.ARS.EntityKind.Role));
+            var annotProp = factory.getOWLAnnotationProperty(owlNC.getIRIFromId(a.annotName,CogniPy.ARS.EntityKind.Role));
             OWLLiteral annotLit;
             if(!System.String.IsNullOrEmpty(a.language))
                 annotLit = factory.getOWLLiteral(a.value,a.language);
@@ -405,7 +405,7 @@ namespace Ontorion.ARS
 
             var annotEl = factory.getOWLAnnotation(annotProp, annotLit, getOWLAnnotationForStatement(a));
 
-            Ontorion.ARS.EntityKind result = Ontorion.CNL.AnnotationManager.ParseSubjectKind(a.subjKind);
+            CogniPy.ARS.EntityKind result = CogniPy.CNL.AnnotationManager.ParseSubjectKind(a.subjKind);
 
             if (result != EntityKind.Statement)
             {
@@ -418,7 +418,7 @@ namespace Ontorion.ARS
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.Subsumption e)
+        public object Visit(CogniPy.CNL.DL.Subsumption e)
         {
             using (context.set(VisitingContext.Concept))
             {
@@ -595,7 +595,7 @@ namespace Ontorion.ARS
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.Equivalence e)
+        public object Visit(CogniPy.CNL.DL.Equivalence e)
         {
             using (context.set(VisitingContext.Concept))
             {
@@ -635,7 +635,7 @@ namespace Ontorion.ARS
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.Disjoint e)
+        public object Visit(CogniPy.CNL.DL.Disjoint e)
         {
             using (context.set(VisitingContext.Concept))
             {
@@ -652,7 +652,7 @@ namespace Ontorion.ARS
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.DisjointUnion e)
+        public object Visit(CogniPy.CNL.DL.DisjointUnion e)
         {
             using (context.set(VisitingContext.Concept))
             {
@@ -683,7 +683,7 @@ namespace Ontorion.ARS
             return factory.getOWLDatatype(owlNC.getIRIFromId(e.name, EntityKind.Concept));
         }
 
-        public object Visit(Ontorion.CNL.DL.RoleInclusion e)
+        public object Visit(CogniPy.CNL.DL.RoleInclusion e)
         {
             using (context.set(VisitingContext.ObjectRole))
             {
@@ -703,7 +703,7 @@ namespace Ontorion.ARS
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.RoleEquivalence e)
+        public object Visit(CogniPy.CNL.DL.RoleEquivalence e)
         {
             using (context.set(VisitingContext.ObjectRole))
             {
@@ -721,7 +721,7 @@ namespace Ontorion.ARS
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.RoleDisjoint e)
+        public object Visit(CogniPy.CNL.DL.RoleDisjoint e)
         {
             using (context.set(VisitingContext.ObjectRole))
             {
@@ -757,7 +757,7 @@ namespace Ontorion.ARS
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.ComplexRoleInclusion e)
+        public object Visit(CogniPy.CNL.DL.ComplexRoleInclusion e)
         {
             using (context.set(VisitingContext.ObjectRole))
             {
@@ -780,7 +780,7 @@ namespace Ontorion.ARS
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.DataRoleInclusion e)
+        public object Visit(CogniPy.CNL.DL.DataRoleInclusion e)
         {
             using (context.set(VisitingContext.DataRole))
             {
@@ -789,7 +789,7 @@ namespace Ontorion.ARS
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.DataRoleEquivalence e)
+        public object Visit(CogniPy.CNL.DL.DataRoleEquivalence e)
         {
             using (context.set(VisitingContext.DataRole))
             {
@@ -808,7 +808,7 @@ namespace Ontorion.ARS
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.DataRoleDisjoint e)
+        public object Visit(CogniPy.CNL.DL.DataRoleDisjoint e)
         {
             using (context.set(VisitingContext.DataRole))
             {
@@ -827,13 +827,13 @@ namespace Ontorion.ARS
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.InstanceOf e)
+        public object Visit(CogniPy.CNL.DL.InstanceOf e)
         {
             setCurrentStatement(e);
             return factory.getOWLClassAssertionAxiom(e.C.accept(this) as OWLClassExpression, e.I.accept(this) as OWLIndividual, getOWLAnnotationForStatement(e));
         }
 
-        public object Visit(Ontorion.CNL.DL.RelatedInstances e)
+        public object Visit(CogniPy.CNL.DL.RelatedInstances e)
         {
             setCurrentStatement(e);
             OWLObjectPropertyExpression prop;
@@ -842,7 +842,7 @@ namespace Ontorion.ARS
             return factory.getOWLObjectPropertyAssertionAxiom(prop, e.I.accept(this) as OWLIndividual, e.J.accept(this) as OWLIndividual, getOWLAnnotationForStatement(e));
         }
 
-        public object Visit(Ontorion.CNL.DL.InstanceValue e)
+        public object Visit(CogniPy.CNL.DL.InstanceValue e)
         {
             setCurrentStatement(e);
             OWLDataPropertyExpression prop;
@@ -852,7 +852,7 @@ namespace Ontorion.ARS
                 e.V.accept(this) as OWLLiteral, getOWLAnnotationForStatement(e));
         }
 
-        public object Visit(Ontorion.CNL.DL.SameInstances e)
+        public object Visit(CogniPy.CNL.DL.SameInstances e)
         {
             setCurrentStatement(e);
             var indivs = new java.util.HashSet();
@@ -867,7 +867,7 @@ namespace Ontorion.ARS
                 return factory.getOWLSameIndividualAxiom(indivs, getOWLAnnotationForStatement(e));
         }
 
-        public object Visit(Ontorion.CNL.DL.DifferentInstances e)
+        public object Visit(CogniPy.CNL.DL.DifferentInstances e)
         {
             setCurrentStatement(e);
             var indivs = new java.util.HashSet();
@@ -882,7 +882,7 @@ namespace Ontorion.ARS
                 return factory.getOWLDifferentIndividualsAxiom(indivs, getOWLAnnotationForStatement(e));
         }
 
-        public object Visit(Ontorion.CNL.DL.HasKey e)
+        public object Visit(CogniPy.CNL.DL.HasKey e)
         {
             setCurrentStatement(e);
             java.util.Set roleSet = new java.util.HashSet();
@@ -903,20 +903,20 @@ namespace Ontorion.ARS
             return factory.getOWLHasKeyAxiom(e.C.accept(this) as OWLClassExpression, roleSet, getOWLAnnotationForStatement(e));
         }
 
-        public object Visit(Ontorion.CNL.DL.NamedInstance e)
+        public object Visit(CogniPy.CNL.DL.NamedInstance e)
         {
             //            setNamedStatement4Instance(e);
             return factory.getOWLNamedIndividual(owlNC.getIRIFromId(e.name, EntityKind.Instance));
         }
 
 
-        public object Visit(Ontorion.CNL.DL.UnnamedInstance e)
+        public object Visit(CogniPy.CNL.DL.UnnamedInstance e)
         {
             //            setUnnamedStatement4Instance(e);
             OWLIndividual ni;
             if (forReasoning)
             {
-                Ontorion.CNL.DL.Serializer dlserializer = new Ontorion.CNL.DL.Serializer(false);
+                CogniPy.CNL.DL.Serializer dlserializer = new CogniPy.CNL.DL.Serializer(false);
                 string name = "\"" + dlserializer.Serialize(e.C).Replace("\"", "\"\"") + "." + Guid.NewGuid().ToString("N") + "_uUu_" + "\"";
                 ni = factory.getOWLNamedIndividual(owlNC.getIRIFromId(name, EntityKind.Instance));
             }
@@ -942,12 +942,12 @@ namespace Ontorion.ARS
             return ni;
         }
 
-        public object Visit(Ontorion.CNL.DL.Number e)
+        public object Visit(CogniPy.CNL.DL.Number e)
         {
             //return factory.getOWLLiteral(int.Parse(e.val));
             return factory.getOWLLiteral(e.ToInt());
         }
-        public object Visit(Ontorion.CNL.DL.Bool e)
+        public object Visit(CogniPy.CNL.DL.Bool e)
         {
             //object tt = factory.getOWLLiteral(bool.Parse(e.ToBool().ToString()));
             //return factory.getOWLLiteral(bool.Parse(e.val));
@@ -991,21 +991,21 @@ namespace Ontorion.ARS
         }
 
 
-        public object Visit(Ontorion.CNL.DL.DateTimeVal e)
+        public object Visit(CogniPy.CNL.DL.DateTimeVal e)
         {
             return getLiteralVal(e);
         }
 
-        public object Visit(Ontorion.CNL.DL.Duration e)
+        public object Visit(CogniPy.CNL.DL.Duration e)
         {
             return getLiteralVal(e);
         }
 
-        public object Visit(Ontorion.CNL.DL.String e)
+        public object Visit(CogniPy.CNL.DL.String e)
         {
             return getLiteralVal(e);
         }
-        public object Visit(Ontorion.CNL.DL.Float e)
+        public object Visit(CogniPy.CNL.DL.Float e)
         {
             return getLiteralVal(e);
         }
@@ -1095,7 +1095,7 @@ namespace Ontorion.ARS
                 return factory.getOWLDataComplementOf(factory.getOWLDataOneOf(val));
         }
 
-        public object Visit(Ontorion.CNL.DL.TotalBound e)
+        public object Visit(CogniPy.CNL.DL.TotalBound e)
         {
             var dt = getLiteralVal(e.V).getDatatype();
             if (forReasoning && (dt.ToString() == "http://www.w3.org/2001/XMLSchema#double"))
@@ -1104,12 +1104,12 @@ namespace Ontorion.ARS
                 return dt;
         }
 
-        public object Visit(Ontorion.CNL.DL.TopBound e)
+        public object Visit(CogniPy.CNL.DL.TopBound e)
         {
             return factory.getTopDatatype();
         }
 
-        public object Visit(Ontorion.CNL.DL.ValueSet e)
+        public object Visit(CogniPy.CNL.DL.ValueSet e)
         {
             java.util.Set vals = new java.util.HashSet();
             foreach (var val in e.Values)
@@ -1118,9 +1118,9 @@ namespace Ontorion.ARS
         }
 
         enum VisitingContext { Concept, ObjectRole, DataRole };
-        Ontorion.CNL.DL.VisitingParam<VisitingContext> context = new Ontorion.CNL.DL.VisitingParam<VisitingContext>(VisitingContext.Concept);
+        CogniPy.CNL.DL.VisitingParam<VisitingContext> context = new CogniPy.CNL.DL.VisitingParam<VisitingContext>(VisitingContext.Concept);
 
-        public object Visit(Ontorion.CNL.DL.Atomic e)
+        public object Visit(CogniPy.CNL.DL.Atomic e)
         {
             switch (context.get())
             {
@@ -1145,7 +1145,7 @@ namespace Ontorion.ARS
             Assert(false);
             return null;
         }
-        public object Visit(Ontorion.CNL.DL.Top e)
+        public object Visit(CogniPy.CNL.DL.Top e)
         {
             switch (context.get())
             {
@@ -1159,7 +1159,7 @@ namespace Ontorion.ARS
             Assert(false);
             return null;
         }
-        public object Visit(Ontorion.CNL.DL.Bottom e)
+        public object Visit(CogniPy.CNL.DL.Bottom e)
         {
             switch (context.get())
             {
@@ -1173,16 +1173,16 @@ namespace Ontorion.ARS
             Assert(false);
             return null;
         }
-        public object Visit(Ontorion.CNL.DL.RoleInversion e)
+        public object Visit(CogniPy.CNL.DL.RoleInversion e)
         {
             if (context.get() == VisitingContext.DataRole)
-                throw new NoInversionsForDataRolesException((e.R as Ontorion.CNL.DL.Atomic).id);
+                throw new NoInversionsForDataRolesException((e.R as CogniPy.CNL.DL.Atomic).id);
             Assert(context.get() == VisitingContext.ObjectRole);
             object o = e.R.accept(this);
             Assert(o is OWLObjectPropertyExpression);
             return factory.getOWLObjectInverseOf(o as OWLObjectPropertyExpression);
         }
-        public object Visit(Ontorion.CNL.DL.InstanceSet e)
+        public object Visit(CogniPy.CNL.DL.InstanceSet e)
         {
             java.util.Set inds = new java.util.HashSet();
             foreach (var c in e.Instances)
@@ -1191,7 +1191,7 @@ namespace Ontorion.ARS
             }
             return factory.getOWLObjectOneOf(inds);
         }
-        public object Visit(Ontorion.CNL.DL.ConceptOr e)
+        public object Visit(CogniPy.CNL.DL.ConceptOr e)
         {
             java.util.Set clss = new java.util.HashSet();
             foreach (var c in e.Exprs)
@@ -1200,7 +1200,7 @@ namespace Ontorion.ARS
             }
             return factory.getOWLObjectUnionOf(clss);
         }
-        public object Visit(Ontorion.CNL.DL.ConceptAnd e)
+        public object Visit(CogniPy.CNL.DL.ConceptAnd e)
         {
             java.util.Set clss = new java.util.HashSet();
             foreach (var c in e.Exprs)
@@ -1209,11 +1209,11 @@ namespace Ontorion.ARS
             }
             return factory.getOWLObjectIntersectionOf(clss);
         }
-        public object Visit(Ontorion.CNL.DL.ConceptNot e)
+        public object Visit(CogniPy.CNL.DL.ConceptNot e)
         {
             return factory.getOWLObjectComplementOf(e.C.accept(this) as OWLClassExpression);
         }
-        public object Visit(Ontorion.CNL.DL.OnlyRestriction e)
+        public object Visit(CogniPy.CNL.DL.OnlyRestriction e)
         {
             object owlpe = null;
             using (context.set(VisitingContext.ObjectRole))
@@ -1229,7 +1229,7 @@ namespace Ontorion.ARS
             }
             return factory.getOWLObjectAllValuesFrom(owlpe as OWLObjectPropertyExpression, owlce as OWLClassExpression);
         }
-        public object Visit(Ontorion.CNL.DL.SomeRestriction e)
+        public object Visit(CogniPy.CNL.DL.SomeRestriction e)
         {
             object owlpe = null;
             using (context.set(VisitingContext.ObjectRole))
@@ -1245,7 +1245,7 @@ namespace Ontorion.ARS
             }
             return factory.getOWLObjectSomeValuesFrom(owlpe as OWLObjectPropertyExpression, owlce as OWLClassExpression);
         }
-        public object Visit(Ontorion.CNL.DL.OnlyValueRestriction e)
+        public object Visit(CogniPy.CNL.DL.OnlyValueRestriction e)
         {
             object owlpe = null;
             using (context.set(VisitingContext.DataRole))
@@ -1258,7 +1258,7 @@ namespace Ontorion.ARS
                 return factory.getOWLDataAllValuesFrom(owlpe as OWLDataPropertyExpression, owlb as OWLDataRange);
             }
         }
-        public object Visit(Ontorion.CNL.DL.SomeValueRestriction e)
+        public object Visit(CogniPy.CNL.DL.SomeValueRestriction e)
         {
             object owlpe = null;
             using (context.set(VisitingContext.DataRole))
@@ -1271,7 +1271,7 @@ namespace Ontorion.ARS
                 return factory.getOWLDataSomeValuesFrom(owlpe as OWLDataPropertyExpression, owlb as OWLDataRange);
             }
         }
-        public object Visit(Ontorion.CNL.DL.SelfReference e)
+        public object Visit(CogniPy.CNL.DL.SelfReference e)
         {
             object owlpe = null;
             using (context.set(VisitingContext.ObjectRole))
@@ -1281,7 +1281,7 @@ namespace Ontorion.ARS
             }
             return factory.getOWLObjectHasSelf(owlpe as OWLObjectPropertyExpression);
         }
-        public object Visit(Ontorion.CNL.DL.NumberRestriction e)
+        public object Visit(CogniPy.CNL.DL.NumberRestriction e)
         {
             object owlpe = null;
             using (context.set(VisitingContext.ObjectRole))
@@ -1311,7 +1311,7 @@ namespace Ontorion.ARS
                                                            owlce as OWLClassExpression));
             }
         }
-        public object Visit(Ontorion.CNL.DL.NumberValueRestriction e)
+        public object Visit(CogniPy.CNL.DL.NumberValueRestriction e)
         {
             object owlpe = null;
             using (context.set(VisitingContext.DataRole))

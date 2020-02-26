@@ -1,6 +1,6 @@
 ﻿using org.apache.jena.rdf.model;
-using Ontorion.ARS;
-using Ontorion.CNL.EN;
+using CogniPy.ARS;
+using CogniPy.CNL.EN;
 using org.semanticweb.owlapi.vocab;
 using System;
 using System.Collections.Generic;
@@ -9,9 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using Ontorion.Executing.HermiT;
+using CogniPy.Executing.HermiT;
 
-namespace Ontorion.CNL.DL
+namespace CogniPy.CNL.DL
 {
     public class GenerateJenaRules : GenericVisitor
     {
@@ -45,7 +45,7 @@ namespace Ontorion.CNL.DL
 
         DLToOWLNameConv owlNC = new DLToOWLNameConv();
 
-        public void setOWLDataFactory(string defaultNS, PrefixOWLOntologyFormat namespaceManager, Ontorion.CNL.EN.endict lex)
+        public void setOWLDataFactory(string defaultNS, PrefixOWLOntologyFormat namespaceManager, CogniPy.CNL.EN.endict lex)
         {
             this.owlNC.setOWLFormat(defaultNS, namespaceManager, lex);
         }
@@ -111,7 +111,7 @@ namespace Ontorion.CNL.DL
 
         private Tuple<string,string,string> SolveSingleSome(string cid, object restr)
         {
-            if (restr is Ontorion.CNL.DL.SomeRestriction)
+            if (restr is CogniPy.CNL.DL.SomeRestriction)
             {
                 var Rest = restr as SomeRestriction;
                 if (Rest.C is InstanceSet & Rest.R is Atomic)
@@ -165,9 +165,9 @@ namespace Ontorion.CNL.DL
         {
             if (e.modality == Statement.Modality.IS)
             {
-                if (e.C is Ontorion.CNL.DL.Atomic)
+                if (e.C is CogniPy.CNL.DL.Atomic)
                 {
-                    if (e.D is Ontorion.CNL.DL.SomeRestriction || e.D is Ontorion.CNL.DL.SomeValueRestriction)
+                    if (e.D is CogniPy.CNL.DL.SomeRestriction || e.D is CogniPy.CNL.DL.SomeValueRestriction)
                     {
                         var tpl = SolveSingleSome((e.C as CNL.DL.Atomic).id, e.D);
                         if (tpl != null)
@@ -247,7 +247,7 @@ namespace Ontorion.CNL.DL
                     appendDebugString(sb, e);
                     sb.AppendLine("]");
                 }
-                catch (Ontorion.Executing.HermiTClient.ReasoningServiceException)
+                catch (CogniPy.Executing.HermiTClient.ReasoningServiceException)
                 {
                     ruleC = "";
                     ruleD = "";

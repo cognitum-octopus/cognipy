@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 
-namespace Ontorion.CNL.DL
+namespace CogniPy.CNL.DL
 {
-    public class RemoveDefaultPfxVisitor : Ontorion.CNL.DL.GenericVisitor
+    public class RemoveDefaultPfxVisitor : CogniPy.CNL.DL.GenericVisitor
     {
         string defaultPfx;
         public RemoveDefaultPfxVisitor(string defaultPfx,string defaultNamespace=null) {

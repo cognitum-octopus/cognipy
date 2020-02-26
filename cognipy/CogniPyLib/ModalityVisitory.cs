@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Ontorion.CNL.DL
+namespace CogniPy.CNL.DL
 {
-    public class ModalityVisitor : Ontorion.CNL.DL.GenericVisitor
+    public class ModalityVisitor : CogniPy.CNL.DL.GenericVisitor
     {
-        private Ontorion.CNL.CNLTools tools = null;
+        private CogniPy.CNL.CNLTools tools = null;
 
         Func<string, string> ns2pfx;
 
-        public ModalityVisitor(Ontorion.CNL.CNLTools _tools,Func<string,string> ns2pfx=null)
+        public ModalityVisitor(CogniPy.CNL.CNLTools _tools,Func<string,string> ns2pfx=null)
         {
             tools = _tools; 
             this.ns2pfx = ns2pfx;
@@ -53,48 +53,48 @@ namespace Ontorion.CNL.DL
             }
         }
 
-        public override object Visit(Ontorion.CNL.DL.Subsumption e)
+        public override object Visit(CogniPy.CNL.DL.Subsumption e)
         {
             modality = e.modality;
             //string a, b;
             //if (e.C is Ontorion.CNL.DL.Atomic && (e.C as Ontorion.CNL.DL.Atomic).id.Equals(leftSide.id))
-            if (e.C is Ontorion.CNL.DL.Atomic)
+            if (e.C is CogniPy.CNL.DL.Atomic)
             {
-                concept = (e.C as Ontorion.CNL.DL.Atomic).id;
-                if (e.D is Ontorion.CNL.DL.Atomic)
+                concept = (e.C as CogniPy.CNL.DL.Atomic).id;
+                if (e.D is CogniPy.CNL.DL.Atomic)
                 {
-                    Ontorion.CNL.DL.Atomic atom = e.D as Ontorion.CNL.DL.Atomic;
+                    CogniPy.CNL.DL.Atomic atom = e.D as CogniPy.CNL.DL.Atomic;
                     relation = "be";
                     relatedConcept = atom.id;
                 }
-                else if (e.D is Ontorion.CNL.DL.Restriction)
+                else if (e.D is CogniPy.CNL.DL.Restriction)
                 {
-                    string restriction = ((e.D as Ontorion.CNL.DL.Restriction).R as Ontorion.CNL.DL.Atomic).id;
-                    Ontorion.CNL.DL.IAccept node = null;
-                    if (e.D is Ontorion.CNL.DL.OnlyRestriction)
+                    string restriction = ((e.D as CogniPy.CNL.DL.Restriction).R as CogniPy.CNL.DL.Atomic).id;
+                    CogniPy.CNL.DL.IAccept node = null;
+                    if (e.D is CogniPy.CNL.DL.OnlyRestriction)
                     {
-                        node = (e.D as Ontorion.CNL.DL.OnlyRestriction).C;
+                        node = (e.D as CogniPy.CNL.DL.OnlyRestriction).C;
                     }
-                    else if (e.D is Ontorion.CNL.DL.SomeRestriction)
+                    else if (e.D is CogniPy.CNL.DL.SomeRestriction)
                     {
-                        node = (e.D as Ontorion.CNL.DL.SomeRestriction).C;
+                        node = (e.D as CogniPy.CNL.DL.SomeRestriction).C;
                     }
-                    else if (e.D is Ontorion.CNL.DL.OnlyValueRestriction)
+                    else if (e.D is CogniPy.CNL.DL.OnlyValueRestriction)
                     {
-                        node = (e.D as Ontorion.CNL.DL.OnlyValueRestriction).B;
+                        node = (e.D as CogniPy.CNL.DL.OnlyValueRestriction).B;
                     }
-                    else if (e.D is Ontorion.CNL.DL.SomeValueRestriction)
+                    else if (e.D is CogniPy.CNL.DL.SomeValueRestriction)
                     {
-                        node = (e.D as Ontorion.CNL.DL.SomeValueRestriction).B;
+                        node = (e.D as CogniPy.CNL.DL.SomeValueRestriction).B;
                     }
-                    else if (e.D is Ontorion.CNL.DL.NumberRestriction)
+                    else if (e.D is CogniPy.CNL.DL.NumberRestriction)
                     {
                         //string str = tools.GetENDLFromAst(e.D);
-                        node = (e.D as Ontorion.CNL.DL.NumberRestriction).C;
+                        node = (e.D as CogniPy.CNL.DL.NumberRestriction).C;
                     }
-                    else if (e.D is Ontorion.CNL.DL.NumberValueRestriction)
+                    else if (e.D is CogniPy.CNL.DL.NumberValueRestriction)
                     {
-                        node = (e.D as Ontorion.CNL.DL.NumberValueRestriction).B;
+                        node = (e.D as CogniPy.CNL.DL.NumberValueRestriction).B;
                     }
 
                     relation = restriction;

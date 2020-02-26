@@ -7,15 +7,15 @@ using org.semanticweb.owlapi.model;
 using org.semanticweb.owlapi.vocab;
 using System.Globalization;
 using org.semanticweb.owlapi.reasoner;
-using Ontorion.CNL.DL;
-using Ontorion.CNL.EN;
+using CogniPy.CNL.DL;
+using CogniPy.CNL.EN;
 using org.coode.xml;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
 using org.semanticweb.owlapi.util;
-using Ontorion.ARS;
+using CogniPy.ARS;
 
-namespace Ontorion.SPARQL
+namespace CogniPy.SPARQL
 {
     public abstract class SparqlNode
     {
@@ -157,7 +157,7 @@ namespace Ontorion.SPARQL
             return ret.ToString();
         }
 
-        public static string GetLiteralVal(Ontorion.CNL.DL.Value v)
+        public static string GetLiteralVal(CogniPy.CNL.DL.Value v)
         {
             if (v is CNL.DL.Bool) return escapeString(v.ToBool() ? "true" : "false") + "^^xsd:boolean";
             if (v is CNL.DL.String) return escapeString(v.ToString()) + "^^xsd:string";
@@ -606,7 +606,7 @@ namespace Ontorion.SPARQL
         }
     }
     
-    public class Transform : Ontorion.CNL.DL.GenericVisitor
+    public class Transform : CogniPy.CNL.DL.GenericVisitor
     {
 
         DLToOWLNameConv _owlNC = new DLToOWLNameConv();
@@ -655,7 +655,7 @@ namespace Ontorion.SPARQL
         public Dictionary<string, string> InvUriMappings { get { return owlNC.InvUriMappings; } set { owlNC.InvUriMappings = value; } }
 
         //TODO probably this initializer should not exist because the prefixes are not loaded dynamically...
-        public void setOWLDataFactory(string defaultNS, OWLDataFactory factory, PrefixOWLOntologyFormat namespaceManager, Ontorion.CNL.EN.endict lex)
+        public void setOWLDataFactory(string defaultNS, OWLDataFactory factory, PrefixOWLOntologyFormat namespaceManager, CogniPy.CNL.EN.endict lex)
         {
             this.factory = factory;
             this._pfx2ns = null ;
@@ -665,9 +665,9 @@ namespace Ontorion.SPARQL
         }
 
         Func<Dictionary<string, string>> _pfx2ns;
-        Ontorion.CNL.EN.endict _lex;
+        CogniPy.CNL.EN.endict _lex;
         string _defaultNs;
-        public void setOWLDataFactory(string defaultNs, Func<Dictionary<string,string>> pfx2ns,Ontorion.CNL.EN.endict lex)
+        public void setOWLDataFactory(string defaultNs, Func<Dictionary<string,string>> pfx2ns,CogniPy.CNL.EN.endict lex)
         {
             this._defaultNs = defaultNs;
 
@@ -982,7 +982,7 @@ PREFIX fn: <http://www.w3.org/2005/xpath-functions#>
             using (activeFreeVarId.set(newFreeVarId()))
             {
                 var sparqlNode = n.accept(this) as SparqlNode;
-                if (n is Ontorion.CNL.DL.Top)
+                if (n is CogniPy.CNL.DL.Top)
                     sparqlNode = new SparqlTop(owlNC, sparqlNode.GetFreeVariableId());
 
                 distinct = sparqlNode.UseDistinct();
@@ -1110,7 +1110,7 @@ PREFIX fn: <http://www.w3.org/2005/xpath-functions#>
             return new SparqlOr(owlNC, activeFreeVarId.get(), nodes);
         }
 
-        public override object Visit(Ontorion.CNL.DL.BoundFacets e)
+        public override object Visit(CogniPy.CNL.DL.BoundFacets e)
         {
             var nodes = (from x in e.FL.List
                          select new SparqlRelatedToValueFilter(owlNC, activeFreeVarId.get(),
@@ -1122,7 +1122,7 @@ PREFIX fn: <http://www.w3.org/2005/xpath-functions#>
                 return new SparqlAnd(owlNC, activeFreeVarId.get(), nodes);
         }
 
-        public override object Visit(Ontorion.CNL.DL.FacetList e)
+        public override object Visit(CogniPy.CNL.DL.FacetList e)
         {
             var r = new List<Tuple<string, CNL.DL.Value>>();
             foreach (var F in e.List)

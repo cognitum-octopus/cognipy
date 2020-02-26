@@ -6,7 +6,7 @@ using org.coode.xml;
 using org.semanticweb.owlapi.util;
 //using Ontorion.OWL;
 
-namespace Ontorion.ARS
+namespace CogniPy.ARS
 {
     public enum NameingConventionKind
     {
@@ -39,7 +39,7 @@ namespace Ontorion.ARS
 
         public string defaultNs;
 
-        Ontorion.CNL.EN.endict lex = CNL.EN.CNLFactory.lex;
+        CogniPy.CNL.EN.endict lex = CNL.EN.CNLFactory.lex;
 
         //public InvTransform(OWLOntologyManager owlManager) { this.owlManager = owlManager; }
         /// <summary>
@@ -67,12 +67,12 @@ namespace Ontorion.ARS
             setNameProvider(nm, CNL.EN.CNLFactory.lex);
             if (nck != NameingConventionKind.CamelCase)
             {
-                Ontorion.ARS.IOwlNameingConvention namc = null;
+                CogniPy.ARS.IOwlNameingConvention namc = null;
                 if (nck == NameingConventionKind.Smart)
                     throw new NotImplementedException();
 //                    namc = new Ontorion.ARS.OwlNameingConventionSmartImport(getForms);
                 else
-                    namc = new Ontorion.ARS.OwlNameingConventionUnderscore(nck == NameingConventionKind.Underscored ? '_' : '-', nck == NameingConventionKind.Underscored ? false : true);
+                    namc = new CogniPy.ARS.OwlNameingConventionUnderscore(nck == NameingConventionKind.Underscored ? '_' : '-', nck == NameingConventionKind.Underscored ? false : true);
                 setNameingConvention(namc);
             }
         }
@@ -82,7 +82,7 @@ namespace Ontorion.ARS
         /// </summary>
         public InvTransform() { }
 
-        public InvTransform(OWLOntologyManager owlManager, OWLOntology defaultOntology, PrefixOWLOntologyFormat namespaceManager, Ontorion.CNL.EN.endict lex, IOwlNameingConvention owlNameingConvention = null)
+        public InvTransform(OWLOntologyManager owlManager, OWLOntology defaultOntology, PrefixOWLOntologyFormat namespaceManager, CogniPy.CNL.EN.endict lex, IOwlNameingConvention owlNameingConvention = null)
         {
             this.owlManager = owlManager;
             this._ontology = defaultOntology;
@@ -91,7 +91,7 @@ namespace Ontorion.ARS
                 setNameingConvention(owlNameingConvention);
         }
 
-        private void setNameProvider(PrefixOWLOntologyFormat namespaceManager, Ontorion.CNL.EN.endict lex)
+        private void setNameProvider(PrefixOWLOntologyFormat namespaceManager, CogniPy.CNL.EN.endict lex)
         {
             var map = namespaceManager.getPrefixName2PrefixMap();
             var keys = map.keySet().iterator();
@@ -127,7 +127,7 @@ namespace Ontorion.ARS
         
         private object ret = null;
 
-        public Ontorion.CNL.DL.Paragraph Convert(OWLOntology ontology)
+        public CogniPy.CNL.DL.Paragraph Convert(OWLOntology ontology)
         {
             declaredEntities = new SortedDictionary<string, CNL.DL.Statement>();
             iriKindCache = new Dictionary<string, EntityKind>();
@@ -136,7 +136,7 @@ namespace Ontorion.ARS
             ret = null;
             ontology.accept(this);
             _ontology = defaultOnt;
-            return ret as Ontorion.CNL.DL.Paragraph;
+            return ret as CogniPy.CNL.DL.Paragraph;
         }
 
         public CNL.DL.Statement Convert(OWLAxiom axiom)
@@ -160,7 +160,7 @@ namespace Ontorion.ARS
 
         public void visit(OWLOntology ontology)
         {
-            Ontorion.CNL.DL.Paragraph par = new CNL.DL.Paragraph(null) { Statements = new List<CNL.DL.Statement>() };
+            CogniPy.CNL.DL.Paragraph par = new CNL.DL.Paragraph(null) { Statements = new List<CNL.DL.Statement>() };
             var axioms = ontology.getAxioms().iterator();
             while (axioms.hasNext())
             {
@@ -294,7 +294,7 @@ namespace Ontorion.ARS
             return renderEntity(new OwlName() { iri = IRI.create(uri) }, makeFor,useCamelCase);
         }
 
-        SortedDictionary<string, Ontorion.CNL.DL.Statement> declaredEntities = new SortedDictionary<string, CNL.DL.Statement>();
+        SortedDictionary<string, CogniPy.CNL.DL.Statement> declaredEntities = new SortedDictionary<string, CNL.DL.Statement>();
         bool useEntityDeclMode = false;
         HashSet<string> usedEntities = new HashSet<string>();
 
@@ -304,7 +304,7 @@ namespace Ontorion.ARS
             var ent = axiom.getEntity();
             if (ent is OWLClass)
             {
-                Ontorion.CNL.DL.Subsumption stmt = new Ontorion.CNL.DL.Subsumption(null);
+                CogniPy.CNL.DL.Subsumption stmt = new CogniPy.CNL.DL.Subsumption(null);
 
                 useEntityDeclMode = true;
                 ent.accept(this);
@@ -324,7 +324,7 @@ namespace Ontorion.ARS
             }
             else if (ent is OWLIndividual)
             {
-                Ontorion.CNL.DL.InstanceOf stmt = new Ontorion.CNL.DL.InstanceOf(null);
+                CogniPy.CNL.DL.InstanceOf stmt = new CogniPy.CNL.DL.InstanceOf(null);
 
                 useEntityDeclMode = true;
                 ent.accept(this);
@@ -344,7 +344,7 @@ namespace Ontorion.ARS
             }
             else if (ent is OWLObjectProperty)
             {
-                Ontorion.CNL.DL.RoleInclusion stmt = new Ontorion.CNL.DL.RoleInclusion(null);
+                CogniPy.CNL.DL.RoleInclusion stmt = new CogniPy.CNL.DL.RoleInclusion(null);
 
                 useEntityDeclMode = true;
                 ent.accept(this);
@@ -364,7 +364,7 @@ namespace Ontorion.ARS
             }
             else if (ent is OWLDataProperty)
             {
-                Ontorion.CNL.DL.DataRoleInclusion stmt = new Ontorion.CNL.DL.DataRoleInclusion(null);
+                CogniPy.CNL.DL.DataRoleInclusion stmt = new CogniPy.CNL.DL.DataRoleInclusion(null);
 
                 useEntityDeclMode = true;
                 ent.accept(this);
@@ -384,7 +384,7 @@ namespace Ontorion.ARS
             }
             else if (ent is OWLDatatype)
             {
-                Ontorion.CNL.DL.DataTypeDefinition stmt = new CNL.DL.DataTypeDefinition(null);
+                CogniPy.CNL.DL.DataTypeDefinition stmt = new CNL.DL.DataTypeDefinition(null);
                 useEntityDeclMode = true;
                 ent.accept(this);
                 useEntityDeclMode = false;
@@ -424,7 +424,7 @@ namespace Ontorion.ARS
             }
 
             {
-                Ontorion.CNL.DL.Subsumption stmt = new Ontorion.CNL.DL.Subsumption(null);
+                CogniPy.CNL.DL.Subsumption stmt = new CogniPy.CNL.DL.Subsumption(null);
                 axiom.getSubClass().accept(this); stmt.C = ret as CNL.DL.Node;
                 axiom.getSuperClass().accept(this); stmt.D = ret as CNL.DL.Node;
                 if (axiom.isAnnotated())
@@ -449,7 +449,7 @@ namespace Ontorion.ARS
         {
             var classes = axiom.getClassExpressions().iterator();
 
-            Ontorion.CNL.DL.Disjoint stmt = new CNL.DL.Disjoint(null) { Disjoints = new List<CNL.DL.Node>() };
+            CogniPy.CNL.DL.Disjoint stmt = new CNL.DL.Disjoint(null) { Disjoints = new List<CNL.DL.Node>() };
             while (classes.hasNext())
             {
                 var Do = classes.next() as OWLClassExpression;
@@ -506,7 +506,7 @@ namespace Ontorion.ARS
 
         public void visit(OWLObjectPropertyAssertionAxiom axiom)
         {
-            Ontorion.CNL.DL.RelatedInstances stmt = new CNL.DL.RelatedInstances(null);
+            CogniPy.CNL.DL.RelatedInstances stmt = new CNL.DL.RelatedInstances(null);
             var i = axiom.getSubject();
             var j = axiom.getObject();
             var prop = axiom.getProperty();
@@ -528,7 +528,7 @@ namespace Ontorion.ARS
 
         public void visit(OWLSubObjectPropertyOfAxiom axiom)
         {
-            Ontorion.CNL.DL.RoleInclusion stmt = new Ontorion.CNL.DL.RoleInclusion(null);
+            CogniPy.CNL.DL.RoleInclusion stmt = new CogniPy.CNL.DL.RoleInclusion(null);
             axiom.getSubProperty().accept(this); stmt.C = ret as CNL.DL.Node;
             axiom.getSuperProperty().accept(this); stmt.D = ret as CNL.DL.Node;
             if (axiom.isAnnotated())
@@ -550,7 +550,7 @@ namespace Ontorion.ARS
         {
             var roles = axiom.getProperties().iterator();
 
-            Ontorion.CNL.DL.DataRoleEquivalence stmt = new CNL.DL.DataRoleEquivalence(null) { Equivalents = new List<CNL.DL.Node>() };
+            CogniPy.CNL.DL.DataRoleEquivalence stmt = new CNL.DL.DataRoleEquivalence(null) { Equivalents = new List<CNL.DL.Node>() };
             while (roles.hasNext())
             {
                 var Do = roles.next() as OWLDataProperty;
@@ -569,7 +569,7 @@ namespace Ontorion.ARS
 
         public void visit(OWLClassAssertionAxiom axiom)
         {
-            Ontorion.CNL.DL.InstanceOf stmt = new CNL.DL.InstanceOf(null);
+            CogniPy.CNL.DL.InstanceOf stmt = new CNL.DL.InstanceOf(null);
             axiom.getClassExpression().accept(this); stmt.C = ret as CNL.DL.Node;
             axiom.getIndividual().accept(this); stmt.I = ret as CNL.DL.Instance;
 
@@ -583,7 +583,7 @@ namespace Ontorion.ARS
 
             var classes = axiom.getClassExpressions().iterator();
 
-            Ontorion.CNL.DL.Equivalence stmt = new CNL.DL.Equivalence(null) { Equivalents = new List<CNL.DL.Node>() };
+            CogniPy.CNL.DL.Equivalence stmt = new CNL.DL.Equivalence(null) { Equivalents = new List<CNL.DL.Node>() };
             while (classes.hasNext())
             {
                 var Do = classes.next() as OWLClassExpression;
@@ -604,7 +604,7 @@ namespace Ontorion.ARS
         {
             var roles = axiom.getProperties().iterator();
 
-            Ontorion.CNL.DL.RoleEquivalence stmt = new CNL.DL.RoleEquivalence(null) { Equivalents = new List<CNL.DL.Node>() };
+            CogniPy.CNL.DL.RoleEquivalence stmt = new CNL.DL.RoleEquivalence(null) { Equivalents = new List<CNL.DL.Node>() };
             while (roles.hasNext())
             {
                 var Do = roles.next();
@@ -740,7 +740,7 @@ namespace Ontorion.ARS
 
         public void visit(OWLObjectComplementOf desc)
         {
-            var expr = new Ontorion.CNL.DL.ConceptNot(null);
+            var expr = new CogniPy.CNL.DL.ConceptNot(null);
 
             desc.getOperand().accept(this); expr.C = ret as CNL.DL.Node;
 
@@ -917,7 +917,7 @@ namespace Ontorion.ARS
 
         public void visit(OWLHasKeyAxiom axiom)
         {
-            Ontorion.CNL.DL.HasKey stmt = new CNL.DL.HasKey(null) { DataRoles = new List<CNL.DL.Node>(), Roles = new List<CNL.DL.Node>() };
+            CogniPy.CNL.DL.HasKey stmt = new CNL.DL.HasKey(null) { DataRoles = new List<CNL.DL.Node>(), Roles = new List<CNL.DL.Node>() };
             axiom.getClassExpression().accept(this);
             Assert(ret is CNL.DL.Node);
             stmt.C = ret as CNL.DL.Node;
@@ -943,7 +943,7 @@ namespace Ontorion.ARS
 
         public void visit(OWLDisjointUnionAxiom axiom)
         {
-            Ontorion.CNL.DL.DisjointUnion stmt = new CNL.DL.DisjointUnion(null) { Union = new List<CNL.DL.Node>() };
+            CogniPy.CNL.DL.DisjointUnion stmt = new CNL.DL.DisjointUnion(null) { Union = new List<CNL.DL.Node>() };
             axiom.getOWLClass().accept((OWLClassExpressionVisitor) this);
             Assert(ret is CNL.DL.Atomic);
             stmt.name = (ret as CNL.DL.Atomic).id;
@@ -963,7 +963,7 @@ namespace Ontorion.ARS
         {
             var roles = axiom.getProperties().iterator();
 
-            Ontorion.CNL.DL.DataRoleDisjoint stmt = new CNL.DL.DataRoleDisjoint(null) { Disjoints = new List<CNL.DL.Node>() };
+            CogniPy.CNL.DL.DataRoleDisjoint stmt = new CNL.DL.DataRoleDisjoint(null) { Disjoints = new List<CNL.DL.Node>() };
             while (roles.hasNext())
             {
                 var Do = roles.next() as OWLDataProperty;
@@ -979,7 +979,7 @@ namespace Ontorion.ARS
         {
             var roles = axiom.getProperties().iterator();
 
-            Ontorion.CNL.DL.RoleDisjoint stmt = new CNL.DL.RoleDisjoint(null) { Disjoints = new List<CNL.DL.Node>() };
+            CogniPy.CNL.DL.RoleDisjoint stmt = new CNL.DL.RoleDisjoint(null) { Disjoints = new List<CNL.DL.Node>() };
             while (roles.hasNext())
             {
                 var Do = roles.next() as OWLObjectPropertyExpression;
@@ -993,7 +993,7 @@ namespace Ontorion.ARS
 
         public void visit(OWLSubDataPropertyOfAxiom axiom)
         {
-            Ontorion.CNL.DL.DataRoleInclusion stmt = new Ontorion.CNL.DL.DataRoleInclusion(null);
+            CogniPy.CNL.DL.DataRoleInclusion stmt = new CogniPy.CNL.DL.DataRoleInclusion(null);
             axiom.getSubProperty().accept(this); stmt.C = ret as CNL.DL.Node;
             axiom.getSuperProperty().accept(this); stmt.D = ret as CNL.DL.Node;
             if (axiom.isAnnotated())
@@ -1003,7 +1003,7 @@ namespace Ontorion.ARS
 
         public void visit(OWLSubPropertyChainOfAxiom axiom)
         {
-            Ontorion.CNL.DL.ComplexRoleInclusion stmt = new Ontorion.CNL.DL.ComplexRoleInclusion(null) { RoleChain = new List<CNL.DL.Node>() };
+            CogniPy.CNL.DL.ComplexRoleInclusion stmt = new CogniPy.CNL.DL.ComplexRoleInclusion(null) { RoleChain = new List<CNL.DL.Node>() };
             var chains = axiom.getPropertyChain().iterator();
             while (chains.hasNext())
             {
@@ -1173,13 +1173,13 @@ namespace Ontorion.ARS
 
         public void visit(OWLDataOneOf node)
         {
-            var set = new Ontorion.CNL.DL.ValueSet(null) { Values = new List<CNL.DL.Value>() };
+            var set = new CogniPy.CNL.DL.ValueSet(null) { Values = new List<CNL.DL.Value>() };
             var vals = node.getValues().iterator();
             while (vals.hasNext())
             {
                 var val = vals.next() as OWLObject;
                 val.accept(this);
-                set.Values.Add(ret as Ontorion.CNL.DL.Value);
+                set.Values.Add(ret as CogniPy.CNL.DL.Value);
             }
             ret = set;
         }
@@ -1317,7 +1317,7 @@ namespace Ontorion.ARS
             if (_ontology != null)
             {
                 var it = axx.getAnnotations().iterator();
-                var ser = new Ontorion.CNL.DL.Serializer(false);
+                var ser = new CogniPy.CNL.DL.Serializer(false);
                 var serializedStmt = ser.Serialize(new CNL.DL.Paragraph(null) { Statements = new List<CNL.DL.Statement>() { stmt } });
                 // we are here removing the quotes and other things that where added by the DL serializer. This is a bad practice as someone external to the serializer 
                 // knows about its internal functioning but for the moment it should work....
@@ -1326,7 +1326,7 @@ namespace Ontorion.ARS
             }
         }
 
-        private Ontorion.CNL.AnnotationManager _annotMan = new Ontorion.CNL.AnnotationManager();
+        private CogniPy.CNL.AnnotationManager _annotMan = new CogniPy.CNL.AnnotationManager();
 
         private void appendAnnotationsToManager(string subj,EntityKind kind, java.util.Iterator it)
         {
@@ -1532,7 +1532,7 @@ namespace Ontorion.ARS
 
         public void visit(SWRLRule rule)
         {
-            Ontorion.CNL.DL.SwrlStatement statement = new Ontorion.CNL.DL.SwrlStatement(null);
+            CogniPy.CNL.DL.SwrlStatement statement = new CogniPy.CNL.DL.SwrlStatement(null);
 
             var slpi = rule.getBody().iterator();            
             statement.slp = new CNL.DL.SwrlItemList(null)
@@ -1570,24 +1570,24 @@ namespace Ontorion.ARS
         public void visit(SWRLClassAtom node)
         {
             var args = node.getAllArguments().iterator();
-            Ontorion.CNL.DL.SwrlIObject id_var = null;
+            CogniPy.CNL.DL.SwrlIObject id_var = null;
             while (args.hasNext())
             {
                 Assert(id_var == null);
                 var arg1 = args.next() as SWRLIArgument;
                 ret = null;
                 arg1.accept(this);
-                if (ret is Ontorion.CNL.DL.SwrlIObject)
-                    id_var = ret as Ontorion.CNL.DL.SwrlIObject;
+                if (ret is CogniPy.CNL.DL.SwrlIObject)
+                    id_var = ret as CogniPy.CNL.DL.SwrlIObject;
                 else if (ret is string)
-                    id_var = new Ontorion.CNL.DL.SwrlIVal(null, ret as string);
+                    id_var = new CogniPy.CNL.DL.SwrlIVal(null, ret as string);
                 else
                     Assert(false);
             }
 
             ret = null;
             node.getPredicate().accept(this);
-            ret = new Ontorion.CNL.DL.SwrlInstance(null)
+            ret = new CogniPy.CNL.DL.SwrlInstance(null)
             {
                 C = ret as CNL.DL.Node,
                 I = id_var
@@ -1596,7 +1596,7 @@ namespace Ontorion.ARS
 
         public void visit(SWRLObjectPropertyAtom node)
         {
-            List<Ontorion.CNL.DL.SwrlIObject> objs = new List<CNL.DL.SwrlIObject>();
+            List<CogniPy.CNL.DL.SwrlIObject> objs = new List<CNL.DL.SwrlIObject>();
             var args = node.getAllArguments().iterator();
             while (args.hasNext())
             {
@@ -1604,10 +1604,10 @@ namespace Ontorion.ARS
                 ret = null;
                 arg1.accept(this);
                 Assert(ret != null);
-                if (ret is Ontorion.CNL.DL.SwrlIObject)
-                    objs.Add(ret as Ontorion.CNL.DL.SwrlIObject);
+                if (ret is CogniPy.CNL.DL.SwrlIObject)
+                    objs.Add(ret as CogniPy.CNL.DL.SwrlIObject);
                 else if (ret is string)
-                    objs.Add(new Ontorion.CNL.DL.SwrlIVal(null, ret as string));
+                    objs.Add(new CogniPy.CNL.DL.SwrlIVal(null, ret as string));
                 else
                     Assert(false);
             }
@@ -1615,27 +1615,27 @@ namespace Ontorion.ARS
             ret = null;
             node.getPredicate().accept(this);
             var role = ret;
-            if (ret is Ontorion.CNL.DL.RoleInversion)
-                ret = new CNL.DL.SwrlRole(null) { I = objs[1], J = objs[0], R = ((role as Ontorion.CNL.DL.RoleInversion).R as Ontorion.CNL.DL.Atomic).id };
+            if (ret is CogniPy.CNL.DL.RoleInversion)
+                ret = new CNL.DL.SwrlRole(null) { I = objs[1], J = objs[0], R = ((role as CogniPy.CNL.DL.RoleInversion).R as CogniPy.CNL.DL.Atomic).id };
             else
-                ret = new CNL.DL.SwrlRole(null) { I = objs[0], J = objs[1], R = (role as Ontorion.CNL.DL.Atomic).id };
+                ret = new CNL.DL.SwrlRole(null) { I = objs[0], J = objs[1], R = (role as CogniPy.CNL.DL.Atomic).id };
         }
 
         public void visit(SWRLDataRangeAtom node)
         {
             var args = node.getAllArguments().iterator();
-            Ontorion.CNL.DL.SwrlDObject id_var = null;
+            CogniPy.CNL.DL.SwrlDObject id_var = null;
             while (args.hasNext())
             {
                 var arg1 = args.next() as SWRLArgument;
                 ret = null;
                 arg1.accept(this);
-                if(ret is Ontorion.CNL.DL.SwrlBuiltIn)
-                    id_var = ret as Ontorion.CNL.DL.SwrlDObject;
-                else if(ret is Ontorion.CNL.DL.Value)
-                    id_var = new Ontorion.CNL.DL.SwrlDVal(null, ret as Ontorion.CNL.DL.Value);
-                else if(ret is Ontorion.CNL.DL.ISwrlVar)
-                    id_var = new Ontorion.CNL.DL.SwrlDVar(null, (ret as Ontorion.CNL.DL.ISwrlVar).getVar());
+                if(ret is CogniPy.CNL.DL.SwrlBuiltIn)
+                    id_var = ret as CogniPy.CNL.DL.SwrlDObject;
+                else if(ret is CogniPy.CNL.DL.Value)
+                    id_var = new CogniPy.CNL.DL.SwrlDVal(null, ret as CogniPy.CNL.DL.Value);
+                else if(ret is CogniPy.CNL.DL.ISwrlVar)
+                    id_var = new CogniPy.CNL.DL.SwrlDVar(null, (ret as CogniPy.CNL.DL.ISwrlVar).getVar());
 
                 Assert(id_var != null);
             }
@@ -1643,7 +1643,7 @@ namespace Ontorion.ARS
             ret = null;
             node.getPredicate().accept(this);
             CNL.DL.AbstractBound na = ret as CNL.DL.AbstractBound;
-            ret = new Ontorion.CNL.DL.SwrlDataRange(null, na, id_var);
+            ret = new CogniPy.CNL.DL.SwrlDataRange(null, na, id_var);
         }
 
         public void visit(SWRLDataPropertyAtom node)
@@ -1670,7 +1670,7 @@ namespace Ontorion.ARS
             Assert(role != null);
             if (objs[1] is CNL.DL.SwrlIVar)
                 objs[1] = new CNL.DL.SwrlDVar(null, (objs[1] as CNL.DL.SwrlIVar).getVar());
-            ret = new CNL.DL.SwrlDataProperty(null) { IO = objs[0] as CNL.DL.SwrlIObject, DO = objs[1] as CNL.DL.SwrlDObject, R = (role as Ontorion.CNL.DL.Atomic).id };
+            ret = new CNL.DL.SwrlDataProperty(null) { IO = objs[0] as CNL.DL.SwrlIObject, DO = objs[1] as CNL.DL.SwrlDObject, R = (role as CogniPy.CNL.DL.Atomic).id };
         }
 
         public void visit(SWRLBuiltInAtom node)
@@ -1853,7 +1853,7 @@ namespace Ontorion.ARS
         public void visit(SWRLVariable node)
         {
             var owlName = new OwlName() { iri = node.getIRI() };
-            ret = new Ontorion.CNL.DL.SwrlIVar(null, owlNameingConvention.ToDL(owlName, lex, ns2pfx, EntityKind.SWRLVariable).id);
+            ret = new CogniPy.CNL.DL.SwrlIVar(null, owlNameingConvention.ToDL(owlName, lex, ns2pfx, EntityKind.SWRLVariable).id);
         }
 
         public void visit(SWRLIndividualArgument node)

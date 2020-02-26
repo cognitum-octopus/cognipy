@@ -1,5 +1,5 @@
 using System;using Tools;
-namespace Ontorion.CNL.EN {
+namespace CogniPy.CNL.EN {
 //%+paragraph+102
 public partial class paragraph : PartialSymbol{
 public override string yyname_endl { get { return "paragraph"; }}

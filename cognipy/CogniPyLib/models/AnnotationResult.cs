@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FluentEditorClientLib.models
+namespace CogniPy.models
 {
     public class AnnotationResult
     {

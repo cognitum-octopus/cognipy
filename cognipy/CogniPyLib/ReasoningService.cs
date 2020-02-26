@@ -9,26 +9,25 @@ using org.semanticweb.owlapi.util;
 using org.semanticweb.owlapi.reasoner;
 using com.clarkparsia.owlapi.explanation;
 using System.Diagnostics;
-using Ontorion.CNL;
+using CogniPy.CNL;
 using System.Xml;
 using org.semanticweb.owlapi.reasoner.structural;
-using Ontorion.OWL;
+using CogniPy.OWL;
 using System.Reflection;
 using java.util;
 using org.apache.jena.util;
-using Ontorion.CNL.DL;
+using CogniPy.CNL.DL;
 using org.apache.jena.riot;
-using Ontorion.Configuration;
+using CogniPy.Configuration;
 using org.semanticweb.HermiT;
-using Ontorion.ARS;
+using CogniPy.ARS;
 using org.semanticweb.owlapi.profiles;
-using Ontorion.Executing.HermiT;
+using CogniPy.Executing.HermiT;
 using System.Text.RegularExpressions;
-using Ontorion.FluentEditorClient;
-using FluentEditorClientLib.models;
+using CogniPy.models;
 using System.IO;
 
-namespace Ontorion.Executing.HermiTClient
+namespace CogniPy.Executing.HermiTClient
 {
     public enum ReasoningMode { SROIQ, RL, SWRL, STRUCTURAL, NONE}
 
@@ -138,13 +137,13 @@ namespace Ontorion.Executing.HermiTClient
 
         public SPARQL.Transform SparqlTransform { get { return sparqlTransform; } }
 
-        Ontorion.ARS.Transform transform = new Ontorion.ARS.Transform();
-        Ontorion.SPARQL.Transform sparqlTransform = new SPARQL.Transform();
-        Ontorion.ARS.InvTransform invtransform;
-        Ontorion.CNL.DL.Paragraph sourceParagraph = null;
+        CogniPy.ARS.Transform transform = new CogniPy.ARS.Transform();
+        CogniPy.SPARQL.Transform sparqlTransform = new SPARQL.Transform();
+        CogniPy.ARS.InvTransform invtransform;
+        CogniPy.CNL.DL.Paragraph sourceParagraph = null;
         HashSet<org.apache.jena.graph.Triple> sourceTriplets = null;
 
-        Ontorion.CNL.DL.Paragraph swrlRulesWIthBuiltInsParagraph = new Ontorion.CNL.DL.Paragraph(null) { Statements = new List<Statement>() };
+        CogniPy.CNL.DL.Paragraph swrlRulesWIthBuiltInsParagraph = new CogniPy.CNL.DL.Paragraph(null) { Statements = new List<Statement>() };
 
         private static string SerializeDoc(XmlDocument doc)
         {
@@ -174,8 +173,8 @@ namespace Ontorion.Executing.HermiTClient
                     ontology = manager.createOntology(ontologyIRI);
                     manager.setOntologyFormat(ontology, owlxmlFormat);
                     var conv = transform.Convert(GetParagraph(includeImplicitValue));
-                    manager.addAxioms(ontology, Ontorion.ARS.Transform.GetJavaAxiomSet(conv.axioms));
-                    manager.addAxioms(ontology, Ontorion.ARS.Transform.GetJavaAxiomSet(conv.additions));
+                    manager.addAxioms(ontology, CogniPy.ARS.Transform.GetJavaAxiomSet(conv.axioms));
+                    manager.addAxioms(ontology, CogniPy.ARS.Transform.GetJavaAxiomSet(conv.additions));
                 }
                 else
                 {
@@ -204,8 +203,8 @@ namespace Ontorion.Executing.HermiTClient
                         ontology = manager.createOntology(ontologyIRI);
                         manager.setOntologyFormat(ontology, turtleFormat);
                         var conv = transform.Convert(GetParagraph(includeImplicitValue));
-                        manager.addAxioms(ontology, Ontorion.ARS.Transform.GetJavaAxiomSet(conv.axioms));
-                        manager.addAxioms(ontology, Ontorion.ARS.Transform.GetJavaAxiomSet(conv.additions));
+                        manager.addAxioms(ontology, CogniPy.ARS.Transform.GetJavaAxiomSet(conv.axioms));
+                        manager.addAxioms(ontology, CogniPy.ARS.Transform.GetJavaAxiomSet(conv.additions));
                     }
                     else
                     {
@@ -236,8 +235,8 @@ namespace Ontorion.Executing.HermiTClient
                 ontology = manager.createOntology(ontologyIRI);
                 manager.setOntologyFormat(ontology, turtleFormat);
                 var conv = transform.Convert(new Paragraph(null, stmt));
-                manager.addAxioms(ontology, Ontorion.ARS.Transform.GetJavaAxiomSet(conv.axioms));
-                manager.addAxioms(ontology, Ontorion.ARS.Transform.GetJavaAxiomSet(conv.additions));
+                manager.addAxioms(ontology, CogniPy.ARS.Transform.GetJavaAxiomSet(conv.axioms));
+                manager.addAxioms(ontology, CogniPy.ARS.Transform.GetJavaAxiomSet(conv.additions));
 
                 var ontout = new org.semanticweb.owlapi.io.StringDocumentTarget();
                 manager.saveOntology(ontology, turtleFormat, ontout);
@@ -248,7 +247,7 @@ namespace Ontorion.Executing.HermiTClient
         private org.semanticweb.owlapi.vocab.PrefixOWLOntologyFormat owlxmlFormat = null;
         private org.semanticweb.owlapi.vocab.PrefixOWLOntologyFormat turtleFormat = null;
         ImpliKBVisitor impliKBVis = new ImpliKBVisitor();
-        Ontorion.ARS.IOwlNameingConvention namc;
+        CogniPy.ARS.IOwlNameingConvention namc;
         Dictionary<Tuple<EntityKind, string>, string> uriMappings;
         Dictionary<string, string> invUriMappings;
 
@@ -259,9 +258,9 @@ namespace Ontorion.Executing.HermiTClient
         public bool modalChecker = false;
 
         public OWLDataFactory df = null;
-        public HermiTReasoningService(Ontorion.CNL.DL.Paragraph ps, Ontorion.CNL.DL.Paragraph impliAst, ReasoningMode rmode,
+        public HermiTReasoningService(CogniPy.CNL.DL.Paragraph ps, CogniPy.CNL.DL.Paragraph impliAst, ReasoningMode rmode,
 
-            Ontorion.ARS.IOwlNameingConvention namc, string ontologyBase,
+            CogniPy.ARS.IOwlNameingConvention namc, string ontologyBase,
             Dictionary<Tuple<EntityKind, string>, string> uriMappings, Dictionary<string, string> invUriMappings, Dictionary<string, string> prefixes)
         {
             if (impliAst != null)
@@ -315,10 +314,10 @@ namespace Ontorion.Executing.HermiTClient
             sparqlTransform.InvUriMappings = invUriMappings;
 
             var conv = transform.Convert(sourceParagraph);
-            manager.addAxioms(ontology, Ontorion.ARS.Transform.GetJavaAxiomSet(conv.axioms));
-            manager.addAxioms(ontology, Ontorion.ARS.Transform.GetJavaAxiomSet(conv.additions));
+            manager.addAxioms(ontology, CogniPy.ARS.Transform.GetJavaAxiomSet(conv.axioms));
+            manager.addAxioms(ontology, CogniPy.ARS.Transform.GetJavaAxiomSet(conv.additions));
 
-            invtransform = new Ontorion.ARS.InvTransform(manager, ontology, owlxmlFormat, CNL.EN.CNLFactory.lex, namc);
+            invtransform = new CogniPy.ARS.InvTransform(manager, ontology, owlxmlFormat, CNL.EN.CNLFactory.lex, namc);
             invtransform.InvUriMappings = invUriMappings;
             invtransform.UriMappings = uriMappings;
 
@@ -383,7 +382,7 @@ namespace Ontorion.Executing.HermiTClient
             this.transform.InvUriMappings = other.invUriMappings;
             this.sparqlTransform.InvUriMappings = other.invUriMappings;
 
-            this.invtransform = new Ontorion.ARS.InvTransform(other.manager, other.ontology, other.owlxmlFormat, CNL.EN.CNLFactory.lex, other.namc);
+            this.invtransform = new CogniPy.ARS.InvTransform(other.manager, other.ontology, other.owlxmlFormat, CNL.EN.CNLFactory.lex, other.namc);
             this.invtransform.InvUriMappings = other.invUriMappings;
             this.invtransform.UriMappings = other.uriMappings;
 
@@ -418,7 +417,7 @@ namespace Ontorion.Executing.HermiTClient
         public static CNL.DL.Paragraph SimplifyDL(CNL.DL.Paragraph paragraph)
         {
             DLModSimplifier simli = new DLModSimplifier();
-            var paragraphSimplified = simli.Visit(paragraph) as Ontorion.CNL.DL.Paragraph;
+            var paragraphSimplified = simli.Visit(paragraph) as CogniPy.CNL.DL.Paragraph;
             return paragraphSimplified;
         }
 
@@ -541,7 +540,7 @@ namespace Ontorion.Executing.HermiTClient
                             row.Add(null);
                         else if (val is org.apache.jena.rdf.model.Literal)
                         {
-                            var v = Ontorion.SPARQL.SparqlNode.ToTypedValue((val as org.apache.jena.rdf.model.Literal).ToString());
+                            var v = CogniPy.SPARQL.SparqlNode.ToTypedValue((val as org.apache.jena.rdf.model.Literal).ToString());
                             if (v == null)
                                 v = JenaRuleManager.getObject(val.asNode());
                             row.Add(v);
@@ -556,10 +555,10 @@ namespace Ontorion.Executing.HermiTClient
                             if (this.detectTypesOfNodes)
                             {
                                 var type = GetTypeOfNode(model, val.asNode());
-                                row.Add(new Ontorion.GraphEntity() { Name = val.toString(), Kind = type });
+                                row.Add(new CogniPy.GraphEntity() { Name = val.toString(), Kind = type });
                             }
                             else
-                                row.Add(new Ontorion.GraphEntity() { Name = val.toString(), Kind = defaultKindOfNode });
+                                row.Add(new CogniPy.GraphEntity() { Name = val.toString(), Kind = defaultKindOfNode });
                         }
                     }
                     if (!blank)
@@ -1002,7 +1001,7 @@ namespace Ontorion.Executing.HermiTClient
                     if (inferfedAbox != null)
                     {
                         HashSet<string> aboxAlready = new HashSet<string>();
-                        var ser = new Ontorion.CNL.DL.Serializer(false);
+                        var ser = new CogniPy.CNL.DL.Serializer(false);
                         //                        DLModSimplifier simli = new DLModSimplifier();
                         //                        var p = simli.Visit(toRet) as CNL.DL.Paragraph;
 
@@ -1742,7 +1741,7 @@ namespace Ontorion.Executing.HermiTClient
             return gen.Validate(statement);
         }
 
-        private Ontorion.CNL.DL.Serializer dlserializer = new Ontorion.CNL.DL.Serializer();
+        private CogniPy.CNL.DL.Serializer dlserializer = new CogniPy.CNL.DL.Serializer();
 
         private void MaterializeSROIQ(MatMode mode, bool isAboxInsertOnly)
         {
@@ -1934,12 +1933,12 @@ namespace Ontorion.Executing.HermiTClient
             }
 
             var conv = transform.Convert(toRet);
-            manager.addAxioms(ontology, Ontorion.ARS.Transform.GetJavaAxiomSet(conv.axioms));
-            manager.addAxioms(ontology, Ontorion.ARS.Transform.GetJavaAxiomSet(conv.additions));
-            manager.addAxioms(ontology, Ontorion.ARS.Transform.GetJavaAxiomSet(conv.hotfixes));
+            manager.addAxioms(ontology, CogniPy.ARS.Transform.GetJavaAxiomSet(conv.axioms));
+            manager.addAxioms(ontology, CogniPy.ARS.Transform.GetJavaAxiomSet(conv.additions));
+            manager.addAxioms(ontology, CogniPy.ARS.Transform.GetJavaAxiomSet(conv.hotfixes));
 
             var adds = transform.Convert(swrlRulesWIthBuiltInsParagraph);
-            manager.addAxioms(ontology, Ontorion.ARS.Transform.GetJavaAxiomSet(adds.hotfixes));
+            manager.addAxioms(ontology, CogniPy.ARS.Transform.GetJavaAxiomSet(adds.hotfixes));
 
         }
 
@@ -2054,12 +2053,12 @@ namespace Ontorion.Executing.HermiTClient
 
         class ExplanationsProgressMonitor : com.clarkparsia.owlapi.explanation.util.ExplanationProgressMonitor
         {
-            public List<Ontorion.CNL.DL.Paragraph> aExplanations = new List<Ontorion.CNL.DL.Paragraph>();
-            public Action<Ontorion.CNL.DL.Paragraph> foundExplanationAction;
+            public List<CogniPy.CNL.DL.Paragraph> aExplanations = new List<CogniPy.CNL.DL.Paragraph>();
+            public Action<CogniPy.CNL.DL.Paragraph> foundExplanationAction;
             public Func<bool> isCancelledFunc;
 
-            Ontorion.ARS.InvTransform invtransform;
-            public ExplanationsProgressMonitor(Ontorion.ARS.InvTransform invtransform)
+            CogniPy.ARS.InvTransform invtransform;
+            public ExplanationsProgressMonitor(CogniPy.ARS.InvTransform invtransform)
             {
                 this.invtransform = invtransform;
             }
@@ -2071,7 +2070,7 @@ namespace Ontorion.Executing.HermiTClient
 
             public void foundExplanation(java.util.Set explanation)
             {
-                Ontorion.CNL.DL.Paragraph explanat = new Ontorion.CNL.DL.Paragraph(null) { Statements = new List<Ontorion.CNL.DL.Statement>() };
+                CogniPy.CNL.DL.Paragraph explanat = new CogniPy.CNL.DL.Paragraph(null) { Statements = new List<CogniPy.CNL.DL.Statement>() };
                 foreach (var causingAxiom in explanation.toArray())
                 {
                     explanat.Statements.Add(invtransform.Convert(causingAxiom as OWLAxiom));
@@ -2086,15 +2085,15 @@ namespace Ontorion.Executing.HermiTClient
             }
         }
 
-        public List<Ontorion.CNL.DL.Paragraph> GetExplanations(Action<Ontorion.CNL.DL.Paragraph> foundExplanationAction, Func<bool> isCancelledFunc)
+        public List<CogniPy.CNL.DL.Paragraph> GetExplanations(Action<CogniPy.CNL.DL.Paragraph> foundExplanationAction, Func<bool> isCancelledFunc)
         {
             rationals.Automaton a = new rationals.Automaton();
 
             var manager = OWLManager.createOWLOntologyManager();
             var ontology = manager.createOntology(ontologyIRI);
             var conv = transform.Convert(sourceParagraph);
-            manager.addAxioms(ontology, Ontorion.ARS.Transform.GetJavaAxiomSet(conv.axioms));
-            manager.addAxioms(ontology, Ontorion.ARS.Transform.GetJavaAxiomSet(conv.additions));
+            manager.addAxioms(ontology, CogniPy.ARS.Transform.GetJavaAxiomSet(conv.axioms));
+            manager.addAxioms(ontology, CogniPy.ARS.Transform.GetJavaAxiomSet(conv.additions));
 
             var bf = new BlindFactory();
 
@@ -2109,7 +2108,7 @@ namespace Ontorion.Executing.HermiTClient
 
             if (explanations.isEmpty())
             {
-                Ontorion.CNL.DL.Paragraph explanat = new Ontorion.CNL.DL.Paragraph(null) { Statements = new List<Ontorion.CNL.DL.Statement>() };
+                CogniPy.CNL.DL.Paragraph explanat = new CogniPy.CNL.DL.Paragraph(null) { Statements = new List<CogniPy.CNL.DL.Statement>() };
                 foreach (var causingAxiom in (ontology.getAxioms() as java.util.Set).toArray())
                 {
                     explanat.Statements.Add(invtransform.Convert(causingAxiom as OWLAxiom));
@@ -2138,17 +2137,17 @@ namespace Ontorion.Executing.HermiTClient
             }
         }
 
-        public List<List<string>> GetObjectPropertyRanges(Ontorion.CNL.DL.Node role, bool includeTopBot = false)
+        public List<List<string>> GetObjectPropertyRanges(CogniPy.CNL.DL.Node role, bool includeTopBot = false)
         {
             return GetObjectDomainRange(reasoner.getObjectPropertyRanges, role, includeTopBot);
         }
 
-        public List<List<string>> GetObjectPropertyDomains(Ontorion.CNL.DL.Node role, bool includeTopBot = false)
+        public List<List<string>> GetObjectPropertyDomains(CogniPy.CNL.DL.Node role, bool includeTopBot = false)
         {
             return GetObjectDomainRange(reasoner.getObjectPropertyDomains, role, includeTopBot);
         }
 
-        private List<List<string>> GetObjectDomainRange(Func<OWLObjectPropertyExpression, bool, NodeSet> func, Ontorion.CNL.DL.Node role, bool includeTopBot)
+        private List<List<string>> GetObjectDomainRange(Func<OWLObjectPropertyExpression, bool, NodeSet> func, CogniPy.CNL.DL.Node role, bool includeTopBot)
         {
             List<List<string>> x = new List<List<string>>();
             var ret = func(transform.GetObjectProperty(role), false);
@@ -2184,12 +2183,12 @@ namespace Ontorion.Executing.HermiTClient
         }
 
 
-        public List<List<string>> GetDataPropertyDomains(Ontorion.CNL.DL.Node role, bool includeTopBot = false)
+        public List<List<string>> GetDataPropertyDomains(CogniPy.CNL.DL.Node role, bool includeTopBot = false)
         {
             return GetDataDomain(reasoner.getDataPropertyDomains, role, includeTopBot);
         }
 
-        private List<List<string>> GetDataDomain(Func<OWLDataProperty, bool, NodeSet> func, Ontorion.CNL.DL.Node role, bool includeTopBot)
+        private List<List<string>> GetDataDomain(Func<OWLDataProperty, bool, NodeSet> func, CogniPy.CNL.DL.Node role, bool includeTopBot)
         {
             List<List<string>> x = new List<List<string>>();
             var ret = func(transform.GetDataProperty(role), false);
@@ -2226,7 +2225,7 @@ namespace Ontorion.Executing.HermiTClient
 
 
 
-        public List<List<string>> GetInstancesOf(Ontorion.CNL.DL.Node e, bool direct)
+        public List<List<string>> GetInstancesOf(CogniPy.CNL.DL.Node e, bool direct)
         {
             List<List<string>> x = new List<List<string>>();
             var ret = reasoner.getInstances(transform.Convert(e).Key, direct);
@@ -2260,7 +2259,7 @@ namespace Ontorion.Executing.HermiTClient
         }
 
 
-        public List<List<string>> GetRelatedInstances(string instance, Ontorion.CNL.DL.Node r)
+        public List<List<string>> GetRelatedInstances(string instance, CogniPy.CNL.DL.Node r)
         {
             var x = new List<List<string>>();
             var ret = reasoner.getObjectPropertyValues(transform.GetNamedIndividual(instance), transform.GetObjectProperty(r));
@@ -2280,7 +2279,7 @@ namespace Ontorion.Executing.HermiTClient
             return x;
         }
 
-        public List<string> GetDataPropertyValues(string instance, Ontorion.CNL.DL.Node r)
+        public List<string> GetDataPropertyValues(string instance, CogniPy.CNL.DL.Node r)
         {
             var x = new List<string>();
             var ret = getSupprtingReasoner().getDataPropertyValues(transform.GetNamedIndividual(instance), transform.GetDataProperty(r));
@@ -2297,7 +2296,7 @@ namespace Ontorion.Executing.HermiTClient
             return x;
         }
 
-        public List<List<string>> GetSubConcepts(Ontorion.CNL.DL.Node e, bool direct, bool includeTopBot = true)
+        public List<List<string>> GetSubConcepts(CogniPy.CNL.DL.Node e, bool direct, bool includeTopBot = true)
         {
             List<List<string>> x = new List<List<string>>();
             var ret = reasoner.getSubClasses(transform.Convert(e).Key, direct);
@@ -2339,7 +2338,7 @@ namespace Ontorion.Executing.HermiTClient
                 return this.reasoner;
         }
 
-        public List<List<string>> GetSubObjectPropertiesOf(Ontorion.CNL.DL.Node e, bool direct, bool includeTopBot = true)
+        public List<List<string>> GetSubObjectPropertiesOf(CogniPy.CNL.DL.Node e, bool direct, bool includeTopBot = true)
         {
 
             List<List<string>> x = new List<List<string>>();
@@ -2378,7 +2377,7 @@ namespace Ontorion.Executing.HermiTClient
             return x;
         }
 
-        public List<List<string>> GetSubDataPropertiesOf(Ontorion.CNL.DL.Node e, bool direct, bool includeTopBot = true)
+        public List<List<string>> GetSubDataPropertiesOf(CogniPy.CNL.DL.Node e, bool direct, bool includeTopBot = true)
         {
             List<List<string>> x = new List<List<string>>();
             var ret = getSupprtingReasoner().getSubDataProperties(transform.GetDataProperty(e), direct);
@@ -2412,7 +2411,7 @@ namespace Ontorion.Executing.HermiTClient
             return x;
         }
 
-        public List<List<string>> GetSuperDataPropertiesOf(Ontorion.CNL.DL.Node e, bool direct, bool includeTopBot = true)
+        public List<List<string>> GetSuperDataPropertiesOf(CogniPy.CNL.DL.Node e, bool direct, bool includeTopBot = true)
         {
             List<List<string>> x = new List<List<string>>();
             var ret = getSupprtingReasoner().getSuperDataProperties(transform.GetDataProperty(e), direct);
@@ -2447,13 +2446,13 @@ namespace Ontorion.Executing.HermiTClient
         }
 
 
-        public bool IsTrue(Ontorion.CNL.DL.Paragraph stmt)
+        public bool IsTrue(CogniPy.CNL.DL.Paragraph stmt)
         {
             var ecls = transform.Convert(stmt).axioms.First().axiom;
             return reasoner.isEntailed(ecls);
         }
 
-        public List<string> GetEquivalentConcepts(Ontorion.CNL.DL.Node e, bool includeTopBot = true)
+        public List<string> GetEquivalentConcepts(CogniPy.CNL.DL.Node e, bool includeTopBot = true)
         {
             var ecls = transform.Convert(e).Key;
             string thisNode = "";
@@ -2485,7 +2484,7 @@ namespace Ontorion.Executing.HermiTClient
             return y;
         }
 
-        public List<string> GetEquivalentDataPropertiesOf(Ontorion.CNL.DL.Node e, bool includeTopBot = true)
+        public List<string> GetEquivalentDataPropertiesOf(CogniPy.CNL.DL.Node e, bool includeTopBot = true)
         {
             var ecls = transform.GetDataProperty(e);
             string thisNode = invtransform.renderEntity(ecls, ARS.EntityKind.DataRole);
@@ -2516,7 +2515,7 @@ namespace Ontorion.Executing.HermiTClient
         }
 
 
-        public List<List<string>> GetSuperConcepts(Ontorion.CNL.DL.Node e, bool direct, bool includeTopBot = true)
+        public List<List<string>> GetSuperConcepts(CogniPy.CNL.DL.Node e, bool direct, bool includeTopBot = true)
         {
             List<List<string>> x = new List<List<string>>();
             NodeSet ret;
@@ -2555,13 +2554,13 @@ namespace Ontorion.Executing.HermiTClient
             return x;
         }
 
-        public bool IsSatisfable(Ontorion.CNL.DL.Node C)
+        public bool IsSatisfable(CogniPy.CNL.DL.Node C)
         {
             var expr = transform.Convert(C).Key;
             return reasoner.isSatisfiable(expr);
         }
 
-        public bool IsEntailed(Ontorion.CNL.DL.Statement S)
+        public bool IsEntailed(CogniPy.CNL.DL.Statement S)
         {
             var stat = transform.Convert(new CNL.DL.Paragraph(null, S));
             java.util.HashSet axioms = new java.util.HashSet();
@@ -2572,7 +2571,7 @@ namespace Ontorion.Executing.HermiTClient
             return reasoner.isEntailed(axioms);
         }
 
-        private bool SimpleModalCheck(Ontorion.CNL.DL.Node C, Ontorion.CNL.DL.Node D, out List<List<string>> okOnInstances, out List<List<string>> errsOnInstances)
+        private bool SimpleModalCheck(CogniPy.CNL.DL.Node C, CogniPy.CNL.DL.Node D, out List<List<string>> okOnInstances, out List<List<string>> errsOnInstances)
         {
             errsOnInstances = new List<List<string>>();
             okOnInstances = new List<List<string>>();
@@ -2617,7 +2616,7 @@ namespace Ontorion.Executing.HermiTClient
 
         public enum ModalityCheckResult { Ok, Error, Warning, Hint }
 
-        public ModalityCheckResult CheckModality(Ontorion.CNL.DL.Statement stmt, out List<List<string>> okOnInstances, out List<List<string>> errsOnInstances)
+        public ModalityCheckResult CheckModality(CogniPy.CNL.DL.Statement stmt, out List<List<string>> okOnInstances, out List<List<string>> errsOnInstances)
         {
             errsOnInstances = null;
 
@@ -2639,14 +2638,14 @@ namespace Ontorion.Executing.HermiTClient
                     onError = ModalityCheckResult.Hint; negate = true; break;
             }
 
-            if (stmt is Ontorion.CNL.DL.Subsumption)
+            if (stmt is CogniPy.CNL.DL.Subsumption)
             {
                 if (!negate)
-                    return SimpleModalCheck((stmt as Ontorion.CNL.DL.Subsumption).C, (stmt as Ontorion.CNL.DL.Subsumption).D, out okOnInstances, out errsOnInstances) ? ModalityCheckResult.Ok : onError;
+                    return SimpleModalCheck((stmt as CogniPy.CNL.DL.Subsumption).C, (stmt as CogniPy.CNL.DL.Subsumption).D, out okOnInstances, out errsOnInstances) ? ModalityCheckResult.Ok : onError;
                 else
-                    return SimpleModalCheck((stmt as Ontorion.CNL.DL.Subsumption).C, (stmt as Ontorion.CNL.DL.Subsumption).D, out errsOnInstances, out okOnInstances) ? onError : ModalityCheckResult.Ok;
+                    return SimpleModalCheck((stmt as CogniPy.CNL.DL.Subsumption).C, (stmt as CogniPy.CNL.DL.Subsumption).D, out errsOnInstances, out okOnInstances) ? onError : ModalityCheckResult.Ok;
             }
-            else if (stmt is Ontorion.CNL.DL.Equivalence)
+            else if (stmt is CogniPy.CNL.DL.Equivalence)
             {
                 List<List<string>> errsOnInstances2;
                 List<List<string>> okOnInstances2;
@@ -2654,13 +2653,13 @@ namespace Ontorion.Executing.HermiTClient
                 bool c2;
                 if (!negate)
                 {
-                    c1 = SimpleModalCheck((stmt as Ontorion.CNL.DL.Equivalence).Equivalents[0], (stmt as Ontorion.CNL.DL.Equivalence).Equivalents[1], out okOnInstances, out errsOnInstances);
-                    c2 = SimpleModalCheck((stmt as Ontorion.CNL.DL.Equivalence).Equivalents[1], (stmt as Ontorion.CNL.DL.Equivalence).Equivalents[0], out okOnInstances2, out errsOnInstances2);
+                    c1 = SimpleModalCheck((stmt as CogniPy.CNL.DL.Equivalence).Equivalents[0], (stmt as CogniPy.CNL.DL.Equivalence).Equivalents[1], out okOnInstances, out errsOnInstances);
+                    c2 = SimpleModalCheck((stmt as CogniPy.CNL.DL.Equivalence).Equivalents[1], (stmt as CogniPy.CNL.DL.Equivalence).Equivalents[0], out okOnInstances2, out errsOnInstances2);
                 }
                 else
                 {
-                    c1 = !SimpleModalCheck((stmt as Ontorion.CNL.DL.Equivalence).Equivalents[0], (stmt as Ontorion.CNL.DL.Equivalence).Equivalents[1], out errsOnInstances, out okOnInstances);
-                    c2 = !SimpleModalCheck((stmt as Ontorion.CNL.DL.Equivalence).Equivalents[1], (stmt as Ontorion.CNL.DL.Equivalence).Equivalents[0], out errsOnInstances2, out okOnInstances2);
+                    c1 = !SimpleModalCheck((stmt as CogniPy.CNL.DL.Equivalence).Equivalents[0], (stmt as CogniPy.CNL.DL.Equivalence).Equivalents[1], out errsOnInstances, out okOnInstances);
+                    c2 = !SimpleModalCheck((stmt as CogniPy.CNL.DL.Equivalence).Equivalents[1], (stmt as CogniPy.CNL.DL.Equivalence).Equivalents[0], out errsOnInstances2, out okOnInstances2);
                 }
                 if (c1 && c2)
                     return ModalityCheckResult.Ok;
@@ -2896,7 +2895,7 @@ namespace Ontorion.Executing.HermiTClient
                 {
                     if (val.isLiteral())
                     {
-                        var v = Ontorion.SPARQL.SparqlNode.ToTypedValue(val.ToString());
+                        var v = CogniPy.SPARQL.SparqlNode.ToTypedValue(val.ToString());
                         if (v == null)
                             v = JenaRuleManager.getObject(val);
                         ret.Add(Tuple.Create(false, prp.toString(), v));

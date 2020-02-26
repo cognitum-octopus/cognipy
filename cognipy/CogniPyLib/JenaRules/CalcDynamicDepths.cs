@@ -1,4 +1,4 @@
-﻿using Ontorion.ARS;
+﻿using CogniPy.ARS;
 using org.semanticweb.owlapi.vocab;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 
-namespace Ontorion.CNL.DL
+namespace CogniPy.CNL.DL
 {
     internal class CalcDynamicDepths : GenericVisitor
     {

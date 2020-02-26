@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FluentEditorClientLib.models
+namespace CogniPy.models
 {
     public class ConstraintResult
     {
@@ -13,8 +13,8 @@ namespace FluentEditorClientLib.models
         /// </summary>
         public string Concept { get; set; }
 
-        public Dictionary<Ontorion.CNL.DL.Statement.Modality, List<string>> Relations { get; set; }
+        public Dictionary<CogniPy.CNL.DL.Statement.Modality, List<string>> Relations { get; set; }
 
-        public Dictionary<Ontorion.CNL.DL.Statement.Modality, List<string>> ThirdElement { get; set; }
+        public Dictionary<CogniPy.CNL.DL.Statement.Modality, List<string>> ThirdElement { get; set; }
     }
 }

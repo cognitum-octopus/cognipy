@@ -3,7 +3,7 @@ using Tools;
 using System;
 using System.Diagnostics;
 
-namespace Ontorion.CNL.DL
+namespace CogniPy.CNL.DL
 {
     public interface IAccept
     {
@@ -120,7 +120,7 @@ namespace Ontorion.CNL.DL
         {
             get 
             {
-                if (_subjKind == Ontorion.ARS.EntityKind.Statement && _subject.StartsWith("\"") && _subject.EndsWith("\"") && !System.String.IsNullOrWhiteSpace(_subject))
+                if (_subjKind == CogniPy.ARS.EntityKind.Statement && _subject.StartsWith("\"") && _subject.EndsWith("\"") && !System.String.IsNullOrWhiteSpace(_subject))
                     return _subject.Substring(1, _subject.Length - 2);
                 else
                     return _subject;
@@ -128,7 +128,7 @@ namespace Ontorion.CNL.DL
             set { _subject = value; }
         }
 
-        Ontorion.ARS.EntityKind _subjKind;
+        CogniPy.ARS.EntityKind _subjKind;
         public string subjKind
         {
             get
@@ -137,7 +137,7 @@ namespace Ontorion.CNL.DL
             }
             set
             {
-                _subjKind = Ontorion.CNL.AnnotationManager.ParseSubjectKind(value);
+                _subjKind = CogniPy.CNL.AnnotationManager.ParseSubjectKind(value);
             }
         }
 

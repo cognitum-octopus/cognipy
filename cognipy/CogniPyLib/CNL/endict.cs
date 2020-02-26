@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Diagnostics;
 
-namespace Ontorion.CNL.EN
+namespace CogniPy.CNL.EN
 {
     public class endict
     {

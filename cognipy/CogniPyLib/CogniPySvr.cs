@@ -1,5 +1,5 @@
-﻿using Ontorion.ARS;
-using Ontorion.CNL;
+﻿using CogniPy.ARS;
+using CogniPy.CNL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +7,12 @@ using System.Data.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
-using Ontorion.Executing.HermiTClient;
-using FluentEditorClientLib;
-using FluentEditorClientLib.models;
+using CogniPy.Executing.HermiTClient;
+using CogniPy;
+using CogniPy.models;
 using System.IO;
 using System.Diagnostics;
-using Ontorion.Splitting;
-using Ontorion;
+using CogniPy.Splitting;
 
 namespace CogniPy
 {
@@ -21,7 +20,7 @@ namespace CogniPy
     public class CogniPySvr : ICogniPySvr
     {
 
-        Ontorion.CNL.DL.Paragraph paragraph;
+        CogniPy.CNL.DL.Paragraph paragraph;
         HermiTReasoningService _reasoner = null;
         HermiTReasoningService reasoner
         {
@@ -35,7 +34,7 @@ namespace CogniPy
             set { _reasoner = value; }
         }
 
-        Ontorion.ReferenceManager.ReferenceTags tags = new Ontorion.ReferenceManager.ReferenceTags();
+        CogniPy.ReferenceManager.ReferenceTags tags = new CogniPy.ReferenceManager.ReferenceTags();
         CNLTools tools = null;
 
         Dictionary<string, string> AllReferences;
@@ -81,7 +80,7 @@ namespace CogniPy
 
         public CogniPySvr()
         {
-            var tpy = typeof(Ontorion.CNL.EN.CNLFactory);
+            var tpy = typeof(CogniPy.CNL.EN.CNLFactory);
             CNLTools.RegisterCNLFactory("en", tpy);
             AllReferences = new Dictionary<string, string>();
             tools = new CNLTools("en");
@@ -149,19 +148,19 @@ namespace CogniPy
 
         public string CnlFromUri(string uri, string type)
         {
-            var n = reasoner.renderEntityFromUri(uri, (type ==null || type == "instance") ? Ontorion.ARS.EntityKind.Instance : (type == "concept" ? Ontorion.ARS.EntityKind.Concept : Ontorion.ARS.EntityKind.Role));
+            var n = reasoner.renderEntityFromUri(uri, (type ==null || type == "instance") ? CogniPy.ARS.EntityKind.Instance : (type == "concept" ? CogniPy.ARS.EntityKind.Concept : CogniPy.ARS.EntityKind.Role));
             if (n == null)
                 return "";
 
-            var enN = Ontorion.CNL.EN.ENNameingConvention.FromDL(new Ontorion.CNL.DL.DlName() { id = n }, (type == null || type == "instance") ?  Ontorion.CNL.EN.endict.WordKind.NormalForm : (type == "concept" ?  Ontorion.CNL.EN.endict.WordKind.NormalForm :  Ontorion.CNL.EN.endict.WordKind.PastParticiple), type == "instance");
+            var enN = CogniPy.CNL.EN.ENNameingConvention.FromDL(new CogniPy.CNL.DL.DlName() { id = n }, (type == null || type == "instance") ?  CogniPy.CNL.EN.endict.WordKind.NormalForm : (type == "concept" ?  CogniPy.CNL.EN.endict.WordKind.NormalForm :  CogniPy.CNL.EN.endict.WordKind.PastParticiple), type == "instance");
             return enN.id;
         }
 
         public string UriFromCnl(string cnl, string type)
         {
-            var dl = Ontorion.CNL.EN.ENNameingConvention.ToDL(new Ontorion.CNL.EN.EnName() { id = cnl }, (type == null || type == "instance") ?  Ontorion.CNL.EN.endict.WordKind.NormalForm : (type == "concept" ?  Ontorion.CNL.EN.endict.WordKind.NormalForm :  Ontorion.CNL.EN.endict.WordKind.PastParticiple)).id;
+            var dl = CogniPy.CNL.EN.ENNameingConvention.ToDL(new CogniPy.CNL.EN.EnName() { id = cnl }, (type == null || type == "instance") ?  CogniPy.CNL.EN.endict.WordKind.NormalForm : (type == "concept" ?  CogniPy.CNL.EN.endict.WordKind.NormalForm :  CogniPy.CNL.EN.endict.WordKind.PastParticiple)).id;
 
-            var n = reasoner.renderUriFromEntity(dl, (type == null || type == "instance") ? Ontorion.ARS.EntityKind.Instance : (type == "concept" ? Ontorion.ARS.EntityKind.Concept : Ontorion.ARS.EntityKind.Role));
+            var n = reasoner.renderUriFromEntity(dl, (type == null || type == "instance") ? CogniPy.ARS.EntityKind.Instance : (type == "concept" ? CogniPy.ARS.EntityKind.Concept : CogniPy.ARS.EntityKind.Role));
             if (n == null)
                 return "";
 
@@ -174,7 +173,7 @@ namespace CogniPy
             reasoner.SetValue(instance, datarole, val);
         }
 
-        private void Load(ReferenceManager.WhatToLoad whatToLoad, string contentToLoad, Ontorion.CNL.DL.Paragraph impliAst, bool loadAnns = false, bool materialize = false,bool modalChecker=false)
+        private void Load(ReferenceManager.WhatToLoad whatToLoad, string contentToLoad, CogniPy.CNL.DL.Paragraph impliAst, bool loadAnns = false, bool materialize = false,bool modalChecker=false)
         {
             ReferenceManager rm = new ReferenceManager(/*GetForms*/null);
             HashSet<string> brokenImports;
@@ -183,7 +182,7 @@ namespace CogniPy
 
             if (!rm.LoadOntology(whatToLoad, tools, contentToLoad,
                 out brokenImports, out tags, out paragraph,
-                null, Ontorion.ARS.NameingConventionKind.Smart, null, true, loadAnnotations: loadAnns))
+                null, CogniPy.ARS.NameingConventionKind.Smart, null, true, loadAnnotations: loadAnns))
             {
                 var excepts = rm.GetExceptionsOnImports(contentToLoad);
                 if (excepts.Count() > 0)
@@ -213,22 +212,22 @@ namespace CogniPy
 
 
 
-        private void LoadAnnotations(Ontorion.CNL.DL.Paragraph paragraph)
+        private void LoadAnnotations(CogniPy.CNL.DL.Paragraph paragraph)
         {
 
-            Ontorion.CNL.AnnotationManager annotManToTranslate = new AnnotationManager();
+            CogniPy.CNL.AnnotationManager annotManToTranslate = new AnnotationManager();
 
             foreach (var stmt in paragraph.Statements)
             {
-                if (stmt is Ontorion.CNL.DL.Annotation)
+                if (stmt is CogniPy.CNL.DL.Annotation)
                 {
-                    var ann = stmt as Ontorion.CNL.DL.Annotation;
+                    var ann = stmt as CogniPy.CNL.DL.Annotation;
                     var cnlSent = tools.GetENDLFromAst(ann, true);
 
-                    if (cnlSent.StartsWith(Ontorion.CNL.AnnotationManager.ANNOTATION_START))
+                    if (cnlSent.StartsWith(CogniPy.CNL.AnnotationManager.ANNOTATION_START))
                     {
-                        Ontorion.CNL.AnnotationManager annotMan = new Ontorion.CNL.AnnotationManager();
-                        annotMan.loadW3CAnnotationsFromText(cnlSent, false, x => Ontorion.CNL.EN.ENNameingConvention.ToDL(new Ontorion.CNL.EN.EnName() { id = x }, Ontorion.CNL.EN.endict.WordKind.NormalForm).id);
+                        CogniPy.CNL.AnnotationManager annotMan = new CogniPy.CNL.AnnotationManager();
+                        annotMan.loadW3CAnnotationsFromText(cnlSent, false, x => CogniPy.CNL.EN.ENNameingConvention.ToDL(new CogniPy.CNL.EN.EnName() { id = x }, CogniPy.CNL.EN.endict.WordKind.NormalForm).id);
 
                         annotManToTranslate.appendAnnotations(annotMan);
 
@@ -277,22 +276,22 @@ namespace CogniPy
             }
         }
 
-        void LoadRdf(string uri, Ontorion.CNL.DL.Paragraph impliAst, bool loadAnns = false, bool materialize = false, bool modalChecker=false)
+        void LoadRdf(string uri, CogniPy.CNL.DL.Paragraph impliAst, bool loadAnns = false, bool materialize = false, bool modalChecker=false)
         {
             Load(ReferenceManager.WhatToLoad.FromUri, uri, impliAst, loadAnns, materialize, modalChecker);
         }
 
-        void LoadRdfFromString(string rdf, Ontorion.CNL.DL.Paragraph impliAst, bool loadAnns = false, bool materialize = false, bool modalChecker = false)
+        void LoadRdfFromString(string rdf, CogniPy.CNL.DL.Paragraph impliAst, bool loadAnns = false, bool materialize = false, bool modalChecker = false)
         {
             Load(ReferenceManager.WhatToLoad.OwlRdfFromString, rdf, impliAst, loadAnns, materialize, modalChecker);
         }
 
-        void LoadCnl(string filename, Ontorion.CNL.DL.Paragraph impliAst, bool loadAnns = false, bool materialize = false, bool modalChecker = false)
+        void LoadCnl(string filename, CogniPy.CNL.DL.Paragraph impliAst, bool loadAnns = false, bool materialize = false, bool modalChecker = false)
         {
             Load(ReferenceManager.WhatToLoad.FromUri, filename, impliAst, loadAnns, materialize, modalChecker);
         }
 
-        void LoadCnlFromString(string cnl, Ontorion.CNL.DL.Paragraph impliAst, bool loadAnns, bool materialize = false, bool modalChecker = false)
+        void LoadCnlFromString(string cnl, CogniPy.CNL.DL.Paragraph impliAst, bool loadAnns, bool materialize = false, bool modalChecker = false)
         {
             Load(ReferenceManager.WhatToLoad.CnlFromString, cnl, impliAst, loadAnns, materialize, modalChecker);
         }
@@ -370,7 +369,7 @@ namespace CogniPy
             return tools.GetENDLFromAst(reasoner.GetParagraph(includeImplicitKnowledge), includeAnnotations);
         }
 
-        public string ToCNL(Ontorion.CNL.DL.Statement stmt)
+        public string ToCNL(CogniPy.CNL.DL.Statement stmt)
         {
             return tools.GetENDLFromAst(stmt);
         }
@@ -425,11 +424,11 @@ namespace CogniPy
             {
                 var nam = EN(cc.Concept, false);
                 if (!constraints.ContainsKey(nam))
-                    constraints.Add(nam, new ConstraintResult() { Concept = nam, Relations = new Dictionary<Ontorion.CNL.DL.Statement.Modality, List<string>>(), ThirdElement = new Dictionary<Ontorion.CNL.DL.Statement.Modality, List<string>>() });
+                    constraints.Add(nam, new ConstraintResult() { Concept = nam, Relations = new Dictionary<CogniPy.CNL.DL.Statement.Modality, List<string>>(), ThirdElement = new Dictionary<CogniPy.CNL.DL.Statement.Modality, List<string>>() });
 
                 var cr = constraints[nam];
 
-                foreach (Ontorion.CNL.DL.Statement.Modality mod in cc.Relations.Keys)
+                foreach (CogniPy.CNL.DL.Statement.Modality mod in cc.Relations.Keys)
                 {
                     if (cr.Relations.ContainsKey(mod))
                     {
@@ -442,7 +441,7 @@ namespace CogniPy
                 }
 
 
-                foreach (Ontorion.CNL.DL.Statement.Modality mod in cc.ThirdElement.Keys)
+                foreach (CogniPy.CNL.DL.Statement.Modality mod in cc.ThirdElement.Keys)
                 {
                     if (cr.ThirdElement.ContainsKey(mod))
                     {
@@ -500,7 +499,7 @@ namespace CogniPy
 
             foreach (var desc in conceptsToReturn)
             {
-                ConstraintResult cr = new ConstraintResult() { Concept = null, Relations = new Dictionary<Ontorion.CNL.DL.Statement.Modality, List<string>>(), ThirdElement = new Dictionary<Ontorion.CNL.DL.Statement.Modality, List<string>>() };
+                ConstraintResult cr = new ConstraintResult() { Concept = null, Relations = new Dictionary<CogniPy.CNL.DL.Statement.Modality, List<string>>(), ThirdElement = new Dictionary<CogniPy.CNL.DL.Statement.Modality, List<string>>() };
 
                 foreach (var kn in desc.Value)
                 {
@@ -508,7 +507,7 @@ namespace CogniPy
                         continue;
 
                     var cc = constraints[kn];
-                    foreach (Ontorion.CNL.DL.Statement.Modality mod in cc.Relations.Keys)
+                    foreach (CogniPy.CNL.DL.Statement.Modality mod in cc.Relations.Keys)
                     {
                         if (cr.Relations.ContainsKey(mod))
                         {
@@ -521,7 +520,7 @@ namespace CogniPy
                     }
 
 
-                    foreach (Ontorion.CNL.DL.Statement.Modality mod in cc.ThirdElement.Keys)
+                    foreach (CogniPy.CNL.DL.Statement.Modality mod in cc.ThirdElement.Keys)
                     {
                         if (cr.ThirdElement.ContainsKey(mod))
                         {
@@ -550,27 +549,27 @@ namespace CogniPy
             var cnlList = new HashSet<string>();
             if (_reasoner == null)
                 return cnlList.ToList();
-            var stmts = new List<Ontorion.CNL.DL.Statement>();
-            var annots = new List<Ontorion.CNL.DL.Statement>();
-            var trct = new Dictionary<HashSet<string>, Ontorion.CNL.DL.Statement>();
+            var stmts = new List<CogniPy.CNL.DL.Statement>();
+            var annots = new List<CogniPy.CNL.DL.Statement>();
+            var trct = new Dictionary<HashSet<string>, CogniPy.CNL.DL.Statement>();
             foreach (var stmt in reasoner.GetParagraph(includeImplicitKnowledge, includeImplicitKnowledge).Statements)
             {
-                if (stmt is Ontorion.CNL.DL.Annotation)
+                if (stmt is CogniPy.CNL.DL.Annotation)
                 {
-                    if ((stmt as Ontorion.CNL.DL.Annotation).txt.StartsWith("%Annotations:"))
+                    if ((stmt as CogniPy.CNL.DL.Annotation).txt.StartsWith("%Annotations:"))
                         annots.Add(stmt);
                     else
                         continue;
                 }
 
-                var pr = new Ontorion.CNL.DL.Paragraph(null) { Statements = new List<Ontorion.CNL.DL.Statement>() { stmt } };
+                var pr = new CogniPy.CNL.DL.Paragraph(null) { Statements = new List<CogniPy.CNL.DL.Statement>() { stmt } };
 
                 if (!includeImplicitKnowledge || removeTrivials)
                 {
-                    if ((stmt is Ontorion.CNL.DL.InstanceOf && (stmt as Ontorion.CNL.DL.InstanceOf).C is Ontorion.CNL.DL.Top) ||
-                       (stmt is Ontorion.CNL.DL.Subsumption && (stmt as Ontorion.CNL.DL.Subsumption).D is Ontorion.CNL.DL.Top) ||
-                       (stmt is Ontorion.CNL.DL.RoleInclusion && (stmt as Ontorion.CNL.DL.RoleInclusion).D is Ontorion.CNL.DL.Top) ||
-                       (stmt is Ontorion.CNL.DL.DataRoleInclusion && (stmt as Ontorion.CNL.DL.DataRoleInclusion).D is Ontorion.CNL.DL.Top))
+                    if ((stmt is CogniPy.CNL.DL.InstanceOf && (stmt as CogniPy.CNL.DL.InstanceOf).C is CogniPy.CNL.DL.Top) ||
+                       (stmt is CogniPy.CNL.DL.Subsumption && (stmt as CogniPy.CNL.DL.Subsumption).D is CogniPy.CNL.DL.Top) ||
+                       (stmt is CogniPy.CNL.DL.RoleInclusion && (stmt as CogniPy.CNL.DL.RoleInclusion).D is CogniPy.CNL.DL.Top) ||
+                       (stmt is CogniPy.CNL.DL.DataRoleInclusion && (stmt as CogniPy.CNL.DL.DataRoleInclusion).D is CogniPy.CNL.DL.Top))
                     {
                         var sg = DLToys.GetSignatureFromParagraph(pr);
                         trct.Add(sg, stmt);
@@ -587,7 +586,7 @@ namespace CogniPy
             }
             if (!includeImplicitKnowledge || removeTrivials)
             {
-                var sign = DLToys.GetSignatureFromParagraph(new Ontorion.CNL.DL.Paragraph(null) { Statements = stmts });
+                var sign = DLToys.GetSignatureFromParagraph(new CogniPy.CNL.DL.Paragraph(null) { Statements = stmts });
                 foreach (var kv in trct)
                 {
                     if (sign.Intersect(kv.Key).Count() == 0)
@@ -601,7 +600,7 @@ namespace CogniPy
             if (includeAnnotations)
             {
                 //We collect all annotations together in order to create single Annotations: block
-                var pr = new Ontorion.CNL.DL.Paragraph(null) { Statements = new List<Ontorion.CNL.DL.Statement>(annots) };
+                var pr = new CogniPy.CNL.DL.Paragraph(null) { Statements = new List<CogniPy.CNL.DL.Statement>(annots) };
                 var annotsCnlBlock = tools.GetENDLFromAst(pr, includeAnnotations);
                 if (!string.IsNullOrEmpty(annotsCnlBlock))
                     cnlList.Add(annotsCnlBlock);
@@ -610,38 +609,38 @@ namespace CogniPy
             return cnlList.ToList();
         }
 
-        public List<FeClientStatement> ToCNLStatementList()
+        public List<CogniPyStatement> ToCNLStatementList()
         {
             return ToCNLStatementList(false);
         }
-        public List<FeClientStatement> ToCNLStatementList(bool includeImplicitKnowledge)
+        public List<CogniPyStatement> ToCNLStatementList(bool includeImplicitKnowledge)
         {
             var dlEnConverter = new DLENConverter(tools, (ns) => ns, (pfx) => pfx, "");
 
-            var cnlList = new List<FeClientStatement>();
+            var cnlList = new List<CogniPyStatement>();
             if (_reasoner == null)
                 return cnlList;
             foreach (var stmt in reasoner.GetParagraph(includeImplicitKnowledge).Statements)
             {
                 StatementType type;
-                var attr = (Ontorion.CNL.DL.StatementAttr)stmt.GetType().GetCustomAttributes(typeof(Ontorion.CNL.DL.StatementAttr), true).First();
+                var attr = (CogniPy.CNL.DL.StatementAttr)stmt.GetType().GetCustomAttributes(typeof(CogniPy.CNL.DL.StatementAttr), true).First();
                 switch (attr.type)
                 {
-                    case Ontorion.CNL.DL.StatementType.Concept:
+                    case CogniPy.CNL.DL.StatementType.Concept:
                         type = StatementType.Concept; break;
-                    case Ontorion.CNL.DL.StatementType.Instance:
+                    case CogniPy.CNL.DL.StatementType.Instance:
                         type = StatementType.Instance; break;
-                    case Ontorion.CNL.DL.StatementType.Role:
+                    case CogniPy.CNL.DL.StatementType.Role:
                         type = StatementType.Role; break;
-                    case Ontorion.CNL.DL.StatementType.Rule:
+                    case CogniPy.CNL.DL.StatementType.Rule:
                         type = StatementType.Rule; break;
-                    case Ontorion.CNL.DL.StatementType.Annotation:
+                    case CogniPy.CNL.DL.StatementType.Annotation:
                         type = StatementType.Annotation; continue; //skip the annotations.
 
                     default:
                         throw new ArgumentException("Internal error while retrieving statements.");
                 }
-                if (stmt.modality != Ontorion.CNL.DL.Statement.Modality.IS)
+                if (stmt.modality != CogniPy.CNL.DL.Statement.Modality.IS)
                     type = StatementType.Constraint;
 
                 var signature = DLToys.GetSignatureFromStatement(stmt);
@@ -663,13 +662,13 @@ namespace CogniPy
                 }
 
                 var statementCNL = tools.GetENDLFromAst(stmt, false, (ns) => ns);
-                cnlList.Add(new FeClientStatement() { CnlStatement = statementCNL, Concepts = concepts, Instances = instances, Roles = roles, DataRoles = dataroles, Type = type });
+                cnlList.Add(new CogniPyStatement() { CnlStatement = statementCNL, Concepts = concepts, Instances = instances, Roles = roles, DataRoles = dataroles, Type = type });
             }
 
             return cnlList;
         }
 
-        public Ontorion.CNL.DL.Paragraph GetParagrah(bool includeImplicitKnowledge = true)
+        public CogniPy.CNL.DL.Paragraph GetParagrah(bool includeImplicitKnowledge = true)
         {
             return reasoner.GetParagraph(includeImplicitKnowledge);
         }
@@ -739,7 +738,7 @@ namespace CogniPy
             Materialize();
             Dictionary<string, InstanceDescription> results = new Dictionary<string, InstanceDescription>();
             var node = tools.GetEN2DLNode(query);
-            if (node is Ontorion.CNL.DL.Atomic || (node is Ontorion.CNL.DL.InstanceSet))
+            if (node is CogniPy.CNL.DL.Atomic || (node is CogniPy.CNL.DL.InstanceSet))
             {
                 var l = this.reasoner.GetInstancesOfFromModelFastURI(node);
                 foreach (var ins in l)
@@ -968,8 +967,8 @@ namespace CogniPy
             {
                 for (int i = 0; i < x.Count; i++)
                 {
-                    if (x[i] is Ontorion.GraphEntity)
-                        x[i] = CnlFromUri(x[i].ToString(), ((Ontorion.GraphEntity)x[i]).Kind);
+                    if (x[i] is CogniPy.GraphEntity)
+                        x[i] = CnlFromUri(x[i].ToString(), ((CogniPy.GraphEntity)x[i]).Kind);
                 }
             }
             return result;
@@ -981,7 +980,7 @@ namespace CogniPy
         {
             Materialize();
             var node = tools.GetEN2DLNode(cnlName);
-            if (!direct && (node is Ontorion.CNL.DL.Atomic || ((node is Ontorion.CNL.DL.InstanceSet) && (node as Ontorion.CNL.DL.InstanceSet).Instances.Count == 1 && (node as Ontorion.CNL.DL.InstanceSet).Instances[0] is Ontorion.CNL.DL.NamedInstance)))
+            if (!direct && (node is CogniPy.CNL.DL.Atomic || ((node is CogniPy.CNL.DL.InstanceSet) && (node as CogniPy.CNL.DL.InstanceSet).Instances.Count == 1 && (node as CogniPy.CNL.DL.InstanceSet).Instances[0] is CogniPy.CNL.DL.NamedInstance)))
             {
                 var l = this.reasoner.GetSuperConceptsOfFromModelFast(node);
                 return (from x in l select CnlFromUri(x, "concept")).ToList();
@@ -989,11 +988,11 @@ namespace CogniPy
             else
             {
                 string sparql;
-                if ((node is Ontorion.CNL.DL.InstanceSet) && (node as Ontorion.CNL.DL.InstanceSet).Instances.Count == 1 && (node as Ontorion.CNL.DL.InstanceSet).Instances[0] is Ontorion.CNL.DL.NamedInstance)
+                if ((node is CogniPy.CNL.DL.InstanceSet) && (node as CogniPy.CNL.DL.InstanceSet).Instances.Count == 1 && (node as CogniPy.CNL.DL.InstanceSet).Instances[0] is CogniPy.CNL.DL.NamedInstance)
                     sparql = SelectTypesOfSPARQL(cnlName, direct);
                 else
                 {
-                    if (!(node is Ontorion.CNL.DL.Atomic) && !(node is Ontorion.CNL.DL.Top))
+                    if (!(node is CogniPy.CNL.DL.Atomic) && !(node is CogniPy.CNL.DL.Top))
                         throw new NotImplementedException("It works only for atomic concept names");
                     sparql = SelectSuperconceptsSPARQL(cnlName, direct);
                 }
@@ -1013,14 +1012,14 @@ namespace CogniPy
         {
             Materialize();
             var node = tools.GetEN2DLNode(cnlName);
-            if (!direct && (node is Ontorion.CNL.DL.Atomic))
+            if (!direct && (node is CogniPy.CNL.DL.Atomic))
             {
-                var l = this.reasoner.GetSubConceptsOfFromModelFast(node as Ontorion.CNL.DL.Atomic);
+                var l = this.reasoner.GetSubConceptsOfFromModelFast(node as CogniPy.CNL.DL.Atomic);
                 return (from x in l select CnlFromUri(x, "concept")).ToList();
             }
             else
             {
-                if(!(node is Ontorion.CNL.DL.Atomic) && !(node is Ontorion.CNL.DL.Top))
+                if(!(node is CogniPy.CNL.DL.Atomic) && !(node is CogniPy.CNL.DL.Top))
                     throw new NotImplementedException("It works only for atomic concept names");
                 string sparql;
                 sparql = SelectSubconceptsSPARQL(cnlName, direct);
@@ -1038,7 +1037,7 @@ namespace CogniPy
         {
             Materialize();
             var node = tools.GetEN2DLNode(cnlName);
-            if (!direct && (node is Ontorion.CNL.DL.Atomic || ((node is Ontorion.CNL.DL.InstanceSet) && (node as Ontorion.CNL.DL.InstanceSet).Instances.Count == 1 && (node as Ontorion.CNL.DL.InstanceSet).Instances[0] is Ontorion.CNL.DL.NamedInstance)))
+            if (!direct && (node is CogniPy.CNL.DL.Atomic || ((node is CogniPy.CNL.DL.InstanceSet) && (node as CogniPy.CNL.DL.InstanceSet).Instances.Count == 1 && (node as CogniPy.CNL.DL.InstanceSet).Instances[0] is CogniPy.CNL.DL.NamedInstance)))
             {
                 var l = this.reasoner.GetInstancesOfFromModelFast(node);
                 return (from x in l select CnlFromUri(x, "instance")).ToList();
@@ -1069,7 +1068,7 @@ namespace CogniPy
 
         public string DLFromUri(string uri, string type)
         {
-            var n = reasoner.renderEntityFromUri(uri, type == "instance" ? Ontorion.ARS.EntityKind.Instance : (type == "concept" ? Ontorion.ARS.EntityKind.Concept : Ontorion.ARS.EntityKind.Role));
+            var n = reasoner.renderEntityFromUri(uri, type == "instance" ? CogniPy.ARS.EntityKind.Instance : (type == "concept" ? CogniPy.ARS.EntityKind.Concept : CogniPy.ARS.EntityKind.Role));
             if (n == null)
                 return "";
             return n;
@@ -1094,12 +1093,12 @@ namespace CogniPy
                 return tools.GetDL(en, true);
         }
 
-        public string EN(string dl, bool bigName, Ontorion.CNL.EN.endict.WordKind wrdKnd =  Ontorion.CNL.EN.endict.WordKind.NormalForm)
+        public string EN(string dl, bool bigName, CogniPy.CNL.EN.endict.WordKind wrdKnd =  CogniPy.CNL.EN.endict.WordKind.NormalForm)
         {
             if (dl == "⊤")
                 return "thing";
 
-            var allParts = Ontorion.CNL.EN.ENNameingConvention.FromDL(new Ontorion.CNL.DL.DlName() { id = dl }, wrdKnd, bigName).Split();
+            var allParts = CogniPy.CNL.EN.ENNameingConvention.FromDL(new CogniPy.CNL.DL.DlName() { id = dl }, wrdKnd, bigName).Split();
             if (!System.String.IsNullOrWhiteSpace(allParts.term) && allParts.term.StartsWith("<") && allParts.term.EndsWith(">"))
             {
                 var nss = allParts.term.Substring(1, allParts.term.Length - 2);
@@ -1126,7 +1125,7 @@ namespace CogniPy
                 {
                     lock (tools)
                     {
-                        var ast = tools.GetENAst(stxt, true) as Ontorion.CNL.EN.paragraph;
+                        var ast = tools.GetENAst(stxt, true) as CogniPy.CNL.EN.paragraph;
                         foreach (var stmt in ast.sentences)
                             newScript.Add(tools.GetENFromAstSentence(stmt, true));
                     }
@@ -1151,7 +1150,7 @@ namespace CogniPy
 
         }
 
-        private class SimplePopulator : Ontorion.CNL.DL.Populator
+        private class SimplePopulator : CogniPy.CNL.DL.Populator
         {
             CogniPySvr _parent;
             public SimplePopulator(CogniPySvr _parent)
@@ -1263,16 +1262,16 @@ namespace CogniPy
             foreach (var smb in sign)
             {
                 var inam = smb.Item2;
-                var en = Ontorion.CNL.EN.ENNameingConvention.FromDL(new Ontorion.CNL.DL.DlName() { id = inam }, true).Split();
-                if (smb.Item1 == Ontorion.ARS.EntityKind.Instance)
+                var en = CogniPy.CNL.EN.ENNameingConvention.FromDL(new CogniPy.CNL.DL.DlName() { id = inam }, true).Split();
+                if (smb.Item1 == CogniPy.ARS.EntityKind.Instance)
                     instances.Add(inam);//en.Combine().id);
-                else if (smb.Item1 == Ontorion.ARS.EntityKind.Role)
+                else if (smb.Item1 == CogniPy.ARS.EntityKind.Role)
                     objectroles.Add(inam);//(en.Combine().id);
-                else if (smb.Item1 == Ontorion.ARS.EntityKind.DataRole)
+                else if (smb.Item1 == CogniPy.ARS.EntityKind.DataRole)
                     dataroles.Add(inam);//(en.Combine().id);
-                else if (smb.Item1 == Ontorion.ARS.EntityKind.Concept)
+                else if (smb.Item1 == CogniPy.ARS.EntityKind.Concept)
                     concepts.Add(inam);//(en.Combine().id);
-                else if (smb.Item1 == Ontorion.ARS.EntityKind.DataType)
+                else if (smb.Item1 == CogniPy.ARS.EntityKind.DataType)
                     datatypes.Add(inam);//(en.Combine().id);
             }
 
@@ -1309,7 +1308,7 @@ namespace CogniPy
 
         string toDL(string name, bool isRole)
         {
-            return Ontorion.CNL.EN.ENNameingConvention.ToDL(new Ontorion.CNL.EN.EnName() { id = name }, isRole ? Ontorion.CNL.EN.endict.WordKind.PastParticiple : Ontorion.CNL.EN.endict.WordKind.NormalForm).id;
+            return CogniPy.CNL.EN.ENNameingConvention.ToDL(new CogniPy.CNL.EN.EnName() { id = name }, isRole ? CogniPy.CNL.EN.endict.WordKind.PastParticiple : CogniPy.CNL.EN.endict.WordKind.NormalForm).id;
         }
 
         public void MergeWith(CogniPySvr x, bool materialize = true)
@@ -1350,7 +1349,7 @@ namespace CogniPy
 
         object toVal(string v)
         {
-            return Ontorion.CNL.DL.Value.ToObject(Ontorion.CNL.DL.Value.MakeFrom(v.Substring(0, 1), v.Substring(2)));
+            return CogniPy.CNL.DL.Value.ToObject(CogniPy.CNL.DL.Value.MakeFrom(v.Substring(0, 1), v.Substring(2)));
         }
 
         public void RemoveInstance(string name)

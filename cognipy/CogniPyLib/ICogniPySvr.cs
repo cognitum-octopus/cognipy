@@ -1,5 +1,5 @@
-﻿using FluentEditorClientLib;
-using FluentEditorClientLib.models;
+﻿using CogniPy;
+using CogniPy.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +22,7 @@ namespace CogniPy
         void LoadCnl(string filename, bool loadAnnotations, bool materialize, bool modalCheck);
         IEnumerable<AnnotationResult> GetAnnotationsForSignature(IEnumerable<string> cnlEntities);
         Dictionary<string, ConstraintResult> GetConstraints(List<string> descriptions);
-        List<FeClientStatement> ToCNLStatementList();
+        List<CogniPyStatement> ToCNLStatementList();
         Dictionary<string, InstanceDescription> DescribeInstances(string query);
         List<string> GetSubConceptsOf(string cnlName, bool direct);
         List<string> GetInstancesOf(string cnlName, bool direct);

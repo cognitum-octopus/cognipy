@@ -1,9 +1,9 @@
 ﻿using org.apache.jena.graph;
 using org.apache.jena.rdf.model;
 using org.apache.jena.reasoner.rulesys;
-using Ontorion.ARS;
-using Ontorion.CNL.EN;
-using Ontorion.Executing.HermiT;
+using CogniPy.ARS;
+using CogniPy.CNL.EN;
+using CogniPy.Executing.HermiT;
 using org.semanticweb.owlapi.vocab;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 
-namespace Ontorion.CNL.DL
+namespace CogniPy.CNL.DL
 {
     public class SwrlIterateProc : GenericVisitor
     {
@@ -44,7 +44,7 @@ namespace Ontorion.CNL.DL
 
         DLToOWLNameConv owlNC = new DLToOWLNameConv();
 
-        public void setOWLDataFactory(string defaultNS, PrefixOWLOntologyFormat namespaceManager, Ontorion.CNL.EN.endict lex)
+        public void setOWLDataFactory(string defaultNS, PrefixOWLOntologyFormat namespaceManager, CogniPy.CNL.EN.endict lex)
         {
             this.owlNC.setOWLFormat(defaultNS, namespaceManager, lex);
         }

@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Text;
-using Ontorion.CNL.DL;
+using CogniPy.CNL.DL;
 
-namespace Ontorion.CNL.EN
+namespace CogniPy.CNL.EN
 {
     public class ENSerializeException : Exception
     {
@@ -16,7 +16,7 @@ namespace Ontorion.CNL.EN
             //    this.node = node;
         }
     }
-    public class Serializer2 : Ontorion.CNL.EN.IVisitor
+    public class Serializer2 : CogniPy.CNL.EN.IVisitor
     {
         VisitingParam<bool> useBrack = new VisitingParam<bool>(false);
         VisitingParam<bool> isModal = new VisitingParam<bool>(false);

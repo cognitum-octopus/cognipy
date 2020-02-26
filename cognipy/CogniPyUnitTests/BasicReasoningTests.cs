@@ -1,13 +1,10 @@
 ﻿using NUnit.Framework;
-using FluentEditorClientLib;
+using CogniPy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Ontorion.FluentEditorClient;
-using Ontorion;
-using CogniPy;
 
 namespace CogniPyUnitTests
 {

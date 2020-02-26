@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ontorion.Configuration
+namespace CogniPy.Configuration
 {
     /// <summary>
     /// OWLDL --> DL/DL

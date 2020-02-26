@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Ontorion.Collections
+namespace CogniPy.Collections
 {
     /// <summary>
     /// Collections that holds elements in the specified order. The complexity and efficiency

@@ -5,14 +5,14 @@ using org.semanticweb.owlapi.model;
 using org.semanticweb.owlapi.vocab;
 using System.Globalization;
 using org.semanticweb.owlapi.reasoner;
-using Ontorion.CNL.DL;
-using Ontorion.CNL.EN;
+using CogniPy.CNL.DL;
+using CogniPy.CNL.EN;
 using org.coode.xml;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
 using org.semanticweb.owlapi.util;
 
-namespace Ontorion.ARS
+namespace CogniPy.ARS
 {
     public class DLToOWLNameConv 
     {
@@ -20,7 +20,7 @@ namespace Ontorion.ARS
         Dictionary<string, string> Ns2pfx = new Dictionary<string, string>();
         string defaultNs;
 
-        Ontorion.CNL.EN.endict lex = null;
+        CogniPy.CNL.EN.endict lex = null;
 
         public void ClearOWLFormat()
         {
@@ -29,7 +29,7 @@ namespace Ontorion.ARS
             lex = null;
         }
 
-        public void setOWLFormat(string defaultNS,PrefixOWLOntologyFormat namespaceManager, Ontorion.CNL.EN.endict lex)
+        public void setOWLFormat(string defaultNS,PrefixOWLOntologyFormat namespaceManager, CogniPy.CNL.EN.endict lex)
         {
             this.defaultNs = defaultNS;
             var map = namespaceManager.getPrefixName2PrefixMap();
@@ -126,7 +126,7 @@ namespace Ontorion.ARS
 
         public DlName ToDL(string uri, ARS.EntityKind makeFor)
         {
-            var owlName = new Ontorion.ARS.OwlName() { iri = IRI.create(uri) };
+            var owlName = new CogniPy.ARS.OwlName() { iri = IRI.create(uri) };
              return owlNameingConvention.ToDL(owlName, lex, ns2pfx, makeFor); 
         }
 

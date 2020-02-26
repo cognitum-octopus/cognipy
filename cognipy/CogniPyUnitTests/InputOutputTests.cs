@@ -1,7 +1,5 @@
 ﻿using CogniPy;
-using FluentEditorClientLib;
 using NUnit.Framework;
-using Ontorion.FluentEditorClient;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -54,7 +52,7 @@ namespace CogniPyUnitTests
                 Assert.AreEqual(cnlSentences[i],cnlOut[i]);
         }
 
-        void CheckStatementCount(FeClientStatement stmt,int Nconcept, int Ninstances, int NRoles, int NDataRole)
+        void CheckStatementCount(CogniPyStatement stmt,int Nconcept, int Ninstances, int NRoles, int NDataRole)
         {
             Assert.AreEqual(stmt.Concepts.Count(), Nconcept);
             Assert.AreEqual(stmt.Instances.Count(), Ninstances);

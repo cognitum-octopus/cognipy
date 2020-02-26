@@ -2,7 +2,7 @@
 using Tools;
 using System;
 
-namespace Ontorion.CNL.EN
+namespace CogniPy.CNL.EN
 {
     public interface iaccept
     {

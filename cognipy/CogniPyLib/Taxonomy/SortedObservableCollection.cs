@@ -3,7 +3,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System;
 
-namespace Ontorion.Collections
+namespace CogniPy.Collections
 {
     /// <summary>
     /// SortedCollection which implements INotifyCollectionChanged interface and so can be used

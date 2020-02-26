@@ -1,7 +1,7 @@
 ﻿
 using System.Collections.Generic;
 using System;
-namespace Ontorion.CNL.DL
+namespace CogniPy.CNL.DL
 {
     public class VisitingParam<T>
     {

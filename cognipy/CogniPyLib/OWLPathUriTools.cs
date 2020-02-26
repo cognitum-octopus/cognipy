@@ -5,9 +5,9 @@ using System.Text;
 using System.Web;
 using org.semanticweb.owlapi.model;
 using System.IO;
-using Ontorion.ARS;
+using CogniPy.ARS;
 
-namespace Ontorion.OWL
+namespace CogniPy.OWL
 {
     public static class OWLPathUriTools
     {

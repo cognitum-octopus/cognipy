@@ -6,9 +6,9 @@ using System.Xml;
 using org.semanticweb.owlapi.model;
 using org.semanticweb.owlapi.apibinding;
 using System.Text.RegularExpressions;
-using Ontorion.OWL;
+using CogniPy.OWL;
 
-namespace Ontorion
+namespace CogniPy
 {
     public static class OWLConverter
     {
@@ -51,7 +51,7 @@ namespace Ontorion
                 ontologyBase += "#";
 
             OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-            Ontorion.ARS.Transform transform = new Ontorion.ARS.Transform();
+            CogniPy.ARS.Transform transform = new CogniPy.ARS.Transform();
             transform.InvUriMappings = invUriMappings;
             var df = manager.getOWLDataFactory();
             ontology = manager.createOntology(IRI.create(ontologyBase));

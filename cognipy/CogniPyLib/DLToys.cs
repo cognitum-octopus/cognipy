@@ -1,11 +1,11 @@
-﻿using Ontorion.CNL.DL;
+﻿using CogniPy.CNL.DL;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 
-namespace Ontorion.Splitting
+namespace CogniPy.Splitting
 {
     public enum LocalityKind { Top = 1, Bottom = 0 };
 
@@ -20,17 +20,17 @@ namespace Ontorion.Splitting
 
         public static LocalityKind[] LocalityKinds = new[] { LocalityKind.Bottom, LocalityKind.Top };
 
-        private static ThreadLocal<Tools.Parser> p = new ThreadLocal<Tools.Parser>(() => new Ontorion.CNL.DL.dl());
+        private static ThreadLocal<Tools.Parser> p = new ThreadLocal<Tools.Parser>(() => new CogniPy.CNL.DL.dl());
 
-        public static Ontorion.CNL.DL.Paragraph ParseDL(string DL)
+        public static CogniPy.CNL.DL.Paragraph ParseDL(string DL)
         {
             if (DL.Trim() == "")
                 return new Paragraph(null) { Statements = new List<Statement>() };
 
             Tools.SYMBOL smb = p.Value.Parse(DL);
-            if (smb is Ontorion.CNL.DL.Paragraph)   // get null on syntax error
+            if (smb is CogniPy.CNL.DL.Paragraph)   // get null on syntax error
             {
-                return smb as Ontorion.CNL.DL.Paragraph;
+                return smb as CogniPy.CNL.DL.Paragraph;
             }
             else
             {
@@ -47,13 +47,13 @@ namespace Ontorion.Splitting
 
         public static string MakeScriptFromParagraph(Paragraph ast)
         {
-            var ser = new Ontorion.CNL.DL.Serializer();
+            var ser = new CogniPy.CNL.DL.Serializer();
             return ser.Serialize(ast);
         }
 
         public static string MakeExpressionFromStatement(Statement stmt)
         {
-            var ser = new Ontorion.CNL.DL.Serializer();
+            var ser = new CogniPy.CNL.DL.Serializer();
             return ser.Serialize(stmt);
         }
 
@@ -63,7 +63,7 @@ namespace Ontorion.Splitting
                 return new HashSet<string>() { "∀" };
             else
             {
-                var ser = new Ontorion.CNL.DL.Serializer();
+                var ser = new CogniPy.CNL.DL.Serializer();
                 ser.Serialize(stmt);
                 return ser.GetSignature();
             }
@@ -71,7 +71,7 @@ namespace Ontorion.Splitting
 
         public static HashSet<string> GetSignatureFromParagraph(Paragraph stmt)
         {
-            var ser = new Ontorion.CNL.DL.Serializer();
+            var ser = new CogniPy.CNL.DL.Serializer();
             ser.Serialize(stmt);
             return ser.GetSignature();
         }

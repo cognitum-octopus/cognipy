@@ -5,7 +5,7 @@ using System.Text;
 using System.Collections;
 using System.IO;
 
-namespace Ontorion.Common
+namespace CogniPy.Common
 {
     internal static class MD5
     {

@@ -234,9 +234,9 @@
       <Link>ReferenceManager.cs</Link>
     </Compile>
     <Compile Include="DLENConverter.cs" />
-    <Compile Include="FeClientStatement.cs" />
+    <Compile Include="CogniPyStatement.cs" />
     <Compile Include="CogniPySvr.cs" />
-    <Compile Include="FluentEditorLibGraphEntity.cs" />
+    <Compile Include="CogniPyGraphEntity.cs" />
     <Compile Include="ICogniPySvr.cs" />
     <Compile Include="models\AnnotationResult.cs" />
     <Compile Include="models\ConstraintResult.cs" />

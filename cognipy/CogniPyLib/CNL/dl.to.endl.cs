@@ -4,33 +4,33 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Ontorion.CNL.DL;
+using CogniPy.CNL.DL;
 using System.Diagnostics;
 
-namespace Ontorion.CNL.EN
+namespace CogniPy.CNL.EN
 {
-    public class Transform : Ontorion.CNL.DL.IVisitor
+    public class Transform : CogniPy.CNL.DL.IVisitor
     {
 
         public Transform() {}
 
-        public Ontorion.CNL.EN.paragraph Convert(Ontorion.CNL.DL.Paragraph p, bool usePrefixes = false, Func<string, string> ns2pfxEx = null)
+        public CogniPy.CNL.EN.paragraph Convert(CogniPy.CNL.DL.Paragraph p, bool usePrefixes = false, Func<string, string> ns2pfxEx = null)
         {
             this.usePrefixes = usePrefixes;
             this._ns2Pfx = ns2pfxEx;
-            return p.accept(this) as Ontorion.CNL.EN.paragraph;
+            return p.accept(this) as CogniPy.CNL.EN.paragraph;
         }
-        public IEnumerable<Ontorion.CNL.EN.sentence> Convert(Ontorion.CNL.DL.Statement s, bool usePrefixes = false, Func<string, string> ns2pfxEx = null)
+        public IEnumerable<CogniPy.CNL.EN.sentence> Convert(CogniPy.CNL.DL.Statement s, bool usePrefixes = false, Func<string, string> ns2pfxEx = null)
         {
             this.usePrefixes = usePrefixes;
             this._ns2Pfx = ns2pfxEx;
             var o = s.accept(this);
             if (o is IEnumerable<CNL.EN.sentence>)
-                return o as IEnumerable<Ontorion.CNL.EN.sentence>;
+                return o as IEnumerable<CogniPy.CNL.EN.sentence>;
             else 
-                return new List<CNL.EN.sentence>(){ o as Ontorion.CNL.EN.sentence};
+                return new List<CNL.EN.sentence>(){ o as CogniPy.CNL.EN.sentence};
         }
-        public object Convert(Ontorion.CNL.DL.IAccept n, bool usePrefixes = false, Func<string, string> ns2pfxEx = null)
+        public object Convert(CogniPy.CNL.DL.IAccept n, bool usePrefixes = false, Func<string, string> ns2pfxEx = null)
         {
             this.usePrefixes = usePrefixes;
             this._ns2Pfx = ns2pfxEx;
@@ -45,9 +45,9 @@ namespace Ontorion.CNL.EN
                 throw new NotImplementedException("Was neither TransNode nor TransTotalBound. Should implement it.");
         }
 
-        public object Visit(Ontorion.CNL.DL.Paragraph p)
+        public object Visit(CogniPy.CNL.DL.Paragraph p)
         {
-            Ontorion.CNL.EN.paragraph ret = new CNL.EN.paragraph(null) { sentences = new List<CNL.EN.sentence>() };
+            CogniPy.CNL.EN.paragraph ret = new CNL.EN.paragraph(null) { sentences = new List<CNL.EN.sentence>() };
             foreach (var x in p.Statements)
             {
                 var o = x.accept(this);
@@ -122,7 +122,7 @@ namespace Ontorion.CNL.EN
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.Subsumption p)
+        public object Visit(CogniPy.CNL.DL.Subsumption p)
         {
             var LeftSide = p.C.accept(this);
             if (p.D is ConceptNot)
@@ -161,7 +161,7 @@ namespace Ontorion.CNL.EN
             return new dlannotationassertion(null) { subject =a.subject, subjKind = a.subjKind, annotName = a.annotName, value = a.value, language = a.language };
         }
 
-        public object Visit(Ontorion.CNL.DL.Equivalence p)
+        public object Visit(CogniPy.CNL.DL.Equivalence p)
         {
             var ret = new List<CNL.EN.sentence>();
             var LeftSide = p.Equivalents[0].accept(this);
@@ -186,7 +186,7 @@ namespace Ontorion.CNL.EN
             return ret;
         }
 
-        public object Visit(Ontorion.CNL.DL.Disjoint p)
+        public object Visit(CogniPy.CNL.DL.Disjoint p)
         {
             if (p.Disjoints.Count == 2)
             {
@@ -258,7 +258,7 @@ namespace Ontorion.CNL.EN
             return ENNameingConvention.FromDL(allParts.Combine(), kind, bigName).id;
         }
 
-        public object Visit(Ontorion.CNL.DL.DisjointUnion p)
+        public object Visit(CogniPy.CNL.DL.DisjointUnion p)
         {
             var ret = new CNL.EN.exclusiveunion(null) { objectRoleExprs = new List<objectRoleExpr>() };
             ret.name = FromDL(p.name, false);
@@ -272,19 +272,19 @@ namespace Ontorion.CNL.EN
             return ret;
         }
 
-        public object Visit(Ontorion.CNL.DL.DataTypeDefinition e)
+        public object Visit(CogniPy.CNL.DL.DataTypeDefinition e)
         {
             return new CNL.EN.datatypedef(null, FromDL(e.name, false), (e.B.accept(this) as TransAbstractBound).bound());
         }
 
-        public object Visit(Ontorion.CNL.DL.RoleInclusion e)
+        public object Visit(CogniPy.CNL.DL.RoleInclusion e)
         {
             object r = e.C.accept(this);
             object s = e.D.accept(this);
             Assert(r is TransNode);
             Assert(s is TransNode);
 
-            bool inv = e.D is Ontorion.CNL.DL.RoleInversion;
+            bool inv = e.D is CogniPy.CNL.DL.RoleInversion;
             var rr = convertToRoleWithXY((s as TransNode).role(false, e.modality != Statement.Modality.IS, inv));
             rr.inverse = inv;
             var sent = new CNL.EN.rolesubsumption(null,  (r as TransNode).role(false, false, false), rr);
@@ -301,13 +301,13 @@ namespace Ontorion.CNL.EN
             return new notRoleWithXY(r.yyps, r.name, r.inverse);
         }
 
-        public object Visit(Ontorion.CNL.DL.RoleEquivalence p)
+        public object Visit(CogniPy.CNL.DL.RoleEquivalence p)
         {
             var ret = new List<CNL.EN.sentence>();
 
             CNL.EN.role rol;
             {
-                bool inv = p.Equivalents[0] is Ontorion.CNL.DL.RoleInversion;
+                bool inv = p.Equivalents[0] is CogniPy.CNL.DL.RoleInversion;
                 var d = p.Equivalents[0].accept(this);
                 Assert(d is TransNode);
                 rol = (d as TransNode).role(false, false, false);
@@ -326,7 +326,7 @@ namespace Ontorion.CNL.EN
                 {
                     var it = new CNL.EN.roleequivalence2(null);
                     it.r = rol;
-                    bool inv = p.Equivalents[j] is Ontorion.CNL.DL.RoleInversion;
+                    bool inv = p.Equivalents[j] is CogniPy.CNL.DL.RoleInversion;
                     var d = p.Equivalents[j].accept(this);
                     Assert(d is TransNode);
                     var rr = convertToRoleWithXY((d as TransNode).role(false, false, null));
@@ -338,7 +338,7 @@ namespace Ontorion.CNL.EN
             return ret;
         }
 
-        public object Visit(Ontorion.CNL.DL.DataRoleEquivalence p)
+        public object Visit(CogniPy.CNL.DL.DataRoleEquivalence p)
         {
             var ret = new List<CNL.EN.sentence>();
 
@@ -372,13 +372,13 @@ namespace Ontorion.CNL.EN
             return ret;
         }
 
-        public object Visit(Ontorion.CNL.DL.RoleDisjoint p)
+        public object Visit(CogniPy.CNL.DL.RoleDisjoint p)
         {
             var ret = new CNL.EN.roledisjoint2(null);
             Assert(p.Disjoints.Count == 2);
             for(int i=0; i<p.Disjoints.Count;i++)
             {
-                bool inv = p.Disjoints[i] is Ontorion.CNL.DL.RoleInversion;
+                bool inv = p.Disjoints[i] is CogniPy.CNL.DL.RoleInversion;
                 var d = p.Disjoints[i].accept(this);
                 Assert(d is TransNode);
 
@@ -394,14 +394,14 @@ namespace Ontorion.CNL.EN
             return ret;
         }
 
-        public object Visit(Ontorion.CNL.DL.ComplexRoleInclusion e)
+        public object Visit(CogniPy.CNL.DL.ComplexRoleInclusion e)
         {
             CNL.EN.chain z = new CNL.EN.chain(null) { roles = new List<CNL.EN.role>() };
             foreach (var r in e.RoleChain)
             {
                 z.roles.Add((r.accept(this) as TransNode).role(false, false, false));
             }
-            bool inv = e.R is Ontorion.CNL.DL.RoleInversion;
+            bool inv = e.R is CogniPy.CNL.DL.RoleInversion;
             object t = e.R.accept(this);
             Assert(t is TransNode);
             var rr = convertToRoleWithXY((t as TransNode).role(false, false, false));
@@ -410,7 +410,7 @@ namespace Ontorion.CNL.EN
             return sent;
         }
 
-        public object Visit(Ontorion.CNL.DL.DataRoleInclusion e)
+        public object Visit(CogniPy.CNL.DL.DataRoleInclusion e)
         {
             object r = e.C.accept(this);
             object s = e.D.accept(this);
@@ -421,7 +421,7 @@ namespace Ontorion.CNL.EN
             return sent;
         }
 
-        public object Visit(Ontorion.CNL.DL.DataRoleDisjoint p)
+        public object Visit(CogniPy.CNL.DL.DataRoleDisjoint p)
         {
             var ret = new CNL.EN.dataroledisjoint2(null);
             Assert(p.Disjoints.Count == 2);
@@ -438,7 +438,7 @@ namespace Ontorion.CNL.EN
             return ret; 
         }
 
-        public object Visit(Ontorion.CNL.DL.InstanceOf e)
+        public object Visit(CogniPy.CNL.DL.InstanceOf e)
         {
             object c = e.C.accept(this);
             var i = new TransInstanceSingle() { Instance = e.I.accept(this) as TransInstance};
@@ -449,7 +449,7 @@ namespace Ontorion.CNL.EN
             return sent;
         }
 
-        public object Visit(Ontorion.CNL.DL.RelatedInstances p)
+        public object Visit(CogniPy.CNL.DL.RelatedInstances p)
         {
             var i = new TransInstanceSingle() { Instance = p.I.accept(this) as TransInstance };
             var j = new TransInstanceSingle() { Instance = p.J.accept(this) as TransInstance };
@@ -463,7 +463,7 @@ namespace Ontorion.CNL.EN
             return sent;
         }
 
-        public object Visit(Ontorion.CNL.DL.InstanceValue e)
+        public object Visit(CogniPy.CNL.DL.InstanceValue e)
         {
             var i = new TransInstanceSingle() { Instance = e.I.accept(this) as TransInstance };
             var v = e.V.accept(this) as TransValue;
@@ -477,7 +477,7 @@ namespace Ontorion.CNL.EN
             return sent;
         }
 
-        public object Visit(Ontorion.CNL.DL.SameInstances p)
+        public object Visit(CogniPy.CNL.DL.SameInstances p)
         {
             var ret = new CNL.EN.equivalence2(null);
             ret.modality = resolveModality(p.modality);
@@ -497,7 +497,7 @@ namespace Ontorion.CNL.EN
             return ret;
         }
 
-        public object Visit(Ontorion.CNL.DL.DifferentInstances p)
+        public object Visit(CogniPy.CNL.DL.DifferentInstances p)
         {
             var ret = new CNL.EN.exclusives(null) { objectRoleExprs = new List<objectRoleExpr>() };
             ret.modality = resolveModality(p.modality);
@@ -512,7 +512,7 @@ namespace Ontorion.CNL.EN
             return ret;
         }
 
-        public object Visit(Ontorion.CNL.DL.HasKey p)
+        public object Visit(CogniPy.CNL.DL.HasKey p)
         {
             var ret = new CNL.EN.haskey(null) { dataroles = new List<role>(), roles = new List<role>() };
             var x = p.C.accept(this);
@@ -555,7 +555,7 @@ namespace Ontorion.CNL.EN
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.NamedInstance e)
+        public object Visit(CogniPy.CNL.DL.NamedInstance e)
         {
             return new TransNamedInstance(this) {  id = e.name };
         }
@@ -578,7 +578,7 @@ namespace Ontorion.CNL.EN
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.UnnamedInstance e)
+        public object Visit(CogniPy.CNL.DL.UnnamedInstance e)
         {
             object o =  e.C.accept(this);
             Assert ( o  is TransNode);
@@ -605,7 +605,7 @@ namespace Ontorion.CNL.EN
                 return new CNL.EN.Number(null, val);
             }
         }
-        public object Visit(Ontorion.CNL.DL.Number e)
+        public object Visit(CogniPy.CNL.DL.Number e)
         {
             return new TransNumber() { val = e.val };
         }
@@ -618,7 +618,7 @@ namespace Ontorion.CNL.EN
                 return new CNL.EN.Bool(null, val);
             }
         }
-        public object Visit(Ontorion.CNL.DL.Bool e)
+        public object Visit(CogniPy.CNL.DL.Bool e)
         {
             return new TransBool() { val = e.val == "[1]" ? "true" : "false" };
         }
@@ -631,7 +631,7 @@ namespace Ontorion.CNL.EN
                 return new CNL.EN.DateTimeData(null, val);
             }
         }
-        public object Visit(Ontorion.CNL.DL.DateTimeVal e)
+        public object Visit(CogniPy.CNL.DL.DateTimeVal e)
         {
             return new TransDateTimeVal() { val = e.val };
         }
@@ -644,7 +644,7 @@ namespace Ontorion.CNL.EN
                 return new CNL.EN.Duration(null, val);
             }
         }
-        public object Visit(Ontorion.CNL.DL.Duration e)
+        public object Visit(CogniPy.CNL.DL.Duration e)
         {
             return new TransDuration() { val = e.val };
         }
@@ -657,7 +657,7 @@ namespace Ontorion.CNL.EN
                 return new CNL.EN.StrData(null, val);
             }
         }
-        public object Visit(Ontorion.CNL.DL.String e)
+        public object Visit(CogniPy.CNL.DL.String e)
         {
             return new TransString() { val = e.val };
         }
@@ -670,7 +670,7 @@ namespace Ontorion.CNL.EN
                 return new CNL.EN.Float(null, val);
             }
         }
-        public object Visit(Ontorion.CNL.DL.Float e)
+        public object Visit(CogniPy.CNL.DL.Float e)
         {
             return new TransFloat() { val = e.val };
         }
@@ -689,18 +689,18 @@ namespace Ontorion.CNL.EN
                 var eset = new boundOneOf(null) { vals = new List<dataval>() };
                 foreach (var v in Values)
                 {
-                    if (v is Ontorion.CNL.DL.String)
+                    if (v is CogniPy.CNL.DL.String)
                         eset.vals.Add(new StrData(null) { val = v.getVal() });
-                    else if (v is Ontorion.CNL.DL.Float)
-                        eset.vals.Add(new Ontorion.CNL.EN.Float(null) { val = v.getVal() });
-                    else if (v is Ontorion.CNL.DL.Number)
-                        eset.vals.Add(new Ontorion.CNL.EN.Number(null) { val = v.getVal() });
-                    else if (v is Ontorion.CNL.DL.Bool)
-                        eset.vals.Add(new Ontorion.CNL.EN.Bool(null) { val = (v.getVal() == "[1]") ? "true" : "false" });
-                    else if (v is Ontorion.CNL.DL.DateTimeVal)
-                        eset.vals.Add(new Ontorion.CNL.EN.DateTimeData(null) { val = v.getVal() });
-                    else if (v is Ontorion.CNL.DL.Duration)
-                        eset.vals.Add(new Ontorion.CNL.EN.Duration(null) { val = v.getVal() });
+                    else if (v is CogniPy.CNL.DL.Float)
+                        eset.vals.Add(new CogniPy.CNL.EN.Float(null) { val = v.getVal() });
+                    else if (v is CogniPy.CNL.DL.Number)
+                        eset.vals.Add(new CogniPy.CNL.EN.Number(null) { val = v.getVal() });
+                    else if (v is CogniPy.CNL.DL.Bool)
+                        eset.vals.Add(new CogniPy.CNL.EN.Bool(null) { val = (v.getVal() == "[1]") ? "true" : "false" });
+                    else if (v is CogniPy.CNL.DL.DateTimeVal)
+                        eset.vals.Add(new CogniPy.CNL.EN.DateTimeData(null) { val = v.getVal() });
+                    else if (v is CogniPy.CNL.DL.Duration)
+                        eset.vals.Add(new CogniPy.CNL.EN.Duration(null) { val = v.getVal() });
                     else
                         Assert(false);
                 }
@@ -776,17 +776,17 @@ namespace Ontorion.CNL.EN
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.Facet e)
+        public object Visit(CogniPy.CNL.DL.Facet e)
         {
             throw new InvalidOperationException();
         }
 
-        public object Visit(Ontorion.CNL.DL.FacetList e)
+        public object Visit(CogniPy.CNL.DL.FacetList e)
         {
             throw new InvalidOperationException();
         }
 
-        public object Visit(Ontorion.CNL.DL.BoundFacets e)
+        public object Visit(CogniPy.CNL.DL.BoundFacets e)
         {
             var tf = new List<TransFacet>();
             foreach(var f in e.FL.List)
@@ -863,7 +863,7 @@ namespace Ontorion.CNL.EN
             return new TransBoundVal() { Kind = e.Kind, V = e.V.accept(this) as TransValue };
         }
 
-        public object Visit(Ontorion.CNL.DL.TotalBound e)
+        public object Visit(CogniPy.CNL.DL.TotalBound e)
         {
             return new TransTotalBound() { V = e.V };
         }
@@ -873,7 +873,7 @@ namespace Ontorion.CNL.EN
             return new TransDTBound(this) { name = e.name };
         }
 
-        public object Visit(Ontorion.CNL.DL.TopBound e)
+        public object Visit(CogniPy.CNL.DL.TopBound e)
         {
             return new TransTopBound();
         }
@@ -918,7 +918,7 @@ namespace Ontorion.CNL.EN
                     return new CNL.EN.role(null, _me.FromDL(id, isPlural ? CNL.EN.endict.WordKind.PluralFormVerb : (isModal ? CNL.EN.endict.WordKind.NormalForm : CNL.EN.endict.WordKind.PastParticiple), false), false);
             }
         }
-        public object Visit(Ontorion.CNL.DL.Atomic e)
+        public object Visit(CogniPy.CNL.DL.Atomic e)
         {
             return new TransAtomic(this) { id = e.id };
         }
@@ -954,7 +954,7 @@ namespace Ontorion.CNL.EN
                 return new CNL.EN.role(null, ENNameingConvention.TOPROLENAME, isInverse ?? false);
             }
         }
-        public object Visit(Ontorion.CNL.DL.Top e)
+        public object Visit(CogniPy.CNL.DL.Top e)
         {
             return new TransTop();
         }
@@ -986,7 +986,7 @@ namespace Ontorion.CNL.EN
                 return new CNL.EN.role(null, ENNameingConvention.BOTTOMROLENAME, isInverse??false);
             }
         }
-        public object Visit(Ontorion.CNL.DL.Bottom e)
+        public object Visit(CogniPy.CNL.DL.Bottom e)
         {
             return new TransBottom();
         }
@@ -1002,7 +1002,7 @@ namespace Ontorion.CNL.EN
                 return R.role(isPlural, isModal, val);
             }
         }
-        public object Visit(Ontorion.CNL.DL.RoleInversion e)
+        public object Visit(CogniPy.CNL.DL.RoleInversion e)
         {
             object o = e.R.accept(this);
             Assert(o is TransNode);
@@ -1090,7 +1090,7 @@ namespace Ontorion.CNL.EN
                 return new CNL.EN.oobjectA(null, single(isPlural, isModal));
             }
         }
-        public object Visit(Ontorion.CNL.DL.InstanceSet e)
+        public object Visit(CogniPy.CNL.DL.InstanceSet e)
         {
             if (e.Instances.Count == 0)
                 return new TransBottom();
@@ -1109,7 +1109,7 @@ namespace Ontorion.CNL.EN
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.ValueSet e)
+        public object Visit(CogniPy.CNL.DL.ValueSet e)
         {
             if (e.Values.Count == 1)
                 return new TransBoundFacet() { TF = new List<TransFacet>() { new TransFacet() { Kind = "=", V = e.Values[0].accept(this) as TransValue } } };
@@ -1186,7 +1186,7 @@ namespace Ontorion.CNL.EN
                 }
             }
         }
-        public object Visit(Ontorion.CNL.DL.ConceptOr e)
+        public object Visit(CogniPy.CNL.DL.ConceptOr e)
         {
             TransConceptOr ret = new TransConceptOr(this);
             foreach (var C in e.Exprs)
@@ -1252,7 +1252,7 @@ namespace Ontorion.CNL.EN
                 return new CNL.EN.oobjectA(null, single(isPlural, isModal));
             }
         }
-        public object Visit(Ontorion.CNL.DL.ConceptAnd e)
+        public object Visit(CogniPy.CNL.DL.ConceptAnd e)
         {
             TransConceptAnd ret = new TransConceptAnd(this);
             foreach (var C in e.Exprs)
@@ -1338,7 +1338,7 @@ namespace Ontorion.CNL.EN
                 return new CNL.EN.oobjectA(null, single(isPlural, isModal));
             }
         }
-        public object Visit(Ontorion.CNL.DL.ConceptNot e)
+        public object Visit(CogniPy.CNL.DL.ConceptNot e)
         {
             object o = e.C.accept(this);
             Assert(o is TransNode);
@@ -1373,7 +1373,7 @@ namespace Ontorion.CNL.EN
                 return new CNL.EN.singleThingThat(null, new CNL.EN.thatOrLoop(null, new CNL.EN.orloop(null, new CNL.EN.andloop(null, objectRoleExpr(isPlural, isModal)))));
             }
         }
-        public object Visit(Ontorion.CNL.DL.OnlyRestriction e)
+        public object Visit(CogniPy.CNL.DL.OnlyRestriction e)
         {
             object r = e.R.accept(this);
             object c = e.C.accept(this);
@@ -1418,7 +1418,7 @@ namespace Ontorion.CNL.EN
                 return new CNL.EN.singleThingThat(null, new CNL.EN.thatOrLoop(null, new CNL.EN.orloop(null, new CNL.EN.andloop(null, objectRoleExpr(isPlural,isModal)))));
             }
         }
-        public object Visit(Ontorion.CNL.DL.SomeRestriction e)
+        public object Visit(CogniPy.CNL.DL.SomeRestriction e)
         {
             object r = e.R.accept(this);
             object c = e.C.accept(this);
@@ -1451,7 +1451,7 @@ namespace Ontorion.CNL.EN
                 return new CNL.EN.oobjectA(null, single(isPlural, isModal));
             }
         }
-        public object Visit(Ontorion.CNL.DL.OnlyValueRestriction e)
+        public object Visit(CogniPy.CNL.DL.OnlyValueRestriction e)
         {
             object r = e.R.accept(this);
             object b = e.B.accept(this);
@@ -1489,7 +1489,7 @@ namespace Ontorion.CNL.EN
                 return new CNL.EN.oobjectA(null, single(isPlural, isModal));
             }
         }
-        public object Visit(Ontorion.CNL.DL.SomeValueRestriction e)
+        public object Visit(CogniPy.CNL.DL.SomeValueRestriction e)
         {
             object r = e.R.accept(this);
             object b = e.B.accept(this);
@@ -1526,7 +1526,7 @@ namespace Ontorion.CNL.EN
                 return new CNL.EN.oobjectA(null, single(isPlural, isModal));
             }
         }
-        public object Visit(Ontorion.CNL.DL.SelfReference e)
+        public object Visit(CogniPy.CNL.DL.SelfReference e)
         {
             object r = e.R.accept(this);
             Assert(r is TransNode);
@@ -1559,7 +1559,7 @@ namespace Ontorion.CNL.EN
                 return new CNL.EN.oobjectA(null, single(isPlural, isModal));
             }
         }
-        public object Visit(Ontorion.CNL.DL.NumberRestriction e)
+        public object Visit(CogniPy.CNL.DL.NumberRestriction e)
         {
             object r = e.R.accept(this);
             object c = e.C.accept(this);
@@ -1594,7 +1594,7 @@ namespace Ontorion.CNL.EN
                 return new CNL.EN.oobjectA(null, single(isPlural, isModal));
             }
         }
-        public object Visit(Ontorion.CNL.DL.NumberValueRestriction e) 
+        public object Visit(CogniPy.CNL.DL.NumberValueRestriction e) 
         {
             object r = e.R.accept(this);
             object b = e.B.accept(this);
@@ -1757,7 +1757,7 @@ namespace Ontorion.CNL.EN
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.SwrlInstance e)
+        public object Visit(CogniPy.CNL.DL.SwrlInstance e)
         {
             return new TransSwrlInstance(this) { C = e.C.accept(this) as TransNode, I = e.I.accept(this) as TransSwrlIObject };
         }
@@ -1782,7 +1782,7 @@ namespace Ontorion.CNL.EN
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.SwrlRole e)
+        public object Visit(CogniPy.CNL.DL.SwrlRole e)
         {
             return new TransSwrlRole(this) { I = e.I.accept(this) as TransSwrlIObject, R = e.R, J = e.J.accept(this) as TransSwrlIObject };
         }
@@ -1803,7 +1803,7 @@ namespace Ontorion.CNL.EN
             }
         }
 
-        public object Visit(Ontorion.CNL.DL.SwrlSameAs e)
+        public object Visit(CogniPy.CNL.DL.SwrlSameAs e)
         {
             return new TransSwrlSameOrDifferent() { I = e.I.accept(this) as TransSwrlIObject, J = e.J.accept(this) as TransSwrlIObject, TrueForSame = true };
         }

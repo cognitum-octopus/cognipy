@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using org.semanticweb.owlapi.model;
-using Ontorion.CNL.DL;
+using CogniPy.CNL.DL;
 using org.semanticweb.owlapi.util;
 using org.coode.xml;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
 
-namespace Ontorion.ARS
+namespace CogniPy.ARS
 {
     public class IRIParser
     {
@@ -275,8 +275,8 @@ namespace Ontorion.ARS
 
     public interface IOwlNameingConvention
     {
-        Ontorion.CNL.DL.DlName ToDL(OwlName owlname, CNL.EN.endict lex, Func<string, string> ns2pfx, EntityKind madeFor);
-        OwlName FromDL(Ontorion.CNL.DL.DlName dl, CNL.EN.endict lex, Func<string, string> pfx2ns, EntityKind madeFor);
+        CogniPy.CNL.DL.DlName ToDL(OwlName owlname, CNL.EN.endict lex, Func<string, string> ns2pfx, EntityKind madeFor);
+        OwlName FromDL(CogniPy.CNL.DL.DlName dl, CNL.EN.endict lex, Func<string, string> pfx2ns, EntityKind madeFor);
     }
 
     //public class OwlNameingConventionSmartImport : IOwlNameingConvention
@@ -528,7 +528,7 @@ namespace Ontorion.ARS
         /// <param name="ns2pfx"></param>
         /// <param name="madeFor">the type of this entity (Concept, Instance, Role,...)</param>
         /// <returns></returns>
-        public Ontorion.CNL.DL.DlName ToDL(OwlName owlname, CNL.EN.endict lex, Func<string, string> ns2pfx, EntityKind madeFor)
+        public CogniPy.CNL.DL.DlName ToDL(OwlName owlname, CNL.EN.endict lex, Func<string, string> ns2pfx, EntityKind madeFor)
         {
             var parts = owlname.Split();
             string defaultNs = ns2pfx(null);
@@ -639,7 +639,7 @@ namespace Ontorion.ARS
         /// <param name="pfx2ns"></param>
         /// <param name="madeFor">the type of this entity (Concept, Instance, Role,...)</param>
         /// <returns></returns>
-        public OwlName FromDL(Ontorion.CNL.DL.DlName dl, CNL.EN.endict lex, Func<string, string> pfx2ns, EntityKind madeFor)
+        public OwlName FromDL(CogniPy.CNL.DL.DlName dl, CNL.EN.endict lex, Func<string, string> pfx2ns, EntityKind madeFor)
         {
             var owlParts = new OwlName.Parts();
             var dlParts = dl.Split();
@@ -741,7 +741,7 @@ namespace Ontorion.ARS
 
         Regex bregexp = null;
 
-        public Ontorion.CNL.DL.DlName ToDL(OwlName owlname, CNL.EN.endict lex, Func<string, string> ns2pfx, EntityKind madeFor)
+        public CogniPy.CNL.DL.DlName ToDL(OwlName owlname, CNL.EN.endict lex, Func<string, string> ns2pfx, EntityKind madeFor)
         {
             var parts = owlname.Split();
             string defaultNs = ns2pfx(null);
@@ -798,7 +798,7 @@ namespace Ontorion.ARS
         }
 
 
-        public OwlName FromDL(Ontorion.CNL.DL.DlName dl, CNL.EN.endict lex, Func<string, string> pfx2ns, EntityKind madeFor)
+        public OwlName FromDL(CogniPy.CNL.DL.DlName dl, CNL.EN.endict lex, Func<string, string> pfx2ns, EntityKind madeFor)
         {
             Debugger.Break();
             throw new NotImplementedException();

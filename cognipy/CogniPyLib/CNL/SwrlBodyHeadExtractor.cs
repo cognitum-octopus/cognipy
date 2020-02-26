@@ -1,10 +1,10 @@
-﻿using Ontorion.CNL.DL;
+﻿using CogniPy.CNL.DL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Ontorion.CNL
+namespace CogniPy.CNL
 {
     public class SwrlRuleStruct
     {
@@ -171,29 +171,29 @@ namespace Ontorion.CNL
             return e.VAR;
         }
 
-        public override object Visit(Ontorion.CNL.DL.Atomic e)
+        public override object Visit(CogniPy.CNL.DL.Atomic e)
         {
             if(isKindOf.get() == "C")
                 addToHeadOrBody(e.id, ":C");
             return e;
         }
 
-        public override object Visit(Ontorion.CNL.DL.Number e)
+        public override object Visit(CogniPy.CNL.DL.Number e)
         {
             addToHeadOrBody(e.val, ":V");
             return e;
         }
-        public override object Visit(Ontorion.CNL.DL.String e)
+        public override object Visit(CogniPy.CNL.DL.String e)
         {
             addToHeadOrBody(e.val, ":V");
             return e;
         }
-        public override object Visit(Ontorion.CNL.DL.Float e)
+        public override object Visit(CogniPy.CNL.DL.Float e)
         {
             addToHeadOrBody(e.val, ":V");
             return e;
         }
-        public override object Visit(Ontorion.CNL.DL.Bool e)
+        public override object Visit(CogniPy.CNL.DL.Bool e)
         {
             addToHeadOrBody(e.val, ":V");
             return e;

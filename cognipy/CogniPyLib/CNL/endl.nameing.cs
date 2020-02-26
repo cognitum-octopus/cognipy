@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using Ontorion.CNL.DL;
+using CogniPy.CNL.DL;
 
-namespace Ontorion.CNL.EN
+namespace CogniPy.CNL.EN
 {
     public class EnName
     {
@@ -139,7 +139,7 @@ namespace Ontorion.CNL.EN
         public const string TOPROLENAME = "\"<->\"";
         public const string BOTTOMROLENAME = "\"<x>\"";
 
-        public static DlName ToDL(EnName eng, Ontorion.CNL.EN.endict.WordKind kind)
+        public static DlName ToDL(EnName eng, CogniPy.CNL.EN.endict.WordKind kind)
         {
             var parts = eng.Split();
             DlName.Parts dlp = new DlName.Parts();
@@ -171,7 +171,7 @@ namespace Ontorion.CNL.EN
             parts.quoted = dlp.quoted;
             if (dlp.quoted || bigName || kind == endict.WordKind.NormalForm)
             {
-                if (Ontorion.CNL.EN.KeyWords.Me.isKeyword(dlp.name))
+                if (CogniPy.CNL.EN.KeyWords.Me.isKeyword(dlp.name))
                     parts.quoted = true;
                 parts.name = dlp.name;
             }

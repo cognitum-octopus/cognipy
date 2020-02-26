@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Ontorion.Executing.HermiT
+namespace CogniPy.Executing.HermiT
 {
-    public class ImpliKBVisitor : Ontorion.CNL.DL.GenericVisitor
+    public class ImpliKBVisitor : CogniPy.CNL.DL.GenericVisitor
     {
         HashSet<Tuple<string, string>> typeOf = new HashSet<Tuple<string, string>>();
         HashSet<Tuple<string, string, string>> relatedTo = new HashSet<Tuple<string, string, string>>();

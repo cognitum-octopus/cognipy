@@ -1,5 +1,5 @@
 using System;using Tools;
-namespace Ontorion.CNL.DL {
+namespace CogniPy.CNL.DL {
 //%+Statement+62
 public partial class Statement : PartialSymbol{
 public override string yyname_dl { get { return "Statement"; }}
