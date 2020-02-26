@@ -18,8 +18,7 @@ namespace CogniPyUnitTests
             // reason the new context
             var CnlContent = "Every man is a human-being.\r\n Every human-being has-name equal-to 'aaa'.";
             var CnlToAdd = new List<string>() {
-                    "John is a man.",
-                    "Every man is a human-being."
+                    "John is a man."
                 };
 
             feClient.LoadCnlFromString(CnlContent, true, true);
@@ -31,23 +30,6 @@ namespace CogniPyUnitTests
                 Assert.IsTrue(mergedCnl.Any(x => x == cnl));
             }
             Assert.AreEqual(3,mergedCnl.Count());
-        }
-
-        [Test]
-        public void AddSubsumptionTop()
-        {
-            var feClient = new CogniPySvr();
-
-            try
-            {
-                feClient.LoadCnlFromString("My-Instance-1 is a thing.", true, true);
-                feClient.KnowledgeInsert("My-Instance-2 is a thing.", true, true);
-                feClient.KnowledgeInsert("Every my-concept is a thing.",true,true);
-            }
-            catch(Exception ex)
-            {
-                Assert.Fail(ex.Message);
-            }
         }
 
         [Test]

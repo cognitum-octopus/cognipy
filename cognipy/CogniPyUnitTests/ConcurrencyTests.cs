@@ -82,8 +82,8 @@ Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3
 Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3a9ab53-4423-4354-885d-2776ba98505d#>] have-field-2-1-3 Answer-2-1-3-2.
 Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3a9ab53-4423-4354-885d-2776ba98505d#>] have-field-2-1-3 Answer-2-1-3-3.
 Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3a9ab53-4423-4354-885d-2776ba98505d#>] have-field-2-1-3 Answer-2-1-3-4.
-Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3a9ab53-4423-4354-885d-2776ba98505d#>] have-field-2-1-3 .",true);
-
+"
+,true);
             var desc = client.DescribeInstances("Survey[<http://www.sfo.cognitum.eu/Survey/c3a9ab53-4423-4354-885d-2776ba98505d#>]");
 
             var all = client.GetInstancesOf("thing", false); // OK

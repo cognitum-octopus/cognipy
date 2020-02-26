@@ -2916,14 +2916,9 @@ namespace CogniPy.Executing.HermiTClient
             if (para.Statements.Any((s) => !IsABox(s) && !(s is CNL.DL.Annotation)))
             {
                 throw new NotImplementedException("Only A-Box can be modified.");
-                //Reset(para, false);
             }
             else
             {
-//                if (isAdd)
-//                    lock (sourceParagraph)
-//                        sourceParagraph.Statements.AddRange(para.Statements);
-//                else
                 if(!isAdd)
                 {
                     lock (sourceParagraph)
