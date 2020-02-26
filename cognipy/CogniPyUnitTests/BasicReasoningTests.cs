@@ -1,10 +1,8 @@
-﻿using NUnit.Framework;
-using CogniPy;
+﻿using CogniPy;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CogniPyUnitTests
 {
@@ -21,14 +19,14 @@ namespace CogniPyUnitTests
                     "Every man is a human-being."
             };
             var feClient = new CogniPySvr();
-            feClient.LoadCnlFromString(string.Join("\r\n",cnlSentences),true, materialize: materialize);
+            feClient.LoadCnlFromString(string.Join("\r\n", cnlSentences), true, materialize: materialize);
             //var res = feClient.SparqlQuery("SELECT * WHERE {?x ?y ?z}");
-            var result = feClient.ToCNL(true,true);
+            var result = feClient.ToCNL(true, true);
             Assert.IsNotNull(result);
-            if(materialize)
+            if (materialize)
                 Assert.IsTrue(result.Contains("John is a human-being."));
             else
-                Assert.IsFalse(result.Contains("John is a human-being."));    
+                Assert.IsFalse(result.Contains("John is a human-being."));
         }
 
         [Test]
@@ -39,7 +37,7 @@ namespace CogniPyUnitTests
             {
                 feClient.LoadCnlFromString(string.Join("\r\n", "Every man is a human-being"), true, true);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return;
             }
@@ -99,7 +97,7 @@ namespace CogniPyUnitTests
         {
             var feClient = new CogniPySvr();
             var cnl = feClient.ToCNL(true);
-            Assert.AreEqual("",cnl);
+            Assert.AreEqual("", cnl);
         }
 
         [Test]
@@ -131,7 +129,7 @@ namespace CogniPyUnitTests
 
             var res2 = feClient.SparqlQuery(feClient.SelectSuperconceptsSPARQL("John", false));
             var cnlRes2 = feClient.TranslateQueryResultsIntoCnlInPlace(res2);
-            
+
             Assert.Contains("human-being", cnlRes2.Item2.SelectMany(x => x).ToList());
         }
 

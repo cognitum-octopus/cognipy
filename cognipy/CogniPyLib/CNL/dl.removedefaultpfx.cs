@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
+﻿using System.Linq;
 
 namespace CogniPy.CNL.DL
 {
     public class RemoveDefaultPfxVisitor : CogniPy.CNL.DL.GenericVisitor
     {
         string defaultPfx;
-        public RemoveDefaultPfxVisitor(string defaultPfx,string defaultNamespace=null) {
+        public RemoveDefaultPfxVisitor(string defaultPfx, string defaultNamespace = null)
+        {
             if (!string.IsNullOrWhiteSpace(defaultPfx))
                 this.defaultPfx = defaultPfx;
             else if (!string.IsNullOrWhiteSpace(defaultNamespace) && !defaultNamespace.StartsWith("<") && !defaultNamespace.EndsWith(">"))
@@ -20,7 +18,7 @@ namespace CogniPy.CNL.DL
         string removeDefaultPfx(string nm)
         {
             var parst = new DlName() { id = nm }.Split();
-            
+
             var trm = (parst.term == defaultPfx) ? null : parst.term;
             return new DlName.Parts() { name = parst.name, local = parst.local, quoted = parst.quoted, term = trm }.Combine().id;
         }
@@ -43,7 +41,7 @@ namespace CogniPy.CNL.DL
             e.name = removeDefaultPfx(e.name);
             return base.Visit(e);
         }
-        
+
         public override object Visit(DisjointUnion e)
         {
             e.name = removeDefaultPfx(e.name);

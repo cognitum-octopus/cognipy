@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CogniPyUnitTests
 {
@@ -62,7 +60,7 @@ namespace CogniPyUnitTests
             var reasoner = new CogniPySvr();
             reasoner.LoadCnlFromString("Bubu influences-with-weight-of-1 Dudu.", true, true);
             var toDel = "Bubu influence-with-weight-of-1 Dudu.";
-            reasoner.KnowledgeDelete(toDel,true);
+            reasoner.KnowledgeDelete(toDel, true);
             var cnl = reasoner.ToCNL(false);
         }
 
@@ -91,7 +89,7 @@ namespace CogniPyUnitTests
     "Deal-Criteria-5 is a deal-criteria.",
     "Deal-Criteria-17 is a deal-criteria."
 };
-            reasoner.KnowledgeDelete(string.Join("\r\n", toDel),true);
+            reasoner.KnowledgeDelete(string.Join("\r\n", toDel), true);
 
             var descriptionsAfterDeletion = reasoner.DescribeInstancesByName(instances);
         }

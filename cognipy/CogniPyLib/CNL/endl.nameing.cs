@@ -1,9 +1,7 @@
-﻿using System;
+﻿using CogniPy.CNL.DL;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
-using CogniPy.CNL.DL;
 
 namespace CogniPy.CNL.EN
 {
@@ -74,7 +72,7 @@ namespace CogniPy.CNL.EN
 
             internal Parts Clone()
             {
-                return (new Parts() { kind=this.kind,name=this.name,quoted=this.quoted,term=this.term});
+                return (new Parts() { kind = this.kind, name = this.name, quoted = this.quoted, term = this.term });
             }
         }
 
@@ -122,7 +120,7 @@ namespace CogniPy.CNL.EN
                 {
                     ret.quoted = tokStr.StartsWith("\"") && tokStr.EndsWith("\"");
                     if (ret.quoted)
-                        ret.name = tokStr.Substring( 1, tokStr.Length - 2).Replace("\"\"", "\"");
+                        ret.name = tokStr.Substring(1, tokStr.Length - 2).Replace("\"\"", "\"");
                     else
                         ret.name = tokStr;
                 }
@@ -157,7 +155,7 @@ namespace CogniPy.CNL.EN
                     arr[0] = CNLFactory.lex.toDL_Simple(arr[0], kind);
                 else if (kind == endict.WordKind.PluralFormNoun)
                     arr[arr.Length - 1] = CNLFactory.lex.toDL_Simple(arr[arr.Length - 1], kind);
-                dlp.name= string.Join("-", arr);
+                dlp.name = string.Join("-", arr);
             }
             return dlp.Combine();
         }
@@ -183,14 +181,14 @@ namespace CogniPy.CNL.EN
                     arr[0] = CNLFactory.lex.toN_Simple(arr[0], kind);
                 else if (kind == endict.WordKind.PluralFormNoun)
                     arr[arr.Length - 1] = CNLFactory.lex.toN_Simple(arr[arr.Length - 1], kind);
-                parts.name= string.Join("-", arr);
+                parts.name = string.Join("-", arr);
             }
             return parts.Combine();
         }
 
         public static EnName FromDL(DlName dl, bool bigName)
         {
-            return FromDL(dl, endict.WordKind.NormalForm,bigName);
+            return FromDL(dl, endict.WordKind.NormalForm, bigName);
         }
     }
 }

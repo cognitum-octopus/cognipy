@@ -3,37 +3,36 @@
 
 using System;
 using System.Collections;
-using System.IO;
-using System.Text;
 using System.Collections.Generic;
+using System.IO;
 
-namespace Tools 
+namespace Tools
 {
-	public class YyParser
-	{
-		public ErrorHandler erh = new ErrorHandler(true); // should get overwritten by Parser constructor
-		public YyParser() { }
-		// symbols
-		public Hashtable symbols = new Hashtable(); // string -> CSymbol
-		public Hashtable literals = new Hashtable(); // string -> Literal
-		// support for parsing
-		public Hashtable symbolInfo = new Hashtable();  // yynum -> ParsingInfo
-		public bool m_concrete; // whether to build the concrete syntax tree
-		public Hashtable m_states = new Hashtable(); // int->ParseState
-		public CSymbol EOFSymbol;
-		public CSymbol Special;
-		public CSymbol m_startSymbol;
-		public string StartSymbol
-		{
-			get { return (m_startSymbol!=null)?m_startSymbol.yytext:"<null>"; }
-			set 
-			{
-				CSymbol s = (CSymbol)symbols[value];
-				if (s==null)
-					erh.Error(new CSToolsException(25,"No such symbol <"+value+">"));
-				m_startSymbol = s;
-			}
-		}
+    public class YyParser
+    {
+        public ErrorHandler erh = new ErrorHandler(true); // should get overwritten by Parser constructor
+        public YyParser() { }
+        // symbols
+        public Hashtable symbols = new Hashtable(); // string -> CSymbol
+        public Hashtable literals = new Hashtable(); // string -> Literal
+                                                     // support for parsing
+        public Hashtable symbolInfo = new Hashtable();  // yynum -> ParsingInfo
+        public bool m_concrete; // whether to build the concrete syntax tree
+        public Hashtable m_states = new Hashtable(); // int->ParseState
+        public CSymbol EOFSymbol;
+        public CSymbol Special;
+        public CSymbol m_startSymbol;
+        public string StartSymbol
+        {
+            get { return (m_startSymbol != null) ? m_startSymbol.yytext : "<null>"; }
+            set
+            {
+                CSymbol s = (CSymbol)symbols[value];
+                if (s == null)
+                    erh.Error(new CSToolsException(25, "No such symbol <" + value + ">"));
+                m_startSymbol = s;
+            }
+        }
 #if (GENTIME)
 		public ParsingInfo GetSymbolInfo(string name,int num)
 		{
@@ -60,19 +59,19 @@ namespace Tools
 					t.Print(f(t),s);
 		}
 #endif
-		public ParseState m_accept;
-		// support for actions
-		public virtual object Action(Parser yyp,SYMBOL yysym, int yyact) { return null; } // will be generated for the generated parser
-		public Hashtable types = new Hashtable(); // string->SCreator
-		// support for serialization
-		public int[] arr; // defined in generated subclass
-	
-		public void GetEOF(Lexer yyl)
-		{
-			EOFSymbol = (EOF)symbols["EOF"];
-			if (EOFSymbol==null)
-				EOFSymbol = new EOF(yyl);
-		}
+        public ParseState m_accept;
+        // support for actions
+        public virtual object Action(Parser yyp, SYMBOL yysym, int yyact) { return null; } // will be generated for the generated parser
+        public Hashtable types = new Hashtable(); // string->SCreator
+                                                  // support for serialization
+        public int[] arr; // defined in generated subclass
+
+        public void GetEOF(Lexer yyl)
+        {
+            EOFSymbol = (EOF)symbols["EOF"];
+            if (EOFSymbol == null)
+                EOFSymbol = new EOF(yyl);
+        }
 #if (GENTIME)
 		public void Emit(TextWriter m_outFile)
 		{
@@ -100,10 +99,10 @@ namespace Tools
         }
 
         [ThreadStatic]
-        static Dictionary<Type,cachedParser> cachedPrs=null;
+        static Dictionary<Type, cachedParser> cachedPrs = null;
 
-		public void GetParser(Lexer m_lexer)
-		{
+        public void GetParser(Lexer m_lexer)
+        {
             if (cachedPrs == null)
                 cachedPrs = new Dictionary<Type, cachedParser>();
             if (!cachedPrs.ContainsKey(this.GetType()))
@@ -143,7 +142,7 @@ namespace Tools
                 EOFSymbol = cachedPrs[t].m_eof;
             }
         }
-	}
+    }
 
 #if (GENTIME)
 	// Context free Grammar is a quadruple G=<T,N,S,P>
@@ -237,56 +236,56 @@ namespace Tools
 		}
 	}
 #endif
-    public class ParserAction : CSymbol 
-	{
-		public virtual SYMBOL Action(Parser yyp) 
-		{
-			SYMBOL s = (SYMBOL)Sfactory.create(m_sym.yytext,yyp);
-			if (s.yyname==m_sym.yytext) 
-			{  // provide for the default $$ = $1 action if possible
-				SYMBOL t = yyp.StackAt(m_len-1).m_value;
-				s.m_dollar = (m_len==0 || t==null)? null : t.m_dollar;
-			}
-			return s;
-		}
-		public override void Print() { Console.Write(m_sym.yytext); }
-		public CSymbol m_sym;
-		public int m_len;
-		public override Boolean IsAction() { return true; }
-		public virtual int ActNum() { return 0; }
+    public class ParserAction : CSymbol
+    {
+        public virtual SYMBOL Action(Parser yyp)
+        {
+            SYMBOL s = (SYMBOL)Sfactory.create(m_sym.yytext, yyp);
+            if (s.yyname == m_sym.yytext)
+            {  // provide for the default $$ = $1 action if possible
+                SYMBOL t = yyp.StackAt(m_len - 1).m_value;
+                s.m_dollar = (m_len == 0 || t == null) ? null : t.m_dollar;
+            }
+            return s;
+        }
+        public override void Print() { Console.Write(m_sym.yytext); }
+        public CSymbol m_sym;
+        public int m_len;
+        public override Boolean IsAction() { return true; }
+        public virtual int ActNum() { return 0; }
 #if (GENTIME)
 		public ParserAction(SymbolsGen yyp) : base(yyp) {}
 #endif
-		protected ParserAction() {}
-		public new static object Serialise(object o,Serialiser s)
-		{
-			ParserAction p = (ParserAction)o;
-			if (s.Encode)
-			{
-				CSymbol.Serialise(p,s);
-				s.Serialise(p.m_sym);
-				s.Serialise(p.m_len);
-				return null;
-			}
-			CSymbol.Serialise(p,s);
-			p.m_sym = (CSymbol)s.Deserialise();
-			p.m_len = (int)s.Deserialise();
-			return p;
-		}
-	}
+        protected ParserAction() { }
+        public new static object Serialise(object o, Serialiser s)
+        {
+            ParserAction p = (ParserAction)o;
+            if (s.Encode)
+            {
+                CSymbol.Serialise(p, s);
+                s.Serialise(p.m_sym);
+                s.Serialise(p.m_len);
+                return null;
+            }
+            CSymbol.Serialise(p, s);
+            p.m_sym = (CSymbol)s.Deserialise();
+            p.m_len = (int)s.Deserialise();
+            return p;
+        }
+    }
 
-	public class ParserOldAction : ParserAction
-	{
-		public int m_action;
-		public override SYMBOL Action(Parser yyp) 
-		{
-			SYMBOL s = base.Action(yyp);
-			object ob = yyp.m_symbols.Action(yyp,s,m_action);
-			if (ob!=null)
-				s.m_dollar = ob;
-			return s;
-		}
-		public override int ActNum() { return m_action; }
+    public class ParserOldAction : ParserAction
+    {
+        public int m_action;
+        public override SYMBOL Action(Parser yyp)
+        {
+            SYMBOL s = base.Action(yyp);
+            object ob = yyp.m_symbols.Action(yyp, s, m_action);
+            if (ob != null)
+                s.m_dollar = ob;
+            return s;
+        }
+        public override int ActNum() { return m_action; }
 #if (GENTIME)
 		public ParserOldAction(SymbolsGen yyp) : base(yyp) {
 			m_action =  yyp.action_num++;
@@ -295,26 +294,26 @@ namespace Tools
 			yyp.OldAction(this);
 		}
 #endif
-		ParserOldAction() {}
-		public new static object Serialise(object o,Serialiser s)
-		{
-			if (s==null)
-				return new ParserOldAction();
-			ParserOldAction p = (ParserOldAction)o;
-			if (s.Encode) 
-			{
-				ParserAction.Serialise(p,s);
-				s.Serialise(p.m_action);
-				return null;
-			}
-			ParserAction.Serialise(p,s);
-			p.m_action = (int)s.Deserialise();
-			return p;
-		}
-	}
+        ParserOldAction() { }
+        public new static object Serialise(object o, Serialiser s)
+        {
+            if (s == null)
+                return new ParserOldAction();
+            ParserOldAction p = (ParserOldAction)o;
+            if (s.Encode)
+            {
+                ParserAction.Serialise(p, s);
+                s.Serialise(p.m_action);
+                return null;
+            }
+            ParserAction.Serialise(p, s);
+            p.m_action = (int)s.Deserialise();
+            return p;
+        }
+    }
 
-	public class ParserSimpleAction : ParserAction 
-	{
+    public class ParserSimpleAction : ParserAction
+    {
 #if (GENTIME)
 		public override string TypeStr() { return m_sym.yytext; }
 		public override void Print() 
@@ -327,92 +326,93 @@ namespace Tools
 			yyp.SimpleAction(this);
 		}
 #endif
-		ParserSimpleAction() {}
-		public new static object Serialise(object o,Serialiser s)
-		{
-			if (s==null)
-				return new ParserSimpleAction();
-			if (s.Encode)
-			{
-				ParserAction.Serialise(o,s);
-				return null;
-			}
-			return ParserAction.Serialise(o,s);
-		}
-	}
+        ParserSimpleAction() { }
+        public new static object Serialise(object o, Serialiser s)
+        {
+            if (s == null)
+                return new ParserSimpleAction();
+            if (s.Encode)
+            {
+                ParserAction.Serialise(o, s);
+                return null;
+            }
+            return ParserAction.Serialise(o, s);
+        }
+    }
 
-	public abstract class ParserEntry
-	{
-		public ParserAction m_action;
-		public int m_priority = 0;
-		public ParserEntry() { m_action = null; }
-		public ParserEntry(ParserAction action) { m_action=action; }
-		public virtual void Pass(ref ParseStackEntry top) {}
-		public virtual bool IsReduce() { return false; }
-		public virtual string str { get { return ""; }}
-		public static object Serialise(object o, Serialiser s)
-		{
-			ParserEntry p = (ParserEntry)o;
-			if (s.Encode) 
-			{
-				s.Serialise(p.m_action);
-				return null;
-			}
-			p.m_action = (ParserAction)s.Deserialise();
-			return p;
-		}
-	}
+    public abstract class ParserEntry
+    {
+        public ParserAction m_action;
+        public int m_priority = 0;
+        public ParserEntry() { m_action = null; }
+        public ParserEntry(ParserAction action) { m_action = action; }
+        public virtual void Pass(ref ParseStackEntry top) { }
+        public virtual bool IsReduce() { return false; }
+        public virtual string str { get { return ""; } }
+        public static object Serialise(object o, Serialiser s)
+        {
+            ParserEntry p = (ParserEntry)o;
+            if (s.Encode)
+            {
+                s.Serialise(p.m_action);
+                return null;
+            }
+            p.m_action = (ParserAction)s.Deserialise();
+            return p;
+        }
+    }
 
-	public class ParserShift : ParserEntry
-	{
-		public ParseState m_next;
-		public ParserShift() {}
-		public ParserShift(ParserAction action,ParseState next) : base(action) { m_next=next; }
-		public override void Pass(ref ParseStackEntry top) 
-		{
-			Parser yyp = top.yyps;
-			if(m_action==null) 
-			{
-				yyp.Push(top);
-				top = new ParseStackEntry(yyp,m_next.m_state,yyp.NextSym());
-			} 
-			else 
-			{
-				yyp.Push(new ParseStackEntry(yyp,top.m_state,m_action.Action(yyp)));
-				top.m_state = m_next.m_state;
-			}
-		}
-		public override string str 
-		{
-			get 
-			{	
-				if (m_next==null)
-					return "?? null shift";
-				return string.Format("shift {0}",m_next.m_state); }
-		}
-		public new static object Serialise(object o,Serialiser s)
-		{
-			if (s==null)
-				return new ParserShift();
-			ParserShift p = (ParserShift)o;
-			if (s.Encode) 
-			{
-				ParserEntry.Serialise(p,s);
-				s.Serialise(p.m_next);
-				return null;
-			}
-			ParserEntry.Serialise(p,s);
-			p.m_next = (ParseState)s.Deserialise();
-			return p;
-		}
-	}
+    public class ParserShift : ParserEntry
+    {
+        public ParseState m_next;
+        public ParserShift() { }
+        public ParserShift(ParserAction action, ParseState next) : base(action) { m_next = next; }
+        public override void Pass(ref ParseStackEntry top)
+        {
+            Parser yyp = top.yyps;
+            if (m_action == null)
+            {
+                yyp.Push(top);
+                top = new ParseStackEntry(yyp, m_next.m_state, yyp.NextSym());
+            }
+            else
+            {
+                yyp.Push(new ParseStackEntry(yyp, top.m_state, m_action.Action(yyp)));
+                top.m_state = m_next.m_state;
+            }
+        }
+        public override string str
+        {
+            get
+            {
+                if (m_next == null)
+                    return "?? null shift";
+                return string.Format("shift {0}", m_next.m_state);
+            }
+        }
+        public new static object Serialise(object o, Serialiser s)
+        {
+            if (s == null)
+                return new ParserShift();
+            ParserShift p = (ParserShift)o;
+            if (s.Encode)
+            {
+                ParserEntry.Serialise(p, s);
+                s.Serialise(p.m_next);
+                return null;
+            }
+            ParserEntry.Serialise(p, s);
+            p.m_next = (ParseState)s.Deserialise();
+            return p;
+        }
+    }
 
-	public class ParserReduce : ParserEntry
-	{
-		public int m_depth;
-		public Production m_prod;
-		public ParserReduce(ParserAction action,int depth,Production prod) : base(action) {m_depth=depth; m_prod = prod; }
-		ParserReduce() {}
+    public class ParserReduce : ParserEntry
+    {
+        public int m_depth;
+        public Production m_prod;
+        public ParserReduce(ParserAction action, int depth, Production prod) : base(action) { m_depth = depth; m_prod = prod; }
+        ParserReduce() { }
 #if (GENTIME)
 		public SymbolSet m_lookAhead = null;
 		public void BuildLookback(Transition a)
@@ -432,46 +432,46 @@ namespace Tools
 			}
 		}
 #endif
-		public override void Pass(ref ParseStackEntry top) 
-		{
-			Parser yyp = top.yyps;
-			SYMBOL ns = m_action.Action(yyp); // before we change the stack
-			yyp.m_ungot = top.m_value;
-			if (yyp.m_debug)
-				Console.WriteLine("about to pop {0} count is {1}",m_depth,yyp.m_stack.Count);
-			yyp.Pop(ref top,m_depth,ns);
-			if (ns.pos==0)
-				ns.pos = top.m_value.pos;  // Guess symbol position
-			top.m_value = ns;
-		}
-		public override bool IsReduce() { return true; }
-		public override string str 
-		{
-			get 
-			{ 	
-				if (m_prod==null)
-					return "?? null reduce";
-				return string.Format("reduce {0}",m_prod.m_pno); 
-			}
-		}
-		public new static object Serialise(object o,Serialiser s)
-		{
-			if (s==null)
-				return new ParserReduce();
-			ParserReduce p = (ParserReduce)o;
-			if (s.Encode) 
-			{
-				ParserEntry.Serialise(p,s);
-				s.Serialise(p.m_depth);
-				s.Serialise(p.m_prod);
-				return null;
-			}
-			ParserEntry.Serialise(p,s);
-			p.m_depth = (int)s.Deserialise();
-			p.m_prod = (Production)s.Deserialise();
-			return p;
-		}
-	}
+        public override void Pass(ref ParseStackEntry top)
+        {
+            Parser yyp = top.yyps;
+            SYMBOL ns = m_action.Action(yyp); // before we change the stack
+            yyp.m_ungot = top.m_value;
+            if (yyp.m_debug)
+                Console.WriteLine("about to pop {0} count is {1}", m_depth, yyp.m_stack.Count);
+            yyp.Pop(ref top, m_depth, ns);
+            if (ns.pos == 0)
+                ns.pos = top.m_value.pos;  // Guess symbol position
+            top.m_value = ns;
+        }
+        public override bool IsReduce() { return true; }
+        public override string str
+        {
+            get
+            {
+                if (m_prod == null)
+                    return "?? null reduce";
+                return string.Format("reduce {0}", m_prod.m_pno);
+            }
+        }
+        public new static object Serialise(object o, Serialiser s)
+        {
+            if (s == null)
+                return new ParserReduce();
+            ParserReduce p = (ParserReduce)o;
+            if (s.Encode)
+            {
+                ParserEntry.Serialise(p, s);
+                s.Serialise(p.m_depth);
+                s.Serialise(p.m_prod);
+                return null;
+            }
+            ParserEntry.Serialise(p, s);
+            p.m_depth = (int)s.Deserialise();
+            p.m_prod = (Production)s.Deserialise();
+            return p;
+        }
+    }
 #if (GENTIME)
 	public delegate Hashtable Relation(Transition a); // Transition->bool
 	public delegate SymbolSet Func(Transition a);
@@ -647,11 +647,11 @@ namespace Tools
 	// The Closure and AddActions functions represent the heart of the ParserGenerator
 #endif
 
-	public class ParseState
-	{
-		public int m_state;
-		public CSymbol m_accessingSymbol;
-		bool m_changed = true;
+    public class ParseState
+    {
+        public int m_state;
+        public CSymbol m_accessingSymbol;
+        bool m_changed = true;
 #if (GENTIME)
 		public SymbolsGen m_sgen;
 		internal ProdItemList m_items; // ProdItem, in ProdItem order
@@ -859,67 +859,67 @@ namespace Tools
 			}
 		}
 #endif
-		ParseState() {}
-		public static object Serialise(object o, Serialiser s)
-		{
-			if (s==null)
-				return new ParseState();
-			ParseState p = (ParseState)o;
-			if (s.Encode)
-			{
-				s.Serialise(p.m_state);
-				s.Serialise(p.m_accessingSymbol);
-				s.Serialise(p.m_changed);
-				return true;
-			}
-			p.m_state = (int)s.Deserialise();
-			p.m_accessingSymbol = (CSymbol)s.Deserialise();
-			p.m_changed = (bool)s.Deserialise();
-			return p;
-		}
-	}
+        ParseState() { }
+        public static object Serialise(object o, Serialiser s)
+        {
+            if (s == null)
+                return new ParseState();
+            ParseState p = (ParseState)o;
+            if (s.Encode)
+            {
+                s.Serialise(p.m_state);
+                s.Serialise(p.m_accessingSymbol);
+                s.Serialise(p.m_changed);
+                return true;
+            }
+            p.m_state = (int)s.Deserialise();
+            p.m_accessingSymbol = (CSymbol)s.Deserialise();
+            p.m_changed = (bool)s.Deserialise();
+            return p;
+        }
+    }
 
-	public class ParseStackEntry
-	{
-		public Parser yyps;
-		public int m_state;
-		public SYMBOL m_value;
-		public ParseStackEntry(Parser yyp) {yyps = yyp; }
-		public ParseStackEntry(Parser yyp,int state,SYMBOL value) 
-		{
-			yyps = yyp; m_state = state; m_value = value;
-		}
-	}
+    public class ParseStackEntry
+    {
+        public Parser yyps;
+        public int m_state;
+        public SYMBOL m_value;
+        public ParseStackEntry(Parser yyp) { yyps = yyp; }
+        public ParseStackEntry(Parser yyp, int state, SYMBOL value)
+        {
+            yyps = yyp; m_state = state; m_value = value;
+        }
+    }
 
-	public class ParsingInfo
-	{
-		public string m_name;
-		public int m_yynum;   // 
-		public Hashtable m_parsetable = new Hashtable(); // state:int -> ParserEntry
-		public ParsingInfo(string name,int num) 
-		{ 
-			m_name = name;
-			m_yynum = num; 
-		}
-		ParsingInfo() {}
-		public static object Serialise(object o,Serialiser s)
-		{
-			if (s==null)
-				return new ParsingInfo();
-			ParsingInfo p = (ParsingInfo)o;
-			if (s.Encode) 
-			{
-				s.Serialise(p.m_name);
-				s.Serialise(p.m_yynum);
-				s.Serialise(p.m_parsetable);
-				return null;
-			}
-			p.m_name = (string)s.Deserialise();
-			p.m_yynum = (int)s.Deserialise();
-			p.m_parsetable = (Hashtable)s.Deserialise();
-			return p;
-		}
-	}
+    public class ParsingInfo
+    {
+        public string m_name;
+        public int m_yynum;   // 
+        public Hashtable m_parsetable = new Hashtable(); // state:int -> ParserEntry
+        public ParsingInfo(string name, int num)
+        {
+            m_name = name;
+            m_yynum = num;
+        }
+        ParsingInfo() { }
+        public static object Serialise(object o, Serialiser s)
+        {
+            if (s == null)
+                return new ParsingInfo();
+            ParsingInfo p = (ParsingInfo)o;
+            if (s.Encode)
+            {
+                s.Serialise(p.m_name);
+                s.Serialise(p.m_yynum);
+                s.Serialise(p.m_parsetable);
+                return null;
+            }
+            p.m_name = (string)s.Deserialise();
+            p.m_yynum = (int)s.Deserialise();
+            p.m_parsetable = (Hashtable)s.Deserialise();
+            return p;
+        }
+    }
 
 #if (GENTIME)
 	public class SymbolSet
@@ -1126,19 +1126,19 @@ namespace Tools
 		}
 	}
 #endif
-	public class CSymbol : TOKEN // may be terminal (symbolic or literal), non-terminal or ParserAction
-	{
-		// because of forward declarations etc, a named symbol can appear in the rhs of a production
-		// without us knowing if it is a terminal or a nonterminal
-		// if something is a node, or an OldAction, we will know at once
-		public enum SymType { unknown, terminal, nonterminal, nodesymbol, oldaction, simpleaction, eofsymbol }
-		public SymType m_symtype;
-		public override bool IsTerminal() 
-		{ 
-			return m_symtype==SymType.terminal; 
-		}
-		public CSymbol(Lexer yyl):base(yyl) {}
-		public int m_yynum = -1;
+    public class CSymbol : TOKEN // may be terminal (symbolic or literal), non-terminal or ParserAction
+    {
+        // because of forward declarations etc, a named symbol can appear in the rhs of a production
+        // without us knowing if it is a terminal or a nonterminal
+        // if something is a node, or an OldAction, we will know at once
+        public enum SymType { unknown, terminal, nonterminal, nodesymbol, oldaction, simpleaction, eofsymbol }
+        public SymType m_symtype;
+        public override bool IsTerminal()
+        {
+            return m_symtype == SymType.terminal;
+        }
+        public CSymbol(Lexer yyl) : base(yyl) { }
+        public int m_yynum = -1;
 #if (GENTIME)
 		public SymbolsGen m_parser;
 		// this list accumulates information about classes defined in the parser script
@@ -1271,30 +1271,30 @@ namespace Tools
 		public bool m_emitted = false;  
 		public Production m_prod;  // production where this initialisation occurs: maybe null
 #endif
-		protected CSymbol() {}
-		public static object Serialise(object o,Serialiser s)
-		{
-			if (s==null)
-				return new CSymbol();
-			CSymbol c = (CSymbol)o;
-			if (s.Encode)
-			{
-				s.Serialise(c.yytext);
-				s.Serialise(c.m_yynum);
-				s.Serialise((int)c.m_symtype);
-				return null;
-			}
-			c.yytext = (string)s.Deserialise();
-			c.m_yynum = (int)s.Deserialise();
-			c.m_symtype = (SymType)s.Deserialise();
-			return c;
-		}
+        protected CSymbol() { }
+        public static object Serialise(object o, Serialiser s)
+        {
+            if (s == null)
+                return new CSymbol();
+            CSymbol c = (CSymbol)o;
+            if (s.Encode)
+            {
+                s.Serialise(c.yytext);
+                s.Serialise(c.m_yynum);
+                s.Serialise((int)c.m_symtype);
+                return null;
+            }
+            c.yytext = (string)s.Deserialise();
+            c.m_yynum = (int)s.Deserialise();
+            c.m_symtype = (SymType)s.Deserialise();
+            return c;
+        }
 
-	}
+    }
 
-	// [Serializable] 
-	public class Literal : CSymbol  // used for %TOKEN in LexerGenerator script and quoted strings
-	{
+    // [Serializable] 
+    public class Literal : CSymbol  // used for %TOKEN in LexerGenerator script and quoted strings
+    {
 #if (GENTIME)
 		public Literal(SymbolsGen yyp) : base(yyp) { m_symtype=SymType.terminal; }
 		public override CSymbol Resolve() 
@@ -1336,18 +1336,18 @@ namespace Tools
 		public bool CouldStart(CSymbol nonterm) { return false; }
 		public override string TypeStr() { return "TOKEN"; }
 #endif
-		Literal() {}
-		public new static object Serialise(object o,Serialiser s)
-		{
-			if (s==null)
-				return new Literal();
-			return CSymbol.Serialise(o,s);
-		}
-	}
+        Literal() { }
+        public new static object Serialise(object o, Serialiser s)
+        {
+            if (s == null)
+                return new Literal();
+            return CSymbol.Serialise(o, s);
+        }
+    }
 
-	public class Production
-	{
-		public int m_pno;
+    public class Production
+    {
+        public int m_pno;
 #if (GENTIME)
 		public CSymbol m_lhs;
 		public bool m_actionsOnly;
@@ -1414,21 +1414,21 @@ namespace Tools
 			str += String.Format("\n\t(({0})(yyq.StackAt({1}).m_value))\n\t",ts.TypeStr(),ln-ix-1);
 		}
 #endif
-		Production() {}
-		public static object Serialise(object o,Serialiser s)
-		{
-			if (s==null)
-				return new Production();
-			Production p = (Production)o;
-			if (s.Encode) 
-			{
-				s.Serialise(p.m_pno);
-				return null;
-			}
-			p.m_pno = (int)s.Deserialise();
-			return p;
-		}
-	}
+        Production() { }
+        public static object Serialise(object o, Serialiser s)
+        {
+            if (s == null)
+                return new Production();
+            Production p = (Production)o;
+            if (s.Encode)
+            {
+                s.Serialise(p.m_pno);
+                return null;
+            }
+            p.m_pno = (int)s.Deserialise();
+            return p;
+        }
+    }
 #if (GENTIME)
 	public class ProdItem
 	{
@@ -1538,92 +1538,92 @@ namespace Tools
 
 	}
 #endif
-	public class Parser
-	{
-		public YyParser m_symbols;
-		public bool m_debug;
-		public bool m_stkdebug=false;
-		public Parser(YyParser syms,Lexer lexer) 
-		{
-			m_lexer = lexer;
-			m_symbols = syms;
-			m_symbols.erh = m_lexer.tokens.erh;
-		}
-		public Lexer m_lexer;
-		internal ObjectList m_stack = new ObjectList(); // ParseStackEntry
-		internal SYMBOL m_ungot;
+    public class Parser
+    {
+        public YyParser m_symbols;
+        public bool m_debug;
+        public bool m_stkdebug = false;
+        public Parser(YyParser syms, Lexer lexer)
+        {
+            m_lexer = lexer;
+            m_symbols = syms;
+            m_symbols.erh = m_lexer.tokens.erh;
+        }
+        public Lexer m_lexer;
+        internal ObjectList m_stack = new ObjectList(); // ParseStackEntry
+        internal SYMBOL m_ungot;
 
-		void Create() 
-		{
-			m_symbols.GetParser(m_lexer);
-		}
+        void Create()
+        {
+            m_symbols.GetParser(m_lexer);
+        }
 
-		protected bool Error(ref ParseStackEntry top, string str) 
-		{
-			SYMBOL er = (SYMBOL)new error(this,top);  // 4.4c
-			if (m_debug)
-				Console.WriteLine("Error encountered: "+str);
-			er.pos = top.m_value.pos;
-			ParserEntry pe;
-			if (m_symbols.symbolInfo[0]!=null && m_symbols.erh.counter<1000) // 4.4c
-			// first pop the stack until we find an item that can pass error
-			for (;top!=null && m_stack.Count>0; Pop(ref top,1,er)) 
-			{
-				if (m_debug)
-					Console.WriteLine("Error recovery uncovers state {0}",top.m_state);
-				if (er.Pass(m_symbols,top.m_state, out pe)) 
-				{
-					SYMBOL oldtop = top.m_value; 
-					top.m_value = er;  
-					pe.Pass(ref top); // pass the error symbol
-					// now discard tokens until we find one we can pass
-					while (top.m_value!=m_symbols.EOFSymbol && !top.m_value.Pass(m_symbols,top.m_state, out pe)) 
-					{
-						SYMBOL newtop;
-						if (pe!=null && pe.IsReduce()) 
-						{
-							newtop = null;
-							if (pe.m_action!=null)
-								newtop = pe.m_action.Action(this); // before we change the stack
-							m_ungot = top.m_value;
-							Pop(ref top,((ParserReduce)pe).m_depth,er);
-							newtop.pos = top.m_value.pos;
-							top.m_value = newtop;
-						} 
-						else 
-						{ // discard it
-							string cnm = top.m_value.yyname;
-							if (m_debug) 
-							{
-								if (cnm=="TOKEN")
-									Console.WriteLine("Error recovery discards literal {0}",(string)((TOKEN)top.m_value).yytext);
-								else
-									Console.WriteLine("Error recovery discards token {0}",cnm);
-							}
-							top.m_value = NextSym();
-						}
-					}
-					if (m_debug)
-						Console.WriteLine("Recovery complete");
-					m_symbols.erh.counter++;
-					return true;
-				}
-			}
-			m_symbols.erh.Error(new CSToolsException(13,m_lexer,er.pos,"syntax error",str)); 
-			top.m_value = er;
-			return false;
-		}
+        protected bool Error(ref ParseStackEntry top, string str)
+        {
+            SYMBOL er = (SYMBOL)new error(this, top);  // 4.4c
+            if (m_debug)
+                Console.WriteLine("Error encountered: " + str);
+            er.pos = top.m_value.pos;
+            ParserEntry pe;
+            if (m_symbols.symbolInfo[0] != null && m_symbols.erh.counter < 1000) // 4.4c
+                                                                                 // first pop the stack until we find an item that can pass error
+                for (; top != null && m_stack.Count > 0; Pop(ref top, 1, er))
+                {
+                    if (m_debug)
+                        Console.WriteLine("Error recovery uncovers state {0}", top.m_state);
+                    if (er.Pass(m_symbols, top.m_state, out pe))
+                    {
+                        SYMBOL oldtop = top.m_value;
+                        top.m_value = er;
+                        pe.Pass(ref top); // pass the error symbol
+                                          // now discard tokens until we find one we can pass
+                        while (top.m_value != m_symbols.EOFSymbol && !top.m_value.Pass(m_symbols, top.m_state, out pe))
+                        {
+                            SYMBOL newtop;
+                            if (pe != null && pe.IsReduce())
+                            {
+                                newtop = null;
+                                if (pe.m_action != null)
+                                    newtop = pe.m_action.Action(this); // before we change the stack
+                                m_ungot = top.m_value;
+                                Pop(ref top, ((ParserReduce)pe).m_depth, er);
+                                newtop.pos = top.m_value.pos;
+                                top.m_value = newtop;
+                            }
+                            else
+                            { // discard it
+                                string cnm = top.m_value.yyname;
+                                if (m_debug)
+                                {
+                                    if (cnm == "TOKEN")
+                                        Console.WriteLine("Error recovery discards literal {0}", (string)((TOKEN)top.m_value).yytext);
+                                    else
+                                        Console.WriteLine("Error recovery discards token {0}", cnm);
+                                }
+                                top.m_value = NextSym();
+                            }
+                        }
+                        if (m_debug)
+                            Console.WriteLine("Recovery complete");
+                        m_symbols.erh.counter++;
+                        return true;
+                    }
+                }
+            m_symbols.erh.Error(new CSToolsException(13, m_lexer, er.pos, "syntax error", str));
+            top.m_value = er;
+            return false;
+        }
 
-		public SYMBOL Parse(StreamReader input) 
-		{
-			m_lexer.Start(input);
-			return Parse();
-		}
-		public SYMBOL Parse(CsReader inFile) 
-		{
-			m_lexer.Start(inFile);
-			return Parse();
-		}
+        public SYMBOL Parse(StreamReader input)
+        {
+            m_lexer.Start(input);
+            return Parse();
+        }
+        public SYMBOL Parse(CsReader inFile)
+        {
+            m_lexer.Start(inFile);
+            return Parse();
+        }
         public SYMBOL Parse(string buf)
         {
             m_lexer.Start(buf);
@@ -1712,7 +1712,7 @@ namespace Tools
             return null;
         }
 
-		// The Parsing Algorithm
+        // The Parsing Algorithm
 
         ObjectList AutoCompl(int state, int symbol)
         {
@@ -1727,12 +1727,12 @@ namespace Tools
                 {
                     if (((ParsingInfo)x).m_parsetable.ContainsKey(nx.m_state))
                     {
-//                        if (((ParsingInfo)x).m_parsetable[nx.m_state] is ParserShift)
-  //                      {
-                            if (((ParsingInfo)x).m_yynum <= m_lexer.tokens.tokens.Count + 2)
-                            {
-                                ret.Add(((ParsingInfo)x).m_name);
-                            }
+                        //                        if (((ParsingInfo)x).m_parsetable[nx.m_state] is ParserShift)
+                        //                      {
+                        if (((ParsingInfo)x).m_yynum <= m_lexer.tokens.tokens.Count + 2)
+                        {
+                            ret.Add(((ParsingInfo)x).m_name);
+                        }
                         //}
                     }
                 }
@@ -1740,234 +1740,235 @@ namespace Tools
             }
             return null;
         }
-        
-		SYMBOL Parse() 
-		{
-			ParserEntry pe;
-			SYMBOL newtop;
+
+        SYMBOL Parse()
+        {
+            ParserEntry pe;
+            SYMBOL newtop;
             Create();
-			ParseStackEntry top = new ParseStackEntry(this,0,NextSym()); 
-			try 
-			{
-				for (;;) 
-				{
-					string cnm = top.m_value.yyname; 
-					if (m_debug) 
-					{
-						if (cnm.Equals("TOKEN"))
-							Console.WriteLine(String.Format("State {0} with {1} \"{2}\"", top.m_state, cnm,((TOKEN)top.m_value).yytext));
-						else
-							Console.WriteLine(String.Format("State {0} with {1}", top.m_state, cnm));
-					}
-					if (top.m_value!=null && top.m_value.Pass(m_symbols,top.m_state, out pe))
-						pe.Pass(ref top);
-					else if (top.m_value==m_symbols.EOFSymbol) 
-					{
-						if (top.m_state==m_symbols.m_accept.m_state) 
-						{ // successful parse
-							Pop(ref top,1,m_symbols.m_startSymbol);
-                            
-#if!RUNNINGPARSER
+            ParseStackEntry top = new ParseStackEntry(this, 0, NextSym());
+            try
+            {
+                for (; ; )
+                {
+                    string cnm = top.m_value.yyname;
+                    if (m_debug)
+                    {
+                        if (cnm.Equals("TOKEN"))
+                            Console.WriteLine(String.Format("State {0} with {1} \"{2}\"", top.m_state, cnm, ((TOKEN)top.m_value).yytext));
+                        else
+                            Console.WriteLine(String.Format("State {0} with {1}", top.m_state, cnm));
+                    }
+                    if (top.m_value != null && top.m_value.Pass(m_symbols, top.m_state, out pe))
+                        pe.Pass(ref top);
+                    else if (top.m_value == m_symbols.EOFSymbol)
+                    {
+                        if (top.m_state == m_symbols.m_accept.m_state)
+                        { // successful parse
+                            Pop(ref top, 1, m_symbols.m_startSymbol);
+
+#if !RUNNINGPARSER
                                 if (m_symbols.erh.counter > 0)
                                     return new recoveredError(this, top);
 #endif
                             newtop = top.m_value; // extract the return value
-							top.m_value = null;
-							return newtop;
-						}
-						if (!Error(ref top,"Unexpected EOF")) // unrecovered error
-							return top.m_value;
-					} 
-					else if (!Error(ref top,"syntax error")) // unrecovered error
-						return top.m_value;
-					if (m_debug) 
-					{
-						object ob = null;
-						if (top.m_value!=null) 
-						{
-							ob = top.m_value.m_dollar;
-							Console.WriteLine("In state {0} top {1} value {2}",top.m_state,top.m_value.yyname,(ob==null)?"null":ob.GetType().Name);
-							if (ob!=null && ob.GetType().Name.Equals("Int32"))
-								Console.WriteLine((int)ob);
-							else 
-								((SYMBOL)(top.m_value)).Print();
-						} 
-						else 
-							Console.WriteLine("In state {0} top NULL",top.m_state);
-					}
-				}
-				// not reached
-			} 
-			catch(CSToolsStopException ex) // stop parsing
-			{
-				if (m_symbols.erh.throwExceptions)
-					throw ex;						// 4.5b
-				m_symbols.erh.Report(ex);			// 4.5b
-			}
-			return null;
-		}
-		internal void Push(ParseStackEntry elt) 
-		{
-			m_stack.Push(elt);
-		}
-		internal void Pop(ref ParseStackEntry elt, int depth, SYMBOL ns) 
-		{
-			for (;m_stack.Count>0 && depth>0;depth--) 
-			{
-				elt = (ParseStackEntry)m_stack.Pop();
-				if (m_symbols.m_concrete) // building the concrete syntax tree
-					ns.kids.Push(elt.m_value); // else will be garbage collected
-			}
-			if (depth!=0) 
-				m_symbols.erh.Error(new CSToolsException(14,m_lexer,"Pop failed"));
-		}
-		public ParseStackEntry StackAt(int ix) 
-		{
-			int n = m_stack.Count;
-			if (m_stkdebug)
-				Console.WriteLine("StackAt({0}),count {1}",ix,n);
-			ParseStackEntry pe =(ParseStackEntry)m_stack[ix];
-			if (pe == null)
-				return new ParseStackEntry(this,0,m_symbols.Special);
-			if (pe.m_value is Null)
-				return new ParseStackEntry(this,pe.m_state,null);
-			if (m_stkdebug)
-				Console.WriteLine(pe.m_value.yyname);
-			return pe;
-		}
-		public SYMBOL NextSym() 
-		{ // like lexer.Next but allows a one-token pushback for reduce
-			SYMBOL ret = m_ungot;
-			if (ret != null) 
-			{
-				m_ungot = null;
-				return ret;
-			}
-			ret = (SYMBOL)m_lexer.Next();
-			if (ret==null) 
-				ret = m_symbols.EOFSymbol;
-			return ret;
-		}
-		public void Error(int n,SYMBOL sym, string s) 
-		{
-			if (sym!=null)
-				m_symbols.erh.Error(new CSToolsException(n,sym.yylx,sym.pos,"",s)); // 4.5b
-			else
-				m_symbols.erh.Error(new CSToolsException(n,s));
-		}
-	}
+                            top.m_value = null;
+                            return newtop;
+                        }
+                        if (!Error(ref top, "Unexpected EOF")) // unrecovered error
+                            return top.m_value;
+                    }
+                    else if (!Error(ref top, "syntax error")) // unrecovered error
+                        return top.m_value;
+                    if (m_debug)
+                    {
+                        object ob = null;
+                        if (top.m_value != null)
+                        {
+                            ob = top.m_value.m_dollar;
+                            Console.WriteLine("In state {0} top {1} value {2}", top.m_state, top.m_value.yyname, (ob == null) ? "null" : ob.GetType().Name);
+                            if (ob != null && ob.GetType().Name.Equals("Int32"))
+                                Console.WriteLine((int)ob);
+                            else
+                                ((SYMBOL)(top.m_value)).Print();
+                        }
+                        else
+                            Console.WriteLine("In state {0} top NULL", top.m_state);
+                    }
+                }
+                // not reached
+            }
+            catch (CSToolsStopException ex) // stop parsing
+            {
+                if (m_symbols.erh.throwExceptions)
+                    throw ex;                       // 4.5b
+                m_symbols.erh.Report(ex);           // 4.5b
+            }
+            return null;
+        }
+        internal void Push(ParseStackEntry elt)
+        {
+            m_stack.Push(elt);
+        }
+        internal void Pop(ref ParseStackEntry elt, int depth, SYMBOL ns)
+        {
+            for (; m_stack.Count > 0 && depth > 0; depth--)
+            {
+                elt = (ParseStackEntry)m_stack.Pop();
+                if (m_symbols.m_concrete) // building the concrete syntax tree
+                    ns.kids.Push(elt.m_value); // else will be garbage collected
+            }
+            if (depth != 0)
+                m_symbols.erh.Error(new CSToolsException(14, m_lexer, "Pop failed"));
+        }
+        public ParseStackEntry StackAt(int ix)
+        {
+            int n = m_stack.Count;
+            if (m_stkdebug)
+                Console.WriteLine("StackAt({0}),count {1}", ix, n);
+            ParseStackEntry pe = (ParseStackEntry)m_stack[ix];
+            if (pe == null)
+                return new ParseStackEntry(this, 0, m_symbols.Special);
+            if (pe.m_value is Null)
+                return new ParseStackEntry(this, pe.m_state, null);
+            if (m_stkdebug)
+                Console.WriteLine(pe.m_value.yyname);
+            return pe;
+        }
+        public SYMBOL NextSym()
+        { // like lexer.Next but allows a one-token pushback for reduce
+            SYMBOL ret = m_ungot;
+            if (ret != null)
+            {
+                m_ungot = null;
+                return ret;
+            }
+            ret = (SYMBOL)m_lexer.Next();
+            if (ret == null)
+                ret = m_symbols.EOFSymbol;
+            return ret;
+        }
+        public void Error(int n, SYMBOL sym, string s)
+        {
+            if (sym != null)
+                m_symbols.erh.Error(new CSToolsException(n, sym.yylx, sym.pos, "", s)); // 4.5b
+            else
+                m_symbols.erh.Error(new CSToolsException(n, s));
+        }
+    }
 
-	public class error : SYMBOL
-	{
-		public int state = 0; 
-		public SYMBOL sym = null; 
-		public error(Parser yyp,ParseStackEntry s):base(yyp) { state=s.m_state; sym=s.m_value; } //4.4c
-		public error(Parser yyp):base(yyp) {}
-		public override string yyname { get { return "error"; }}
-		public override string ToString() 
-		{
-			string r = "syntax error occurred in state "+state;
-			if (sym==null)
-				return r;
-			if (sym is TOKEN) 
-			{
-				TOKEN t = (TOKEN)sym;
-				return  r+" on input token "+t.yytext;
-			}
-			return r+" on symbol "+sym.yyname;
-		}
-	}
+    public class error : SYMBOL
+    {
+        public int state = 0;
+        public SYMBOL sym = null;
+        public error(Parser yyp, ParseStackEntry s) : base(yyp) { state = s.m_state; sym = s.m_value; } //4.4c
+        public error(Parser yyp) : base(yyp) { }
+        public override string yyname { get { return "error"; } }
+        public override string ToString()
+        {
+            string r = "syntax error occurred in state " + state;
+            if (sym == null)
+                return r;
+            if (sym is TOKEN)
+            {
+                TOKEN t = (TOKEN)sym;
+                return r + " on input token " + t.yytext;
+            }
+            return r + " on symbol " + sym.yyname;
+        }
+    }
 
-	public class recoveredError : error
-	{
-		public recoveredError(Parser yyp,ParseStackEntry s):base(yyp,s) {}
-		public override string ToString() 
-		{
-			return "Parse contained "+yyps.m_symbols.erh.counter+" errors";
-		}
-		public override void ConcreteSyntaxTree()
-		{
-			Console.WriteLine(ToString());
-			if (sym!=null)
-				sym.ConcreteSyntaxTree();
-		}
-		public override void Print()
-		{
-			Console.WriteLine(ToString());
-			if (sym!=null)
-				sym.Print();
-		}
-	}
+    public class recoveredError : error
+    {
+        public recoveredError(Parser yyp, ParseStackEntry s) : base(yyp, s) { }
+        public override string ToString()
+        {
+            return "Parse contained " + yyps.m_symbols.erh.counter + " errors";
+        }
+        public override void ConcreteSyntaxTree()
+        {
+            Console.WriteLine(ToString());
+            if (sym != null)
+                sym.ConcreteSyntaxTree();
+        }
+        public override void Print()
+        {
+            Console.WriteLine(ToString());
+            if (sym != null)
+                sym.Print();
+        }
+    }
 
-	public class EOF : CSymbol
-	{
+    public class EOF : CSymbol
+    {
 #if (GENTIME)
 		public EOF(SymbolsGen yyp):base(yyp) { yytext = "EOF"; m_yynum = 2; m_symtype = SymType.eofsymbol; }
 #endif
-		public EOF(Lexer yyl):base(yyl) { 
-			yytext = "EOF"; 
-			pos = yyl.m_LineManager.end; // 4.5b
-			m_symtype = SymType.eofsymbol; 
-		}
-		EOF() {}
-		public override string yyname { get { return "EOF"; }}
-		public override int yynum { get { return 2; }}
-		public new static object Serialise(object o,Serialiser s)
-		{
-			if (s==null)
-				return new EOF();
-			return CSymbol.Serialise(o,s);
-		}
-	}
+        public EOF(Lexer yyl) : base(yyl)
+        {
+            yytext = "EOF";
+            pos = yyl.m_LineManager.end; // 4.5b
+            m_symtype = SymType.eofsymbol;
+        }
+        EOF() { }
+        public override string yyname { get { return "EOF"; } }
+        public override int yynum { get { return 2; } }
+        public new static object Serialise(object o, Serialiser s)
+        {
+            if (s == null)
+                return new EOF();
+            return CSymbol.Serialise(o, s);
+        }
+    }
 
-	public class Null : SYMBOL  // fake up something that will evaluate to null but have the right yyname
-	{
+    public class Null : SYMBOL  // fake up something that will evaluate to null but have the right yyname
+    {
         int num;
         public Null(Parser yyp, int proxy) : base(yyp) { num = proxy; }
         public override int yynum { get { return num; } }
-	}
-	// Support for runtime object creation
+    }
+    // Support for runtime object creation
 
-	public delegate object SCreator(Parser yyp);
+    public delegate object SCreator(Parser yyp);
 
-	public class Sfactory
-	{
-		public static object create(string cls_name,Parser yyp) 
-		{
-			SCreator cr = (SCreator)yyp.m_symbols.types[cls_name];
-			// Console.WriteLine("TCreating {0} <{1}>",cls_name,yyl.yytext);
-			if (cr==null) 
-				yyp.m_symbols.erh.Error(new CSToolsException(16,yyp.m_lexer,"no factory for {"+cls_name+")"));
-			try 
-			{
-				return cr(yyp);
-			}
-			catch (CSToolsException e)
-			{
-				yyp.m_symbols.erh.Error(e);
-			}
-			catch (Exception e) 
-			{
-				yyp.m_symbols.erh.Error(new CSToolsException(17,yyp.m_lexer,string.Format("Create of {0} failed ({1})",cls_name,e.Message)));
-			}
-			int j = cls_name.LastIndexOf('_');
-			if (j>0) 
-			{
-				cr = (SCreator)yyp.m_symbols.types[cls_name.Substring(0,j)];
-				if (cr!=null) 
-				{
-					SYMBOL s = (SYMBOL)cr(yyp);
-					s.m_dollar = 0;
-					return s;
-				}
-			}
-			return null;
-		}
-		public Sfactory(YyParser syms,string cls_name,SCreator cr) 
-		{
-			syms.types[cls_name] = cr;
-		}
-	}
+    public class Sfactory
+    {
+        public static object create(string cls_name, Parser yyp)
+        {
+            SCreator cr = (SCreator)yyp.m_symbols.types[cls_name];
+            // Console.WriteLine("TCreating {0} <{1}>",cls_name,yyl.yytext);
+            if (cr == null)
+                yyp.m_symbols.erh.Error(new CSToolsException(16, yyp.m_lexer, "no factory for {" + cls_name + ")"));
+            try
+            {
+                return cr(yyp);
+            }
+            catch (CSToolsException e)
+            {
+                yyp.m_symbols.erh.Error(e);
+            }
+            catch (Exception e)
+            {
+                yyp.m_symbols.erh.Error(new CSToolsException(17, yyp.m_lexer, string.Format("Create of {0} failed ({1})", cls_name, e.Message)));
+            }
+            int j = cls_name.LastIndexOf('_');
+            if (j > 0)
+            {
+                cr = (SCreator)yyp.m_symbols.types[cls_name.Substring(0, j)];
+                if (cr != null)
+                {
+                    SYMBOL s = (SYMBOL)cr(yyp);
+                    s.m_dollar = 0;
+                    return s;
+                }
+            }
+            return null;
+        }
+        public Sfactory(YyParser syms, string cls_name, SCreator cr)
+        {
+            syms.types[cls_name] = cr;
+        }
+    }
 
 }
 

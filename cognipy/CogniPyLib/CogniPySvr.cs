@@ -1,18 +1,14 @@
 ﻿using CogniPy.ARS;
 using CogniPy.CNL;
+using CogniPy.Executing.HermiTClient;
+using CogniPy.models;
+using CogniPy.Splitting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Data.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
-using CogniPy.Executing.HermiTClient;
-using CogniPy;
-using CogniPy.models;
-using System.IO;
-using System.Diagnostics;
-using CogniPy.Splitting;
 
 namespace CogniPy
 {
@@ -127,7 +123,7 @@ namespace CogniPy
         public void LoadCnl(string filename, bool loadAnnotations, bool materialize, bool modalChecker = false)
         {
             //            System.Diagnostics.Trace.WriteIf(this.traceOn, string.Format("onto.LoadCnl(\'{0}\',{1},{2})",Path.GetFullPath( filename).Replace("\\","/"),loadAnnotations,materialize) );
-            LoadCnl(filename, null, loadAnnotations, materialize,modalChecker);
+            LoadCnl(filename, null, loadAnnotations, materialize, modalChecker);
         }
 
         public void LoadRdf(string uri, bool loadAnnotations, bool materialize, bool modalChecker = false)
@@ -141,24 +137,24 @@ namespace CogniPy
             LoadRdfFromString(rdf, null, loadAnnotations, materialize, modalChecker);
         }
 
-        public void LoadCnlFromString(string cnl, bool loadAnnotations, bool materialize, bool modalChecker=false)
+        public void LoadCnlFromString(string cnl, bool loadAnnotations, bool materialize, bool modalChecker = false)
         {
             LoadCnlFromString(cnl, null, loadAnnotations, materialize, modalChecker);
         }
 
         public string CnlFromUri(string uri, string type)
         {
-            var n = reasoner.renderEntityFromUri(uri, (type ==null || type == "instance") ? CogniPy.ARS.EntityKind.Instance : (type == "concept" ? CogniPy.ARS.EntityKind.Concept : CogniPy.ARS.EntityKind.Role));
+            var n = reasoner.renderEntityFromUri(uri, (type == null || type == "instance") ? CogniPy.ARS.EntityKind.Instance : (type == "concept" ? CogniPy.ARS.EntityKind.Concept : CogniPy.ARS.EntityKind.Role));
             if (n == null)
                 return "";
 
-            var enN = CogniPy.CNL.EN.ENNameingConvention.FromDL(new CogniPy.CNL.DL.DlName() { id = n }, (type == null || type == "instance") ?  CogniPy.CNL.EN.endict.WordKind.NormalForm : (type == "concept" ?  CogniPy.CNL.EN.endict.WordKind.NormalForm :  CogniPy.CNL.EN.endict.WordKind.PastParticiple), type == "instance");
+            var enN = CogniPy.CNL.EN.ENNameingConvention.FromDL(new CogniPy.CNL.DL.DlName() { id = n }, (type == null || type == "instance") ? CogniPy.CNL.EN.endict.WordKind.NormalForm : (type == "concept" ? CogniPy.CNL.EN.endict.WordKind.NormalForm : CogniPy.CNL.EN.endict.WordKind.PastParticiple), type == "instance");
             return enN.id;
         }
 
         public string UriFromCnl(string cnl, string type)
         {
-            var dl = CogniPy.CNL.EN.ENNameingConvention.ToDL(new CogniPy.CNL.EN.EnName() { id = cnl }, (type == null || type == "instance") ?  CogniPy.CNL.EN.endict.WordKind.NormalForm : (type == "concept" ?  CogniPy.CNL.EN.endict.WordKind.NormalForm :  CogniPy.CNL.EN.endict.WordKind.PastParticiple)).id;
+            var dl = CogniPy.CNL.EN.ENNameingConvention.ToDL(new CogniPy.CNL.EN.EnName() { id = cnl }, (type == null || type == "instance") ? CogniPy.CNL.EN.endict.WordKind.NormalForm : (type == "concept" ? CogniPy.CNL.EN.endict.WordKind.NormalForm : CogniPy.CNL.EN.endict.WordKind.PastParticiple)).id;
 
             var n = reasoner.renderUriFromEntity(dl, (type == null || type == "instance") ? CogniPy.ARS.EntityKind.Instance : (type == "concept" ? CogniPy.ARS.EntityKind.Concept : CogniPy.ARS.EntityKind.Role));
             if (n == null)
@@ -173,7 +169,7 @@ namespace CogniPy
             reasoner.SetValue(instance, datarole, val);
         }
 
-        private void Load(ReferenceManager.WhatToLoad whatToLoad, string contentToLoad, CogniPy.CNL.DL.Paragraph impliAst, bool loadAnns = false, bool materialize = false,bool modalChecker=false)
+        private void Load(ReferenceManager.WhatToLoad whatToLoad, string contentToLoad, CogniPy.CNL.DL.Paragraph impliAst, bool loadAnns = false, bool materialize = false, bool modalChecker = false)
         {
             ReferenceManager rm = new ReferenceManager(/*GetForms*/null);
             HashSet<string> brokenImports;
@@ -276,7 +272,7 @@ namespace CogniPy
             }
         }
 
-        void LoadRdf(string uri, CogniPy.CNL.DL.Paragraph impliAst, bool loadAnns = false, bool materialize = false, bool modalChecker=false)
+        void LoadRdf(string uri, CogniPy.CNL.DL.Paragraph impliAst, bool loadAnns = false, bool materialize = false, bool modalChecker = false)
         {
             Load(ReferenceManager.WhatToLoad.FromUri, uri, impliAst, loadAnns, materialize, modalChecker);
         }
@@ -420,7 +416,7 @@ namespace CogniPy
 
             var allConstraints = reasoner.GetAllConstraints();
             constraints = new Dictionary<string, ConstraintResult>();
-            foreach(var cc in allConstraints)
+            foreach (var cc in allConstraints)
             {
                 var nam = EN(cc.Concept, false);
                 if (!constraints.ContainsKey(nam))
@@ -916,7 +912,7 @@ namespace CogniPy
             return res;
         }
 
-        public Tuple<List<string>, List<List<object>>> SparqlQuery(string query, bool materialize = true, bool detectTypesOfNodes = true, string defaultKindOfNode=null)
+        public Tuple<List<string>, List<List<object>>> SparqlQuery(string query, bool materialize = true, bool detectTypesOfNodes = true, string defaultKindOfNode = null)
         {
             if (materialize)
                 Materialize();
@@ -996,7 +992,7 @@ namespace CogniPy
                         throw new NotImplementedException("It works only for atomic concept names");
                     sparql = SelectSuperconceptsSPARQL(cnlName, direct);
                 }
-                return TranslateQueryResultsIntoCnlInPlace(SparqlQuery(sparql,true,false,"concept")).Item2.SelectMany(x => x.Where(z => !toFilter.Contains(z)).Select(y => (y as String))).ToList();
+                return TranslateQueryResultsIntoCnlInPlace(SparqlQuery(sparql, true, false, "concept")).Item2.SelectMany(x => x.Where(z => !toFilter.Contains(z)).Select(y => (y as String))).ToList();
             }
         }
 
@@ -1019,11 +1015,11 @@ namespace CogniPy
             }
             else
             {
-                if(!(node is CogniPy.CNL.DL.Atomic) && !(node is CogniPy.CNL.DL.Top))
+                if (!(node is CogniPy.CNL.DL.Atomic) && !(node is CogniPy.CNL.DL.Top))
                     throw new NotImplementedException("It works only for atomic concept names");
                 string sparql;
                 sparql = SelectSubconceptsSPARQL(cnlName, direct);
-                return TranslateQueryResultsIntoCnlInPlace(SparqlQuery(sparql,true,false,"concept")).Item2.SelectMany(x => x.Where(z => !toFilter.Contains(z)).Select(y => (y as String))).ToList();
+                return TranslateQueryResultsIntoCnlInPlace(SparqlQuery(sparql, true, false, "concept")).Item2.SelectMany(x => x.Where(z => !toFilter.Contains(z)).Select(y => (y as String))).ToList();
             }
         }
 
@@ -1048,7 +1044,7 @@ namespace CogniPy
                 Dictionary<string, string> attrMapping;
                 string defaultInstance;
                 var sparql = reasoner.SparqlTransform.ConvertToGetInstancesOf(node, null, null, out roleMapping, out attrMapping, out defaultInstance, 0, -1, true, direct);
-                return TranslateQueryResultsIntoCnlInPlace(SparqlQuery(sparql,true,false,"instance")).Item2.SelectMany(x => x.Where(z => !toFilter.Contains(z)).Select(y => (y as String))).ToList();
+                return TranslateQueryResultsIntoCnlInPlace(SparqlQuery(sparql, true, false, "instance")).Item2.SelectMany(x => x.Where(z => !toFilter.Contains(z)).Select(y => (y as String))).ToList();
             }
         }
 
@@ -1093,7 +1089,7 @@ namespace CogniPy
                 return tools.GetDL(en, true);
         }
 
-        public string EN(string dl, bool bigName, CogniPy.CNL.EN.endict.WordKind wrdKnd =  CogniPy.CNL.EN.endict.WordKind.NormalForm)
+        public string EN(string dl, bool bigName, CogniPy.CNL.EN.endict.WordKind wrdKnd = CogniPy.CNL.EN.endict.WordKind.NormalForm)
         {
             if (dl == "⊤")
                 return "thing";
@@ -1276,7 +1272,7 @@ namespace CogniPy
             }
 
             List<KeyValuePair<string, string>> symbols;
-            var ret= tools.AutoComplete(new SimplePopulator(this), full, out symbols, int.MaxValue);
+            var ret = tools.AutoComplete(new SimplePopulator(this), full, out symbols, int.MaxValue);
             if (ret == null)
             {
                 var insts = this.Populate(false, "instance", full, "").ToArray();
@@ -1355,7 +1351,7 @@ namespace CogniPy
         public void RemoveInstance(string name)
         {
             Materialize();
-            var dl = toDL(name,false);
+            var dl = toDL(name, false);
             reasoner.RemoveInstance(dl);
         }
 
@@ -1459,7 +1455,7 @@ namespace CogniPy
                     }
                 foreach (var x in instkv.AttributeValues.Keys)
                     if (!colDic.ContainsKey(x))
-                    { 
+                    {
                         colDic.Add(x, idx++);
                         cols.Add(x);
                     }
@@ -1473,7 +1469,7 @@ namespace CogniPy
                 foreach (var xy in kv.Value.RelatedInstances)
                 {
                     var v = xy.Value.ToArray();
-                    lst[colDic[xy.Key]] = v.Length == 1 ? (object) v[0] : (object) v;
+                    lst[colDic[xy.Key]] = v.Length == 1 ? (object)v[0] : (object)v;
                 }
                 foreach (var xy in kv.Value.AttributeValues)
                 {

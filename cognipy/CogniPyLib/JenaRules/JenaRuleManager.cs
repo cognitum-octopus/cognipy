@@ -1,19 +1,19 @@
 ﻿using CogniPy.CNL.DL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Collections.Concurrent;
-using org.apache.jena.reasoner.rulesys;
-using org.apache.jena.graph;
-using org.apache.jena.util;
 using CogniPy.Configuration;
+using org.apache.jena.graph;
 using org.apache.jena.graph.impl;
-using System.Text.RegularExpressions;
-using System.Runtime.CompilerServices;
-using System.Threading;
+using org.apache.jena.reasoner.rulesys;
+using org.apache.jena.util;
+using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace CogniPy.Executing.HermiT
 {
@@ -41,8 +41,8 @@ namespace CogniPy.Executing.HermiT
                 val = (val as java.lang.Boolean).booleanValue();
             else if (val is org.apache.jena.datatypes.xsd.XSDDateTime)
                 val = DateTimeOffset.Parse((val as org.apache.jena.datatypes.xsd.XSDDateTime).toString());
-            else if (val.ToString().EndsWith(xsdDayTimeDuration)	)
-                val = System.Xml.XmlConvert.ToTimeSpan(val.ToString().Substring(0,val.ToString().Length-xsdDayTimeDuration.Length));
+            else if (val.ToString().EndsWith(xsdDayTimeDuration))
+                val = System.Xml.XmlConvert.ToTimeSpan(val.ToString().Substring(0, val.ToString().Length - xsdDayTimeDuration.Length));
 
             return val;
         }
@@ -193,7 +193,7 @@ namespace CogniPy.Executing.HermiT
                 {
                     var type = ext.GetTypeOfNode(context, n);
                     if (ext.TheAccessObject.PassParamsInCNL)
-                        vals.Add(new CogniPy.GraphEntity() { Name = ext.TheAccessObject.CnlFromUri(n.getURI(), type), Kind=type });
+                        vals.Add(new CogniPy.GraphEntity() { Name = ext.TheAccessObject.CnlFromUri(n.getURI(), type), Kind = type });
                     else
                         vals.Add(new CogniPy.GraphEntity() { Name = n.getURI().ToString(), Kind = type });
                 }
@@ -370,7 +370,7 @@ namespace CogniPy.Executing.HermiT
                 }
             }
 
-            Dictionary<string, Tuple<string,object>> vals = new Dictionary<string, Tuple<string, object>>();
+            Dictionary<string, Tuple<string, object>> vals = new Dictionary<string, Tuple<string, object>>();
 
             var env = (context.getEnv() as org.apache.jena.reasoner.rulesys.impl.BindingVector).getEnvironment();
             for (int i = 0; i < env.Length; i++)
@@ -429,7 +429,7 @@ namespace CogniPy.Executing.HermiT
 
             checkArgs(length, context);
             var tpy = (getArg(0, args, context).getLiteralValue() as java.lang.Integer).intValue();
-            var normal = (getArg(1, args, context).getLiteralValue() as java.lang.Integer).intValue()==0;
+            var normal = (getArg(1, args, context).getLiteralValue() as java.lang.Integer).intValue() == 0;
             var str = getArg(2, args, context).getLiteralValue().ToString();
 
             Dictionary<int, string> indexToVarName = new Dictionary<int, string>();
@@ -491,14 +491,14 @@ namespace CogniPy.Executing.HermiT
                 }
             }
 
-            ext.SetModalVals(tpy==0,normal, ext.TheAccessObject.CnlFromDLString(str), vals);
+            ext.SetModalVals(tpy == 0, normal, ext.TheAccessObject.CnlFromDLString(str), vals);
 
         }
 
     }
 
 
-public class OntologyError : org.apache.jena.reasoner.rulesys.builtins.BaseBuiltin
+    public class OntologyError : org.apache.jena.reasoner.rulesys.builtins.BaseBuiltin
     {
         public override string getName()
         {
@@ -519,7 +519,7 @@ public class OntologyError : org.apache.jena.reasoner.rulesys.builtins.BaseBuilt
             {
                 var n = args[i];
                 if (n.isLiteral())
-                    vals.Add(Tuple.Create<object,string>(JenaRuleManager.getObject(n),"value"));
+                    vals.Add(Tuple.Create<object, string>(JenaRuleManager.getObject(n), "value"));
                 else if (n.isURI())
                 {
                     var type = ext.GetTypeOfNode(context, n);
@@ -530,7 +530,7 @@ public class OntologyError : org.apache.jena.reasoner.rulesys.builtins.BaseBuilt
             ext.AddOntologyError(title, message, vals);
         }
     }
-    
+
     class StringLength : org.apache.jena.reasoner.rulesys.builtins.BaseBuiltin
     {
         public override string getName()
@@ -642,7 +642,7 @@ public class OntologyError : org.apache.jena.reasoner.rulesys.builtins.BaseBuilt
             for (int i = 0; i < args.Length; i += 2)
             {
                 var n0 = getArg(i, args, context);
-                var n1 = getArg(i+1, args, context);
+                var n1 = getArg(i + 1, args, context);
                 if (!n0.equals(n1))
                     return true;
             }
@@ -710,7 +710,7 @@ public class OntologyError : org.apache.jena.reasoner.rulesys.builtins.BaseBuilt
                 {
 
                     context.add(t);
-                    var infGraph = (ForwardRuleInfGraphI) context.getGraph();
+                    var infGraph = (ForwardRuleInfGraphI)context.getGraph();
                     if (infGraph.shouldLogDerivations())
                     {
                         var rule = context.getRule();
@@ -803,13 +803,13 @@ public class OntologyError : org.apache.jena.reasoner.rulesys.builtins.BaseBuilt
                         return;
                 }
                 Triple t = new Triple(n0, org.apache.jena.vocabulary.RDF.Nodes.type, n2);
-                infGraph.logDerivation(t, new RuleDerivation(context.getRule(),t, matchList, infGraph));
+                infGraph.logDerivation(t, new RuleDerivation(context.getRule(), t, matchList, infGraph));
             }
         }
     }
 
 
-        class ListTestSubjectPairewise : org.apache.jena.reasoner.rulesys.builtins.BaseBuiltin
+    class ListTestSubjectPairewise : org.apache.jena.reasoner.rulesys.builtins.BaseBuiltin
     {
         public override string getName()
         {
@@ -881,17 +881,17 @@ public class OntologyError : org.apache.jena.reasoner.rulesys.builtins.BaseBuilt
             var n0 = getArg(0, args, context);
             var l = Util.convertList(n0, context);
             var liter = l.iterator();
-            int idx=0;
+            int idx = 0;
             while (liter.hasNext())
             {
                 var x = liter.next() as org.apache.jena.graph.Node;
                 var liter2 = l.iterator();
-                for(int i=0;i<idx;i++)
+                for (int i = 0; i < idx; i++)
                     liter2.next();
-                while(liter2.hasNext())
+                while (liter2.hasNext())
                 {
-                   var y = liter2.next() as org.apache.jena.graph.Node;
-                    if(x.equals(y))
+                    var y = liter2.next() as org.apache.jena.graph.Node;
+                    if (x.equals(y))
                         return true;
                 }
                 idx++;
@@ -1177,8 +1177,8 @@ public class OntologyError : org.apache.jena.reasoner.rulesys.builtins.BaseBuilt
                 if (n0.isLiteral())
                 {
                     var ext = JenaRuleManager.GetReasonerExt(context);
-                    if(!ext.MatchedRegexes.ContainsKey(n1))
-                        ext.MatchedRegexes.Add(n1,new System.Text.RegularExpressions.Regex(n1,RegexOptions.Compiled));
+                    if (!ext.MatchedRegexes.ContainsKey(n1))
+                        ext.MatchedRegexes.Add(n1, new System.Text.RegularExpressions.Regex(n1, RegexOptions.Compiled));
                     return ext.MatchedRegexes[n1].IsMatch(RuleExtensions.lex(n0, this, context));
                 }
                 else
@@ -2264,7 +2264,7 @@ public class OntologyError : org.apache.jena.reasoner.rulesys.builtins.BaseBuilt
         public Dictionary<string, Regex> MatchedRegexes = new Dictionary<string, Regex>();
         public Dictionary<int, Tuple<string, List<IExeVar>>> ExeRules;
         public Dictionary<int, SwrlIterate> SwrlIterators;
-        public Action<string, Dictionary<string, Tuple<string,object>>> DebugAction;
+        public Action<string, Dictionary<string, Tuple<string, object>>> DebugAction;
         public dynamic TheAccessObject;
         public dynamic Outer;
         public CogniPy.ARS.InvTransform TheInvTransform;
@@ -2275,7 +2275,7 @@ public class OntologyError : org.apache.jena.reasoner.rulesys.builtins.BaseBuilt
         ConcurrentDictionary<string, List<LinkedDictionary<string, JenaValue>>> heads = new ConcurrentDictionary<string, List<LinkedDictionary<string, JenaValue>>>();
         List<Tuple<string, string, List<Tuple<object, string>>>> ontologyErrors = new List<Tuple<string, string, List<Tuple<object, string>>>>();
 
-        public string GetTypeOfNode(RuleContext context,org.apache.jena.graph.Node n)
+        public string GetTypeOfNode(RuleContext context, org.apache.jena.graph.Node n)
         {
             if (TheAccessObject.SWRLOnly)
                 return "instance";
@@ -2299,7 +2299,7 @@ public class OntologyError : org.apache.jena.reasoner.rulesys.builtins.BaseBuilt
 
         public void AddOntologyError(string title, string content, List<Tuple<object, string>> vals)
         {
-            ontologyErrors.Add(Tuple.Create(title, content,vals));
+            ontologyErrors.Add(Tuple.Create(title, content, vals));
         }
 
         public void SetModalVals(bool isBody, bool isNormal, string str, LinkedDictionary<string, JenaValue> vals)
@@ -2410,13 +2410,13 @@ public class OntologyError : org.apache.jena.reasoner.rulesys.builtins.BaseBuilt
             foreach (var f in ruleFiles)
             {
                 string ruls = new StreamReader(FindResourceString(f)).ReadToEnd();
-                if(debugModeOn)
+                if (debugModeOn)
                 {
-                    ruls = splitter.Replace(ruls, new MatchEvaluator( (m) =>
-                    {
-                        var iid = "\'#"+m.Groups[1].Value+ "\'";
-                        return m.Value.Replace(@"]", @", debugTraceBuiltIn(" + iid + @")]");
-                        }));
+                    ruls = splitter.Replace(ruls, new MatchEvaluator((m) =>
+                   {
+                       var iid = "\'#" + m.Groups[1].Value + "\'";
+                       return m.Value.Replace(@"]", @", debugTraceBuiltIn(" + iid + @")]");
+                   }));
                 }
                 var mem = new java.io.BufferedReader(new java.io.InputStreamReader(new java.io.ByteArrayInputStream(System.Text.Encoding.ASCII.GetBytes(ruls))));
                 var rs = jena.RuleMap.loadRules(mem, map);
@@ -2518,7 +2518,7 @@ public class OntologyError : org.apache.jena.reasoner.rulesys.builtins.BaseBuilt
 
         private static ConditionalWeakTable<GenericRuleReasoner, ReasonerExt> GenericRuleReasonerExt = new ConditionalWeakTable<GenericRuleReasoner, ReasonerExt>();
 
-        public static GenericRuleReasoner CreateReasoner(java.util.List rules, Action<string, Dictionary<string, Tuple<string,object>>> debugAction, Dictionary<int, Tuple<string, List<IExeVar>>> ExeRules, Dictionary<int, SwrlIterate> SwrlIterators, dynamic accessObject, dynamic outer, CogniPy.ARS.InvTransform invTransform, SwrlIterateProc sproc)
+        public static GenericRuleReasoner CreateReasoner(java.util.List rules, Action<string, Dictionary<string, Tuple<string, object>>> debugAction, Dictionary<int, Tuple<string, List<IExeVar>>> ExeRules, Dictionary<int, SwrlIterate> SwrlIterators, dynamic accessObject, dynamic outer, CogniPy.ARS.InvTransform invTransform, SwrlIterateProc sproc)
         {
             var rete_reasoner = new org.apache.jena.reasoner.rulesys.GenericRuleReasoner(rules);
             rete_reasoner.setMode(org.apache.jena.reasoner.rulesys.GenericRuleReasoner.FORWARD_RETE);
@@ -2589,7 +2589,7 @@ public class OntologyError : org.apache.jena.reasoner.rulesys.builtins.BaseBuilt
             public long GetId(T obj)
             {
                 var id = (long)ids.GetValue(obj, _ => Interlocked.Increment(ref counter));
-                rew.TryAdd(id,obj);
+                rew.TryAdd(id, obj);
                 return id;
             }
 
@@ -2607,7 +2607,7 @@ public class OntologyError : org.apache.jena.reasoner.rulesys.builtins.BaseBuilt
         static UniqueId<object> Unique = null;
 
         public const string DynamicTypeURI = "http://ontorion.com/dynamicType";
-        
+
         public static object getObject(string lex)
         {
             var sid = lex.Substring(0, lex.Length - 2 - DynamicTypeURI.Length);
@@ -2645,135 +2645,135 @@ public class OntologyError : org.apache.jena.reasoner.rulesys.builtins.BaseBuilt
     }
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// DoubleLink
-//
-// Base type for Values in LinkedDictionary<K, V>
-//
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-[DebuggerDisplay("prev = {prev} next = {next}")]
-public class DoubleLink
-{
-	DoubleLink next;
-	DoubleLink prev;
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // DoubleLink
+    //
+    // Base type for Values in LinkedDictionary<K, V>
+    //
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    [DebuggerDisplay("prev = {prev} next = {next}")]
+    public class DoubleLink
+    {
+        DoubleLink next;
+        DoubleLink prev;
 
-	public DoubleLink Next
-	{
-		get { return next; }
-		// Rude setter: doesn't examine or patch existing links 
-		set
-		{
-			value.prev = this;
-			next = value;
-		}
-	}
+        public DoubleLink Next
+        {
+            get { return next; }
+            // Rude setter: doesn't examine or patch existing links 
+            set
+            {
+                value.prev = this;
+                next = value;
+            }
+        }
 
-	public DoubleLink Prev
-	{
-		get { return prev; }
-		// Rude setter: doesn't examine or patch existing links 
-		set
-		{
-			value.next = this;
-			prev = value;
-		}
-	}
+        public DoubleLink Prev
+        {
+            get { return prev; }
+            // Rude setter: doesn't examine or patch existing links 
+            set
+            {
+                value.next = this;
+                prev = value;
+            }
+        }
 
-	// Remove this item from a list by patching over it
-	public void Unlink()
-	{
-		prev.next = next;
-		next.prev = prev;
-		next = prev = null;
-	}
+        // Remove this item from a list by patching over it
+        public void Unlink()
+        {
+            prev.next = next;
+            next.prev = prev;
+            next = prev = null;
+        }
 
-	// Insert this item into a list after the specified element
-	public void InsertAfter(DoubleLink e)
-	{
-		e.next.prev = this;
-		next = e.next;
-		prev = e;
-		e.next = this;
-	}
-};
+        // Insert this item into a list after the specified element
+        public void InsertAfter(DoubleLink e)
+        {
+            e.next.prev = this;
+            next = e.next;
+            prev = e;
+            e.next = this;
+        }
+    };
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// LinkedDictionary<K, V>
-//
-// Enhancement to a Dictionary<K,V> object which maintains an ordering of all Values such that they can be
-// iterated in the forward or reverse direction, according to this ordering, in O(N). The type used for V
-// must inherit from DoubleLink class, a doubly-linked list. The ordering is established by calling 
-// InsertAtFront for element(s) which have been added to the associated Dictionary<K,V> but which are not yet 
-// in the list. In a typical use, the list might be ordered by time of touch: the "current" element or element
-// of interest is located by its key, unlinked from the list, and reinserted at the front, all in O(1) time.
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-public class LinkedDictionary<K, V> : Dictionary<K, V> where V : DoubleLink
-{
-	readonly DoubleLink first = new DoubleLink();
-	readonly DoubleLink last = new DoubleLink();
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // LinkedDictionary<K, V>
+    //
+    // Enhancement to a Dictionary<K,V> object which maintains an ordering of all Values such that they can be
+    // iterated in the forward or reverse direction, according to this ordering, in O(N). The type used for V
+    // must inherit from DoubleLink class, a doubly-linked list. The ordering is established by calling 
+    // InsertAtFront for element(s) which have been added to the associated Dictionary<K,V> but which are not yet 
+    // in the list. In a typical use, the list might be ordered by time of touch: the "current" element or element
+    // of interest is located by its key, unlinked from the list, and reinserted at the front, all in O(1) time.
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public class LinkedDictionary<K, V> : Dictionary<K, V> where V : DoubleLink
+    {
+        readonly DoubleLink first = new DoubleLink();
+        readonly DoubleLink last = new DoubleLink();
 
-	public LinkedDictionary()
-	{
-		first.Next = last;
-	}
+        public LinkedDictionary()
+        {
+            first.Next = last;
+        }
 
-	/// <summary>
-	/// Enumerate in forward order
-	/// </summary>
-	public IEnumerable<V> Forward
-	{
-		get
-		{
-			DoubleLink i = first.Next;
-			while (i != last)
-			{
-				yield return (V)i;
-				i = i.Next;
-			}
-		}
-	}
+        /// <summary>
+        /// Enumerate in forward order
+        /// </summary>
+        public IEnumerable<V> Forward
+        {
+            get
+            {
+                DoubleLink i = first.Next;
+                while (i != last)
+                {
+                    yield return (V)i;
+                    i = i.Next;
+                }
+            }
+        }
 
-	/// <summary>
-	/// Enumerate in reverse order
-	/// </summary>
-	public IEnumerable<V> Reverse
-	{
-		get
-		{
-			DoubleLink i = last.Prev;
-			while (i != first)
-			{
-				yield return (V)i;
-				i = i.Prev;
-			}
-		}
-	}
+        /// <summary>
+        /// Enumerate in reverse order
+        /// </summary>
+        public IEnumerable<V> Reverse
+        {
+            get
+            {
+                DoubleLink i = last.Prev;
+                while (i != first)
+                {
+                    yield return (V)i;
+                    i = i.Prev;
+                }
+            }
+        }
 
-	/// <summary>
-	/// Truncates all element(s) beyond e in the ordering. They should already be removed from the dictionary, 
-	/// this only unlinks them
-	/// </summary>
-	public void TruncateAt(V e)
-	{
-		e.Next = last;
-	}
+        /// <summary>
+        /// Truncates all element(s) beyond e in the ordering. They should already be removed from the dictionary, 
+        /// this only unlinks them
+        /// </summary>
+        public void TruncateAt(V e)
+        {
+            e.Next = last;
+        }
 
-	/// <summary>
-	/// Element should already be removed from the dictionary, this only unlinks it
-	/// </summary>
-	public void Unlink(V e)
-	{
-		e.Unlink();
-	}
+        /// <summary>
+        /// Element should already be removed from the dictionary, this only unlinks it
+        /// </summary>
+        public void Unlink(V e)
+        {
+            e.Unlink();
+        }
 
-	/// <summary>
-	/// Element should already be in dictionary, but not linked
-	/// </summary>
-	public void LinkToFront(V e)
-	{
-		e.InsertAfter(first);
-	}
-};
+        /// <summary>
+        /// Element should already be in dictionary, but not linked
+        /// </summary>
+        public void LinkToFront(V e)
+        {
+            e.InsertAfter(first);
+        }
+    };
 
 }
 

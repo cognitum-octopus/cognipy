@@ -1,20 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using CogniPy.CNL.DL;
 using org.semanticweb.owlapi.model;
-using org.semanticweb.owlapi.vocab;
-using System.Globalization;
-using org.semanticweb.owlapi.reasoner;
-using CogniPy.CNL.DL;
-using CogniPy.CNL.EN;
-using org.coode.xml;
-using System.Text.RegularExpressions;
-using System.Diagnostics;
 using org.semanticweb.owlapi.util;
+using org.semanticweb.owlapi.vocab;
+using System.Collections.Generic;
 
 namespace CogniPy.ARS
 {
-    public class DLToOWLNameConv 
+    public class DLToOWLNameConv
     {
         Dictionary<string, string> Pfx2ns = new Dictionary<string, string>();
         Dictionary<string, string> Ns2pfx = new Dictionary<string, string>();
@@ -29,7 +21,7 @@ namespace CogniPy.ARS
             lex = null;
         }
 
-        public void setOWLFormat(string defaultNS,PrefixOWLOntologyFormat namespaceManager, CogniPy.CNL.EN.endict lex)
+        public void setOWLFormat(string defaultNS, PrefixOWLOntologyFormat namespaceManager, CogniPy.CNL.EN.endict lex)
         {
             this.defaultNs = defaultNS;
             var map = namespaceManager.getPrefixName2PrefixMap();
@@ -44,7 +36,7 @@ namespace CogniPy.ARS
                     defaultNs = v;
                     continue;
                 }
-                if(!Pfx2ns.ContainsKey(k))
+                if (!Pfx2ns.ContainsKey(k))
                     Pfx2ns.Add(k, v);
                 if (!Ns2pfx.ContainsKey(v))
                     Ns2pfx.Add(v, k);
@@ -62,7 +54,7 @@ namespace CogniPy.ARS
         string ns2pfx(string arg)
         {
             if (arg == null)
-                return "<"+defaultNs+">";
+                return "<" + defaultNs + ">";
 
             if (!arg.EndsWith("/") && !arg.EndsWith("#") && !arg.Contains("#"))
                 arg += "#";
@@ -91,10 +83,10 @@ namespace CogniPy.ARS
                 }
                 else
                 {
-                    if(namespaceUtil.getNamespace2PrefixMap().containsValue(arg))
+                    if (namespaceUtil.getNamespace2PrefixMap().containsValue(arg))
                     {
                         var iter = namespaceUtil.getNamespace2PrefixMap().keySet().iterator();
-                        while(iter.hasNext())
+                        while (iter.hasNext())
                         {
                             var k = iter.next();
                             if (namespaceUtil.getNamespace2PrefixMap().get(k).ToString() == arg)
@@ -127,7 +119,7 @@ namespace CogniPy.ARS
         public DlName ToDL(string uri, ARS.EntityKind makeFor)
         {
             var owlName = new CogniPy.ARS.OwlName() { iri = IRI.create(uri) };
-             return owlNameingConvention.ToDL(owlName, lex, ns2pfx, makeFor); 
+            return owlNameingConvention.ToDL(owlName, lex, ns2pfx, makeFor);
         }
 
     }

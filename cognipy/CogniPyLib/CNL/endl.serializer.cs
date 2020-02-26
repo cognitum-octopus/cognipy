@@ -1,8 +1,8 @@
-﻿using System;
-using System.Linq;
+﻿using CogniPy.CNL.DL;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
-using CogniPy.CNL.DL;
 
 namespace CogniPy.CNL.EN
 {
@@ -23,14 +23,14 @@ namespace CogniPy.CNL.EN
         VisitingParam<bool> isPlural = new VisitingParam<bool>(false);
         public AnnotationManager annotMan = new AnnotationManager();
 
-        public string Serialize(paragraph p) 
+        public string Serialize(paragraph p)
         {
-            if(annotMan.GetAnnotationSubjects().Count > 0)
+            if (annotMan.GetAnnotationSubjects().Count > 0)
                 annotMan.clearAnnotations();
             var r = p.accept(this) as string;
             return r;
         }
-        public string Serialize(sentence s) 
+        public string Serialize(sentence s)
         {
             if (annotMan.GetAnnotationSubjects().Count > 0)
                 annotMan.clearAnnotations();
@@ -88,7 +88,7 @@ namespace CogniPy.CNL.EN
                 return snt;
         }
 
-        public object Visit(paragraph p) 
+        public object Visit(paragraph p)
         {
             StringBuilder sb = new StringBuilder();
             foreach (var x in p.sentences)
@@ -101,7 +101,7 @@ namespace CogniPy.CNL.EN
                     sb.AppendLine(EnsureBigStart(str));
             }
 
-            if(SerializeAnnotations)
+            if (SerializeAnnotations)
                 sb.Append(annotMan.SerializeAnnotations());
 
             return sb.ToString();
@@ -131,7 +131,7 @@ namespace CogniPy.CNL.EN
                 return KeyWords.Me.Get("IT") + " " + r + " " + KeyWords.Me.Get("BETRUETHAT");
         }
 
-        public object Visit(subsumption p) 
+        public object Visit(subsumption p)
         {
             StringBuilder sb = new StringBuilder();
             string modal = Modality(p.modality);
@@ -197,7 +197,7 @@ namespace CogniPy.CNL.EN
             sb.Append(KeyWords.Me.Get("END"));
             return sb.ToString();
         }
-        
+
         //public object Visit(equivalence_def p)
         //{
         //    StringBuilder sb = new StringBuilder();
@@ -353,7 +353,7 @@ namespace CogniPy.CNL.EN
             sb.Append(".");
             return sb.ToString();
         }
-        
+
         public object Visit(rolesubsumption p)
         {
             StringBuilder sb = new StringBuilder();
@@ -436,7 +436,7 @@ namespace CogniPy.CNL.EN
             sb.Append(".");
             return sb.ToString();
         }
-        
+
         //public object Visit(roledisjoint p)
         //{
         //    StringBuilder sb = new StringBuilder();
@@ -498,7 +498,7 @@ namespace CogniPy.CNL.EN
             sb.Append(".");
             return sb.ToString();
         }
-        
+
         public object Visit(datarolesubsumption p)
         {
             StringBuilder sb = new StringBuilder();
@@ -597,7 +597,7 @@ namespace CogniPy.CNL.EN
             sb.Append(".");
             return sb.ToString();
         }
-        
+
         //public object Visit(dataroledisjoint p)
         //{
         //    StringBuilder sb = new StringBuilder();
@@ -673,7 +673,7 @@ namespace CogniPy.CNL.EN
             sb.Append(".");
             return sb.ToString();
         }
-        
+
         public object Visit(haskey p)
         {
             StringBuilder sb = new StringBuilder();
@@ -731,7 +731,7 @@ namespace CogniPy.CNL.EN
             sb.Append(".");
             return sb.ToString();
         }
-        public object Visit(subjectEvery p) 
+        public object Visit(subjectEvery p)
         {
             return KeyWords.Me.Get("EVERY") + " " + p.s.accept(this);
         }
@@ -739,7 +739,7 @@ namespace CogniPy.CNL.EN
         {
             return KeyWords.Me.Get("EVERYTHING") + (p.t != null ? (" " + p.t.accept(this)) : "");
         }
-        public object Visit(subjectNo p) 
+        public object Visit(subjectNo p)
         {
             return KeyWords.Me.Get("NO") + " " + p.s.accept(this);
         }
@@ -753,7 +753,7 @@ namespace CogniPy.CNL.EN
         }
         public object Visit(subjectThe p)
         {
-            if(p.only)
+            if (p.only)
                 return KeyWords.Me.Get("THEONEANDONLY") + " " + p.s.accept(this);
             else
                 return KeyWords.Me.Get("THE") + " " + p.s.accept(this);
@@ -763,7 +763,7 @@ namespace CogniPy.CNL.EN
         {
             if (isModal.get())
                 return "be";
-            else if(isPlural.get())
+            else if (isPlural.get())
                 return "are";
             else
                 return "is";
@@ -771,7 +771,7 @@ namespace CogniPy.CNL.EN
 
         public object Visit(objectRoleExpr1 p)
         {
-            StringBuilder sb= new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append(isBeAre());
             if (p.Negated)
             {
@@ -863,17 +863,17 @@ namespace CogniPy.CNL.EN
             StringBuilder sb = new StringBuilder();
             sb.Append(p.r.accept(this));
             sb.Append(" ");
-            if (p.r.name==null || !p.r.name.StartsWith("has-"))
+            if (p.r.name == null || !p.r.name.StartsWith("has-"))
                 sb.Append("something ");
             sb.Append(p.t.accept(this));
             return sb.ToString();
         }
-        
+
         public object Visit(oobjectA p)
         {
             using (isModal.set(false))
             {
-                string nm=p.s.accept(this) as string;
+                string nm = p.s.accept(this) as string;
                 if (p.s is singleOneOf)
                     return nm;
                 else
@@ -892,7 +892,7 @@ namespace CogniPy.CNL.EN
         {
             using (isModal.set(false))
             {
-                return (p.only?KeyWords.Me.Get("THEONEANDONLY"):KeyWords.Me.Get("THE"))+" " + p.s.accept(this);
+                return (p.only ? KeyWords.Me.Get("THEONEANDONLY") : KeyWords.Me.Get("THE")) + " " + p.s.accept(this);
             }
         }
         public object Visit(instanceBigName p)
@@ -923,7 +923,7 @@ namespace CogniPy.CNL.EN
                 return "nothing-but" + " " + p.i.accept(this);
             }
         }
-        
+
         private string word_number(string wcnt)
         {
             long cnt = long.Parse(wcnt);
@@ -986,7 +986,7 @@ namespace CogniPy.CNL.EN
             else
                 throw new InvalidOperationException("Unknown Facet in Grammar");
         }
-        
+
         public object Visit(oobjectCmp p)
         {
             using (isModal.set(false))
@@ -1065,19 +1065,19 @@ namespace CogniPy.CNL.EN
 
         string name(string str)
         {
-                return str;
+            return str;
         }
 
         string bigname(string str)
         {
-                return str;
+            return str;
         }
 
         string thing()
         {
             if (isPlural.get())
                 return "things";
-            else 
+            else
                 return "thing";
         }
 
@@ -1201,7 +1201,7 @@ namespace CogniPy.CNL.EN
                 sb.Append(KeyWords.Me.Get("CLOSE"));
             return sb.ToString();
         }
-        
+
         public object Visit(boundFacets p)
         {
             return p.l.accept(this);
@@ -1252,12 +1252,12 @@ namespace CogniPy.CNL.EN
                 var e = p.List[i];
                 if (i > 0)
                     sb.Append(" or ");
-                sb.Append(brack(p,e));
+                sb.Append(brack(p, e));
             }
             sb.Append(")");
             return sb.ToString();
         }
-        
+
         public object Visit(boundTop p)
         {
             return "(some value)";
@@ -1364,7 +1364,7 @@ namespace CogniPy.CNL.EN
         public object Visit(dlannotationassertion p)
         {
             var w3cAnnot = new W3CAnnotation(true) { Type = p.annotName, Value = p.value, Language = p.language };
-            annotMan.appendAnnotations(p.subject, p.subjKind, new List<W3CAnnotation>(){w3cAnnot});
+            annotMan.appendAnnotations(p.subject, p.subjKind, new List<W3CAnnotation>() { w3cAnnot });
             return "Annotations:" + p.subject.Replace(".", "..") + " " + p.subjKind.Replace(".", "..") + ": " + w3cAnnot.ToString().Replace(".", "..") + ".";
         }
 
@@ -1390,7 +1390,7 @@ namespace CogniPy.CNL.EN
             sb.Append(p.Result.accept(this));
             inModalSwrl = false;
             sb.Append(KeyWords.Me.Get("END"));
-            return sb.ToString();          
+            return sb.ToString();
         }
 
         public object Visit(swrlrulefor p)
@@ -1457,7 +1457,7 @@ namespace CogniPy.CNL.EN
                 }
                 sb.Append(x.accept(this));
             }
-            return sb.ToString();          
+            return sb.ToString();
         }
 
         public object Visit(clause_result p)
@@ -1477,7 +1477,7 @@ namespace CogniPy.CNL.EN
             }
             return sb.ToString();
         }
-        
+
         public object Visit(condition_is p)
         {
             StringBuilder sb = new StringBuilder();
@@ -1536,7 +1536,7 @@ namespace CogniPy.CNL.EN
             sb.Append(p.objectB.accept(this));
             return sb.ToString();
         }
-        
+
         public object Visit(condition_data_property p)
         {
             StringBuilder sb = new StringBuilder();
@@ -1651,7 +1651,7 @@ namespace CogniPy.CNL.EN
 
         public string a_name(string nm)
         {
-           return ((nm.StartsWith("a") || nm.StartsWith("e") || nm.StartsWith("i") || nm.StartsWith("o") || nm.StartsWith("u")) ? "an" : "a") + " " + nm;       
+            return ((nm.StartsWith("a") || nm.StartsWith("e") || nm.StartsWith("i") || nm.StartsWith("o") || nm.StartsWith("u")) ? "an" : "a") + " " + nm;
         }
 
         HashSet<string> bodyVars = new HashSet<string>();
@@ -1671,8 +1671,8 @@ namespace CogniPy.CNL.EN
 
                     return "{" + templateVars[k] + "}";
                 }
-            } 
-            
+            }
+
             StringBuilder sb = new StringBuilder();
             sb.Append((p.name == null ? "a thing" : a_name(p.name)) + (p.num != null ? "(" + p.num + ")" : ""));
             return sb.ToString();
@@ -1711,7 +1711,7 @@ namespace CogniPy.CNL.EN
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(bigname(p.name));
-            return sb.ToString(); 
+            return sb.ToString();
         }
 
         public object Visit(datavalval p)
@@ -1847,7 +1847,7 @@ namespace CogniPy.CNL.EN
             sb.Append(p.tpy);
             sb.Append(" ");
             sb.Append(p.c.accept(this));
-            if(p.d!=null)
+            if (p.d != null)
             {
                 sb.Append(KeyWords.Me.Get("THATHASLENGTH"));
                 sb.Append(" ");
@@ -1965,7 +1965,7 @@ namespace CogniPy.CNL.EN
             }
             return false;
         }
-        
+
         public object Visit(duration_w p)
         {
             List<datavaler> vlist = new List<datavaler>(){
@@ -1980,7 +1980,7 @@ namespace CogniPy.CNL.EN
                 if (!isZero(vlist[i]))
                     break;
 
-            int j; for (j = vlist.Count-1; j > i; j--)
+            int j; for (j = vlist.Count - 1; j > i; j--)
                 if (!isZero(vlist[j]))
                     break;
 
@@ -2044,7 +2044,7 @@ namespace CogniPy.CNL.EN
             }
             return sb.ToString();
         }
-        
+
         //////////// EXE //////////////////////////////////////////////////////////////
 
         public object Visit(exerule p)
@@ -2082,7 +2082,7 @@ namespace CogniPy.CNL.EN
                 }
                 sb.Append(x.accept(this));
             }
-            return sb.ToString();    
+            return sb.ToString();
         }
 
 

@@ -1,2354 +1,3303 @@
-using System;using Tools;
-namespace CogniPy.CNL.EN {
-//%+paragraph+102
-public partial class paragraph : PartialSymbol{
-public override string yyname_endl { get { return "paragraph"; }}
-public override int yynum_endl { get { return 102; }}
-}
-//%+sentence+103
-public partial class sentence : PartialSymbol{
-public override string yyname_endl { get { return "sentence"; }}
-public override int yynum_endl { get { return 103; }}
-}
-//%+annotation+104
-public partial class annotation : sentence{
-public override string yyname_endl { get { return "annotation"; }}
-public override int yynum_endl { get { return 104; }}
-}
-//%+subsumption+105
-public partial class subsumption : sentence{
-public override string yyname_endl { get { return "subsumption"; }}
-public override int yynum_endl { get { return 105; }}
-}
-//%+nosubsumption+106
-public partial class nosubsumption : sentence{
-public override string yyname_endl { get { return "nosubsumption"; }}
-public override int yynum_endl { get { return 106; }}
-}
-//%+subsumption_if+107
-public partial class subsumption_if : sentence{
-public override string yyname_endl { get { return "subsumption_if"; }}
-public override int yynum_endl { get { return 107; }}
-}
-//%+datatypedef+108
-public partial class datatypedef : sentence{
-public override string yyname_endl { get { return "datatypedef"; }}
-public override int yynum_endl { get { return 108; }}
-}
-//%+equivalence2+109
-public partial class equivalence2 : sentence{
-public override string yyname_endl { get { return "equivalence2"; }}
-public override int yynum_endl { get { return 109; }}
-}
-//%+exclusives+110
-public partial class exclusives : sentence{
-public override string yyname_endl { get { return "exclusives"; }}
-public override int yynum_endl { get { return 110; }}
-}
-//%+exclusiveunion+111
-public partial class exclusiveunion : sentence{
-public override string yyname_endl { get { return "exclusiveunion"; }}
-public override int yynum_endl { get { return 111; }}
-}
-//%+rolesubsumption+112
-public partial class rolesubsumption : sentence{
-public override string yyname_endl { get { return "rolesubsumption"; }}
-public override int yynum_endl { get { return 112; }}
-}
-//%+roleequivalence2+113
-public partial class roleequivalence2 : sentence{
-public override string yyname_endl { get { return "roleequivalence2"; }}
-public override int yynum_endl { get { return 113; }}
-}
-//%+roledisjoint2+114
-public partial class roledisjoint2 : sentence{
-public override string yyname_endl { get { return "roledisjoint2"; }}
-public override int yynum_endl { get { return 114; }}
-}
-//%+datarolesubsumption+115
-public partial class datarolesubsumption : sentence{
-public override string yyname_endl { get { return "datarolesubsumption"; }}
-public override int yynum_endl { get { return 115; }}
-}
-//%+dataroleequivalence2+116
-public partial class dataroleequivalence2 : sentence{
-public override string yyname_endl { get { return "dataroleequivalence2"; }}
-public override int yynum_endl { get { return 116; }}
-}
-//%+dataroledisjoint2+117
-public partial class dataroledisjoint2 : sentence{
-public override string yyname_endl { get { return "dataroledisjoint2"; }}
-public override int yynum_endl { get { return 117; }}
-}
-//%+haskey+118
-public partial class haskey : sentence{
-public override string yyname_endl { get { return "haskey"; }}
-public override int yynum_endl { get { return 118; }}
-}
-//%+subject+119
-public partial class subject : PartialSymbol{
-public override string yyname_endl { get { return "subject"; }}
-public override int yynum_endl { get { return 119; }}
-}
-//%+subjectEvery+120
-public partial class subjectEvery : subject{
-public override string yyname_endl { get { return "subjectEvery"; }}
-public override int yynum_endl { get { return 120; }}
-}
-//%+subjectEverything+121
-public partial class subjectEverything : subject{
-public override string yyname_endl { get { return "subjectEverything"; }}
-public override int yynum_endl { get { return 121; }}
-}
-//%+subjectBigName+122
-public partial class subjectBigName : subject{
-public override string yyname_endl { get { return "subjectBigName"; }}
-public override int yynum_endl { get { return 122; }}
-}
-//%+subjectThe+123
-public partial class subjectThe : subject{
-public override string yyname_endl { get { return "subjectThe"; }}
-public override int yynum_endl { get { return 123; }}
-}
-//%+nosubject+124
-public partial class nosubject : PartialSymbol{
-public override string yyname_endl { get { return "nosubject"; }}
-public override int yynum_endl { get { return 124; }}
-}
-//%+subjectNo+125
-public partial class subjectNo : nosubject{
-public override string yyname_endl { get { return "subjectNo"; }}
-public override int yynum_endl { get { return 125; }}
-}
-//%+subjectNothing+126
-public partial class subjectNothing : nosubject{
-public override string yyname_endl { get { return "subjectNothing"; }}
-public override int yynum_endl { get { return 126; }}
-}
-//%+objectRoleExpr+127
-public partial class objectRoleExpr : PartialSymbol{
-public override string yyname_endl { get { return "objectRoleExpr"; }}
-public override int yynum_endl { get { return 127; }}
-}
-//%+objectRoleExpr1+128
-public partial class objectRoleExpr1 : objectRoleExpr{
-public override string yyname_endl { get { return "objectRoleExpr1"; }}
-public override int yynum_endl { get { return 128; }}
-}
-//%+objectRoleExpr2+129
-public partial class objectRoleExpr2 : objectRoleExpr{
-public override string yyname_endl { get { return "objectRoleExpr2"; }}
-public override int yynum_endl { get { return 129; }}
-}
-//%+objectRoleExpr3+130
-public partial class objectRoleExpr3 : objectRoleExpr{
-public override string yyname_endl { get { return "objectRoleExpr3"; }}
-public override int yynum_endl { get { return 130; }}
-}
-//%+modality+131
-public partial class modality : PartialSymbol{
-public override string yyname_endl { get { return "modality"; }}
-public override int yynum_endl { get { return 131; }}
-}
-//%+isBeAre+132
-public partial class isBeAre : PartialSymbol{
-public override string yyname_endl { get { return "isBeAre"; }}
-public override int yynum_endl { get { return 132; }}
-}
-//%+aAn+133
-public partial class aAn : PartialSymbol{
-public override string yyname_endl { get { return "aAn"; }}
-public override int yynum_endl { get { return 133; }}
-}
-//%+valueOrThing+134
-public partial class valueOrThing : PartialSymbol{
-public override string yyname_endl { get { return "valueOrThing"; }}
-public override int yynum_endl { get { return 134; }}
-}
-//%+instance+135
-public partial class instance : PartialSymbol{
-public override string yyname_endl { get { return "instance"; }}
-public override int yynum_endl { get { return 135; }}
-}
-//%+instanceThe+136
-public partial class instanceThe : instance{
-public override string yyname_endl { get { return "instanceThe"; }}
-public override int yynum_endl { get { return 136; }}
-}
-//%+instanceBigName+137
-public partial class instanceBigName : instance{
-public override string yyname_endl { get { return "instanceBigName"; }}
-public override int yynum_endl { get { return 137; }}
-}
-//%+instanceList+138
-public partial class instanceList : PartialSymbol{
-public override string yyname_endl { get { return "instanceList"; }}
-public override int yynum_endl { get { return 138; }}
-}
-//%+chain+139
-public partial class chain : PartialSymbol{
-public override string yyname_endl { get { return "chain"; }}
-public override int yynum_endl { get { return 139; }}
-}
-//%+orObjectRoleExprChain+140
-public partial class orObjectRoleExprChain : PartialSymbol{
-public override string yyname_endl { get { return "orObjectRoleExprChain"; }}
-public override int yynum_endl { get { return 140; }}
-}
-//%+andanyrolechain+141
-public partial class andanyrolechain : PartialSymbol{
-public override string yyname_endl { get { return "andanyrolechain"; }}
-public override int yynum_endl { get { return 141; }}
-}
-//%+oobject+142
-public partial class oobject : PartialSymbol{
-public override string yyname_endl { get { return "oobject"; }}
-public override int yynum_endl { get { return 142; }}
-}
-//%+oobjectA+143
-public partial class oobjectA : oobject{
-public override string yyname_endl { get { return "oobjectA"; }}
-public override int yynum_endl { get { return 143; }}
-}
-//%+oobjectInstance+144
-public partial class oobjectInstance : oobject{
-public override string yyname_endl { get { return "oobjectInstance"; }}
-public override int yynum_endl { get { return 144; }}
-}
-//%+oobjectRelated+145
-public partial class oobjectRelated : oobject{
-public override string yyname_endl { get { return "oobjectRelated"; }}
-public override int yynum_endl { get { return 145; }}
-}
-//%+oobjectOnly+146
-public partial class oobjectOnly : oobjectRelated{
-public override string yyname_endl { get { return "oobjectOnly"; }}
-public override int yynum_endl { get { return 146; }}
-}
-//%+oobjectOnlyInstance+147
-public partial class oobjectOnlyInstance : oobjectRelated{
-public override string yyname_endl { get { return "oobjectOnlyInstance"; }}
-public override int yynum_endl { get { return 147; }}
-}
-//%+oobjectCardinal+148
-public partial class oobjectCardinal : oobjectRelated{
-public override string yyname_endl { get { return "oobjectCardinal"; }}
-public override int yynum_endl { get { return 148; }}
-}
-//%+oobjectCmp+149
-public partial class oobjectCmp : oobjectCardinal{
-public override string yyname_endl { get { return "oobjectCmp"; }}
-public override int yynum_endl { get { return 149; }}
-}
-//%+oobjectCmpInstance+150
-public partial class oobjectCmpInstance : oobjectCardinal{
-public override string yyname_endl { get { return "oobjectCmpInstance"; }}
-public override int yynum_endl { get { return 150; }}
-}
-//%+oobjectBnd+151
-public partial class oobjectBnd : oobjectRelated{
-public override string yyname_endl { get { return "oobjectBnd"; }}
-public override int yynum_endl { get { return 151; }}
-}
-//%+oobjectOnlyBnd+152
-public partial class oobjectOnlyBnd : oobjectRelated{
-public override string yyname_endl { get { return "oobjectOnlyBnd"; }}
-public override int yynum_endl { get { return 152; }}
-}
-//%+oobjectCmpBnd+153
-public partial class oobjectCmpBnd : oobjectCardinal{
-public override string yyname_endl { get { return "oobjectCmpBnd"; }}
-public override int yynum_endl { get { return 153; }}
-}
-//%+oobjectSelf+154
-public partial class oobjectSelf : oobjectRelated{
-public override string yyname_endl { get { return "oobjectSelf"; }}
-public override int yynum_endl { get { return 154; }}
-}
-//%+oobjectSomething+155
-public partial class oobjectSomething : oobject{
-public override string yyname_endl { get { return "oobjectSomething"; }}
-public override int yynum_endl { get { return 155; }}
-}
-//%+oobjectNothing+156
-public partial class oobjectNothing : oobject{
-public override string yyname_endl { get { return "oobjectNothing"; }}
-public override int yynum_endl { get { return 156; }}
-}
-//%+oobjectOnlyNothing+157
-public partial class oobjectOnlyNothing : oobjectRelated{
-public override string yyname_endl { get { return "oobjectOnlyNothing"; }}
-public override int yynum_endl { get { return 157; }}
-}
-//%+oobjectSomethingThat+158
-public partial class oobjectSomethingThat : oobject{
-public override string yyname_endl { get { return "oobjectSomethingThat"; }}
-public override int yynum_endl { get { return 158; }}
-}
-//%+oobjectOnlySomethingThat+159
-public partial class oobjectOnlySomethingThat : oobjectRelated{
-public override string yyname_endl { get { return "oobjectOnlySomethingThat"; }}
-public override int yynum_endl { get { return 159; }}
-}
-//%+role+160
-public partial class role : PartialSymbol{
-public override string yyname_endl { get { return "role"; }}
-public override int yynum_endl { get { return 160; }}
-}
-//%+roleWithXY+161
-public partial class roleWithXY : PartialSymbol{
-public override string yyname_endl { get { return "roleWithXY"; }}
-public override int yynum_endl { get { return 161; }}
-}
-//%+notRoleWithXY+162
-public partial class notRoleWithXY : PartialSymbol{
-public override string yyname_endl { get { return "notRoleWithXY"; }}
-public override int yynum_endl { get { return 162; }}
-}
-//%+single+163
-public partial class single : PartialSymbol{
-public override string yyname_endl { get { return "single"; }}
-public override int yynum_endl { get { return 163; }}
-}
-//%+singleName+164
-public partial class singleName : single{
-public override string yyname_endl { get { return "singleName"; }}
-public override int yynum_endl { get { return 164; }}
-}
-//%+singleThing+165
-public partial class singleThing : single{
-public override string yyname_endl { get { return "singleThing"; }}
-public override int yynum_endl { get { return 165; }}
-}
-//%+singleNameThat+166
-public partial class singleNameThat : single{
-public override string yyname_endl { get { return "singleNameThat"; }}
-public override int yynum_endl { get { return 166; }}
-}
-//%+singleThingThat+167
-public partial class singleThingThat : single{
-public override string yyname_endl { get { return "singleThingThat"; }}
-public override int yynum_endl { get { return 167; }}
-}
-//%+singleOneOf+168
-public partial class singleOneOf : single{
-public override string yyname_endl { get { return "singleOneOf"; }}
-public override int yynum_endl { get { return 168; }}
-}
-//%+that+169
-public partial class that : PartialSymbol{
-public override string yyname_endl { get { return "that"; }}
-public override int yynum_endl { get { return 169; }}
-}
-//%+thatOrLoop+170
-public partial class thatOrLoop : that{
-public override string yyname_endl { get { return "thatOrLoop"; }}
-public override int yynum_endl { get { return 170; }}
-}
-//%+andloop+171
-public partial class andloop : PartialSymbol{
-public override string yyname_endl { get { return "andloop"; }}
-public override int yynum_endl { get { return 171; }}
-}
-//%+orloop+172
-public partial class orloop : PartialSymbol{
-public override string yyname_endl { get { return "orloop"; }}
-public override int yynum_endl { get { return 172; }}
-}
-//%+comparer+173
-public partial class comparer : PartialSymbol{
-public override string yyname_endl { get { return "comparer"; }}
-public override int yynum_endl { get { return 173; }}
-}
-//%+word_number+174
-public partial class word_number : PartialSymbol{
-public override string yyname_endl { get { return "word_number"; }}
-public override int yynum_endl { get { return 174; }}
-}
-//%+dataval+175
-public partial class dataval : PartialSymbol{
-public override string yyname_endl { get { return "dataval"; }}
-public override int yynum_endl { get { return 175; }}
-}
-//%+Number+176
-public partial class Number : dataval{
-public override string yyname_endl { get { return "Number"; }}
-public override int yynum_endl { get { return 176; }}
-}
-//%+StrData+177
-public partial class StrData : dataval{
-public override string yyname_endl { get { return "StrData"; }}
-public override int yynum_endl { get { return 177; }}
-}
-//%+Float+178
-public partial class Float : dataval{
-public override string yyname_endl { get { return "Float"; }}
-public override int yynum_endl { get { return 178; }}
-}
-//%+Bool+179
-public partial class Bool : dataval{
-public override string yyname_endl { get { return "Bool"; }}
-public override int yynum_endl { get { return 179; }}
-}
-//%+DateTimeData+180
-public partial class DateTimeData : dataval{
-public override string yyname_endl { get { return "DateTimeData"; }}
-public override int yynum_endl { get { return 180; }}
-}
-//%+Duration+181
-public partial class Duration : dataval{
-public override string yyname_endl { get { return "Duration"; }}
-public override int yynum_endl { get { return 181; }}
-}
-//%+facet+182
-public partial class facet : PartialSymbol{
-public override string yyname_endl { get { return "facet"; }}
-public override int yynum_endl { get { return 182; }}
-}
-//%+facetList+183
-public partial class facetList : PartialSymbol{
-public override string yyname_endl { get { return "facetList"; }}
-public override int yynum_endl { get { return 183; }}
-}
-//%+abstractbound+184
-public partial class abstractbound : PartialSymbol{
-public override string yyname_endl { get { return "abstractbound"; }}
-public override int yynum_endl { get { return 184; }}
-}
-//%+boundFacets+185
-public partial class boundFacets : abstractbound{
-public override string yyname_endl { get { return "boundFacets"; }}
-public override int yynum_endl { get { return 185; }}
-}
-//%+boundVal+186
-public partial class boundVal : abstractbound{
-public override string yyname_endl { get { return "boundVal"; }}
-public override int yynum_endl { get { return 186; }}
-}
-//%+datavalList+187
-public partial class datavalList : PartialSymbol{
-public override string yyname_endl { get { return "datavalList"; }}
-public override int yynum_endl { get { return 187; }}
-}
-//%+boundOneOf+188
-public partial class boundOneOf : abstractbound{
-public override string yyname_endl { get { return "boundOneOf"; }}
-public override int yynum_endl { get { return 188; }}
-}
-//%+boundTop+189
-public partial class boundTop : abstractbound{
-public override string yyname_endl { get { return "boundTop"; }}
-public override int yynum_endl { get { return 189; }}
-}
-//%+boundTotal+190
-public partial class boundTotal : abstractbound{
-public override string yyname_endl { get { return "boundTotal"; }}
-public override int yynum_endl { get { return 190; }}
-}
-//%+boundDataType+191
-public partial class boundDataType : abstractbound{
-public override string yyname_endl { get { return "boundDataType"; }}
-public override int yynum_endl { get { return 191; }}
-}
-//%+boundIdent+192
-public partial class boundIdent : abstractbound{
-public override string yyname_endl { get { return "boundIdent"; }}
-public override int yynum_endl { get { return 192; }}
-}
-//%+boundAnd+193
-public partial class boundAnd : abstractbound{
-public override string yyname_endl { get { return "boundAnd"; }}
-public override int yynum_endl { get { return 193; }}
-}
-//%+boundOr+194
-public partial class boundOr : abstractbound{
-public override string yyname_endl { get { return "boundOr"; }}
-public override int yynum_endl { get { return 194; }}
-}
-//%+boundNot+195
-public partial class boundNot : abstractbound{
-public override string yyname_endl { get { return "boundNot"; }}
-public override int yynum_endl { get { return 195; }}
-}
-//%+andComma+196
-public partial class andComma : PartialSymbol{
-public override string yyname_endl { get { return "andComma"; }}
-public override int yynum_endl { get { return 196; }}
-}
-//%+orComma+197
-public partial class orComma : PartialSymbol{
-public override string yyname_endl { get { return "orComma"; }}
-public override int yynum_endl { get { return 197; }}
-}
-//%+beAre+198
-public partial class beAre : PartialSymbol{
-public override string yyname_endl { get { return "beAre"; }}
-public override int yynum_endl { get { return 198; }}
-}
-//%+doesNot+199
-public partial class doesNot : PartialSymbol{
-public override string yyname_endl { get { return "doesNot"; }}
-public override int yynum_endl { get { return 199; }}
-}
-//%+doesNotBy+200
-public partial class doesNotBy : PartialSymbol{
-public override string yyname_endl { get { return "doesNotBy"; }}
-public override int yynum_endl { get { return 200; }}
-}
-//%+swrlrule+201
-public partial class swrlrule : sentence{
-public override string yyname_endl { get { return "swrlrule"; }}
-public override int yynum_endl { get { return 201; }}
-}
-//%+clause+202
-public partial class clause : PartialSymbol{
-public override string yyname_endl { get { return "clause"; }}
-public override int yynum_endl { get { return 202; }}
-}
-//%+condition+203
-public partial class condition : PartialSymbol{
-public override string yyname_endl { get { return "condition"; }}
-public override int yynum_endl { get { return 203; }}
-}
-//%+condition_is+204
-public partial class condition_is : condition{
-public override string yyname_endl { get { return "condition_is"; }}
-public override int yynum_endl { get { return 204; }}
-}
-//%+condition_exists+205
-public partial class condition_exists : condition{
-public override string yyname_endl { get { return "condition_exists"; }}
-public override int yynum_endl { get { return 205; }}
-}
-//%+condition_definition+206
-public partial class condition_definition : condition{
-public override string yyname_endl { get { return "condition_definition"; }}
-public override int yynum_endl { get { return 206; }}
-}
-//%+condition_role+207
-public partial class condition_role : condition{
-public override string yyname_endl { get { return "condition_role"; }}
-public override int yynum_endl { get { return 207; }}
-}
-//%+condition_data_property+208
-public partial class condition_data_property : condition{
-public override string yyname_endl { get { return "condition_data_property"; }}
-public override int yynum_endl { get { return 208; }}
-}
-//%+condition_data_property_bound+209
-public partial class condition_data_property_bound : condition{
-public override string yyname_endl { get { return "condition_data_property_bound"; }}
-public override int yynum_endl { get { return 209; }}
-}
-//%+condition_data_bound+210
-public partial class condition_data_bound : condition{
-public override string yyname_endl { get { return "condition_data_bound"; }}
-public override int yynum_endl { get { return 210; }}
-}
-//%+condition_builtin+211
-public partial class condition_builtin : condition{
-public override string yyname_endl { get { return "condition_builtin"; }}
-public override int yynum_endl { get { return 211; }}
-}
-//%+clause_result+212
-public partial class clause_result : PartialSymbol{
-public override string yyname_endl { get { return "clause_result"; }}
-public override int yynum_endl { get { return 212; }}
-}
-//%+condition_result+213
-public partial class condition_result : PartialSymbol{
-public override string yyname_endl { get { return "condition_result"; }}
-public override int yynum_endl { get { return 213; }}
-}
-//%+condition_result_is+214
-public partial class condition_result_is : condition_result{
-public override string yyname_endl { get { return "condition_result_is"; }}
-public override int yynum_endl { get { return 214; }}
-}
-//%+condition_result_definition+215
-public partial class condition_result_definition : condition_result{
-public override string yyname_endl { get { return "condition_result_definition"; }}
-public override int yynum_endl { get { return 215; }}
-}
-//%+condition_result_role+216
-public partial class condition_result_role : condition_result{
-public override string yyname_endl { get { return "condition_result_role"; }}
-public override int yynum_endl { get { return 216; }}
-}
-//%+condition_result_data_property+217
-public partial class condition_result_data_property : condition_result{
-public override string yyname_endl { get { return "condition_result_data_property"; }}
-public override int yynum_endl { get { return 217; }}
-}
-//%+condition_result_builtin+218
-public partial class condition_result_builtin : condition_result{
-public override string yyname_endl { get { return "condition_result_builtin"; }}
-public override int yynum_endl { get { return 218; }}
-}
-//%+objectr+219
-public partial class objectr : PartialSymbol{
-public override string yyname_endl { get { return "objectr"; }}
-public override int yynum_endl { get { return 219; }}
-}
-//%+objectr_nio+220
-public partial class objectr_nio : objectr{
-public override string yyname_endl { get { return "objectr_nio"; }}
-public override int yynum_endl { get { return 220; }}
-}
-//%+objectr_io+221
-public partial class objectr_io : objectr{
-public override string yyname_endl { get { return "objectr_io"; }}
-public override int yynum_endl { get { return 221; }}
-}
-//%+notidentobject+222
-public partial class notidentobject : PartialSymbol{
-public override string yyname_endl { get { return "notidentobject"; }}
-public override int yynum_endl { get { return 222; }}
-}
-//%+identobject+223
-public partial class identobject : PartialSymbol{
-public override string yyname_endl { get { return "identobject"; }}
-public override int yynum_endl { get { return 223; }}
-}
-//%+identobject_name+224
-public partial class identobject_name : identobject{
-public override string yyname_endl { get { return "identobject_name"; }}
-public override int yynum_endl { get { return 224; }}
-}
-//%+identobject_inst+225
-public partial class identobject_inst : identobject{
-public override string yyname_endl { get { return "identobject_inst"; }}
-public override int yynum_endl { get { return 225; }}
-}
-//%+instancer+226
-public partial class instancer : PartialSymbol{
-public override string yyname_endl { get { return "instancer"; }}
-public override int yynum_endl { get { return 226; }}
-}
-//%+datavaler+227
-public partial class datavaler : PartialSymbol{
-public override string yyname_endl { get { return "datavaler"; }}
-public override int yynum_endl { get { return 227; }}
-}
-//%+datavalvar+228
-public partial class datavalvar : datavaler{
-public override string yyname_endl { get { return "datavalvar"; }}
-public override int yynum_endl { get { return 228; }}
-}
-//%+datavalval+229
-public partial class datavalval : datavaler{
-public override string yyname_endl { get { return "datavalval"; }}
-public override int yynum_endl { get { return 229; }}
-}
-//%+exerule+230
-public partial class exerule : sentence{
-public override string yyname_endl { get { return "exerule"; }}
-public override int yynum_endl { get { return 230; }}
-}
-//%+code+231
-public partial class code : sentence{
-public override string yyname_endl { get { return "code"; }}
-public override int yynum_endl { get { return 231; }}
-}
-//%+exeargs+232
-public partial class exeargs : PartialSymbol{
-public override string yyname_endl { get { return "exeargs"; }}
-public override int yynum_endl { get { return 232; }}
-}
-//%+swrlrulefor+233
-public partial class swrlrulefor : sentence{
-public override string yyname_endl { get { return "swrlrulefor"; }}
-public override int yynum_endl { get { return 233; }}
-}
-//%+builtin+234
-public partial class builtin : PartialSymbol{
-public override string yyname_endl { get { return "builtin"; }}
-public override int yynum_endl { get { return 234; }}
-}
-//%+builtin_cmp+235
-public partial class builtin_cmp : builtin{
-public override string yyname_endl { get { return "builtin_cmp"; }}
-public override int yynum_endl { get { return 235; }}
-}
-//%+builtin_list+236
-public partial class builtin_list : builtin{
-public override string yyname_endl { get { return "builtin_list"; }}
-public override int yynum_endl { get { return 236; }}
-}
-//%+builtin_bin+237
-public partial class builtin_bin : builtin{
-public override string yyname_endl { get { return "builtin_bin"; }}
-public override int yynum_endl { get { return 237; }}
-}
-//%+builtin_unary_cmp+238
-public partial class builtin_unary_cmp : builtin{
-public override string yyname_endl { get { return "builtin_unary_cmp"; }}
-public override int yynum_endl { get { return 238; }}
-}
-//%+builtin_unary_free+239
-public partial class builtin_unary_free : builtin{
-public override string yyname_endl { get { return "builtin_unary_free"; }}
-public override int yynum_endl { get { return 239; }}
-}
-//%+builtin_substr+240
-public partial class builtin_substr : builtin{
-public override string yyname_endl { get { return "builtin_substr"; }}
-public override int yynum_endl { get { return 240; }}
-}
-//%+builtin_trans+241
-public partial class builtin_trans : builtin{
-public override string yyname_endl { get { return "builtin_trans"; }}
-public override int yynum_endl { get { return 241; }}
-}
-//%+builtin_duration+242
-public partial class builtin_duration : builtin{
-public override string yyname_endl { get { return "builtin_duration"; }}
-public override int yynum_endl { get { return 242; }}
-}
-//%+builtin_datetime+243
-public partial class builtin_datetime : builtin{
-public override string yyname_endl { get { return "builtin_datetime"; }}
-public override int yynum_endl { get { return 243; }}
-}
-//%+builtin_alpha+244
-public partial class builtin_alpha : builtin{
-public override string yyname_endl { get { return "builtin_alpha"; }}
-public override int yynum_endl { get { return 244; }}
-}
-//%+builtin_annot+245
-public partial class builtin_annot : builtin{
-public override string yyname_endl { get { return "builtin_annot"; }}
-public override int yynum_endl { get { return 245; }}
-}
-//%+builtin_exe+246
-public partial class builtin_exe : builtin{
-public override string yyname_endl { get { return "builtin_exe"; }}
-public override int yynum_endl { get { return 246; }}
-}
-//%+datavalerPlusList+247
-public partial class datavalerPlusList : PartialSymbol{
-public override string yyname_endl { get { return "datavalerPlusList"; }}
-public override int yynum_endl { get { return 247; }}
-}
-//%+datavalerTimesList+248
-public partial class datavalerTimesList : PartialSymbol{
-public override string yyname_endl { get { return "datavalerTimesList"; }}
-public override int yynum_endl { get { return 248; }}
-}
-//%+datavalerFollowedByList+249
-public partial class datavalerFollowedByList : PartialSymbol{
-public override string yyname_endl { get { return "datavalerFollowedByList"; }}
-public override int yynum_endl { get { return 249; }}
-}
-//%+duration+250
-public partial class duration : PartialSymbol{
-public override string yyname_endl { get { return "duration"; }}
-public override int yynum_endl { get { return 250; }}
-}
-//%+duration_m+251
-public partial class duration_m : duration{
-public override string yyname_endl { get { return "duration_m"; }}
-public override int yynum_endl { get { return 251; }}
-}
-//%+duration_w+252
-public partial class duration_w : duration{
-public override string yyname_endl { get { return "duration_w"; }}
-public override int yynum_endl { get { return 252; }}
-}
-
-public class paragraph_566245c87df54ee3bb78d5606c0fc1e8 : paragraph {
-  public paragraph_566245c87df54ee3bb78d5606c0fc1e8(Parser yyq):base(yyq,
-	((sentence)(yyq.StackAt(0).m_value))
-	){}}
-
-public class paragraph_c73a4bfe7c064b4c84855e3199998995 : paragraph {
-  public paragraph_c73a4bfe7c064b4c84855e3199998995(Parser yyq):base(yyq,
-	((paragraph)(yyq.StackAt(1).m_value))
-	,
-	((sentence)(yyq.StackAt(0).m_value))
-	){}}
-
-public class annotation_44947d7626e243a382eb0069325b2d2c : annotation {
-  public annotation_44947d7626e243a382eb0069325b2d2c(Parser yyq):base(yyq,
-	((COMMENT)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class subsumption_e11b8feca52a432982c43c7eef4e9fff : subsumption {
-  public subsumption_e11b8feca52a432982c43c7eef4e9fff(Parser yyq):base(yyq,
-	((subject)(yyq.StackAt(3).m_value))
-	,
-	((modality)(yyq.StackAt(2).m_value))
-	.yytext,
-	((orloop)(yyq.StackAt(1).m_value))
-	){}}
-
-public class nosubsumption_241070898bd34b07be44ae8b03b9fa25 : nosubsumption {
-  public nosubsumption_241070898bd34b07be44ae8b03b9fa25(Parser yyq):base(yyq,
-	((nosubject)(yyq.StackAt(3).m_value))
-	,
-	((modality)(yyq.StackAt(2).m_value))
-	.yytext,
-	((orloop)(yyq.StackAt(1).m_value))
-	){}}
-
-public class datatypedef_ede858d8e5dc4afdaaf6f887b2464fad : datatypedef {
-  public datatypedef_ede858d8e5dc4afdaaf6f887b2464fad(Parser yyq):base(yyq,
-	((NAME)(yyq.StackAt(4).m_value))
-	.yytext,
-	((abstractbound)(yyq.StackAt(1).m_value))
-	){}}
-
-public class rolesubsumption_7af6523e728b450da936b5061ba53008 : rolesubsumption {
-  public rolesubsumption_7af6523e728b450da936b5061ba53008(Parser yyq):base(yyq,
-	((role)(yyq.StackAt(4).m_value))
-	,
-	((roleWithXY)(yyq.StackAt(1).m_value))
-	){}}
-
-public class rolesubsumption_7b44428ea8344fcebe9eb5d6b1c5c84f : rolesubsumption {
-  public rolesubsumption_7b44428ea8344fcebe9eb5d6b1c5c84f(Parser yyq):base(yyq,
-	((chain)(yyq.StackAt(4).m_value))
-	,
-	((roleWithXY)(yyq.StackAt(1).m_value))
-	){}}
-
-public class datarolesubsumption_53b8fa47c596440a848c3686d84ff9fa : datarolesubsumption {
-  public datarolesubsumption_53b8fa47c596440a848c3686d84ff9fa(Parser yyq):base(yyq,
-	((role)(yyq.StackAt(8).m_value))
-	,
-	((role)(yyq.StackAt(3).m_value))
-	){}}
-
-public class roledisjoint2_0e157aedc4c4420286bc66850f27b4a2 : roledisjoint2 {
-  public roledisjoint2_0e157aedc4c4420286bc66850f27b4a2(Parser yyq):base(yyq,
-	((role)(yyq.StackAt(4).m_value))
-	,
-	((notRoleWithXY)(yyq.StackAt(1).m_value))
-	){}}
-
-public class dataroledisjoint2_443ae1c9dfc34907879db58e54a43552 : dataroledisjoint2 {
-  public dataroledisjoint2_443ae1c9dfc34907879db58e54a43552(Parser yyq):base(yyq,
-	((role)(yyq.StackAt(9).m_value))
-	,
-	((role)(yyq.StackAt(3).m_value))
-	){}}
-
-public class equivalence2_2ece582c05814d189b07e26b3fc415f0 : equivalence2 {
-  public equivalence2_2ece582c05814d189b07e26b3fc415f0(Parser yyq):base(yyq,
-	((orloop)(yyq.StackAt(3).m_value))
-	,
-	((modality)(yyq.StackAt(4).m_value))
-	.yytext,
-	((orloop)(yyq.StackAt(1).m_value))
-	){}}
-
-public class roleequivalence2_7329660247a3423dbbe6d751ea254a7f : roleequivalence2 {
-  public roleequivalence2_7329660247a3423dbbe6d751ea254a7f(Parser yyq):base(yyq,
-	((role)(yyq.StackAt(4).m_value))
-	,
-	((roleWithXY)(yyq.StackAt(1).m_value))
-	){}}
-
-public class dataroleequivalence2_79e8e3c6387c49ab995139ad18214122 : dataroleequivalence2 {
-  public dataroleequivalence2_79e8e3c6387c49ab995139ad18214122(Parser yyq):base(yyq,
-	((role)(yyq.StackAt(8).m_value))
-	,
-	((role)(yyq.StackAt(3).m_value))
-	){}}
-
-public class exclusiveunion_9d3feb24afc04ba0a619553526a44646 : exclusiveunion {
-  public exclusiveunion_9d3feb24afc04ba0a619553526a44646(Parser yyq):base(yyq,
-	((NAME)(yyq.StackAt(3).m_value))
-	.yytext,
-	((orObjectRoleExprChain)(yyq.StackAt(1).m_value))
-	,
-	((modality)(yyq.StackAt(6).m_value))
-	.yytext){}}
-
-public class exclusives_91ffa52d905549b0aaea515988ac0301 : exclusives {
-  public exclusives_91ffa52d905549b0aaea515988ac0301(Parser yyq):base(yyq,
-	((orObjectRoleExprChain)(yyq.StackAt(2).m_value))
-	,
-	((modality)(yyq.StackAt(4).m_value))
-	.yytext){}}
-
-public class haskey_42d75fdf80ab4593b47edf7159d47307 : haskey {
-  public haskey_42d75fdf80ab4593b47edf7159d47307(Parser yyq):base(yyq,
-	((objectRoleExpr)(yyq.StackAt(3).m_value))
-	,
-	((andanyrolechain)(yyq.StackAt(1).m_value))
-	){}}
-
-public class swrlrule_943c8bac97c94c82a87e57602514c1d5 : swrlrule {
-  public swrlrule_943c8bac97c94c82a87e57602514c1d5(Parser yyq):base(yyq,
-	((clause)(yyq.StackAt(4).m_value))
-	,
-	((clause_result)(yyq.StackAt(1).m_value))
-	,
-	((modality2)(yyq.StackAt(2).m_value))
-	.yytext){}}
-
-public class swrlrulefor_132bd0b2a4b14ab5959beb871c7597d2 : swrlrulefor {
-  public swrlrulefor_132bd0b2a4b14ab5959beb871c7597d2(Parser yyq):base(yyq,
-	((clause)(yyq.StackAt(11).m_value))
-	,
-	((valueOrThing)(yyq.StackAt(7).m_value))
-	.yytext,
-	((NAT)(yyq.StackAt(5).m_value))
-	.yytext, 
-	((datavaler)(yyq.StackAt(2).m_value))
-	,
-	((clause_result)(yyq.StackAt(1).m_value))
-	){}}
-
-public class exerule_0b3d9235c9f049308eaa150fa7fe6dc5 : exerule {
-  public exerule_0b3d9235c9f049308eaa150fa7fe6dc5(Parser yyq):base(yyq,
-	((clause)(yyq.StackAt(6).m_value))
-	,
-	((exeargs)(yyq.StackAt(3).m_value))
-	,
-	((STR)(yyq.StackAt(1).m_value))
-	.yytext){}}
-
-public class code_cbe070844a604bcd8667f1542c831241 : code {
-  public code_cbe070844a604bcd8667f1542c831241(Parser yyq):base(yyq,
-	((CODE)(yyq.StackAt(1).m_value))
-	.yytext){}}
-
-public class valueOrThing_11693110f638425bb998c8487484accb : valueOrThing {
-  public valueOrThing_11693110f638425bb998c8487484accb(Parser yyq):base(yyq){}}
-
-public class valueOrThing_b292e5effebc4cf08f68227d444765da : valueOrThing {
-  public valueOrThing_b292e5effebc4cf08f68227d444765da(Parser yyq):base(yyq){}}
-
-public class valueOrThing_b292e5effebc4cf08f68227d444765da_e394101d548f4b1790b3a7fb2cffaaec : valueOrThing_b292e5effebc4cf08f68227d444765da {
-  public valueOrThing_b292e5effebc4cf08f68227d444765da_e394101d548f4b1790b3a7fb2cffaaec(Parser yyq):base(yyq){yytext="value";}}
-
-public class valueOrThing_992d64a96a1d4f6cb4906f802c44e3ce : valueOrThing {
-  public valueOrThing_992d64a96a1d4f6cb4906f802c44e3ce(Parser yyq):base(yyq){}}
-
-public class valueOrThing_606f91515c9a4f178ebde2e9e15da180 : valueOrThing {
-  public valueOrThing_606f91515c9a4f178ebde2e9e15da180(Parser yyq):base(yyq){}}
-
-public class valueOrThing_606f91515c9a4f178ebde2e9e15da180_a0194531c9a046758b0864b1beb8f1b0 : valueOrThing_606f91515c9a4f178ebde2e9e15da180 {
-  public valueOrThing_606f91515c9a4f178ebde2e9e15da180_a0194531c9a046758b0864b1beb8f1b0(Parser yyq):base(yyq){yytext="thing";}}
-
-public class clause_4afb50346dbc4e0ab977917496ae7465 : clause {
-  public clause_4afb50346dbc4e0ab977917496ae7465(Parser yyq):base(yyq,
-	((condition)(yyq.StackAt(0).m_value))
-	){}}
-
-public class clause_896721228f0749b1835787e438800b80 : clause {
-  public clause_896721228f0749b1835787e438800b80(Parser yyq):base(yyq,
-	((clause)(yyq.StackAt(2).m_value))
-	,
-	((condition)(yyq.StackAt(0).m_value))
-	){}}
-
-public class clause_result_e4966a20715f4ad6a9f4eaeb33a5ea99 : clause_result {
-  public clause_result_e4966a20715f4ad6a9f4eaeb33a5ea99(Parser yyq):base(yyq,
-	((condition_result)(yyq.StackAt(0).m_value))
-	){}}
-
-public class clause_result_34e19e77573e4cee91a7ff6f0b710780 : clause_result {
-  public clause_result_34e19e77573e4cee91a7ff6f0b710780(Parser yyq):base(yyq,
-	((clause_result)(yyq.StackAt(2).m_value))
-	,
-	((condition_result)(yyq.StackAt(0).m_value))
-	){}}
-
-public class condition_role_450ed8e2227a42cfb94f34d571c49138 : condition_role {
-  public condition_role_450ed8e2227a42cfb94f34d571c49138(Parser yyq):base(yyq,
-	((objectr)(yyq.StackAt(2).m_value))
-	,
-	((NAME)(yyq.StackAt(1).m_value))
-	.yytext,
-	((objectr)(yyq.StackAt(0).m_value))
-	,condition_kind.None){}}
-
-public class condition_role_a276b189029044c990d6e87acfb16909 : condition_role {
-  public condition_role_a276b189029044c990d6e87acfb16909(Parser yyq):base(yyq,
-	((objectr)(yyq.StackAt(4).m_value))
-	,
-	((NAME)(yyq.StackAt(2).m_value))
-	.yytext,
-	((objectr)(yyq.StackAt(0).m_value))
-	,condition_kind.Inv){}}
-
-public class condition_exists_3b7fabca36e94c648fb58c8d856e7ff8 : condition_exists {
-  public condition_exists_3b7fabca36e94c648fb58c8d856e7ff8(Parser yyq):base(yyq,
-	((objectr)(yyq.StackAt(1).m_value))
-	){}}
-
-public class condition_definition_835c47f908394e68b1462e376f670837 : condition_definition {
-  public condition_definition_835c47f908394e68b1462e376f670837(Parser yyq):base(yyq,
-	((objectr)(yyq.StackAt(2).m_value))
-	,
-	((oobject)(yyq.StackAt(0).m_value))
-	){}}
-
-public class condition_is_9851cdc5ee4547de8f6f21edbb5ef45e : condition_is {
-  public condition_is_9851cdc5ee4547de8f6f21edbb5ef45e(Parser yyq):base(yyq,
-	((objectr)(yyq.StackAt(2).m_value))
-	,
-	((objectr)(yyq.StackAt(0).m_value))
-	,condition_kind.None){}}
-
-public class condition_is_2c5c8b2d68c842e797705cfc4be4ccfc : condition_is {
-  public condition_is_2c5c8b2d68c842e797705cfc4be4ccfc(Parser yyq):base(yyq,
-	((objectr)(yyq.StackAt(2).m_value))
-	,
-	((objectr)(yyq.StackAt(0).m_value))
-	,condition_kind.Not){}}
-
-public class condition_data_property_4a412d9875d24be4b511f3ce4fe6af7f : condition_data_property {
-  public condition_data_property_4a412d9875d24be4b511f3ce4fe6af7f(Parser yyq):base(yyq,
-	((objectr)(yyq.StackAt(7).m_value))
-	,
-	((NAME)(yyq.StackAt(6).m_value))
-	.yytext,
-	((NAT)(yyq.StackAt(1).m_value))
-	.yytext){}}
-
-public class condition_data_property_bound_199281df83cd4401ae5f574544961b1e : condition_data_property_bound {
-  public condition_data_property_bound_199281df83cd4401ae5f574544961b1e(Parser yyq):base(yyq,
-	((objectr)(yyq.StackAt(2).m_value))
-	,
-	((NAME)(yyq.StackAt(1).m_value))
-	.yytext,
-	((abstractbound)(yyq.StackAt(0).m_value))
-	){}}
-
-public class condition_data_bound_81d74be785d9496f86106ac984df9d6e : condition_data_bound {
-  public condition_data_bound_81d74be785d9496f86106ac984df9d6e(Parser yyq):base(yyq,
-	((datavaler)(yyq.StackAt(2).m_value))
-	,
-	((abstractbound)(yyq.StackAt(0).m_value))
-	){}}
-
-public class condition_builtin_404e871395204a49aad4da7fe66997d1 : condition_builtin {
-  public condition_builtin_404e871395204a49aad4da7fe66997d1(Parser yyq):base(yyq,
-	((builtin)(yyq.StackAt(0).m_value))
-	){}}
-
-public class condition_result_role_3118228cc5a84fa1ac3397d77a6a5a83 : condition_result_role {
-  public condition_result_role_3118228cc5a84fa1ac3397d77a6a5a83(Parser yyq):base(yyq,
-	((identobject)(yyq.StackAt(2).m_value))
-	,
-	((NAME)(yyq.StackAt(1).m_value))
-	.yytext,
-	((identobject)(yyq.StackAt(0).m_value))
-	,condition_kind.None){}}
-
-public class condition_result_role_08f60b79e87347629c40e05c00ba7320 : condition_result_role {
-  public condition_result_role_08f60b79e87347629c40e05c00ba7320(Parser yyq):base(yyq,
-	((identobject)(yyq.StackAt(4).m_value))
-	,
-	((NAME)(yyq.StackAt(2).m_value))
-	.yytext,
-	((identobject)(yyq.StackAt(0).m_value))
-	,condition_kind.Inv){}}
-
-public class condition_result_is_92cac4ab014b429fbecd05c009e4f3d3 : condition_result_is {
-  public condition_result_is_92cac4ab014b429fbecd05c009e4f3d3(Parser yyq):base(yyq,
-	((identobject)(yyq.StackAt(2).m_value))
-	,
-	((identobject)(yyq.StackAt(0).m_value))
-	,condition_kind.None){}}
-
-public class condition_result_is_a76c128b6c4a4fd080e8207bb5686aaf : condition_result_is {
-  public condition_result_is_a76c128b6c4a4fd080e8207bb5686aaf(Parser yyq):base(yyq,
-	((identobject)(yyq.StackAt(2).m_value))
-	,
-	((identobject)(yyq.StackAt(0).m_value))
-	,condition_kind.Not){}}
-
-public class condition_result_definition_bfa38c97338d412b851ae3a69b9cfb92 : condition_result_definition {
-  public condition_result_definition_bfa38c97338d412b851ae3a69b9cfb92(Parser yyq):base(yyq,
-	((identobject)(yyq.StackAt(2).m_value))
-	,
-	((oobject)(yyq.StackAt(0).m_value))
-	){}}
-
-public class condition_result_data_property_cd2208eb47554d05a88bc19b0e0f3557 : condition_result_data_property {
-  public condition_result_data_property_cd2208eb47554d05a88bc19b0e0f3557(Parser yyq):base(yyq,
-	((identobject)(yyq.StackAt(3).m_value))
-	,
-	((NAME)(yyq.StackAt(2).m_value))
-	.yytext,
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class exeargs_26c6dfa4d57a4228aafb1dd705608024 : exeargs {
-  public exeargs_26c6dfa4d57a4228aafb1dd705608024(Parser yyq):base(yyq,
-	((identobject)(yyq.StackAt(0).m_value))
-	){}}
-
-public class exeargs_56a109c849ca4fffb7c041d5d1b34493 : exeargs {
-  public exeargs_56a109c849ca4fffb7c041d5d1b34493(Parser yyq):base(yyq,
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class exeargs_dedb7be397514b3b8032978e42985b45 : exeargs {
-  public exeargs_dedb7be397514b3b8032978e42985b45(Parser yyq):base(yyq,
-	((exeargs)(yyq.StackAt(2).m_value))
-	,
-	((identobject)(yyq.StackAt(0).m_value))
-	){}}
-
-public class exeargs_09198c24a4c54171b54a3ac103990da0 : exeargs {
-  public exeargs_09198c24a4c54171b54a3ac103990da0(Parser yyq):base(yyq,
-	((exeargs)(yyq.StackAt(2).m_value))
-	,
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class notidentobject_29d7f93464bb49ee924c71f88475ad54 : notidentobject {
-  public notidentobject_29d7f93464bb49ee924c71f88475ad54(Parser yyq):base(yyq,
-	((NAME)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class notidentobject_21178b2016ee43dd9b7828f754df3ee4 : notidentobject {
-  public notidentobject_21178b2016ee43dd9b7828f754df3ee4(Parser yyq):base(yyq,null){}}
-
-public class notidentobject_b94aa5042b0b4cd0b7fb47c31cd21884 : notidentobject {
-  public notidentobject_b94aa5042b0b4cd0b7fb47c31cd21884(Parser yyq):base(yyq,
-	((NAME)(yyq.StackAt(3).m_value))
-	.yytext,
-	((NAT)(yyq.StackAt(1).m_value))
-	.yytext){}}
-
-public class notidentobject_a31997c075994d7399c36d4cff248073 : notidentobject {
-  public notidentobject_a31997c075994d7399c36d4cff248073(Parser yyq):base(yyq,null,
-	((NAT)(yyq.StackAt(1).m_value))
-	.yytext){}}
-
-public class identobject_name_e753f510c632415caecfe92fdfe04132 : identobject_name {
-  public identobject_name_e753f510c632415caecfe92fdfe04132(Parser yyq):base(yyq,
-	((NAME)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class identobject_name_a74993c3e8ef4b53b4e341ce3a3d454b : identobject_name {
-  public identobject_name_a74993c3e8ef4b53b4e341ce3a3d454b(Parser yyq):base(yyq,null){}}
-
-public class identobject_name_db6df83e230f4c83b0a33be8be59c8ee : identobject_name {
-  public identobject_name_db6df83e230f4c83b0a33be8be59c8ee(Parser yyq):base(yyq,
-	((NAME)(yyq.StackAt(3).m_value))
-	.yytext,
-	((NAT)(yyq.StackAt(1).m_value))
-	.yytext){}}
-
-public class identobject_name_2f71ecb76d814507b89088016afc756b : identobject_name {
-  public identobject_name_2f71ecb76d814507b89088016afc756b(Parser yyq):base(yyq,null,
-	((NAT)(yyq.StackAt(1).m_value))
-	.yytext){}}
-
-public class identobject_inst_3841f77f0f734bcd853061126e5a07ae : identobject_inst {
-  public identobject_inst_3841f77f0f734bcd853061126e5a07ae(Parser yyq):base(yyq,
-	((instancer)(yyq.StackAt(0).m_value))
-	){}}
-
-public class instancer_67fb63a2276c44c580c90318fac84b88 : instancer {
-  public instancer_67fb63a2276c44c580c90318fac84b88(Parser yyq):base(yyq,
-	((BIGNAME)(yyq.StackAt(0).m_value))
-	.yytext,false){}}
-
-public class instancer_b276f0b0160f40d786e314b752ebe195 : instancer {
-  public instancer_b276f0b0160f40d786e314b752ebe195(Parser yyq):base(yyq,
-	((VERYBIGNAME)(yyq.StackAt(0).m_value))
-	.yytext,true){}}
-
-public class objectr_nio_3e0d3830f09c478b96444fef526d4ef2 : objectr_nio {
-  public objectr_nio_3e0d3830f09c478b96444fef526d4ef2(Parser yyq):base(yyq,
-	((notidentobject)(yyq.StackAt(0).m_value))
-	){}}
-
-public class objectr_io_ee9983a723fd4267a9248edc2a281b7b : objectr_io {
-  public objectr_io_ee9983a723fd4267a9248edc2a281b7b(Parser yyq):base(yyq,
-	((identobject)(yyq.StackAt(0).m_value))
-	){}}
-
-public class datavalvar_d0dde5e18b8948c094af05fe960f9d8d : datavalvar {
-  public datavalvar_d0dde5e18b8948c094af05fe960f9d8d(Parser yyq):base(yyq,
-	((NAT)(yyq.StackAt(1).m_value))
-	.yytext){}}
-
-public class datavalval_bafc195f566548d79632b7bf2b97db37 : datavalval {
-  public datavalval_bafc195f566548d79632b7bf2b97db37(Parser yyq):base(yyq,
-	((dataval)(yyq.StackAt(0).m_value))
-	){}}
-public partial class comparer2 : PartialSymbol {
-public override string yyname_endl { get { return "comparer2"; }}
-public override int yynum_endl { get { return 320; }}}
-
-public class comparer2_587ff1bbf2da4e7d8b88417a53cfb5e7 : comparer2 {
-  public comparer2_587ff1bbf2da4e7d8b88417a53cfb5e7(Parser yyq):base(yyq){}}
-
-public class comparer2_b0fe676e97734f1ba55ea7231f35b8bc : comparer2 {
-  public comparer2_b0fe676e97734f1ba55ea7231f35b8bc(Parser yyq):base(yyq){}}
-
-public class comparer2_b0fe676e97734f1ba55ea7231f35b8bc_48f64b1ce3024ea4a87b7d0a4a07a4f6 : comparer2_b0fe676e97734f1ba55ea7231f35b8bc {
-  public comparer2_b0fe676e97734f1ba55ea7231f35b8bc_48f64b1ce3024ea4a87b7d0a4a07a4f6(Parser yyq):base(yyq){yytext="=";}}
-
-public class comparer2_42749d2044714b4d8ee198f3be859206 : comparer2 {
-  public comparer2_42749d2044714b4d8ee198f3be859206(Parser yyq):base(yyq){}}
-
-public class comparer2_edb3d005808a42149810185952208fc5 : comparer2 {
-  public comparer2_edb3d005808a42149810185952208fc5(Parser yyq):base(yyq){}}
-
-public class comparer2_edb3d005808a42149810185952208fc5_8e3c464b3c1d4fd8ba1e6951f15c7a9e : comparer2_edb3d005808a42149810185952208fc5 {
-  public comparer2_edb3d005808a42149810185952208fc5_8e3c464b3c1d4fd8ba1e6951f15c7a9e(Parser yyq):base(yyq){yytext="≠";}}
-
-public class comparer2_6be5d1975f4a46fd94c2f08da7d7a9cf : comparer2 {
-  public comparer2_6be5d1975f4a46fd94c2f08da7d7a9cf(Parser yyq):base(yyq){}}
-
-public class comparer2_214406d730e745df9f734e109290ad77 : comparer2 {
-  public comparer2_214406d730e745df9f734e109290ad77(Parser yyq):base(yyq){}}
-
-public class comparer2_214406d730e745df9f734e109290ad77_dc3359640dd04db190bf53abb66fde9a : comparer2_214406d730e745df9f734e109290ad77 {
-  public comparer2_214406d730e745df9f734e109290ad77_dc3359640dd04db190bf53abb66fde9a(Parser yyq):base(yyq){yytext=(
-	((COMPARER2)(yyq.StackAt(0).m_value))
-	.yytext=="lower-or-equal-to"?"≤":(
-	((COMPARER2)(yyq.StackAt(0).m_value))
-	.yytext=="greater-or-equal-to"?"≥":(
-	((COMPARER2)(yyq.StackAt(0).m_value))
-	.yytext=="lower-than"?"<":">")));}}
-
-public class comparer2_ae23ce61f8ed473db910fce732481f63 : comparer2 {
-  public comparer2_ae23ce61f8ed473db910fce732481f63(Parser yyq):base(yyq){}}
-
-public class comparer2_469cb9c5f35a4878b84b753ed5aa6a1a : comparer2 {
-  public comparer2_469cb9c5f35a4878b84b753ed5aa6a1a(Parser yyq):base(yyq){}}
-
-public class comparer2_469cb9c5f35a4878b84b753ed5aa6a1a_daf2c9c6e5c8422a9e71782ad63f1af4 : comparer2_469cb9c5f35a4878b84b753ed5aa6a1a {
-  public comparer2_469cb9c5f35a4878b84b753ed5aa6a1a_daf2c9c6e5c8422a9e71782ad63f1af4(Parser yyq):base(yyq){yytext=
-	((CMP)(yyq.StackAt(0).m_value))
-	.yytext;}}
-
-public class comparer2_ce1a6ff8e277483c96f9740c7e35cb79 : comparer2 {
-  public comparer2_ce1a6ff8e277483c96f9740c7e35cb79(Parser yyq):base(yyq){}}
-
-public class comparer2_11e106ec73574e0d8853ad29dfb3ed8e : comparer2 {
-  public comparer2_11e106ec73574e0d8853ad29dfb3ed8e(Parser yyq):base(yyq){}}
-
-public class comparer2_11e106ec73574e0d8853ad29dfb3ed8e_27b290a48ef545c1848fd6f340bf8239 : comparer2_11e106ec73574e0d8853ad29dfb3ed8e {
-  public comparer2_11e106ec73574e0d8853ad29dfb3ed8e_27b290a48ef545c1848fd6f340bf8239(Parser yyq):base(yyq){yytext="=";}}
-public partial class equalTo : PartialSymbol {
-public override string yyname_endl { get { return "equalTo"; }}
-public override int yynum_endl { get { return 336; }}}
-
-public class equalTo_bc50a34a422d45dc9f8aaab9e3c89df6 : equalTo {
-  public equalTo_bc50a34a422d45dc9f8aaab9e3c89df6(Parser yyq):base(yyq){}}
-
-public class equalTo_da1a5ce4efaf479e89d992a3133720b7 : equalTo {
-  public equalTo_da1a5ce4efaf479e89d992a3133720b7(Parser yyq):base(yyq){}}
-
-public class equalTo_da1a5ce4efaf479e89d992a3133720b7_c77ccc0f563e4beb95e9c323d6772ad7 : equalTo_da1a5ce4efaf479e89d992a3133720b7 {
-  public equalTo_da1a5ce4efaf479e89d992a3133720b7_c77ccc0f563e4beb95e9c323d6772ad7(Parser yyq):base(yyq){yytext="=";}}
-
-public class equalTo_d7301e3cdc084c2f97a594538d3895f7 : equalTo {
-  public equalTo_d7301e3cdc084c2f97a594538d3895f7(Parser yyq):base(yyq){}}
-
-public class equalTo_02e1029631bf4b709a469df03d37ec01 : equalTo {
-  public equalTo_02e1029631bf4b709a469df03d37ec01(Parser yyq):base(yyq){}}
-
-public class equalTo_02e1029631bf4b709a469df03d37ec01_ab0683c73b1e47619b12824e51bd8938 : equalTo_02e1029631bf4b709a469df03d37ec01 {
-  public equalTo_02e1029631bf4b709a469df03d37ec01_ab0683c73b1e47619b12824e51bd8938(Parser yyq):base(yyq){yytext="=";}}
-
-public class datavalerPlusList_cf96adeabac64a4f9768270e4f7b43a5 : datavalerPlusList {
-  public datavalerPlusList_cf96adeabac64a4f9768270e4f7b43a5(Parser yyq):base(yyq,
-	((datavaler)(yyq.StackAt(2).m_value))
-	,
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class datavalerPlusList_1027d4d7a1d44f248cbb749a7b8379c4 : datavalerPlusList {
-  public datavalerPlusList_1027d4d7a1d44f248cbb749a7b8379c4(Parser yyq):base(yyq,
-	((datavalerPlusList)(yyq.StackAt(2).m_value))
-	,
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class datavalerTimesList_f5a5d38302574d3282fede0c80d42c45 : datavalerTimesList {
-  public datavalerTimesList_f5a5d38302574d3282fede0c80d42c45(Parser yyq):base(yyq,
-	((datavaler)(yyq.StackAt(2).m_value))
-	,
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class datavalerTimesList_b27ec15854c24ac89733734cf77072d2 : datavalerTimesList {
-  public datavalerTimesList_b27ec15854c24ac89733734cf77072d2(Parser yyq):base(yyq,
-	((datavalerTimesList)(yyq.StackAt(2).m_value))
-	,
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class datavalerFollowedByList_f66a5ef8595548f28eecf225fee146ed : datavalerFollowedByList {
-  public datavalerFollowedByList_f66a5ef8595548f28eecf225fee146ed(Parser yyq):base(yyq,
-	((datavaler)(yyq.StackAt(2).m_value))
-	,
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class datavalerFollowedByList_31358cf7b46841b5b007904f15c8e113 : datavalerFollowedByList {
-  public datavalerFollowedByList_31358cf7b46841b5b007904f15c8e113(Parser yyq):base(yyq,
-	((datavalerFollowedByList)(yyq.StackAt(2).m_value))
-	,
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-public partial class binOp : PartialSymbol {
-public override string yyname_endl { get { return "binOp"; }}
-public override int yynum_endl { get { return 349; }}}
-
-public class binOp_67f4ca57a0b3428d92570e2f1277da2c : binOp {
-  public binOp_67f4ca57a0b3428d92570e2f1277da2c(Parser yyq):base(yyq){}}
-
-public class binOp_d03cb2932c8e4f0ab8095286123f6797 : binOp {
-  public binOp_d03cb2932c8e4f0ab8095286123f6797(Parser yyq):base(yyq){}}
-
-public class binOp_d03cb2932c8e4f0ab8095286123f6797_6d013372786b4e7294e707369b187f39 : binOp_d03cb2932c8e4f0ab8095286123f6797 {
-  public binOp_d03cb2932c8e4f0ab8095286123f6797_6d013372786b4e7294e707369b187f39(Parser yyq):base(yyq){yytext=
-	((BINOP)(yyq.StackAt(0).m_value))
-	.yytext;}}
-
-public class binOp_a7b23d9bc410429f82a991f2001c95b2 : binOp {
-  public binOp_a7b23d9bc410429f82a991f2001c95b2(Parser yyq):base(yyq){}}
-
-public class binOp_decd62613c0f4f7fafe385767da99fb4 : binOp {
-  public binOp_decd62613c0f4f7fafe385767da99fb4(Parser yyq):base(yyq){}}
-
-public class binOp_decd62613c0f4f7fafe385767da99fb4_7a83a968f8894995b3f2e13a43e8f9f0 : binOp_decd62613c0f4f7fafe385767da99fb4 {
-  public binOp_decd62613c0f4f7fafe385767da99fb4_7a83a968f8894995b3f2e13a43e8f9f0(Parser yyq):base(yyq){yytext="minus";}}
-
-public class binOp_d4ec7f2581f64fb48b3c50d1edfdbce4 : binOp {
-  public binOp_d4ec7f2581f64fb48b3c50d1edfdbce4(Parser yyq):base(yyq){}}
-
-public class binOp_bb9c172983b748b9857554319e6d40bb : binOp {
-  public binOp_bb9c172983b748b9857554319e6d40bb(Parser yyq):base(yyq){}}
-
-public class binOp_bb9c172983b748b9857554319e6d40bb_72f21f793eb145a7ad1885c54a555683 : binOp_bb9c172983b748b9857554319e6d40bb {
-  public binOp_bb9c172983b748b9857554319e6d40bb_72f21f793eb145a7ad1885c54a555683(Parser yyq):base(yyq){yytext="minus";}}
-public partial class unOp : PartialSymbol {
-public override string yyname_endl { get { return "unOp"; }}
-public override int yynum_endl { get { return 359; }}}
-
-public class unOp_580a60d4d1d54a1c9c8f5c9001e818b1 : unOp {
-  public unOp_580a60d4d1d54a1c9c8f5c9001e818b1(Parser yyq):base(yyq){}}
-
-public class unOp_45c2620dc3744a0798b88be259a3133e : unOp {
-  public unOp_45c2620dc3744a0798b88be259a3133e(Parser yyq):base(yyq){}}
-
-public class unOp_45c2620dc3744a0798b88be259a3133e_4966f022786945619ab8bac5dc1c4da7 : unOp_45c2620dc3744a0798b88be259a3133e {
-  public unOp_45c2620dc3744a0798b88be259a3133e_4966f022786945619ab8bac5dc1c4da7(Parser yyq):base(yyq){yytext="minus";}}
-
-public class unOp_c4ccaad173814dd9849b1c02d3e4fce6 : unOp {
-  public unOp_c4ccaad173814dd9849b1c02d3e4fce6(Parser yyq):base(yyq){}}
-
-public class unOp_c74ee41853af4d08897b08b21a8b04bb : unOp {
-  public unOp_c74ee41853af4d08897b08b21a8b04bb(Parser yyq):base(yyq){}}
-
-public class unOp_c74ee41853af4d08897b08b21a8b04bb_f246cea1ed394396824a7e7a2da47609 : unOp_c74ee41853af4d08897b08b21a8b04bb {
-  public unOp_c74ee41853af4d08897b08b21a8b04bb_f246cea1ed394396824a7e7a2da47609(Parser yyq):base(yyq){yytext="minus";}}
-
-public class unOp_fbfd003d2c10478f98392c2071fc6b30 : unOp {
-  public unOp_fbfd003d2c10478f98392c2071fc6b30(Parser yyq):base(yyq){}}
-
-public class unOp_b29fb39a8a2c4ad6b274981f8a22136c : unOp {
-  public unOp_b29fb39a8a2c4ad6b274981f8a22136c(Parser yyq):base(yyq){}}
-
-public class unOp_b29fb39a8a2c4ad6b274981f8a22136c_defeec6d3e904923b3dcb7daa4e43ad1 : unOp_b29fb39a8a2c4ad6b274981f8a22136c {
-  public unOp_b29fb39a8a2c4ad6b274981f8a22136c_defeec6d3e904923b3dcb7daa4e43ad1(Parser yyq):base(yyq){yytext=
-	((UNOP)(yyq.StackAt(0).m_value))
-	.yytext;}}
-
-public class unOp_a56e6c90a8e24c09a709d29ba96464e4 : unOp {
-  public unOp_a56e6c90a8e24c09a709d29ba96464e4(Parser yyq):base(yyq){}}
-
-public class unOp_7b7d90a7bb91439e9a99a97c9b68aaa3 : unOp {
-  public unOp_7b7d90a7bb91439e9a99a97c9b68aaa3(Parser yyq):base(yyq){}}
-
-public class unOp_7b7d90a7bb91439e9a99a97c9b68aaa3_032a287ddb214419b8fd109c616d4a90 : unOp_7b7d90a7bb91439e9a99a97c9b68aaa3 {
-  public unOp_7b7d90a7bb91439e9a99a97c9b68aaa3_032a287ddb214419b8fd109c616d4a90(Parser yyq):base(yyq){yytext=
-	((NOT)(yyq.StackAt(0).m_value))
-	.yytext;}}
-public partial class unOp2 : PartialSymbol {
-public override string yyname_endl { get { return "unOp2"; }}
-public override int yynum_endl { get { return 372; }}}
-
-public class unOp2_5e29de36058a472b8e84736e6631ef1e : unOp2 {
-  public unOp2_5e29de36058a472b8e84736e6631ef1e(Parser yyq):base(yyq){}}
-
-public class unOp2_a6f44f374d46487b93ad3733d3c68a6c : unOp2 {
-  public unOp2_a6f44f374d46487b93ad3733d3c68a6c(Parser yyq):base(yyq){}}
-
-public class unOp2_a6f44f374d46487b93ad3733d3c68a6c_ba7f49eb4a3b484a9a6d606af1527be9 : unOp2_a6f44f374d46487b93ad3733d3c68a6c {
-  public unOp2_a6f44f374d46487b93ad3733d3c68a6c_ba7f49eb4a3b484a9a6d606af1527be9(Parser yyq):base(yyq){yytext=
-	((UNOP2)(yyq.StackAt(0).m_value))
-	.yytext;}}
-
-public class builtin_cmp_946d7d48c4614d5f9794a4058d592831 : builtin_cmp {
-  public builtin_cmp_946d7d48c4614d5f9794a4058d592831(Parser yyq):base(yyq,
-	((datavaler)(yyq.StackAt(2).m_value))
-	,
-	((comparer2)(yyq.StackAt(1).m_value))
-	.yytext,
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class builtin_list_1f1f215d473e40fbac3c2ea190bd875f : builtin_list {
-  public builtin_list_1f1f215d473e40fbac3c2ea190bd875f(Parser yyq):base(yyq,
-	((datavalerPlusList)(yyq.StackAt(2).m_value))
-	.vals,"plus",
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class builtin_list_9da4d36c3fa049b3bc22c9f613fd1969 : builtin_list {
-  public builtin_list_9da4d36c3fa049b3bc22c9f613fd1969(Parser yyq):base(yyq,
-	((datavalerTimesList)(yyq.StackAt(2).m_value))
-	.vals,"times",
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class builtin_list_e48ab73f344340b7b7bf105756aaa681 : builtin_list {
-  public builtin_list_e48ab73f344340b7b7bf105756aaa681(Parser yyq):base(yyq,
-	((datavalerFollowedByList)(yyq.StackAt(2).m_value))
-	.vals,"followed-by",
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class builtin_bin_e973596f450e4814ab503802d183a2d2 : builtin_bin {
-  public builtin_bin_e973596f450e4814ab503802d183a2d2(Parser yyq):base(yyq,
-	((datavaler)(yyq.StackAt(4).m_value))
-	,
-	((binOp)(yyq.StackAt(3).m_value))
-	.yytext,
-	((datavaler)(yyq.StackAt(2).m_value))
-	,
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class builtin_unary_cmp_f42342a2c7e74153bd6fad912164a09e : builtin_unary_cmp {
-  public builtin_unary_cmp_f42342a2c7e74153bd6fad912164a09e(Parser yyq):base(yyq,
-	((unOp)(yyq.StackAt(3).m_value))
-	.yytext,
-	((datavaler)(yyq.StackAt(2).m_value))
-	,
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class builtin_unary_free_129c9687f63741f982aa3fd65b1d0be0 : builtin_unary_free {
-  public builtin_unary_free_129c9687f63741f982aa3fd65b1d0be0(Parser yyq):base(yyq,
-	((datavaler)(yyq.StackAt(2).m_value))
-	,
-	((unOp2)(yyq.StackAt(1).m_value))
-	.yytext,
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class builtin_substr_3c32f071139b4b7e9262c07f5e8d086e : builtin_substr {
-  public builtin_substr_3c32f071139b4b7e9262c07f5e8d086e(Parser yyq):base(yyq,
-	((datavaler)(yyq.StackAt(4).m_value))
-	,"from",
-	((datavaler)(yyq.StackAt(2).m_value))
-	,
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class builtin_substr_a071f16bc3694a5da45731d98723f29c : builtin_substr {
-  public builtin_substr_a071f16bc3694a5da45731d98723f29c(Parser yyq):base(yyq,
-	((datavaler)(yyq.StackAt(6).m_value))
-	,"from",
-	((datavaler)(yyq.StackAt(4).m_value))
-	,
-	((datavaler)(yyq.StackAt(2).m_value))
-	,
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class builtin_substr_6b286ee63b70402c803dbfc771a3d878 : builtin_substr {
-  public builtin_substr_6b286ee63b70402c803dbfc771a3d878(Parser yyq):base(yyq,
-	((datavaler)(yyq.StackAt(4).m_value))
-	,
-	((SUBSTRINGFIX)(yyq.StackAt(3).m_value))
-	.yytext,
-	((datavaler)(yyq.StackAt(2).m_value))
-	,
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class builtin_trans_e14262332461450a95eba2859a129c66 : builtin_trans {
-  public builtin_trans_e14262332461450a95eba2859a129c66(Parser yyq):base(yyq,
-	((TRANSLATEDREPLACED)(yyq.StackAt(7).m_value))
-	.yytext,
-	((datavaler)(yyq.StackAt(6).m_value))
-	,
-	((datavaler)(yyq.StackAt(4).m_value))
-	,
-	((datavaler)(yyq.StackAt(2).m_value))
-	,
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class builtin_duration_ba10ee6406b74fe6a00ea802f3072516 : builtin_duration {
-  public builtin_duration_ba10ee6406b74fe6a00ea802f3072516(Parser yyq):base(yyq,
-	((duration)(yyq.StackAt(2).m_value))
-	,
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class builtin_datetime_2f4201d44eba4fd1a0014b982148a99f : builtin_datetime {
-  public builtin_datetime_2f4201d44eba4fd1a0014b982148a99f(Parser yyq):base(yyq,
-	((datetime)(yyq.StackAt(2).m_value))
-	,
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class builtin_alpha_aef1c6f72a054960bdce448f4a84f3a0 : builtin_alpha {
-  public builtin_alpha_aef1c6f72a054960bdce448f4a84f3a0(Parser yyq):base(yyq,
-	((objectr)(yyq.StackAt(2).m_value))
-	,
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class builtin_annot_d13e72dd7c9a4459bd0b16e8ce7559e3 : builtin_annot {
-  public builtin_annot_d13e72dd7c9a4459bd0b16e8ce7559e3(Parser yyq):base(yyq,
-	((objectr)(yyq.StackAt(2).m_value))
-	,
-	((datavaler)(yyq.StackAt(5).m_value))
-	,
-	((datavaler)(yyq.StackAt(4).m_value))
-	,
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class builtin_exe_38dcc13695b745029673f6bf43cce7a6 : builtin_exe {
-  public builtin_exe_38dcc13695b745029673f6bf43cce7a6(Parser yyq):base(yyq,
-	((STR)(yyq.StackAt(4).m_value))
-	.yytext,
-	((exeargs)(yyq.StackAt(2).m_value))
-	,
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class duration_m_55afbd56816a4d12b9ac108a3f2cc8cf : duration_m {
-  public duration_m_55afbd56816a4d12b9ac108a3f2cc8cf(Parser yyq):base(yyq,null,null,
-	((datavaler)(yyq.StackAt(7).m_value))
-	,
-	((datavaler)(yyq.StackAt(5).m_value))
-	,
-	((datavaler)(yyq.StackAt(3).m_value))
-	,
-	((datavaler)(yyq.StackAt(1).m_value))
-	){}}
-
-public class duration_m_7047a4fd6e37488cb3d6e52991e74677 : duration_m {
-  public duration_m_7047a4fd6e37488cb3d6e52991e74677(Parser yyq):base(yyq,null,null,
-	((datavaler)(yyq.StackAt(5).m_value))
-	,
-	((datavaler)(yyq.StackAt(3).m_value))
-	,
-	((datavaler)(yyq.StackAt(1).m_value))
-	){}}
-
-public class duration_m_6c11941f4548438387454a9601225be3 : duration_m {
-  public duration_m_6c11941f4548438387454a9601225be3(Parser yyq):base(yyq,null,null,
-	((datavaler)(yyq.StackAt(3).m_value))
-	,
-	((datavaler)(yyq.StackAt(1).m_value))
-	){}}
-
-public class duration_m_c42cc94093cd4389ba02e7236c12aca7 : duration_m {
-  public duration_m_c42cc94093cd4389ba02e7236c12aca7(Parser yyq):base(yyq,null,null,
-	((datavaler)(yyq.StackAt(1).m_value))
-	){}}
-
-public class duration_m_954e0a8601524bfcb8dd02dd40da7138 : duration_m {
-  public duration_m_954e0a8601524bfcb8dd02dd40da7138(Parser yyq):base(yyq,null,null,null,
-	((datavaler)(yyq.StackAt(5).m_value))
-	,
-	((datavaler)(yyq.StackAt(3).m_value))
-	,
-	((datavaler)(yyq.StackAt(1).m_value))
-	){}}
-
-public class duration_m_32c6f48867c3460fbf618a076eab8e73 : duration_m {
-  public duration_m_32c6f48867c3460fbf618a076eab8e73(Parser yyq):base(yyq,null,null,null,
-	((datavaler)(yyq.StackAt(3).m_value))
-	,
-	((datavaler)(yyq.StackAt(1).m_value))
-	){}}
-
-public class duration_m_d99f9c87cb8f49678638ec69894cf1ed : duration_m {
-  public duration_m_d99f9c87cb8f49678638ec69894cf1ed(Parser yyq):base(yyq,null,null,null,
-	((datavaler)(yyq.StackAt(1).m_value))
-	){}}
-
-public class duration_m_f51410a0fe5f4f27ba914db7cdb141c7 : duration_m {
-  public duration_m_f51410a0fe5f4f27ba914db7cdb141c7(Parser yyq):base(yyq,null,null,null,null,
-	((datavaler)(yyq.StackAt(3).m_value))
-	,
-	((datavaler)(yyq.StackAt(1).m_value))
-	){}}
-
-public class duration_m_8bc29c23fa0f414d9fa5214fbebd4ada : duration_m {
-  public duration_m_8bc29c23fa0f414d9fa5214fbebd4ada(Parser yyq):base(yyq,null,null,null,null,
-	((datavaler)(yyq.StackAt(1).m_value))
-	){}}
-
-public class duration_m_f0080b26096e4580ad7cf651e734477a : duration_m {
-  public duration_m_f0080b26096e4580ad7cf651e734477a(Parser yyq):base(yyq,null,null,null,null,null,
-	((datavaler)(yyq.StackAt(1).m_value))
-	){}}
-public partial class datetime : PartialSymbol {
-public override string yyname_endl { get { return "datetime"; }}
-public override int yynum_endl { get { return 388; }}}
-
-public class datetime_0c55c536432947bc95b1c0540e659c73 : datetime {
-  public datetime_0c55c536432947bc95b1c0540e659c73(Parser yyq):base(yyq,
-	((datavaler)(yyq.StackAt(10).m_value))
-	,
-	((datavaler)(yyq.StackAt(8).m_value))
-	,
-	((datavaler)(yyq.StackAt(6).m_value))
-	,
-	((datavaler)(yyq.StackAt(4).m_value))
-	,
-	((datavaler)(yyq.StackAt(2).m_value))
-	,
-	((datavaler)(yyq.StackAt(0).m_value))
-	){}}
-
-public class datetime_9d175bd7e80948ccb573987c4312e831 : datetime {
-  public datetime_9d175bd7e80948ccb573987c4312e831(Parser yyq):base(yyq,
-	((datavaler)(yyq.StackAt(4).m_value))
-	,
-	((datavaler)(yyq.StackAt(2).m_value))
-	,
-	((datavaler)(yyq.StackAt(0).m_value))
-	,null,null,null){}}
-
-public class chain_f1d1e8479fab4525a8b3a49c2185acfd : chain {
-  public chain_f1d1e8479fab4525a8b3a49c2185acfd(Parser yyq):base(yyq,
-	((role)(yyq.StackAt(3).m_value))
-	,
-	((role)(yyq.StackAt(0).m_value))
-	){}}
-
-public class chain_5daba5ce21514b7b8d7cd821e7c45d4e : chain {
-  public chain_5daba5ce21514b7b8d7cd821e7c45d4e(Parser yyq):base(yyq,
-	((chain)(yyq.StackAt(3).m_value))
-	,
-	((role)(yyq.StackAt(0).m_value))
-	){}}
-
-public class orObjectRoleExprChain_5fc55687f5bb48589182786b97a199c8 : orObjectRoleExprChain {
-  public orObjectRoleExprChain_5fc55687f5bb48589182786b97a199c8(Parser yyq):base(yyq,
-	((objectRoleExpr)(yyq.StackAt(2).m_value))
-	,
-	((objectRoleExpr)(yyq.StackAt(0).m_value))
-	){}}
-
-public class orObjectRoleExprChain_1280932fed444a0dbbe66357a095bc98 : orObjectRoleExprChain {
-  public orObjectRoleExprChain_1280932fed444a0dbbe66357a095bc98(Parser yyq):base(yyq,
-	((orObjectRoleExprChain)(yyq.StackAt(2).m_value))
-	,
-	((objectRoleExpr)(yyq.StackAt(0).m_value))
-	){}}
-
-public class roleWithXY_bb5d6ff79bbc40df8487cf0d619e22e7 : roleWithXY {
-  public roleWithXY_bb5d6ff79bbc40df8487cf0d619e22e7(Parser yyq):base(yyq,
-	((NAME)(yyq.StackAt(1).m_value))
-	.yytext,false){}}
-
-public class roleWithXY_5c11be3751d74f2fafcd1c1dc41dc069 : roleWithXY {
-  public roleWithXY_5c11be3751d74f2fafcd1c1dc41dc069(Parser yyq):base(yyq,
-	((NAME)(yyq.StackAt(1).m_value))
-	.yytext,true){}}
-
-public class notRoleWithXY_b64e4dfa1d3648f2ba1cb621d93842c4 : notRoleWithXY {
-  public notRoleWithXY_b64e4dfa1d3648f2ba1cb621d93842c4(Parser yyq):base(yyq,
-	((NAME)(yyq.StackAt(1).m_value))
-	.yytext,false){}}
-
-public class notRoleWithXY_52cb25920ebd47df94420b8e97bb2a19 : notRoleWithXY {
-  public notRoleWithXY_52cb25920ebd47df94420b8e97bb2a19(Parser yyq):base(yyq,
-	((NAME)(yyq.StackAt(1).m_value))
-	.yytext,true){}}
-
-public class andanyrolechain_9cb513c982124810877effaecd901b05 : andanyrolechain {
-  public andanyrolechain_9cb513c982124810877effaecd901b05(Parser yyq):base(yyq,
-	((role)(yyq.StackAt(1).m_value))
-	,false){}}
-
-public class andanyrolechain_edab88b964b3415ea64a77e329d21f2b : andanyrolechain {
-  public andanyrolechain_edab88b964b3415ea64a77e329d21f2b(Parser yyq):base(yyq,
-	((role)(yyq.StackAt(2).m_value))
-	,true){}}
-
-public class andanyrolechain_0fb0bf0280ea497fa0987d6c7f3495a8 : andanyrolechain {
-  public andanyrolechain_0fb0bf0280ea497fa0987d6c7f3495a8(Parser yyq):base(yyq,
-	((andanyrolechain)(yyq.StackAt(4).m_value))
-	,
-	((role)(yyq.StackAt(1).m_value))
-	,false){}}
-
-public class andanyrolechain_ae905887b9044709890fb37bfff1f7d2 : andanyrolechain {
-  public andanyrolechain_ae905887b9044709890fb37bfff1f7d2(Parser yyq):base(yyq,
-	((andanyrolechain)(yyq.StackAt(5).m_value))
-	,
-	((role)(yyq.StackAt(2).m_value))
-	,true){}}
-
-public class subjectEvery_9a9d70377b6d4bbdb1976cff0484dd2c : subjectEvery {
-  public subjectEvery_9a9d70377b6d4bbdb1976cff0484dd2c(Parser yyq):base(yyq,
-	((single)(yyq.StackAt(0).m_value))
-	){}}
-
-public class subjectEverything_eafee055036a4f93a25c840d4b1400b8 : subjectEverything {
-  public subjectEverything_eafee055036a4f93a25c840d4b1400b8(Parser yyq):base(yyq){}}
-
-public class subjectEverything_d8d0f8f1d0e7462c8d1f6773d656e8d3 : subjectEverything {
-  public subjectEverything_d8d0f8f1d0e7462c8d1f6773d656e8d3(Parser yyq):base(yyq,
-	((that)(yyq.StackAt(0).m_value))
-	){}}
-
-public class subjectBigName_d35cd74c001042809ecb7c047ee96c03 : subjectBigName {
-  public subjectBigName_d35cd74c001042809ecb7c047ee96c03(Parser yyq):base(yyq,
-	((BIGNAME)(yyq.StackAt(0).m_value))
-	.yytext,false){}}
-
-public class subjectBigName_e247709fad4f46e8af6b598ac4e69ed9 : subjectBigName {
-  public subjectBigName_e247709fad4f46e8af6b598ac4e69ed9(Parser yyq):base(yyq,
-	((VERYBIGNAME)(yyq.StackAt(0).m_value))
-	.yytext,true){}}
-
-public class subjectThe_59b29ef9aabf4c0887f1a24fb530874e : subjectThe {
-  public subjectThe_59b29ef9aabf4c0887f1a24fb530874e(Parser yyq):base(yyq,false,
-	((single)(yyq.StackAt(0).m_value))
-	){}}
-
-public class subjectThe_6508d4ff2b3946699f3af047d72e60e6 : subjectThe {
-  public subjectThe_6508d4ff2b3946699f3af047d72e60e6(Parser yyq):base(yyq,true,
-	((single)(yyq.StackAt(0).m_value))
-	){}}
-
-public class subjectNo_3aa0e323824548baae9acb988db41f47 : subjectNo {
-  public subjectNo_3aa0e323824548baae9acb988db41f47(Parser yyq):base(yyq,
-	((single)(yyq.StackAt(0).m_value))
-	){}}
-
-public class subjectNothing_7a10a8be0b3141b49936878cfa3c2393 : subjectNothing {
-  public subjectNothing_7a10a8be0b3141b49936878cfa3c2393(Parser yyq):base(yyq){}}
-
-public class modality_418a797e33f8415090b8ccb9cf27e0ca : modality {
-  public modality_418a797e33f8415090b8ccb9cf27e0ca(Parser yyq):base(yyq){}}
-
-public class modality_8f69bc2826e14a64b655e1d64d497a75 : modality {
-  public modality_8f69bc2826e14a64b655e1d64d497a75(Parser yyq):base(yyq){}}
-
-public class modality_8f69bc2826e14a64b655e1d64d497a75_6e7d1c5cb95c495886cac24c6c505c9e : modality_8f69bc2826e14a64b655e1d64d497a75 {
-  public modality_8f69bc2826e14a64b655e1d64d497a75_6e7d1c5cb95c495886cac24c6c505c9e(Parser yyq):base(yyq){yytext="";}}
-
-public class modality_a2b72e688f854a05b5285b0dafef6501 : modality {
-  public modality_a2b72e688f854a05b5285b0dafef6501(Parser yyq):base(yyq){}}
-
-public class modality_2994985d0cdc4d74bde814570c298b31 : modality {
-  public modality_2994985d0cdc4d74bde814570c298b31(Parser yyq):base(yyq){}}
-
-public class modality_2994985d0cdc4d74bde814570c298b31_51a1e4967eb4403ba2edffb6c4127ebd : modality_2994985d0cdc4d74bde814570c298b31 {
-  public modality_2994985d0cdc4d74bde814570c298b31_51a1e4967eb4403ba2edffb6c4127ebd(Parser yyq):base(yyq){switch(
-	((MODAL)(yyq.StackAt(0).m_value))
-	.yytext){
-						case "must": yytext = "□"; break;
-						case "should": yytext = "◊"; break;
-						case "can": yytext = "◊◊"; break;
-						case "must-not": yytext = "~◊◊"; break;
-						case "should-not": yytext = "~◊"; break;
-						case "can-not": yytext = "~□"; break;
-						default: throw new InvalidOperationException();
-			}}}
-public partial class modality2 : PartialSymbol {
-public override string yyname_endl { get { return "modality2"; }}
-public override int yynum_endl { get { return 270; }}}
-
-public class modality2_39e84493f70c44e4b103f81e61df7146 : modality2 {
-  public modality2_39e84493f70c44e4b103f81e61df7146(Parser yyq):base(yyq){}}
-
-public class modality2_a9903bb7580245b5883060adb41cf3e7 : modality2 {
-  public modality2_a9903bb7580245b5883060adb41cf3e7(Parser yyq):base(yyq){}}
-
-public class modality2_a9903bb7580245b5883060adb41cf3e7_5978f781665c46f5898d26123f73c7da : modality2_a9903bb7580245b5883060adb41cf3e7 {
-  public modality2_a9903bb7580245b5883060adb41cf3e7_5978f781665c46f5898d26123f73c7da(Parser yyq):base(yyq){yytext="";}}
-
-public class modality2_d1082eb795094c42b220acc0e8512328 : modality2 {
-  public modality2_d1082eb795094c42b220acc0e8512328(Parser yyq):base(yyq){}}
-
-public class modality2_65c4f542ddbd4e18bcb08dfa7f89efc6 : modality2 {
-  public modality2_65c4f542ddbd4e18bcb08dfa7f89efc6(Parser yyq):base(yyq){}}
-
-public class modality2_65c4f542ddbd4e18bcb08dfa7f89efc6_17d398d661fb4d528f09bb6bbab1450f : modality2_65c4f542ddbd4e18bcb08dfa7f89efc6 {
-  public modality2_65c4f542ddbd4e18bcb08dfa7f89efc6_17d398d661fb4d528f09bb6bbab1450f(Parser yyq):base(yyq){switch(
-	((MODAL)(yyq.StackAt(1).m_value))
-	.yytext){
-						case "must": yytext = "□"; break;
-						case "should": yytext = "◊"; break;
-						case "can": yytext = "◊◊"; break;
-						case "must-not": yytext = "~◊◊"; break;
-						case "should-not": yytext = "~◊"; break;
-						case "can-not": yytext = "~□"; break;
-						default: throw new InvalidOperationException();
-			}}}
-
-public class role_19de336b9f7f4160896933435e4fb29a : role {
-  public role_19de336b9f7f4160896933435e4fb29a(Parser yyq):base(yyq,
-	((NAME)(yyq.StackAt(0).m_value))
-	.yytext,false){}}
-
-public class role_1dd48d6cbe9549b084e63dbcf3a1aa81 : role {
-  public role_1dd48d6cbe9549b084e63dbcf3a1aa81(Parser yyq):base(yyq,
-	((NAME)(yyq.StackAt(1).m_value))
-	.yytext,true){}}
-
-public class objectRoleExpr1_447e56a3854146ce9506d780f10a1ba3 : objectRoleExpr1 {
-  public objectRoleExpr1_447e56a3854146ce9506d780f10a1ba3(Parser yyq):base(yyq,false,
-	((oobject)(yyq.StackAt(0).m_value))
-	){}}
-
-public class objectRoleExpr2_916548c0549c4e3392c7d97720703364 : objectRoleExpr2 {
-  public objectRoleExpr2_916548c0549c4e3392c7d97720703364(Parser yyq):base(yyq,false,null,
-	((role)(yyq.StackAt(0).m_value))
-	){}}
-
-public class objectRoleExpr2_bef62ec5bd3d466a851eadb99cdff5f6 : objectRoleExpr2 {
-  public objectRoleExpr2_bef62ec5bd3d466a851eadb99cdff5f6(Parser yyq):base(yyq,false,
-	((oobject)(yyq.StackAt(0).m_value))
-	,
-	((role)(yyq.StackAt(1).m_value))
-	){}}
-
-public class objectRoleExpr2_924e43f9f12c47d39f389b84218c39b2 : objectRoleExpr2 {
-  public objectRoleExpr2_924e43f9f12c47d39f389b84218c39b2(Parser yyq):base(yyq,false,
-	((oobjectRelated)(yyq.StackAt(0).m_value))
-	,
-	((role)(yyq.StackAt(1).m_value))
-	){}}
-
-public class objectRoleExpr3_efd2e20597084fa18a608bf2eebdaee0 : objectRoleExpr3 {
-  public objectRoleExpr3_efd2e20597084fa18a608bf2eebdaee0(Parser yyq):base(yyq,
-	((that)(yyq.StackAt(0).m_value))
-	,
-	((role)(yyq.StackAt(1).m_value))
-	){}}
-
-public class objectRoleExpr1_36cf0e01213f4d05a90288649fbc298a : objectRoleExpr1 {
-  public objectRoleExpr1_36cf0e01213f4d05a90288649fbc298a(Parser yyq):base(yyq,true,
-	((oobject)(yyq.StackAt(0).m_value))
-	){}}
-
-public class objectRoleExpr2_4563ca84b9a5499d9d0b46564a48e95d : objectRoleExpr2 {
-  public objectRoleExpr2_4563ca84b9a5499d9d0b46564a48e95d(Parser yyq):base(yyq,true,
-	((oobject)(yyq.StackAt(0).m_value))
-	,
-	((NAME)(yyq.StackAt(1).m_value))
-	.yytext){}}
-
-public class objectRoleExpr2_0b291fc985a044dbb25bd6ce57f4e694 : objectRoleExpr2 {
-  public objectRoleExpr2_0b291fc985a044dbb25bd6ce57f4e694(Parser yyq):base(yyq,true,
-	((oobjectRelated)(yyq.StackAt(0).m_value))
-	,
-	((NAME)(yyq.StackAt(1).m_value))
-	.yytext){}}
-
-public class objectRoleExpr2_1215fd8d349f4815b218576300ac412a : objectRoleExpr2 {
-  public objectRoleExpr2_1215fd8d349f4815b218576300ac412a(Parser yyq):base(yyq,true,
-	((oobject)(yyq.StackAt(0).m_value))
-	,
-	((NAME)(yyq.StackAt(2).m_value))
-	.yytext,true){}}
-
-public class objectRoleExpr2_8a5455a74e4b4e8e82837a108198e0cd : objectRoleExpr2 {
-  public objectRoleExpr2_8a5455a74e4b4e8e82837a108198e0cd(Parser yyq):base(yyq,true,
-	((oobjectRelated)(yyq.StackAt(0).m_value))
-	,
-	((NAME)(yyq.StackAt(2).m_value))
-	.yytext,true){}}
-
-public class instanceBigName_1e636d9f23c1424fb328abdd45d2ce29 : instanceBigName {
-  public instanceBigName_1e636d9f23c1424fb328abdd45d2ce29(Parser yyq):base(yyq,
-	((BIGNAME)(yyq.StackAt(0).m_value))
-	.yytext,false){}}
-
-public class instanceBigName_9280333231384117af3a6a0100620d76 : instanceBigName {
-  public instanceBigName_9280333231384117af3a6a0100620d76(Parser yyq):base(yyq,
-	((VERYBIGNAME)(yyq.StackAt(0).m_value))
-	.yytext,true){}}
-
-public class instanceThe_0e073159e58d4676ae81f9be6dc723ee : instanceThe {
-  public instanceThe_0e073159e58d4676ae81f9be6dc723ee(Parser yyq):base(yyq,false,
-	((single)(yyq.StackAt(0).m_value))
-	){}}
-
-public class instanceThe_aabecdb18b164b9e806c3f5407c38d6f : instanceThe {
-  public instanceThe_aabecdb18b164b9e806c3f5407c38d6f(Parser yyq):base(yyq,true,
-	((single)(yyq.StackAt(0).m_value))
-	){}}
-
-public class instanceList_d5ff625a1a5e40f2b562e8162854b3c4 : instanceList {
-  public instanceList_d5ff625a1a5e40f2b562e8162854b3c4(Parser yyq):base(yyq,
-	((instance)(yyq.StackAt(2).m_value))
-	,
-	((instance)(yyq.StackAt(0).m_value))
-	){}}
-
-public class instanceList_069c2d4f5b5a45a1befc5253260ec712 : instanceList {
-  public instanceList_069c2d4f5b5a45a1befc5253260ec712(Parser yyq):base(yyq,
-	((instanceList)(yyq.StackAt(2).m_value))
-	,
-	((instance)(yyq.StackAt(0).m_value))
-	){}}
-
-public class oobjectA_b25547576b434f7fab695d719256db02 : oobjectA {
-  public oobjectA_b25547576b434f7fab695d719256db02(Parser yyq):base(yyq,
-	((single)(yyq.StackAt(0).m_value))
-	){}}
-
-public class oobjectA_17fb8807dc2a404e8456e6658b43a07d : oobjectA {
-  public oobjectA_17fb8807dc2a404e8456e6658b43a07d(Parser yyq):base(yyq,
-	((NAME)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class oobjectA_ebcc38bea7724ceeb1528c0f415eb9fe : oobjectA {
-  public oobjectA_ebcc38bea7724ceeb1528c0f415eb9fe(Parser yyq):base(yyq,
-	((NAME)(yyq.StackAt(1).m_value))
-	.yytext,
-	((that)(yyq.StackAt(0).m_value))
-	){}}
-
-public class oobjectSomething_2939bf68e33d408393cc769e668447e1 : oobjectSomething {
-  public oobjectSomething_2939bf68e33d408393cc769e668447e1(Parser yyq):base(yyq){}}
-
-public class oobjectNothing_2901c595cf1540c19f93bb5c009cbb87 : oobjectNothing {
-  public oobjectNothing_2901c595cf1540c19f93bb5c009cbb87(Parser yyq):base(yyq){}}
-
-public class oobjectSomethingThat_07ef2c4b1ef34c98812ebce5f195afb5 : oobjectSomethingThat {
-  public oobjectSomethingThat_07ef2c4b1ef34c98812ebce5f195afb5(Parser yyq):base(yyq,
-	((that)(yyq.StackAt(0).m_value))
-	){}}
-
-public class oobjectInstance_722298a5591f4241b81f6afc6f9b4040 : oobjectInstance {
-  public oobjectInstance_722298a5591f4241b81f6afc6f9b4040(Parser yyq):base(yyq,
-	((instance)(yyq.StackAt(0).m_value))
-	){}}
-
-public class oobjectOnly_318ac4d9886640ad915d368dfcce1ff8 : oobjectOnly {
-  public oobjectOnly_318ac4d9886640ad915d368dfcce1ff8(Parser yyq):base(yyq,
-	((single)(yyq.StackAt(0).m_value))
-	){}}
-
-public class oobjectOnlyInstance_1efa92f90a8941c78aa48223d0dc46f8 : oobjectOnlyInstance {
-  public oobjectOnlyInstance_1efa92f90a8941c78aa48223d0dc46f8(Parser yyq):base(yyq,
-	((instance)(yyq.StackAt(0).m_value))
-	){}}
-
-public class oobjectOnlyNothing_8646f1419d734b9894c47da4bf657213 : oobjectOnlyNothing {
-  public oobjectOnlyNothing_8646f1419d734b9894c47da4bf657213(Parser yyq):base(yyq){}}
-
-public class oobjectOnlySomethingThat_623f154535ae4f53951b0fadee21be88 : oobjectOnlySomethingThat {
-  public oobjectOnlySomethingThat_623f154535ae4f53951b0fadee21be88(Parser yyq):base(yyq,
-	((that)(yyq.StackAt(0).m_value))
-	){}}
-
-public class oobjectSelf_107b7f335e9642db95cbe9eacf9e8599 : oobjectSelf {
-  public oobjectSelf_107b7f335e9642db95cbe9eacf9e8599(Parser yyq):base(yyq){}}
-
-public class oobjectBnd_f5bc457fb16a4e18af92122e283da35e : oobjectBnd {
-  public oobjectBnd_f5bc457fb16a4e18af92122e283da35e(Parser yyq):base(yyq,
-	((abstractbound)(yyq.StackAt(0).m_value))
-	){}}
-
-public class oobjectOnlyBnd_0f7bc12a73fe4b20b422df4fe7d65cf3 : oobjectOnlyBnd {
-  public oobjectOnlyBnd_0f7bc12a73fe4b20b422df4fe7d65cf3(Parser yyq):base(yyq,
-	((abstractbound)(yyq.StackAt(0).m_value))
-	){}}
-
-public class oobjectCmp_ff0528b2d05e491e8f6feadcdb7a5070 : oobjectCmp {
-  public oobjectCmp_ff0528b2d05e491e8f6feadcdb7a5070(Parser yyq):base(yyq,
-	((comparer)(yyq.StackAt(2).m_value))
-	.yytext,
-	((word_number)(yyq.StackAt(1).m_value))
-	.yytext,
-	((single)(yyq.StackAt(0).m_value))
-	){}}
-
-public class oobjectCmpInstance_62f6ed86ccc8445fbfb0f1cbe9b8ee54 : oobjectCmpInstance {
-  public oobjectCmpInstance_62f6ed86ccc8445fbfb0f1cbe9b8ee54(Parser yyq):base(yyq,
-	((comparer)(yyq.StackAt(2).m_value))
-	.yytext,
-	((word_number)(yyq.StackAt(1).m_value))
-	.yytext,
-	((instance)(yyq.StackAt(0).m_value))
-	){}}
-
-public class oobjectCmpBnd_ae7f63b9a17b4ffca0c504642566dc07 : oobjectCmpBnd {
-  public oobjectCmpBnd_ae7f63b9a17b4ffca0c504642566dc07(Parser yyq):base(yyq,
-	((comparer)(yyq.StackAt(2).m_value))
-	.yytext,
-	((word_number)(yyq.StackAt(1).m_value))
-	.yytext,
-	((abstractbound)(yyq.StackAt(0).m_value))
-	){}}
-
-public class singleName_96baba4832584aa5a9c41319d6aac993 : singleName {
-  public singleName_96baba4832584aa5a9c41319d6aac993(Parser yyq):base(yyq,
-	((NAME)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class singleThing_eff0badc6a2b437fbf4688f7c457b0ea : singleThing {
-  public singleThing_eff0badc6a2b437fbf4688f7c457b0ea(Parser yyq):base(yyq){}}
-
-public class singleThing_027b542c7d7d420f9939341d13468e6f : singleThing {
-  public singleThing_027b542c7d7d420f9939341d13468e6f(Parser yyq):base(yyq){}}
-
-public class singleThing_2c020c6f78d04c66affa2f215acad6f0 : singleThing {
-  public singleThing_2c020c6f78d04c66affa2f215acad6f0(Parser yyq):base(yyq){}}
-
-public class singleNameThat_dcf44b171bab44659e6789f964328462 : singleNameThat {
-  public singleNameThat_dcf44b171bab44659e6789f964328462(Parser yyq):base(yyq,
-	((NAME)(yyq.StackAt(1).m_value))
-	.yytext,
-	((that)(yyq.StackAt(0).m_value))
-	){}}
-
-public class singleThingThat_4af593f3c9c942aa8d42c41502b3cfd9 : singleThingThat {
-  public singleThingThat_4af593f3c9c942aa8d42c41502b3cfd9(Parser yyq):base(yyq,
-	((that)(yyq.StackAt(0).m_value))
-	){}}
-
-public class singleThingThat_c13bf3918b4e485590d9146d5d5071de : singleThingThat {
-  public singleThingThat_c13bf3918b4e485590d9146d5d5071de(Parser yyq):base(yyq,
-	((that)(yyq.StackAt(0).m_value))
-	){}}
-
-public class singleThingThat_5aa505e771854f21833e7d6c82f10846 : singleThingThat {
-  public singleThingThat_5aa505e771854f21833e7d6c82f10846(Parser yyq):base(yyq,
-	((that)(yyq.StackAt(0).m_value))
-	){}}
-
-public class singleOneOf_f9240bafbcaf418d8bfe10765ad8e1f9 : singleOneOf {
-  public singleOneOf_f9240bafbcaf418d8bfe10765ad8e1f9(Parser yyq):base(yyq,
-	((instanceList)(yyq.StackAt(0).m_value))
-	){}}
-
-public class singleOneOf_9f64f95e0fe54d98a7cc112260916b4c : singleOneOf {
-  public singleOneOf_9f64f95e0fe54d98a7cc112260916b4c(Parser yyq):base(yyq,
-	((instanceList)(yyq.StackAt(1).m_value))
-	){}}
-
-public class thatOrLoop_268216a573c34a43bde29d7d942ad849 : thatOrLoop {
-  public thatOrLoop_268216a573c34a43bde29d7d942ad849(Parser yyq):base(yyq,
-	((orloop)(yyq.StackAt(0).m_value))
-	){}}
-
-public class thatOrLoop_cc5e77cf72b948a89f0ce8fc8ddb7303 : thatOrLoop {
-  public thatOrLoop_cc5e77cf72b948a89f0ce8fc8ddb7303(Parser yyq):base(yyq,
-	((orloop)(yyq.StackAt(1).m_value))
-	){}}
-
-public class andloop_e2351c0e014c4a929e8994e6c5548a06 : andloop {
-  public andloop_e2351c0e014c4a929e8994e6c5548a06(Parser yyq):base(yyq,
-	((objectRoleExpr)(yyq.StackAt(0).m_value))
-	){}}
-
-public class andloop_e3de1582f6d74803ab551f91b1708bcd : andloop {
-  public andloop_e3de1582f6d74803ab551f91b1708bcd(Parser yyq):base(yyq,
-	((andloop)(yyq.StackAt(2).m_value))
-	,
-	((objectRoleExpr)(yyq.StackAt(0).m_value))
-	){}}
-
-public class orloop_009a8290e37345849a1180987de9be5b : orloop {
-  public orloop_009a8290e37345849a1180987de9be5b(Parser yyq):base(yyq,
-	((andloop)(yyq.StackAt(0).m_value))
-	){}}
-
-public class orloop_a4d7a2437b774b5f91927bcf3a5d48b8 : orloop {
-  public orloop_a4d7a2437b774b5f91927bcf3a5d48b8(Parser yyq):base(yyq,
-	((orloop)(yyq.StackAt(2).m_value))
-	,
-	((andloop)(yyq.StackAt(0).m_value))
-	){}}
-
-public class comparer_1592b4ba6da04d7aa71e8b2f19b6bc01 : comparer {
-  public comparer_1592b4ba6da04d7aa71e8b2f19b6bc01(Parser yyq):base(yyq){}}
-
-public class comparer_a0c0bb93e6ae469793321c37956af897 : comparer {
-  public comparer_a0c0bb93e6ae469793321c37956af897(Parser yyq):base(yyq){}}
-
-public class comparer_a0c0bb93e6ae469793321c37956af897_04b1cd80d9ec4dc9b2e56bad4333cc56 : comparer_a0c0bb93e6ae469793321c37956af897 {
-  public comparer_a0c0bb93e6ae469793321c37956af897_04b1cd80d9ec4dc9b2e56bad4333cc56(Parser yyq):base(yyq){yytext="=";}}
-
-public class comparer_145f81cae96f4e20b3227cffa71b35d3 : comparer {
-  public comparer_145f81cae96f4e20b3227cffa71b35d3(Parser yyq):base(yyq){}}
-
-public class comparer_5ecbaad0e39b422491fc9c98728523fc : comparer {
-  public comparer_5ecbaad0e39b422491fc9c98728523fc(Parser yyq):base(yyq){}}
-
-public class comparer_5ecbaad0e39b422491fc9c98728523fc_ba645194d6924b0087226328f3ed2351 : comparer_5ecbaad0e39b422491fc9c98728523fc {
-  public comparer_5ecbaad0e39b422491fc9c98728523fc_ba645194d6924b0087226328f3ed2351(Parser yyq):base(yyq){switch(
-	((COMPARER)(yyq.StackAt(0).m_value))
-	.yytext){
-		        case "at-most": yytext = "≤"; break;
-		        case "at-least": yytext = "≥"; break;
-		        case "less-than": yytext = "<"; break;
-		        case "more-than": yytext = ">"; break;
-		        case "different-than": yytext = "≠"; break;
-		        default: throw new InvalidOperationException();
-			}}}
-
-public class word_number_f7873402a182481d9f3d6ec914ae2965 : word_number {
-  public word_number_f7873402a182481d9f3d6ec914ae2965(Parser yyq):base(yyq){}}
-
-public class word_number_f29f4b45d4f6440faab7b038d63e8016 : word_number {
-  public word_number_f29f4b45d4f6440faab7b038d63e8016(Parser yyq):base(yyq){}}
-
-public class word_number_f29f4b45d4f6440faab7b038d63e8016_1ce16831796c4da3aef1ace355e30bbe : word_number_f29f4b45d4f6440faab7b038d63e8016 {
-  public word_number_f29f4b45d4f6440faab7b038d63e8016_1ce16831796c4da3aef1ace355e30bbe(Parser yyq):base(yyq){switch(
-	((WORDNUM)(yyq.StackAt(0).m_value))
-	.yytext){
-        case "zero": yytext = "0"; break;
-        case "one": yytext = "1"; break;
-        case "two": yytext = "2"; break;
-        case "three": yytext = "3"; break;
-        case "four": yytext = "4"; break;
-        case "five": yytext = "5"; break;
-        case "six": yytext = "6"; break;
-        case "seven": yytext = "7"; break;
-        case "eight": yytext = "8"; break;
-        case "nine": yytext = "9"; break;
-        case "ten": yytext = "10"; break;
-        case "eleven": yytext = "11"; break;
-        case "twelve": yytext = "12"; break;
-		case "thirteen": yytext = "13"; break;
-		case "fourteen": yytext = "14"; break;
-		case "fifteen": yytext = "15"; break;
-		case "sixteen": yytext = "16"; break;
-		case "seventeen": yytext = "17"; break;
-		case "eighteen": yytext = "18"; break;
-		case "nineteen": yytext = "19"; break;
-		case "twenty": yytext = "20"; break;
-        default: throw new InvalidOperationException();
-			}}}
-
-public class word_number_e49d3cc248904823a1e3a1a3e0636e87 : word_number {
-  public word_number_e49d3cc248904823a1e3a1a3e0636e87(Parser yyq):base(yyq){}}
-
-public class word_number_75bd5a6cddf347a09ca63021c8ed26ad : word_number {
-  public word_number_75bd5a6cddf347a09ca63021c8ed26ad(Parser yyq):base(yyq){}}
-
-public class word_number_75bd5a6cddf347a09ca63021c8ed26ad_faba2b6d66ab4550a02bb74333041ec9 : word_number_75bd5a6cddf347a09ca63021c8ed26ad {
-  public word_number_75bd5a6cddf347a09ca63021c8ed26ad_faba2b6d66ab4550a02bb74333041ec9(Parser yyq):base(yyq){yytext=
-	((NAT)(yyq.StackAt(0).m_value))
-	.yytext;}}
-
-public class facet_522c79e37a364067a3af29e0c191bfac : facet {
-  public facet_522c79e37a364067a3af29e0c191bfac(Parser yyq):base(yyq,(
-	((COMPARER2)(yyq.StackAt(1).m_value))
-	.yytext=="lower-or-equal-to"?"≤":(
-	((COMPARER2)(yyq.StackAt(1).m_value))
-	.yytext=="greater-or-equal-to"?"≥":(
-	((COMPARER2)(yyq.StackAt(1).m_value))
-	.yytext=="lower-than"?"<":">"))),
-	((dataval)(yyq.StackAt(0).m_value))
-	){}}
-
-public class facet_0d405be671eb4858b930ed5b5683541e : facet {
-  public facet_0d405be671eb4858b930ed5b5683541e(Parser yyq):base(yyq,"#",
-	((STR)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class facet_7ac077192b684ee5a57818db00d8ba40 : facet {
-  public facet_7ac077192b684ee5a57818db00d8ba40(Parser yyq):base(yyq,"<->",
-	((NAT)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class facet_35a26489569e44c89c44ce226a3368bc : facet {
-  public facet_35a26489569e44c89c44ce226a3368bc(Parser yyq):base(yyq,"<-> "+(
-	((COMPARER2)(yyq.StackAt(1).m_value))
-	.yytext=="lower-or-equal-to"?"≤":(
-	((COMPARER2)(yyq.StackAt(1).m_value))
-	.yytext=="greater-or-equal-to"?"≥":(
-	((COMPARER2)(yyq.StackAt(1).m_value))
-	.yytext=="lower-than"?"<":">"))),
-	((NAT)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class facetList_165d6454d84548f6bd60c95dd795ab59 : facetList {
-  public facetList_165d6454d84548f6bd60c95dd795ab59(Parser yyq):base(yyq,
-	((facet)(yyq.StackAt(0).m_value))
-	){}}
-
-public class facetList_4439de31ce8d4a6dad5120738bb949b8 : facetList {
-  public facetList_4439de31ce8d4a6dad5120738bb949b8(Parser yyq):base(yyq,
-	((facetList)(yyq.StackAt(2).m_value))
-	,
-	((facet)(yyq.StackAt(0).m_value))
-	){}}
-
-public class boundFacets_b18592c63926410fa1be8207c1c1239b : boundFacets {
-  public boundFacets_b18592c63926410fa1be8207c1c1239b(Parser yyq):base(yyq,
-	((facetList)(yyq.StackAt(0).m_value))
-	){}}
-
-public class boundVal_c828dcad517f46a4a90fc47a1f03bc1c : boundVal {
-  public boundVal_c828dcad517f46a4a90fc47a1f03bc1c(Parser yyq):base(yyq,"=",
-	((dataval)(yyq.StackAt(0).m_value))
-	){}}
-
-public class boundVal_29311d3be24545c1a3d44fc83ce5932f : boundVal {
-  public boundVal_29311d3be24545c1a3d44fc83ce5932f(Parser yyq):base(yyq,"≠",
-	((dataval)(yyq.StackAt(0).m_value))
-	){}}
-
-public class boundOneOf_95c897a4a52e48cbbdecc5b57b19d24b : boundOneOf {
-  public boundOneOf_95c897a4a52e48cbbdecc5b57b19d24b(Parser yyq):base(yyq,
-	((datavalList)(yyq.StackAt(1).m_value))
-	){}}
-
-public class boundTop_275235405d9443ac9a990108000eb708 : boundTop {
-  public boundTop_275235405d9443ac9a990108000eb708(Parser yyq):base(yyq){}}
-
-public class boundTotal_aece926e36334b22b0ccccd4a9967b6f : boundTotal {
-  public boundTotal_aece926e36334b22b0ccccd4a9967b6f(Parser yyq):base(yyq,
-	((DATATYPENAME)(yyq.StackAt(2).m_value))
-	.yytext=="integer"?"NUM":(
-	((DATATYPENAME)(yyq.StackAt(2).m_value))
-	.yytext=="string"?"STR":(
-	((DATATYPENAME)(yyq.StackAt(2).m_value))
-	.yytext=="real"?"DBL":(
-	((DATATYPENAME)(yyq.StackAt(2).m_value))
-	.yytext=="duration"?"DUR":(
-	((DATATYPENAME)(yyq.StackAt(2).m_value))
-	.yytext=="datetime"?"DTM":"BOL"))))){}}
-
-public class boundDataType_0fc663b1365a4a469182eee5fcb869b1 : boundDataType {
-  public boundDataType_0fc663b1365a4a469182eee5fcb869b1(Parser yyq):base(yyq,
-	((NAME)(yyq.StackAt(2).m_value))
-	.yytext){}}
-
-public class boundIdent_ca48d918cfd84dfda3281d288116a0d9 : boundIdent {
-  public boundIdent_ca48d918cfd84dfda3281d288116a0d9(Parser yyq):base(yyq,
-	((abstractbound)(yyq.StackAt(1).m_value))
-	){}}
-
-public class boundAnd_9c7407cefecf40c9b2a9028e2662b542 : boundAnd {
-  public boundAnd_9c7407cefecf40c9b2a9028e2662b542(Parser yyq):base(yyq,
-	((abstractbound)(yyq.StackAt(2).m_value))
-	,
-	((abstractbound)(yyq.StackAt(0).m_value))
-	){}}
-
-public class boundOr_175e4bd629cc4ce4bbcb2a4999452b4c : boundOr {
-  public boundOr_175e4bd629cc4ce4bbcb2a4999452b4c(Parser yyq):base(yyq,
-	((abstractbound)(yyq.StackAt(2).m_value))
-	,
-	((abstractbound)(yyq.StackAt(0).m_value))
-	){}}
-
-public class boundNot_45259cdb5cc64446ab1766109ff78fdf : boundNot {
-  public boundNot_45259cdb5cc64446ab1766109ff78fdf(Parser yyq):base(yyq,
-	((abstractbound)(yyq.StackAt(0).m_value))
-	){}}
-
-public class Number_695f0fa0c7f749ee9618398b97f99dc9 : Number {
-  public Number_695f0fa0c7f749ee9618398b97f99dc9(Parser yyq):base(yyq,
-	((NAT)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class Number_905fb068ff8c4500a200cb7d77c377a0 : Number {
-  public Number_905fb068ff8c4500a200cb7d77c377a0(Parser yyq):base(yyq,
-	((NUM)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class StrData_cfad7327880546028155730124b7a9c2 : StrData {
-  public StrData_cfad7327880546028155730124b7a9c2(Parser yyq):base(yyq,
-	((STR)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class DateTimeData_2cce692ba0a5488c9b79920d2e985eaf : DateTimeData {
-  public DateTimeData_2cce692ba0a5488c9b79920d2e985eaf(Parser yyq):base(yyq,
-	((DTM)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class Duration_9e45f683e8974e1281bfe106323d0b43 : Duration {
-  public Duration_9e45f683e8974e1281bfe106323d0b43(Parser yyq):base(yyq,
-	((DUR)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class Float_9a6d2ea064fb4affa593690db836281b : Float {
-  public Float_9a6d2ea064fb4affa593690db836281b(Parser yyq):base(yyq,
-	((DBL)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class Bool_7bd728463a3648f4821dcc1df88074ae : Bool {
-  public Bool_7bd728463a3648f4821dcc1df88074ae(Parser yyq):base(yyq,
-	((BOL)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class datavalList_8c8a6b39af874ea182c64a8d745197bc : datavalList {
-  public datavalList_8c8a6b39af874ea182c64a8d745197bc(Parser yyq):base(yyq,
-	((dataval)(yyq.StackAt(2).m_value))
-	,
-	((dataval)(yyq.StackAt(0).m_value))
-	){}}
-
-public class datavalList_bbab639eab514464a606fc27d2b58cfb : datavalList {
-  public datavalList_bbab639eab514464a606fc27d2b58cfb(Parser yyq):base(yyq,
-	((datavalList)(yyq.StackAt(2).m_value))
-	,
-	((dataval)(yyq.StackAt(0).m_value))
-	){}}
-public class yyendl: YyParser {
-  public override object Action(Parser yyq,SYMBOL yysym, int yyact) {
-    switch(yyact) {
-	 case -1: break; //// keep compiler happy
-}  return null; }
-
-public class andComma_e5f37ebe59584ba2868ea509fe54bb77 : andComma {
-  public andComma_e5f37ebe59584ba2868ea509fe54bb77(Parser yyq):base(yyq){}}
-
-public class andComma_7a1140bd0fba4a04bdcf342ba6e7a16d : andComma {
-  public andComma_7a1140bd0fba4a04bdcf342ba6e7a16d(Parser yyq):base(yyq){}}
-
-public class isBeAre_c074f3547e2642baae4dee8d613e8409 : isBeAre {
-  public isBeAre_c074f3547e2642baae4dee8d613e8409(Parser yyq):base(yyq){}}
-
-public class isBeAre_5c14e059db714db585d1b5f2d4ff642d : isBeAre {
-  public isBeAre_5c14e059db714db585d1b5f2d4ff642d(Parser yyq):base(yyq){}}
-
-public class doesNot_a3f6472835454ce98820f5340279efd6 : doesNot {
-  public doesNot_a3f6472835454ce98820f5340279efd6(Parser yyq):base(yyq){}}
-
-public class doesNot_ffd19021ca9b42d185d150974fcf38fc : doesNot {
-  public doesNot_ffd19021ca9b42d185d150974fcf38fc(Parser yyq):base(yyq){}}
-
-public class doesNotBy_85bea99ab26f4aca9250e879bcb8f56d : doesNotBy {
-  public doesNotBy_85bea99ab26f4aca9250e879bcb8f56d(Parser yyq):base(yyq){}}
-
-public class doesNotBy_996156a337804089bc11b27d2ae541de : doesNotBy {
-  public doesNotBy_996156a337804089bc11b27d2ae541de(Parser yyq):base(yyq){}}
-
-public class doesNotBy_efdc773be95d4eb89dc96e2228b39f7c : doesNotBy {
-  public doesNotBy_efdc773be95d4eb89dc96e2228b39f7c(Parser yyq):base(yyq){}}
-
-public class aAn_4da7a5201e2b453cab1bb992ac99294f : aAn {
-  public aAn_4da7a5201e2b453cab1bb992ac99294f(Parser yyq):base(yyq){}}
-
-public class orComma_de6f2dda1b30498c9c2c5d4e08dcbc02 : orComma {
-  public orComma_de6f2dda1b30498c9c2c5d4e08dcbc02(Parser yyq):base(yyq){}}
-
-public class orComma_c868b6e1644e46dd8b823005b69c36f6 : orComma {
-  public orComma_c868b6e1644e46dd8b823005b69c36f6(Parser yyq):base(yyq){}}
-public yyendl():base() { arr = new int[] { 
+using System;
+using Tools;
+namespace CogniPy.CNL.EN
+{
+    //%+paragraph+102
+    public partial class paragraph : PartialSymbol
+    {
+        public override string yyname_endl { get { return "paragraph"; } }
+        public override int yynum_endl { get { return 102; } }
+    }
+    //%+sentence+103
+    public partial class sentence : PartialSymbol
+    {
+        public override string yyname_endl { get { return "sentence"; } }
+        public override int yynum_endl { get { return 103; } }
+    }
+    //%+annotation+104
+    public partial class annotation : sentence
+    {
+        public override string yyname_endl { get { return "annotation"; } }
+        public override int yynum_endl { get { return 104; } }
+    }
+    //%+subsumption+105
+    public partial class subsumption : sentence
+    {
+        public override string yyname_endl { get { return "subsumption"; } }
+        public override int yynum_endl { get { return 105; } }
+    }
+    //%+nosubsumption+106
+    public partial class nosubsumption : sentence
+    {
+        public override string yyname_endl { get { return "nosubsumption"; } }
+        public override int yynum_endl { get { return 106; } }
+    }
+    //%+subsumption_if+107
+    public partial class subsumption_if : sentence
+    {
+        public override string yyname_endl { get { return "subsumption_if"; } }
+        public override int yynum_endl { get { return 107; } }
+    }
+    //%+datatypedef+108
+    public partial class datatypedef : sentence
+    {
+        public override string yyname_endl { get { return "datatypedef"; } }
+        public override int yynum_endl { get { return 108; } }
+    }
+    //%+equivalence2+109
+    public partial class equivalence2 : sentence
+    {
+        public override string yyname_endl { get { return "equivalence2"; } }
+        public override int yynum_endl { get { return 109; } }
+    }
+    //%+exclusives+110
+    public partial class exclusives : sentence
+    {
+        public override string yyname_endl { get { return "exclusives"; } }
+        public override int yynum_endl { get { return 110; } }
+    }
+    //%+exclusiveunion+111
+    public partial class exclusiveunion : sentence
+    {
+        public override string yyname_endl { get { return "exclusiveunion"; } }
+        public override int yynum_endl { get { return 111; } }
+    }
+    //%+rolesubsumption+112
+    public partial class rolesubsumption : sentence
+    {
+        public override string yyname_endl { get { return "rolesubsumption"; } }
+        public override int yynum_endl { get { return 112; } }
+    }
+    //%+roleequivalence2+113
+    public partial class roleequivalence2 : sentence
+    {
+        public override string yyname_endl { get { return "roleequivalence2"; } }
+        public override int yynum_endl { get { return 113; } }
+    }
+    //%+roledisjoint2+114
+    public partial class roledisjoint2 : sentence
+    {
+        public override string yyname_endl { get { return "roledisjoint2"; } }
+        public override int yynum_endl { get { return 114; } }
+    }
+    //%+datarolesubsumption+115
+    public partial class datarolesubsumption : sentence
+    {
+        public override string yyname_endl { get { return "datarolesubsumption"; } }
+        public override int yynum_endl { get { return 115; } }
+    }
+    //%+dataroleequivalence2+116
+    public partial class dataroleequivalence2 : sentence
+    {
+        public override string yyname_endl { get { return "dataroleequivalence2"; } }
+        public override int yynum_endl { get { return 116; } }
+    }
+    //%+dataroledisjoint2+117
+    public partial class dataroledisjoint2 : sentence
+    {
+        public override string yyname_endl { get { return "dataroledisjoint2"; } }
+        public override int yynum_endl { get { return 117; } }
+    }
+    //%+haskey+118
+    public partial class haskey : sentence
+    {
+        public override string yyname_endl { get { return "haskey"; } }
+        public override int yynum_endl { get { return 118; } }
+    }
+    //%+subject+119
+    public partial class subject : PartialSymbol
+    {
+        public override string yyname_endl { get { return "subject"; } }
+        public override int yynum_endl { get { return 119; } }
+    }
+    //%+subjectEvery+120
+    public partial class subjectEvery : subject
+    {
+        public override string yyname_endl { get { return "subjectEvery"; } }
+        public override int yynum_endl { get { return 120; } }
+    }
+    //%+subjectEverything+121
+    public partial class subjectEverything : subject
+    {
+        public override string yyname_endl { get { return "subjectEverything"; } }
+        public override int yynum_endl { get { return 121; } }
+    }
+    //%+subjectBigName+122
+    public partial class subjectBigName : subject
+    {
+        public override string yyname_endl { get { return "subjectBigName"; } }
+        public override int yynum_endl { get { return 122; } }
+    }
+    //%+subjectThe+123
+    public partial class subjectThe : subject
+    {
+        public override string yyname_endl { get { return "subjectThe"; } }
+        public override int yynum_endl { get { return 123; } }
+    }
+    //%+nosubject+124
+    public partial class nosubject : PartialSymbol
+    {
+        public override string yyname_endl { get { return "nosubject"; } }
+        public override int yynum_endl { get { return 124; } }
+    }
+    //%+subjectNo+125
+    public partial class subjectNo : nosubject
+    {
+        public override string yyname_endl { get { return "subjectNo"; } }
+        public override int yynum_endl { get { return 125; } }
+    }
+    //%+subjectNothing+126
+    public partial class subjectNothing : nosubject
+    {
+        public override string yyname_endl { get { return "subjectNothing"; } }
+        public override int yynum_endl { get { return 126; } }
+    }
+    //%+objectRoleExpr+127
+    public partial class objectRoleExpr : PartialSymbol
+    {
+        public override string yyname_endl { get { return "objectRoleExpr"; } }
+        public override int yynum_endl { get { return 127; } }
+    }
+    //%+objectRoleExpr1+128
+    public partial class objectRoleExpr1 : objectRoleExpr
+    {
+        public override string yyname_endl { get { return "objectRoleExpr1"; } }
+        public override int yynum_endl { get { return 128; } }
+    }
+    //%+objectRoleExpr2+129
+    public partial class objectRoleExpr2 : objectRoleExpr
+    {
+        public override string yyname_endl { get { return "objectRoleExpr2"; } }
+        public override int yynum_endl { get { return 129; } }
+    }
+    //%+objectRoleExpr3+130
+    public partial class objectRoleExpr3 : objectRoleExpr
+    {
+        public override string yyname_endl { get { return "objectRoleExpr3"; } }
+        public override int yynum_endl { get { return 130; } }
+    }
+    //%+modality+131
+    public partial class modality : PartialSymbol
+    {
+        public override string yyname_endl { get { return "modality"; } }
+        public override int yynum_endl { get { return 131; } }
+    }
+    //%+isBeAre+132
+    public partial class isBeAre : PartialSymbol
+    {
+        public override string yyname_endl { get { return "isBeAre"; } }
+        public override int yynum_endl { get { return 132; } }
+    }
+    //%+aAn+133
+    public partial class aAn : PartialSymbol
+    {
+        public override string yyname_endl { get { return "aAn"; } }
+        public override int yynum_endl { get { return 133; } }
+    }
+    //%+valueOrThing+134
+    public partial class valueOrThing : PartialSymbol
+    {
+        public override string yyname_endl { get { return "valueOrThing"; } }
+        public override int yynum_endl { get { return 134; } }
+    }
+    //%+instance+135
+    public partial class instance : PartialSymbol
+    {
+        public override string yyname_endl { get { return "instance"; } }
+        public override int yynum_endl { get { return 135; } }
+    }
+    //%+instanceThe+136
+    public partial class instanceThe : instance
+    {
+        public override string yyname_endl { get { return "instanceThe"; } }
+        public override int yynum_endl { get { return 136; } }
+    }
+    //%+instanceBigName+137
+    public partial class instanceBigName : instance
+    {
+        public override string yyname_endl { get { return "instanceBigName"; } }
+        public override int yynum_endl { get { return 137; } }
+    }
+    //%+instanceList+138
+    public partial class instanceList : PartialSymbol
+    {
+        public override string yyname_endl { get { return "instanceList"; } }
+        public override int yynum_endl { get { return 138; } }
+    }
+    //%+chain+139
+    public partial class chain : PartialSymbol
+    {
+        public override string yyname_endl { get { return "chain"; } }
+        public override int yynum_endl { get { return 139; } }
+    }
+    //%+orObjectRoleExprChain+140
+    public partial class orObjectRoleExprChain : PartialSymbol
+    {
+        public override string yyname_endl { get { return "orObjectRoleExprChain"; } }
+        public override int yynum_endl { get { return 140; } }
+    }
+    //%+andanyrolechain+141
+    public partial class andanyrolechain : PartialSymbol
+    {
+        public override string yyname_endl { get { return "andanyrolechain"; } }
+        public override int yynum_endl { get { return 141; } }
+    }
+    //%+oobject+142
+    public partial class oobject : PartialSymbol
+    {
+        public override string yyname_endl { get { return "oobject"; } }
+        public override int yynum_endl { get { return 142; } }
+    }
+    //%+oobjectA+143
+    public partial class oobjectA : oobject
+    {
+        public override string yyname_endl { get { return "oobjectA"; } }
+        public override int yynum_endl { get { return 143; } }
+    }
+    //%+oobjectInstance+144
+    public partial class oobjectInstance : oobject
+    {
+        public override string yyname_endl { get { return "oobjectInstance"; } }
+        public override int yynum_endl { get { return 144; } }
+    }
+    //%+oobjectRelated+145
+    public partial class oobjectRelated : oobject
+    {
+        public override string yyname_endl { get { return "oobjectRelated"; } }
+        public override int yynum_endl { get { return 145; } }
+    }
+    //%+oobjectOnly+146
+    public partial class oobjectOnly : oobjectRelated
+    {
+        public override string yyname_endl { get { return "oobjectOnly"; } }
+        public override int yynum_endl { get { return 146; } }
+    }
+    //%+oobjectOnlyInstance+147
+    public partial class oobjectOnlyInstance : oobjectRelated
+    {
+        public override string yyname_endl { get { return "oobjectOnlyInstance"; } }
+        public override int yynum_endl { get { return 147; } }
+    }
+    //%+oobjectCardinal+148
+    public partial class oobjectCardinal : oobjectRelated
+    {
+        public override string yyname_endl { get { return "oobjectCardinal"; } }
+        public override int yynum_endl { get { return 148; } }
+    }
+    //%+oobjectCmp+149
+    public partial class oobjectCmp : oobjectCardinal
+    {
+        public override string yyname_endl { get { return "oobjectCmp"; } }
+        public override int yynum_endl { get { return 149; } }
+    }
+    //%+oobjectCmpInstance+150
+    public partial class oobjectCmpInstance : oobjectCardinal
+    {
+        public override string yyname_endl { get { return "oobjectCmpInstance"; } }
+        public override int yynum_endl { get { return 150; } }
+    }
+    //%+oobjectBnd+151
+    public partial class oobjectBnd : oobjectRelated
+    {
+        public override string yyname_endl { get { return "oobjectBnd"; } }
+        public override int yynum_endl { get { return 151; } }
+    }
+    //%+oobjectOnlyBnd+152
+    public partial class oobjectOnlyBnd : oobjectRelated
+    {
+        public override string yyname_endl { get { return "oobjectOnlyBnd"; } }
+        public override int yynum_endl { get { return 152; } }
+    }
+    //%+oobjectCmpBnd+153
+    public partial class oobjectCmpBnd : oobjectCardinal
+    {
+        public override string yyname_endl { get { return "oobjectCmpBnd"; } }
+        public override int yynum_endl { get { return 153; } }
+    }
+    //%+oobjectSelf+154
+    public partial class oobjectSelf : oobjectRelated
+    {
+        public override string yyname_endl { get { return "oobjectSelf"; } }
+        public override int yynum_endl { get { return 154; } }
+    }
+    //%+oobjectSomething+155
+    public partial class oobjectSomething : oobject
+    {
+        public override string yyname_endl { get { return "oobjectSomething"; } }
+        public override int yynum_endl { get { return 155; } }
+    }
+    //%+oobjectNothing+156
+    public partial class oobjectNothing : oobject
+    {
+        public override string yyname_endl { get { return "oobjectNothing"; } }
+        public override int yynum_endl { get { return 156; } }
+    }
+    //%+oobjectOnlyNothing+157
+    public partial class oobjectOnlyNothing : oobjectRelated
+    {
+        public override string yyname_endl { get { return "oobjectOnlyNothing"; } }
+        public override int yynum_endl { get { return 157; } }
+    }
+    //%+oobjectSomethingThat+158
+    public partial class oobjectSomethingThat : oobject
+    {
+        public override string yyname_endl { get { return "oobjectSomethingThat"; } }
+        public override int yynum_endl { get { return 158; } }
+    }
+    //%+oobjectOnlySomethingThat+159
+    public partial class oobjectOnlySomethingThat : oobjectRelated
+    {
+        public override string yyname_endl { get { return "oobjectOnlySomethingThat"; } }
+        public override int yynum_endl { get { return 159; } }
+    }
+    //%+role+160
+    public partial class role : PartialSymbol
+    {
+        public override string yyname_endl { get { return "role"; } }
+        public override int yynum_endl { get { return 160; } }
+    }
+    //%+roleWithXY+161
+    public partial class roleWithXY : PartialSymbol
+    {
+        public override string yyname_endl { get { return "roleWithXY"; } }
+        public override int yynum_endl { get { return 161; } }
+    }
+    //%+notRoleWithXY+162
+    public partial class notRoleWithXY : PartialSymbol
+    {
+        public override string yyname_endl { get { return "notRoleWithXY"; } }
+        public override int yynum_endl { get { return 162; } }
+    }
+    //%+single+163
+    public partial class single : PartialSymbol
+    {
+        public override string yyname_endl { get { return "single"; } }
+        public override int yynum_endl { get { return 163; } }
+    }
+    //%+singleName+164
+    public partial class singleName : single
+    {
+        public override string yyname_endl { get { return "singleName"; } }
+        public override int yynum_endl { get { return 164; } }
+    }
+    //%+singleThing+165
+    public partial class singleThing : single
+    {
+        public override string yyname_endl { get { return "singleThing"; } }
+        public override int yynum_endl { get { return 165; } }
+    }
+    //%+singleNameThat+166
+    public partial class singleNameThat : single
+    {
+        public override string yyname_endl { get { return "singleNameThat"; } }
+        public override int yynum_endl { get { return 166; } }
+    }
+    //%+singleThingThat+167
+    public partial class singleThingThat : single
+    {
+        public override string yyname_endl { get { return "singleThingThat"; } }
+        public override int yynum_endl { get { return 167; } }
+    }
+    //%+singleOneOf+168
+    public partial class singleOneOf : single
+    {
+        public override string yyname_endl { get { return "singleOneOf"; } }
+        public override int yynum_endl { get { return 168; } }
+    }
+    //%+that+169
+    public partial class that : PartialSymbol
+    {
+        public override string yyname_endl { get { return "that"; } }
+        public override int yynum_endl { get { return 169; } }
+    }
+    //%+thatOrLoop+170
+    public partial class thatOrLoop : that
+    {
+        public override string yyname_endl { get { return "thatOrLoop"; } }
+        public override int yynum_endl { get { return 170; } }
+    }
+    //%+andloop+171
+    public partial class andloop : PartialSymbol
+    {
+        public override string yyname_endl { get { return "andloop"; } }
+        public override int yynum_endl { get { return 171; } }
+    }
+    //%+orloop+172
+    public partial class orloop : PartialSymbol
+    {
+        public override string yyname_endl { get { return "orloop"; } }
+        public override int yynum_endl { get { return 172; } }
+    }
+    //%+comparer+173
+    public partial class comparer : PartialSymbol
+    {
+        public override string yyname_endl { get { return "comparer"; } }
+        public override int yynum_endl { get { return 173; } }
+    }
+    //%+word_number+174
+    public partial class word_number : PartialSymbol
+    {
+        public override string yyname_endl { get { return "word_number"; } }
+        public override int yynum_endl { get { return 174; } }
+    }
+    //%+dataval+175
+    public partial class dataval : PartialSymbol
+    {
+        public override string yyname_endl { get { return "dataval"; } }
+        public override int yynum_endl { get { return 175; } }
+    }
+    //%+Number+176
+    public partial class Number : dataval
+    {
+        public override string yyname_endl { get { return "Number"; } }
+        public override int yynum_endl { get { return 176; } }
+    }
+    //%+StrData+177
+    public partial class StrData : dataval
+    {
+        public override string yyname_endl { get { return "StrData"; } }
+        public override int yynum_endl { get { return 177; } }
+    }
+    //%+Float+178
+    public partial class Float : dataval
+    {
+        public override string yyname_endl { get { return "Float"; } }
+        public override int yynum_endl { get { return 178; } }
+    }
+    //%+Bool+179
+    public partial class Bool : dataval
+    {
+        public override string yyname_endl { get { return "Bool"; } }
+        public override int yynum_endl { get { return 179; } }
+    }
+    //%+DateTimeData+180
+    public partial class DateTimeData : dataval
+    {
+        public override string yyname_endl { get { return "DateTimeData"; } }
+        public override int yynum_endl { get { return 180; } }
+    }
+    //%+Duration+181
+    public partial class Duration : dataval
+    {
+        public override string yyname_endl { get { return "Duration"; } }
+        public override int yynum_endl { get { return 181; } }
+    }
+    //%+facet+182
+    public partial class facet : PartialSymbol
+    {
+        public override string yyname_endl { get { return "facet"; } }
+        public override int yynum_endl { get { return 182; } }
+    }
+    //%+facetList+183
+    public partial class facetList : PartialSymbol
+    {
+        public override string yyname_endl { get { return "facetList"; } }
+        public override int yynum_endl { get { return 183; } }
+    }
+    //%+abstractbound+184
+    public partial class abstractbound : PartialSymbol
+    {
+        public override string yyname_endl { get { return "abstractbound"; } }
+        public override int yynum_endl { get { return 184; } }
+    }
+    //%+boundFacets+185
+    public partial class boundFacets : abstractbound
+    {
+        public override string yyname_endl { get { return "boundFacets"; } }
+        public override int yynum_endl { get { return 185; } }
+    }
+    //%+boundVal+186
+    public partial class boundVal : abstractbound
+    {
+        public override string yyname_endl { get { return "boundVal"; } }
+        public override int yynum_endl { get { return 186; } }
+    }
+    //%+datavalList+187
+    public partial class datavalList : PartialSymbol
+    {
+        public override string yyname_endl { get { return "datavalList"; } }
+        public override int yynum_endl { get { return 187; } }
+    }
+    //%+boundOneOf+188
+    public partial class boundOneOf : abstractbound
+    {
+        public override string yyname_endl { get { return "boundOneOf"; } }
+        public override int yynum_endl { get { return 188; } }
+    }
+    //%+boundTop+189
+    public partial class boundTop : abstractbound
+    {
+        public override string yyname_endl { get { return "boundTop"; } }
+        public override int yynum_endl { get { return 189; } }
+    }
+    //%+boundTotal+190
+    public partial class boundTotal : abstractbound
+    {
+        public override string yyname_endl { get { return "boundTotal"; } }
+        public override int yynum_endl { get { return 190; } }
+    }
+    //%+boundDataType+191
+    public partial class boundDataType : abstractbound
+    {
+        public override string yyname_endl { get { return "boundDataType"; } }
+        public override int yynum_endl { get { return 191; } }
+    }
+    //%+boundIdent+192
+    public partial class boundIdent : abstractbound
+    {
+        public override string yyname_endl { get { return "boundIdent"; } }
+        public override int yynum_endl { get { return 192; } }
+    }
+    //%+boundAnd+193
+    public partial class boundAnd : abstractbound
+    {
+        public override string yyname_endl { get { return "boundAnd"; } }
+        public override int yynum_endl { get { return 193; } }
+    }
+    //%+boundOr+194
+    public partial class boundOr : abstractbound
+    {
+        public override string yyname_endl { get { return "boundOr"; } }
+        public override int yynum_endl { get { return 194; } }
+    }
+    //%+boundNot+195
+    public partial class boundNot : abstractbound
+    {
+        public override string yyname_endl { get { return "boundNot"; } }
+        public override int yynum_endl { get { return 195; } }
+    }
+    //%+andComma+196
+    public partial class andComma : PartialSymbol
+    {
+        public override string yyname_endl { get { return "andComma"; } }
+        public override int yynum_endl { get { return 196; } }
+    }
+    //%+orComma+197
+    public partial class orComma : PartialSymbol
+    {
+        public override string yyname_endl { get { return "orComma"; } }
+        public override int yynum_endl { get { return 197; } }
+    }
+    //%+beAre+198
+    public partial class beAre : PartialSymbol
+    {
+        public override string yyname_endl { get { return "beAre"; } }
+        public override int yynum_endl { get { return 198; } }
+    }
+    //%+doesNot+199
+    public partial class doesNot : PartialSymbol
+    {
+        public override string yyname_endl { get { return "doesNot"; } }
+        public override int yynum_endl { get { return 199; } }
+    }
+    //%+doesNotBy+200
+    public partial class doesNotBy : PartialSymbol
+    {
+        public override string yyname_endl { get { return "doesNotBy"; } }
+        public override int yynum_endl { get { return 200; } }
+    }
+    //%+swrlrule+201
+    public partial class swrlrule : sentence
+    {
+        public override string yyname_endl { get { return "swrlrule"; } }
+        public override int yynum_endl { get { return 201; } }
+    }
+    //%+clause+202
+    public partial class clause : PartialSymbol
+    {
+        public override string yyname_endl { get { return "clause"; } }
+        public override int yynum_endl { get { return 202; } }
+    }
+    //%+condition+203
+    public partial class condition : PartialSymbol
+    {
+        public override string yyname_endl { get { return "condition"; } }
+        public override int yynum_endl { get { return 203; } }
+    }
+    //%+condition_is+204
+    public partial class condition_is : condition
+    {
+        public override string yyname_endl { get { return "condition_is"; } }
+        public override int yynum_endl { get { return 204; } }
+    }
+    //%+condition_exists+205
+    public partial class condition_exists : condition
+    {
+        public override string yyname_endl { get { return "condition_exists"; } }
+        public override int yynum_endl { get { return 205; } }
+    }
+    //%+condition_definition+206
+    public partial class condition_definition : condition
+    {
+        public override string yyname_endl { get { return "condition_definition"; } }
+        public override int yynum_endl { get { return 206; } }
+    }
+    //%+condition_role+207
+    public partial class condition_role : condition
+    {
+        public override string yyname_endl { get { return "condition_role"; } }
+        public override int yynum_endl { get { return 207; } }
+    }
+    //%+condition_data_property+208
+    public partial class condition_data_property : condition
+    {
+        public override string yyname_endl { get { return "condition_data_property"; } }
+        public override int yynum_endl { get { return 208; } }
+    }
+    //%+condition_data_property_bound+209
+    public partial class condition_data_property_bound : condition
+    {
+        public override string yyname_endl { get { return "condition_data_property_bound"; } }
+        public override int yynum_endl { get { return 209; } }
+    }
+    //%+condition_data_bound+210
+    public partial class condition_data_bound : condition
+    {
+        public override string yyname_endl { get { return "condition_data_bound"; } }
+        public override int yynum_endl { get { return 210; } }
+    }
+    //%+condition_builtin+211
+    public partial class condition_builtin : condition
+    {
+        public override string yyname_endl { get { return "condition_builtin"; } }
+        public override int yynum_endl { get { return 211; } }
+    }
+    //%+clause_result+212
+    public partial class clause_result : PartialSymbol
+    {
+        public override string yyname_endl { get { return "clause_result"; } }
+        public override int yynum_endl { get { return 212; } }
+    }
+    //%+condition_result+213
+    public partial class condition_result : PartialSymbol
+    {
+        public override string yyname_endl { get { return "condition_result"; } }
+        public override int yynum_endl { get { return 213; } }
+    }
+    //%+condition_result_is+214
+    public partial class condition_result_is : condition_result
+    {
+        public override string yyname_endl { get { return "condition_result_is"; } }
+        public override int yynum_endl { get { return 214; } }
+    }
+    //%+condition_result_definition+215
+    public partial class condition_result_definition : condition_result
+    {
+        public override string yyname_endl { get { return "condition_result_definition"; } }
+        public override int yynum_endl { get { return 215; } }
+    }
+    //%+condition_result_role+216
+    public partial class condition_result_role : condition_result
+    {
+        public override string yyname_endl { get { return "condition_result_role"; } }
+        public override int yynum_endl { get { return 216; } }
+    }
+    //%+condition_result_data_property+217
+    public partial class condition_result_data_property : condition_result
+    {
+        public override string yyname_endl { get { return "condition_result_data_property"; } }
+        public override int yynum_endl { get { return 217; } }
+    }
+    //%+condition_result_builtin+218
+    public partial class condition_result_builtin : condition_result
+    {
+        public override string yyname_endl { get { return "condition_result_builtin"; } }
+        public override int yynum_endl { get { return 218; } }
+    }
+    //%+objectr+219
+    public partial class objectr : PartialSymbol
+    {
+        public override string yyname_endl { get { return "objectr"; } }
+        public override int yynum_endl { get { return 219; } }
+    }
+    //%+objectr_nio+220
+    public partial class objectr_nio : objectr
+    {
+        public override string yyname_endl { get { return "objectr_nio"; } }
+        public override int yynum_endl { get { return 220; } }
+    }
+    //%+objectr_io+221
+    public partial class objectr_io : objectr
+    {
+        public override string yyname_endl { get { return "objectr_io"; } }
+        public override int yynum_endl { get { return 221; } }
+    }
+    //%+notidentobject+222
+    public partial class notidentobject : PartialSymbol
+    {
+        public override string yyname_endl { get { return "notidentobject"; } }
+        public override int yynum_endl { get { return 222; } }
+    }
+    //%+identobject+223
+    public partial class identobject : PartialSymbol
+    {
+        public override string yyname_endl { get { return "identobject"; } }
+        public override int yynum_endl { get { return 223; } }
+    }
+    //%+identobject_name+224
+    public partial class identobject_name : identobject
+    {
+        public override string yyname_endl { get { return "identobject_name"; } }
+        public override int yynum_endl { get { return 224; } }
+    }
+    //%+identobject_inst+225
+    public partial class identobject_inst : identobject
+    {
+        public override string yyname_endl { get { return "identobject_inst"; } }
+        public override int yynum_endl { get { return 225; } }
+    }
+    //%+instancer+226
+    public partial class instancer : PartialSymbol
+    {
+        public override string yyname_endl { get { return "instancer"; } }
+        public override int yynum_endl { get { return 226; } }
+    }
+    //%+datavaler+227
+    public partial class datavaler : PartialSymbol
+    {
+        public override string yyname_endl { get { return "datavaler"; } }
+        public override int yynum_endl { get { return 227; } }
+    }
+    //%+datavalvar+228
+    public partial class datavalvar : datavaler
+    {
+        public override string yyname_endl { get { return "datavalvar"; } }
+        public override int yynum_endl { get { return 228; } }
+    }
+    //%+datavalval+229
+    public partial class datavalval : datavaler
+    {
+        public override string yyname_endl { get { return "datavalval"; } }
+        public override int yynum_endl { get { return 229; } }
+    }
+    //%+exerule+230
+    public partial class exerule : sentence
+    {
+        public override string yyname_endl { get { return "exerule"; } }
+        public override int yynum_endl { get { return 230; } }
+    }
+    //%+code+231
+    public partial class code : sentence
+    {
+        public override string yyname_endl { get { return "code"; } }
+        public override int yynum_endl { get { return 231; } }
+    }
+    //%+exeargs+232
+    public partial class exeargs : PartialSymbol
+    {
+        public override string yyname_endl { get { return "exeargs"; } }
+        public override int yynum_endl { get { return 232; } }
+    }
+    //%+swrlrulefor+233
+    public partial class swrlrulefor : sentence
+    {
+        public override string yyname_endl { get { return "swrlrulefor"; } }
+        public override int yynum_endl { get { return 233; } }
+    }
+    //%+builtin+234
+    public partial class builtin : PartialSymbol
+    {
+        public override string yyname_endl { get { return "builtin"; } }
+        public override int yynum_endl { get { return 234; } }
+    }
+    //%+builtin_cmp+235
+    public partial class builtin_cmp : builtin
+    {
+        public override string yyname_endl { get { return "builtin_cmp"; } }
+        public override int yynum_endl { get { return 235; } }
+    }
+    //%+builtin_list+236
+    public partial class builtin_list : builtin
+    {
+        public override string yyname_endl { get { return "builtin_list"; } }
+        public override int yynum_endl { get { return 236; } }
+    }
+    //%+builtin_bin+237
+    public partial class builtin_bin : builtin
+    {
+        public override string yyname_endl { get { return "builtin_bin"; } }
+        public override int yynum_endl { get { return 237; } }
+    }
+    //%+builtin_unary_cmp+238
+    public partial class builtin_unary_cmp : builtin
+    {
+        public override string yyname_endl { get { return "builtin_unary_cmp"; } }
+        public override int yynum_endl { get { return 238; } }
+    }
+    //%+builtin_unary_free+239
+    public partial class builtin_unary_free : builtin
+    {
+        public override string yyname_endl { get { return "builtin_unary_free"; } }
+        public override int yynum_endl { get { return 239; } }
+    }
+    //%+builtin_substr+240
+    public partial class builtin_substr : builtin
+    {
+        public override string yyname_endl { get { return "builtin_substr"; } }
+        public override int yynum_endl { get { return 240; } }
+    }
+    //%+builtin_trans+241
+    public partial class builtin_trans : builtin
+    {
+        public override string yyname_endl { get { return "builtin_trans"; } }
+        public override int yynum_endl { get { return 241; } }
+    }
+    //%+builtin_duration+242
+    public partial class builtin_duration : builtin
+    {
+        public override string yyname_endl { get { return "builtin_duration"; } }
+        public override int yynum_endl { get { return 242; } }
+    }
+    //%+builtin_datetime+243
+    public partial class builtin_datetime : builtin
+    {
+        public override string yyname_endl { get { return "builtin_datetime"; } }
+        public override int yynum_endl { get { return 243; } }
+    }
+    //%+builtin_alpha+244
+    public partial class builtin_alpha : builtin
+    {
+        public override string yyname_endl { get { return "builtin_alpha"; } }
+        public override int yynum_endl { get { return 244; } }
+    }
+    //%+builtin_annot+245
+    public partial class builtin_annot : builtin
+    {
+        public override string yyname_endl { get { return "builtin_annot"; } }
+        public override int yynum_endl { get { return 245; } }
+    }
+    //%+builtin_exe+246
+    public partial class builtin_exe : builtin
+    {
+        public override string yyname_endl { get { return "builtin_exe"; } }
+        public override int yynum_endl { get { return 246; } }
+    }
+    //%+datavalerPlusList+247
+    public partial class datavalerPlusList : PartialSymbol
+    {
+        public override string yyname_endl { get { return "datavalerPlusList"; } }
+        public override int yynum_endl { get { return 247; } }
+    }
+    //%+datavalerTimesList+248
+    public partial class datavalerTimesList : PartialSymbol
+    {
+        public override string yyname_endl { get { return "datavalerTimesList"; } }
+        public override int yynum_endl { get { return 248; } }
+    }
+    //%+datavalerFollowedByList+249
+    public partial class datavalerFollowedByList : PartialSymbol
+    {
+        public override string yyname_endl { get { return "datavalerFollowedByList"; } }
+        public override int yynum_endl { get { return 249; } }
+    }
+    //%+duration+250
+    public partial class duration : PartialSymbol
+    {
+        public override string yyname_endl { get { return "duration"; } }
+        public override int yynum_endl { get { return 250; } }
+    }
+    //%+duration_m+251
+    public partial class duration_m : duration
+    {
+        public override string yyname_endl { get { return "duration_m"; } }
+        public override int yynum_endl { get { return 251; } }
+    }
+    //%+duration_w+252
+    public partial class duration_w : duration
+    {
+        public override string yyname_endl { get { return "duration_w"; } }
+        public override int yynum_endl { get { return 252; } }
+    }
+
+    public class paragraph_566245c87df54ee3bb78d5606c0fc1e8 : paragraph
+    {
+        public paragraph_566245c87df54ee3bb78d5606c0fc1e8(Parser yyq) : base(yyq,
+          ((sentence)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class paragraph_c73a4bfe7c064b4c84855e3199998995 : paragraph
+    {
+        public paragraph_c73a4bfe7c064b4c84855e3199998995(Parser yyq) : base(yyq,
+          ((paragraph)(yyq.StackAt(1).m_value))
+          ,
+          ((sentence)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class annotation_44947d7626e243a382eb0069325b2d2c : annotation
+    {
+        public annotation_44947d7626e243a382eb0069325b2d2c(Parser yyq) : base(yyq,
+          ((COMMENT)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class subsumption_e11b8feca52a432982c43c7eef4e9fff : subsumption
+    {
+        public subsumption_e11b8feca52a432982c43c7eef4e9fff(Parser yyq) : base(yyq,
+          ((subject)(yyq.StackAt(3).m_value))
+          ,
+          ((modality)(yyq.StackAt(2).m_value))
+          .yytext,
+          ((orloop)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class nosubsumption_241070898bd34b07be44ae8b03b9fa25 : nosubsumption
+    {
+        public nosubsumption_241070898bd34b07be44ae8b03b9fa25(Parser yyq) : base(yyq,
+          ((nosubject)(yyq.StackAt(3).m_value))
+          ,
+          ((modality)(yyq.StackAt(2).m_value))
+          .yytext,
+          ((orloop)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class datatypedef_ede858d8e5dc4afdaaf6f887b2464fad : datatypedef
+    {
+        public datatypedef_ede858d8e5dc4afdaaf6f887b2464fad(Parser yyq) : base(yyq,
+          ((NAME)(yyq.StackAt(4).m_value))
+          .yytext,
+          ((abstractbound)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class rolesubsumption_7af6523e728b450da936b5061ba53008 : rolesubsumption
+    {
+        public rolesubsumption_7af6523e728b450da936b5061ba53008(Parser yyq) : base(yyq,
+          ((role)(yyq.StackAt(4).m_value))
+          ,
+          ((roleWithXY)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class rolesubsumption_7b44428ea8344fcebe9eb5d6b1c5c84f : rolesubsumption
+    {
+        public rolesubsumption_7b44428ea8344fcebe9eb5d6b1c5c84f(Parser yyq) : base(yyq,
+          ((chain)(yyq.StackAt(4).m_value))
+          ,
+          ((roleWithXY)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class datarolesubsumption_53b8fa47c596440a848c3686d84ff9fa : datarolesubsumption
+    {
+        public datarolesubsumption_53b8fa47c596440a848c3686d84ff9fa(Parser yyq) : base(yyq,
+          ((role)(yyq.StackAt(8).m_value))
+          ,
+          ((role)(yyq.StackAt(3).m_value))
+          )
+        { }
+    }
+
+    public class roledisjoint2_0e157aedc4c4420286bc66850f27b4a2 : roledisjoint2
+    {
+        public roledisjoint2_0e157aedc4c4420286bc66850f27b4a2(Parser yyq) : base(yyq,
+          ((role)(yyq.StackAt(4).m_value))
+          ,
+          ((notRoleWithXY)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class dataroledisjoint2_443ae1c9dfc34907879db58e54a43552 : dataroledisjoint2
+    {
+        public dataroledisjoint2_443ae1c9dfc34907879db58e54a43552(Parser yyq) : base(yyq,
+          ((role)(yyq.StackAt(9).m_value))
+          ,
+          ((role)(yyq.StackAt(3).m_value))
+          )
+        { }
+    }
+
+    public class equivalence2_2ece582c05814d189b07e26b3fc415f0 : equivalence2
+    {
+        public equivalence2_2ece582c05814d189b07e26b3fc415f0(Parser yyq) : base(yyq,
+          ((orloop)(yyq.StackAt(3).m_value))
+          ,
+          ((modality)(yyq.StackAt(4).m_value))
+          .yytext,
+          ((orloop)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class roleequivalence2_7329660247a3423dbbe6d751ea254a7f : roleequivalence2
+    {
+        public roleequivalence2_7329660247a3423dbbe6d751ea254a7f(Parser yyq) : base(yyq,
+          ((role)(yyq.StackAt(4).m_value))
+          ,
+          ((roleWithXY)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class dataroleequivalence2_79e8e3c6387c49ab995139ad18214122 : dataroleequivalence2
+    {
+        public dataroleequivalence2_79e8e3c6387c49ab995139ad18214122(Parser yyq) : base(yyq,
+          ((role)(yyq.StackAt(8).m_value))
+          ,
+          ((role)(yyq.StackAt(3).m_value))
+          )
+        { }
+    }
+
+    public class exclusiveunion_9d3feb24afc04ba0a619553526a44646 : exclusiveunion
+    {
+        public exclusiveunion_9d3feb24afc04ba0a619553526a44646(Parser yyq) : base(yyq,
+          ((NAME)(yyq.StackAt(3).m_value))
+          .yytext,
+          ((orObjectRoleExprChain)(yyq.StackAt(1).m_value))
+          ,
+          ((modality)(yyq.StackAt(6).m_value))
+          .yytext)
+        { }
+    }
+
+    public class exclusives_91ffa52d905549b0aaea515988ac0301 : exclusives
+    {
+        public exclusives_91ffa52d905549b0aaea515988ac0301(Parser yyq) : base(yyq,
+          ((orObjectRoleExprChain)(yyq.StackAt(2).m_value))
+          ,
+          ((modality)(yyq.StackAt(4).m_value))
+          .yytext)
+        { }
+    }
+
+    public class haskey_42d75fdf80ab4593b47edf7159d47307 : haskey
+    {
+        public haskey_42d75fdf80ab4593b47edf7159d47307(Parser yyq) : base(yyq,
+          ((objectRoleExpr)(yyq.StackAt(3).m_value))
+          ,
+          ((andanyrolechain)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class swrlrule_943c8bac97c94c82a87e57602514c1d5 : swrlrule
+    {
+        public swrlrule_943c8bac97c94c82a87e57602514c1d5(Parser yyq) : base(yyq,
+          ((clause)(yyq.StackAt(4).m_value))
+          ,
+          ((clause_result)(yyq.StackAt(1).m_value))
+          ,
+          ((modality2)(yyq.StackAt(2).m_value))
+          .yytext)
+        { }
+    }
+
+    public class swrlrulefor_132bd0b2a4b14ab5959beb871c7597d2 : swrlrulefor
+    {
+        public swrlrulefor_132bd0b2a4b14ab5959beb871c7597d2(Parser yyq) : base(yyq,
+          ((clause)(yyq.StackAt(11).m_value))
+          ,
+          ((valueOrThing)(yyq.StackAt(7).m_value))
+          .yytext,
+          ((NAT)(yyq.StackAt(5).m_value))
+          .yytext,
+          ((datavaler)(yyq.StackAt(2).m_value))
+          ,
+          ((clause_result)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class exerule_0b3d9235c9f049308eaa150fa7fe6dc5 : exerule
+    {
+        public exerule_0b3d9235c9f049308eaa150fa7fe6dc5(Parser yyq) : base(yyq,
+          ((clause)(yyq.StackAt(6).m_value))
+          ,
+          ((exeargs)(yyq.StackAt(3).m_value))
+          ,
+          ((STR)(yyq.StackAt(1).m_value))
+          .yytext)
+        { }
+    }
+
+    public class code_cbe070844a604bcd8667f1542c831241 : code
+    {
+        public code_cbe070844a604bcd8667f1542c831241(Parser yyq) : base(yyq,
+          ((CODE)(yyq.StackAt(1).m_value))
+          .yytext)
+        { }
+    }
+
+    public class valueOrThing_11693110f638425bb998c8487484accb : valueOrThing
+    {
+        public valueOrThing_11693110f638425bb998c8487484accb(Parser yyq) : base(yyq) { }
+    }
+
+    public class valueOrThing_b292e5effebc4cf08f68227d444765da : valueOrThing
+    {
+        public valueOrThing_b292e5effebc4cf08f68227d444765da(Parser yyq) : base(yyq) { }
+    }
+
+    public class valueOrThing_b292e5effebc4cf08f68227d444765da_e394101d548f4b1790b3a7fb2cffaaec : valueOrThing_b292e5effebc4cf08f68227d444765da
+    {
+        public valueOrThing_b292e5effebc4cf08f68227d444765da_e394101d548f4b1790b3a7fb2cffaaec(Parser yyq) : base(yyq) { yytext = "value"; }
+    }
+
+    public class valueOrThing_992d64a96a1d4f6cb4906f802c44e3ce : valueOrThing
+    {
+        public valueOrThing_992d64a96a1d4f6cb4906f802c44e3ce(Parser yyq) : base(yyq) { }
+    }
+
+    public class valueOrThing_606f91515c9a4f178ebde2e9e15da180 : valueOrThing
+    {
+        public valueOrThing_606f91515c9a4f178ebde2e9e15da180(Parser yyq) : base(yyq) { }
+    }
+
+    public class valueOrThing_606f91515c9a4f178ebde2e9e15da180_a0194531c9a046758b0864b1beb8f1b0 : valueOrThing_606f91515c9a4f178ebde2e9e15da180
+    {
+        public valueOrThing_606f91515c9a4f178ebde2e9e15da180_a0194531c9a046758b0864b1beb8f1b0(Parser yyq) : base(yyq) { yytext = "thing"; }
+    }
+
+    public class clause_4afb50346dbc4e0ab977917496ae7465 : clause
+    {
+        public clause_4afb50346dbc4e0ab977917496ae7465(Parser yyq) : base(yyq,
+          ((condition)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class clause_896721228f0749b1835787e438800b80 : clause
+    {
+        public clause_896721228f0749b1835787e438800b80(Parser yyq) : base(yyq,
+          ((clause)(yyq.StackAt(2).m_value))
+          ,
+          ((condition)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class clause_result_e4966a20715f4ad6a9f4eaeb33a5ea99 : clause_result
+    {
+        public clause_result_e4966a20715f4ad6a9f4eaeb33a5ea99(Parser yyq) : base(yyq,
+          ((condition_result)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class clause_result_34e19e77573e4cee91a7ff6f0b710780 : clause_result
+    {
+        public clause_result_34e19e77573e4cee91a7ff6f0b710780(Parser yyq) : base(yyq,
+          ((clause_result)(yyq.StackAt(2).m_value))
+          ,
+          ((condition_result)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class condition_role_450ed8e2227a42cfb94f34d571c49138 : condition_role
+    {
+        public condition_role_450ed8e2227a42cfb94f34d571c49138(Parser yyq) : base(yyq,
+          ((objectr)(yyq.StackAt(2).m_value))
+          ,
+          ((NAME)(yyq.StackAt(1).m_value))
+          .yytext,
+          ((objectr)(yyq.StackAt(0).m_value))
+          , condition_kind.None)
+        { }
+    }
+
+    public class condition_role_a276b189029044c990d6e87acfb16909 : condition_role
+    {
+        public condition_role_a276b189029044c990d6e87acfb16909(Parser yyq) : base(yyq,
+          ((objectr)(yyq.StackAt(4).m_value))
+          ,
+          ((NAME)(yyq.StackAt(2).m_value))
+          .yytext,
+          ((objectr)(yyq.StackAt(0).m_value))
+          , condition_kind.Inv)
+        { }
+    }
+
+    public class condition_exists_3b7fabca36e94c648fb58c8d856e7ff8 : condition_exists
+    {
+        public condition_exists_3b7fabca36e94c648fb58c8d856e7ff8(Parser yyq) : base(yyq,
+          ((objectr)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class condition_definition_835c47f908394e68b1462e376f670837 : condition_definition
+    {
+        public condition_definition_835c47f908394e68b1462e376f670837(Parser yyq) : base(yyq,
+          ((objectr)(yyq.StackAt(2).m_value))
+          ,
+          ((oobject)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class condition_is_9851cdc5ee4547de8f6f21edbb5ef45e : condition_is
+    {
+        public condition_is_9851cdc5ee4547de8f6f21edbb5ef45e(Parser yyq) : base(yyq,
+          ((objectr)(yyq.StackAt(2).m_value))
+          ,
+          ((objectr)(yyq.StackAt(0).m_value))
+          , condition_kind.None)
+        { }
+    }
+
+    public class condition_is_2c5c8b2d68c842e797705cfc4be4ccfc : condition_is
+    {
+        public condition_is_2c5c8b2d68c842e797705cfc4be4ccfc(Parser yyq) : base(yyq,
+          ((objectr)(yyq.StackAt(2).m_value))
+          ,
+          ((objectr)(yyq.StackAt(0).m_value))
+          , condition_kind.Not)
+        { }
+    }
+
+    public class condition_data_property_4a412d9875d24be4b511f3ce4fe6af7f : condition_data_property
+    {
+        public condition_data_property_4a412d9875d24be4b511f3ce4fe6af7f(Parser yyq) : base(yyq,
+          ((objectr)(yyq.StackAt(7).m_value))
+          ,
+          ((NAME)(yyq.StackAt(6).m_value))
+          .yytext,
+          ((NAT)(yyq.StackAt(1).m_value))
+          .yytext)
+        { }
+    }
+
+    public class condition_data_property_bound_199281df83cd4401ae5f574544961b1e : condition_data_property_bound
+    {
+        public condition_data_property_bound_199281df83cd4401ae5f574544961b1e(Parser yyq) : base(yyq,
+          ((objectr)(yyq.StackAt(2).m_value))
+          ,
+          ((NAME)(yyq.StackAt(1).m_value))
+          .yytext,
+          ((abstractbound)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class condition_data_bound_81d74be785d9496f86106ac984df9d6e : condition_data_bound
+    {
+        public condition_data_bound_81d74be785d9496f86106ac984df9d6e(Parser yyq) : base(yyq,
+          ((datavaler)(yyq.StackAt(2).m_value))
+          ,
+          ((abstractbound)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class condition_builtin_404e871395204a49aad4da7fe66997d1 : condition_builtin
+    {
+        public condition_builtin_404e871395204a49aad4da7fe66997d1(Parser yyq) : base(yyq,
+          ((builtin)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class condition_result_role_3118228cc5a84fa1ac3397d77a6a5a83 : condition_result_role
+    {
+        public condition_result_role_3118228cc5a84fa1ac3397d77a6a5a83(Parser yyq) : base(yyq,
+          ((identobject)(yyq.StackAt(2).m_value))
+          ,
+          ((NAME)(yyq.StackAt(1).m_value))
+          .yytext,
+          ((identobject)(yyq.StackAt(0).m_value))
+          , condition_kind.None)
+        { }
+    }
+
+    public class condition_result_role_08f60b79e87347629c40e05c00ba7320 : condition_result_role
+    {
+        public condition_result_role_08f60b79e87347629c40e05c00ba7320(Parser yyq) : base(yyq,
+          ((identobject)(yyq.StackAt(4).m_value))
+          ,
+          ((NAME)(yyq.StackAt(2).m_value))
+          .yytext,
+          ((identobject)(yyq.StackAt(0).m_value))
+          , condition_kind.Inv)
+        { }
+    }
+
+    public class condition_result_is_92cac4ab014b429fbecd05c009e4f3d3 : condition_result_is
+    {
+        public condition_result_is_92cac4ab014b429fbecd05c009e4f3d3(Parser yyq) : base(yyq,
+          ((identobject)(yyq.StackAt(2).m_value))
+          ,
+          ((identobject)(yyq.StackAt(0).m_value))
+          , condition_kind.None)
+        { }
+    }
+
+    public class condition_result_is_a76c128b6c4a4fd080e8207bb5686aaf : condition_result_is
+    {
+        public condition_result_is_a76c128b6c4a4fd080e8207bb5686aaf(Parser yyq) : base(yyq,
+          ((identobject)(yyq.StackAt(2).m_value))
+          ,
+          ((identobject)(yyq.StackAt(0).m_value))
+          , condition_kind.Not)
+        { }
+    }
+
+    public class condition_result_definition_bfa38c97338d412b851ae3a69b9cfb92 : condition_result_definition
+    {
+        public condition_result_definition_bfa38c97338d412b851ae3a69b9cfb92(Parser yyq) : base(yyq,
+          ((identobject)(yyq.StackAt(2).m_value))
+          ,
+          ((oobject)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class condition_result_data_property_cd2208eb47554d05a88bc19b0e0f3557 : condition_result_data_property
+    {
+        public condition_result_data_property_cd2208eb47554d05a88bc19b0e0f3557(Parser yyq) : base(yyq,
+          ((identobject)(yyq.StackAt(3).m_value))
+          ,
+          ((NAME)(yyq.StackAt(2).m_value))
+          .yytext,
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class exeargs_26c6dfa4d57a4228aafb1dd705608024 : exeargs
+    {
+        public exeargs_26c6dfa4d57a4228aafb1dd705608024(Parser yyq) : base(yyq,
+          ((identobject)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class exeargs_56a109c849ca4fffb7c041d5d1b34493 : exeargs
+    {
+        public exeargs_56a109c849ca4fffb7c041d5d1b34493(Parser yyq) : base(yyq,
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class exeargs_dedb7be397514b3b8032978e42985b45 : exeargs
+    {
+        public exeargs_dedb7be397514b3b8032978e42985b45(Parser yyq) : base(yyq,
+          ((exeargs)(yyq.StackAt(2).m_value))
+          ,
+          ((identobject)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class exeargs_09198c24a4c54171b54a3ac103990da0 : exeargs
+    {
+        public exeargs_09198c24a4c54171b54a3ac103990da0(Parser yyq) : base(yyq,
+          ((exeargs)(yyq.StackAt(2).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class notidentobject_29d7f93464bb49ee924c71f88475ad54 : notidentobject
+    {
+        public notidentobject_29d7f93464bb49ee924c71f88475ad54(Parser yyq) : base(yyq,
+          ((NAME)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class notidentobject_21178b2016ee43dd9b7828f754df3ee4 : notidentobject
+    {
+        public notidentobject_21178b2016ee43dd9b7828f754df3ee4(Parser yyq) : base(yyq, null) { }
+    }
+
+    public class notidentobject_b94aa5042b0b4cd0b7fb47c31cd21884 : notidentobject
+    {
+        public notidentobject_b94aa5042b0b4cd0b7fb47c31cd21884(Parser yyq) : base(yyq,
+          ((NAME)(yyq.StackAt(3).m_value))
+          .yytext,
+          ((NAT)(yyq.StackAt(1).m_value))
+          .yytext)
+        { }
+    }
+
+    public class notidentobject_a31997c075994d7399c36d4cff248073 : notidentobject
+    {
+        public notidentobject_a31997c075994d7399c36d4cff248073(Parser yyq) : base(yyq, null,
+          ((NAT)(yyq.StackAt(1).m_value))
+          .yytext)
+        { }
+    }
+
+    public class identobject_name_e753f510c632415caecfe92fdfe04132 : identobject_name
+    {
+        public identobject_name_e753f510c632415caecfe92fdfe04132(Parser yyq) : base(yyq,
+          ((NAME)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class identobject_name_a74993c3e8ef4b53b4e341ce3a3d454b : identobject_name
+    {
+        public identobject_name_a74993c3e8ef4b53b4e341ce3a3d454b(Parser yyq) : base(yyq, null) { }
+    }
+
+    public class identobject_name_db6df83e230f4c83b0a33be8be59c8ee : identobject_name
+    {
+        public identobject_name_db6df83e230f4c83b0a33be8be59c8ee(Parser yyq) : base(yyq,
+          ((NAME)(yyq.StackAt(3).m_value))
+          .yytext,
+          ((NAT)(yyq.StackAt(1).m_value))
+          .yytext)
+        { }
+    }
+
+    public class identobject_name_2f71ecb76d814507b89088016afc756b : identobject_name
+    {
+        public identobject_name_2f71ecb76d814507b89088016afc756b(Parser yyq) : base(yyq, null,
+          ((NAT)(yyq.StackAt(1).m_value))
+          .yytext)
+        { }
+    }
+
+    public class identobject_inst_3841f77f0f734bcd853061126e5a07ae : identobject_inst
+    {
+        public identobject_inst_3841f77f0f734bcd853061126e5a07ae(Parser yyq) : base(yyq,
+          ((instancer)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class instancer_67fb63a2276c44c580c90318fac84b88 : instancer
+    {
+        public instancer_67fb63a2276c44c580c90318fac84b88(Parser yyq) : base(yyq,
+          ((BIGNAME)(yyq.StackAt(0).m_value))
+          .yytext, false)
+        { }
+    }
+
+    public class instancer_b276f0b0160f40d786e314b752ebe195 : instancer
+    {
+        public instancer_b276f0b0160f40d786e314b752ebe195(Parser yyq) : base(yyq,
+          ((VERYBIGNAME)(yyq.StackAt(0).m_value))
+          .yytext, true)
+        { }
+    }
+
+    public class objectr_nio_3e0d3830f09c478b96444fef526d4ef2 : objectr_nio
+    {
+        public objectr_nio_3e0d3830f09c478b96444fef526d4ef2(Parser yyq) : base(yyq,
+          ((notidentobject)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class objectr_io_ee9983a723fd4267a9248edc2a281b7b : objectr_io
+    {
+        public objectr_io_ee9983a723fd4267a9248edc2a281b7b(Parser yyq) : base(yyq,
+          ((identobject)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class datavalvar_d0dde5e18b8948c094af05fe960f9d8d : datavalvar
+    {
+        public datavalvar_d0dde5e18b8948c094af05fe960f9d8d(Parser yyq) : base(yyq,
+          ((NAT)(yyq.StackAt(1).m_value))
+          .yytext)
+        { }
+    }
+
+    public class datavalval_bafc195f566548d79632b7bf2b97db37 : datavalval
+    {
+        public datavalval_bafc195f566548d79632b7bf2b97db37(Parser yyq) : base(yyq,
+          ((dataval)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+    public partial class comparer2 : PartialSymbol
+    {
+        public override string yyname_endl { get { return "comparer2"; } }
+        public override int yynum_endl { get { return 320; } }
+    }
+
+    public class comparer2_587ff1bbf2da4e7d8b88417a53cfb5e7 : comparer2
+    {
+        public comparer2_587ff1bbf2da4e7d8b88417a53cfb5e7(Parser yyq) : base(yyq) { }
+    }
+
+    public class comparer2_b0fe676e97734f1ba55ea7231f35b8bc : comparer2
+    {
+        public comparer2_b0fe676e97734f1ba55ea7231f35b8bc(Parser yyq) : base(yyq) { }
+    }
+
+    public class comparer2_b0fe676e97734f1ba55ea7231f35b8bc_48f64b1ce3024ea4a87b7d0a4a07a4f6 : comparer2_b0fe676e97734f1ba55ea7231f35b8bc
+    {
+        public comparer2_b0fe676e97734f1ba55ea7231f35b8bc_48f64b1ce3024ea4a87b7d0a4a07a4f6(Parser yyq) : base(yyq) { yytext = "="; }
+    }
+
+    public class comparer2_42749d2044714b4d8ee198f3be859206 : comparer2
+    {
+        public comparer2_42749d2044714b4d8ee198f3be859206(Parser yyq) : base(yyq) { }
+    }
+
+    public class comparer2_edb3d005808a42149810185952208fc5 : comparer2
+    {
+        public comparer2_edb3d005808a42149810185952208fc5(Parser yyq) : base(yyq) { }
+    }
+
+    public class comparer2_edb3d005808a42149810185952208fc5_8e3c464b3c1d4fd8ba1e6951f15c7a9e : comparer2_edb3d005808a42149810185952208fc5
+    {
+        public comparer2_edb3d005808a42149810185952208fc5_8e3c464b3c1d4fd8ba1e6951f15c7a9e(Parser yyq) : base(yyq) { yytext = "≠"; }
+    }
+
+    public class comparer2_6be5d1975f4a46fd94c2f08da7d7a9cf : comparer2
+    {
+        public comparer2_6be5d1975f4a46fd94c2f08da7d7a9cf(Parser yyq) : base(yyq) { }
+    }
+
+    public class comparer2_214406d730e745df9f734e109290ad77 : comparer2
+    {
+        public comparer2_214406d730e745df9f734e109290ad77(Parser yyq) : base(yyq) { }
+    }
+
+    public class comparer2_214406d730e745df9f734e109290ad77_dc3359640dd04db190bf53abb66fde9a : comparer2_214406d730e745df9f734e109290ad77
+    {
+        public comparer2_214406d730e745df9f734e109290ad77_dc3359640dd04db190bf53abb66fde9a(Parser yyq) : base(yyq)
+        {
+            yytext = (
+((COMPARER2)(yyq.StackAt(0).m_value))
+.yytext == "lower-or-equal-to" ? "≤" : (
+((COMPARER2)(yyq.StackAt(0).m_value))
+.yytext == "greater-or-equal-to" ? "≥" : (
+((COMPARER2)(yyq.StackAt(0).m_value))
+.yytext == "lower-than" ? "<" : ">")));
+        }
+    }
+
+    public class comparer2_ae23ce61f8ed473db910fce732481f63 : comparer2
+    {
+        public comparer2_ae23ce61f8ed473db910fce732481f63(Parser yyq) : base(yyq) { }
+    }
+
+    public class comparer2_469cb9c5f35a4878b84b753ed5aa6a1a : comparer2
+    {
+        public comparer2_469cb9c5f35a4878b84b753ed5aa6a1a(Parser yyq) : base(yyq) { }
+    }
+
+    public class comparer2_469cb9c5f35a4878b84b753ed5aa6a1a_daf2c9c6e5c8422a9e71782ad63f1af4 : comparer2_469cb9c5f35a4878b84b753ed5aa6a1a
+    {
+        public comparer2_469cb9c5f35a4878b84b753ed5aa6a1a_daf2c9c6e5c8422a9e71782ad63f1af4(Parser yyq) : base(yyq)
+        {
+            yytext =
+((CMP)(yyq.StackAt(0).m_value))
+.yytext;
+        }
+    }
+
+    public class comparer2_ce1a6ff8e277483c96f9740c7e35cb79 : comparer2
+    {
+        public comparer2_ce1a6ff8e277483c96f9740c7e35cb79(Parser yyq) : base(yyq) { }
+    }
+
+    public class comparer2_11e106ec73574e0d8853ad29dfb3ed8e : comparer2
+    {
+        public comparer2_11e106ec73574e0d8853ad29dfb3ed8e(Parser yyq) : base(yyq) { }
+    }
+
+    public class comparer2_11e106ec73574e0d8853ad29dfb3ed8e_27b290a48ef545c1848fd6f340bf8239 : comparer2_11e106ec73574e0d8853ad29dfb3ed8e
+    {
+        public comparer2_11e106ec73574e0d8853ad29dfb3ed8e_27b290a48ef545c1848fd6f340bf8239(Parser yyq) : base(yyq) { yytext = "="; }
+    }
+    public partial class equalTo : PartialSymbol
+    {
+        public override string yyname_endl { get { return "equalTo"; } }
+        public override int yynum_endl { get { return 336; } }
+    }
+
+    public class equalTo_bc50a34a422d45dc9f8aaab9e3c89df6 : equalTo
+    {
+        public equalTo_bc50a34a422d45dc9f8aaab9e3c89df6(Parser yyq) : base(yyq) { }
+    }
+
+    public class equalTo_da1a5ce4efaf479e89d992a3133720b7 : equalTo
+    {
+        public equalTo_da1a5ce4efaf479e89d992a3133720b7(Parser yyq) : base(yyq) { }
+    }
+
+    public class equalTo_da1a5ce4efaf479e89d992a3133720b7_c77ccc0f563e4beb95e9c323d6772ad7 : equalTo_da1a5ce4efaf479e89d992a3133720b7
+    {
+        public equalTo_da1a5ce4efaf479e89d992a3133720b7_c77ccc0f563e4beb95e9c323d6772ad7(Parser yyq) : base(yyq) { yytext = "="; }
+    }
+
+    public class equalTo_d7301e3cdc084c2f97a594538d3895f7 : equalTo
+    {
+        public equalTo_d7301e3cdc084c2f97a594538d3895f7(Parser yyq) : base(yyq) { }
+    }
+
+    public class equalTo_02e1029631bf4b709a469df03d37ec01 : equalTo
+    {
+        public equalTo_02e1029631bf4b709a469df03d37ec01(Parser yyq) : base(yyq) { }
+    }
+
+    public class equalTo_02e1029631bf4b709a469df03d37ec01_ab0683c73b1e47619b12824e51bd8938 : equalTo_02e1029631bf4b709a469df03d37ec01
+    {
+        public equalTo_02e1029631bf4b709a469df03d37ec01_ab0683c73b1e47619b12824e51bd8938(Parser yyq) : base(yyq) { yytext = "="; }
+    }
+
+    public class datavalerPlusList_cf96adeabac64a4f9768270e4f7b43a5 : datavalerPlusList
+    {
+        public datavalerPlusList_cf96adeabac64a4f9768270e4f7b43a5(Parser yyq) : base(yyq,
+          ((datavaler)(yyq.StackAt(2).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class datavalerPlusList_1027d4d7a1d44f248cbb749a7b8379c4 : datavalerPlusList
+    {
+        public datavalerPlusList_1027d4d7a1d44f248cbb749a7b8379c4(Parser yyq) : base(yyq,
+          ((datavalerPlusList)(yyq.StackAt(2).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class datavalerTimesList_f5a5d38302574d3282fede0c80d42c45 : datavalerTimesList
+    {
+        public datavalerTimesList_f5a5d38302574d3282fede0c80d42c45(Parser yyq) : base(yyq,
+          ((datavaler)(yyq.StackAt(2).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class datavalerTimesList_b27ec15854c24ac89733734cf77072d2 : datavalerTimesList
+    {
+        public datavalerTimesList_b27ec15854c24ac89733734cf77072d2(Parser yyq) : base(yyq,
+          ((datavalerTimesList)(yyq.StackAt(2).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class datavalerFollowedByList_f66a5ef8595548f28eecf225fee146ed : datavalerFollowedByList
+    {
+        public datavalerFollowedByList_f66a5ef8595548f28eecf225fee146ed(Parser yyq) : base(yyq,
+          ((datavaler)(yyq.StackAt(2).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class datavalerFollowedByList_31358cf7b46841b5b007904f15c8e113 : datavalerFollowedByList
+    {
+        public datavalerFollowedByList_31358cf7b46841b5b007904f15c8e113(Parser yyq) : base(yyq,
+          ((datavalerFollowedByList)(yyq.StackAt(2).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+    public partial class binOp : PartialSymbol
+    {
+        public override string yyname_endl { get { return "binOp"; } }
+        public override int yynum_endl { get { return 349; } }
+    }
+
+    public class binOp_67f4ca57a0b3428d92570e2f1277da2c : binOp
+    {
+        public binOp_67f4ca57a0b3428d92570e2f1277da2c(Parser yyq) : base(yyq) { }
+    }
+
+    public class binOp_d03cb2932c8e4f0ab8095286123f6797 : binOp
+    {
+        public binOp_d03cb2932c8e4f0ab8095286123f6797(Parser yyq) : base(yyq) { }
+    }
+
+    public class binOp_d03cb2932c8e4f0ab8095286123f6797_6d013372786b4e7294e707369b187f39 : binOp_d03cb2932c8e4f0ab8095286123f6797
+    {
+        public binOp_d03cb2932c8e4f0ab8095286123f6797_6d013372786b4e7294e707369b187f39(Parser yyq) : base(yyq)
+        {
+            yytext =
+((BINOP)(yyq.StackAt(0).m_value))
+.yytext;
+        }
+    }
+
+    public class binOp_a7b23d9bc410429f82a991f2001c95b2 : binOp
+    {
+        public binOp_a7b23d9bc410429f82a991f2001c95b2(Parser yyq) : base(yyq) { }
+    }
+
+    public class binOp_decd62613c0f4f7fafe385767da99fb4 : binOp
+    {
+        public binOp_decd62613c0f4f7fafe385767da99fb4(Parser yyq) : base(yyq) { }
+    }
+
+    public class binOp_decd62613c0f4f7fafe385767da99fb4_7a83a968f8894995b3f2e13a43e8f9f0 : binOp_decd62613c0f4f7fafe385767da99fb4
+    {
+        public binOp_decd62613c0f4f7fafe385767da99fb4_7a83a968f8894995b3f2e13a43e8f9f0(Parser yyq) : base(yyq) { yytext = "minus"; }
+    }
+
+    public class binOp_d4ec7f2581f64fb48b3c50d1edfdbce4 : binOp
+    {
+        public binOp_d4ec7f2581f64fb48b3c50d1edfdbce4(Parser yyq) : base(yyq) { }
+    }
+
+    public class binOp_bb9c172983b748b9857554319e6d40bb : binOp
+    {
+        public binOp_bb9c172983b748b9857554319e6d40bb(Parser yyq) : base(yyq) { }
+    }
+
+    public class binOp_bb9c172983b748b9857554319e6d40bb_72f21f793eb145a7ad1885c54a555683 : binOp_bb9c172983b748b9857554319e6d40bb
+    {
+        public binOp_bb9c172983b748b9857554319e6d40bb_72f21f793eb145a7ad1885c54a555683(Parser yyq) : base(yyq) { yytext = "minus"; }
+    }
+    public partial class unOp : PartialSymbol
+    {
+        public override string yyname_endl { get { return "unOp"; } }
+        public override int yynum_endl { get { return 359; } }
+    }
+
+    public class unOp_580a60d4d1d54a1c9c8f5c9001e818b1 : unOp
+    {
+        public unOp_580a60d4d1d54a1c9c8f5c9001e818b1(Parser yyq) : base(yyq) { }
+    }
+
+    public class unOp_45c2620dc3744a0798b88be259a3133e : unOp
+    {
+        public unOp_45c2620dc3744a0798b88be259a3133e(Parser yyq) : base(yyq) { }
+    }
+
+    public class unOp_45c2620dc3744a0798b88be259a3133e_4966f022786945619ab8bac5dc1c4da7 : unOp_45c2620dc3744a0798b88be259a3133e
+    {
+        public unOp_45c2620dc3744a0798b88be259a3133e_4966f022786945619ab8bac5dc1c4da7(Parser yyq) : base(yyq) { yytext = "minus"; }
+    }
+
+    public class unOp_c4ccaad173814dd9849b1c02d3e4fce6 : unOp
+    {
+        public unOp_c4ccaad173814dd9849b1c02d3e4fce6(Parser yyq) : base(yyq) { }
+    }
+
+    public class unOp_c74ee41853af4d08897b08b21a8b04bb : unOp
+    {
+        public unOp_c74ee41853af4d08897b08b21a8b04bb(Parser yyq) : base(yyq) { }
+    }
+
+    public class unOp_c74ee41853af4d08897b08b21a8b04bb_f246cea1ed394396824a7e7a2da47609 : unOp_c74ee41853af4d08897b08b21a8b04bb
+    {
+        public unOp_c74ee41853af4d08897b08b21a8b04bb_f246cea1ed394396824a7e7a2da47609(Parser yyq) : base(yyq) { yytext = "minus"; }
+    }
+
+    public class unOp_fbfd003d2c10478f98392c2071fc6b30 : unOp
+    {
+        public unOp_fbfd003d2c10478f98392c2071fc6b30(Parser yyq) : base(yyq) { }
+    }
+
+    public class unOp_b29fb39a8a2c4ad6b274981f8a22136c : unOp
+    {
+        public unOp_b29fb39a8a2c4ad6b274981f8a22136c(Parser yyq) : base(yyq) { }
+    }
+
+    public class unOp_b29fb39a8a2c4ad6b274981f8a22136c_defeec6d3e904923b3dcb7daa4e43ad1 : unOp_b29fb39a8a2c4ad6b274981f8a22136c
+    {
+        public unOp_b29fb39a8a2c4ad6b274981f8a22136c_defeec6d3e904923b3dcb7daa4e43ad1(Parser yyq) : base(yyq)
+        {
+            yytext =
+((UNOP)(yyq.StackAt(0).m_value))
+.yytext;
+        }
+    }
+
+    public class unOp_a56e6c90a8e24c09a709d29ba96464e4 : unOp
+    {
+        public unOp_a56e6c90a8e24c09a709d29ba96464e4(Parser yyq) : base(yyq) { }
+    }
+
+    public class unOp_7b7d90a7bb91439e9a99a97c9b68aaa3 : unOp
+    {
+        public unOp_7b7d90a7bb91439e9a99a97c9b68aaa3(Parser yyq) : base(yyq) { }
+    }
+
+    public class unOp_7b7d90a7bb91439e9a99a97c9b68aaa3_032a287ddb214419b8fd109c616d4a90 : unOp_7b7d90a7bb91439e9a99a97c9b68aaa3
+    {
+        public unOp_7b7d90a7bb91439e9a99a97c9b68aaa3_032a287ddb214419b8fd109c616d4a90(Parser yyq) : base(yyq)
+        {
+            yytext =
+((NOT)(yyq.StackAt(0).m_value))
+.yytext;
+        }
+    }
+    public partial class unOp2 : PartialSymbol
+    {
+        public override string yyname_endl { get { return "unOp2"; } }
+        public override int yynum_endl { get { return 372; } }
+    }
+
+    public class unOp2_5e29de36058a472b8e84736e6631ef1e : unOp2
+    {
+        public unOp2_5e29de36058a472b8e84736e6631ef1e(Parser yyq) : base(yyq) { }
+    }
+
+    public class unOp2_a6f44f374d46487b93ad3733d3c68a6c : unOp2
+    {
+        public unOp2_a6f44f374d46487b93ad3733d3c68a6c(Parser yyq) : base(yyq) { }
+    }
+
+    public class unOp2_a6f44f374d46487b93ad3733d3c68a6c_ba7f49eb4a3b484a9a6d606af1527be9 : unOp2_a6f44f374d46487b93ad3733d3c68a6c
+    {
+        public unOp2_a6f44f374d46487b93ad3733d3c68a6c_ba7f49eb4a3b484a9a6d606af1527be9(Parser yyq) : base(yyq)
+        {
+            yytext =
+((UNOP2)(yyq.StackAt(0).m_value))
+.yytext;
+        }
+    }
+
+    public class builtin_cmp_946d7d48c4614d5f9794a4058d592831 : builtin_cmp
+    {
+        public builtin_cmp_946d7d48c4614d5f9794a4058d592831(Parser yyq) : base(yyq,
+          ((datavaler)(yyq.StackAt(2).m_value))
+          ,
+          ((comparer2)(yyq.StackAt(1).m_value))
+          .yytext,
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class builtin_list_1f1f215d473e40fbac3c2ea190bd875f : builtin_list
+    {
+        public builtin_list_1f1f215d473e40fbac3c2ea190bd875f(Parser yyq) : base(yyq,
+          ((datavalerPlusList)(yyq.StackAt(2).m_value))
+          .vals, "plus",
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class builtin_list_9da4d36c3fa049b3bc22c9f613fd1969 : builtin_list
+    {
+        public builtin_list_9da4d36c3fa049b3bc22c9f613fd1969(Parser yyq) : base(yyq,
+          ((datavalerTimesList)(yyq.StackAt(2).m_value))
+          .vals, "times",
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class builtin_list_e48ab73f344340b7b7bf105756aaa681 : builtin_list
+    {
+        public builtin_list_e48ab73f344340b7b7bf105756aaa681(Parser yyq) : base(yyq,
+          ((datavalerFollowedByList)(yyq.StackAt(2).m_value))
+          .vals, "followed-by",
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class builtin_bin_e973596f450e4814ab503802d183a2d2 : builtin_bin
+    {
+        public builtin_bin_e973596f450e4814ab503802d183a2d2(Parser yyq) : base(yyq,
+          ((datavaler)(yyq.StackAt(4).m_value))
+          ,
+          ((binOp)(yyq.StackAt(3).m_value))
+          .yytext,
+          ((datavaler)(yyq.StackAt(2).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class builtin_unary_cmp_f42342a2c7e74153bd6fad912164a09e : builtin_unary_cmp
+    {
+        public builtin_unary_cmp_f42342a2c7e74153bd6fad912164a09e(Parser yyq) : base(yyq,
+          ((unOp)(yyq.StackAt(3).m_value))
+          .yytext,
+          ((datavaler)(yyq.StackAt(2).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class builtin_unary_free_129c9687f63741f982aa3fd65b1d0be0 : builtin_unary_free
+    {
+        public builtin_unary_free_129c9687f63741f982aa3fd65b1d0be0(Parser yyq) : base(yyq,
+          ((datavaler)(yyq.StackAt(2).m_value))
+          ,
+          ((unOp2)(yyq.StackAt(1).m_value))
+          .yytext,
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class builtin_substr_3c32f071139b4b7e9262c07f5e8d086e : builtin_substr
+    {
+        public builtin_substr_3c32f071139b4b7e9262c07f5e8d086e(Parser yyq) : base(yyq,
+          ((datavaler)(yyq.StackAt(4).m_value))
+          , "from",
+          ((datavaler)(yyq.StackAt(2).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class builtin_substr_a071f16bc3694a5da45731d98723f29c : builtin_substr
+    {
+        public builtin_substr_a071f16bc3694a5da45731d98723f29c(Parser yyq) : base(yyq,
+          ((datavaler)(yyq.StackAt(6).m_value))
+          , "from",
+          ((datavaler)(yyq.StackAt(4).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(2).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class builtin_substr_6b286ee63b70402c803dbfc771a3d878 : builtin_substr
+    {
+        public builtin_substr_6b286ee63b70402c803dbfc771a3d878(Parser yyq) : base(yyq,
+          ((datavaler)(yyq.StackAt(4).m_value))
+          ,
+          ((SUBSTRINGFIX)(yyq.StackAt(3).m_value))
+          .yytext,
+          ((datavaler)(yyq.StackAt(2).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class builtin_trans_e14262332461450a95eba2859a129c66 : builtin_trans
+    {
+        public builtin_trans_e14262332461450a95eba2859a129c66(Parser yyq) : base(yyq,
+          ((TRANSLATEDREPLACED)(yyq.StackAt(7).m_value))
+          .yytext,
+          ((datavaler)(yyq.StackAt(6).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(4).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(2).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class builtin_duration_ba10ee6406b74fe6a00ea802f3072516 : builtin_duration
+    {
+        public builtin_duration_ba10ee6406b74fe6a00ea802f3072516(Parser yyq) : base(yyq,
+          ((duration)(yyq.StackAt(2).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class builtin_datetime_2f4201d44eba4fd1a0014b982148a99f : builtin_datetime
+    {
+        public builtin_datetime_2f4201d44eba4fd1a0014b982148a99f(Parser yyq) : base(yyq,
+          ((datetime)(yyq.StackAt(2).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class builtin_alpha_aef1c6f72a054960bdce448f4a84f3a0 : builtin_alpha
+    {
+        public builtin_alpha_aef1c6f72a054960bdce448f4a84f3a0(Parser yyq) : base(yyq,
+          ((objectr)(yyq.StackAt(2).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class builtin_annot_d13e72dd7c9a4459bd0b16e8ce7559e3 : builtin_annot
+    {
+        public builtin_annot_d13e72dd7c9a4459bd0b16e8ce7559e3(Parser yyq) : base(yyq,
+          ((objectr)(yyq.StackAt(2).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(5).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(4).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class builtin_exe_38dcc13695b745029673f6bf43cce7a6 : builtin_exe
+    {
+        public builtin_exe_38dcc13695b745029673f6bf43cce7a6(Parser yyq) : base(yyq,
+          ((STR)(yyq.StackAt(4).m_value))
+          .yytext,
+          ((exeargs)(yyq.StackAt(2).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class duration_m_55afbd56816a4d12b9ac108a3f2cc8cf : duration_m
+    {
+        public duration_m_55afbd56816a4d12b9ac108a3f2cc8cf(Parser yyq) : base(yyq, null, null,
+          ((datavaler)(yyq.StackAt(7).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(5).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(3).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class duration_m_7047a4fd6e37488cb3d6e52991e74677 : duration_m
+    {
+        public duration_m_7047a4fd6e37488cb3d6e52991e74677(Parser yyq) : base(yyq, null, null,
+          ((datavaler)(yyq.StackAt(5).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(3).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class duration_m_6c11941f4548438387454a9601225be3 : duration_m
+    {
+        public duration_m_6c11941f4548438387454a9601225be3(Parser yyq) : base(yyq, null, null,
+          ((datavaler)(yyq.StackAt(3).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class duration_m_c42cc94093cd4389ba02e7236c12aca7 : duration_m
+    {
+        public duration_m_c42cc94093cd4389ba02e7236c12aca7(Parser yyq) : base(yyq, null, null,
+          ((datavaler)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class duration_m_954e0a8601524bfcb8dd02dd40da7138 : duration_m
+    {
+        public duration_m_954e0a8601524bfcb8dd02dd40da7138(Parser yyq) : base(yyq, null, null, null,
+          ((datavaler)(yyq.StackAt(5).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(3).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class duration_m_32c6f48867c3460fbf618a076eab8e73 : duration_m
+    {
+        public duration_m_32c6f48867c3460fbf618a076eab8e73(Parser yyq) : base(yyq, null, null, null,
+          ((datavaler)(yyq.StackAt(3).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class duration_m_d99f9c87cb8f49678638ec69894cf1ed : duration_m
+    {
+        public duration_m_d99f9c87cb8f49678638ec69894cf1ed(Parser yyq) : base(yyq, null, null, null,
+          ((datavaler)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class duration_m_f51410a0fe5f4f27ba914db7cdb141c7 : duration_m
+    {
+        public duration_m_f51410a0fe5f4f27ba914db7cdb141c7(Parser yyq) : base(yyq, null, null, null, null,
+          ((datavaler)(yyq.StackAt(3).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class duration_m_8bc29c23fa0f414d9fa5214fbebd4ada : duration_m
+    {
+        public duration_m_8bc29c23fa0f414d9fa5214fbebd4ada(Parser yyq) : base(yyq, null, null, null, null,
+          ((datavaler)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class duration_m_f0080b26096e4580ad7cf651e734477a : duration_m
+    {
+        public duration_m_f0080b26096e4580ad7cf651e734477a(Parser yyq) : base(yyq, null, null, null, null, null,
+          ((datavaler)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+    public partial class datetime : PartialSymbol
+    {
+        public override string yyname_endl { get { return "datetime"; } }
+        public override int yynum_endl { get { return 388; } }
+    }
+
+    public class datetime_0c55c536432947bc95b1c0540e659c73 : datetime
+    {
+        public datetime_0c55c536432947bc95b1c0540e659c73(Parser yyq) : base(yyq,
+          ((datavaler)(yyq.StackAt(10).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(8).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(6).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(4).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(2).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class datetime_9d175bd7e80948ccb573987c4312e831 : datetime
+    {
+        public datetime_9d175bd7e80948ccb573987c4312e831(Parser yyq) : base(yyq,
+          ((datavaler)(yyq.StackAt(4).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(2).m_value))
+          ,
+          ((datavaler)(yyq.StackAt(0).m_value))
+          , null, null, null)
+        { }
+    }
+
+    public class chain_f1d1e8479fab4525a8b3a49c2185acfd : chain
+    {
+        public chain_f1d1e8479fab4525a8b3a49c2185acfd(Parser yyq) : base(yyq,
+          ((role)(yyq.StackAt(3).m_value))
+          ,
+          ((role)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class chain_5daba5ce21514b7b8d7cd821e7c45d4e : chain
+    {
+        public chain_5daba5ce21514b7b8d7cd821e7c45d4e(Parser yyq) : base(yyq,
+          ((chain)(yyq.StackAt(3).m_value))
+          ,
+          ((role)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class orObjectRoleExprChain_5fc55687f5bb48589182786b97a199c8 : orObjectRoleExprChain
+    {
+        public orObjectRoleExprChain_5fc55687f5bb48589182786b97a199c8(Parser yyq) : base(yyq,
+          ((objectRoleExpr)(yyq.StackAt(2).m_value))
+          ,
+          ((objectRoleExpr)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class orObjectRoleExprChain_1280932fed444a0dbbe66357a095bc98 : orObjectRoleExprChain
+    {
+        public orObjectRoleExprChain_1280932fed444a0dbbe66357a095bc98(Parser yyq) : base(yyq,
+          ((orObjectRoleExprChain)(yyq.StackAt(2).m_value))
+          ,
+          ((objectRoleExpr)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class roleWithXY_bb5d6ff79bbc40df8487cf0d619e22e7 : roleWithXY
+    {
+        public roleWithXY_bb5d6ff79bbc40df8487cf0d619e22e7(Parser yyq) : base(yyq,
+          ((NAME)(yyq.StackAt(1).m_value))
+          .yytext, false)
+        { }
+    }
+
+    public class roleWithXY_5c11be3751d74f2fafcd1c1dc41dc069 : roleWithXY
+    {
+        public roleWithXY_5c11be3751d74f2fafcd1c1dc41dc069(Parser yyq) : base(yyq,
+          ((NAME)(yyq.StackAt(1).m_value))
+          .yytext, true)
+        { }
+    }
+
+    public class notRoleWithXY_b64e4dfa1d3648f2ba1cb621d93842c4 : notRoleWithXY
+    {
+        public notRoleWithXY_b64e4dfa1d3648f2ba1cb621d93842c4(Parser yyq) : base(yyq,
+          ((NAME)(yyq.StackAt(1).m_value))
+          .yytext, false)
+        { }
+    }
+
+    public class notRoleWithXY_52cb25920ebd47df94420b8e97bb2a19 : notRoleWithXY
+    {
+        public notRoleWithXY_52cb25920ebd47df94420b8e97bb2a19(Parser yyq) : base(yyq,
+          ((NAME)(yyq.StackAt(1).m_value))
+          .yytext, true)
+        { }
+    }
+
+    public class andanyrolechain_9cb513c982124810877effaecd901b05 : andanyrolechain
+    {
+        public andanyrolechain_9cb513c982124810877effaecd901b05(Parser yyq) : base(yyq,
+          ((role)(yyq.StackAt(1).m_value))
+          , false)
+        { }
+    }
+
+    public class andanyrolechain_edab88b964b3415ea64a77e329d21f2b : andanyrolechain
+    {
+        public andanyrolechain_edab88b964b3415ea64a77e329d21f2b(Parser yyq) : base(yyq,
+          ((role)(yyq.StackAt(2).m_value))
+          , true)
+        { }
+    }
+
+    public class andanyrolechain_0fb0bf0280ea497fa0987d6c7f3495a8 : andanyrolechain
+    {
+        public andanyrolechain_0fb0bf0280ea497fa0987d6c7f3495a8(Parser yyq) : base(yyq,
+          ((andanyrolechain)(yyq.StackAt(4).m_value))
+          ,
+          ((role)(yyq.StackAt(1).m_value))
+          , false)
+        { }
+    }
+
+    public class andanyrolechain_ae905887b9044709890fb37bfff1f7d2 : andanyrolechain
+    {
+        public andanyrolechain_ae905887b9044709890fb37bfff1f7d2(Parser yyq) : base(yyq,
+          ((andanyrolechain)(yyq.StackAt(5).m_value))
+          ,
+          ((role)(yyq.StackAt(2).m_value))
+          , true)
+        { }
+    }
+
+    public class subjectEvery_9a9d70377b6d4bbdb1976cff0484dd2c : subjectEvery
+    {
+        public subjectEvery_9a9d70377b6d4bbdb1976cff0484dd2c(Parser yyq) : base(yyq,
+          ((single)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class subjectEverything_eafee055036a4f93a25c840d4b1400b8 : subjectEverything
+    {
+        public subjectEverything_eafee055036a4f93a25c840d4b1400b8(Parser yyq) : base(yyq) { }
+    }
+
+    public class subjectEverything_d8d0f8f1d0e7462c8d1f6773d656e8d3 : subjectEverything
+    {
+        public subjectEverything_d8d0f8f1d0e7462c8d1f6773d656e8d3(Parser yyq) : base(yyq,
+          ((that)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class subjectBigName_d35cd74c001042809ecb7c047ee96c03 : subjectBigName
+    {
+        public subjectBigName_d35cd74c001042809ecb7c047ee96c03(Parser yyq) : base(yyq,
+          ((BIGNAME)(yyq.StackAt(0).m_value))
+          .yytext, false)
+        { }
+    }
+
+    public class subjectBigName_e247709fad4f46e8af6b598ac4e69ed9 : subjectBigName
+    {
+        public subjectBigName_e247709fad4f46e8af6b598ac4e69ed9(Parser yyq) : base(yyq,
+          ((VERYBIGNAME)(yyq.StackAt(0).m_value))
+          .yytext, true)
+        { }
+    }
+
+    public class subjectThe_59b29ef9aabf4c0887f1a24fb530874e : subjectThe
+    {
+        public subjectThe_59b29ef9aabf4c0887f1a24fb530874e(Parser yyq) : base(yyq, false,
+          ((single)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class subjectThe_6508d4ff2b3946699f3af047d72e60e6 : subjectThe
+    {
+        public subjectThe_6508d4ff2b3946699f3af047d72e60e6(Parser yyq) : base(yyq, true,
+          ((single)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class subjectNo_3aa0e323824548baae9acb988db41f47 : subjectNo
+    {
+        public subjectNo_3aa0e323824548baae9acb988db41f47(Parser yyq) : base(yyq,
+          ((single)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class subjectNothing_7a10a8be0b3141b49936878cfa3c2393 : subjectNothing
+    {
+        public subjectNothing_7a10a8be0b3141b49936878cfa3c2393(Parser yyq) : base(yyq) { }
+    }
+
+    public class modality_418a797e33f8415090b8ccb9cf27e0ca : modality
+    {
+        public modality_418a797e33f8415090b8ccb9cf27e0ca(Parser yyq) : base(yyq) { }
+    }
+
+    public class modality_8f69bc2826e14a64b655e1d64d497a75 : modality
+    {
+        public modality_8f69bc2826e14a64b655e1d64d497a75(Parser yyq) : base(yyq) { }
+    }
+
+    public class modality_8f69bc2826e14a64b655e1d64d497a75_6e7d1c5cb95c495886cac24c6c505c9e : modality_8f69bc2826e14a64b655e1d64d497a75
+    {
+        public modality_8f69bc2826e14a64b655e1d64d497a75_6e7d1c5cb95c495886cac24c6c505c9e(Parser yyq) : base(yyq) { yytext = ""; }
+    }
+
+    public class modality_a2b72e688f854a05b5285b0dafef6501 : modality
+    {
+        public modality_a2b72e688f854a05b5285b0dafef6501(Parser yyq) : base(yyq) { }
+    }
+
+    public class modality_2994985d0cdc4d74bde814570c298b31 : modality
+    {
+        public modality_2994985d0cdc4d74bde814570c298b31(Parser yyq) : base(yyq) { }
+    }
+
+    public class modality_2994985d0cdc4d74bde814570c298b31_51a1e4967eb4403ba2edffb6c4127ebd : modality_2994985d0cdc4d74bde814570c298b31
+    {
+        public modality_2994985d0cdc4d74bde814570c298b31_51a1e4967eb4403ba2edffb6c4127ebd(Parser yyq) : base(yyq)
+        {
+            switch (
+((MODAL)(yyq.StackAt(0).m_value))
+.yytext)
+            {
+                case "must": yytext = "□"; break;
+                case "should": yytext = "◊"; break;
+                case "can": yytext = "◊◊"; break;
+                case "must-not": yytext = "~◊◊"; break;
+                case "should-not": yytext = "~◊"; break;
+                case "can-not": yytext = "~□"; break;
+                default: throw new InvalidOperationException();
+            }
+        }
+    }
+    public partial class modality2 : PartialSymbol
+    {
+        public override string yyname_endl { get { return "modality2"; } }
+        public override int yynum_endl { get { return 270; } }
+    }
+
+    public class modality2_39e84493f70c44e4b103f81e61df7146 : modality2
+    {
+        public modality2_39e84493f70c44e4b103f81e61df7146(Parser yyq) : base(yyq) { }
+    }
+
+    public class modality2_a9903bb7580245b5883060adb41cf3e7 : modality2
+    {
+        public modality2_a9903bb7580245b5883060adb41cf3e7(Parser yyq) : base(yyq) { }
+    }
+
+    public class modality2_a9903bb7580245b5883060adb41cf3e7_5978f781665c46f5898d26123f73c7da : modality2_a9903bb7580245b5883060adb41cf3e7
+    {
+        public modality2_a9903bb7580245b5883060adb41cf3e7_5978f781665c46f5898d26123f73c7da(Parser yyq) : base(yyq) { yytext = ""; }
+    }
+
+    public class modality2_d1082eb795094c42b220acc0e8512328 : modality2
+    {
+        public modality2_d1082eb795094c42b220acc0e8512328(Parser yyq) : base(yyq) { }
+    }
+
+    public class modality2_65c4f542ddbd4e18bcb08dfa7f89efc6 : modality2
+    {
+        public modality2_65c4f542ddbd4e18bcb08dfa7f89efc6(Parser yyq) : base(yyq) { }
+    }
+
+    public class modality2_65c4f542ddbd4e18bcb08dfa7f89efc6_17d398d661fb4d528f09bb6bbab1450f : modality2_65c4f542ddbd4e18bcb08dfa7f89efc6
+    {
+        public modality2_65c4f542ddbd4e18bcb08dfa7f89efc6_17d398d661fb4d528f09bb6bbab1450f(Parser yyq) : base(yyq)
+        {
+            switch (
+((MODAL)(yyq.StackAt(1).m_value))
+.yytext)
+            {
+                case "must": yytext = "□"; break;
+                case "should": yytext = "◊"; break;
+                case "can": yytext = "◊◊"; break;
+                case "must-not": yytext = "~◊◊"; break;
+                case "should-not": yytext = "~◊"; break;
+                case "can-not": yytext = "~□"; break;
+                default: throw new InvalidOperationException();
+            }
+        }
+    }
+
+    public class role_19de336b9f7f4160896933435e4fb29a : role
+    {
+        public role_19de336b9f7f4160896933435e4fb29a(Parser yyq) : base(yyq,
+          ((NAME)(yyq.StackAt(0).m_value))
+          .yytext, false)
+        { }
+    }
+
+    public class role_1dd48d6cbe9549b084e63dbcf3a1aa81 : role
+    {
+        public role_1dd48d6cbe9549b084e63dbcf3a1aa81(Parser yyq) : base(yyq,
+          ((NAME)(yyq.StackAt(1).m_value))
+          .yytext, true)
+        { }
+    }
+
+    public class objectRoleExpr1_447e56a3854146ce9506d780f10a1ba3 : objectRoleExpr1
+    {
+        public objectRoleExpr1_447e56a3854146ce9506d780f10a1ba3(Parser yyq) : base(yyq, false,
+          ((oobject)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class objectRoleExpr2_916548c0549c4e3392c7d97720703364 : objectRoleExpr2
+    {
+        public objectRoleExpr2_916548c0549c4e3392c7d97720703364(Parser yyq) : base(yyq, false, null,
+          ((role)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class objectRoleExpr2_bef62ec5bd3d466a851eadb99cdff5f6 : objectRoleExpr2
+    {
+        public objectRoleExpr2_bef62ec5bd3d466a851eadb99cdff5f6(Parser yyq) : base(yyq, false,
+          ((oobject)(yyq.StackAt(0).m_value))
+          ,
+          ((role)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class objectRoleExpr2_924e43f9f12c47d39f389b84218c39b2 : objectRoleExpr2
+    {
+        public objectRoleExpr2_924e43f9f12c47d39f389b84218c39b2(Parser yyq) : base(yyq, false,
+          ((oobjectRelated)(yyq.StackAt(0).m_value))
+          ,
+          ((role)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class objectRoleExpr3_efd2e20597084fa18a608bf2eebdaee0 : objectRoleExpr3
+    {
+        public objectRoleExpr3_efd2e20597084fa18a608bf2eebdaee0(Parser yyq) : base(yyq,
+          ((that)(yyq.StackAt(0).m_value))
+          ,
+          ((role)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class objectRoleExpr1_36cf0e01213f4d05a90288649fbc298a : objectRoleExpr1
+    {
+        public objectRoleExpr1_36cf0e01213f4d05a90288649fbc298a(Parser yyq) : base(yyq, true,
+          ((oobject)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class objectRoleExpr2_4563ca84b9a5499d9d0b46564a48e95d : objectRoleExpr2
+    {
+        public objectRoleExpr2_4563ca84b9a5499d9d0b46564a48e95d(Parser yyq) : base(yyq, true,
+          ((oobject)(yyq.StackAt(0).m_value))
+          ,
+          ((NAME)(yyq.StackAt(1).m_value))
+          .yytext)
+        { }
+    }
+
+    public class objectRoleExpr2_0b291fc985a044dbb25bd6ce57f4e694 : objectRoleExpr2
+    {
+        public objectRoleExpr2_0b291fc985a044dbb25bd6ce57f4e694(Parser yyq) : base(yyq, true,
+          ((oobjectRelated)(yyq.StackAt(0).m_value))
+          ,
+          ((NAME)(yyq.StackAt(1).m_value))
+          .yytext)
+        { }
+    }
+
+    public class objectRoleExpr2_1215fd8d349f4815b218576300ac412a : objectRoleExpr2
+    {
+        public objectRoleExpr2_1215fd8d349f4815b218576300ac412a(Parser yyq) : base(yyq, true,
+          ((oobject)(yyq.StackAt(0).m_value))
+          ,
+          ((NAME)(yyq.StackAt(2).m_value))
+          .yytext, true)
+        { }
+    }
+
+    public class objectRoleExpr2_8a5455a74e4b4e8e82837a108198e0cd : objectRoleExpr2
+    {
+        public objectRoleExpr2_8a5455a74e4b4e8e82837a108198e0cd(Parser yyq) : base(yyq, true,
+          ((oobjectRelated)(yyq.StackAt(0).m_value))
+          ,
+          ((NAME)(yyq.StackAt(2).m_value))
+          .yytext, true)
+        { }
+    }
+
+    public class instanceBigName_1e636d9f23c1424fb328abdd45d2ce29 : instanceBigName
+    {
+        public instanceBigName_1e636d9f23c1424fb328abdd45d2ce29(Parser yyq) : base(yyq,
+          ((BIGNAME)(yyq.StackAt(0).m_value))
+          .yytext, false)
+        { }
+    }
+
+    public class instanceBigName_9280333231384117af3a6a0100620d76 : instanceBigName
+    {
+        public instanceBigName_9280333231384117af3a6a0100620d76(Parser yyq) : base(yyq,
+          ((VERYBIGNAME)(yyq.StackAt(0).m_value))
+          .yytext, true)
+        { }
+    }
+
+    public class instanceThe_0e073159e58d4676ae81f9be6dc723ee : instanceThe
+    {
+        public instanceThe_0e073159e58d4676ae81f9be6dc723ee(Parser yyq) : base(yyq, false,
+          ((single)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class instanceThe_aabecdb18b164b9e806c3f5407c38d6f : instanceThe
+    {
+        public instanceThe_aabecdb18b164b9e806c3f5407c38d6f(Parser yyq) : base(yyq, true,
+          ((single)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class instanceList_d5ff625a1a5e40f2b562e8162854b3c4 : instanceList
+    {
+        public instanceList_d5ff625a1a5e40f2b562e8162854b3c4(Parser yyq) : base(yyq,
+          ((instance)(yyq.StackAt(2).m_value))
+          ,
+          ((instance)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class instanceList_069c2d4f5b5a45a1befc5253260ec712 : instanceList
+    {
+        public instanceList_069c2d4f5b5a45a1befc5253260ec712(Parser yyq) : base(yyq,
+          ((instanceList)(yyq.StackAt(2).m_value))
+          ,
+          ((instance)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class oobjectA_b25547576b434f7fab695d719256db02 : oobjectA
+    {
+        public oobjectA_b25547576b434f7fab695d719256db02(Parser yyq) : base(yyq,
+          ((single)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class oobjectA_17fb8807dc2a404e8456e6658b43a07d : oobjectA
+    {
+        public oobjectA_17fb8807dc2a404e8456e6658b43a07d(Parser yyq) : base(yyq,
+          ((NAME)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class oobjectA_ebcc38bea7724ceeb1528c0f415eb9fe : oobjectA
+    {
+        public oobjectA_ebcc38bea7724ceeb1528c0f415eb9fe(Parser yyq) : base(yyq,
+          ((NAME)(yyq.StackAt(1).m_value))
+          .yytext,
+          ((that)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class oobjectSomething_2939bf68e33d408393cc769e668447e1 : oobjectSomething
+    {
+        public oobjectSomething_2939bf68e33d408393cc769e668447e1(Parser yyq) : base(yyq) { }
+    }
+
+    public class oobjectNothing_2901c595cf1540c19f93bb5c009cbb87 : oobjectNothing
+    {
+        public oobjectNothing_2901c595cf1540c19f93bb5c009cbb87(Parser yyq) : base(yyq) { }
+    }
+
+    public class oobjectSomethingThat_07ef2c4b1ef34c98812ebce5f195afb5 : oobjectSomethingThat
+    {
+        public oobjectSomethingThat_07ef2c4b1ef34c98812ebce5f195afb5(Parser yyq) : base(yyq,
+          ((that)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class oobjectInstance_722298a5591f4241b81f6afc6f9b4040 : oobjectInstance
+    {
+        public oobjectInstance_722298a5591f4241b81f6afc6f9b4040(Parser yyq) : base(yyq,
+          ((instance)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class oobjectOnly_318ac4d9886640ad915d368dfcce1ff8 : oobjectOnly
+    {
+        public oobjectOnly_318ac4d9886640ad915d368dfcce1ff8(Parser yyq) : base(yyq,
+          ((single)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class oobjectOnlyInstance_1efa92f90a8941c78aa48223d0dc46f8 : oobjectOnlyInstance
+    {
+        public oobjectOnlyInstance_1efa92f90a8941c78aa48223d0dc46f8(Parser yyq) : base(yyq,
+          ((instance)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class oobjectOnlyNothing_8646f1419d734b9894c47da4bf657213 : oobjectOnlyNothing
+    {
+        public oobjectOnlyNothing_8646f1419d734b9894c47da4bf657213(Parser yyq) : base(yyq) { }
+    }
+
+    public class oobjectOnlySomethingThat_623f154535ae4f53951b0fadee21be88 : oobjectOnlySomethingThat
+    {
+        public oobjectOnlySomethingThat_623f154535ae4f53951b0fadee21be88(Parser yyq) : base(yyq,
+          ((that)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class oobjectSelf_107b7f335e9642db95cbe9eacf9e8599 : oobjectSelf
+    {
+        public oobjectSelf_107b7f335e9642db95cbe9eacf9e8599(Parser yyq) : base(yyq) { }
+    }
+
+    public class oobjectBnd_f5bc457fb16a4e18af92122e283da35e : oobjectBnd
+    {
+        public oobjectBnd_f5bc457fb16a4e18af92122e283da35e(Parser yyq) : base(yyq,
+          ((abstractbound)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class oobjectOnlyBnd_0f7bc12a73fe4b20b422df4fe7d65cf3 : oobjectOnlyBnd
+    {
+        public oobjectOnlyBnd_0f7bc12a73fe4b20b422df4fe7d65cf3(Parser yyq) : base(yyq,
+          ((abstractbound)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class oobjectCmp_ff0528b2d05e491e8f6feadcdb7a5070 : oobjectCmp
+    {
+        public oobjectCmp_ff0528b2d05e491e8f6feadcdb7a5070(Parser yyq) : base(yyq,
+          ((comparer)(yyq.StackAt(2).m_value))
+          .yytext,
+          ((word_number)(yyq.StackAt(1).m_value))
+          .yytext,
+          ((single)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class oobjectCmpInstance_62f6ed86ccc8445fbfb0f1cbe9b8ee54 : oobjectCmpInstance
+    {
+        public oobjectCmpInstance_62f6ed86ccc8445fbfb0f1cbe9b8ee54(Parser yyq) : base(yyq,
+          ((comparer)(yyq.StackAt(2).m_value))
+          .yytext,
+          ((word_number)(yyq.StackAt(1).m_value))
+          .yytext,
+          ((instance)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class oobjectCmpBnd_ae7f63b9a17b4ffca0c504642566dc07 : oobjectCmpBnd
+    {
+        public oobjectCmpBnd_ae7f63b9a17b4ffca0c504642566dc07(Parser yyq) : base(yyq,
+          ((comparer)(yyq.StackAt(2).m_value))
+          .yytext,
+          ((word_number)(yyq.StackAt(1).m_value))
+          .yytext,
+          ((abstractbound)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class singleName_96baba4832584aa5a9c41319d6aac993 : singleName
+    {
+        public singleName_96baba4832584aa5a9c41319d6aac993(Parser yyq) : base(yyq,
+          ((NAME)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class singleThing_eff0badc6a2b437fbf4688f7c457b0ea : singleThing
+    {
+        public singleThing_eff0badc6a2b437fbf4688f7c457b0ea(Parser yyq) : base(yyq) { }
+    }
+
+    public class singleThing_027b542c7d7d420f9939341d13468e6f : singleThing
+    {
+        public singleThing_027b542c7d7d420f9939341d13468e6f(Parser yyq) : base(yyq) { }
+    }
+
+    public class singleThing_2c020c6f78d04c66affa2f215acad6f0 : singleThing
+    {
+        public singleThing_2c020c6f78d04c66affa2f215acad6f0(Parser yyq) : base(yyq) { }
+    }
+
+    public class singleNameThat_dcf44b171bab44659e6789f964328462 : singleNameThat
+    {
+        public singleNameThat_dcf44b171bab44659e6789f964328462(Parser yyq) : base(yyq,
+          ((NAME)(yyq.StackAt(1).m_value))
+          .yytext,
+          ((that)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class singleThingThat_4af593f3c9c942aa8d42c41502b3cfd9 : singleThingThat
+    {
+        public singleThingThat_4af593f3c9c942aa8d42c41502b3cfd9(Parser yyq) : base(yyq,
+          ((that)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class singleThingThat_c13bf3918b4e485590d9146d5d5071de : singleThingThat
+    {
+        public singleThingThat_c13bf3918b4e485590d9146d5d5071de(Parser yyq) : base(yyq,
+          ((that)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class singleThingThat_5aa505e771854f21833e7d6c82f10846 : singleThingThat
+    {
+        public singleThingThat_5aa505e771854f21833e7d6c82f10846(Parser yyq) : base(yyq,
+          ((that)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class singleOneOf_f9240bafbcaf418d8bfe10765ad8e1f9 : singleOneOf
+    {
+        public singleOneOf_f9240bafbcaf418d8bfe10765ad8e1f9(Parser yyq) : base(yyq,
+          ((instanceList)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class singleOneOf_9f64f95e0fe54d98a7cc112260916b4c : singleOneOf
+    {
+        public singleOneOf_9f64f95e0fe54d98a7cc112260916b4c(Parser yyq) : base(yyq,
+          ((instanceList)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class thatOrLoop_268216a573c34a43bde29d7d942ad849 : thatOrLoop
+    {
+        public thatOrLoop_268216a573c34a43bde29d7d942ad849(Parser yyq) : base(yyq,
+          ((orloop)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class thatOrLoop_cc5e77cf72b948a89f0ce8fc8ddb7303 : thatOrLoop
+    {
+        public thatOrLoop_cc5e77cf72b948a89f0ce8fc8ddb7303(Parser yyq) : base(yyq,
+          ((orloop)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class andloop_e2351c0e014c4a929e8994e6c5548a06 : andloop
+    {
+        public andloop_e2351c0e014c4a929e8994e6c5548a06(Parser yyq) : base(yyq,
+          ((objectRoleExpr)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class andloop_e3de1582f6d74803ab551f91b1708bcd : andloop
+    {
+        public andloop_e3de1582f6d74803ab551f91b1708bcd(Parser yyq) : base(yyq,
+          ((andloop)(yyq.StackAt(2).m_value))
+          ,
+          ((objectRoleExpr)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class orloop_009a8290e37345849a1180987de9be5b : orloop
+    {
+        public orloop_009a8290e37345849a1180987de9be5b(Parser yyq) : base(yyq,
+          ((andloop)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class orloop_a4d7a2437b774b5f91927bcf3a5d48b8 : orloop
+    {
+        public orloop_a4d7a2437b774b5f91927bcf3a5d48b8(Parser yyq) : base(yyq,
+          ((orloop)(yyq.StackAt(2).m_value))
+          ,
+          ((andloop)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class comparer_1592b4ba6da04d7aa71e8b2f19b6bc01 : comparer
+    {
+        public comparer_1592b4ba6da04d7aa71e8b2f19b6bc01(Parser yyq) : base(yyq) { }
+    }
+
+    public class comparer_a0c0bb93e6ae469793321c37956af897 : comparer
+    {
+        public comparer_a0c0bb93e6ae469793321c37956af897(Parser yyq) : base(yyq) { }
+    }
+
+    public class comparer_a0c0bb93e6ae469793321c37956af897_04b1cd80d9ec4dc9b2e56bad4333cc56 : comparer_a0c0bb93e6ae469793321c37956af897
+    {
+        public comparer_a0c0bb93e6ae469793321c37956af897_04b1cd80d9ec4dc9b2e56bad4333cc56(Parser yyq) : base(yyq) { yytext = "="; }
+    }
+
+    public class comparer_145f81cae96f4e20b3227cffa71b35d3 : comparer
+    {
+        public comparer_145f81cae96f4e20b3227cffa71b35d3(Parser yyq) : base(yyq) { }
+    }
+
+    public class comparer_5ecbaad0e39b422491fc9c98728523fc : comparer
+    {
+        public comparer_5ecbaad0e39b422491fc9c98728523fc(Parser yyq) : base(yyq) { }
+    }
+
+    public class comparer_5ecbaad0e39b422491fc9c98728523fc_ba645194d6924b0087226328f3ed2351 : comparer_5ecbaad0e39b422491fc9c98728523fc
+    {
+        public comparer_5ecbaad0e39b422491fc9c98728523fc_ba645194d6924b0087226328f3ed2351(Parser yyq) : base(yyq)
+        {
+            switch (
+((COMPARER)(yyq.StackAt(0).m_value))
+.yytext)
+            {
+                case "at-most": yytext = "≤"; break;
+                case "at-least": yytext = "≥"; break;
+                case "less-than": yytext = "<"; break;
+                case "more-than": yytext = ">"; break;
+                case "different-than": yytext = "≠"; break;
+                default: throw new InvalidOperationException();
+            }
+        }
+    }
+
+    public class word_number_f7873402a182481d9f3d6ec914ae2965 : word_number
+    {
+        public word_number_f7873402a182481d9f3d6ec914ae2965(Parser yyq) : base(yyq) { }
+    }
+
+    public class word_number_f29f4b45d4f6440faab7b038d63e8016 : word_number
+    {
+        public word_number_f29f4b45d4f6440faab7b038d63e8016(Parser yyq) : base(yyq) { }
+    }
+
+    public class word_number_f29f4b45d4f6440faab7b038d63e8016_1ce16831796c4da3aef1ace355e30bbe : word_number_f29f4b45d4f6440faab7b038d63e8016
+    {
+        public word_number_f29f4b45d4f6440faab7b038d63e8016_1ce16831796c4da3aef1ace355e30bbe(Parser yyq) : base(yyq)
+        {
+            switch (
+((WORDNUM)(yyq.StackAt(0).m_value))
+.yytext)
+            {
+                case "zero": yytext = "0"; break;
+                case "one": yytext = "1"; break;
+                case "two": yytext = "2"; break;
+                case "three": yytext = "3"; break;
+                case "four": yytext = "4"; break;
+                case "five": yytext = "5"; break;
+                case "six": yytext = "6"; break;
+                case "seven": yytext = "7"; break;
+                case "eight": yytext = "8"; break;
+                case "nine": yytext = "9"; break;
+                case "ten": yytext = "10"; break;
+                case "eleven": yytext = "11"; break;
+                case "twelve": yytext = "12"; break;
+                case "thirteen": yytext = "13"; break;
+                case "fourteen": yytext = "14"; break;
+                case "fifteen": yytext = "15"; break;
+                case "sixteen": yytext = "16"; break;
+                case "seventeen": yytext = "17"; break;
+                case "eighteen": yytext = "18"; break;
+                case "nineteen": yytext = "19"; break;
+                case "twenty": yytext = "20"; break;
+                default: throw new InvalidOperationException();
+            }
+        }
+    }
+
+    public class word_number_e49d3cc248904823a1e3a1a3e0636e87 : word_number
+    {
+        public word_number_e49d3cc248904823a1e3a1a3e0636e87(Parser yyq) : base(yyq) { }
+    }
+
+    public class word_number_75bd5a6cddf347a09ca63021c8ed26ad : word_number
+    {
+        public word_number_75bd5a6cddf347a09ca63021c8ed26ad(Parser yyq) : base(yyq) { }
+    }
+
+    public class word_number_75bd5a6cddf347a09ca63021c8ed26ad_faba2b6d66ab4550a02bb74333041ec9 : word_number_75bd5a6cddf347a09ca63021c8ed26ad
+    {
+        public word_number_75bd5a6cddf347a09ca63021c8ed26ad_faba2b6d66ab4550a02bb74333041ec9(Parser yyq) : base(yyq)
+        {
+            yytext =
+((NAT)(yyq.StackAt(0).m_value))
+.yytext;
+        }
+    }
+
+    public class facet_522c79e37a364067a3af29e0c191bfac : facet
+    {
+        public facet_522c79e37a364067a3af29e0c191bfac(Parser yyq) : base(yyq, (
+          ((COMPARER2)(yyq.StackAt(1).m_value))
+          .yytext == "lower-or-equal-to" ? "≤" : (
+          ((COMPARER2)(yyq.StackAt(1).m_value))
+          .yytext == "greater-or-equal-to" ? "≥" : (
+          ((COMPARER2)(yyq.StackAt(1).m_value))
+          .yytext == "lower-than" ? "<" : ">"))),
+          ((dataval)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class facet_0d405be671eb4858b930ed5b5683541e : facet
+    {
+        public facet_0d405be671eb4858b930ed5b5683541e(Parser yyq) : base(yyq, "#",
+          ((STR)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class facet_7ac077192b684ee5a57818db00d8ba40 : facet
+    {
+        public facet_7ac077192b684ee5a57818db00d8ba40(Parser yyq) : base(yyq, "<->",
+          ((NAT)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class facet_35a26489569e44c89c44ce226a3368bc : facet
+    {
+        public facet_35a26489569e44c89c44ce226a3368bc(Parser yyq) : base(yyq, "<-> " + (
+          ((COMPARER2)(yyq.StackAt(1).m_value))
+          .yytext == "lower-or-equal-to" ? "≤" : (
+          ((COMPARER2)(yyq.StackAt(1).m_value))
+          .yytext == "greater-or-equal-to" ? "≥" : (
+          ((COMPARER2)(yyq.StackAt(1).m_value))
+          .yytext == "lower-than" ? "<" : ">"))),
+          ((NAT)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class facetList_165d6454d84548f6bd60c95dd795ab59 : facetList
+    {
+        public facetList_165d6454d84548f6bd60c95dd795ab59(Parser yyq) : base(yyq,
+          ((facet)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class facetList_4439de31ce8d4a6dad5120738bb949b8 : facetList
+    {
+        public facetList_4439de31ce8d4a6dad5120738bb949b8(Parser yyq) : base(yyq,
+          ((facetList)(yyq.StackAt(2).m_value))
+          ,
+          ((facet)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class boundFacets_b18592c63926410fa1be8207c1c1239b : boundFacets
+    {
+        public boundFacets_b18592c63926410fa1be8207c1c1239b(Parser yyq) : base(yyq,
+          ((facetList)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class boundVal_c828dcad517f46a4a90fc47a1f03bc1c : boundVal
+    {
+        public boundVal_c828dcad517f46a4a90fc47a1f03bc1c(Parser yyq) : base(yyq, "=",
+          ((dataval)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class boundVal_29311d3be24545c1a3d44fc83ce5932f : boundVal
+    {
+        public boundVal_29311d3be24545c1a3d44fc83ce5932f(Parser yyq) : base(yyq, "≠",
+          ((dataval)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class boundOneOf_95c897a4a52e48cbbdecc5b57b19d24b : boundOneOf
+    {
+        public boundOneOf_95c897a4a52e48cbbdecc5b57b19d24b(Parser yyq) : base(yyq,
+          ((datavalList)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class boundTop_275235405d9443ac9a990108000eb708 : boundTop
+    {
+        public boundTop_275235405d9443ac9a990108000eb708(Parser yyq) : base(yyq) { }
+    }
+
+    public class boundTotal_aece926e36334b22b0ccccd4a9967b6f : boundTotal
+    {
+        public boundTotal_aece926e36334b22b0ccccd4a9967b6f(Parser yyq) : base(yyq,
+          ((DATATYPENAME)(yyq.StackAt(2).m_value))
+          .yytext == "integer" ? "NUM" : (
+          ((DATATYPENAME)(yyq.StackAt(2).m_value))
+          .yytext == "string" ? "STR" : (
+          ((DATATYPENAME)(yyq.StackAt(2).m_value))
+          .yytext == "real" ? "DBL" : (
+          ((DATATYPENAME)(yyq.StackAt(2).m_value))
+          .yytext == "duration" ? "DUR" : (
+          ((DATATYPENAME)(yyq.StackAt(2).m_value))
+          .yytext == "datetime" ? "DTM" : "BOL")))))
+        { }
+    }
+
+    public class boundDataType_0fc663b1365a4a469182eee5fcb869b1 : boundDataType
+    {
+        public boundDataType_0fc663b1365a4a469182eee5fcb869b1(Parser yyq) : base(yyq,
+          ((NAME)(yyq.StackAt(2).m_value))
+          .yytext)
+        { }
+    }
+
+    public class boundIdent_ca48d918cfd84dfda3281d288116a0d9 : boundIdent
+    {
+        public boundIdent_ca48d918cfd84dfda3281d288116a0d9(Parser yyq) : base(yyq,
+          ((abstractbound)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class boundAnd_9c7407cefecf40c9b2a9028e2662b542 : boundAnd
+    {
+        public boundAnd_9c7407cefecf40c9b2a9028e2662b542(Parser yyq) : base(yyq,
+          ((abstractbound)(yyq.StackAt(2).m_value))
+          ,
+          ((abstractbound)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class boundOr_175e4bd629cc4ce4bbcb2a4999452b4c : boundOr
+    {
+        public boundOr_175e4bd629cc4ce4bbcb2a4999452b4c(Parser yyq) : base(yyq,
+          ((abstractbound)(yyq.StackAt(2).m_value))
+          ,
+          ((abstractbound)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class boundNot_45259cdb5cc64446ab1766109ff78fdf : boundNot
+    {
+        public boundNot_45259cdb5cc64446ab1766109ff78fdf(Parser yyq) : base(yyq,
+          ((abstractbound)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class Number_695f0fa0c7f749ee9618398b97f99dc9 : Number
+    {
+        public Number_695f0fa0c7f749ee9618398b97f99dc9(Parser yyq) : base(yyq,
+          ((NAT)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class Number_905fb068ff8c4500a200cb7d77c377a0 : Number
+    {
+        public Number_905fb068ff8c4500a200cb7d77c377a0(Parser yyq) : base(yyq,
+          ((NUM)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class StrData_cfad7327880546028155730124b7a9c2 : StrData
+    {
+        public StrData_cfad7327880546028155730124b7a9c2(Parser yyq) : base(yyq,
+          ((STR)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class DateTimeData_2cce692ba0a5488c9b79920d2e985eaf : DateTimeData
+    {
+        public DateTimeData_2cce692ba0a5488c9b79920d2e985eaf(Parser yyq) : base(yyq,
+          ((DTM)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class Duration_9e45f683e8974e1281bfe106323d0b43 : Duration
+    {
+        public Duration_9e45f683e8974e1281bfe106323d0b43(Parser yyq) : base(yyq,
+          ((DUR)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class Float_9a6d2ea064fb4affa593690db836281b : Float
+    {
+        public Float_9a6d2ea064fb4affa593690db836281b(Parser yyq) : base(yyq,
+          ((DBL)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class Bool_7bd728463a3648f4821dcc1df88074ae : Bool
+    {
+        public Bool_7bd728463a3648f4821dcc1df88074ae(Parser yyq) : base(yyq,
+          ((BOL)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class datavalList_8c8a6b39af874ea182c64a8d745197bc : datavalList
+    {
+        public datavalList_8c8a6b39af874ea182c64a8d745197bc(Parser yyq) : base(yyq,
+          ((dataval)(yyq.StackAt(2).m_value))
+          ,
+          ((dataval)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class datavalList_bbab639eab514464a606fc27d2b58cfb : datavalList
+    {
+        public datavalList_bbab639eab514464a606fc27d2b58cfb(Parser yyq) : base(yyq,
+          ((datavalList)(yyq.StackAt(2).m_value))
+          ,
+          ((dataval)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+    public class yyendl : YyParser
+    {
+        public override object Action(Parser yyq, SYMBOL yysym, int yyact)
+        {
+            switch (yyact)
+            {
+                case -1: break; //// keep compiler happy
+            }
+            return null;
+        }
+
+        public class andComma_e5f37ebe59584ba2868ea509fe54bb77 : andComma
+        {
+            public andComma_e5f37ebe59584ba2868ea509fe54bb77(Parser yyq) : base(yyq) { }
+        }
+
+        public class andComma_7a1140bd0fba4a04bdcf342ba6e7a16d : andComma
+        {
+            public andComma_7a1140bd0fba4a04bdcf342ba6e7a16d(Parser yyq) : base(yyq) { }
+        }
+
+        public class isBeAre_c074f3547e2642baae4dee8d613e8409 : isBeAre
+        {
+            public isBeAre_c074f3547e2642baae4dee8d613e8409(Parser yyq) : base(yyq) { }
+        }
+
+        public class isBeAre_5c14e059db714db585d1b5f2d4ff642d : isBeAre
+        {
+            public isBeAre_5c14e059db714db585d1b5f2d4ff642d(Parser yyq) : base(yyq) { }
+        }
+
+        public class doesNot_a3f6472835454ce98820f5340279efd6 : doesNot
+        {
+            public doesNot_a3f6472835454ce98820f5340279efd6(Parser yyq) : base(yyq) { }
+        }
+
+        public class doesNot_ffd19021ca9b42d185d150974fcf38fc : doesNot
+        {
+            public doesNot_ffd19021ca9b42d185d150974fcf38fc(Parser yyq) : base(yyq) { }
+        }
+
+        public class doesNotBy_85bea99ab26f4aca9250e879bcb8f56d : doesNotBy
+        {
+            public doesNotBy_85bea99ab26f4aca9250e879bcb8f56d(Parser yyq) : base(yyq) { }
+        }
+
+        public class doesNotBy_996156a337804089bc11b27d2ae541de : doesNotBy
+        {
+            public doesNotBy_996156a337804089bc11b27d2ae541de(Parser yyq) : base(yyq) { }
+        }
+
+        public class doesNotBy_efdc773be95d4eb89dc96e2228b39f7c : doesNotBy
+        {
+            public doesNotBy_efdc773be95d4eb89dc96e2228b39f7c(Parser yyq) : base(yyq) { }
+        }
+
+        public class aAn_4da7a5201e2b453cab1bb992ac99294f : aAn
+        {
+            public aAn_4da7a5201e2b453cab1bb992ac99294f(Parser yyq) : base(yyq) { }
+        }
+
+        public class orComma_de6f2dda1b30498c9c2c5d4e08dcbc02 : orComma
+        {
+            public orComma_de6f2dda1b30498c9c2c5d4e08dcbc02(Parser yyq) : base(yyq) { }
+        }
+
+        public class orComma_c868b6e1644e46dd8b823005b69c36f6 : orComma
+        {
+            public orComma_c868b6e1644e46dd8b823005b69c36f6(Parser yyq) : base(yyq) { }
+        }
+        public yyendl() : base()
+        {
+            arr = new int[] {
 101,4,6,52,0,
 46,0,53,0,102,
 20,103,4,18,112,
@@ -17180,888 +18129,889 @@ public yyendl():base() { arr = new int[] {
 1,1779,2835,1,1738,
 2815,1,592,2947,2,
 1,0};
-new Sfactory(this,"doesNotBy",new SCreator(doesNotBy_factory));
-new Sfactory(this,"oobjectOnly_318ac4d9886640ad915d368dfcce1ff8",new SCreator(oobjectOnly_318ac4d9886640ad915d368dfcce1ff8_factory));
-new Sfactory(this,"boundTop",new SCreator(boundTop_factory));
-new Sfactory(this,"oobjectOnlyNothing_8646f1419d734b9894c47da4bf657213",new SCreator(oobjectOnlyNothing_8646f1419d734b9894c47da4bf657213_factory));
-new Sfactory(this,"identobject_name_e753f510c632415caecfe92fdfe04132",new SCreator(identobject_name_e753f510c632415caecfe92fdfe04132_factory));
-new Sfactory(this,"notRoleWithXY",new SCreator(notRoleWithXY_factory));
-new Sfactory(this,"condition_is_9851cdc5ee4547de8f6f21edbb5ef45e",new SCreator(condition_is_9851cdc5ee4547de8f6f21edbb5ef45e_factory));
-new Sfactory(this,"builtin_substr_a071f16bc3694a5da45731d98723f29c",new SCreator(builtin_substr_a071f16bc3694a5da45731d98723f29c_factory));
-new Sfactory(this,"boundDataType_0fc663b1365a4a469182eee5fcb869b1",new SCreator(boundDataType_0fc663b1365a4a469182eee5fcb869b1_factory));
-new Sfactory(this,"datavalList",new SCreator(datavalList_factory));
-new Sfactory(this,"valueOrThing_b292e5effebc4cf08f68227d444765da",new SCreator(valueOrThing_b292e5effebc4cf08f68227d444765da_factory));
-new Sfactory(this,"boundFacets",new SCreator(boundFacets_factory));
-new Sfactory(this,"duration_m_f0080b26096e4580ad7cf651e734477a",new SCreator(duration_m_f0080b26096e4580ad7cf651e734477a_factory));
-new Sfactory(this,"objectRoleExpr2_0b291fc985a044dbb25bd6ce57f4e694",new SCreator(objectRoleExpr2_0b291fc985a044dbb25bd6ce57f4e694_factory));
-new Sfactory(this,"facet_7ac077192b684ee5a57818db00d8ba40",new SCreator(facet_7ac077192b684ee5a57818db00d8ba40_factory));
-new Sfactory(this,"exerule",new SCreator(exerule_factory));
-new Sfactory(this,"comparer2_edb3d005808a42149810185952208fc5",new SCreator(comparer2_edb3d005808a42149810185952208fc5_factory));
-new Sfactory(this,"subjectNo",new SCreator(subjectNo_factory));
-new Sfactory(this,"subsumption_if",new SCreator(subsumption_if_factory));
-new Sfactory(this,"duration_m_6c11941f4548438387454a9601225be3",new SCreator(duration_m_6c11941f4548438387454a9601225be3_factory));
-new Sfactory(this,"subjectBigName_d35cd74c001042809ecb7c047ee96c03",new SCreator(subjectBigName_d35cd74c001042809ecb7c047ee96c03_factory));
-new Sfactory(this,"condition_result_role_3118228cc5a84fa1ac3397d77a6a5a83",new SCreator(condition_result_role_3118228cc5a84fa1ac3397d77a6a5a83_factory));
-new Sfactory(this,"datetime_0c55c536432947bc95b1c0540e659c73",new SCreator(datetime_0c55c536432947bc95b1c0540e659c73_factory));
-new Sfactory(this,"isBeAre",new SCreator(isBeAre_factory));
-new Sfactory(this,"condition_data_property_4a412d9875d24be4b511f3ce4fe6af7f",new SCreator(condition_data_property_4a412d9875d24be4b511f3ce4fe6af7f_factory));
-new Sfactory(this,"datavaler",new SCreator(datavaler_factory));
-new Sfactory(this,"oobjectCmpInstance_62f6ed86ccc8445fbfb0f1cbe9b8ee54",new SCreator(oobjectCmpInstance_62f6ed86ccc8445fbfb0f1cbe9b8ee54_factory));
-new Sfactory(this,"rolesubsumption_7b44428ea8344fcebe9eb5d6b1c5c84f",new SCreator(rolesubsumption_7b44428ea8344fcebe9eb5d6b1c5c84f_factory));
-new Sfactory(this,"andComma",new SCreator(andComma_factory));
-new Sfactory(this,"condition_exists_3b7fabca36e94c648fb58c8d856e7ff8",new SCreator(condition_exists_3b7fabca36e94c648fb58c8d856e7ff8_factory));
-new Sfactory(this,"boundVal_c828dcad517f46a4a90fc47a1f03bc1c",new SCreator(boundVal_c828dcad517f46a4a90fc47a1f03bc1c_factory));
-new Sfactory(this,"oobjectOnlyInstance_1efa92f90a8941c78aa48223d0dc46f8",new SCreator(oobjectOnlyInstance_1efa92f90a8941c78aa48223d0dc46f8_factory));
-new Sfactory(this,"boundOneOf_95c897a4a52e48cbbdecc5b57b19d24b",new SCreator(boundOneOf_95c897a4a52e48cbbdecc5b57b19d24b_factory));
-new Sfactory(this,"notidentobject_b94aa5042b0b4cd0b7fb47c31cd21884",new SCreator(notidentobject_b94aa5042b0b4cd0b7fb47c31cd21884_factory));
-new Sfactory(this,"word_number_f29f4b45d4f6440faab7b038d63e8016_1ce16831796c4da3aef1ace355e30bbe",new SCreator(word_number_f29f4b45d4f6440faab7b038d63e8016_1ce16831796c4da3aef1ace355e30bbe_factory));
-new Sfactory(this,"condition",new SCreator(condition_factory));
-new Sfactory(this,"paragraph_c73a4bfe7c064b4c84855e3199998995",new SCreator(paragraph_c73a4bfe7c064b4c84855e3199998995_factory));
-new Sfactory(this,"comparer2_469cb9c5f35a4878b84b753ed5aa6a1a",new SCreator(comparer2_469cb9c5f35a4878b84b753ed5aa6a1a_factory));
-new Sfactory(this,"comparer2_edb3d005808a42149810185952208fc5_8e3c464b3c1d4fd8ba1e6951f15c7a9e",new SCreator(comparer2_edb3d005808a42149810185952208fc5_8e3c464b3c1d4fd8ba1e6951f15c7a9e_factory));
-new Sfactory(this,"builtin_trans_e14262332461450a95eba2859a129c66",new SCreator(builtin_trans_e14262332461450a95eba2859a129c66_factory));
-new Sfactory(this,"andanyrolechain_ae905887b9044709890fb37bfff1f7d2",new SCreator(andanyrolechain_ae905887b9044709890fb37bfff1f7d2_factory));
-new Sfactory(this,"thatOrLoop_268216a573c34a43bde29d7d942ad849",new SCreator(thatOrLoop_268216a573c34a43bde29d7d942ad849_factory));
-new Sfactory(this,"oobjectBnd",new SCreator(oobjectBnd_factory));
-new Sfactory(this,"datavalerPlusList_cf96adeabac64a4f9768270e4f7b43a5",new SCreator(datavalerPlusList_cf96adeabac64a4f9768270e4f7b43a5_factory));
-new Sfactory(this,"orloop_a4d7a2437b774b5f91927bcf3a5d48b8",new SCreator(orloop_a4d7a2437b774b5f91927bcf3a5d48b8_factory));
-new Sfactory(this,"objectRoleExpr3_efd2e20597084fa18a608bf2eebdaee0",new SCreator(objectRoleExpr3_efd2e20597084fa18a608bf2eebdaee0_factory));
-new Sfactory(this,"builtin_datetime_2f4201d44eba4fd1a0014b982148a99f",new SCreator(builtin_datetime_2f4201d44eba4fd1a0014b982148a99f_factory));
-new Sfactory(this,"notidentobject_21178b2016ee43dd9b7828f754df3ee4",new SCreator(notidentobject_21178b2016ee43dd9b7828f754df3ee4_factory));
-new Sfactory(this,"oobjectSomething_2939bf68e33d408393cc769e668447e1",new SCreator(oobjectSomething_2939bf68e33d408393cc769e668447e1_factory));
-new Sfactory(this,"valueOrThing_606f91515c9a4f178ebde2e9e15da180",new SCreator(valueOrThing_606f91515c9a4f178ebde2e9e15da180_factory));
-new Sfactory(this,"builtin_substr_6b286ee63b70402c803dbfc771a3d878",new SCreator(builtin_substr_6b286ee63b70402c803dbfc771a3d878_factory));
-new Sfactory(this,"comparer",new SCreator(comparer_factory));
-new Sfactory(this,"condition_result_builtin",new SCreator(condition_result_builtin_factory));
-new Sfactory(this,"condition_role_450ed8e2227a42cfb94f34d571c49138",new SCreator(condition_role_450ed8e2227a42cfb94f34d571c49138_factory));
-new Sfactory(this,"identobject_inst_3841f77f0f734bcd853061126e5a07ae",new SCreator(identobject_inst_3841f77f0f734bcd853061126e5a07ae_factory));
-new Sfactory(this,"comparer2_ae23ce61f8ed473db910fce732481f63",new SCreator(comparer2_ae23ce61f8ed473db910fce732481f63_factory));
-new Sfactory(this,"comparer2_ce1a6ff8e277483c96f9740c7e35cb79",new SCreator(comparer2_ce1a6ff8e277483c96f9740c7e35cb79_factory));
-new Sfactory(this,"doesNot_a3f6472835454ce98820f5340279efd6",new SCreator(doesNot_a3f6472835454ce98820f5340279efd6_factory));
-new Sfactory(this,"andComma_7a1140bd0fba4a04bdcf342ba6e7a16d",new SCreator(andComma_7a1140bd0fba4a04bdcf342ba6e7a16d_factory));
-new Sfactory(this,"roleWithXY_bb5d6ff79bbc40df8487cf0d619e22e7",new SCreator(roleWithXY_bb5d6ff79bbc40df8487cf0d619e22e7_factory));
-new Sfactory(this,"modality_2994985d0cdc4d74bde814570c298b31_51a1e4967eb4403ba2edffb6c4127ebd",new SCreator(modality_2994985d0cdc4d74bde814570c298b31_51a1e4967eb4403ba2edffb6c4127ebd_factory));
-new Sfactory(this,"oobjectA_ebcc38bea7724ceeb1528c0f415eb9fe",new SCreator(oobjectA_ebcc38bea7724ceeb1528c0f415eb9fe_factory));
-new Sfactory(this,"condition_data_property_bound",new SCreator(condition_data_property_bound_factory));
-new Sfactory(this,"oobjectRelated",new SCreator(oobjectRelated_factory));
-new Sfactory(this,"boundOr",new SCreator(boundOr_factory));
-new Sfactory(this,"unOp2_a6f44f374d46487b93ad3733d3c68a6c_ba7f49eb4a3b484a9a6d606af1527be9",new SCreator(unOp2_a6f44f374d46487b93ad3733d3c68a6c_ba7f49eb4a3b484a9a6d606af1527be9_factory));
-new Sfactory(this,"doesNotBy_85bea99ab26f4aca9250e879bcb8f56d",new SCreator(doesNotBy_85bea99ab26f4aca9250e879bcb8f56d_factory));
-new Sfactory(this,"instanceList_d5ff625a1a5e40f2b562e8162854b3c4",new SCreator(instanceList_d5ff625a1a5e40f2b562e8162854b3c4_factory));
-new Sfactory(this,"datarolesubsumption",new SCreator(datarolesubsumption_factory));
-new Sfactory(this,"singleName",new SCreator(singleName_factory));
-new Sfactory(this,"datarolesubsumption_53b8fa47c596440a848c3686d84ff9fa",new SCreator(datarolesubsumption_53b8fa47c596440a848c3686d84ff9fa_factory));
-new Sfactory(this,"oobjectCmpBnd_ae7f63b9a17b4ffca0c504642566dc07",new SCreator(oobjectCmpBnd_ae7f63b9a17b4ffca0c504642566dc07_factory));
-new Sfactory(this,"subject",new SCreator(subject_factory));
-new Sfactory(this,"builtin_list_9da4d36c3fa049b3bc22c9f613fd1969",new SCreator(builtin_list_9da4d36c3fa049b3bc22c9f613fd1969_factory));
-new Sfactory(this,"orloop",new SCreator(orloop_factory));
-new Sfactory(this,"objectRoleExpr2_4563ca84b9a5499d9d0b46564a48e95d",new SCreator(objectRoleExpr2_4563ca84b9a5499d9d0b46564a48e95d_factory));
-new Sfactory(this,"datetime",new SCreator(datetime_factory));
-new Sfactory(this,"chain_f1d1e8479fab4525a8b3a49c2185acfd",new SCreator(chain_f1d1e8479fab4525a8b3a49c2185acfd_factory));
-new Sfactory(this,"dataroleequivalence2_79e8e3c6387c49ab995139ad18214122",new SCreator(dataroleequivalence2_79e8e3c6387c49ab995139ad18214122_factory));
-new Sfactory(this,"roleWithXY_5c11be3751d74f2fafcd1c1dc41dc069",new SCreator(roleWithXY_5c11be3751d74f2fafcd1c1dc41dc069_factory));
-new Sfactory(this,"comparer_5ecbaad0e39b422491fc9c98728523fc",new SCreator(comparer_5ecbaad0e39b422491fc9c98728523fc_factory));
-new Sfactory(this,"notRoleWithXY_b64e4dfa1d3648f2ba1cb621d93842c4",new SCreator(notRoleWithXY_b64e4dfa1d3648f2ba1cb621d93842c4_factory));
-new Sfactory(this,"subjectBigName_e247709fad4f46e8af6b598ac4e69ed9",new SCreator(subjectBigName_e247709fad4f46e8af6b598ac4e69ed9_factory));
-new Sfactory(this,"unOp_c74ee41853af4d08897b08b21a8b04bb",new SCreator(unOp_c74ee41853af4d08897b08b21a8b04bb_factory));
-new Sfactory(this,"exeargs_09198c24a4c54171b54a3ac103990da0",new SCreator(exeargs_09198c24a4c54171b54a3ac103990da0_factory));
-new Sfactory(this,"exeargs_56a109c849ca4fffb7c041d5d1b34493",new SCreator(exeargs_56a109c849ca4fffb7c041d5d1b34493_factory));
-new Sfactory(this,"datavalval",new SCreator(datavalval_factory));
-new Sfactory(this,"duration_m_32c6f48867c3460fbf618a076eab8e73",new SCreator(duration_m_32c6f48867c3460fbf618a076eab8e73_factory));
-new Sfactory(this,"dataval",new SCreator(dataval_factory));
-new Sfactory(this,"binOp_d4ec7f2581f64fb48b3c50d1edfdbce4",new SCreator(binOp_d4ec7f2581f64fb48b3c50d1edfdbce4_factory));
-new Sfactory(this,"singleOneOf_9f64f95e0fe54d98a7cc112260916b4c",new SCreator(singleOneOf_9f64f95e0fe54d98a7cc112260916b4c_factory));
-new Sfactory(this,"oobjectSomethingThat_07ef2c4b1ef34c98812ebce5f195afb5",new SCreator(oobjectSomethingThat_07ef2c4b1ef34c98812ebce5f195afb5_factory));
-new Sfactory(this,"builtin",new SCreator(builtin_factory));
-new Sfactory(this,"orObjectRoleExprChain_5fc55687f5bb48589182786b97a199c8",new SCreator(orObjectRoleExprChain_5fc55687f5bb48589182786b97a199c8_factory));
-new Sfactory(this,"roleequivalence2",new SCreator(roleequivalence2_factory));
-new Sfactory(this,"Number",new SCreator(Number_factory));
-new Sfactory(this,"abstractbound",new SCreator(abstractbound_factory));
-new Sfactory(this,"swrlrule",new SCreator(swrlrule_factory));
-new Sfactory(this,"duration_m_d99f9c87cb8f49678638ec69894cf1ed",new SCreator(duration_m_d99f9c87cb8f49678638ec69894cf1ed_factory));
-new Sfactory(this,"equalTo_02e1029631bf4b709a469df03d37ec01",new SCreator(equalTo_02e1029631bf4b709a469df03d37ec01_factory));
-new Sfactory(this,"exclusiveunion_9d3feb24afc04ba0a619553526a44646",new SCreator(exclusiveunion_9d3feb24afc04ba0a619553526a44646_factory));
-new Sfactory(this,"Number_695f0fa0c7f749ee9618398b97f99dc9",new SCreator(Number_695f0fa0c7f749ee9618398b97f99dc9_factory));
-new Sfactory(this,"Duration_9e45f683e8974e1281bfe106323d0b43",new SCreator(Duration_9e45f683e8974e1281bfe106323d0b43_factory));
-new Sfactory(this,"duration_m_f51410a0fe5f4f27ba914db7cdb141c7",new SCreator(duration_m_f51410a0fe5f4f27ba914db7cdb141c7_factory));
-new Sfactory(this,"andanyrolechain_0fb0bf0280ea497fa0987d6c7f3495a8",new SCreator(andanyrolechain_0fb0bf0280ea497fa0987d6c7f3495a8_factory));
-new Sfactory(this,"nosubject",new SCreator(nosubject_factory));
-new Sfactory(this,"comparer_145f81cae96f4e20b3227cffa71b35d3",new SCreator(comparer_145f81cae96f4e20b3227cffa71b35d3_factory));
-new Sfactory(this,"instancer",new SCreator(instancer_factory));
-new Sfactory(this,"binOp_bb9c172983b748b9857554319e6d40bb_72f21f793eb145a7ad1885c54a555683",new SCreator(binOp_bb9c172983b748b9857554319e6d40bb_72f21f793eb145a7ad1885c54a555683_factory));
-new Sfactory(this,"notidentobject_29d7f93464bb49ee924c71f88475ad54",new SCreator(notidentobject_29d7f93464bb49ee924c71f88475ad54_factory));
-new Sfactory(this,"boundIdent_ca48d918cfd84dfda3281d288116a0d9",new SCreator(boundIdent_ca48d918cfd84dfda3281d288116a0d9_factory));
-new Sfactory(this,"condition_result_definition",new SCreator(condition_result_definition_factory));
-new Sfactory(this,"single",new SCreator(single_factory));
-new Sfactory(this,"facetList_165d6454d84548f6bd60c95dd795ab59",new SCreator(facetList_165d6454d84548f6bd60c95dd795ab59_factory));
-new Sfactory(this,"objectRoleExpr2_bef62ec5bd3d466a851eadb99cdff5f6",new SCreator(objectRoleExpr2_bef62ec5bd3d466a851eadb99cdff5f6_factory));
-new Sfactory(this,"builtin_unary_free",new SCreator(builtin_unary_free_factory));
-new Sfactory(this,"singleOneOf_f9240bafbcaf418d8bfe10765ad8e1f9",new SCreator(singleOneOf_f9240bafbcaf418d8bfe10765ad8e1f9_factory));
-new Sfactory(this,"clause",new SCreator(clause_factory));
-new Sfactory(this,"exeargs",new SCreator(exeargs_factory));
-new Sfactory(this,"modality2_d1082eb795094c42b220acc0e8512328",new SCreator(modality2_d1082eb795094c42b220acc0e8512328_factory));
-new Sfactory(this,"condition_data_bound_81d74be785d9496f86106ac984df9d6e",new SCreator(condition_data_bound_81d74be785d9496f86106ac984df9d6e_factory));
-new Sfactory(this,"objectRoleExpr1_36cf0e01213f4d05a90288649fbc298a",new SCreator(objectRoleExpr1_36cf0e01213f4d05a90288649fbc298a_factory));
-new Sfactory(this,"builtin_unary_cmp_f42342a2c7e74153bd6fad912164a09e",new SCreator(builtin_unary_cmp_f42342a2c7e74153bd6fad912164a09e_factory));
-new Sfactory(this,"orloop_009a8290e37345849a1180987de9be5b",new SCreator(orloop_009a8290e37345849a1180987de9be5b_factory));
-new Sfactory(this,"exeargs_dedb7be397514b3b8032978e42985b45",new SCreator(exeargs_dedb7be397514b3b8032978e42985b45_factory));
-new Sfactory(this,"oobjectCmp",new SCreator(oobjectCmp_factory));
-new Sfactory(this,"subjectEverything_d8d0f8f1d0e7462c8d1f6773d656e8d3",new SCreator(subjectEverything_d8d0f8f1d0e7462c8d1f6773d656e8d3_factory));
-new Sfactory(this,"subsumption_e11b8feca52a432982c43c7eef4e9fff",new SCreator(subsumption_e11b8feca52a432982c43c7eef4e9fff_factory));
-new Sfactory(this,"identobject_name_2f71ecb76d814507b89088016afc756b",new SCreator(identobject_name_2f71ecb76d814507b89088016afc756b_factory));
-new Sfactory(this,"isBeAre_c074f3547e2642baae4dee8d613e8409",new SCreator(isBeAre_c074f3547e2642baae4dee8d613e8409_factory));
-new Sfactory(this,"datavalerFollowedByList_31358cf7b46841b5b007904f15c8e113",new SCreator(datavalerFollowedByList_31358cf7b46841b5b007904f15c8e113_factory));
-new Sfactory(this,"condition_result_definition_bfa38c97338d412b851ae3a69b9cfb92",new SCreator(condition_result_definition_bfa38c97338d412b851ae3a69b9cfb92_factory));
-new Sfactory(this,"equalTo_02e1029631bf4b709a469df03d37ec01_ab0683c73b1e47619b12824e51bd8938",new SCreator(equalTo_02e1029631bf4b709a469df03d37ec01_ab0683c73b1e47619b12824e51bd8938_factory));
-new Sfactory(this,"Bool_7bd728463a3648f4821dcc1df88074ae",new SCreator(Bool_7bd728463a3648f4821dcc1df88074ae_factory));
-new Sfactory(this,"exerule_0b3d9235c9f049308eaa150fa7fe6dc5",new SCreator(exerule_0b3d9235c9f049308eaa150fa7fe6dc5_factory));
-new Sfactory(this,"singleOneOf",new SCreator(singleOneOf_factory));
-new Sfactory(this,"objectRoleExpr2_924e43f9f12c47d39f389b84218c39b2",new SCreator(objectRoleExpr2_924e43f9f12c47d39f389b84218c39b2_factory));
-new Sfactory(this,"objectr",new SCreator(objectr_factory));
-new Sfactory(this,"objectRoleExpr1",new SCreator(objectRoleExpr1_factory));
-new Sfactory(this,"comparer_a0c0bb93e6ae469793321c37956af897",new SCreator(comparer_a0c0bb93e6ae469793321c37956af897_factory));
-new Sfactory(this,"oobjectOnlyInstance",new SCreator(oobjectOnlyInstance_factory));
-new Sfactory(this,"comparer2_469cb9c5f35a4878b84b753ed5aa6a1a_daf2c9c6e5c8422a9e71782ad63f1af4",new SCreator(comparer2_469cb9c5f35a4878b84b753ed5aa6a1a_daf2c9c6e5c8422a9e71782ad63f1af4_factory));
-new Sfactory(this,"comparer2",new SCreator(comparer2_factory));
-new Sfactory(this,"identobject",new SCreator(identobject_factory));
-new Sfactory(this,"paragraph",new SCreator(paragraph_factory));
-new Sfactory(this,"word_number_75bd5a6cddf347a09ca63021c8ed26ad_faba2b6d66ab4550a02bb74333041ec9",new SCreator(word_number_75bd5a6cddf347a09ca63021c8ed26ad_faba2b6d66ab4550a02bb74333041ec9_factory));
-new Sfactory(this,"duration_m_8bc29c23fa0f414d9fa5214fbebd4ada",new SCreator(duration_m_8bc29c23fa0f414d9fa5214fbebd4ada_factory));
-new Sfactory(this,"nosubsumption",new SCreator(nosubsumption_factory));
-new Sfactory(this,"binOp_bb9c172983b748b9857554319e6d40bb",new SCreator(binOp_bb9c172983b748b9857554319e6d40bb_factory));
-new Sfactory(this,"doesNotBy_efdc773be95d4eb89dc96e2228b39f7c",new SCreator(doesNotBy_efdc773be95d4eb89dc96e2228b39f7c_factory));
-new Sfactory(this,"objectRoleExpr",new SCreator(objectRoleExpr_factory));
-new Sfactory(this,"condition_builtin",new SCreator(condition_builtin_factory));
-new Sfactory(this,"identobject_name_db6df83e230f4c83b0a33be8be59c8ee",new SCreator(identobject_name_db6df83e230f4c83b0a33be8be59c8ee_factory));
-new Sfactory(this,"modality_a2b72e688f854a05b5285b0dafef6501",new SCreator(modality_a2b72e688f854a05b5285b0dafef6501_factory));
-new Sfactory(this,"instancer_67fb63a2276c44c580c90318fac84b88",new SCreator(instancer_67fb63a2276c44c580c90318fac84b88_factory));
-new Sfactory(this,"modality2",new SCreator(modality2_factory));
-new Sfactory(this,"binOp_d03cb2932c8e4f0ab8095286123f6797_6d013372786b4e7294e707369b187f39",new SCreator(binOp_d03cb2932c8e4f0ab8095286123f6797_6d013372786b4e7294e707369b187f39_factory));
-new Sfactory(this,"valueOrThing_b292e5effebc4cf08f68227d444765da_e394101d548f4b1790b3a7fb2cffaaec",new SCreator(valueOrThing_b292e5effebc4cf08f68227d444765da_e394101d548f4b1790b3a7fb2cffaaec_factory));
-new Sfactory(this,"builtin_list",new SCreator(builtin_list_factory));
-new Sfactory(this,"word_number_e49d3cc248904823a1e3a1a3e0636e87",new SCreator(word_number_e49d3cc248904823a1e3a1a3e0636e87_factory));
-new Sfactory(this,"oobjectA_b25547576b434f7fab695d719256db02",new SCreator(oobjectA_b25547576b434f7fab695d719256db02_factory));
-new Sfactory(this,"condition_builtin_404e871395204a49aad4da7fe66997d1",new SCreator(condition_builtin_404e871395204a49aad4da7fe66997d1_factory));
-new Sfactory(this,"datavalerFollowedByList_f66a5ef8595548f28eecf225fee146ed",new SCreator(datavalerFollowedByList_f66a5ef8595548f28eecf225fee146ed_factory));
-new Sfactory(this,"objectr_nio_3e0d3830f09c478b96444fef526d4ef2",new SCreator(objectr_nio_3e0d3830f09c478b96444fef526d4ef2_factory));
-new Sfactory(this,"modality2_65c4f542ddbd4e18bcb08dfa7f89efc6",new SCreator(modality2_65c4f542ddbd4e18bcb08dfa7f89efc6_factory));
-new Sfactory(this,"notidentobject",new SCreator(notidentobject_factory));
-new Sfactory(this,"unOp2_5e29de36058a472b8e84736e6631ef1e",new SCreator(unOp2_5e29de36058a472b8e84736e6631ef1e_factory));
-new Sfactory(this,"oobjectA_17fb8807dc2a404e8456e6658b43a07d",new SCreator(oobjectA_17fb8807dc2a404e8456e6658b43a07d_factory));
-new Sfactory(this,"roleequivalence2_7329660247a3423dbbe6d751ea254a7f",new SCreator(roleequivalence2_7329660247a3423dbbe6d751ea254a7f_factory));
-new Sfactory(this,"unOp_580a60d4d1d54a1c9c8f5c9001e818b1",new SCreator(unOp_580a60d4d1d54a1c9c8f5c9001e818b1_factory));
-new Sfactory(this,"condition_is",new SCreator(condition_is_factory));
-new Sfactory(this,"boundTotal_aece926e36334b22b0ccccd4a9967b6f",new SCreator(boundTotal_aece926e36334b22b0ccccd4a9967b6f_factory));
-new Sfactory(this,"builtin_exe_38dcc13695b745029673f6bf43cce7a6",new SCreator(builtin_exe_38dcc13695b745029673f6bf43cce7a6_factory));
-new Sfactory(this,"builtin_substr_3c32f071139b4b7e9262c07f5e8d086e",new SCreator(builtin_substr_3c32f071139b4b7e9262c07f5e8d086e_factory));
-new Sfactory(this,"andloop_e3de1582f6d74803ab551f91b1708bcd",new SCreator(andloop_e3de1582f6d74803ab551f91b1708bcd_factory));
-new Sfactory(this,"datetime_9d175bd7e80948ccb573987c4312e831",new SCreator(datetime_9d175bd7e80948ccb573987c4312e831_factory));
-new Sfactory(this,"sentence",new SCreator(sentence_factory));
-new Sfactory(this,"singleThing_027b542c7d7d420f9939341d13468e6f",new SCreator(singleThing_027b542c7d7d420f9939341d13468e6f_factory));
-new Sfactory(this,"singleThingThat_c13bf3918b4e485590d9146d5d5071de",new SCreator(singleThingThat_c13bf3918b4e485590d9146d5d5071de_factory));
-new Sfactory(this,"facetList_4439de31ce8d4a6dad5120738bb949b8",new SCreator(facetList_4439de31ce8d4a6dad5120738bb949b8_factory));
-new Sfactory(this,"modality_418a797e33f8415090b8ccb9cf27e0ca",new SCreator(modality_418a797e33f8415090b8ccb9cf27e0ca_factory));
-new Sfactory(this,"condition_data_property",new SCreator(condition_data_property_factory));
-new Sfactory(this,"builtin_alpha",new SCreator(builtin_alpha_factory));
-new Sfactory(this,"comparer_a0c0bb93e6ae469793321c37956af897_04b1cd80d9ec4dc9b2e56bad4333cc56",new SCreator(comparer_a0c0bb93e6ae469793321c37956af897_04b1cd80d9ec4dc9b2e56bad4333cc56_factory));
-new Sfactory(this,"exclusiveunion",new SCreator(exclusiveunion_factory));
-new Sfactory(this,"comparer2_587ff1bbf2da4e7d8b88417a53cfb5e7",new SCreator(comparer2_587ff1bbf2da4e7d8b88417a53cfb5e7_factory));
-new Sfactory(this,"condition_result_data_property_cd2208eb47554d05a88bc19b0e0f3557",new SCreator(condition_result_data_property_cd2208eb47554d05a88bc19b0e0f3557_factory));
-new Sfactory(this,"unOp_45c2620dc3744a0798b88be259a3133e_4966f022786945619ab8bac5dc1c4da7",new SCreator(unOp_45c2620dc3744a0798b88be259a3133e_4966f022786945619ab8bac5dc1c4da7_factory));
-new Sfactory(this,"DateTimeData",new SCreator(DateTimeData_factory));
-new Sfactory(this,"comparer2_214406d730e745df9f734e109290ad77_dc3359640dd04db190bf53abb66fde9a",new SCreator(comparer2_214406d730e745df9f734e109290ad77_dc3359640dd04db190bf53abb66fde9a_factory));
-new Sfactory(this,"equalTo_da1a5ce4efaf479e89d992a3133720b7",new SCreator(equalTo_da1a5ce4efaf479e89d992a3133720b7_factory));
-new Sfactory(this,"objectRoleExpr2_8a5455a74e4b4e8e82837a108198e0cd",new SCreator(objectRoleExpr2_8a5455a74e4b4e8e82837a108198e0cd_factory));
-new Sfactory(this,"oobjectSelf_107b7f335e9642db95cbe9eacf9e8599",new SCreator(oobjectSelf_107b7f335e9642db95cbe9eacf9e8599_factory));
-new Sfactory(this,"subjectNo_3aa0e323824548baae9acb988db41f47",new SCreator(subjectNo_3aa0e323824548baae9acb988db41f47_factory));
-new Sfactory(this,"equalTo_bc50a34a422d45dc9f8aaab9e3c89df6",new SCreator(equalTo_bc50a34a422d45dc9f8aaab9e3c89df6_factory));
-new Sfactory(this,"condition_role_a276b189029044c990d6e87acfb16909",new SCreator(condition_role_a276b189029044c990d6e87acfb16909_factory));
-new Sfactory(this,"boundDataType",new SCreator(boundDataType_factory));
-new Sfactory(this,"code",new SCreator(code_factory));
-new Sfactory(this,"nosubsumption_241070898bd34b07be44ae8b03b9fa25",new SCreator(nosubsumption_241070898bd34b07be44ae8b03b9fa25_factory));
-new Sfactory(this,"aAn_4da7a5201e2b453cab1bb992ac99294f",new SCreator(aAn_4da7a5201e2b453cab1bb992ac99294f_factory));
-new Sfactory(this,"boundFacets_b18592c63926410fa1be8207c1c1239b",new SCreator(boundFacets_b18592c63926410fa1be8207c1c1239b_factory));
-new Sfactory(this,"duration_m",new SCreator(duration_m_factory));
-new Sfactory(this,"instanceBigName_1e636d9f23c1424fb328abdd45d2ce29",new SCreator(instanceBigName_1e636d9f23c1424fb328abdd45d2ce29_factory));
-new Sfactory(this,"StrData",new SCreator(StrData_factory));
-new Sfactory(this,"modality_2994985d0cdc4d74bde814570c298b31",new SCreator(modality_2994985d0cdc4d74bde814570c298b31_factory));
-new Sfactory(this,"swrlrule_943c8bac97c94c82a87e57602514c1d5",new SCreator(swrlrule_943c8bac97c94c82a87e57602514c1d5_factory));
-new Sfactory(this,"identobject_name_a74993c3e8ef4b53b4e341ce3a3d454b",new SCreator(identobject_name_a74993c3e8ef4b53b4e341ce3a3d454b_factory));
-new Sfactory(this,"oobjectOnlySomethingThat_623f154535ae4f53951b0fadee21be88",new SCreator(oobjectOnlySomethingThat_623f154535ae4f53951b0fadee21be88_factory));
-new Sfactory(this,"error",new SCreator(error_factory));
-new Sfactory(this,"singleThingThat_5aa505e771854f21833e7d6c82f10846",new SCreator(singleThingThat_5aa505e771854f21833e7d6c82f10846_factory));
-new Sfactory(this,"boundVal_29311d3be24545c1a3d44fc83ce5932f",new SCreator(boundVal_29311d3be24545c1a3d44fc83ce5932f_factory));
-new Sfactory(this,"binOp_decd62613c0f4f7fafe385767da99fb4",new SCreator(binOp_decd62613c0f4f7fafe385767da99fb4_factory));
-new Sfactory(this,"condition_definition_835c47f908394e68b1462e376f670837",new SCreator(condition_definition_835c47f908394e68b1462e376f670837_factory));
-new Sfactory(this,"objectRoleExpr3",new SCreator(objectRoleExpr3_factory));
-new Sfactory(this,"objectRoleExpr2",new SCreator(objectRoleExpr2_factory));
-new Sfactory(this,"builtin_cmp_946d7d48c4614d5f9794a4058d592831",new SCreator(builtin_cmp_946d7d48c4614d5f9794a4058d592831_factory));
-new Sfactory(this,"builtin_datetime",new SCreator(builtin_datetime_factory));
-new Sfactory(this,"role_19de336b9f7f4160896933435e4fb29a",new SCreator(role_19de336b9f7f4160896933435e4fb29a_factory));
-new Sfactory(this,"boundNot_45259cdb5cc64446ab1766109ff78fdf",new SCreator(boundNot_45259cdb5cc64446ab1766109ff78fdf_factory));
-new Sfactory(this,"builtin_cmp",new SCreator(builtin_cmp_factory));
-new Sfactory(this,"boundAnd",new SCreator(boundAnd_factory));
-new Sfactory(this,"modality2_65c4f542ddbd4e18bcb08dfa7f89efc6_17d398d661fb4d528f09bb6bbab1450f",new SCreator(modality2_65c4f542ddbd4e18bcb08dfa7f89efc6_17d398d661fb4d528f09bb6bbab1450f_factory));
-new Sfactory(this,"singleThing",new SCreator(singleThing_factory));
-new Sfactory(this,"thatOrLoop",new SCreator(thatOrLoop_factory));
-new Sfactory(this,"boundIdent",new SCreator(boundIdent_factory));
-new Sfactory(this,"oobjectBnd_f5bc457fb16a4e18af92122e283da35e",new SCreator(oobjectBnd_f5bc457fb16a4e18af92122e283da35e_factory));
-new Sfactory(this,"dataroleequivalence2",new SCreator(dataroleequivalence2_factory));
-new Sfactory(this,"DateTimeData_2cce692ba0a5488c9b79920d2e985eaf",new SCreator(DateTimeData_2cce692ba0a5488c9b79920d2e985eaf_factory));
-new Sfactory(this,"haskey",new SCreator(haskey_factory));
-new Sfactory(this,"valueOrThing_606f91515c9a4f178ebde2e9e15da180_a0194531c9a046758b0864b1beb8f1b0",new SCreator(valueOrThing_606f91515c9a4f178ebde2e9e15da180_a0194531c9a046758b0864b1beb8f1b0_factory));
-new Sfactory(this,"boundOneOf",new SCreator(boundOneOf_factory));
-new Sfactory(this,"comparer2_11e106ec73574e0d8853ad29dfb3ed8e_27b290a48ef545c1848fd6f340bf8239",new SCreator(comparer2_11e106ec73574e0d8853ad29dfb3ed8e_27b290a48ef545c1848fd6f340bf8239_factory));
-new Sfactory(this,"builtin_unary_cmp",new SCreator(builtin_unary_cmp_factory));
-new Sfactory(this,"oobjectNothing",new SCreator(oobjectNothing_factory));
-new Sfactory(this,"instanceThe",new SCreator(instanceThe_factory));
-new Sfactory(this,"andloop",new SCreator(andloop_factory));
-new Sfactory(this,"modality_8f69bc2826e14a64b655e1d64d497a75_6e7d1c5cb95c495886cac24c6c505c9e",new SCreator(modality_8f69bc2826e14a64b655e1d64d497a75_6e7d1c5cb95c495886cac24c6c505c9e_factory));
-new Sfactory(this,"oobjectOnlyBnd",new SCreator(oobjectOnlyBnd_factory));
-new Sfactory(this,"instance",new SCreator(instance_factory));
-new Sfactory(this,"equivalence2",new SCreator(equivalence2_factory));
-new Sfactory(this,"that",new SCreator(that_factory));
-new Sfactory(this,"builtin_duration",new SCreator(builtin_duration_factory));
-new Sfactory(this,"condition_exists",new SCreator(condition_exists_factory));
-new Sfactory(this,"condition_definition",new SCreator(condition_definition_factory));
-new Sfactory(this,"code_cbe070844a604bcd8667f1542c831241",new SCreator(code_cbe070844a604bcd8667f1542c831241_factory));
-new Sfactory(this,"Number_905fb068ff8c4500a200cb7d77c377a0",new SCreator(Number_905fb068ff8c4500a200cb7d77c377a0_factory));
-new Sfactory(this,"clause_4afb50346dbc4e0ab977917496ae7465",new SCreator(clause_4afb50346dbc4e0ab977917496ae7465_factory));
-new Sfactory(this,"builtin_list_e48ab73f344340b7b7bf105756aaa681",new SCreator(builtin_list_e48ab73f344340b7b7bf105756aaa681_factory));
-new Sfactory(this,"unOp2",new SCreator(unOp2_factory));
-new Sfactory(this,"datavalList_bbab639eab514464a606fc27d2b58cfb",new SCreator(datavalList_bbab639eab514464a606fc27d2b58cfb_factory));
-new Sfactory(this,"unOp_c4ccaad173814dd9849b1c02d3e4fce6",new SCreator(unOp_c4ccaad173814dd9849b1c02d3e4fce6_factory));
-new Sfactory(this,"thatOrLoop_cc5e77cf72b948a89f0ce8fc8ddb7303",new SCreator(thatOrLoop_cc5e77cf72b948a89f0ce8fc8ddb7303_factory));
-new Sfactory(this,"Float",new SCreator(Float_factory));
-new Sfactory(this,"boundNot",new SCreator(boundNot_factory));
-new Sfactory(this,"condition_role",new SCreator(condition_role_factory));
-new Sfactory(this,"objectr_io",new SCreator(objectr_io_factory));
-new Sfactory(this,"unOp_a56e6c90a8e24c09a709d29ba96464e4",new SCreator(unOp_a56e6c90a8e24c09a709d29ba96464e4_factory));
-new Sfactory(this,"roledisjoint2_0e157aedc4c4420286bc66850f27b4a2",new SCreator(roledisjoint2_0e157aedc4c4420286bc66850f27b4a2_factory));
-new Sfactory(this,"oobjectOnlyBnd_0f7bc12a73fe4b20b422df4fe7d65cf3",new SCreator(oobjectOnlyBnd_0f7bc12a73fe4b20b422df4fe7d65cf3_factory));
-new Sfactory(this,"subjectEvery",new SCreator(subjectEvery_factory));
-new Sfactory(this,"clause_result_e4966a20715f4ad6a9f4eaeb33a5ea99",new SCreator(clause_result_e4966a20715f4ad6a9f4eaeb33a5ea99_factory));
-new Sfactory(this,"builtin_annot",new SCreator(builtin_annot_factory));
-new Sfactory(this,"Bool",new SCreator(Bool_factory));
-new Sfactory(this,"comparer2_b0fe676e97734f1ba55ea7231f35b8bc",new SCreator(comparer2_b0fe676e97734f1ba55ea7231f35b8bc_factory));
-new Sfactory(this,"haskey_42d75fdf80ab4593b47edf7159d47307",new SCreator(haskey_42d75fdf80ab4593b47edf7159d47307_factory));
-new Sfactory(this,"chain",new SCreator(chain_factory));
-new Sfactory(this,"condition_result_role",new SCreator(condition_result_role_factory));
-new Sfactory(this,"builtin_bin",new SCreator(builtin_bin_factory));
-new Sfactory(this,"oobjectCmpInstance",new SCreator(oobjectCmpInstance_factory));
-new Sfactory(this,"clause_result_34e19e77573e4cee91a7ff6f0b710780",new SCreator(clause_result_34e19e77573e4cee91a7ff6f0b710780_factory));
-new Sfactory(this,"binOp_d03cb2932c8e4f0ab8095286123f6797",new SCreator(binOp_d03cb2932c8e4f0ab8095286123f6797_factory));
-new Sfactory(this,"Duration",new SCreator(Duration_factory));
-new Sfactory(this,"orObjectRoleExprChain",new SCreator(orObjectRoleExprChain_factory));
-new Sfactory(this,"equivalence2_2ece582c05814d189b07e26b3fc415f0",new SCreator(equivalence2_2ece582c05814d189b07e26b3fc415f0_factory));
-new Sfactory(this,"facetList",new SCreator(facetList_factory));
-new Sfactory(this,"boundOr_175e4bd629cc4ce4bbcb2a4999452b4c",new SCreator(boundOr_175e4bd629cc4ce4bbcb2a4999452b4c_factory));
-new Sfactory(this,"annotation",new SCreator(annotation_factory));
-new Sfactory(this,"oobjectSelf",new SCreator(oobjectSelf_factory));
-new Sfactory(this,"condition_result_data_property",new SCreator(condition_result_data_property_factory));
-new Sfactory(this,"datatypedef",new SCreator(datatypedef_factory));
-new Sfactory(this,"clause_result",new SCreator(clause_result_factory));
-new Sfactory(this,"duration_m_954e0a8601524bfcb8dd02dd40da7138",new SCreator(duration_m_954e0a8601524bfcb8dd02dd40da7138_factory));
-new Sfactory(this,"boundVal",new SCreator(boundVal_factory));
-new Sfactory(this,"boundTotal",new SCreator(boundTotal_factory));
-new Sfactory(this,"notRoleWithXY_52cb25920ebd47df94420b8e97bb2a19",new SCreator(notRoleWithXY_52cb25920ebd47df94420b8e97bb2a19_factory));
-new Sfactory(this,"builtin_bin_e973596f450e4814ab503802d183a2d2",new SCreator(builtin_bin_e973596f450e4814ab503802d183a2d2_factory));
-new Sfactory(this,"oobjectOnlySomethingThat",new SCreator(oobjectOnlySomethingThat_factory));
-new Sfactory(this,"oobjectInstance",new SCreator(oobjectInstance_factory));
-new Sfactory(this,"objectRoleExpr1_447e56a3854146ce9506d780f10a1ba3",new SCreator(objectRoleExpr1_447e56a3854146ce9506d780f10a1ba3_factory));
-new Sfactory(this,"singleThingThat_4af593f3c9c942aa8d42c41502b3cfd9",new SCreator(singleThingThat_4af593f3c9c942aa8d42c41502b3cfd9_factory));
-new Sfactory(this,"orComma_de6f2dda1b30498c9c2c5d4e08dcbc02",new SCreator(orComma_de6f2dda1b30498c9c2c5d4e08dcbc02_factory));
-new Sfactory(this,"datavalerTimesList_f5a5d38302574d3282fede0c80d42c45",new SCreator(datavalerTimesList_f5a5d38302574d3282fede0c80d42c45_factory));
-new Sfactory(this,"identobject_name",new SCreator(identobject_name_factory));
-new Sfactory(this,"duration_w",new SCreator(duration_w_factory));
-new Sfactory(this,"condition_result_is",new SCreator(condition_result_is_factory));
-new Sfactory(this,"word_number_f29f4b45d4f6440faab7b038d63e8016",new SCreator(word_number_f29f4b45d4f6440faab7b038d63e8016_factory));
-new Sfactory(this,"modality2_39e84493f70c44e4b103f81e61df7146",new SCreator(modality2_39e84493f70c44e4b103f81e61df7146_factory));
-new Sfactory(this,"subjectNothing",new SCreator(subjectNothing_factory));
-new Sfactory(this,"subjectThe",new SCreator(subjectThe_factory));
-new Sfactory(this,"datavalerPlusList_1027d4d7a1d44f248cbb749a7b8379c4",new SCreator(datavalerPlusList_1027d4d7a1d44f248cbb749a7b8379c4_factory));
-new Sfactory(this,"comparer2_b0fe676e97734f1ba55ea7231f35b8bc_48f64b1ce3024ea4a87b7d0a4a07a4f6",new SCreator(comparer2_b0fe676e97734f1ba55ea7231f35b8bc_48f64b1ce3024ea4a87b7d0a4a07a4f6_factory));
-new Sfactory(this,"condition_result_is_a76c128b6c4a4fd080e8207bb5686aaf",new SCreator(condition_result_is_a76c128b6c4a4fd080e8207bb5686aaf_factory));
-new Sfactory(this,"comparer_1592b4ba6da04d7aa71e8b2f19b6bc01",new SCreator(comparer_1592b4ba6da04d7aa71e8b2f19b6bc01_factory));
-new Sfactory(this,"unOp_fbfd003d2c10478f98392c2071fc6b30",new SCreator(unOp_fbfd003d2c10478f98392c2071fc6b30_factory));
-new Sfactory(this,"objectr_io_ee9983a723fd4267a9248edc2a281b7b",new SCreator(objectr_io_ee9983a723fd4267a9248edc2a281b7b_factory));
-new Sfactory(this,"identobject_inst",new SCreator(identobject_inst_factory));
-new Sfactory(this,"equalTo_da1a5ce4efaf479e89d992a3133720b7_c77ccc0f563e4beb95e9c323d6772ad7",new SCreator(equalTo_da1a5ce4efaf479e89d992a3133720b7_c77ccc0f563e4beb95e9c323d6772ad7_factory));
-new Sfactory(this,"unOp_7b7d90a7bb91439e9a99a97c9b68aaa3_032a287ddb214419b8fd109c616d4a90",new SCreator(unOp_7b7d90a7bb91439e9a99a97c9b68aaa3_032a287ddb214419b8fd109c616d4a90_factory));
-new Sfactory(this,"unOp_45c2620dc3744a0798b88be259a3133e",new SCreator(unOp_45c2620dc3744a0798b88be259a3133e_factory));
-new Sfactory(this,"comparer_5ecbaad0e39b422491fc9c98728523fc_ba645194d6924b0087226328f3ed2351",new SCreator(comparer_5ecbaad0e39b422491fc9c98728523fc_ba645194d6924b0087226328f3ed2351_factory));
-new Sfactory(this,"orObjectRoleExprChain_1280932fed444a0dbbe66357a095bc98",new SCreator(orObjectRoleExprChain_1280932fed444a0dbbe66357a095bc98_factory));
-new Sfactory(this,"instanceThe_aabecdb18b164b9e806c3f5407c38d6f",new SCreator(instanceThe_aabecdb18b164b9e806c3f5407c38d6f_factory));
-new Sfactory(this,"builtin_list_1f1f215d473e40fbac3c2ea190bd875f",new SCreator(builtin_list_1f1f215d473e40fbac3c2ea190bd875f_factory));
-new Sfactory(this,"unOp2_a6f44f374d46487b93ad3733d3c68a6c",new SCreator(unOp2_a6f44f374d46487b93ad3733d3c68a6c_factory));
-new Sfactory(this,"roledisjoint2",new SCreator(roledisjoint2_factory));
-new Sfactory(this,"StrData_cfad7327880546028155730124b7a9c2",new SCreator(StrData_cfad7327880546028155730124b7a9c2_factory));
-new Sfactory(this,"word_number_75bd5a6cddf347a09ca63021c8ed26ad",new SCreator(word_number_75bd5a6cddf347a09ca63021c8ed26ad_factory));
-new Sfactory(this,"builtin_exe",new SCreator(builtin_exe_factory));
-new Sfactory(this,"oobjectSomething",new SCreator(oobjectSomething_factory));
-new Sfactory(this,"clause_896721228f0749b1835787e438800b80",new SCreator(clause_896721228f0749b1835787e438800b80_factory));
-new Sfactory(this,"instanceList",new SCreator(instanceList_factory));
-new Sfactory(this,"andloop_e2351c0e014c4a929e8994e6c5548a06",new SCreator(andloop_e2351c0e014c4a929e8994e6c5548a06_factory));
-new Sfactory(this,"unOp_7b7d90a7bb91439e9a99a97c9b68aaa3",new SCreator(unOp_7b7d90a7bb91439e9a99a97c9b68aaa3_factory));
-new Sfactory(this,"modality2_a9903bb7580245b5883060adb41cf3e7",new SCreator(modality2_a9903bb7580245b5883060adb41cf3e7_factory));
-new Sfactory(this,"comparer2_214406d730e745df9f734e109290ad77",new SCreator(comparer2_214406d730e745df9f734e109290ad77_factory));
-new Sfactory(this,"paragraph_566245c87df54ee3bb78d5606c0fc1e8",new SCreator(paragraph_566245c87df54ee3bb78d5606c0fc1e8_factory));
-new Sfactory(this,"condition_result_is_92cac4ab014b429fbecd05c009e4f3d3",new SCreator(condition_result_is_92cac4ab014b429fbecd05c009e4f3d3_factory));
-new Sfactory(this,"rolesubsumption_7af6523e728b450da936b5061ba53008",new SCreator(rolesubsumption_7af6523e728b450da936b5061ba53008_factory));
-new Sfactory(this,"role_1dd48d6cbe9549b084e63dbcf3a1aa81",new SCreator(role_1dd48d6cbe9549b084e63dbcf3a1aa81_factory));
-new Sfactory(this,"word_number_f7873402a182481d9f3d6ec914ae2965",new SCreator(word_number_f7873402a182481d9f3d6ec914ae2965_factory));
-new Sfactory(this,"duration_m_55afbd56816a4d12b9ac108a3f2cc8cf",new SCreator(duration_m_55afbd56816a4d12b9ac108a3f2cc8cf_factory));
-new Sfactory(this,"builtin_substr",new SCreator(builtin_substr_factory));
-new Sfactory(this,"annotation_44947d7626e243a382eb0069325b2d2c",new SCreator(annotation_44947d7626e243a382eb0069325b2d2c_factory));
-new Sfactory(this,"oobjectInstance_722298a5591f4241b81f6afc6f9b4040",new SCreator(oobjectInstance_722298a5591f4241b81f6afc6f9b4040_factory));
-new Sfactory(this,"condition_result_role_08f60b79e87347629c40e05c00ba7320",new SCreator(condition_result_role_08f60b79e87347629c40e05c00ba7320_factory));
-new Sfactory(this,"dataroledisjoint2_443ae1c9dfc34907879db58e54a43552",new SCreator(dataroledisjoint2_443ae1c9dfc34907879db58e54a43552_factory));
-new Sfactory(this,"singleName_96baba4832584aa5a9c41319d6aac993",new SCreator(singleName_96baba4832584aa5a9c41319d6aac993_factory));
-new Sfactory(this,"subsumption",new SCreator(subsumption_factory));
-new Sfactory(this,"builtin_alpha_aef1c6f72a054960bdce448f4a84f3a0",new SCreator(builtin_alpha_aef1c6f72a054960bdce448f4a84f3a0_factory));
-new Sfactory(this,"unOp_b29fb39a8a2c4ad6b274981f8a22136c_defeec6d3e904923b3dcb7daa4e43ad1",new SCreator(unOp_b29fb39a8a2c4ad6b274981f8a22136c_defeec6d3e904923b3dcb7daa4e43ad1_factory));
-new Sfactory(this,"condition_data_bound",new SCreator(condition_data_bound_factory));
-new Sfactory(this,"orComma_c868b6e1644e46dd8b823005b69c36f6",new SCreator(orComma_c868b6e1644e46dd8b823005b69c36f6_factory));
-new Sfactory(this,"singleThing_2c020c6f78d04c66affa2f215acad6f0",new SCreator(singleThing_2c020c6f78d04c66affa2f215acad6f0_factory));
-new Sfactory(this,"modality2_a9903bb7580245b5883060adb41cf3e7_5978f781665c46f5898d26123f73c7da",new SCreator(modality2_a9903bb7580245b5883060adb41cf3e7_5978f781665c46f5898d26123f73c7da_factory));
-new Sfactory(this,"valueOrThing",new SCreator(valueOrThing_factory));
-new Sfactory(this,"binOp_decd62613c0f4f7fafe385767da99fb4_7a83a968f8894995b3f2e13a43e8f9f0",new SCreator(binOp_decd62613c0f4f7fafe385767da99fb4_7a83a968f8894995b3f2e13a43e8f9f0_factory));
-new Sfactory(this,"valueOrThing_11693110f638425bb998c8487484accb",new SCreator(valueOrThing_11693110f638425bb998c8487484accb_factory));
-new Sfactory(this,"andanyrolechain_edab88b964b3415ea64a77e329d21f2b",new SCreator(andanyrolechain_edab88b964b3415ea64a77e329d21f2b_factory));
-new Sfactory(this,"subjectEverything_eafee055036a4f93a25c840d4b1400b8",new SCreator(subjectEverything_eafee055036a4f93a25c840d4b1400b8_factory));
-new Sfactory(this,"orComma",new SCreator(orComma_factory));
-new Sfactory(this,"builtin_trans",new SCreator(builtin_trans_factory));
-new Sfactory(this,"subjectThe_6508d4ff2b3946699f3af047d72e60e6",new SCreator(subjectThe_6508d4ff2b3946699f3af047d72e60e6_factory));
-new Sfactory(this,"oobjectNothing_2901c595cf1540c19f93bb5c009cbb87",new SCreator(oobjectNothing_2901c595cf1540c19f93bb5c009cbb87_factory));
-new Sfactory(this,"instanceList_069c2d4f5b5a45a1befc5253260ec712",new SCreator(instanceList_069c2d4f5b5a45a1befc5253260ec712_factory));
-new Sfactory(this,"instanceBigName_9280333231384117af3a6a0100620d76",new SCreator(instanceBigName_9280333231384117af3a6a0100620d76_factory));
-new Sfactory(this,"datavalerTimesList",new SCreator(datavalerTimesList_factory));
-new Sfactory(this,"oobjectOnly",new SCreator(oobjectOnly_factory));
-new Sfactory(this,"andanyrolechain",new SCreator(andanyrolechain_factory));
-new Sfactory(this,"comparer2_6be5d1975f4a46fd94c2f08da7d7a9cf",new SCreator(comparer2_6be5d1975f4a46fd94c2f08da7d7a9cf_factory));
-new Sfactory(this,"boundTop_275235405d9443ac9a990108000eb708",new SCreator(boundTop_275235405d9443ac9a990108000eb708_factory));
-new Sfactory(this,"andanyrolechain_9cb513c982124810877effaecd901b05",new SCreator(andanyrolechain_9cb513c982124810877effaecd901b05_factory));
-new Sfactory(this,"notidentobject_a31997c075994d7399c36d4cff248073",new SCreator(notidentobject_a31997c075994d7399c36d4cff248073_factory));
-new Sfactory(this,"condition_is_2c5c8b2d68c842e797705cfc4be4ccfc",new SCreator(condition_is_2c5c8b2d68c842e797705cfc4be4ccfc_factory));
-new Sfactory(this,"subjectNothing_7a10a8be0b3141b49936878cfa3c2393",new SCreator(subjectNothing_7a10a8be0b3141b49936878cfa3c2393_factory));
-new Sfactory(this,"andComma_e5f37ebe59584ba2868ea509fe54bb77",new SCreator(andComma_e5f37ebe59584ba2868ea509fe54bb77_factory));
-new Sfactory(this,"modality",new SCreator(modality_factory));
-new Sfactory(this,"duration_m_c42cc94093cd4389ba02e7236c12aca7",new SCreator(duration_m_c42cc94093cd4389ba02e7236c12aca7_factory));
-new Sfactory(this,"oobjectOnlyNothing",new SCreator(oobjectOnlyNothing_factory));
-new Sfactory(this,"instanceThe_0e073159e58d4676ae81f9be6dc723ee",new SCreator(instanceThe_0e073159e58d4676ae81f9be6dc723ee_factory));
-new Sfactory(this,"aAn",new SCreator(aAn_factory));
-new Sfactory(this,"isBeAre_5c14e059db714db585d1b5f2d4ff642d",new SCreator(isBeAre_5c14e059db714db585d1b5f2d4ff642d_factory));
-new Sfactory(this,"condition_result",new SCreator(condition_result_factory));
-new Sfactory(this,"facet_0d405be671eb4858b930ed5b5683541e",new SCreator(facet_0d405be671eb4858b930ed5b5683541e_factory));
-new Sfactory(this,"roleWithXY",new SCreator(roleWithXY_factory));
-new Sfactory(this,"dataroledisjoint2",new SCreator(dataroledisjoint2_factory));
-new Sfactory(this,"doesNot",new SCreator(doesNot_factory));
-new Sfactory(this,"binOp",new SCreator(binOp_factory));
-new Sfactory(this,"objectr_nio",new SCreator(objectr_nio_factory));
-new Sfactory(this,"subjectEvery_9a9d70377b6d4bbdb1976cff0484dd2c",new SCreator(subjectEvery_9a9d70377b6d4bbdb1976cff0484dd2c_factory));
-new Sfactory(this,"objectRoleExpr2_1215fd8d349f4815b218576300ac412a",new SCreator(objectRoleExpr2_1215fd8d349f4815b218576300ac412a_factory));
-new Sfactory(this,"datavalerTimesList_b27ec15854c24ac89733734cf77072d2",new SCreator(datavalerTimesList_b27ec15854c24ac89733734cf77072d2_factory));
-new Sfactory(this,"singleNameThat_dcf44b171bab44659e6789f964328462",new SCreator(singleNameThat_dcf44b171bab44659e6789f964328462_factory));
-new Sfactory(this,"condition_data_property_bound_199281df83cd4401ae5f574544961b1e",new SCreator(condition_data_property_bound_199281df83cd4401ae5f574544961b1e_factory));
-new Sfactory(this,"role",new SCreator(role_factory));
-new Sfactory(this,"instanceBigName",new SCreator(instanceBigName_factory));
-new Sfactory(this,"equalTo_d7301e3cdc084c2f97a594538d3895f7",new SCreator(equalTo_d7301e3cdc084c2f97a594538d3895f7_factory));
-new Sfactory(this,"datatypedef_ede858d8e5dc4afdaaf6f887b2464fad",new SCreator(datatypedef_ede858d8e5dc4afdaaf6f887b2464fad_factory));
-new Sfactory(this,"binOp_67f4ca57a0b3428d92570e2f1277da2c",new SCreator(binOp_67f4ca57a0b3428d92570e2f1277da2c_factory));
-new Sfactory(this,"builtin_unary_free_129c9687f63741f982aa3fd65b1d0be0",new SCreator(builtin_unary_free_129c9687f63741f982aa3fd65b1d0be0_factory));
-new Sfactory(this,"datavalerFollowedByList",new SCreator(datavalerFollowedByList_factory));
-new Sfactory(this,"objectRoleExpr2_916548c0549c4e3392c7d97720703364",new SCreator(objectRoleExpr2_916548c0549c4e3392c7d97720703364_factory));
-new Sfactory(this,"datavalvar",new SCreator(datavalvar_factory));
-new Sfactory(this,"binOp_a7b23d9bc410429f82a991f2001c95b2",new SCreator(binOp_a7b23d9bc410429f82a991f2001c95b2_factory));
-new Sfactory(this,"equalTo",new SCreator(equalTo_factory));
-new Sfactory(this,"datavalerPlusList",new SCreator(datavalerPlusList_factory));
-new Sfactory(this,"exclusives_91ffa52d905549b0aaea515988ac0301",new SCreator(exclusives_91ffa52d905549b0aaea515988ac0301_factory));
-new Sfactory(this,"unOp_c74ee41853af4d08897b08b21a8b04bb_f246cea1ed394396824a7e7a2da47609",new SCreator(unOp_c74ee41853af4d08897b08b21a8b04bb_f246cea1ed394396824a7e7a2da47609_factory));
-new Sfactory(this,"duration_m_7047a4fd6e37488cb3d6e52991e74677",new SCreator(duration_m_7047a4fd6e37488cb3d6e52991e74677_factory));
-new Sfactory(this,"unOp",new SCreator(unOp_factory));
-new Sfactory(this,"datavalList_8c8a6b39af874ea182c64a8d745197bc",new SCreator(datavalList_8c8a6b39af874ea182c64a8d745197bc_factory));
-new Sfactory(this,"oobjectCmpBnd",new SCreator(oobjectCmpBnd_factory));
-new Sfactory(this,"unOp_b29fb39a8a2c4ad6b274981f8a22136c",new SCreator(unOp_b29fb39a8a2c4ad6b274981f8a22136c_factory));
-new Sfactory(this,"swrlrulefor",new SCreator(swrlrulefor_factory));
-new Sfactory(this,"facet",new SCreator(facet_factory));
-new Sfactory(this,"subjectEverything",new SCreator(subjectEverything_factory));
-new Sfactory(this,"datavalvar_d0dde5e18b8948c094af05fe960f9d8d",new SCreator(datavalvar_d0dde5e18b8948c094af05fe960f9d8d_factory));
-new Sfactory(this,"comparer2_42749d2044714b4d8ee198f3be859206",new SCreator(comparer2_42749d2044714b4d8ee198f3be859206_factory));
-new Sfactory(this,"valueOrThing_992d64a96a1d4f6cb4906f802c44e3ce",new SCreator(valueOrThing_992d64a96a1d4f6cb4906f802c44e3ce_factory));
-new Sfactory(this,"beAre",new SCreator(beAre_factory));
-new Sfactory(this,"subjectThe_59b29ef9aabf4c0887f1a24fb530874e",new SCreator(subjectThe_59b29ef9aabf4c0887f1a24fb530874e_factory));
-new Sfactory(this,"builtin_annot_d13e72dd7c9a4459bd0b16e8ce7559e3",new SCreator(builtin_annot_d13e72dd7c9a4459bd0b16e8ce7559e3_factory));
-new Sfactory(this,"oobjectA",new SCreator(oobjectA_factory));
-new Sfactory(this,"oobject",new SCreator(oobject_factory));
-new Sfactory(this,"swrlrulefor_132bd0b2a4b14ab5959beb871c7597d2",new SCreator(swrlrulefor_132bd0b2a4b14ab5959beb871c7597d2_factory));
-new Sfactory(this,"doesNotBy_996156a337804089bc11b27d2ae541de",new SCreator(doesNotBy_996156a337804089bc11b27d2ae541de_factory));
-new Sfactory(this,"duration",new SCreator(duration_factory));
-new Sfactory(this,"boundAnd_9c7407cefecf40c9b2a9028e2662b542",new SCreator(boundAnd_9c7407cefecf40c9b2a9028e2662b542_factory));
-new Sfactory(this,"doesNot_ffd19021ca9b42d185d150974fcf38fc",new SCreator(doesNot_ffd19021ca9b42d185d150974fcf38fc_factory));
-new Sfactory(this,"datavalval_bafc195f566548d79632b7bf2b97db37",new SCreator(datavalval_bafc195f566548d79632b7bf2b97db37_factory));
-new Sfactory(this,"singleThingThat",new SCreator(singleThingThat_factory));
-new Sfactory(this,"oobjectCmp_ff0528b2d05e491e8f6feadcdb7a5070",new SCreator(oobjectCmp_ff0528b2d05e491e8f6feadcdb7a5070_factory));
-new Sfactory(this,"word_number",new SCreator(word_number_factory));
-new Sfactory(this,"singleThing_eff0badc6a2b437fbf4688f7c457b0ea",new SCreator(singleThing_eff0badc6a2b437fbf4688f7c457b0ea_factory));
-new Sfactory(this,"exeargs_26c6dfa4d57a4228aafb1dd705608024",new SCreator(exeargs_26c6dfa4d57a4228aafb1dd705608024_factory));
-new Sfactory(this,"facet_35a26489569e44c89c44ce226a3368bc",new SCreator(facet_35a26489569e44c89c44ce226a3368bc_factory));
-new Sfactory(this,"facet_522c79e37a364067a3af29e0c191bfac",new SCreator(facet_522c79e37a364067a3af29e0c191bfac_factory));
-new Sfactory(this,"exclusives",new SCreator(exclusives_factory));
-new Sfactory(this,"chain_5daba5ce21514b7b8d7cd821e7c45d4e",new SCreator(chain_5daba5ce21514b7b8d7cd821e7c45d4e_factory));
-new Sfactory(this,"instancer_b276f0b0160f40d786e314b752ebe195",new SCreator(instancer_b276f0b0160f40d786e314b752ebe195_factory));
-new Sfactory(this,"modality_8f69bc2826e14a64b655e1d64d497a75",new SCreator(modality_8f69bc2826e14a64b655e1d64d497a75_factory));
-new Sfactory(this,"builtin_duration_ba10ee6406b74fe6a00ea802f3072516",new SCreator(builtin_duration_ba10ee6406b74fe6a00ea802f3072516_factory));
-new Sfactory(this,"subjectBigName",new SCreator(subjectBigName_factory));
-new Sfactory(this,"Float_9a6d2ea064fb4affa593690db836281b",new SCreator(Float_9a6d2ea064fb4affa593690db836281b_factory));
-new Sfactory(this,"oobjectSomethingThat",new SCreator(oobjectSomethingThat_factory));
-new Sfactory(this,"comparer2_11e106ec73574e0d8853ad29dfb3ed8e",new SCreator(comparer2_11e106ec73574e0d8853ad29dfb3ed8e_factory));
-new Sfactory(this,"oobjectCardinal",new SCreator(oobjectCardinal_factory));
-new Sfactory(this,"rolesubsumption",new SCreator(rolesubsumption_factory));
-new Sfactory(this,"singleNameThat",new SCreator(singleNameThat_factory));
-}
-public static object doesNotBy_factory(Parser yyp) { return new doesNotBy(yyp); }
-public static object oobjectOnly_318ac4d9886640ad915d368dfcce1ff8_factory(Parser yyp) { return new oobjectOnly_318ac4d9886640ad915d368dfcce1ff8(yyp); }
-public static object boundTop_factory(Parser yyp) { return new boundTop(yyp); }
-public static object oobjectOnlyNothing_8646f1419d734b9894c47da4bf657213_factory(Parser yyp) { return new oobjectOnlyNothing_8646f1419d734b9894c47da4bf657213(yyp); }
-public static object identobject_name_e753f510c632415caecfe92fdfe04132_factory(Parser yyp) { return new identobject_name_e753f510c632415caecfe92fdfe04132(yyp); }
-public static object notRoleWithXY_factory(Parser yyp) { return new notRoleWithXY(yyp); }
-public static object condition_is_9851cdc5ee4547de8f6f21edbb5ef45e_factory(Parser yyp) { return new condition_is_9851cdc5ee4547de8f6f21edbb5ef45e(yyp); }
-public static object builtin_substr_a071f16bc3694a5da45731d98723f29c_factory(Parser yyp) { return new builtin_substr_a071f16bc3694a5da45731d98723f29c(yyp); }
-public static object boundDataType_0fc663b1365a4a469182eee5fcb869b1_factory(Parser yyp) { return new boundDataType_0fc663b1365a4a469182eee5fcb869b1(yyp); }
-public static object datavalList_factory(Parser yyp) { return new datavalList(yyp); }
-public static object valueOrThing_b292e5effebc4cf08f68227d444765da_factory(Parser yyp) { return new valueOrThing_b292e5effebc4cf08f68227d444765da(yyp); }
-public static object boundFacets_factory(Parser yyp) { return new boundFacets(yyp); }
-public static object duration_m_f0080b26096e4580ad7cf651e734477a_factory(Parser yyp) { return new duration_m_f0080b26096e4580ad7cf651e734477a(yyp); }
-public static object objectRoleExpr2_0b291fc985a044dbb25bd6ce57f4e694_factory(Parser yyp) { return new objectRoleExpr2_0b291fc985a044dbb25bd6ce57f4e694(yyp); }
-public static object facet_7ac077192b684ee5a57818db00d8ba40_factory(Parser yyp) { return new facet_7ac077192b684ee5a57818db00d8ba40(yyp); }
-public static object exerule_factory(Parser yyp) { return new exerule(yyp); }
-public static object comparer2_edb3d005808a42149810185952208fc5_factory(Parser yyp) { return new comparer2_edb3d005808a42149810185952208fc5(yyp); }
-public static object subjectNo_factory(Parser yyp) { return new subjectNo(yyp); }
-public static object subsumption_if_factory(Parser yyp) { return new subsumption_if(yyp); }
-public static object duration_m_6c11941f4548438387454a9601225be3_factory(Parser yyp) { return new duration_m_6c11941f4548438387454a9601225be3(yyp); }
-public static object subjectBigName_d35cd74c001042809ecb7c047ee96c03_factory(Parser yyp) { return new subjectBigName_d35cd74c001042809ecb7c047ee96c03(yyp); }
-public static object condition_result_role_3118228cc5a84fa1ac3397d77a6a5a83_factory(Parser yyp) { return new condition_result_role_3118228cc5a84fa1ac3397d77a6a5a83(yyp); }
-public static object datetime_0c55c536432947bc95b1c0540e659c73_factory(Parser yyp) { return new datetime_0c55c536432947bc95b1c0540e659c73(yyp); }
-public static object isBeAre_factory(Parser yyp) { return new isBeAre(yyp); }
-public static object condition_data_property_4a412d9875d24be4b511f3ce4fe6af7f_factory(Parser yyp) { return new condition_data_property_4a412d9875d24be4b511f3ce4fe6af7f(yyp); }
-public static object datavaler_factory(Parser yyp) { return new datavaler(yyp); }
-public static object oobjectCmpInstance_62f6ed86ccc8445fbfb0f1cbe9b8ee54_factory(Parser yyp) { return new oobjectCmpInstance_62f6ed86ccc8445fbfb0f1cbe9b8ee54(yyp); }
-public static object rolesubsumption_7b44428ea8344fcebe9eb5d6b1c5c84f_factory(Parser yyp) { return new rolesubsumption_7b44428ea8344fcebe9eb5d6b1c5c84f(yyp); }
-public static object andComma_factory(Parser yyp) { return new andComma(yyp); }
-public static object condition_exists_3b7fabca36e94c648fb58c8d856e7ff8_factory(Parser yyp) { return new condition_exists_3b7fabca36e94c648fb58c8d856e7ff8(yyp); }
-public static object boundVal_c828dcad517f46a4a90fc47a1f03bc1c_factory(Parser yyp) { return new boundVal_c828dcad517f46a4a90fc47a1f03bc1c(yyp); }
-public static object oobjectOnlyInstance_1efa92f90a8941c78aa48223d0dc46f8_factory(Parser yyp) { return new oobjectOnlyInstance_1efa92f90a8941c78aa48223d0dc46f8(yyp); }
-public static object boundOneOf_95c897a4a52e48cbbdecc5b57b19d24b_factory(Parser yyp) { return new boundOneOf_95c897a4a52e48cbbdecc5b57b19d24b(yyp); }
-public static object notidentobject_b94aa5042b0b4cd0b7fb47c31cd21884_factory(Parser yyp) { return new notidentobject_b94aa5042b0b4cd0b7fb47c31cd21884(yyp); }
-public static object word_number_f29f4b45d4f6440faab7b038d63e8016_1ce16831796c4da3aef1ace355e30bbe_factory(Parser yyp) { return new word_number_f29f4b45d4f6440faab7b038d63e8016_1ce16831796c4da3aef1ace355e30bbe(yyp); }
-public static object condition_factory(Parser yyp) { return new condition(yyp); }
-public static object paragraph_c73a4bfe7c064b4c84855e3199998995_factory(Parser yyp) { return new paragraph_c73a4bfe7c064b4c84855e3199998995(yyp); }
-public static object comparer2_469cb9c5f35a4878b84b753ed5aa6a1a_factory(Parser yyp) { return new comparer2_469cb9c5f35a4878b84b753ed5aa6a1a(yyp); }
-public static object comparer2_edb3d005808a42149810185952208fc5_8e3c464b3c1d4fd8ba1e6951f15c7a9e_factory(Parser yyp) { return new comparer2_edb3d005808a42149810185952208fc5_8e3c464b3c1d4fd8ba1e6951f15c7a9e(yyp); }
-public static object builtin_trans_e14262332461450a95eba2859a129c66_factory(Parser yyp) { return new builtin_trans_e14262332461450a95eba2859a129c66(yyp); }
-public static object andanyrolechain_ae905887b9044709890fb37bfff1f7d2_factory(Parser yyp) { return new andanyrolechain_ae905887b9044709890fb37bfff1f7d2(yyp); }
-public static object thatOrLoop_268216a573c34a43bde29d7d942ad849_factory(Parser yyp) { return new thatOrLoop_268216a573c34a43bde29d7d942ad849(yyp); }
-public static object oobjectBnd_factory(Parser yyp) { return new oobjectBnd(yyp); }
-public static object datavalerPlusList_cf96adeabac64a4f9768270e4f7b43a5_factory(Parser yyp) { return new datavalerPlusList_cf96adeabac64a4f9768270e4f7b43a5(yyp); }
-public static object orloop_a4d7a2437b774b5f91927bcf3a5d48b8_factory(Parser yyp) { return new orloop_a4d7a2437b774b5f91927bcf3a5d48b8(yyp); }
-public static object objectRoleExpr3_efd2e20597084fa18a608bf2eebdaee0_factory(Parser yyp) { return new objectRoleExpr3_efd2e20597084fa18a608bf2eebdaee0(yyp); }
-public static object builtin_datetime_2f4201d44eba4fd1a0014b982148a99f_factory(Parser yyp) { return new builtin_datetime_2f4201d44eba4fd1a0014b982148a99f(yyp); }
-public static object notidentobject_21178b2016ee43dd9b7828f754df3ee4_factory(Parser yyp) { return new notidentobject_21178b2016ee43dd9b7828f754df3ee4(yyp); }
-public static object oobjectSomething_2939bf68e33d408393cc769e668447e1_factory(Parser yyp) { return new oobjectSomething_2939bf68e33d408393cc769e668447e1(yyp); }
-public static object valueOrThing_606f91515c9a4f178ebde2e9e15da180_factory(Parser yyp) { return new valueOrThing_606f91515c9a4f178ebde2e9e15da180(yyp); }
-public static object builtin_substr_6b286ee63b70402c803dbfc771a3d878_factory(Parser yyp) { return new builtin_substr_6b286ee63b70402c803dbfc771a3d878(yyp); }
-public static object comparer_factory(Parser yyp) { return new comparer(yyp); }
-public static object condition_result_builtin_factory(Parser yyp) { return new condition_result_builtin(yyp); }
-public static object condition_role_450ed8e2227a42cfb94f34d571c49138_factory(Parser yyp) { return new condition_role_450ed8e2227a42cfb94f34d571c49138(yyp); }
-public static object identobject_inst_3841f77f0f734bcd853061126e5a07ae_factory(Parser yyp) { return new identobject_inst_3841f77f0f734bcd853061126e5a07ae(yyp); }
-public static object comparer2_ae23ce61f8ed473db910fce732481f63_factory(Parser yyp) { return new comparer2_ae23ce61f8ed473db910fce732481f63(yyp); }
-public static object comparer2_ce1a6ff8e277483c96f9740c7e35cb79_factory(Parser yyp) { return new comparer2_ce1a6ff8e277483c96f9740c7e35cb79(yyp); }
-public static object doesNot_a3f6472835454ce98820f5340279efd6_factory(Parser yyp) { return new doesNot_a3f6472835454ce98820f5340279efd6(yyp); }
-public static object andComma_7a1140bd0fba4a04bdcf342ba6e7a16d_factory(Parser yyp) { return new andComma_7a1140bd0fba4a04bdcf342ba6e7a16d(yyp); }
-public static object roleWithXY_bb5d6ff79bbc40df8487cf0d619e22e7_factory(Parser yyp) { return new roleWithXY_bb5d6ff79bbc40df8487cf0d619e22e7(yyp); }
-public static object modality_2994985d0cdc4d74bde814570c298b31_51a1e4967eb4403ba2edffb6c4127ebd_factory(Parser yyp) { return new modality_2994985d0cdc4d74bde814570c298b31_51a1e4967eb4403ba2edffb6c4127ebd(yyp); }
-public static object oobjectA_ebcc38bea7724ceeb1528c0f415eb9fe_factory(Parser yyp) { return new oobjectA_ebcc38bea7724ceeb1528c0f415eb9fe(yyp); }
-public static object condition_data_property_bound_factory(Parser yyp) { return new condition_data_property_bound(yyp); }
-public static object oobjectRelated_factory(Parser yyp) { return new oobjectRelated(yyp); }
-public static object boundOr_factory(Parser yyp) { return new boundOr(yyp); }
-public static object unOp2_a6f44f374d46487b93ad3733d3c68a6c_ba7f49eb4a3b484a9a6d606af1527be9_factory(Parser yyp) { return new unOp2_a6f44f374d46487b93ad3733d3c68a6c_ba7f49eb4a3b484a9a6d606af1527be9(yyp); }
-public static object doesNotBy_85bea99ab26f4aca9250e879bcb8f56d_factory(Parser yyp) { return new doesNotBy_85bea99ab26f4aca9250e879bcb8f56d(yyp); }
-public static object instanceList_d5ff625a1a5e40f2b562e8162854b3c4_factory(Parser yyp) { return new instanceList_d5ff625a1a5e40f2b562e8162854b3c4(yyp); }
-public static object datarolesubsumption_factory(Parser yyp) { return new datarolesubsumption(yyp); }
-public static object singleName_factory(Parser yyp) { return new singleName(yyp); }
-public static object datarolesubsumption_53b8fa47c596440a848c3686d84ff9fa_factory(Parser yyp) { return new datarolesubsumption_53b8fa47c596440a848c3686d84ff9fa(yyp); }
-public static object oobjectCmpBnd_ae7f63b9a17b4ffca0c504642566dc07_factory(Parser yyp) { return new oobjectCmpBnd_ae7f63b9a17b4ffca0c504642566dc07(yyp); }
-public static object subject_factory(Parser yyp) { return new subject(yyp); }
-public static object builtin_list_9da4d36c3fa049b3bc22c9f613fd1969_factory(Parser yyp) { return new builtin_list_9da4d36c3fa049b3bc22c9f613fd1969(yyp); }
-public static object orloop_factory(Parser yyp) { return new orloop(yyp); }
-public static object objectRoleExpr2_4563ca84b9a5499d9d0b46564a48e95d_factory(Parser yyp) { return new objectRoleExpr2_4563ca84b9a5499d9d0b46564a48e95d(yyp); }
-public static object datetime_factory(Parser yyp) { return new datetime(yyp); }
-public static object chain_f1d1e8479fab4525a8b3a49c2185acfd_factory(Parser yyp) { return new chain_f1d1e8479fab4525a8b3a49c2185acfd(yyp); }
-public static object dataroleequivalence2_79e8e3c6387c49ab995139ad18214122_factory(Parser yyp) { return new dataroleequivalence2_79e8e3c6387c49ab995139ad18214122(yyp); }
-public static object roleWithXY_5c11be3751d74f2fafcd1c1dc41dc069_factory(Parser yyp) { return new roleWithXY_5c11be3751d74f2fafcd1c1dc41dc069(yyp); }
-public static object comparer_5ecbaad0e39b422491fc9c98728523fc_factory(Parser yyp) { return new comparer_5ecbaad0e39b422491fc9c98728523fc(yyp); }
-public static object notRoleWithXY_b64e4dfa1d3648f2ba1cb621d93842c4_factory(Parser yyp) { return new notRoleWithXY_b64e4dfa1d3648f2ba1cb621d93842c4(yyp); }
-public static object subjectBigName_e247709fad4f46e8af6b598ac4e69ed9_factory(Parser yyp) { return new subjectBigName_e247709fad4f46e8af6b598ac4e69ed9(yyp); }
-public static object unOp_c74ee41853af4d08897b08b21a8b04bb_factory(Parser yyp) { return new unOp_c74ee41853af4d08897b08b21a8b04bb(yyp); }
-public static object exeargs_09198c24a4c54171b54a3ac103990da0_factory(Parser yyp) { return new exeargs_09198c24a4c54171b54a3ac103990da0(yyp); }
-public static object exeargs_56a109c849ca4fffb7c041d5d1b34493_factory(Parser yyp) { return new exeargs_56a109c849ca4fffb7c041d5d1b34493(yyp); }
-public static object datavalval_factory(Parser yyp) { return new datavalval(yyp); }
-public static object duration_m_32c6f48867c3460fbf618a076eab8e73_factory(Parser yyp) { return new duration_m_32c6f48867c3460fbf618a076eab8e73(yyp); }
-public static object dataval_factory(Parser yyp) { return new dataval(yyp); }
-public static object binOp_d4ec7f2581f64fb48b3c50d1edfdbce4_factory(Parser yyp) { return new binOp_d4ec7f2581f64fb48b3c50d1edfdbce4(yyp); }
-public static object singleOneOf_9f64f95e0fe54d98a7cc112260916b4c_factory(Parser yyp) { return new singleOneOf_9f64f95e0fe54d98a7cc112260916b4c(yyp); }
-public static object oobjectSomethingThat_07ef2c4b1ef34c98812ebce5f195afb5_factory(Parser yyp) { return new oobjectSomethingThat_07ef2c4b1ef34c98812ebce5f195afb5(yyp); }
-public static object builtin_factory(Parser yyp) { return new builtin(yyp); }
-public static object orObjectRoleExprChain_5fc55687f5bb48589182786b97a199c8_factory(Parser yyp) { return new orObjectRoleExprChain_5fc55687f5bb48589182786b97a199c8(yyp); }
-public static object roleequivalence2_factory(Parser yyp) { return new roleequivalence2(yyp); }
-public static object Number_factory(Parser yyp) { return new Number(yyp); }
-public static object abstractbound_factory(Parser yyp) { return new abstractbound(yyp); }
-public static object swrlrule_factory(Parser yyp) { return new swrlrule(yyp); }
-public static object duration_m_d99f9c87cb8f49678638ec69894cf1ed_factory(Parser yyp) { return new duration_m_d99f9c87cb8f49678638ec69894cf1ed(yyp); }
-public static object equalTo_02e1029631bf4b709a469df03d37ec01_factory(Parser yyp) { return new equalTo_02e1029631bf4b709a469df03d37ec01(yyp); }
-public static object exclusiveunion_9d3feb24afc04ba0a619553526a44646_factory(Parser yyp) { return new exclusiveunion_9d3feb24afc04ba0a619553526a44646(yyp); }
-public static object Number_695f0fa0c7f749ee9618398b97f99dc9_factory(Parser yyp) { return new Number_695f0fa0c7f749ee9618398b97f99dc9(yyp); }
-public static object Duration_9e45f683e8974e1281bfe106323d0b43_factory(Parser yyp) { return new Duration_9e45f683e8974e1281bfe106323d0b43(yyp); }
-public static object duration_m_f51410a0fe5f4f27ba914db7cdb141c7_factory(Parser yyp) { return new duration_m_f51410a0fe5f4f27ba914db7cdb141c7(yyp); }
-public static object andanyrolechain_0fb0bf0280ea497fa0987d6c7f3495a8_factory(Parser yyp) { return new andanyrolechain_0fb0bf0280ea497fa0987d6c7f3495a8(yyp); }
-public static object nosubject_factory(Parser yyp) { return new nosubject(yyp); }
-public static object comparer_145f81cae96f4e20b3227cffa71b35d3_factory(Parser yyp) { return new comparer_145f81cae96f4e20b3227cffa71b35d3(yyp); }
-public static object instancer_factory(Parser yyp) { return new instancer(yyp); }
-public static object binOp_bb9c172983b748b9857554319e6d40bb_72f21f793eb145a7ad1885c54a555683_factory(Parser yyp) { return new binOp_bb9c172983b748b9857554319e6d40bb_72f21f793eb145a7ad1885c54a555683(yyp); }
-public static object notidentobject_29d7f93464bb49ee924c71f88475ad54_factory(Parser yyp) { return new notidentobject_29d7f93464bb49ee924c71f88475ad54(yyp); }
-public static object boundIdent_ca48d918cfd84dfda3281d288116a0d9_factory(Parser yyp) { return new boundIdent_ca48d918cfd84dfda3281d288116a0d9(yyp); }
-public static object condition_result_definition_factory(Parser yyp) { return new condition_result_definition(yyp); }
-public static object single_factory(Parser yyp) { return new single(yyp); }
-public static object facetList_165d6454d84548f6bd60c95dd795ab59_factory(Parser yyp) { return new facetList_165d6454d84548f6bd60c95dd795ab59(yyp); }
-public static object objectRoleExpr2_bef62ec5bd3d466a851eadb99cdff5f6_factory(Parser yyp) { return new objectRoleExpr2_bef62ec5bd3d466a851eadb99cdff5f6(yyp); }
-public static object builtin_unary_free_factory(Parser yyp) { return new builtin_unary_free(yyp); }
-public static object singleOneOf_f9240bafbcaf418d8bfe10765ad8e1f9_factory(Parser yyp) { return new singleOneOf_f9240bafbcaf418d8bfe10765ad8e1f9(yyp); }
-public static object clause_factory(Parser yyp) { return new clause(yyp); }
-public static object exeargs_factory(Parser yyp) { return new exeargs(yyp); }
-public static object modality2_d1082eb795094c42b220acc0e8512328_factory(Parser yyp) { return new modality2_d1082eb795094c42b220acc0e8512328(yyp); }
-public static object condition_data_bound_81d74be785d9496f86106ac984df9d6e_factory(Parser yyp) { return new condition_data_bound_81d74be785d9496f86106ac984df9d6e(yyp); }
-public static object objectRoleExpr1_36cf0e01213f4d05a90288649fbc298a_factory(Parser yyp) { return new objectRoleExpr1_36cf0e01213f4d05a90288649fbc298a(yyp); }
-public static object builtin_unary_cmp_f42342a2c7e74153bd6fad912164a09e_factory(Parser yyp) { return new builtin_unary_cmp_f42342a2c7e74153bd6fad912164a09e(yyp); }
-public static object orloop_009a8290e37345849a1180987de9be5b_factory(Parser yyp) { return new orloop_009a8290e37345849a1180987de9be5b(yyp); }
-public static object exeargs_dedb7be397514b3b8032978e42985b45_factory(Parser yyp) { return new exeargs_dedb7be397514b3b8032978e42985b45(yyp); }
-public static object oobjectCmp_factory(Parser yyp) { return new oobjectCmp(yyp); }
-public static object subjectEverything_d8d0f8f1d0e7462c8d1f6773d656e8d3_factory(Parser yyp) { return new subjectEverything_d8d0f8f1d0e7462c8d1f6773d656e8d3(yyp); }
-public static object subsumption_e11b8feca52a432982c43c7eef4e9fff_factory(Parser yyp) { return new subsumption_e11b8feca52a432982c43c7eef4e9fff(yyp); }
-public static object identobject_name_2f71ecb76d814507b89088016afc756b_factory(Parser yyp) { return new identobject_name_2f71ecb76d814507b89088016afc756b(yyp); }
-public static object isBeAre_c074f3547e2642baae4dee8d613e8409_factory(Parser yyp) { return new isBeAre_c074f3547e2642baae4dee8d613e8409(yyp); }
-public static object datavalerFollowedByList_31358cf7b46841b5b007904f15c8e113_factory(Parser yyp) { return new datavalerFollowedByList_31358cf7b46841b5b007904f15c8e113(yyp); }
-public static object condition_result_definition_bfa38c97338d412b851ae3a69b9cfb92_factory(Parser yyp) { return new condition_result_definition_bfa38c97338d412b851ae3a69b9cfb92(yyp); }
-public static object equalTo_02e1029631bf4b709a469df03d37ec01_ab0683c73b1e47619b12824e51bd8938_factory(Parser yyp) { return new equalTo_02e1029631bf4b709a469df03d37ec01_ab0683c73b1e47619b12824e51bd8938(yyp); }
-public static object Bool_7bd728463a3648f4821dcc1df88074ae_factory(Parser yyp) { return new Bool_7bd728463a3648f4821dcc1df88074ae(yyp); }
-public static object exerule_0b3d9235c9f049308eaa150fa7fe6dc5_factory(Parser yyp) { return new exerule_0b3d9235c9f049308eaa150fa7fe6dc5(yyp); }
-public static object singleOneOf_factory(Parser yyp) { return new singleOneOf(yyp); }
-public static object objectRoleExpr2_924e43f9f12c47d39f389b84218c39b2_factory(Parser yyp) { return new objectRoleExpr2_924e43f9f12c47d39f389b84218c39b2(yyp); }
-public static object objectr_factory(Parser yyp) { return new objectr(yyp); }
-public static object objectRoleExpr1_factory(Parser yyp) { return new objectRoleExpr1(yyp); }
-public static object comparer_a0c0bb93e6ae469793321c37956af897_factory(Parser yyp) { return new comparer_a0c0bb93e6ae469793321c37956af897(yyp); }
-public static object oobjectOnlyInstance_factory(Parser yyp) { return new oobjectOnlyInstance(yyp); }
-public static object comparer2_469cb9c5f35a4878b84b753ed5aa6a1a_daf2c9c6e5c8422a9e71782ad63f1af4_factory(Parser yyp) { return new comparer2_469cb9c5f35a4878b84b753ed5aa6a1a_daf2c9c6e5c8422a9e71782ad63f1af4(yyp); }
-public static object comparer2_factory(Parser yyp) { return new comparer2(yyp); }
-public static object identobject_factory(Parser yyp) { return new identobject(yyp); }
-public static object paragraph_factory(Parser yyp) { return new paragraph(yyp); }
-public static object word_number_75bd5a6cddf347a09ca63021c8ed26ad_faba2b6d66ab4550a02bb74333041ec9_factory(Parser yyp) { return new word_number_75bd5a6cddf347a09ca63021c8ed26ad_faba2b6d66ab4550a02bb74333041ec9(yyp); }
-public static object duration_m_8bc29c23fa0f414d9fa5214fbebd4ada_factory(Parser yyp) { return new duration_m_8bc29c23fa0f414d9fa5214fbebd4ada(yyp); }
-public static object nosubsumption_factory(Parser yyp) { return new nosubsumption(yyp); }
-public static object binOp_bb9c172983b748b9857554319e6d40bb_factory(Parser yyp) { return new binOp_bb9c172983b748b9857554319e6d40bb(yyp); }
-public static object doesNotBy_efdc773be95d4eb89dc96e2228b39f7c_factory(Parser yyp) { return new doesNotBy_efdc773be95d4eb89dc96e2228b39f7c(yyp); }
-public static object objectRoleExpr_factory(Parser yyp) { return new objectRoleExpr(yyp); }
-public static object condition_builtin_factory(Parser yyp) { return new condition_builtin(yyp); }
-public static object identobject_name_db6df83e230f4c83b0a33be8be59c8ee_factory(Parser yyp) { return new identobject_name_db6df83e230f4c83b0a33be8be59c8ee(yyp); }
-public static object modality_a2b72e688f854a05b5285b0dafef6501_factory(Parser yyp) { return new modality_a2b72e688f854a05b5285b0dafef6501(yyp); }
-public static object instancer_67fb63a2276c44c580c90318fac84b88_factory(Parser yyp) { return new instancer_67fb63a2276c44c580c90318fac84b88(yyp); }
-public static object modality2_factory(Parser yyp) { return new modality2(yyp); }
-public static object binOp_d03cb2932c8e4f0ab8095286123f6797_6d013372786b4e7294e707369b187f39_factory(Parser yyp) { return new binOp_d03cb2932c8e4f0ab8095286123f6797_6d013372786b4e7294e707369b187f39(yyp); }
-public static object valueOrThing_b292e5effebc4cf08f68227d444765da_e394101d548f4b1790b3a7fb2cffaaec_factory(Parser yyp) { return new valueOrThing_b292e5effebc4cf08f68227d444765da_e394101d548f4b1790b3a7fb2cffaaec(yyp); }
-public static object builtin_list_factory(Parser yyp) { return new builtin_list(yyp); }
-public static object word_number_e49d3cc248904823a1e3a1a3e0636e87_factory(Parser yyp) { return new word_number_e49d3cc248904823a1e3a1a3e0636e87(yyp); }
-public static object oobjectA_b25547576b434f7fab695d719256db02_factory(Parser yyp) { return new oobjectA_b25547576b434f7fab695d719256db02(yyp); }
-public static object condition_builtin_404e871395204a49aad4da7fe66997d1_factory(Parser yyp) { return new condition_builtin_404e871395204a49aad4da7fe66997d1(yyp); }
-public static object datavalerFollowedByList_f66a5ef8595548f28eecf225fee146ed_factory(Parser yyp) { return new datavalerFollowedByList_f66a5ef8595548f28eecf225fee146ed(yyp); }
-public static object objectr_nio_3e0d3830f09c478b96444fef526d4ef2_factory(Parser yyp) { return new objectr_nio_3e0d3830f09c478b96444fef526d4ef2(yyp); }
-public static object modality2_65c4f542ddbd4e18bcb08dfa7f89efc6_factory(Parser yyp) { return new modality2_65c4f542ddbd4e18bcb08dfa7f89efc6(yyp); }
-public static object notidentobject_factory(Parser yyp) { return new notidentobject(yyp); }
-public static object unOp2_5e29de36058a472b8e84736e6631ef1e_factory(Parser yyp) { return new unOp2_5e29de36058a472b8e84736e6631ef1e(yyp); }
-public static object oobjectA_17fb8807dc2a404e8456e6658b43a07d_factory(Parser yyp) { return new oobjectA_17fb8807dc2a404e8456e6658b43a07d(yyp); }
-public static object roleequivalence2_7329660247a3423dbbe6d751ea254a7f_factory(Parser yyp) { return new roleequivalence2_7329660247a3423dbbe6d751ea254a7f(yyp); }
-public static object unOp_580a60d4d1d54a1c9c8f5c9001e818b1_factory(Parser yyp) { return new unOp_580a60d4d1d54a1c9c8f5c9001e818b1(yyp); }
-public static object condition_is_factory(Parser yyp) { return new condition_is(yyp); }
-public static object boundTotal_aece926e36334b22b0ccccd4a9967b6f_factory(Parser yyp) { return new boundTotal_aece926e36334b22b0ccccd4a9967b6f(yyp); }
-public static object builtin_exe_38dcc13695b745029673f6bf43cce7a6_factory(Parser yyp) { return new builtin_exe_38dcc13695b745029673f6bf43cce7a6(yyp); }
-public static object builtin_substr_3c32f071139b4b7e9262c07f5e8d086e_factory(Parser yyp) { return new builtin_substr_3c32f071139b4b7e9262c07f5e8d086e(yyp); }
-public static object andloop_e3de1582f6d74803ab551f91b1708bcd_factory(Parser yyp) { return new andloop_e3de1582f6d74803ab551f91b1708bcd(yyp); }
-public static object datetime_9d175bd7e80948ccb573987c4312e831_factory(Parser yyp) { return new datetime_9d175bd7e80948ccb573987c4312e831(yyp); }
-public static object sentence_factory(Parser yyp) { return new sentence(yyp); }
-public static object singleThing_027b542c7d7d420f9939341d13468e6f_factory(Parser yyp) { return new singleThing_027b542c7d7d420f9939341d13468e6f(yyp); }
-public static object singleThingThat_c13bf3918b4e485590d9146d5d5071de_factory(Parser yyp) { return new singleThingThat_c13bf3918b4e485590d9146d5d5071de(yyp); }
-public static object facetList_4439de31ce8d4a6dad5120738bb949b8_factory(Parser yyp) { return new facetList_4439de31ce8d4a6dad5120738bb949b8(yyp); }
-public static object modality_418a797e33f8415090b8ccb9cf27e0ca_factory(Parser yyp) { return new modality_418a797e33f8415090b8ccb9cf27e0ca(yyp); }
-public static object condition_data_property_factory(Parser yyp) { return new condition_data_property(yyp); }
-public static object builtin_alpha_factory(Parser yyp) { return new builtin_alpha(yyp); }
-public static object comparer_a0c0bb93e6ae469793321c37956af897_04b1cd80d9ec4dc9b2e56bad4333cc56_factory(Parser yyp) { return new comparer_a0c0bb93e6ae469793321c37956af897_04b1cd80d9ec4dc9b2e56bad4333cc56(yyp); }
-public static object exclusiveunion_factory(Parser yyp) { return new exclusiveunion(yyp); }
-public static object comparer2_587ff1bbf2da4e7d8b88417a53cfb5e7_factory(Parser yyp) { return new comparer2_587ff1bbf2da4e7d8b88417a53cfb5e7(yyp); }
-public static object condition_result_data_property_cd2208eb47554d05a88bc19b0e0f3557_factory(Parser yyp) { return new condition_result_data_property_cd2208eb47554d05a88bc19b0e0f3557(yyp); }
-public static object unOp_45c2620dc3744a0798b88be259a3133e_4966f022786945619ab8bac5dc1c4da7_factory(Parser yyp) { return new unOp_45c2620dc3744a0798b88be259a3133e_4966f022786945619ab8bac5dc1c4da7(yyp); }
-public static object DateTimeData_factory(Parser yyp) { return new DateTimeData(yyp); }
-public static object comparer2_214406d730e745df9f734e109290ad77_dc3359640dd04db190bf53abb66fde9a_factory(Parser yyp) { return new comparer2_214406d730e745df9f734e109290ad77_dc3359640dd04db190bf53abb66fde9a(yyp); }
-public static object equalTo_da1a5ce4efaf479e89d992a3133720b7_factory(Parser yyp) { return new equalTo_da1a5ce4efaf479e89d992a3133720b7(yyp); }
-public static object objectRoleExpr2_8a5455a74e4b4e8e82837a108198e0cd_factory(Parser yyp) { return new objectRoleExpr2_8a5455a74e4b4e8e82837a108198e0cd(yyp); }
-public static object oobjectSelf_107b7f335e9642db95cbe9eacf9e8599_factory(Parser yyp) { return new oobjectSelf_107b7f335e9642db95cbe9eacf9e8599(yyp); }
-public static object subjectNo_3aa0e323824548baae9acb988db41f47_factory(Parser yyp) { return new subjectNo_3aa0e323824548baae9acb988db41f47(yyp); }
-public static object equalTo_bc50a34a422d45dc9f8aaab9e3c89df6_factory(Parser yyp) { return new equalTo_bc50a34a422d45dc9f8aaab9e3c89df6(yyp); }
-public static object condition_role_a276b189029044c990d6e87acfb16909_factory(Parser yyp) { return new condition_role_a276b189029044c990d6e87acfb16909(yyp); }
-public static object boundDataType_factory(Parser yyp) { return new boundDataType(yyp); }
-public static object code_factory(Parser yyp) { return new code(yyp); }
-public static object nosubsumption_241070898bd34b07be44ae8b03b9fa25_factory(Parser yyp) { return new nosubsumption_241070898bd34b07be44ae8b03b9fa25(yyp); }
-public static object aAn_4da7a5201e2b453cab1bb992ac99294f_factory(Parser yyp) { return new aAn_4da7a5201e2b453cab1bb992ac99294f(yyp); }
-public static object boundFacets_b18592c63926410fa1be8207c1c1239b_factory(Parser yyp) { return new boundFacets_b18592c63926410fa1be8207c1c1239b(yyp); }
-public static object duration_m_factory(Parser yyp) { return new duration_m(yyp); }
-public static object instanceBigName_1e636d9f23c1424fb328abdd45d2ce29_factory(Parser yyp) { return new instanceBigName_1e636d9f23c1424fb328abdd45d2ce29(yyp); }
-public static object StrData_factory(Parser yyp) { return new StrData(yyp); }
-public static object modality_2994985d0cdc4d74bde814570c298b31_factory(Parser yyp) { return new modality_2994985d0cdc4d74bde814570c298b31(yyp); }
-public static object swrlrule_943c8bac97c94c82a87e57602514c1d5_factory(Parser yyp) { return new swrlrule_943c8bac97c94c82a87e57602514c1d5(yyp); }
-public static object identobject_name_a74993c3e8ef4b53b4e341ce3a3d454b_factory(Parser yyp) { return new identobject_name_a74993c3e8ef4b53b4e341ce3a3d454b(yyp); }
-public static object oobjectOnlySomethingThat_623f154535ae4f53951b0fadee21be88_factory(Parser yyp) { return new oobjectOnlySomethingThat_623f154535ae4f53951b0fadee21be88(yyp); }
-public static object error_factory(Parser yyp) { return new error(yyp); }
-public static object singleThingThat_5aa505e771854f21833e7d6c82f10846_factory(Parser yyp) { return new singleThingThat_5aa505e771854f21833e7d6c82f10846(yyp); }
-public static object boundVal_29311d3be24545c1a3d44fc83ce5932f_factory(Parser yyp) { return new boundVal_29311d3be24545c1a3d44fc83ce5932f(yyp); }
-public static object binOp_decd62613c0f4f7fafe385767da99fb4_factory(Parser yyp) { return new binOp_decd62613c0f4f7fafe385767da99fb4(yyp); }
-public static object condition_definition_835c47f908394e68b1462e376f670837_factory(Parser yyp) { return new condition_definition_835c47f908394e68b1462e376f670837(yyp); }
-public static object objectRoleExpr3_factory(Parser yyp) { return new objectRoleExpr3(yyp); }
-public static object objectRoleExpr2_factory(Parser yyp) { return new objectRoleExpr2(yyp); }
-public static object builtin_cmp_946d7d48c4614d5f9794a4058d592831_factory(Parser yyp) { return new builtin_cmp_946d7d48c4614d5f9794a4058d592831(yyp); }
-public static object builtin_datetime_factory(Parser yyp) { return new builtin_datetime(yyp); }
-public static object role_19de336b9f7f4160896933435e4fb29a_factory(Parser yyp) { return new role_19de336b9f7f4160896933435e4fb29a(yyp); }
-public static object boundNot_45259cdb5cc64446ab1766109ff78fdf_factory(Parser yyp) { return new boundNot_45259cdb5cc64446ab1766109ff78fdf(yyp); }
-public static object builtin_cmp_factory(Parser yyp) { return new builtin_cmp(yyp); }
-public static object boundAnd_factory(Parser yyp) { return new boundAnd(yyp); }
-public static object modality2_65c4f542ddbd4e18bcb08dfa7f89efc6_17d398d661fb4d528f09bb6bbab1450f_factory(Parser yyp) { return new modality2_65c4f542ddbd4e18bcb08dfa7f89efc6_17d398d661fb4d528f09bb6bbab1450f(yyp); }
-public static object singleThing_factory(Parser yyp) { return new singleThing(yyp); }
-public static object thatOrLoop_factory(Parser yyp) { return new thatOrLoop(yyp); }
-public static object boundIdent_factory(Parser yyp) { return new boundIdent(yyp); }
-public static object oobjectBnd_f5bc457fb16a4e18af92122e283da35e_factory(Parser yyp) { return new oobjectBnd_f5bc457fb16a4e18af92122e283da35e(yyp); }
-public static object dataroleequivalence2_factory(Parser yyp) { return new dataroleequivalence2(yyp); }
-public static object DateTimeData_2cce692ba0a5488c9b79920d2e985eaf_factory(Parser yyp) { return new DateTimeData_2cce692ba0a5488c9b79920d2e985eaf(yyp); }
-public static object haskey_factory(Parser yyp) { return new haskey(yyp); }
-public static object valueOrThing_606f91515c9a4f178ebde2e9e15da180_a0194531c9a046758b0864b1beb8f1b0_factory(Parser yyp) { return new valueOrThing_606f91515c9a4f178ebde2e9e15da180_a0194531c9a046758b0864b1beb8f1b0(yyp); }
-public static object boundOneOf_factory(Parser yyp) { return new boundOneOf(yyp); }
-public static object comparer2_11e106ec73574e0d8853ad29dfb3ed8e_27b290a48ef545c1848fd6f340bf8239_factory(Parser yyp) { return new comparer2_11e106ec73574e0d8853ad29dfb3ed8e_27b290a48ef545c1848fd6f340bf8239(yyp); }
-public static object builtin_unary_cmp_factory(Parser yyp) { return new builtin_unary_cmp(yyp); }
-public static object oobjectNothing_factory(Parser yyp) { return new oobjectNothing(yyp); }
-public static object instanceThe_factory(Parser yyp) { return new instanceThe(yyp); }
-public static object andloop_factory(Parser yyp) { return new andloop(yyp); }
-public static object modality_8f69bc2826e14a64b655e1d64d497a75_6e7d1c5cb95c495886cac24c6c505c9e_factory(Parser yyp) { return new modality_8f69bc2826e14a64b655e1d64d497a75_6e7d1c5cb95c495886cac24c6c505c9e(yyp); }
-public static object oobjectOnlyBnd_factory(Parser yyp) { return new oobjectOnlyBnd(yyp); }
-public static object instance_factory(Parser yyp) { return new instance(yyp); }
-public static object equivalence2_factory(Parser yyp) { return new equivalence2(yyp); }
-public static object that_factory(Parser yyp) { return new that(yyp); }
-public static object builtin_duration_factory(Parser yyp) { return new builtin_duration(yyp); }
-public static object condition_exists_factory(Parser yyp) { return new condition_exists(yyp); }
-public static object condition_definition_factory(Parser yyp) { return new condition_definition(yyp); }
-public static object code_cbe070844a604bcd8667f1542c831241_factory(Parser yyp) { return new code_cbe070844a604bcd8667f1542c831241(yyp); }
-public static object Number_905fb068ff8c4500a200cb7d77c377a0_factory(Parser yyp) { return new Number_905fb068ff8c4500a200cb7d77c377a0(yyp); }
-public static object clause_4afb50346dbc4e0ab977917496ae7465_factory(Parser yyp) { return new clause_4afb50346dbc4e0ab977917496ae7465(yyp); }
-public static object builtin_list_e48ab73f344340b7b7bf105756aaa681_factory(Parser yyp) { return new builtin_list_e48ab73f344340b7b7bf105756aaa681(yyp); }
-public static object unOp2_factory(Parser yyp) { return new unOp2(yyp); }
-public static object datavalList_bbab639eab514464a606fc27d2b58cfb_factory(Parser yyp) { return new datavalList_bbab639eab514464a606fc27d2b58cfb(yyp); }
-public static object unOp_c4ccaad173814dd9849b1c02d3e4fce6_factory(Parser yyp) { return new unOp_c4ccaad173814dd9849b1c02d3e4fce6(yyp); }
-public static object thatOrLoop_cc5e77cf72b948a89f0ce8fc8ddb7303_factory(Parser yyp) { return new thatOrLoop_cc5e77cf72b948a89f0ce8fc8ddb7303(yyp); }
-public static object Float_factory(Parser yyp) { return new Float(yyp); }
-public static object boundNot_factory(Parser yyp) { return new boundNot(yyp); }
-public static object condition_role_factory(Parser yyp) { return new condition_role(yyp); }
-public static object objectr_io_factory(Parser yyp) { return new objectr_io(yyp); }
-public static object unOp_a56e6c90a8e24c09a709d29ba96464e4_factory(Parser yyp) { return new unOp_a56e6c90a8e24c09a709d29ba96464e4(yyp); }
-public static object roledisjoint2_0e157aedc4c4420286bc66850f27b4a2_factory(Parser yyp) { return new roledisjoint2_0e157aedc4c4420286bc66850f27b4a2(yyp); }
-public static object oobjectOnlyBnd_0f7bc12a73fe4b20b422df4fe7d65cf3_factory(Parser yyp) { return new oobjectOnlyBnd_0f7bc12a73fe4b20b422df4fe7d65cf3(yyp); }
-public static object subjectEvery_factory(Parser yyp) { return new subjectEvery(yyp); }
-public static object clause_result_e4966a20715f4ad6a9f4eaeb33a5ea99_factory(Parser yyp) { return new clause_result_e4966a20715f4ad6a9f4eaeb33a5ea99(yyp); }
-public static object builtin_annot_factory(Parser yyp) { return new builtin_annot(yyp); }
-public static object Bool_factory(Parser yyp) { return new Bool(yyp); }
-public static object comparer2_b0fe676e97734f1ba55ea7231f35b8bc_factory(Parser yyp) { return new comparer2_b0fe676e97734f1ba55ea7231f35b8bc(yyp); }
-public static object haskey_42d75fdf80ab4593b47edf7159d47307_factory(Parser yyp) { return new haskey_42d75fdf80ab4593b47edf7159d47307(yyp); }
-public static object chain_factory(Parser yyp) { return new chain(yyp); }
-public static object condition_result_role_factory(Parser yyp) { return new condition_result_role(yyp); }
-public static object builtin_bin_factory(Parser yyp) { return new builtin_bin(yyp); }
-public static object oobjectCmpInstance_factory(Parser yyp) { return new oobjectCmpInstance(yyp); }
-public static object clause_result_34e19e77573e4cee91a7ff6f0b710780_factory(Parser yyp) { return new clause_result_34e19e77573e4cee91a7ff6f0b710780(yyp); }
-public static object binOp_d03cb2932c8e4f0ab8095286123f6797_factory(Parser yyp) { return new binOp_d03cb2932c8e4f0ab8095286123f6797(yyp); }
-public static object Duration_factory(Parser yyp) { return new Duration(yyp); }
-public static object orObjectRoleExprChain_factory(Parser yyp) { return new orObjectRoleExprChain(yyp); }
-public static object equivalence2_2ece582c05814d189b07e26b3fc415f0_factory(Parser yyp) { return new equivalence2_2ece582c05814d189b07e26b3fc415f0(yyp); }
-public static object facetList_factory(Parser yyp) { return new facetList(yyp); }
-public static object boundOr_175e4bd629cc4ce4bbcb2a4999452b4c_factory(Parser yyp) { return new boundOr_175e4bd629cc4ce4bbcb2a4999452b4c(yyp); }
-public static object annotation_factory(Parser yyp) { return new annotation(yyp); }
-public static object oobjectSelf_factory(Parser yyp) { return new oobjectSelf(yyp); }
-public static object condition_result_data_property_factory(Parser yyp) { return new condition_result_data_property(yyp); }
-public static object datatypedef_factory(Parser yyp) { return new datatypedef(yyp); }
-public static object clause_result_factory(Parser yyp) { return new clause_result(yyp); }
-public static object duration_m_954e0a8601524bfcb8dd02dd40da7138_factory(Parser yyp) { return new duration_m_954e0a8601524bfcb8dd02dd40da7138(yyp); }
-public static object boundVal_factory(Parser yyp) { return new boundVal(yyp); }
-public static object boundTotal_factory(Parser yyp) { return new boundTotal(yyp); }
-public static object notRoleWithXY_52cb25920ebd47df94420b8e97bb2a19_factory(Parser yyp) { return new notRoleWithXY_52cb25920ebd47df94420b8e97bb2a19(yyp); }
-public static object builtin_bin_e973596f450e4814ab503802d183a2d2_factory(Parser yyp) { return new builtin_bin_e973596f450e4814ab503802d183a2d2(yyp); }
-public static object oobjectOnlySomethingThat_factory(Parser yyp) { return new oobjectOnlySomethingThat(yyp); }
-public static object oobjectInstance_factory(Parser yyp) { return new oobjectInstance(yyp); }
-public static object objectRoleExpr1_447e56a3854146ce9506d780f10a1ba3_factory(Parser yyp) { return new objectRoleExpr1_447e56a3854146ce9506d780f10a1ba3(yyp); }
-public static object singleThingThat_4af593f3c9c942aa8d42c41502b3cfd9_factory(Parser yyp) { return new singleThingThat_4af593f3c9c942aa8d42c41502b3cfd9(yyp); }
-public static object orComma_de6f2dda1b30498c9c2c5d4e08dcbc02_factory(Parser yyp) { return new orComma_de6f2dda1b30498c9c2c5d4e08dcbc02(yyp); }
-public static object datavalerTimesList_f5a5d38302574d3282fede0c80d42c45_factory(Parser yyp) { return new datavalerTimesList_f5a5d38302574d3282fede0c80d42c45(yyp); }
-public static object identobject_name_factory(Parser yyp) { return new identobject_name(yyp); }
-public static object duration_w_factory(Parser yyp) { return new duration_w(yyp); }
-public static object condition_result_is_factory(Parser yyp) { return new condition_result_is(yyp); }
-public static object word_number_f29f4b45d4f6440faab7b038d63e8016_factory(Parser yyp) { return new word_number_f29f4b45d4f6440faab7b038d63e8016(yyp); }
-public static object modality2_39e84493f70c44e4b103f81e61df7146_factory(Parser yyp) { return new modality2_39e84493f70c44e4b103f81e61df7146(yyp); }
-public static object subjectNothing_factory(Parser yyp) { return new subjectNothing(yyp); }
-public static object subjectThe_factory(Parser yyp) { return new subjectThe(yyp); }
-public static object datavalerPlusList_1027d4d7a1d44f248cbb749a7b8379c4_factory(Parser yyp) { return new datavalerPlusList_1027d4d7a1d44f248cbb749a7b8379c4(yyp); }
-public static object comparer2_b0fe676e97734f1ba55ea7231f35b8bc_48f64b1ce3024ea4a87b7d0a4a07a4f6_factory(Parser yyp) { return new comparer2_b0fe676e97734f1ba55ea7231f35b8bc_48f64b1ce3024ea4a87b7d0a4a07a4f6(yyp); }
-public static object condition_result_is_a76c128b6c4a4fd080e8207bb5686aaf_factory(Parser yyp) { return new condition_result_is_a76c128b6c4a4fd080e8207bb5686aaf(yyp); }
-public static object comparer_1592b4ba6da04d7aa71e8b2f19b6bc01_factory(Parser yyp) { return new comparer_1592b4ba6da04d7aa71e8b2f19b6bc01(yyp); }
-public static object unOp_fbfd003d2c10478f98392c2071fc6b30_factory(Parser yyp) { return new unOp_fbfd003d2c10478f98392c2071fc6b30(yyp); }
-public static object objectr_io_ee9983a723fd4267a9248edc2a281b7b_factory(Parser yyp) { return new objectr_io_ee9983a723fd4267a9248edc2a281b7b(yyp); }
-public static object identobject_inst_factory(Parser yyp) { return new identobject_inst(yyp); }
-public static object equalTo_da1a5ce4efaf479e89d992a3133720b7_c77ccc0f563e4beb95e9c323d6772ad7_factory(Parser yyp) { return new equalTo_da1a5ce4efaf479e89d992a3133720b7_c77ccc0f563e4beb95e9c323d6772ad7(yyp); }
-public static object unOp_7b7d90a7bb91439e9a99a97c9b68aaa3_032a287ddb214419b8fd109c616d4a90_factory(Parser yyp) { return new unOp_7b7d90a7bb91439e9a99a97c9b68aaa3_032a287ddb214419b8fd109c616d4a90(yyp); }
-public static object unOp_45c2620dc3744a0798b88be259a3133e_factory(Parser yyp) { return new unOp_45c2620dc3744a0798b88be259a3133e(yyp); }
-public static object comparer_5ecbaad0e39b422491fc9c98728523fc_ba645194d6924b0087226328f3ed2351_factory(Parser yyp) { return new comparer_5ecbaad0e39b422491fc9c98728523fc_ba645194d6924b0087226328f3ed2351(yyp); }
-public static object orObjectRoleExprChain_1280932fed444a0dbbe66357a095bc98_factory(Parser yyp) { return new orObjectRoleExprChain_1280932fed444a0dbbe66357a095bc98(yyp); }
-public static object instanceThe_aabecdb18b164b9e806c3f5407c38d6f_factory(Parser yyp) { return new instanceThe_aabecdb18b164b9e806c3f5407c38d6f(yyp); }
-public static object builtin_list_1f1f215d473e40fbac3c2ea190bd875f_factory(Parser yyp) { return new builtin_list_1f1f215d473e40fbac3c2ea190bd875f(yyp); }
-public static object unOp2_a6f44f374d46487b93ad3733d3c68a6c_factory(Parser yyp) { return new unOp2_a6f44f374d46487b93ad3733d3c68a6c(yyp); }
-public static object roledisjoint2_factory(Parser yyp) { return new roledisjoint2(yyp); }
-public static object StrData_cfad7327880546028155730124b7a9c2_factory(Parser yyp) { return new StrData_cfad7327880546028155730124b7a9c2(yyp); }
-public static object word_number_75bd5a6cddf347a09ca63021c8ed26ad_factory(Parser yyp) { return new word_number_75bd5a6cddf347a09ca63021c8ed26ad(yyp); }
-public static object builtin_exe_factory(Parser yyp) { return new builtin_exe(yyp); }
-public static object oobjectSomething_factory(Parser yyp) { return new oobjectSomething(yyp); }
-public static object clause_896721228f0749b1835787e438800b80_factory(Parser yyp) { return new clause_896721228f0749b1835787e438800b80(yyp); }
-public static object instanceList_factory(Parser yyp) { return new instanceList(yyp); }
-public static object andloop_e2351c0e014c4a929e8994e6c5548a06_factory(Parser yyp) { return new andloop_e2351c0e014c4a929e8994e6c5548a06(yyp); }
-public static object unOp_7b7d90a7bb91439e9a99a97c9b68aaa3_factory(Parser yyp) { return new unOp_7b7d90a7bb91439e9a99a97c9b68aaa3(yyp); }
-public static object modality2_a9903bb7580245b5883060adb41cf3e7_factory(Parser yyp) { return new modality2_a9903bb7580245b5883060adb41cf3e7(yyp); }
-public static object comparer2_214406d730e745df9f734e109290ad77_factory(Parser yyp) { return new comparer2_214406d730e745df9f734e109290ad77(yyp); }
-public static object paragraph_566245c87df54ee3bb78d5606c0fc1e8_factory(Parser yyp) { return new paragraph_566245c87df54ee3bb78d5606c0fc1e8(yyp); }
-public static object condition_result_is_92cac4ab014b429fbecd05c009e4f3d3_factory(Parser yyp) { return new condition_result_is_92cac4ab014b429fbecd05c009e4f3d3(yyp); }
-public static object rolesubsumption_7af6523e728b450da936b5061ba53008_factory(Parser yyp) { return new rolesubsumption_7af6523e728b450da936b5061ba53008(yyp); }
-public static object role_1dd48d6cbe9549b084e63dbcf3a1aa81_factory(Parser yyp) { return new role_1dd48d6cbe9549b084e63dbcf3a1aa81(yyp); }
-public static object word_number_f7873402a182481d9f3d6ec914ae2965_factory(Parser yyp) { return new word_number_f7873402a182481d9f3d6ec914ae2965(yyp); }
-public static object duration_m_55afbd56816a4d12b9ac108a3f2cc8cf_factory(Parser yyp) { return new duration_m_55afbd56816a4d12b9ac108a3f2cc8cf(yyp); }
-public static object builtin_substr_factory(Parser yyp) { return new builtin_substr(yyp); }
-public static object annotation_44947d7626e243a382eb0069325b2d2c_factory(Parser yyp) { return new annotation_44947d7626e243a382eb0069325b2d2c(yyp); }
-public static object oobjectInstance_722298a5591f4241b81f6afc6f9b4040_factory(Parser yyp) { return new oobjectInstance_722298a5591f4241b81f6afc6f9b4040(yyp); }
-public static object condition_result_role_08f60b79e87347629c40e05c00ba7320_factory(Parser yyp) { return new condition_result_role_08f60b79e87347629c40e05c00ba7320(yyp); }
-public static object dataroledisjoint2_443ae1c9dfc34907879db58e54a43552_factory(Parser yyp) { return new dataroledisjoint2_443ae1c9dfc34907879db58e54a43552(yyp); }
-public static object singleName_96baba4832584aa5a9c41319d6aac993_factory(Parser yyp) { return new singleName_96baba4832584aa5a9c41319d6aac993(yyp); }
-public static object subsumption_factory(Parser yyp) { return new subsumption(yyp); }
-public static object builtin_alpha_aef1c6f72a054960bdce448f4a84f3a0_factory(Parser yyp) { return new builtin_alpha_aef1c6f72a054960bdce448f4a84f3a0(yyp); }
-public static object unOp_b29fb39a8a2c4ad6b274981f8a22136c_defeec6d3e904923b3dcb7daa4e43ad1_factory(Parser yyp) { return new unOp_b29fb39a8a2c4ad6b274981f8a22136c_defeec6d3e904923b3dcb7daa4e43ad1(yyp); }
-public static object condition_data_bound_factory(Parser yyp) { return new condition_data_bound(yyp); }
-public static object orComma_c868b6e1644e46dd8b823005b69c36f6_factory(Parser yyp) { return new orComma_c868b6e1644e46dd8b823005b69c36f6(yyp); }
-public static object singleThing_2c020c6f78d04c66affa2f215acad6f0_factory(Parser yyp) { return new singleThing_2c020c6f78d04c66affa2f215acad6f0(yyp); }
-public static object modality2_a9903bb7580245b5883060adb41cf3e7_5978f781665c46f5898d26123f73c7da_factory(Parser yyp) { return new modality2_a9903bb7580245b5883060adb41cf3e7_5978f781665c46f5898d26123f73c7da(yyp); }
-public static object valueOrThing_factory(Parser yyp) { return new valueOrThing(yyp); }
-public static object binOp_decd62613c0f4f7fafe385767da99fb4_7a83a968f8894995b3f2e13a43e8f9f0_factory(Parser yyp) { return new binOp_decd62613c0f4f7fafe385767da99fb4_7a83a968f8894995b3f2e13a43e8f9f0(yyp); }
-public static object valueOrThing_11693110f638425bb998c8487484accb_factory(Parser yyp) { return new valueOrThing_11693110f638425bb998c8487484accb(yyp); }
-public static object andanyrolechain_edab88b964b3415ea64a77e329d21f2b_factory(Parser yyp) { return new andanyrolechain_edab88b964b3415ea64a77e329d21f2b(yyp); }
-public static object subjectEverything_eafee055036a4f93a25c840d4b1400b8_factory(Parser yyp) { return new subjectEverything_eafee055036a4f93a25c840d4b1400b8(yyp); }
-public static object orComma_factory(Parser yyp) { return new orComma(yyp); }
-public static object builtin_trans_factory(Parser yyp) { return new builtin_trans(yyp); }
-public static object subjectThe_6508d4ff2b3946699f3af047d72e60e6_factory(Parser yyp) { return new subjectThe_6508d4ff2b3946699f3af047d72e60e6(yyp); }
-public static object oobjectNothing_2901c595cf1540c19f93bb5c009cbb87_factory(Parser yyp) { return new oobjectNothing_2901c595cf1540c19f93bb5c009cbb87(yyp); }
-public static object instanceList_069c2d4f5b5a45a1befc5253260ec712_factory(Parser yyp) { return new instanceList_069c2d4f5b5a45a1befc5253260ec712(yyp); }
-public static object instanceBigName_9280333231384117af3a6a0100620d76_factory(Parser yyp) { return new instanceBigName_9280333231384117af3a6a0100620d76(yyp); }
-public static object datavalerTimesList_factory(Parser yyp) { return new datavalerTimesList(yyp); }
-public static object oobjectOnly_factory(Parser yyp) { return new oobjectOnly(yyp); }
-public static object andanyrolechain_factory(Parser yyp) { return new andanyrolechain(yyp); }
-public static object comparer2_6be5d1975f4a46fd94c2f08da7d7a9cf_factory(Parser yyp) { return new comparer2_6be5d1975f4a46fd94c2f08da7d7a9cf(yyp); }
-public static object boundTop_275235405d9443ac9a990108000eb708_factory(Parser yyp) { return new boundTop_275235405d9443ac9a990108000eb708(yyp); }
-public static object andanyrolechain_9cb513c982124810877effaecd901b05_factory(Parser yyp) { return new andanyrolechain_9cb513c982124810877effaecd901b05(yyp); }
-public static object notidentobject_a31997c075994d7399c36d4cff248073_factory(Parser yyp) { return new notidentobject_a31997c075994d7399c36d4cff248073(yyp); }
-public static object condition_is_2c5c8b2d68c842e797705cfc4be4ccfc_factory(Parser yyp) { return new condition_is_2c5c8b2d68c842e797705cfc4be4ccfc(yyp); }
-public static object subjectNothing_7a10a8be0b3141b49936878cfa3c2393_factory(Parser yyp) { return new subjectNothing_7a10a8be0b3141b49936878cfa3c2393(yyp); }
-public static object andComma_e5f37ebe59584ba2868ea509fe54bb77_factory(Parser yyp) { return new andComma_e5f37ebe59584ba2868ea509fe54bb77(yyp); }
-public static object modality_factory(Parser yyp) { return new modality(yyp); }
-public static object duration_m_c42cc94093cd4389ba02e7236c12aca7_factory(Parser yyp) { return new duration_m_c42cc94093cd4389ba02e7236c12aca7(yyp); }
-public static object oobjectOnlyNothing_factory(Parser yyp) { return new oobjectOnlyNothing(yyp); }
-public static object instanceThe_0e073159e58d4676ae81f9be6dc723ee_factory(Parser yyp) { return new instanceThe_0e073159e58d4676ae81f9be6dc723ee(yyp); }
-public static object aAn_factory(Parser yyp) { return new aAn(yyp); }
-public static object isBeAre_5c14e059db714db585d1b5f2d4ff642d_factory(Parser yyp) { return new isBeAre_5c14e059db714db585d1b5f2d4ff642d(yyp); }
-public static object condition_result_factory(Parser yyp) { return new condition_result(yyp); }
-public static object facet_0d405be671eb4858b930ed5b5683541e_factory(Parser yyp) { return new facet_0d405be671eb4858b930ed5b5683541e(yyp); }
-public static object roleWithXY_factory(Parser yyp) { return new roleWithXY(yyp); }
-public static object dataroledisjoint2_factory(Parser yyp) { return new dataroledisjoint2(yyp); }
-public static object doesNot_factory(Parser yyp) { return new doesNot(yyp); }
-public static object binOp_factory(Parser yyp) { return new binOp(yyp); }
-public static object objectr_nio_factory(Parser yyp) { return new objectr_nio(yyp); }
-public static object subjectEvery_9a9d70377b6d4bbdb1976cff0484dd2c_factory(Parser yyp) { return new subjectEvery_9a9d70377b6d4bbdb1976cff0484dd2c(yyp); }
-public static object objectRoleExpr2_1215fd8d349f4815b218576300ac412a_factory(Parser yyp) { return new objectRoleExpr2_1215fd8d349f4815b218576300ac412a(yyp); }
-public static object datavalerTimesList_b27ec15854c24ac89733734cf77072d2_factory(Parser yyp) { return new datavalerTimesList_b27ec15854c24ac89733734cf77072d2(yyp); }
-public static object singleNameThat_dcf44b171bab44659e6789f964328462_factory(Parser yyp) { return new singleNameThat_dcf44b171bab44659e6789f964328462(yyp); }
-public static object condition_data_property_bound_199281df83cd4401ae5f574544961b1e_factory(Parser yyp) { return new condition_data_property_bound_199281df83cd4401ae5f574544961b1e(yyp); }
-public static object role_factory(Parser yyp) { return new role(yyp); }
-public static object instanceBigName_factory(Parser yyp) { return new instanceBigName(yyp); }
-public static object equalTo_d7301e3cdc084c2f97a594538d3895f7_factory(Parser yyp) { return new equalTo_d7301e3cdc084c2f97a594538d3895f7(yyp); }
-public static object datatypedef_ede858d8e5dc4afdaaf6f887b2464fad_factory(Parser yyp) { return new datatypedef_ede858d8e5dc4afdaaf6f887b2464fad(yyp); }
-public static object binOp_67f4ca57a0b3428d92570e2f1277da2c_factory(Parser yyp) { return new binOp_67f4ca57a0b3428d92570e2f1277da2c(yyp); }
-public static object builtin_unary_free_129c9687f63741f982aa3fd65b1d0be0_factory(Parser yyp) { return new builtin_unary_free_129c9687f63741f982aa3fd65b1d0be0(yyp); }
-public static object datavalerFollowedByList_factory(Parser yyp) { return new datavalerFollowedByList(yyp); }
-public static object objectRoleExpr2_916548c0549c4e3392c7d97720703364_factory(Parser yyp) { return new objectRoleExpr2_916548c0549c4e3392c7d97720703364(yyp); }
-public static object datavalvar_factory(Parser yyp) { return new datavalvar(yyp); }
-public static object binOp_a7b23d9bc410429f82a991f2001c95b2_factory(Parser yyp) { return new binOp_a7b23d9bc410429f82a991f2001c95b2(yyp); }
-public static object equalTo_factory(Parser yyp) { return new equalTo(yyp); }
-public static object datavalerPlusList_factory(Parser yyp) { return new datavalerPlusList(yyp); }
-public static object exclusives_91ffa52d905549b0aaea515988ac0301_factory(Parser yyp) { return new exclusives_91ffa52d905549b0aaea515988ac0301(yyp); }
-public static object unOp_c74ee41853af4d08897b08b21a8b04bb_f246cea1ed394396824a7e7a2da47609_factory(Parser yyp) { return new unOp_c74ee41853af4d08897b08b21a8b04bb_f246cea1ed394396824a7e7a2da47609(yyp); }
-public static object duration_m_7047a4fd6e37488cb3d6e52991e74677_factory(Parser yyp) { return new duration_m_7047a4fd6e37488cb3d6e52991e74677(yyp); }
-public static object unOp_factory(Parser yyp) { return new unOp(yyp); }
-public static object datavalList_8c8a6b39af874ea182c64a8d745197bc_factory(Parser yyp) { return new datavalList_8c8a6b39af874ea182c64a8d745197bc(yyp); }
-public static object oobjectCmpBnd_factory(Parser yyp) { return new oobjectCmpBnd(yyp); }
-public static object unOp_b29fb39a8a2c4ad6b274981f8a22136c_factory(Parser yyp) { return new unOp_b29fb39a8a2c4ad6b274981f8a22136c(yyp); }
-public static object swrlrulefor_factory(Parser yyp) { return new swrlrulefor(yyp); }
-public static object facet_factory(Parser yyp) { return new facet(yyp); }
-public static object subjectEverything_factory(Parser yyp) { return new subjectEverything(yyp); }
-public static object datavalvar_d0dde5e18b8948c094af05fe960f9d8d_factory(Parser yyp) { return new datavalvar_d0dde5e18b8948c094af05fe960f9d8d(yyp); }
-public static object comparer2_42749d2044714b4d8ee198f3be859206_factory(Parser yyp) { return new comparer2_42749d2044714b4d8ee198f3be859206(yyp); }
-public static object valueOrThing_992d64a96a1d4f6cb4906f802c44e3ce_factory(Parser yyp) { return new valueOrThing_992d64a96a1d4f6cb4906f802c44e3ce(yyp); }
-public static object beAre_factory(Parser yyp) { return new beAre(yyp); }
-public static object subjectThe_59b29ef9aabf4c0887f1a24fb530874e_factory(Parser yyp) { return new subjectThe_59b29ef9aabf4c0887f1a24fb530874e(yyp); }
-public static object builtin_annot_d13e72dd7c9a4459bd0b16e8ce7559e3_factory(Parser yyp) { return new builtin_annot_d13e72dd7c9a4459bd0b16e8ce7559e3(yyp); }
-public static object oobjectA_factory(Parser yyp) { return new oobjectA(yyp); }
-public static object oobject_factory(Parser yyp) { return new oobject(yyp); }
-public static object swrlrulefor_132bd0b2a4b14ab5959beb871c7597d2_factory(Parser yyp) { return new swrlrulefor_132bd0b2a4b14ab5959beb871c7597d2(yyp); }
-public static object doesNotBy_996156a337804089bc11b27d2ae541de_factory(Parser yyp) { return new doesNotBy_996156a337804089bc11b27d2ae541de(yyp); }
-public static object duration_factory(Parser yyp) { return new duration(yyp); }
-public static object boundAnd_9c7407cefecf40c9b2a9028e2662b542_factory(Parser yyp) { return new boundAnd_9c7407cefecf40c9b2a9028e2662b542(yyp); }
-public static object doesNot_ffd19021ca9b42d185d150974fcf38fc_factory(Parser yyp) { return new doesNot_ffd19021ca9b42d185d150974fcf38fc(yyp); }
-public static object datavalval_bafc195f566548d79632b7bf2b97db37_factory(Parser yyp) { return new datavalval_bafc195f566548d79632b7bf2b97db37(yyp); }
-public static object singleThingThat_factory(Parser yyp) { return new singleThingThat(yyp); }
-public static object oobjectCmp_ff0528b2d05e491e8f6feadcdb7a5070_factory(Parser yyp) { return new oobjectCmp_ff0528b2d05e491e8f6feadcdb7a5070(yyp); }
-public static object word_number_factory(Parser yyp) { return new word_number(yyp); }
-public static object singleThing_eff0badc6a2b437fbf4688f7c457b0ea_factory(Parser yyp) { return new singleThing_eff0badc6a2b437fbf4688f7c457b0ea(yyp); }
-public static object exeargs_26c6dfa4d57a4228aafb1dd705608024_factory(Parser yyp) { return new exeargs_26c6dfa4d57a4228aafb1dd705608024(yyp); }
-public static object facet_35a26489569e44c89c44ce226a3368bc_factory(Parser yyp) { return new facet_35a26489569e44c89c44ce226a3368bc(yyp); }
-public static object facet_522c79e37a364067a3af29e0c191bfac_factory(Parser yyp) { return new facet_522c79e37a364067a3af29e0c191bfac(yyp); }
-public static object exclusives_factory(Parser yyp) { return new exclusives(yyp); }
-public static object chain_5daba5ce21514b7b8d7cd821e7c45d4e_factory(Parser yyp) { return new chain_5daba5ce21514b7b8d7cd821e7c45d4e(yyp); }
-public static object instancer_b276f0b0160f40d786e314b752ebe195_factory(Parser yyp) { return new instancer_b276f0b0160f40d786e314b752ebe195(yyp); }
-public static object modality_8f69bc2826e14a64b655e1d64d497a75_factory(Parser yyp) { return new modality_8f69bc2826e14a64b655e1d64d497a75(yyp); }
-public static object builtin_duration_ba10ee6406b74fe6a00ea802f3072516_factory(Parser yyp) { return new builtin_duration_ba10ee6406b74fe6a00ea802f3072516(yyp); }
-public static object subjectBigName_factory(Parser yyp) { return new subjectBigName(yyp); }
-public static object Float_9a6d2ea064fb4affa593690db836281b_factory(Parser yyp) { return new Float_9a6d2ea064fb4affa593690db836281b(yyp); }
-public static object oobjectSomethingThat_factory(Parser yyp) { return new oobjectSomethingThat(yyp); }
-public static object comparer2_11e106ec73574e0d8853ad29dfb3ed8e_factory(Parser yyp) { return new comparer2_11e106ec73574e0d8853ad29dfb3ed8e(yyp); }
-public static object oobjectCardinal_factory(Parser yyp) { return new oobjectCardinal(yyp); }
-public static object rolesubsumption_factory(Parser yyp) { return new rolesubsumption(yyp); }
-public static object singleNameThat_factory(Parser yyp) { return new singleNameThat(yyp); }
-}
-public class endl: Parser {
-public endl():base(new yyendl(),new tokens()) {}
-public endl(YyParser syms):base(syms,new tokens()) {}
-public endl(YyParser syms,ErrorHandler erh):base(syms,new tokens(erh)) {}
+            new Sfactory(this, "doesNotBy", new SCreator(doesNotBy_factory));
+            new Sfactory(this, "oobjectOnly_318ac4d9886640ad915d368dfcce1ff8", new SCreator(oobjectOnly_318ac4d9886640ad915d368dfcce1ff8_factory));
+            new Sfactory(this, "boundTop", new SCreator(boundTop_factory));
+            new Sfactory(this, "oobjectOnlyNothing_8646f1419d734b9894c47da4bf657213", new SCreator(oobjectOnlyNothing_8646f1419d734b9894c47da4bf657213_factory));
+            new Sfactory(this, "identobject_name_e753f510c632415caecfe92fdfe04132", new SCreator(identobject_name_e753f510c632415caecfe92fdfe04132_factory));
+            new Sfactory(this, "notRoleWithXY", new SCreator(notRoleWithXY_factory));
+            new Sfactory(this, "condition_is_9851cdc5ee4547de8f6f21edbb5ef45e", new SCreator(condition_is_9851cdc5ee4547de8f6f21edbb5ef45e_factory));
+            new Sfactory(this, "builtin_substr_a071f16bc3694a5da45731d98723f29c", new SCreator(builtin_substr_a071f16bc3694a5da45731d98723f29c_factory));
+            new Sfactory(this, "boundDataType_0fc663b1365a4a469182eee5fcb869b1", new SCreator(boundDataType_0fc663b1365a4a469182eee5fcb869b1_factory));
+            new Sfactory(this, "datavalList", new SCreator(datavalList_factory));
+            new Sfactory(this, "valueOrThing_b292e5effebc4cf08f68227d444765da", new SCreator(valueOrThing_b292e5effebc4cf08f68227d444765da_factory));
+            new Sfactory(this, "boundFacets", new SCreator(boundFacets_factory));
+            new Sfactory(this, "duration_m_f0080b26096e4580ad7cf651e734477a", new SCreator(duration_m_f0080b26096e4580ad7cf651e734477a_factory));
+            new Sfactory(this, "objectRoleExpr2_0b291fc985a044dbb25bd6ce57f4e694", new SCreator(objectRoleExpr2_0b291fc985a044dbb25bd6ce57f4e694_factory));
+            new Sfactory(this, "facet_7ac077192b684ee5a57818db00d8ba40", new SCreator(facet_7ac077192b684ee5a57818db00d8ba40_factory));
+            new Sfactory(this, "exerule", new SCreator(exerule_factory));
+            new Sfactory(this, "comparer2_edb3d005808a42149810185952208fc5", new SCreator(comparer2_edb3d005808a42149810185952208fc5_factory));
+            new Sfactory(this, "subjectNo", new SCreator(subjectNo_factory));
+            new Sfactory(this, "subsumption_if", new SCreator(subsumption_if_factory));
+            new Sfactory(this, "duration_m_6c11941f4548438387454a9601225be3", new SCreator(duration_m_6c11941f4548438387454a9601225be3_factory));
+            new Sfactory(this, "subjectBigName_d35cd74c001042809ecb7c047ee96c03", new SCreator(subjectBigName_d35cd74c001042809ecb7c047ee96c03_factory));
+            new Sfactory(this, "condition_result_role_3118228cc5a84fa1ac3397d77a6a5a83", new SCreator(condition_result_role_3118228cc5a84fa1ac3397d77a6a5a83_factory));
+            new Sfactory(this, "datetime_0c55c536432947bc95b1c0540e659c73", new SCreator(datetime_0c55c536432947bc95b1c0540e659c73_factory));
+            new Sfactory(this, "isBeAre", new SCreator(isBeAre_factory));
+            new Sfactory(this, "condition_data_property_4a412d9875d24be4b511f3ce4fe6af7f", new SCreator(condition_data_property_4a412d9875d24be4b511f3ce4fe6af7f_factory));
+            new Sfactory(this, "datavaler", new SCreator(datavaler_factory));
+            new Sfactory(this, "oobjectCmpInstance_62f6ed86ccc8445fbfb0f1cbe9b8ee54", new SCreator(oobjectCmpInstance_62f6ed86ccc8445fbfb0f1cbe9b8ee54_factory));
+            new Sfactory(this, "rolesubsumption_7b44428ea8344fcebe9eb5d6b1c5c84f", new SCreator(rolesubsumption_7b44428ea8344fcebe9eb5d6b1c5c84f_factory));
+            new Sfactory(this, "andComma", new SCreator(andComma_factory));
+            new Sfactory(this, "condition_exists_3b7fabca36e94c648fb58c8d856e7ff8", new SCreator(condition_exists_3b7fabca36e94c648fb58c8d856e7ff8_factory));
+            new Sfactory(this, "boundVal_c828dcad517f46a4a90fc47a1f03bc1c", new SCreator(boundVal_c828dcad517f46a4a90fc47a1f03bc1c_factory));
+            new Sfactory(this, "oobjectOnlyInstance_1efa92f90a8941c78aa48223d0dc46f8", new SCreator(oobjectOnlyInstance_1efa92f90a8941c78aa48223d0dc46f8_factory));
+            new Sfactory(this, "boundOneOf_95c897a4a52e48cbbdecc5b57b19d24b", new SCreator(boundOneOf_95c897a4a52e48cbbdecc5b57b19d24b_factory));
+            new Sfactory(this, "notidentobject_b94aa5042b0b4cd0b7fb47c31cd21884", new SCreator(notidentobject_b94aa5042b0b4cd0b7fb47c31cd21884_factory));
+            new Sfactory(this, "word_number_f29f4b45d4f6440faab7b038d63e8016_1ce16831796c4da3aef1ace355e30bbe", new SCreator(word_number_f29f4b45d4f6440faab7b038d63e8016_1ce16831796c4da3aef1ace355e30bbe_factory));
+            new Sfactory(this, "condition", new SCreator(condition_factory));
+            new Sfactory(this, "paragraph_c73a4bfe7c064b4c84855e3199998995", new SCreator(paragraph_c73a4bfe7c064b4c84855e3199998995_factory));
+            new Sfactory(this, "comparer2_469cb9c5f35a4878b84b753ed5aa6a1a", new SCreator(comparer2_469cb9c5f35a4878b84b753ed5aa6a1a_factory));
+            new Sfactory(this, "comparer2_edb3d005808a42149810185952208fc5_8e3c464b3c1d4fd8ba1e6951f15c7a9e", new SCreator(comparer2_edb3d005808a42149810185952208fc5_8e3c464b3c1d4fd8ba1e6951f15c7a9e_factory));
+            new Sfactory(this, "builtin_trans_e14262332461450a95eba2859a129c66", new SCreator(builtin_trans_e14262332461450a95eba2859a129c66_factory));
+            new Sfactory(this, "andanyrolechain_ae905887b9044709890fb37bfff1f7d2", new SCreator(andanyrolechain_ae905887b9044709890fb37bfff1f7d2_factory));
+            new Sfactory(this, "thatOrLoop_268216a573c34a43bde29d7d942ad849", new SCreator(thatOrLoop_268216a573c34a43bde29d7d942ad849_factory));
+            new Sfactory(this, "oobjectBnd", new SCreator(oobjectBnd_factory));
+            new Sfactory(this, "datavalerPlusList_cf96adeabac64a4f9768270e4f7b43a5", new SCreator(datavalerPlusList_cf96adeabac64a4f9768270e4f7b43a5_factory));
+            new Sfactory(this, "orloop_a4d7a2437b774b5f91927bcf3a5d48b8", new SCreator(orloop_a4d7a2437b774b5f91927bcf3a5d48b8_factory));
+            new Sfactory(this, "objectRoleExpr3_efd2e20597084fa18a608bf2eebdaee0", new SCreator(objectRoleExpr3_efd2e20597084fa18a608bf2eebdaee0_factory));
+            new Sfactory(this, "builtin_datetime_2f4201d44eba4fd1a0014b982148a99f", new SCreator(builtin_datetime_2f4201d44eba4fd1a0014b982148a99f_factory));
+            new Sfactory(this, "notidentobject_21178b2016ee43dd9b7828f754df3ee4", new SCreator(notidentobject_21178b2016ee43dd9b7828f754df3ee4_factory));
+            new Sfactory(this, "oobjectSomething_2939bf68e33d408393cc769e668447e1", new SCreator(oobjectSomething_2939bf68e33d408393cc769e668447e1_factory));
+            new Sfactory(this, "valueOrThing_606f91515c9a4f178ebde2e9e15da180", new SCreator(valueOrThing_606f91515c9a4f178ebde2e9e15da180_factory));
+            new Sfactory(this, "builtin_substr_6b286ee63b70402c803dbfc771a3d878", new SCreator(builtin_substr_6b286ee63b70402c803dbfc771a3d878_factory));
+            new Sfactory(this, "comparer", new SCreator(comparer_factory));
+            new Sfactory(this, "condition_result_builtin", new SCreator(condition_result_builtin_factory));
+            new Sfactory(this, "condition_role_450ed8e2227a42cfb94f34d571c49138", new SCreator(condition_role_450ed8e2227a42cfb94f34d571c49138_factory));
+            new Sfactory(this, "identobject_inst_3841f77f0f734bcd853061126e5a07ae", new SCreator(identobject_inst_3841f77f0f734bcd853061126e5a07ae_factory));
+            new Sfactory(this, "comparer2_ae23ce61f8ed473db910fce732481f63", new SCreator(comparer2_ae23ce61f8ed473db910fce732481f63_factory));
+            new Sfactory(this, "comparer2_ce1a6ff8e277483c96f9740c7e35cb79", new SCreator(comparer2_ce1a6ff8e277483c96f9740c7e35cb79_factory));
+            new Sfactory(this, "doesNot_a3f6472835454ce98820f5340279efd6", new SCreator(doesNot_a3f6472835454ce98820f5340279efd6_factory));
+            new Sfactory(this, "andComma_7a1140bd0fba4a04bdcf342ba6e7a16d", new SCreator(andComma_7a1140bd0fba4a04bdcf342ba6e7a16d_factory));
+            new Sfactory(this, "roleWithXY_bb5d6ff79bbc40df8487cf0d619e22e7", new SCreator(roleWithXY_bb5d6ff79bbc40df8487cf0d619e22e7_factory));
+            new Sfactory(this, "modality_2994985d0cdc4d74bde814570c298b31_51a1e4967eb4403ba2edffb6c4127ebd", new SCreator(modality_2994985d0cdc4d74bde814570c298b31_51a1e4967eb4403ba2edffb6c4127ebd_factory));
+            new Sfactory(this, "oobjectA_ebcc38bea7724ceeb1528c0f415eb9fe", new SCreator(oobjectA_ebcc38bea7724ceeb1528c0f415eb9fe_factory));
+            new Sfactory(this, "condition_data_property_bound", new SCreator(condition_data_property_bound_factory));
+            new Sfactory(this, "oobjectRelated", new SCreator(oobjectRelated_factory));
+            new Sfactory(this, "boundOr", new SCreator(boundOr_factory));
+            new Sfactory(this, "unOp2_a6f44f374d46487b93ad3733d3c68a6c_ba7f49eb4a3b484a9a6d606af1527be9", new SCreator(unOp2_a6f44f374d46487b93ad3733d3c68a6c_ba7f49eb4a3b484a9a6d606af1527be9_factory));
+            new Sfactory(this, "doesNotBy_85bea99ab26f4aca9250e879bcb8f56d", new SCreator(doesNotBy_85bea99ab26f4aca9250e879bcb8f56d_factory));
+            new Sfactory(this, "instanceList_d5ff625a1a5e40f2b562e8162854b3c4", new SCreator(instanceList_d5ff625a1a5e40f2b562e8162854b3c4_factory));
+            new Sfactory(this, "datarolesubsumption", new SCreator(datarolesubsumption_factory));
+            new Sfactory(this, "singleName", new SCreator(singleName_factory));
+            new Sfactory(this, "datarolesubsumption_53b8fa47c596440a848c3686d84ff9fa", new SCreator(datarolesubsumption_53b8fa47c596440a848c3686d84ff9fa_factory));
+            new Sfactory(this, "oobjectCmpBnd_ae7f63b9a17b4ffca0c504642566dc07", new SCreator(oobjectCmpBnd_ae7f63b9a17b4ffca0c504642566dc07_factory));
+            new Sfactory(this, "subject", new SCreator(subject_factory));
+            new Sfactory(this, "builtin_list_9da4d36c3fa049b3bc22c9f613fd1969", new SCreator(builtin_list_9da4d36c3fa049b3bc22c9f613fd1969_factory));
+            new Sfactory(this, "orloop", new SCreator(orloop_factory));
+            new Sfactory(this, "objectRoleExpr2_4563ca84b9a5499d9d0b46564a48e95d", new SCreator(objectRoleExpr2_4563ca84b9a5499d9d0b46564a48e95d_factory));
+            new Sfactory(this, "datetime", new SCreator(datetime_factory));
+            new Sfactory(this, "chain_f1d1e8479fab4525a8b3a49c2185acfd", new SCreator(chain_f1d1e8479fab4525a8b3a49c2185acfd_factory));
+            new Sfactory(this, "dataroleequivalence2_79e8e3c6387c49ab995139ad18214122", new SCreator(dataroleequivalence2_79e8e3c6387c49ab995139ad18214122_factory));
+            new Sfactory(this, "roleWithXY_5c11be3751d74f2fafcd1c1dc41dc069", new SCreator(roleWithXY_5c11be3751d74f2fafcd1c1dc41dc069_factory));
+            new Sfactory(this, "comparer_5ecbaad0e39b422491fc9c98728523fc", new SCreator(comparer_5ecbaad0e39b422491fc9c98728523fc_factory));
+            new Sfactory(this, "notRoleWithXY_b64e4dfa1d3648f2ba1cb621d93842c4", new SCreator(notRoleWithXY_b64e4dfa1d3648f2ba1cb621d93842c4_factory));
+            new Sfactory(this, "subjectBigName_e247709fad4f46e8af6b598ac4e69ed9", new SCreator(subjectBigName_e247709fad4f46e8af6b598ac4e69ed9_factory));
+            new Sfactory(this, "unOp_c74ee41853af4d08897b08b21a8b04bb", new SCreator(unOp_c74ee41853af4d08897b08b21a8b04bb_factory));
+            new Sfactory(this, "exeargs_09198c24a4c54171b54a3ac103990da0", new SCreator(exeargs_09198c24a4c54171b54a3ac103990da0_factory));
+            new Sfactory(this, "exeargs_56a109c849ca4fffb7c041d5d1b34493", new SCreator(exeargs_56a109c849ca4fffb7c041d5d1b34493_factory));
+            new Sfactory(this, "datavalval", new SCreator(datavalval_factory));
+            new Sfactory(this, "duration_m_32c6f48867c3460fbf618a076eab8e73", new SCreator(duration_m_32c6f48867c3460fbf618a076eab8e73_factory));
+            new Sfactory(this, "dataval", new SCreator(dataval_factory));
+            new Sfactory(this, "binOp_d4ec7f2581f64fb48b3c50d1edfdbce4", new SCreator(binOp_d4ec7f2581f64fb48b3c50d1edfdbce4_factory));
+            new Sfactory(this, "singleOneOf_9f64f95e0fe54d98a7cc112260916b4c", new SCreator(singleOneOf_9f64f95e0fe54d98a7cc112260916b4c_factory));
+            new Sfactory(this, "oobjectSomethingThat_07ef2c4b1ef34c98812ebce5f195afb5", new SCreator(oobjectSomethingThat_07ef2c4b1ef34c98812ebce5f195afb5_factory));
+            new Sfactory(this, "builtin", new SCreator(builtin_factory));
+            new Sfactory(this, "orObjectRoleExprChain_5fc55687f5bb48589182786b97a199c8", new SCreator(orObjectRoleExprChain_5fc55687f5bb48589182786b97a199c8_factory));
+            new Sfactory(this, "roleequivalence2", new SCreator(roleequivalence2_factory));
+            new Sfactory(this, "Number", new SCreator(Number_factory));
+            new Sfactory(this, "abstractbound", new SCreator(abstractbound_factory));
+            new Sfactory(this, "swrlrule", new SCreator(swrlrule_factory));
+            new Sfactory(this, "duration_m_d99f9c87cb8f49678638ec69894cf1ed", new SCreator(duration_m_d99f9c87cb8f49678638ec69894cf1ed_factory));
+            new Sfactory(this, "equalTo_02e1029631bf4b709a469df03d37ec01", new SCreator(equalTo_02e1029631bf4b709a469df03d37ec01_factory));
+            new Sfactory(this, "exclusiveunion_9d3feb24afc04ba0a619553526a44646", new SCreator(exclusiveunion_9d3feb24afc04ba0a619553526a44646_factory));
+            new Sfactory(this, "Number_695f0fa0c7f749ee9618398b97f99dc9", new SCreator(Number_695f0fa0c7f749ee9618398b97f99dc9_factory));
+            new Sfactory(this, "Duration_9e45f683e8974e1281bfe106323d0b43", new SCreator(Duration_9e45f683e8974e1281bfe106323d0b43_factory));
+            new Sfactory(this, "duration_m_f51410a0fe5f4f27ba914db7cdb141c7", new SCreator(duration_m_f51410a0fe5f4f27ba914db7cdb141c7_factory));
+            new Sfactory(this, "andanyrolechain_0fb0bf0280ea497fa0987d6c7f3495a8", new SCreator(andanyrolechain_0fb0bf0280ea497fa0987d6c7f3495a8_factory));
+            new Sfactory(this, "nosubject", new SCreator(nosubject_factory));
+            new Sfactory(this, "comparer_145f81cae96f4e20b3227cffa71b35d3", new SCreator(comparer_145f81cae96f4e20b3227cffa71b35d3_factory));
+            new Sfactory(this, "instancer", new SCreator(instancer_factory));
+            new Sfactory(this, "binOp_bb9c172983b748b9857554319e6d40bb_72f21f793eb145a7ad1885c54a555683", new SCreator(binOp_bb9c172983b748b9857554319e6d40bb_72f21f793eb145a7ad1885c54a555683_factory));
+            new Sfactory(this, "notidentobject_29d7f93464bb49ee924c71f88475ad54", new SCreator(notidentobject_29d7f93464bb49ee924c71f88475ad54_factory));
+            new Sfactory(this, "boundIdent_ca48d918cfd84dfda3281d288116a0d9", new SCreator(boundIdent_ca48d918cfd84dfda3281d288116a0d9_factory));
+            new Sfactory(this, "condition_result_definition", new SCreator(condition_result_definition_factory));
+            new Sfactory(this, "single", new SCreator(single_factory));
+            new Sfactory(this, "facetList_165d6454d84548f6bd60c95dd795ab59", new SCreator(facetList_165d6454d84548f6bd60c95dd795ab59_factory));
+            new Sfactory(this, "objectRoleExpr2_bef62ec5bd3d466a851eadb99cdff5f6", new SCreator(objectRoleExpr2_bef62ec5bd3d466a851eadb99cdff5f6_factory));
+            new Sfactory(this, "builtin_unary_free", new SCreator(builtin_unary_free_factory));
+            new Sfactory(this, "singleOneOf_f9240bafbcaf418d8bfe10765ad8e1f9", new SCreator(singleOneOf_f9240bafbcaf418d8bfe10765ad8e1f9_factory));
+            new Sfactory(this, "clause", new SCreator(clause_factory));
+            new Sfactory(this, "exeargs", new SCreator(exeargs_factory));
+            new Sfactory(this, "modality2_d1082eb795094c42b220acc0e8512328", new SCreator(modality2_d1082eb795094c42b220acc0e8512328_factory));
+            new Sfactory(this, "condition_data_bound_81d74be785d9496f86106ac984df9d6e", new SCreator(condition_data_bound_81d74be785d9496f86106ac984df9d6e_factory));
+            new Sfactory(this, "objectRoleExpr1_36cf0e01213f4d05a90288649fbc298a", new SCreator(objectRoleExpr1_36cf0e01213f4d05a90288649fbc298a_factory));
+            new Sfactory(this, "builtin_unary_cmp_f42342a2c7e74153bd6fad912164a09e", new SCreator(builtin_unary_cmp_f42342a2c7e74153bd6fad912164a09e_factory));
+            new Sfactory(this, "orloop_009a8290e37345849a1180987de9be5b", new SCreator(orloop_009a8290e37345849a1180987de9be5b_factory));
+            new Sfactory(this, "exeargs_dedb7be397514b3b8032978e42985b45", new SCreator(exeargs_dedb7be397514b3b8032978e42985b45_factory));
+            new Sfactory(this, "oobjectCmp", new SCreator(oobjectCmp_factory));
+            new Sfactory(this, "subjectEverything_d8d0f8f1d0e7462c8d1f6773d656e8d3", new SCreator(subjectEverything_d8d0f8f1d0e7462c8d1f6773d656e8d3_factory));
+            new Sfactory(this, "subsumption_e11b8feca52a432982c43c7eef4e9fff", new SCreator(subsumption_e11b8feca52a432982c43c7eef4e9fff_factory));
+            new Sfactory(this, "identobject_name_2f71ecb76d814507b89088016afc756b", new SCreator(identobject_name_2f71ecb76d814507b89088016afc756b_factory));
+            new Sfactory(this, "isBeAre_c074f3547e2642baae4dee8d613e8409", new SCreator(isBeAre_c074f3547e2642baae4dee8d613e8409_factory));
+            new Sfactory(this, "datavalerFollowedByList_31358cf7b46841b5b007904f15c8e113", new SCreator(datavalerFollowedByList_31358cf7b46841b5b007904f15c8e113_factory));
+            new Sfactory(this, "condition_result_definition_bfa38c97338d412b851ae3a69b9cfb92", new SCreator(condition_result_definition_bfa38c97338d412b851ae3a69b9cfb92_factory));
+            new Sfactory(this, "equalTo_02e1029631bf4b709a469df03d37ec01_ab0683c73b1e47619b12824e51bd8938", new SCreator(equalTo_02e1029631bf4b709a469df03d37ec01_ab0683c73b1e47619b12824e51bd8938_factory));
+            new Sfactory(this, "Bool_7bd728463a3648f4821dcc1df88074ae", new SCreator(Bool_7bd728463a3648f4821dcc1df88074ae_factory));
+            new Sfactory(this, "exerule_0b3d9235c9f049308eaa150fa7fe6dc5", new SCreator(exerule_0b3d9235c9f049308eaa150fa7fe6dc5_factory));
+            new Sfactory(this, "singleOneOf", new SCreator(singleOneOf_factory));
+            new Sfactory(this, "objectRoleExpr2_924e43f9f12c47d39f389b84218c39b2", new SCreator(objectRoleExpr2_924e43f9f12c47d39f389b84218c39b2_factory));
+            new Sfactory(this, "objectr", new SCreator(objectr_factory));
+            new Sfactory(this, "objectRoleExpr1", new SCreator(objectRoleExpr1_factory));
+            new Sfactory(this, "comparer_a0c0bb93e6ae469793321c37956af897", new SCreator(comparer_a0c0bb93e6ae469793321c37956af897_factory));
+            new Sfactory(this, "oobjectOnlyInstance", new SCreator(oobjectOnlyInstance_factory));
+            new Sfactory(this, "comparer2_469cb9c5f35a4878b84b753ed5aa6a1a_daf2c9c6e5c8422a9e71782ad63f1af4", new SCreator(comparer2_469cb9c5f35a4878b84b753ed5aa6a1a_daf2c9c6e5c8422a9e71782ad63f1af4_factory));
+            new Sfactory(this, "comparer2", new SCreator(comparer2_factory));
+            new Sfactory(this, "identobject", new SCreator(identobject_factory));
+            new Sfactory(this, "paragraph", new SCreator(paragraph_factory));
+            new Sfactory(this, "word_number_75bd5a6cddf347a09ca63021c8ed26ad_faba2b6d66ab4550a02bb74333041ec9", new SCreator(word_number_75bd5a6cddf347a09ca63021c8ed26ad_faba2b6d66ab4550a02bb74333041ec9_factory));
+            new Sfactory(this, "duration_m_8bc29c23fa0f414d9fa5214fbebd4ada", new SCreator(duration_m_8bc29c23fa0f414d9fa5214fbebd4ada_factory));
+            new Sfactory(this, "nosubsumption", new SCreator(nosubsumption_factory));
+            new Sfactory(this, "binOp_bb9c172983b748b9857554319e6d40bb", new SCreator(binOp_bb9c172983b748b9857554319e6d40bb_factory));
+            new Sfactory(this, "doesNotBy_efdc773be95d4eb89dc96e2228b39f7c", new SCreator(doesNotBy_efdc773be95d4eb89dc96e2228b39f7c_factory));
+            new Sfactory(this, "objectRoleExpr", new SCreator(objectRoleExpr_factory));
+            new Sfactory(this, "condition_builtin", new SCreator(condition_builtin_factory));
+            new Sfactory(this, "identobject_name_db6df83e230f4c83b0a33be8be59c8ee", new SCreator(identobject_name_db6df83e230f4c83b0a33be8be59c8ee_factory));
+            new Sfactory(this, "modality_a2b72e688f854a05b5285b0dafef6501", new SCreator(modality_a2b72e688f854a05b5285b0dafef6501_factory));
+            new Sfactory(this, "instancer_67fb63a2276c44c580c90318fac84b88", new SCreator(instancer_67fb63a2276c44c580c90318fac84b88_factory));
+            new Sfactory(this, "modality2", new SCreator(modality2_factory));
+            new Sfactory(this, "binOp_d03cb2932c8e4f0ab8095286123f6797_6d013372786b4e7294e707369b187f39", new SCreator(binOp_d03cb2932c8e4f0ab8095286123f6797_6d013372786b4e7294e707369b187f39_factory));
+            new Sfactory(this, "valueOrThing_b292e5effebc4cf08f68227d444765da_e394101d548f4b1790b3a7fb2cffaaec", new SCreator(valueOrThing_b292e5effebc4cf08f68227d444765da_e394101d548f4b1790b3a7fb2cffaaec_factory));
+            new Sfactory(this, "builtin_list", new SCreator(builtin_list_factory));
+            new Sfactory(this, "word_number_e49d3cc248904823a1e3a1a3e0636e87", new SCreator(word_number_e49d3cc248904823a1e3a1a3e0636e87_factory));
+            new Sfactory(this, "oobjectA_b25547576b434f7fab695d719256db02", new SCreator(oobjectA_b25547576b434f7fab695d719256db02_factory));
+            new Sfactory(this, "condition_builtin_404e871395204a49aad4da7fe66997d1", new SCreator(condition_builtin_404e871395204a49aad4da7fe66997d1_factory));
+            new Sfactory(this, "datavalerFollowedByList_f66a5ef8595548f28eecf225fee146ed", new SCreator(datavalerFollowedByList_f66a5ef8595548f28eecf225fee146ed_factory));
+            new Sfactory(this, "objectr_nio_3e0d3830f09c478b96444fef526d4ef2", new SCreator(objectr_nio_3e0d3830f09c478b96444fef526d4ef2_factory));
+            new Sfactory(this, "modality2_65c4f542ddbd4e18bcb08dfa7f89efc6", new SCreator(modality2_65c4f542ddbd4e18bcb08dfa7f89efc6_factory));
+            new Sfactory(this, "notidentobject", new SCreator(notidentobject_factory));
+            new Sfactory(this, "unOp2_5e29de36058a472b8e84736e6631ef1e", new SCreator(unOp2_5e29de36058a472b8e84736e6631ef1e_factory));
+            new Sfactory(this, "oobjectA_17fb8807dc2a404e8456e6658b43a07d", new SCreator(oobjectA_17fb8807dc2a404e8456e6658b43a07d_factory));
+            new Sfactory(this, "roleequivalence2_7329660247a3423dbbe6d751ea254a7f", new SCreator(roleequivalence2_7329660247a3423dbbe6d751ea254a7f_factory));
+            new Sfactory(this, "unOp_580a60d4d1d54a1c9c8f5c9001e818b1", new SCreator(unOp_580a60d4d1d54a1c9c8f5c9001e818b1_factory));
+            new Sfactory(this, "condition_is", new SCreator(condition_is_factory));
+            new Sfactory(this, "boundTotal_aece926e36334b22b0ccccd4a9967b6f", new SCreator(boundTotal_aece926e36334b22b0ccccd4a9967b6f_factory));
+            new Sfactory(this, "builtin_exe_38dcc13695b745029673f6bf43cce7a6", new SCreator(builtin_exe_38dcc13695b745029673f6bf43cce7a6_factory));
+            new Sfactory(this, "builtin_substr_3c32f071139b4b7e9262c07f5e8d086e", new SCreator(builtin_substr_3c32f071139b4b7e9262c07f5e8d086e_factory));
+            new Sfactory(this, "andloop_e3de1582f6d74803ab551f91b1708bcd", new SCreator(andloop_e3de1582f6d74803ab551f91b1708bcd_factory));
+            new Sfactory(this, "datetime_9d175bd7e80948ccb573987c4312e831", new SCreator(datetime_9d175bd7e80948ccb573987c4312e831_factory));
+            new Sfactory(this, "sentence", new SCreator(sentence_factory));
+            new Sfactory(this, "singleThing_027b542c7d7d420f9939341d13468e6f", new SCreator(singleThing_027b542c7d7d420f9939341d13468e6f_factory));
+            new Sfactory(this, "singleThingThat_c13bf3918b4e485590d9146d5d5071de", new SCreator(singleThingThat_c13bf3918b4e485590d9146d5d5071de_factory));
+            new Sfactory(this, "facetList_4439de31ce8d4a6dad5120738bb949b8", new SCreator(facetList_4439de31ce8d4a6dad5120738bb949b8_factory));
+            new Sfactory(this, "modality_418a797e33f8415090b8ccb9cf27e0ca", new SCreator(modality_418a797e33f8415090b8ccb9cf27e0ca_factory));
+            new Sfactory(this, "condition_data_property", new SCreator(condition_data_property_factory));
+            new Sfactory(this, "builtin_alpha", new SCreator(builtin_alpha_factory));
+            new Sfactory(this, "comparer_a0c0bb93e6ae469793321c37956af897_04b1cd80d9ec4dc9b2e56bad4333cc56", new SCreator(comparer_a0c0bb93e6ae469793321c37956af897_04b1cd80d9ec4dc9b2e56bad4333cc56_factory));
+            new Sfactory(this, "exclusiveunion", new SCreator(exclusiveunion_factory));
+            new Sfactory(this, "comparer2_587ff1bbf2da4e7d8b88417a53cfb5e7", new SCreator(comparer2_587ff1bbf2da4e7d8b88417a53cfb5e7_factory));
+            new Sfactory(this, "condition_result_data_property_cd2208eb47554d05a88bc19b0e0f3557", new SCreator(condition_result_data_property_cd2208eb47554d05a88bc19b0e0f3557_factory));
+            new Sfactory(this, "unOp_45c2620dc3744a0798b88be259a3133e_4966f022786945619ab8bac5dc1c4da7", new SCreator(unOp_45c2620dc3744a0798b88be259a3133e_4966f022786945619ab8bac5dc1c4da7_factory));
+            new Sfactory(this, "DateTimeData", new SCreator(DateTimeData_factory));
+            new Sfactory(this, "comparer2_214406d730e745df9f734e109290ad77_dc3359640dd04db190bf53abb66fde9a", new SCreator(comparer2_214406d730e745df9f734e109290ad77_dc3359640dd04db190bf53abb66fde9a_factory));
+            new Sfactory(this, "equalTo_da1a5ce4efaf479e89d992a3133720b7", new SCreator(equalTo_da1a5ce4efaf479e89d992a3133720b7_factory));
+            new Sfactory(this, "objectRoleExpr2_8a5455a74e4b4e8e82837a108198e0cd", new SCreator(objectRoleExpr2_8a5455a74e4b4e8e82837a108198e0cd_factory));
+            new Sfactory(this, "oobjectSelf_107b7f335e9642db95cbe9eacf9e8599", new SCreator(oobjectSelf_107b7f335e9642db95cbe9eacf9e8599_factory));
+            new Sfactory(this, "subjectNo_3aa0e323824548baae9acb988db41f47", new SCreator(subjectNo_3aa0e323824548baae9acb988db41f47_factory));
+            new Sfactory(this, "equalTo_bc50a34a422d45dc9f8aaab9e3c89df6", new SCreator(equalTo_bc50a34a422d45dc9f8aaab9e3c89df6_factory));
+            new Sfactory(this, "condition_role_a276b189029044c990d6e87acfb16909", new SCreator(condition_role_a276b189029044c990d6e87acfb16909_factory));
+            new Sfactory(this, "boundDataType", new SCreator(boundDataType_factory));
+            new Sfactory(this, "code", new SCreator(code_factory));
+            new Sfactory(this, "nosubsumption_241070898bd34b07be44ae8b03b9fa25", new SCreator(nosubsumption_241070898bd34b07be44ae8b03b9fa25_factory));
+            new Sfactory(this, "aAn_4da7a5201e2b453cab1bb992ac99294f", new SCreator(aAn_4da7a5201e2b453cab1bb992ac99294f_factory));
+            new Sfactory(this, "boundFacets_b18592c63926410fa1be8207c1c1239b", new SCreator(boundFacets_b18592c63926410fa1be8207c1c1239b_factory));
+            new Sfactory(this, "duration_m", new SCreator(duration_m_factory));
+            new Sfactory(this, "instanceBigName_1e636d9f23c1424fb328abdd45d2ce29", new SCreator(instanceBigName_1e636d9f23c1424fb328abdd45d2ce29_factory));
+            new Sfactory(this, "StrData", new SCreator(StrData_factory));
+            new Sfactory(this, "modality_2994985d0cdc4d74bde814570c298b31", new SCreator(modality_2994985d0cdc4d74bde814570c298b31_factory));
+            new Sfactory(this, "swrlrule_943c8bac97c94c82a87e57602514c1d5", new SCreator(swrlrule_943c8bac97c94c82a87e57602514c1d5_factory));
+            new Sfactory(this, "identobject_name_a74993c3e8ef4b53b4e341ce3a3d454b", new SCreator(identobject_name_a74993c3e8ef4b53b4e341ce3a3d454b_factory));
+            new Sfactory(this, "oobjectOnlySomethingThat_623f154535ae4f53951b0fadee21be88", new SCreator(oobjectOnlySomethingThat_623f154535ae4f53951b0fadee21be88_factory));
+            new Sfactory(this, "error", new SCreator(error_factory));
+            new Sfactory(this, "singleThingThat_5aa505e771854f21833e7d6c82f10846", new SCreator(singleThingThat_5aa505e771854f21833e7d6c82f10846_factory));
+            new Sfactory(this, "boundVal_29311d3be24545c1a3d44fc83ce5932f", new SCreator(boundVal_29311d3be24545c1a3d44fc83ce5932f_factory));
+            new Sfactory(this, "binOp_decd62613c0f4f7fafe385767da99fb4", new SCreator(binOp_decd62613c0f4f7fafe385767da99fb4_factory));
+            new Sfactory(this, "condition_definition_835c47f908394e68b1462e376f670837", new SCreator(condition_definition_835c47f908394e68b1462e376f670837_factory));
+            new Sfactory(this, "objectRoleExpr3", new SCreator(objectRoleExpr3_factory));
+            new Sfactory(this, "objectRoleExpr2", new SCreator(objectRoleExpr2_factory));
+            new Sfactory(this, "builtin_cmp_946d7d48c4614d5f9794a4058d592831", new SCreator(builtin_cmp_946d7d48c4614d5f9794a4058d592831_factory));
+            new Sfactory(this, "builtin_datetime", new SCreator(builtin_datetime_factory));
+            new Sfactory(this, "role_19de336b9f7f4160896933435e4fb29a", new SCreator(role_19de336b9f7f4160896933435e4fb29a_factory));
+            new Sfactory(this, "boundNot_45259cdb5cc64446ab1766109ff78fdf", new SCreator(boundNot_45259cdb5cc64446ab1766109ff78fdf_factory));
+            new Sfactory(this, "builtin_cmp", new SCreator(builtin_cmp_factory));
+            new Sfactory(this, "boundAnd", new SCreator(boundAnd_factory));
+            new Sfactory(this, "modality2_65c4f542ddbd4e18bcb08dfa7f89efc6_17d398d661fb4d528f09bb6bbab1450f", new SCreator(modality2_65c4f542ddbd4e18bcb08dfa7f89efc6_17d398d661fb4d528f09bb6bbab1450f_factory));
+            new Sfactory(this, "singleThing", new SCreator(singleThing_factory));
+            new Sfactory(this, "thatOrLoop", new SCreator(thatOrLoop_factory));
+            new Sfactory(this, "boundIdent", new SCreator(boundIdent_factory));
+            new Sfactory(this, "oobjectBnd_f5bc457fb16a4e18af92122e283da35e", new SCreator(oobjectBnd_f5bc457fb16a4e18af92122e283da35e_factory));
+            new Sfactory(this, "dataroleequivalence2", new SCreator(dataroleequivalence2_factory));
+            new Sfactory(this, "DateTimeData_2cce692ba0a5488c9b79920d2e985eaf", new SCreator(DateTimeData_2cce692ba0a5488c9b79920d2e985eaf_factory));
+            new Sfactory(this, "haskey", new SCreator(haskey_factory));
+            new Sfactory(this, "valueOrThing_606f91515c9a4f178ebde2e9e15da180_a0194531c9a046758b0864b1beb8f1b0", new SCreator(valueOrThing_606f91515c9a4f178ebde2e9e15da180_a0194531c9a046758b0864b1beb8f1b0_factory));
+            new Sfactory(this, "boundOneOf", new SCreator(boundOneOf_factory));
+            new Sfactory(this, "comparer2_11e106ec73574e0d8853ad29dfb3ed8e_27b290a48ef545c1848fd6f340bf8239", new SCreator(comparer2_11e106ec73574e0d8853ad29dfb3ed8e_27b290a48ef545c1848fd6f340bf8239_factory));
+            new Sfactory(this, "builtin_unary_cmp", new SCreator(builtin_unary_cmp_factory));
+            new Sfactory(this, "oobjectNothing", new SCreator(oobjectNothing_factory));
+            new Sfactory(this, "instanceThe", new SCreator(instanceThe_factory));
+            new Sfactory(this, "andloop", new SCreator(andloop_factory));
+            new Sfactory(this, "modality_8f69bc2826e14a64b655e1d64d497a75_6e7d1c5cb95c495886cac24c6c505c9e", new SCreator(modality_8f69bc2826e14a64b655e1d64d497a75_6e7d1c5cb95c495886cac24c6c505c9e_factory));
+            new Sfactory(this, "oobjectOnlyBnd", new SCreator(oobjectOnlyBnd_factory));
+            new Sfactory(this, "instance", new SCreator(instance_factory));
+            new Sfactory(this, "equivalence2", new SCreator(equivalence2_factory));
+            new Sfactory(this, "that", new SCreator(that_factory));
+            new Sfactory(this, "builtin_duration", new SCreator(builtin_duration_factory));
+            new Sfactory(this, "condition_exists", new SCreator(condition_exists_factory));
+            new Sfactory(this, "condition_definition", new SCreator(condition_definition_factory));
+            new Sfactory(this, "code_cbe070844a604bcd8667f1542c831241", new SCreator(code_cbe070844a604bcd8667f1542c831241_factory));
+            new Sfactory(this, "Number_905fb068ff8c4500a200cb7d77c377a0", new SCreator(Number_905fb068ff8c4500a200cb7d77c377a0_factory));
+            new Sfactory(this, "clause_4afb50346dbc4e0ab977917496ae7465", new SCreator(clause_4afb50346dbc4e0ab977917496ae7465_factory));
+            new Sfactory(this, "builtin_list_e48ab73f344340b7b7bf105756aaa681", new SCreator(builtin_list_e48ab73f344340b7b7bf105756aaa681_factory));
+            new Sfactory(this, "unOp2", new SCreator(unOp2_factory));
+            new Sfactory(this, "datavalList_bbab639eab514464a606fc27d2b58cfb", new SCreator(datavalList_bbab639eab514464a606fc27d2b58cfb_factory));
+            new Sfactory(this, "unOp_c4ccaad173814dd9849b1c02d3e4fce6", new SCreator(unOp_c4ccaad173814dd9849b1c02d3e4fce6_factory));
+            new Sfactory(this, "thatOrLoop_cc5e77cf72b948a89f0ce8fc8ddb7303", new SCreator(thatOrLoop_cc5e77cf72b948a89f0ce8fc8ddb7303_factory));
+            new Sfactory(this, "Float", new SCreator(Float_factory));
+            new Sfactory(this, "boundNot", new SCreator(boundNot_factory));
+            new Sfactory(this, "condition_role", new SCreator(condition_role_factory));
+            new Sfactory(this, "objectr_io", new SCreator(objectr_io_factory));
+            new Sfactory(this, "unOp_a56e6c90a8e24c09a709d29ba96464e4", new SCreator(unOp_a56e6c90a8e24c09a709d29ba96464e4_factory));
+            new Sfactory(this, "roledisjoint2_0e157aedc4c4420286bc66850f27b4a2", new SCreator(roledisjoint2_0e157aedc4c4420286bc66850f27b4a2_factory));
+            new Sfactory(this, "oobjectOnlyBnd_0f7bc12a73fe4b20b422df4fe7d65cf3", new SCreator(oobjectOnlyBnd_0f7bc12a73fe4b20b422df4fe7d65cf3_factory));
+            new Sfactory(this, "subjectEvery", new SCreator(subjectEvery_factory));
+            new Sfactory(this, "clause_result_e4966a20715f4ad6a9f4eaeb33a5ea99", new SCreator(clause_result_e4966a20715f4ad6a9f4eaeb33a5ea99_factory));
+            new Sfactory(this, "builtin_annot", new SCreator(builtin_annot_factory));
+            new Sfactory(this, "Bool", new SCreator(Bool_factory));
+            new Sfactory(this, "comparer2_b0fe676e97734f1ba55ea7231f35b8bc", new SCreator(comparer2_b0fe676e97734f1ba55ea7231f35b8bc_factory));
+            new Sfactory(this, "haskey_42d75fdf80ab4593b47edf7159d47307", new SCreator(haskey_42d75fdf80ab4593b47edf7159d47307_factory));
+            new Sfactory(this, "chain", new SCreator(chain_factory));
+            new Sfactory(this, "condition_result_role", new SCreator(condition_result_role_factory));
+            new Sfactory(this, "builtin_bin", new SCreator(builtin_bin_factory));
+            new Sfactory(this, "oobjectCmpInstance", new SCreator(oobjectCmpInstance_factory));
+            new Sfactory(this, "clause_result_34e19e77573e4cee91a7ff6f0b710780", new SCreator(clause_result_34e19e77573e4cee91a7ff6f0b710780_factory));
+            new Sfactory(this, "binOp_d03cb2932c8e4f0ab8095286123f6797", new SCreator(binOp_d03cb2932c8e4f0ab8095286123f6797_factory));
+            new Sfactory(this, "Duration", new SCreator(Duration_factory));
+            new Sfactory(this, "orObjectRoleExprChain", new SCreator(orObjectRoleExprChain_factory));
+            new Sfactory(this, "equivalence2_2ece582c05814d189b07e26b3fc415f0", new SCreator(equivalence2_2ece582c05814d189b07e26b3fc415f0_factory));
+            new Sfactory(this, "facetList", new SCreator(facetList_factory));
+            new Sfactory(this, "boundOr_175e4bd629cc4ce4bbcb2a4999452b4c", new SCreator(boundOr_175e4bd629cc4ce4bbcb2a4999452b4c_factory));
+            new Sfactory(this, "annotation", new SCreator(annotation_factory));
+            new Sfactory(this, "oobjectSelf", new SCreator(oobjectSelf_factory));
+            new Sfactory(this, "condition_result_data_property", new SCreator(condition_result_data_property_factory));
+            new Sfactory(this, "datatypedef", new SCreator(datatypedef_factory));
+            new Sfactory(this, "clause_result", new SCreator(clause_result_factory));
+            new Sfactory(this, "duration_m_954e0a8601524bfcb8dd02dd40da7138", new SCreator(duration_m_954e0a8601524bfcb8dd02dd40da7138_factory));
+            new Sfactory(this, "boundVal", new SCreator(boundVal_factory));
+            new Sfactory(this, "boundTotal", new SCreator(boundTotal_factory));
+            new Sfactory(this, "notRoleWithXY_52cb25920ebd47df94420b8e97bb2a19", new SCreator(notRoleWithXY_52cb25920ebd47df94420b8e97bb2a19_factory));
+            new Sfactory(this, "builtin_bin_e973596f450e4814ab503802d183a2d2", new SCreator(builtin_bin_e973596f450e4814ab503802d183a2d2_factory));
+            new Sfactory(this, "oobjectOnlySomethingThat", new SCreator(oobjectOnlySomethingThat_factory));
+            new Sfactory(this, "oobjectInstance", new SCreator(oobjectInstance_factory));
+            new Sfactory(this, "objectRoleExpr1_447e56a3854146ce9506d780f10a1ba3", new SCreator(objectRoleExpr1_447e56a3854146ce9506d780f10a1ba3_factory));
+            new Sfactory(this, "singleThingThat_4af593f3c9c942aa8d42c41502b3cfd9", new SCreator(singleThingThat_4af593f3c9c942aa8d42c41502b3cfd9_factory));
+            new Sfactory(this, "orComma_de6f2dda1b30498c9c2c5d4e08dcbc02", new SCreator(orComma_de6f2dda1b30498c9c2c5d4e08dcbc02_factory));
+            new Sfactory(this, "datavalerTimesList_f5a5d38302574d3282fede0c80d42c45", new SCreator(datavalerTimesList_f5a5d38302574d3282fede0c80d42c45_factory));
+            new Sfactory(this, "identobject_name", new SCreator(identobject_name_factory));
+            new Sfactory(this, "duration_w", new SCreator(duration_w_factory));
+            new Sfactory(this, "condition_result_is", new SCreator(condition_result_is_factory));
+            new Sfactory(this, "word_number_f29f4b45d4f6440faab7b038d63e8016", new SCreator(word_number_f29f4b45d4f6440faab7b038d63e8016_factory));
+            new Sfactory(this, "modality2_39e84493f70c44e4b103f81e61df7146", new SCreator(modality2_39e84493f70c44e4b103f81e61df7146_factory));
+            new Sfactory(this, "subjectNothing", new SCreator(subjectNothing_factory));
+            new Sfactory(this, "subjectThe", new SCreator(subjectThe_factory));
+            new Sfactory(this, "datavalerPlusList_1027d4d7a1d44f248cbb749a7b8379c4", new SCreator(datavalerPlusList_1027d4d7a1d44f248cbb749a7b8379c4_factory));
+            new Sfactory(this, "comparer2_b0fe676e97734f1ba55ea7231f35b8bc_48f64b1ce3024ea4a87b7d0a4a07a4f6", new SCreator(comparer2_b0fe676e97734f1ba55ea7231f35b8bc_48f64b1ce3024ea4a87b7d0a4a07a4f6_factory));
+            new Sfactory(this, "condition_result_is_a76c128b6c4a4fd080e8207bb5686aaf", new SCreator(condition_result_is_a76c128b6c4a4fd080e8207bb5686aaf_factory));
+            new Sfactory(this, "comparer_1592b4ba6da04d7aa71e8b2f19b6bc01", new SCreator(comparer_1592b4ba6da04d7aa71e8b2f19b6bc01_factory));
+            new Sfactory(this, "unOp_fbfd003d2c10478f98392c2071fc6b30", new SCreator(unOp_fbfd003d2c10478f98392c2071fc6b30_factory));
+            new Sfactory(this, "objectr_io_ee9983a723fd4267a9248edc2a281b7b", new SCreator(objectr_io_ee9983a723fd4267a9248edc2a281b7b_factory));
+            new Sfactory(this, "identobject_inst", new SCreator(identobject_inst_factory));
+            new Sfactory(this, "equalTo_da1a5ce4efaf479e89d992a3133720b7_c77ccc0f563e4beb95e9c323d6772ad7", new SCreator(equalTo_da1a5ce4efaf479e89d992a3133720b7_c77ccc0f563e4beb95e9c323d6772ad7_factory));
+            new Sfactory(this, "unOp_7b7d90a7bb91439e9a99a97c9b68aaa3_032a287ddb214419b8fd109c616d4a90", new SCreator(unOp_7b7d90a7bb91439e9a99a97c9b68aaa3_032a287ddb214419b8fd109c616d4a90_factory));
+            new Sfactory(this, "unOp_45c2620dc3744a0798b88be259a3133e", new SCreator(unOp_45c2620dc3744a0798b88be259a3133e_factory));
+            new Sfactory(this, "comparer_5ecbaad0e39b422491fc9c98728523fc_ba645194d6924b0087226328f3ed2351", new SCreator(comparer_5ecbaad0e39b422491fc9c98728523fc_ba645194d6924b0087226328f3ed2351_factory));
+            new Sfactory(this, "orObjectRoleExprChain_1280932fed444a0dbbe66357a095bc98", new SCreator(orObjectRoleExprChain_1280932fed444a0dbbe66357a095bc98_factory));
+            new Sfactory(this, "instanceThe_aabecdb18b164b9e806c3f5407c38d6f", new SCreator(instanceThe_aabecdb18b164b9e806c3f5407c38d6f_factory));
+            new Sfactory(this, "builtin_list_1f1f215d473e40fbac3c2ea190bd875f", new SCreator(builtin_list_1f1f215d473e40fbac3c2ea190bd875f_factory));
+            new Sfactory(this, "unOp2_a6f44f374d46487b93ad3733d3c68a6c", new SCreator(unOp2_a6f44f374d46487b93ad3733d3c68a6c_factory));
+            new Sfactory(this, "roledisjoint2", new SCreator(roledisjoint2_factory));
+            new Sfactory(this, "StrData_cfad7327880546028155730124b7a9c2", new SCreator(StrData_cfad7327880546028155730124b7a9c2_factory));
+            new Sfactory(this, "word_number_75bd5a6cddf347a09ca63021c8ed26ad", new SCreator(word_number_75bd5a6cddf347a09ca63021c8ed26ad_factory));
+            new Sfactory(this, "builtin_exe", new SCreator(builtin_exe_factory));
+            new Sfactory(this, "oobjectSomething", new SCreator(oobjectSomething_factory));
+            new Sfactory(this, "clause_896721228f0749b1835787e438800b80", new SCreator(clause_896721228f0749b1835787e438800b80_factory));
+            new Sfactory(this, "instanceList", new SCreator(instanceList_factory));
+            new Sfactory(this, "andloop_e2351c0e014c4a929e8994e6c5548a06", new SCreator(andloop_e2351c0e014c4a929e8994e6c5548a06_factory));
+            new Sfactory(this, "unOp_7b7d90a7bb91439e9a99a97c9b68aaa3", new SCreator(unOp_7b7d90a7bb91439e9a99a97c9b68aaa3_factory));
+            new Sfactory(this, "modality2_a9903bb7580245b5883060adb41cf3e7", new SCreator(modality2_a9903bb7580245b5883060adb41cf3e7_factory));
+            new Sfactory(this, "comparer2_214406d730e745df9f734e109290ad77", new SCreator(comparer2_214406d730e745df9f734e109290ad77_factory));
+            new Sfactory(this, "paragraph_566245c87df54ee3bb78d5606c0fc1e8", new SCreator(paragraph_566245c87df54ee3bb78d5606c0fc1e8_factory));
+            new Sfactory(this, "condition_result_is_92cac4ab014b429fbecd05c009e4f3d3", new SCreator(condition_result_is_92cac4ab014b429fbecd05c009e4f3d3_factory));
+            new Sfactory(this, "rolesubsumption_7af6523e728b450da936b5061ba53008", new SCreator(rolesubsumption_7af6523e728b450da936b5061ba53008_factory));
+            new Sfactory(this, "role_1dd48d6cbe9549b084e63dbcf3a1aa81", new SCreator(role_1dd48d6cbe9549b084e63dbcf3a1aa81_factory));
+            new Sfactory(this, "word_number_f7873402a182481d9f3d6ec914ae2965", new SCreator(word_number_f7873402a182481d9f3d6ec914ae2965_factory));
+            new Sfactory(this, "duration_m_55afbd56816a4d12b9ac108a3f2cc8cf", new SCreator(duration_m_55afbd56816a4d12b9ac108a3f2cc8cf_factory));
+            new Sfactory(this, "builtin_substr", new SCreator(builtin_substr_factory));
+            new Sfactory(this, "annotation_44947d7626e243a382eb0069325b2d2c", new SCreator(annotation_44947d7626e243a382eb0069325b2d2c_factory));
+            new Sfactory(this, "oobjectInstance_722298a5591f4241b81f6afc6f9b4040", new SCreator(oobjectInstance_722298a5591f4241b81f6afc6f9b4040_factory));
+            new Sfactory(this, "condition_result_role_08f60b79e87347629c40e05c00ba7320", new SCreator(condition_result_role_08f60b79e87347629c40e05c00ba7320_factory));
+            new Sfactory(this, "dataroledisjoint2_443ae1c9dfc34907879db58e54a43552", new SCreator(dataroledisjoint2_443ae1c9dfc34907879db58e54a43552_factory));
+            new Sfactory(this, "singleName_96baba4832584aa5a9c41319d6aac993", new SCreator(singleName_96baba4832584aa5a9c41319d6aac993_factory));
+            new Sfactory(this, "subsumption", new SCreator(subsumption_factory));
+            new Sfactory(this, "builtin_alpha_aef1c6f72a054960bdce448f4a84f3a0", new SCreator(builtin_alpha_aef1c6f72a054960bdce448f4a84f3a0_factory));
+            new Sfactory(this, "unOp_b29fb39a8a2c4ad6b274981f8a22136c_defeec6d3e904923b3dcb7daa4e43ad1", new SCreator(unOp_b29fb39a8a2c4ad6b274981f8a22136c_defeec6d3e904923b3dcb7daa4e43ad1_factory));
+            new Sfactory(this, "condition_data_bound", new SCreator(condition_data_bound_factory));
+            new Sfactory(this, "orComma_c868b6e1644e46dd8b823005b69c36f6", new SCreator(orComma_c868b6e1644e46dd8b823005b69c36f6_factory));
+            new Sfactory(this, "singleThing_2c020c6f78d04c66affa2f215acad6f0", new SCreator(singleThing_2c020c6f78d04c66affa2f215acad6f0_factory));
+            new Sfactory(this, "modality2_a9903bb7580245b5883060adb41cf3e7_5978f781665c46f5898d26123f73c7da", new SCreator(modality2_a9903bb7580245b5883060adb41cf3e7_5978f781665c46f5898d26123f73c7da_factory));
+            new Sfactory(this, "valueOrThing", new SCreator(valueOrThing_factory));
+            new Sfactory(this, "binOp_decd62613c0f4f7fafe385767da99fb4_7a83a968f8894995b3f2e13a43e8f9f0", new SCreator(binOp_decd62613c0f4f7fafe385767da99fb4_7a83a968f8894995b3f2e13a43e8f9f0_factory));
+            new Sfactory(this, "valueOrThing_11693110f638425bb998c8487484accb", new SCreator(valueOrThing_11693110f638425bb998c8487484accb_factory));
+            new Sfactory(this, "andanyrolechain_edab88b964b3415ea64a77e329d21f2b", new SCreator(andanyrolechain_edab88b964b3415ea64a77e329d21f2b_factory));
+            new Sfactory(this, "subjectEverything_eafee055036a4f93a25c840d4b1400b8", new SCreator(subjectEverything_eafee055036a4f93a25c840d4b1400b8_factory));
+            new Sfactory(this, "orComma", new SCreator(orComma_factory));
+            new Sfactory(this, "builtin_trans", new SCreator(builtin_trans_factory));
+            new Sfactory(this, "subjectThe_6508d4ff2b3946699f3af047d72e60e6", new SCreator(subjectThe_6508d4ff2b3946699f3af047d72e60e6_factory));
+            new Sfactory(this, "oobjectNothing_2901c595cf1540c19f93bb5c009cbb87", new SCreator(oobjectNothing_2901c595cf1540c19f93bb5c009cbb87_factory));
+            new Sfactory(this, "instanceList_069c2d4f5b5a45a1befc5253260ec712", new SCreator(instanceList_069c2d4f5b5a45a1befc5253260ec712_factory));
+            new Sfactory(this, "instanceBigName_9280333231384117af3a6a0100620d76", new SCreator(instanceBigName_9280333231384117af3a6a0100620d76_factory));
+            new Sfactory(this, "datavalerTimesList", new SCreator(datavalerTimesList_factory));
+            new Sfactory(this, "oobjectOnly", new SCreator(oobjectOnly_factory));
+            new Sfactory(this, "andanyrolechain", new SCreator(andanyrolechain_factory));
+            new Sfactory(this, "comparer2_6be5d1975f4a46fd94c2f08da7d7a9cf", new SCreator(comparer2_6be5d1975f4a46fd94c2f08da7d7a9cf_factory));
+            new Sfactory(this, "boundTop_275235405d9443ac9a990108000eb708", new SCreator(boundTop_275235405d9443ac9a990108000eb708_factory));
+            new Sfactory(this, "andanyrolechain_9cb513c982124810877effaecd901b05", new SCreator(andanyrolechain_9cb513c982124810877effaecd901b05_factory));
+            new Sfactory(this, "notidentobject_a31997c075994d7399c36d4cff248073", new SCreator(notidentobject_a31997c075994d7399c36d4cff248073_factory));
+            new Sfactory(this, "condition_is_2c5c8b2d68c842e797705cfc4be4ccfc", new SCreator(condition_is_2c5c8b2d68c842e797705cfc4be4ccfc_factory));
+            new Sfactory(this, "subjectNothing_7a10a8be0b3141b49936878cfa3c2393", new SCreator(subjectNothing_7a10a8be0b3141b49936878cfa3c2393_factory));
+            new Sfactory(this, "andComma_e5f37ebe59584ba2868ea509fe54bb77", new SCreator(andComma_e5f37ebe59584ba2868ea509fe54bb77_factory));
+            new Sfactory(this, "modality", new SCreator(modality_factory));
+            new Sfactory(this, "duration_m_c42cc94093cd4389ba02e7236c12aca7", new SCreator(duration_m_c42cc94093cd4389ba02e7236c12aca7_factory));
+            new Sfactory(this, "oobjectOnlyNothing", new SCreator(oobjectOnlyNothing_factory));
+            new Sfactory(this, "instanceThe_0e073159e58d4676ae81f9be6dc723ee", new SCreator(instanceThe_0e073159e58d4676ae81f9be6dc723ee_factory));
+            new Sfactory(this, "aAn", new SCreator(aAn_factory));
+            new Sfactory(this, "isBeAre_5c14e059db714db585d1b5f2d4ff642d", new SCreator(isBeAre_5c14e059db714db585d1b5f2d4ff642d_factory));
+            new Sfactory(this, "condition_result", new SCreator(condition_result_factory));
+            new Sfactory(this, "facet_0d405be671eb4858b930ed5b5683541e", new SCreator(facet_0d405be671eb4858b930ed5b5683541e_factory));
+            new Sfactory(this, "roleWithXY", new SCreator(roleWithXY_factory));
+            new Sfactory(this, "dataroledisjoint2", new SCreator(dataroledisjoint2_factory));
+            new Sfactory(this, "doesNot", new SCreator(doesNot_factory));
+            new Sfactory(this, "binOp", new SCreator(binOp_factory));
+            new Sfactory(this, "objectr_nio", new SCreator(objectr_nio_factory));
+            new Sfactory(this, "subjectEvery_9a9d70377b6d4bbdb1976cff0484dd2c", new SCreator(subjectEvery_9a9d70377b6d4bbdb1976cff0484dd2c_factory));
+            new Sfactory(this, "objectRoleExpr2_1215fd8d349f4815b218576300ac412a", new SCreator(objectRoleExpr2_1215fd8d349f4815b218576300ac412a_factory));
+            new Sfactory(this, "datavalerTimesList_b27ec15854c24ac89733734cf77072d2", new SCreator(datavalerTimesList_b27ec15854c24ac89733734cf77072d2_factory));
+            new Sfactory(this, "singleNameThat_dcf44b171bab44659e6789f964328462", new SCreator(singleNameThat_dcf44b171bab44659e6789f964328462_factory));
+            new Sfactory(this, "condition_data_property_bound_199281df83cd4401ae5f574544961b1e", new SCreator(condition_data_property_bound_199281df83cd4401ae5f574544961b1e_factory));
+            new Sfactory(this, "role", new SCreator(role_factory));
+            new Sfactory(this, "instanceBigName", new SCreator(instanceBigName_factory));
+            new Sfactory(this, "equalTo_d7301e3cdc084c2f97a594538d3895f7", new SCreator(equalTo_d7301e3cdc084c2f97a594538d3895f7_factory));
+            new Sfactory(this, "datatypedef_ede858d8e5dc4afdaaf6f887b2464fad", new SCreator(datatypedef_ede858d8e5dc4afdaaf6f887b2464fad_factory));
+            new Sfactory(this, "binOp_67f4ca57a0b3428d92570e2f1277da2c", new SCreator(binOp_67f4ca57a0b3428d92570e2f1277da2c_factory));
+            new Sfactory(this, "builtin_unary_free_129c9687f63741f982aa3fd65b1d0be0", new SCreator(builtin_unary_free_129c9687f63741f982aa3fd65b1d0be0_factory));
+            new Sfactory(this, "datavalerFollowedByList", new SCreator(datavalerFollowedByList_factory));
+            new Sfactory(this, "objectRoleExpr2_916548c0549c4e3392c7d97720703364", new SCreator(objectRoleExpr2_916548c0549c4e3392c7d97720703364_factory));
+            new Sfactory(this, "datavalvar", new SCreator(datavalvar_factory));
+            new Sfactory(this, "binOp_a7b23d9bc410429f82a991f2001c95b2", new SCreator(binOp_a7b23d9bc410429f82a991f2001c95b2_factory));
+            new Sfactory(this, "equalTo", new SCreator(equalTo_factory));
+            new Sfactory(this, "datavalerPlusList", new SCreator(datavalerPlusList_factory));
+            new Sfactory(this, "exclusives_91ffa52d905549b0aaea515988ac0301", new SCreator(exclusives_91ffa52d905549b0aaea515988ac0301_factory));
+            new Sfactory(this, "unOp_c74ee41853af4d08897b08b21a8b04bb_f246cea1ed394396824a7e7a2da47609", new SCreator(unOp_c74ee41853af4d08897b08b21a8b04bb_f246cea1ed394396824a7e7a2da47609_factory));
+            new Sfactory(this, "duration_m_7047a4fd6e37488cb3d6e52991e74677", new SCreator(duration_m_7047a4fd6e37488cb3d6e52991e74677_factory));
+            new Sfactory(this, "unOp", new SCreator(unOp_factory));
+            new Sfactory(this, "datavalList_8c8a6b39af874ea182c64a8d745197bc", new SCreator(datavalList_8c8a6b39af874ea182c64a8d745197bc_factory));
+            new Sfactory(this, "oobjectCmpBnd", new SCreator(oobjectCmpBnd_factory));
+            new Sfactory(this, "unOp_b29fb39a8a2c4ad6b274981f8a22136c", new SCreator(unOp_b29fb39a8a2c4ad6b274981f8a22136c_factory));
+            new Sfactory(this, "swrlrulefor", new SCreator(swrlrulefor_factory));
+            new Sfactory(this, "facet", new SCreator(facet_factory));
+            new Sfactory(this, "subjectEverything", new SCreator(subjectEverything_factory));
+            new Sfactory(this, "datavalvar_d0dde5e18b8948c094af05fe960f9d8d", new SCreator(datavalvar_d0dde5e18b8948c094af05fe960f9d8d_factory));
+            new Sfactory(this, "comparer2_42749d2044714b4d8ee198f3be859206", new SCreator(comparer2_42749d2044714b4d8ee198f3be859206_factory));
+            new Sfactory(this, "valueOrThing_992d64a96a1d4f6cb4906f802c44e3ce", new SCreator(valueOrThing_992d64a96a1d4f6cb4906f802c44e3ce_factory));
+            new Sfactory(this, "beAre", new SCreator(beAre_factory));
+            new Sfactory(this, "subjectThe_59b29ef9aabf4c0887f1a24fb530874e", new SCreator(subjectThe_59b29ef9aabf4c0887f1a24fb530874e_factory));
+            new Sfactory(this, "builtin_annot_d13e72dd7c9a4459bd0b16e8ce7559e3", new SCreator(builtin_annot_d13e72dd7c9a4459bd0b16e8ce7559e3_factory));
+            new Sfactory(this, "oobjectA", new SCreator(oobjectA_factory));
+            new Sfactory(this, "oobject", new SCreator(oobject_factory));
+            new Sfactory(this, "swrlrulefor_132bd0b2a4b14ab5959beb871c7597d2", new SCreator(swrlrulefor_132bd0b2a4b14ab5959beb871c7597d2_factory));
+            new Sfactory(this, "doesNotBy_996156a337804089bc11b27d2ae541de", new SCreator(doesNotBy_996156a337804089bc11b27d2ae541de_factory));
+            new Sfactory(this, "duration", new SCreator(duration_factory));
+            new Sfactory(this, "boundAnd_9c7407cefecf40c9b2a9028e2662b542", new SCreator(boundAnd_9c7407cefecf40c9b2a9028e2662b542_factory));
+            new Sfactory(this, "doesNot_ffd19021ca9b42d185d150974fcf38fc", new SCreator(doesNot_ffd19021ca9b42d185d150974fcf38fc_factory));
+            new Sfactory(this, "datavalval_bafc195f566548d79632b7bf2b97db37", new SCreator(datavalval_bafc195f566548d79632b7bf2b97db37_factory));
+            new Sfactory(this, "singleThingThat", new SCreator(singleThingThat_factory));
+            new Sfactory(this, "oobjectCmp_ff0528b2d05e491e8f6feadcdb7a5070", new SCreator(oobjectCmp_ff0528b2d05e491e8f6feadcdb7a5070_factory));
+            new Sfactory(this, "word_number", new SCreator(word_number_factory));
+            new Sfactory(this, "singleThing_eff0badc6a2b437fbf4688f7c457b0ea", new SCreator(singleThing_eff0badc6a2b437fbf4688f7c457b0ea_factory));
+            new Sfactory(this, "exeargs_26c6dfa4d57a4228aafb1dd705608024", new SCreator(exeargs_26c6dfa4d57a4228aafb1dd705608024_factory));
+            new Sfactory(this, "facet_35a26489569e44c89c44ce226a3368bc", new SCreator(facet_35a26489569e44c89c44ce226a3368bc_factory));
+            new Sfactory(this, "facet_522c79e37a364067a3af29e0c191bfac", new SCreator(facet_522c79e37a364067a3af29e0c191bfac_factory));
+            new Sfactory(this, "exclusives", new SCreator(exclusives_factory));
+            new Sfactory(this, "chain_5daba5ce21514b7b8d7cd821e7c45d4e", new SCreator(chain_5daba5ce21514b7b8d7cd821e7c45d4e_factory));
+            new Sfactory(this, "instancer_b276f0b0160f40d786e314b752ebe195", new SCreator(instancer_b276f0b0160f40d786e314b752ebe195_factory));
+            new Sfactory(this, "modality_8f69bc2826e14a64b655e1d64d497a75", new SCreator(modality_8f69bc2826e14a64b655e1d64d497a75_factory));
+            new Sfactory(this, "builtin_duration_ba10ee6406b74fe6a00ea802f3072516", new SCreator(builtin_duration_ba10ee6406b74fe6a00ea802f3072516_factory));
+            new Sfactory(this, "subjectBigName", new SCreator(subjectBigName_factory));
+            new Sfactory(this, "Float_9a6d2ea064fb4affa593690db836281b", new SCreator(Float_9a6d2ea064fb4affa593690db836281b_factory));
+            new Sfactory(this, "oobjectSomethingThat", new SCreator(oobjectSomethingThat_factory));
+            new Sfactory(this, "comparer2_11e106ec73574e0d8853ad29dfb3ed8e", new SCreator(comparer2_11e106ec73574e0d8853ad29dfb3ed8e_factory));
+            new Sfactory(this, "oobjectCardinal", new SCreator(oobjectCardinal_factory));
+            new Sfactory(this, "rolesubsumption", new SCreator(rolesubsumption_factory));
+            new Sfactory(this, "singleNameThat", new SCreator(singleNameThat_factory));
+        }
+        public static object doesNotBy_factory(Parser yyp) { return new doesNotBy(yyp); }
+        public static object oobjectOnly_318ac4d9886640ad915d368dfcce1ff8_factory(Parser yyp) { return new oobjectOnly_318ac4d9886640ad915d368dfcce1ff8(yyp); }
+        public static object boundTop_factory(Parser yyp) { return new boundTop(yyp); }
+        public static object oobjectOnlyNothing_8646f1419d734b9894c47da4bf657213_factory(Parser yyp) { return new oobjectOnlyNothing_8646f1419d734b9894c47da4bf657213(yyp); }
+        public static object identobject_name_e753f510c632415caecfe92fdfe04132_factory(Parser yyp) { return new identobject_name_e753f510c632415caecfe92fdfe04132(yyp); }
+        public static object notRoleWithXY_factory(Parser yyp) { return new notRoleWithXY(yyp); }
+        public static object condition_is_9851cdc5ee4547de8f6f21edbb5ef45e_factory(Parser yyp) { return new condition_is_9851cdc5ee4547de8f6f21edbb5ef45e(yyp); }
+        public static object builtin_substr_a071f16bc3694a5da45731d98723f29c_factory(Parser yyp) { return new builtin_substr_a071f16bc3694a5da45731d98723f29c(yyp); }
+        public static object boundDataType_0fc663b1365a4a469182eee5fcb869b1_factory(Parser yyp) { return new boundDataType_0fc663b1365a4a469182eee5fcb869b1(yyp); }
+        public static object datavalList_factory(Parser yyp) { return new datavalList(yyp); }
+        public static object valueOrThing_b292e5effebc4cf08f68227d444765da_factory(Parser yyp) { return new valueOrThing_b292e5effebc4cf08f68227d444765da(yyp); }
+        public static object boundFacets_factory(Parser yyp) { return new boundFacets(yyp); }
+        public static object duration_m_f0080b26096e4580ad7cf651e734477a_factory(Parser yyp) { return new duration_m_f0080b26096e4580ad7cf651e734477a(yyp); }
+        public static object objectRoleExpr2_0b291fc985a044dbb25bd6ce57f4e694_factory(Parser yyp) { return new objectRoleExpr2_0b291fc985a044dbb25bd6ce57f4e694(yyp); }
+        public static object facet_7ac077192b684ee5a57818db00d8ba40_factory(Parser yyp) { return new facet_7ac077192b684ee5a57818db00d8ba40(yyp); }
+        public static object exerule_factory(Parser yyp) { return new exerule(yyp); }
+        public static object comparer2_edb3d005808a42149810185952208fc5_factory(Parser yyp) { return new comparer2_edb3d005808a42149810185952208fc5(yyp); }
+        public static object subjectNo_factory(Parser yyp) { return new subjectNo(yyp); }
+        public static object subsumption_if_factory(Parser yyp) { return new subsumption_if(yyp); }
+        public static object duration_m_6c11941f4548438387454a9601225be3_factory(Parser yyp) { return new duration_m_6c11941f4548438387454a9601225be3(yyp); }
+        public static object subjectBigName_d35cd74c001042809ecb7c047ee96c03_factory(Parser yyp) { return new subjectBigName_d35cd74c001042809ecb7c047ee96c03(yyp); }
+        public static object condition_result_role_3118228cc5a84fa1ac3397d77a6a5a83_factory(Parser yyp) { return new condition_result_role_3118228cc5a84fa1ac3397d77a6a5a83(yyp); }
+        public static object datetime_0c55c536432947bc95b1c0540e659c73_factory(Parser yyp) { return new datetime_0c55c536432947bc95b1c0540e659c73(yyp); }
+        public static object isBeAre_factory(Parser yyp) { return new isBeAre(yyp); }
+        public static object condition_data_property_4a412d9875d24be4b511f3ce4fe6af7f_factory(Parser yyp) { return new condition_data_property_4a412d9875d24be4b511f3ce4fe6af7f(yyp); }
+        public static object datavaler_factory(Parser yyp) { return new datavaler(yyp); }
+        public static object oobjectCmpInstance_62f6ed86ccc8445fbfb0f1cbe9b8ee54_factory(Parser yyp) { return new oobjectCmpInstance_62f6ed86ccc8445fbfb0f1cbe9b8ee54(yyp); }
+        public static object rolesubsumption_7b44428ea8344fcebe9eb5d6b1c5c84f_factory(Parser yyp) { return new rolesubsumption_7b44428ea8344fcebe9eb5d6b1c5c84f(yyp); }
+        public static object andComma_factory(Parser yyp) { return new andComma(yyp); }
+        public static object condition_exists_3b7fabca36e94c648fb58c8d856e7ff8_factory(Parser yyp) { return new condition_exists_3b7fabca36e94c648fb58c8d856e7ff8(yyp); }
+        public static object boundVal_c828dcad517f46a4a90fc47a1f03bc1c_factory(Parser yyp) { return new boundVal_c828dcad517f46a4a90fc47a1f03bc1c(yyp); }
+        public static object oobjectOnlyInstance_1efa92f90a8941c78aa48223d0dc46f8_factory(Parser yyp) { return new oobjectOnlyInstance_1efa92f90a8941c78aa48223d0dc46f8(yyp); }
+        public static object boundOneOf_95c897a4a52e48cbbdecc5b57b19d24b_factory(Parser yyp) { return new boundOneOf_95c897a4a52e48cbbdecc5b57b19d24b(yyp); }
+        public static object notidentobject_b94aa5042b0b4cd0b7fb47c31cd21884_factory(Parser yyp) { return new notidentobject_b94aa5042b0b4cd0b7fb47c31cd21884(yyp); }
+        public static object word_number_f29f4b45d4f6440faab7b038d63e8016_1ce16831796c4da3aef1ace355e30bbe_factory(Parser yyp) { return new word_number_f29f4b45d4f6440faab7b038d63e8016_1ce16831796c4da3aef1ace355e30bbe(yyp); }
+        public static object condition_factory(Parser yyp) { return new condition(yyp); }
+        public static object paragraph_c73a4bfe7c064b4c84855e3199998995_factory(Parser yyp) { return new paragraph_c73a4bfe7c064b4c84855e3199998995(yyp); }
+        public static object comparer2_469cb9c5f35a4878b84b753ed5aa6a1a_factory(Parser yyp) { return new comparer2_469cb9c5f35a4878b84b753ed5aa6a1a(yyp); }
+        public static object comparer2_edb3d005808a42149810185952208fc5_8e3c464b3c1d4fd8ba1e6951f15c7a9e_factory(Parser yyp) { return new comparer2_edb3d005808a42149810185952208fc5_8e3c464b3c1d4fd8ba1e6951f15c7a9e(yyp); }
+        public static object builtin_trans_e14262332461450a95eba2859a129c66_factory(Parser yyp) { return new builtin_trans_e14262332461450a95eba2859a129c66(yyp); }
+        public static object andanyrolechain_ae905887b9044709890fb37bfff1f7d2_factory(Parser yyp) { return new andanyrolechain_ae905887b9044709890fb37bfff1f7d2(yyp); }
+        public static object thatOrLoop_268216a573c34a43bde29d7d942ad849_factory(Parser yyp) { return new thatOrLoop_268216a573c34a43bde29d7d942ad849(yyp); }
+        public static object oobjectBnd_factory(Parser yyp) { return new oobjectBnd(yyp); }
+        public static object datavalerPlusList_cf96adeabac64a4f9768270e4f7b43a5_factory(Parser yyp) { return new datavalerPlusList_cf96adeabac64a4f9768270e4f7b43a5(yyp); }
+        public static object orloop_a4d7a2437b774b5f91927bcf3a5d48b8_factory(Parser yyp) { return new orloop_a4d7a2437b774b5f91927bcf3a5d48b8(yyp); }
+        public static object objectRoleExpr3_efd2e20597084fa18a608bf2eebdaee0_factory(Parser yyp) { return new objectRoleExpr3_efd2e20597084fa18a608bf2eebdaee0(yyp); }
+        public static object builtin_datetime_2f4201d44eba4fd1a0014b982148a99f_factory(Parser yyp) { return new builtin_datetime_2f4201d44eba4fd1a0014b982148a99f(yyp); }
+        public static object notidentobject_21178b2016ee43dd9b7828f754df3ee4_factory(Parser yyp) { return new notidentobject_21178b2016ee43dd9b7828f754df3ee4(yyp); }
+        public static object oobjectSomething_2939bf68e33d408393cc769e668447e1_factory(Parser yyp) { return new oobjectSomething_2939bf68e33d408393cc769e668447e1(yyp); }
+        public static object valueOrThing_606f91515c9a4f178ebde2e9e15da180_factory(Parser yyp) { return new valueOrThing_606f91515c9a4f178ebde2e9e15da180(yyp); }
+        public static object builtin_substr_6b286ee63b70402c803dbfc771a3d878_factory(Parser yyp) { return new builtin_substr_6b286ee63b70402c803dbfc771a3d878(yyp); }
+        public static object comparer_factory(Parser yyp) { return new comparer(yyp); }
+        public static object condition_result_builtin_factory(Parser yyp) { return new condition_result_builtin(yyp); }
+        public static object condition_role_450ed8e2227a42cfb94f34d571c49138_factory(Parser yyp) { return new condition_role_450ed8e2227a42cfb94f34d571c49138(yyp); }
+        public static object identobject_inst_3841f77f0f734bcd853061126e5a07ae_factory(Parser yyp) { return new identobject_inst_3841f77f0f734bcd853061126e5a07ae(yyp); }
+        public static object comparer2_ae23ce61f8ed473db910fce732481f63_factory(Parser yyp) { return new comparer2_ae23ce61f8ed473db910fce732481f63(yyp); }
+        public static object comparer2_ce1a6ff8e277483c96f9740c7e35cb79_factory(Parser yyp) { return new comparer2_ce1a6ff8e277483c96f9740c7e35cb79(yyp); }
+        public static object doesNot_a3f6472835454ce98820f5340279efd6_factory(Parser yyp) { return new doesNot_a3f6472835454ce98820f5340279efd6(yyp); }
+        public static object andComma_7a1140bd0fba4a04bdcf342ba6e7a16d_factory(Parser yyp) { return new andComma_7a1140bd0fba4a04bdcf342ba6e7a16d(yyp); }
+        public static object roleWithXY_bb5d6ff79bbc40df8487cf0d619e22e7_factory(Parser yyp) { return new roleWithXY_bb5d6ff79bbc40df8487cf0d619e22e7(yyp); }
+        public static object modality_2994985d0cdc4d74bde814570c298b31_51a1e4967eb4403ba2edffb6c4127ebd_factory(Parser yyp) { return new modality_2994985d0cdc4d74bde814570c298b31_51a1e4967eb4403ba2edffb6c4127ebd(yyp); }
+        public static object oobjectA_ebcc38bea7724ceeb1528c0f415eb9fe_factory(Parser yyp) { return new oobjectA_ebcc38bea7724ceeb1528c0f415eb9fe(yyp); }
+        public static object condition_data_property_bound_factory(Parser yyp) { return new condition_data_property_bound(yyp); }
+        public static object oobjectRelated_factory(Parser yyp) { return new oobjectRelated(yyp); }
+        public static object boundOr_factory(Parser yyp) { return new boundOr(yyp); }
+        public static object unOp2_a6f44f374d46487b93ad3733d3c68a6c_ba7f49eb4a3b484a9a6d606af1527be9_factory(Parser yyp) { return new unOp2_a6f44f374d46487b93ad3733d3c68a6c_ba7f49eb4a3b484a9a6d606af1527be9(yyp); }
+        public static object doesNotBy_85bea99ab26f4aca9250e879bcb8f56d_factory(Parser yyp) { return new doesNotBy_85bea99ab26f4aca9250e879bcb8f56d(yyp); }
+        public static object instanceList_d5ff625a1a5e40f2b562e8162854b3c4_factory(Parser yyp) { return new instanceList_d5ff625a1a5e40f2b562e8162854b3c4(yyp); }
+        public static object datarolesubsumption_factory(Parser yyp) { return new datarolesubsumption(yyp); }
+        public static object singleName_factory(Parser yyp) { return new singleName(yyp); }
+        public static object datarolesubsumption_53b8fa47c596440a848c3686d84ff9fa_factory(Parser yyp) { return new datarolesubsumption_53b8fa47c596440a848c3686d84ff9fa(yyp); }
+        public static object oobjectCmpBnd_ae7f63b9a17b4ffca0c504642566dc07_factory(Parser yyp) { return new oobjectCmpBnd_ae7f63b9a17b4ffca0c504642566dc07(yyp); }
+        public static object subject_factory(Parser yyp) { return new subject(yyp); }
+        public static object builtin_list_9da4d36c3fa049b3bc22c9f613fd1969_factory(Parser yyp) { return new builtin_list_9da4d36c3fa049b3bc22c9f613fd1969(yyp); }
+        public static object orloop_factory(Parser yyp) { return new orloop(yyp); }
+        public static object objectRoleExpr2_4563ca84b9a5499d9d0b46564a48e95d_factory(Parser yyp) { return new objectRoleExpr2_4563ca84b9a5499d9d0b46564a48e95d(yyp); }
+        public static object datetime_factory(Parser yyp) { return new datetime(yyp); }
+        public static object chain_f1d1e8479fab4525a8b3a49c2185acfd_factory(Parser yyp) { return new chain_f1d1e8479fab4525a8b3a49c2185acfd(yyp); }
+        public static object dataroleequivalence2_79e8e3c6387c49ab995139ad18214122_factory(Parser yyp) { return new dataroleequivalence2_79e8e3c6387c49ab995139ad18214122(yyp); }
+        public static object roleWithXY_5c11be3751d74f2fafcd1c1dc41dc069_factory(Parser yyp) { return new roleWithXY_5c11be3751d74f2fafcd1c1dc41dc069(yyp); }
+        public static object comparer_5ecbaad0e39b422491fc9c98728523fc_factory(Parser yyp) { return new comparer_5ecbaad0e39b422491fc9c98728523fc(yyp); }
+        public static object notRoleWithXY_b64e4dfa1d3648f2ba1cb621d93842c4_factory(Parser yyp) { return new notRoleWithXY_b64e4dfa1d3648f2ba1cb621d93842c4(yyp); }
+        public static object subjectBigName_e247709fad4f46e8af6b598ac4e69ed9_factory(Parser yyp) { return new subjectBigName_e247709fad4f46e8af6b598ac4e69ed9(yyp); }
+        public static object unOp_c74ee41853af4d08897b08b21a8b04bb_factory(Parser yyp) { return new unOp_c74ee41853af4d08897b08b21a8b04bb(yyp); }
+        public static object exeargs_09198c24a4c54171b54a3ac103990da0_factory(Parser yyp) { return new exeargs_09198c24a4c54171b54a3ac103990da0(yyp); }
+        public static object exeargs_56a109c849ca4fffb7c041d5d1b34493_factory(Parser yyp) { return new exeargs_56a109c849ca4fffb7c041d5d1b34493(yyp); }
+        public static object datavalval_factory(Parser yyp) { return new datavalval(yyp); }
+        public static object duration_m_32c6f48867c3460fbf618a076eab8e73_factory(Parser yyp) { return new duration_m_32c6f48867c3460fbf618a076eab8e73(yyp); }
+        public static object dataval_factory(Parser yyp) { return new dataval(yyp); }
+        public static object binOp_d4ec7f2581f64fb48b3c50d1edfdbce4_factory(Parser yyp) { return new binOp_d4ec7f2581f64fb48b3c50d1edfdbce4(yyp); }
+        public static object singleOneOf_9f64f95e0fe54d98a7cc112260916b4c_factory(Parser yyp) { return new singleOneOf_9f64f95e0fe54d98a7cc112260916b4c(yyp); }
+        public static object oobjectSomethingThat_07ef2c4b1ef34c98812ebce5f195afb5_factory(Parser yyp) { return new oobjectSomethingThat_07ef2c4b1ef34c98812ebce5f195afb5(yyp); }
+        public static object builtin_factory(Parser yyp) { return new builtin(yyp); }
+        public static object orObjectRoleExprChain_5fc55687f5bb48589182786b97a199c8_factory(Parser yyp) { return new orObjectRoleExprChain_5fc55687f5bb48589182786b97a199c8(yyp); }
+        public static object roleequivalence2_factory(Parser yyp) { return new roleequivalence2(yyp); }
+        public static object Number_factory(Parser yyp) { return new Number(yyp); }
+        public static object abstractbound_factory(Parser yyp) { return new abstractbound(yyp); }
+        public static object swrlrule_factory(Parser yyp) { return new swrlrule(yyp); }
+        public static object duration_m_d99f9c87cb8f49678638ec69894cf1ed_factory(Parser yyp) { return new duration_m_d99f9c87cb8f49678638ec69894cf1ed(yyp); }
+        public static object equalTo_02e1029631bf4b709a469df03d37ec01_factory(Parser yyp) { return new equalTo_02e1029631bf4b709a469df03d37ec01(yyp); }
+        public static object exclusiveunion_9d3feb24afc04ba0a619553526a44646_factory(Parser yyp) { return new exclusiveunion_9d3feb24afc04ba0a619553526a44646(yyp); }
+        public static object Number_695f0fa0c7f749ee9618398b97f99dc9_factory(Parser yyp) { return new Number_695f0fa0c7f749ee9618398b97f99dc9(yyp); }
+        public static object Duration_9e45f683e8974e1281bfe106323d0b43_factory(Parser yyp) { return new Duration_9e45f683e8974e1281bfe106323d0b43(yyp); }
+        public static object duration_m_f51410a0fe5f4f27ba914db7cdb141c7_factory(Parser yyp) { return new duration_m_f51410a0fe5f4f27ba914db7cdb141c7(yyp); }
+        public static object andanyrolechain_0fb0bf0280ea497fa0987d6c7f3495a8_factory(Parser yyp) { return new andanyrolechain_0fb0bf0280ea497fa0987d6c7f3495a8(yyp); }
+        public static object nosubject_factory(Parser yyp) { return new nosubject(yyp); }
+        public static object comparer_145f81cae96f4e20b3227cffa71b35d3_factory(Parser yyp) { return new comparer_145f81cae96f4e20b3227cffa71b35d3(yyp); }
+        public static object instancer_factory(Parser yyp) { return new instancer(yyp); }
+        public static object binOp_bb9c172983b748b9857554319e6d40bb_72f21f793eb145a7ad1885c54a555683_factory(Parser yyp) { return new binOp_bb9c172983b748b9857554319e6d40bb_72f21f793eb145a7ad1885c54a555683(yyp); }
+        public static object notidentobject_29d7f93464bb49ee924c71f88475ad54_factory(Parser yyp) { return new notidentobject_29d7f93464bb49ee924c71f88475ad54(yyp); }
+        public static object boundIdent_ca48d918cfd84dfda3281d288116a0d9_factory(Parser yyp) { return new boundIdent_ca48d918cfd84dfda3281d288116a0d9(yyp); }
+        public static object condition_result_definition_factory(Parser yyp) { return new condition_result_definition(yyp); }
+        public static object single_factory(Parser yyp) { return new single(yyp); }
+        public static object facetList_165d6454d84548f6bd60c95dd795ab59_factory(Parser yyp) { return new facetList_165d6454d84548f6bd60c95dd795ab59(yyp); }
+        public static object objectRoleExpr2_bef62ec5bd3d466a851eadb99cdff5f6_factory(Parser yyp) { return new objectRoleExpr2_bef62ec5bd3d466a851eadb99cdff5f6(yyp); }
+        public static object builtin_unary_free_factory(Parser yyp) { return new builtin_unary_free(yyp); }
+        public static object singleOneOf_f9240bafbcaf418d8bfe10765ad8e1f9_factory(Parser yyp) { return new singleOneOf_f9240bafbcaf418d8bfe10765ad8e1f9(yyp); }
+        public static object clause_factory(Parser yyp) { return new clause(yyp); }
+        public static object exeargs_factory(Parser yyp) { return new exeargs(yyp); }
+        public static object modality2_d1082eb795094c42b220acc0e8512328_factory(Parser yyp) { return new modality2_d1082eb795094c42b220acc0e8512328(yyp); }
+        public static object condition_data_bound_81d74be785d9496f86106ac984df9d6e_factory(Parser yyp) { return new condition_data_bound_81d74be785d9496f86106ac984df9d6e(yyp); }
+        public static object objectRoleExpr1_36cf0e01213f4d05a90288649fbc298a_factory(Parser yyp) { return new objectRoleExpr1_36cf0e01213f4d05a90288649fbc298a(yyp); }
+        public static object builtin_unary_cmp_f42342a2c7e74153bd6fad912164a09e_factory(Parser yyp) { return new builtin_unary_cmp_f42342a2c7e74153bd6fad912164a09e(yyp); }
+        public static object orloop_009a8290e37345849a1180987de9be5b_factory(Parser yyp) { return new orloop_009a8290e37345849a1180987de9be5b(yyp); }
+        public static object exeargs_dedb7be397514b3b8032978e42985b45_factory(Parser yyp) { return new exeargs_dedb7be397514b3b8032978e42985b45(yyp); }
+        public static object oobjectCmp_factory(Parser yyp) { return new oobjectCmp(yyp); }
+        public static object subjectEverything_d8d0f8f1d0e7462c8d1f6773d656e8d3_factory(Parser yyp) { return new subjectEverything_d8d0f8f1d0e7462c8d1f6773d656e8d3(yyp); }
+        public static object subsumption_e11b8feca52a432982c43c7eef4e9fff_factory(Parser yyp) { return new subsumption_e11b8feca52a432982c43c7eef4e9fff(yyp); }
+        public static object identobject_name_2f71ecb76d814507b89088016afc756b_factory(Parser yyp) { return new identobject_name_2f71ecb76d814507b89088016afc756b(yyp); }
+        public static object isBeAre_c074f3547e2642baae4dee8d613e8409_factory(Parser yyp) { return new isBeAre_c074f3547e2642baae4dee8d613e8409(yyp); }
+        public static object datavalerFollowedByList_31358cf7b46841b5b007904f15c8e113_factory(Parser yyp) { return new datavalerFollowedByList_31358cf7b46841b5b007904f15c8e113(yyp); }
+        public static object condition_result_definition_bfa38c97338d412b851ae3a69b9cfb92_factory(Parser yyp) { return new condition_result_definition_bfa38c97338d412b851ae3a69b9cfb92(yyp); }
+        public static object equalTo_02e1029631bf4b709a469df03d37ec01_ab0683c73b1e47619b12824e51bd8938_factory(Parser yyp) { return new equalTo_02e1029631bf4b709a469df03d37ec01_ab0683c73b1e47619b12824e51bd8938(yyp); }
+        public static object Bool_7bd728463a3648f4821dcc1df88074ae_factory(Parser yyp) { return new Bool_7bd728463a3648f4821dcc1df88074ae(yyp); }
+        public static object exerule_0b3d9235c9f049308eaa150fa7fe6dc5_factory(Parser yyp) { return new exerule_0b3d9235c9f049308eaa150fa7fe6dc5(yyp); }
+        public static object singleOneOf_factory(Parser yyp) { return new singleOneOf(yyp); }
+        public static object objectRoleExpr2_924e43f9f12c47d39f389b84218c39b2_factory(Parser yyp) { return new objectRoleExpr2_924e43f9f12c47d39f389b84218c39b2(yyp); }
+        public static object objectr_factory(Parser yyp) { return new objectr(yyp); }
+        public static object objectRoleExpr1_factory(Parser yyp) { return new objectRoleExpr1(yyp); }
+        public static object comparer_a0c0bb93e6ae469793321c37956af897_factory(Parser yyp) { return new comparer_a0c0bb93e6ae469793321c37956af897(yyp); }
+        public static object oobjectOnlyInstance_factory(Parser yyp) { return new oobjectOnlyInstance(yyp); }
+        public static object comparer2_469cb9c5f35a4878b84b753ed5aa6a1a_daf2c9c6e5c8422a9e71782ad63f1af4_factory(Parser yyp) { return new comparer2_469cb9c5f35a4878b84b753ed5aa6a1a_daf2c9c6e5c8422a9e71782ad63f1af4(yyp); }
+        public static object comparer2_factory(Parser yyp) { return new comparer2(yyp); }
+        public static object identobject_factory(Parser yyp) { return new identobject(yyp); }
+        public static object paragraph_factory(Parser yyp) { return new paragraph(yyp); }
+        public static object word_number_75bd5a6cddf347a09ca63021c8ed26ad_faba2b6d66ab4550a02bb74333041ec9_factory(Parser yyp) { return new word_number_75bd5a6cddf347a09ca63021c8ed26ad_faba2b6d66ab4550a02bb74333041ec9(yyp); }
+        public static object duration_m_8bc29c23fa0f414d9fa5214fbebd4ada_factory(Parser yyp) { return new duration_m_8bc29c23fa0f414d9fa5214fbebd4ada(yyp); }
+        public static object nosubsumption_factory(Parser yyp) { return new nosubsumption(yyp); }
+        public static object binOp_bb9c172983b748b9857554319e6d40bb_factory(Parser yyp) { return new binOp_bb9c172983b748b9857554319e6d40bb(yyp); }
+        public static object doesNotBy_efdc773be95d4eb89dc96e2228b39f7c_factory(Parser yyp) { return new doesNotBy_efdc773be95d4eb89dc96e2228b39f7c(yyp); }
+        public static object objectRoleExpr_factory(Parser yyp) { return new objectRoleExpr(yyp); }
+        public static object condition_builtin_factory(Parser yyp) { return new condition_builtin(yyp); }
+        public static object identobject_name_db6df83e230f4c83b0a33be8be59c8ee_factory(Parser yyp) { return new identobject_name_db6df83e230f4c83b0a33be8be59c8ee(yyp); }
+        public static object modality_a2b72e688f854a05b5285b0dafef6501_factory(Parser yyp) { return new modality_a2b72e688f854a05b5285b0dafef6501(yyp); }
+        public static object instancer_67fb63a2276c44c580c90318fac84b88_factory(Parser yyp) { return new instancer_67fb63a2276c44c580c90318fac84b88(yyp); }
+        public static object modality2_factory(Parser yyp) { return new modality2(yyp); }
+        public static object binOp_d03cb2932c8e4f0ab8095286123f6797_6d013372786b4e7294e707369b187f39_factory(Parser yyp) { return new binOp_d03cb2932c8e4f0ab8095286123f6797_6d013372786b4e7294e707369b187f39(yyp); }
+        public static object valueOrThing_b292e5effebc4cf08f68227d444765da_e394101d548f4b1790b3a7fb2cffaaec_factory(Parser yyp) { return new valueOrThing_b292e5effebc4cf08f68227d444765da_e394101d548f4b1790b3a7fb2cffaaec(yyp); }
+        public static object builtin_list_factory(Parser yyp) { return new builtin_list(yyp); }
+        public static object word_number_e49d3cc248904823a1e3a1a3e0636e87_factory(Parser yyp) { return new word_number_e49d3cc248904823a1e3a1a3e0636e87(yyp); }
+        public static object oobjectA_b25547576b434f7fab695d719256db02_factory(Parser yyp) { return new oobjectA_b25547576b434f7fab695d719256db02(yyp); }
+        public static object condition_builtin_404e871395204a49aad4da7fe66997d1_factory(Parser yyp) { return new condition_builtin_404e871395204a49aad4da7fe66997d1(yyp); }
+        public static object datavalerFollowedByList_f66a5ef8595548f28eecf225fee146ed_factory(Parser yyp) { return new datavalerFollowedByList_f66a5ef8595548f28eecf225fee146ed(yyp); }
+        public static object objectr_nio_3e0d3830f09c478b96444fef526d4ef2_factory(Parser yyp) { return new objectr_nio_3e0d3830f09c478b96444fef526d4ef2(yyp); }
+        public static object modality2_65c4f542ddbd4e18bcb08dfa7f89efc6_factory(Parser yyp) { return new modality2_65c4f542ddbd4e18bcb08dfa7f89efc6(yyp); }
+        public static object notidentobject_factory(Parser yyp) { return new notidentobject(yyp); }
+        public static object unOp2_5e29de36058a472b8e84736e6631ef1e_factory(Parser yyp) { return new unOp2_5e29de36058a472b8e84736e6631ef1e(yyp); }
+        public static object oobjectA_17fb8807dc2a404e8456e6658b43a07d_factory(Parser yyp) { return new oobjectA_17fb8807dc2a404e8456e6658b43a07d(yyp); }
+        public static object roleequivalence2_7329660247a3423dbbe6d751ea254a7f_factory(Parser yyp) { return new roleequivalence2_7329660247a3423dbbe6d751ea254a7f(yyp); }
+        public static object unOp_580a60d4d1d54a1c9c8f5c9001e818b1_factory(Parser yyp) { return new unOp_580a60d4d1d54a1c9c8f5c9001e818b1(yyp); }
+        public static object condition_is_factory(Parser yyp) { return new condition_is(yyp); }
+        public static object boundTotal_aece926e36334b22b0ccccd4a9967b6f_factory(Parser yyp) { return new boundTotal_aece926e36334b22b0ccccd4a9967b6f(yyp); }
+        public static object builtin_exe_38dcc13695b745029673f6bf43cce7a6_factory(Parser yyp) { return new builtin_exe_38dcc13695b745029673f6bf43cce7a6(yyp); }
+        public static object builtin_substr_3c32f071139b4b7e9262c07f5e8d086e_factory(Parser yyp) { return new builtin_substr_3c32f071139b4b7e9262c07f5e8d086e(yyp); }
+        public static object andloop_e3de1582f6d74803ab551f91b1708bcd_factory(Parser yyp) { return new andloop_e3de1582f6d74803ab551f91b1708bcd(yyp); }
+        public static object datetime_9d175bd7e80948ccb573987c4312e831_factory(Parser yyp) { return new datetime_9d175bd7e80948ccb573987c4312e831(yyp); }
+        public static object sentence_factory(Parser yyp) { return new sentence(yyp); }
+        public static object singleThing_027b542c7d7d420f9939341d13468e6f_factory(Parser yyp) { return new singleThing_027b542c7d7d420f9939341d13468e6f(yyp); }
+        public static object singleThingThat_c13bf3918b4e485590d9146d5d5071de_factory(Parser yyp) { return new singleThingThat_c13bf3918b4e485590d9146d5d5071de(yyp); }
+        public static object facetList_4439de31ce8d4a6dad5120738bb949b8_factory(Parser yyp) { return new facetList_4439de31ce8d4a6dad5120738bb949b8(yyp); }
+        public static object modality_418a797e33f8415090b8ccb9cf27e0ca_factory(Parser yyp) { return new modality_418a797e33f8415090b8ccb9cf27e0ca(yyp); }
+        public static object condition_data_property_factory(Parser yyp) { return new condition_data_property(yyp); }
+        public static object builtin_alpha_factory(Parser yyp) { return new builtin_alpha(yyp); }
+        public static object comparer_a0c0bb93e6ae469793321c37956af897_04b1cd80d9ec4dc9b2e56bad4333cc56_factory(Parser yyp) { return new comparer_a0c0bb93e6ae469793321c37956af897_04b1cd80d9ec4dc9b2e56bad4333cc56(yyp); }
+        public static object exclusiveunion_factory(Parser yyp) { return new exclusiveunion(yyp); }
+        public static object comparer2_587ff1bbf2da4e7d8b88417a53cfb5e7_factory(Parser yyp) { return new comparer2_587ff1bbf2da4e7d8b88417a53cfb5e7(yyp); }
+        public static object condition_result_data_property_cd2208eb47554d05a88bc19b0e0f3557_factory(Parser yyp) { return new condition_result_data_property_cd2208eb47554d05a88bc19b0e0f3557(yyp); }
+        public static object unOp_45c2620dc3744a0798b88be259a3133e_4966f022786945619ab8bac5dc1c4da7_factory(Parser yyp) { return new unOp_45c2620dc3744a0798b88be259a3133e_4966f022786945619ab8bac5dc1c4da7(yyp); }
+        public static object DateTimeData_factory(Parser yyp) { return new DateTimeData(yyp); }
+        public static object comparer2_214406d730e745df9f734e109290ad77_dc3359640dd04db190bf53abb66fde9a_factory(Parser yyp) { return new comparer2_214406d730e745df9f734e109290ad77_dc3359640dd04db190bf53abb66fde9a(yyp); }
+        public static object equalTo_da1a5ce4efaf479e89d992a3133720b7_factory(Parser yyp) { return new equalTo_da1a5ce4efaf479e89d992a3133720b7(yyp); }
+        public static object objectRoleExpr2_8a5455a74e4b4e8e82837a108198e0cd_factory(Parser yyp) { return new objectRoleExpr2_8a5455a74e4b4e8e82837a108198e0cd(yyp); }
+        public static object oobjectSelf_107b7f335e9642db95cbe9eacf9e8599_factory(Parser yyp) { return new oobjectSelf_107b7f335e9642db95cbe9eacf9e8599(yyp); }
+        public static object subjectNo_3aa0e323824548baae9acb988db41f47_factory(Parser yyp) { return new subjectNo_3aa0e323824548baae9acb988db41f47(yyp); }
+        public static object equalTo_bc50a34a422d45dc9f8aaab9e3c89df6_factory(Parser yyp) { return new equalTo_bc50a34a422d45dc9f8aaab9e3c89df6(yyp); }
+        public static object condition_role_a276b189029044c990d6e87acfb16909_factory(Parser yyp) { return new condition_role_a276b189029044c990d6e87acfb16909(yyp); }
+        public static object boundDataType_factory(Parser yyp) { return new boundDataType(yyp); }
+        public static object code_factory(Parser yyp) { return new code(yyp); }
+        public static object nosubsumption_241070898bd34b07be44ae8b03b9fa25_factory(Parser yyp) { return new nosubsumption_241070898bd34b07be44ae8b03b9fa25(yyp); }
+        public static object aAn_4da7a5201e2b453cab1bb992ac99294f_factory(Parser yyp) { return new aAn_4da7a5201e2b453cab1bb992ac99294f(yyp); }
+        public static object boundFacets_b18592c63926410fa1be8207c1c1239b_factory(Parser yyp) { return new boundFacets_b18592c63926410fa1be8207c1c1239b(yyp); }
+        public static object duration_m_factory(Parser yyp) { return new duration_m(yyp); }
+        public static object instanceBigName_1e636d9f23c1424fb328abdd45d2ce29_factory(Parser yyp) { return new instanceBigName_1e636d9f23c1424fb328abdd45d2ce29(yyp); }
+        public static object StrData_factory(Parser yyp) { return new StrData(yyp); }
+        public static object modality_2994985d0cdc4d74bde814570c298b31_factory(Parser yyp) { return new modality_2994985d0cdc4d74bde814570c298b31(yyp); }
+        public static object swrlrule_943c8bac97c94c82a87e57602514c1d5_factory(Parser yyp) { return new swrlrule_943c8bac97c94c82a87e57602514c1d5(yyp); }
+        public static object identobject_name_a74993c3e8ef4b53b4e341ce3a3d454b_factory(Parser yyp) { return new identobject_name_a74993c3e8ef4b53b4e341ce3a3d454b(yyp); }
+        public static object oobjectOnlySomethingThat_623f154535ae4f53951b0fadee21be88_factory(Parser yyp) { return new oobjectOnlySomethingThat_623f154535ae4f53951b0fadee21be88(yyp); }
+        public static object error_factory(Parser yyp) { return new error(yyp); }
+        public static object singleThingThat_5aa505e771854f21833e7d6c82f10846_factory(Parser yyp) { return new singleThingThat_5aa505e771854f21833e7d6c82f10846(yyp); }
+        public static object boundVal_29311d3be24545c1a3d44fc83ce5932f_factory(Parser yyp) { return new boundVal_29311d3be24545c1a3d44fc83ce5932f(yyp); }
+        public static object binOp_decd62613c0f4f7fafe385767da99fb4_factory(Parser yyp) { return new binOp_decd62613c0f4f7fafe385767da99fb4(yyp); }
+        public static object condition_definition_835c47f908394e68b1462e376f670837_factory(Parser yyp) { return new condition_definition_835c47f908394e68b1462e376f670837(yyp); }
+        public static object objectRoleExpr3_factory(Parser yyp) { return new objectRoleExpr3(yyp); }
+        public static object objectRoleExpr2_factory(Parser yyp) { return new objectRoleExpr2(yyp); }
+        public static object builtin_cmp_946d7d48c4614d5f9794a4058d592831_factory(Parser yyp) { return new builtin_cmp_946d7d48c4614d5f9794a4058d592831(yyp); }
+        public static object builtin_datetime_factory(Parser yyp) { return new builtin_datetime(yyp); }
+        public static object role_19de336b9f7f4160896933435e4fb29a_factory(Parser yyp) { return new role_19de336b9f7f4160896933435e4fb29a(yyp); }
+        public static object boundNot_45259cdb5cc64446ab1766109ff78fdf_factory(Parser yyp) { return new boundNot_45259cdb5cc64446ab1766109ff78fdf(yyp); }
+        public static object builtin_cmp_factory(Parser yyp) { return new builtin_cmp(yyp); }
+        public static object boundAnd_factory(Parser yyp) { return new boundAnd(yyp); }
+        public static object modality2_65c4f542ddbd4e18bcb08dfa7f89efc6_17d398d661fb4d528f09bb6bbab1450f_factory(Parser yyp) { return new modality2_65c4f542ddbd4e18bcb08dfa7f89efc6_17d398d661fb4d528f09bb6bbab1450f(yyp); }
+        public static object singleThing_factory(Parser yyp) { return new singleThing(yyp); }
+        public static object thatOrLoop_factory(Parser yyp) { return new thatOrLoop(yyp); }
+        public static object boundIdent_factory(Parser yyp) { return new boundIdent(yyp); }
+        public static object oobjectBnd_f5bc457fb16a4e18af92122e283da35e_factory(Parser yyp) { return new oobjectBnd_f5bc457fb16a4e18af92122e283da35e(yyp); }
+        public static object dataroleequivalence2_factory(Parser yyp) { return new dataroleequivalence2(yyp); }
+        public static object DateTimeData_2cce692ba0a5488c9b79920d2e985eaf_factory(Parser yyp) { return new DateTimeData_2cce692ba0a5488c9b79920d2e985eaf(yyp); }
+        public static object haskey_factory(Parser yyp) { return new haskey(yyp); }
+        public static object valueOrThing_606f91515c9a4f178ebde2e9e15da180_a0194531c9a046758b0864b1beb8f1b0_factory(Parser yyp) { return new valueOrThing_606f91515c9a4f178ebde2e9e15da180_a0194531c9a046758b0864b1beb8f1b0(yyp); }
+        public static object boundOneOf_factory(Parser yyp) { return new boundOneOf(yyp); }
+        public static object comparer2_11e106ec73574e0d8853ad29dfb3ed8e_27b290a48ef545c1848fd6f340bf8239_factory(Parser yyp) { return new comparer2_11e106ec73574e0d8853ad29dfb3ed8e_27b290a48ef545c1848fd6f340bf8239(yyp); }
+        public static object builtin_unary_cmp_factory(Parser yyp) { return new builtin_unary_cmp(yyp); }
+        public static object oobjectNothing_factory(Parser yyp) { return new oobjectNothing(yyp); }
+        public static object instanceThe_factory(Parser yyp) { return new instanceThe(yyp); }
+        public static object andloop_factory(Parser yyp) { return new andloop(yyp); }
+        public static object modality_8f69bc2826e14a64b655e1d64d497a75_6e7d1c5cb95c495886cac24c6c505c9e_factory(Parser yyp) { return new modality_8f69bc2826e14a64b655e1d64d497a75_6e7d1c5cb95c495886cac24c6c505c9e(yyp); }
+        public static object oobjectOnlyBnd_factory(Parser yyp) { return new oobjectOnlyBnd(yyp); }
+        public static object instance_factory(Parser yyp) { return new instance(yyp); }
+        public static object equivalence2_factory(Parser yyp) { return new equivalence2(yyp); }
+        public static object that_factory(Parser yyp) { return new that(yyp); }
+        public static object builtin_duration_factory(Parser yyp) { return new builtin_duration(yyp); }
+        public static object condition_exists_factory(Parser yyp) { return new condition_exists(yyp); }
+        public static object condition_definition_factory(Parser yyp) { return new condition_definition(yyp); }
+        public static object code_cbe070844a604bcd8667f1542c831241_factory(Parser yyp) { return new code_cbe070844a604bcd8667f1542c831241(yyp); }
+        public static object Number_905fb068ff8c4500a200cb7d77c377a0_factory(Parser yyp) { return new Number_905fb068ff8c4500a200cb7d77c377a0(yyp); }
+        public static object clause_4afb50346dbc4e0ab977917496ae7465_factory(Parser yyp) { return new clause_4afb50346dbc4e0ab977917496ae7465(yyp); }
+        public static object builtin_list_e48ab73f344340b7b7bf105756aaa681_factory(Parser yyp) { return new builtin_list_e48ab73f344340b7b7bf105756aaa681(yyp); }
+        public static object unOp2_factory(Parser yyp) { return new unOp2(yyp); }
+        public static object datavalList_bbab639eab514464a606fc27d2b58cfb_factory(Parser yyp) { return new datavalList_bbab639eab514464a606fc27d2b58cfb(yyp); }
+        public static object unOp_c4ccaad173814dd9849b1c02d3e4fce6_factory(Parser yyp) { return new unOp_c4ccaad173814dd9849b1c02d3e4fce6(yyp); }
+        public static object thatOrLoop_cc5e77cf72b948a89f0ce8fc8ddb7303_factory(Parser yyp) { return new thatOrLoop_cc5e77cf72b948a89f0ce8fc8ddb7303(yyp); }
+        public static object Float_factory(Parser yyp) { return new Float(yyp); }
+        public static object boundNot_factory(Parser yyp) { return new boundNot(yyp); }
+        public static object condition_role_factory(Parser yyp) { return new condition_role(yyp); }
+        public static object objectr_io_factory(Parser yyp) { return new objectr_io(yyp); }
+        public static object unOp_a56e6c90a8e24c09a709d29ba96464e4_factory(Parser yyp) { return new unOp_a56e6c90a8e24c09a709d29ba96464e4(yyp); }
+        public static object roledisjoint2_0e157aedc4c4420286bc66850f27b4a2_factory(Parser yyp) { return new roledisjoint2_0e157aedc4c4420286bc66850f27b4a2(yyp); }
+        public static object oobjectOnlyBnd_0f7bc12a73fe4b20b422df4fe7d65cf3_factory(Parser yyp) { return new oobjectOnlyBnd_0f7bc12a73fe4b20b422df4fe7d65cf3(yyp); }
+        public static object subjectEvery_factory(Parser yyp) { return new subjectEvery(yyp); }
+        public static object clause_result_e4966a20715f4ad6a9f4eaeb33a5ea99_factory(Parser yyp) { return new clause_result_e4966a20715f4ad6a9f4eaeb33a5ea99(yyp); }
+        public static object builtin_annot_factory(Parser yyp) { return new builtin_annot(yyp); }
+        public static object Bool_factory(Parser yyp) { return new Bool(yyp); }
+        public static object comparer2_b0fe676e97734f1ba55ea7231f35b8bc_factory(Parser yyp) { return new comparer2_b0fe676e97734f1ba55ea7231f35b8bc(yyp); }
+        public static object haskey_42d75fdf80ab4593b47edf7159d47307_factory(Parser yyp) { return new haskey_42d75fdf80ab4593b47edf7159d47307(yyp); }
+        public static object chain_factory(Parser yyp) { return new chain(yyp); }
+        public static object condition_result_role_factory(Parser yyp) { return new condition_result_role(yyp); }
+        public static object builtin_bin_factory(Parser yyp) { return new builtin_bin(yyp); }
+        public static object oobjectCmpInstance_factory(Parser yyp) { return new oobjectCmpInstance(yyp); }
+        public static object clause_result_34e19e77573e4cee91a7ff6f0b710780_factory(Parser yyp) { return new clause_result_34e19e77573e4cee91a7ff6f0b710780(yyp); }
+        public static object binOp_d03cb2932c8e4f0ab8095286123f6797_factory(Parser yyp) { return new binOp_d03cb2932c8e4f0ab8095286123f6797(yyp); }
+        public static object Duration_factory(Parser yyp) { return new Duration(yyp); }
+        public static object orObjectRoleExprChain_factory(Parser yyp) { return new orObjectRoleExprChain(yyp); }
+        public static object equivalence2_2ece582c05814d189b07e26b3fc415f0_factory(Parser yyp) { return new equivalence2_2ece582c05814d189b07e26b3fc415f0(yyp); }
+        public static object facetList_factory(Parser yyp) { return new facetList(yyp); }
+        public static object boundOr_175e4bd629cc4ce4bbcb2a4999452b4c_factory(Parser yyp) { return new boundOr_175e4bd629cc4ce4bbcb2a4999452b4c(yyp); }
+        public static object annotation_factory(Parser yyp) { return new annotation(yyp); }
+        public static object oobjectSelf_factory(Parser yyp) { return new oobjectSelf(yyp); }
+        public static object condition_result_data_property_factory(Parser yyp) { return new condition_result_data_property(yyp); }
+        public static object datatypedef_factory(Parser yyp) { return new datatypedef(yyp); }
+        public static object clause_result_factory(Parser yyp) { return new clause_result(yyp); }
+        public static object duration_m_954e0a8601524bfcb8dd02dd40da7138_factory(Parser yyp) { return new duration_m_954e0a8601524bfcb8dd02dd40da7138(yyp); }
+        public static object boundVal_factory(Parser yyp) { return new boundVal(yyp); }
+        public static object boundTotal_factory(Parser yyp) { return new boundTotal(yyp); }
+        public static object notRoleWithXY_52cb25920ebd47df94420b8e97bb2a19_factory(Parser yyp) { return new notRoleWithXY_52cb25920ebd47df94420b8e97bb2a19(yyp); }
+        public static object builtin_bin_e973596f450e4814ab503802d183a2d2_factory(Parser yyp) { return new builtin_bin_e973596f450e4814ab503802d183a2d2(yyp); }
+        public static object oobjectOnlySomethingThat_factory(Parser yyp) { return new oobjectOnlySomethingThat(yyp); }
+        public static object oobjectInstance_factory(Parser yyp) { return new oobjectInstance(yyp); }
+        public static object objectRoleExpr1_447e56a3854146ce9506d780f10a1ba3_factory(Parser yyp) { return new objectRoleExpr1_447e56a3854146ce9506d780f10a1ba3(yyp); }
+        public static object singleThingThat_4af593f3c9c942aa8d42c41502b3cfd9_factory(Parser yyp) { return new singleThingThat_4af593f3c9c942aa8d42c41502b3cfd9(yyp); }
+        public static object orComma_de6f2dda1b30498c9c2c5d4e08dcbc02_factory(Parser yyp) { return new orComma_de6f2dda1b30498c9c2c5d4e08dcbc02(yyp); }
+        public static object datavalerTimesList_f5a5d38302574d3282fede0c80d42c45_factory(Parser yyp) { return new datavalerTimesList_f5a5d38302574d3282fede0c80d42c45(yyp); }
+        public static object identobject_name_factory(Parser yyp) { return new identobject_name(yyp); }
+        public static object duration_w_factory(Parser yyp) { return new duration_w(yyp); }
+        public static object condition_result_is_factory(Parser yyp) { return new condition_result_is(yyp); }
+        public static object word_number_f29f4b45d4f6440faab7b038d63e8016_factory(Parser yyp) { return new word_number_f29f4b45d4f6440faab7b038d63e8016(yyp); }
+        public static object modality2_39e84493f70c44e4b103f81e61df7146_factory(Parser yyp) { return new modality2_39e84493f70c44e4b103f81e61df7146(yyp); }
+        public static object subjectNothing_factory(Parser yyp) { return new subjectNothing(yyp); }
+        public static object subjectThe_factory(Parser yyp) { return new subjectThe(yyp); }
+        public static object datavalerPlusList_1027d4d7a1d44f248cbb749a7b8379c4_factory(Parser yyp) { return new datavalerPlusList_1027d4d7a1d44f248cbb749a7b8379c4(yyp); }
+        public static object comparer2_b0fe676e97734f1ba55ea7231f35b8bc_48f64b1ce3024ea4a87b7d0a4a07a4f6_factory(Parser yyp) { return new comparer2_b0fe676e97734f1ba55ea7231f35b8bc_48f64b1ce3024ea4a87b7d0a4a07a4f6(yyp); }
+        public static object condition_result_is_a76c128b6c4a4fd080e8207bb5686aaf_factory(Parser yyp) { return new condition_result_is_a76c128b6c4a4fd080e8207bb5686aaf(yyp); }
+        public static object comparer_1592b4ba6da04d7aa71e8b2f19b6bc01_factory(Parser yyp) { return new comparer_1592b4ba6da04d7aa71e8b2f19b6bc01(yyp); }
+        public static object unOp_fbfd003d2c10478f98392c2071fc6b30_factory(Parser yyp) { return new unOp_fbfd003d2c10478f98392c2071fc6b30(yyp); }
+        public static object objectr_io_ee9983a723fd4267a9248edc2a281b7b_factory(Parser yyp) { return new objectr_io_ee9983a723fd4267a9248edc2a281b7b(yyp); }
+        public static object identobject_inst_factory(Parser yyp) { return new identobject_inst(yyp); }
+        public static object equalTo_da1a5ce4efaf479e89d992a3133720b7_c77ccc0f563e4beb95e9c323d6772ad7_factory(Parser yyp) { return new equalTo_da1a5ce4efaf479e89d992a3133720b7_c77ccc0f563e4beb95e9c323d6772ad7(yyp); }
+        public static object unOp_7b7d90a7bb91439e9a99a97c9b68aaa3_032a287ddb214419b8fd109c616d4a90_factory(Parser yyp) { return new unOp_7b7d90a7bb91439e9a99a97c9b68aaa3_032a287ddb214419b8fd109c616d4a90(yyp); }
+        public static object unOp_45c2620dc3744a0798b88be259a3133e_factory(Parser yyp) { return new unOp_45c2620dc3744a0798b88be259a3133e(yyp); }
+        public static object comparer_5ecbaad0e39b422491fc9c98728523fc_ba645194d6924b0087226328f3ed2351_factory(Parser yyp) { return new comparer_5ecbaad0e39b422491fc9c98728523fc_ba645194d6924b0087226328f3ed2351(yyp); }
+        public static object orObjectRoleExprChain_1280932fed444a0dbbe66357a095bc98_factory(Parser yyp) { return new orObjectRoleExprChain_1280932fed444a0dbbe66357a095bc98(yyp); }
+        public static object instanceThe_aabecdb18b164b9e806c3f5407c38d6f_factory(Parser yyp) { return new instanceThe_aabecdb18b164b9e806c3f5407c38d6f(yyp); }
+        public static object builtin_list_1f1f215d473e40fbac3c2ea190bd875f_factory(Parser yyp) { return new builtin_list_1f1f215d473e40fbac3c2ea190bd875f(yyp); }
+        public static object unOp2_a6f44f374d46487b93ad3733d3c68a6c_factory(Parser yyp) { return new unOp2_a6f44f374d46487b93ad3733d3c68a6c(yyp); }
+        public static object roledisjoint2_factory(Parser yyp) { return new roledisjoint2(yyp); }
+        public static object StrData_cfad7327880546028155730124b7a9c2_factory(Parser yyp) { return new StrData_cfad7327880546028155730124b7a9c2(yyp); }
+        public static object word_number_75bd5a6cddf347a09ca63021c8ed26ad_factory(Parser yyp) { return new word_number_75bd5a6cddf347a09ca63021c8ed26ad(yyp); }
+        public static object builtin_exe_factory(Parser yyp) { return new builtin_exe(yyp); }
+        public static object oobjectSomething_factory(Parser yyp) { return new oobjectSomething(yyp); }
+        public static object clause_896721228f0749b1835787e438800b80_factory(Parser yyp) { return new clause_896721228f0749b1835787e438800b80(yyp); }
+        public static object instanceList_factory(Parser yyp) { return new instanceList(yyp); }
+        public static object andloop_e2351c0e014c4a929e8994e6c5548a06_factory(Parser yyp) { return new andloop_e2351c0e014c4a929e8994e6c5548a06(yyp); }
+        public static object unOp_7b7d90a7bb91439e9a99a97c9b68aaa3_factory(Parser yyp) { return new unOp_7b7d90a7bb91439e9a99a97c9b68aaa3(yyp); }
+        public static object modality2_a9903bb7580245b5883060adb41cf3e7_factory(Parser yyp) { return new modality2_a9903bb7580245b5883060adb41cf3e7(yyp); }
+        public static object comparer2_214406d730e745df9f734e109290ad77_factory(Parser yyp) { return new comparer2_214406d730e745df9f734e109290ad77(yyp); }
+        public static object paragraph_566245c87df54ee3bb78d5606c0fc1e8_factory(Parser yyp) { return new paragraph_566245c87df54ee3bb78d5606c0fc1e8(yyp); }
+        public static object condition_result_is_92cac4ab014b429fbecd05c009e4f3d3_factory(Parser yyp) { return new condition_result_is_92cac4ab014b429fbecd05c009e4f3d3(yyp); }
+        public static object rolesubsumption_7af6523e728b450da936b5061ba53008_factory(Parser yyp) { return new rolesubsumption_7af6523e728b450da936b5061ba53008(yyp); }
+        public static object role_1dd48d6cbe9549b084e63dbcf3a1aa81_factory(Parser yyp) { return new role_1dd48d6cbe9549b084e63dbcf3a1aa81(yyp); }
+        public static object word_number_f7873402a182481d9f3d6ec914ae2965_factory(Parser yyp) { return new word_number_f7873402a182481d9f3d6ec914ae2965(yyp); }
+        public static object duration_m_55afbd56816a4d12b9ac108a3f2cc8cf_factory(Parser yyp) { return new duration_m_55afbd56816a4d12b9ac108a3f2cc8cf(yyp); }
+        public static object builtin_substr_factory(Parser yyp) { return new builtin_substr(yyp); }
+        public static object annotation_44947d7626e243a382eb0069325b2d2c_factory(Parser yyp) { return new annotation_44947d7626e243a382eb0069325b2d2c(yyp); }
+        public static object oobjectInstance_722298a5591f4241b81f6afc6f9b4040_factory(Parser yyp) { return new oobjectInstance_722298a5591f4241b81f6afc6f9b4040(yyp); }
+        public static object condition_result_role_08f60b79e87347629c40e05c00ba7320_factory(Parser yyp) { return new condition_result_role_08f60b79e87347629c40e05c00ba7320(yyp); }
+        public static object dataroledisjoint2_443ae1c9dfc34907879db58e54a43552_factory(Parser yyp) { return new dataroledisjoint2_443ae1c9dfc34907879db58e54a43552(yyp); }
+        public static object singleName_96baba4832584aa5a9c41319d6aac993_factory(Parser yyp) { return new singleName_96baba4832584aa5a9c41319d6aac993(yyp); }
+        public static object subsumption_factory(Parser yyp) { return new subsumption(yyp); }
+        public static object builtin_alpha_aef1c6f72a054960bdce448f4a84f3a0_factory(Parser yyp) { return new builtin_alpha_aef1c6f72a054960bdce448f4a84f3a0(yyp); }
+        public static object unOp_b29fb39a8a2c4ad6b274981f8a22136c_defeec6d3e904923b3dcb7daa4e43ad1_factory(Parser yyp) { return new unOp_b29fb39a8a2c4ad6b274981f8a22136c_defeec6d3e904923b3dcb7daa4e43ad1(yyp); }
+        public static object condition_data_bound_factory(Parser yyp) { return new condition_data_bound(yyp); }
+        public static object orComma_c868b6e1644e46dd8b823005b69c36f6_factory(Parser yyp) { return new orComma_c868b6e1644e46dd8b823005b69c36f6(yyp); }
+        public static object singleThing_2c020c6f78d04c66affa2f215acad6f0_factory(Parser yyp) { return new singleThing_2c020c6f78d04c66affa2f215acad6f0(yyp); }
+        public static object modality2_a9903bb7580245b5883060adb41cf3e7_5978f781665c46f5898d26123f73c7da_factory(Parser yyp) { return new modality2_a9903bb7580245b5883060adb41cf3e7_5978f781665c46f5898d26123f73c7da(yyp); }
+        public static object valueOrThing_factory(Parser yyp) { return new valueOrThing(yyp); }
+        public static object binOp_decd62613c0f4f7fafe385767da99fb4_7a83a968f8894995b3f2e13a43e8f9f0_factory(Parser yyp) { return new binOp_decd62613c0f4f7fafe385767da99fb4_7a83a968f8894995b3f2e13a43e8f9f0(yyp); }
+        public static object valueOrThing_11693110f638425bb998c8487484accb_factory(Parser yyp) { return new valueOrThing_11693110f638425bb998c8487484accb(yyp); }
+        public static object andanyrolechain_edab88b964b3415ea64a77e329d21f2b_factory(Parser yyp) { return new andanyrolechain_edab88b964b3415ea64a77e329d21f2b(yyp); }
+        public static object subjectEverything_eafee055036a4f93a25c840d4b1400b8_factory(Parser yyp) { return new subjectEverything_eafee055036a4f93a25c840d4b1400b8(yyp); }
+        public static object orComma_factory(Parser yyp) { return new orComma(yyp); }
+        public static object builtin_trans_factory(Parser yyp) { return new builtin_trans(yyp); }
+        public static object subjectThe_6508d4ff2b3946699f3af047d72e60e6_factory(Parser yyp) { return new subjectThe_6508d4ff2b3946699f3af047d72e60e6(yyp); }
+        public static object oobjectNothing_2901c595cf1540c19f93bb5c009cbb87_factory(Parser yyp) { return new oobjectNothing_2901c595cf1540c19f93bb5c009cbb87(yyp); }
+        public static object instanceList_069c2d4f5b5a45a1befc5253260ec712_factory(Parser yyp) { return new instanceList_069c2d4f5b5a45a1befc5253260ec712(yyp); }
+        public static object instanceBigName_9280333231384117af3a6a0100620d76_factory(Parser yyp) { return new instanceBigName_9280333231384117af3a6a0100620d76(yyp); }
+        public static object datavalerTimesList_factory(Parser yyp) { return new datavalerTimesList(yyp); }
+        public static object oobjectOnly_factory(Parser yyp) { return new oobjectOnly(yyp); }
+        public static object andanyrolechain_factory(Parser yyp) { return new andanyrolechain(yyp); }
+        public static object comparer2_6be5d1975f4a46fd94c2f08da7d7a9cf_factory(Parser yyp) { return new comparer2_6be5d1975f4a46fd94c2f08da7d7a9cf(yyp); }
+        public static object boundTop_275235405d9443ac9a990108000eb708_factory(Parser yyp) { return new boundTop_275235405d9443ac9a990108000eb708(yyp); }
+        public static object andanyrolechain_9cb513c982124810877effaecd901b05_factory(Parser yyp) { return new andanyrolechain_9cb513c982124810877effaecd901b05(yyp); }
+        public static object notidentobject_a31997c075994d7399c36d4cff248073_factory(Parser yyp) { return new notidentobject_a31997c075994d7399c36d4cff248073(yyp); }
+        public static object condition_is_2c5c8b2d68c842e797705cfc4be4ccfc_factory(Parser yyp) { return new condition_is_2c5c8b2d68c842e797705cfc4be4ccfc(yyp); }
+        public static object subjectNothing_7a10a8be0b3141b49936878cfa3c2393_factory(Parser yyp) { return new subjectNothing_7a10a8be0b3141b49936878cfa3c2393(yyp); }
+        public static object andComma_e5f37ebe59584ba2868ea509fe54bb77_factory(Parser yyp) { return new andComma_e5f37ebe59584ba2868ea509fe54bb77(yyp); }
+        public static object modality_factory(Parser yyp) { return new modality(yyp); }
+        public static object duration_m_c42cc94093cd4389ba02e7236c12aca7_factory(Parser yyp) { return new duration_m_c42cc94093cd4389ba02e7236c12aca7(yyp); }
+        public static object oobjectOnlyNothing_factory(Parser yyp) { return new oobjectOnlyNothing(yyp); }
+        public static object instanceThe_0e073159e58d4676ae81f9be6dc723ee_factory(Parser yyp) { return new instanceThe_0e073159e58d4676ae81f9be6dc723ee(yyp); }
+        public static object aAn_factory(Parser yyp) { return new aAn(yyp); }
+        public static object isBeAre_5c14e059db714db585d1b5f2d4ff642d_factory(Parser yyp) { return new isBeAre_5c14e059db714db585d1b5f2d4ff642d(yyp); }
+        public static object condition_result_factory(Parser yyp) { return new condition_result(yyp); }
+        public static object facet_0d405be671eb4858b930ed5b5683541e_factory(Parser yyp) { return new facet_0d405be671eb4858b930ed5b5683541e(yyp); }
+        public static object roleWithXY_factory(Parser yyp) { return new roleWithXY(yyp); }
+        public static object dataroledisjoint2_factory(Parser yyp) { return new dataroledisjoint2(yyp); }
+        public static object doesNot_factory(Parser yyp) { return new doesNot(yyp); }
+        public static object binOp_factory(Parser yyp) { return new binOp(yyp); }
+        public static object objectr_nio_factory(Parser yyp) { return new objectr_nio(yyp); }
+        public static object subjectEvery_9a9d70377b6d4bbdb1976cff0484dd2c_factory(Parser yyp) { return new subjectEvery_9a9d70377b6d4bbdb1976cff0484dd2c(yyp); }
+        public static object objectRoleExpr2_1215fd8d349f4815b218576300ac412a_factory(Parser yyp) { return new objectRoleExpr2_1215fd8d349f4815b218576300ac412a(yyp); }
+        public static object datavalerTimesList_b27ec15854c24ac89733734cf77072d2_factory(Parser yyp) { return new datavalerTimesList_b27ec15854c24ac89733734cf77072d2(yyp); }
+        public static object singleNameThat_dcf44b171bab44659e6789f964328462_factory(Parser yyp) { return new singleNameThat_dcf44b171bab44659e6789f964328462(yyp); }
+        public static object condition_data_property_bound_199281df83cd4401ae5f574544961b1e_factory(Parser yyp) { return new condition_data_property_bound_199281df83cd4401ae5f574544961b1e(yyp); }
+        public static object role_factory(Parser yyp) { return new role(yyp); }
+        public static object instanceBigName_factory(Parser yyp) { return new instanceBigName(yyp); }
+        public static object equalTo_d7301e3cdc084c2f97a594538d3895f7_factory(Parser yyp) { return new equalTo_d7301e3cdc084c2f97a594538d3895f7(yyp); }
+        public static object datatypedef_ede858d8e5dc4afdaaf6f887b2464fad_factory(Parser yyp) { return new datatypedef_ede858d8e5dc4afdaaf6f887b2464fad(yyp); }
+        public static object binOp_67f4ca57a0b3428d92570e2f1277da2c_factory(Parser yyp) { return new binOp_67f4ca57a0b3428d92570e2f1277da2c(yyp); }
+        public static object builtin_unary_free_129c9687f63741f982aa3fd65b1d0be0_factory(Parser yyp) { return new builtin_unary_free_129c9687f63741f982aa3fd65b1d0be0(yyp); }
+        public static object datavalerFollowedByList_factory(Parser yyp) { return new datavalerFollowedByList(yyp); }
+        public static object objectRoleExpr2_916548c0549c4e3392c7d97720703364_factory(Parser yyp) { return new objectRoleExpr2_916548c0549c4e3392c7d97720703364(yyp); }
+        public static object datavalvar_factory(Parser yyp) { return new datavalvar(yyp); }
+        public static object binOp_a7b23d9bc410429f82a991f2001c95b2_factory(Parser yyp) { return new binOp_a7b23d9bc410429f82a991f2001c95b2(yyp); }
+        public static object equalTo_factory(Parser yyp) { return new equalTo(yyp); }
+        public static object datavalerPlusList_factory(Parser yyp) { return new datavalerPlusList(yyp); }
+        public static object exclusives_91ffa52d905549b0aaea515988ac0301_factory(Parser yyp) { return new exclusives_91ffa52d905549b0aaea515988ac0301(yyp); }
+        public static object unOp_c74ee41853af4d08897b08b21a8b04bb_f246cea1ed394396824a7e7a2da47609_factory(Parser yyp) { return new unOp_c74ee41853af4d08897b08b21a8b04bb_f246cea1ed394396824a7e7a2da47609(yyp); }
+        public static object duration_m_7047a4fd6e37488cb3d6e52991e74677_factory(Parser yyp) { return new duration_m_7047a4fd6e37488cb3d6e52991e74677(yyp); }
+        public static object unOp_factory(Parser yyp) { return new unOp(yyp); }
+        public static object datavalList_8c8a6b39af874ea182c64a8d745197bc_factory(Parser yyp) { return new datavalList_8c8a6b39af874ea182c64a8d745197bc(yyp); }
+        public static object oobjectCmpBnd_factory(Parser yyp) { return new oobjectCmpBnd(yyp); }
+        public static object unOp_b29fb39a8a2c4ad6b274981f8a22136c_factory(Parser yyp) { return new unOp_b29fb39a8a2c4ad6b274981f8a22136c(yyp); }
+        public static object swrlrulefor_factory(Parser yyp) { return new swrlrulefor(yyp); }
+        public static object facet_factory(Parser yyp) { return new facet(yyp); }
+        public static object subjectEverything_factory(Parser yyp) { return new subjectEverything(yyp); }
+        public static object datavalvar_d0dde5e18b8948c094af05fe960f9d8d_factory(Parser yyp) { return new datavalvar_d0dde5e18b8948c094af05fe960f9d8d(yyp); }
+        public static object comparer2_42749d2044714b4d8ee198f3be859206_factory(Parser yyp) { return new comparer2_42749d2044714b4d8ee198f3be859206(yyp); }
+        public static object valueOrThing_992d64a96a1d4f6cb4906f802c44e3ce_factory(Parser yyp) { return new valueOrThing_992d64a96a1d4f6cb4906f802c44e3ce(yyp); }
+        public static object beAre_factory(Parser yyp) { return new beAre(yyp); }
+        public static object subjectThe_59b29ef9aabf4c0887f1a24fb530874e_factory(Parser yyp) { return new subjectThe_59b29ef9aabf4c0887f1a24fb530874e(yyp); }
+        public static object builtin_annot_d13e72dd7c9a4459bd0b16e8ce7559e3_factory(Parser yyp) { return new builtin_annot_d13e72dd7c9a4459bd0b16e8ce7559e3(yyp); }
+        public static object oobjectA_factory(Parser yyp) { return new oobjectA(yyp); }
+        public static object oobject_factory(Parser yyp) { return new oobject(yyp); }
+        public static object swrlrulefor_132bd0b2a4b14ab5959beb871c7597d2_factory(Parser yyp) { return new swrlrulefor_132bd0b2a4b14ab5959beb871c7597d2(yyp); }
+        public static object doesNotBy_996156a337804089bc11b27d2ae541de_factory(Parser yyp) { return new doesNotBy_996156a337804089bc11b27d2ae541de(yyp); }
+        public static object duration_factory(Parser yyp) { return new duration(yyp); }
+        public static object boundAnd_9c7407cefecf40c9b2a9028e2662b542_factory(Parser yyp) { return new boundAnd_9c7407cefecf40c9b2a9028e2662b542(yyp); }
+        public static object doesNot_ffd19021ca9b42d185d150974fcf38fc_factory(Parser yyp) { return new doesNot_ffd19021ca9b42d185d150974fcf38fc(yyp); }
+        public static object datavalval_bafc195f566548d79632b7bf2b97db37_factory(Parser yyp) { return new datavalval_bafc195f566548d79632b7bf2b97db37(yyp); }
+        public static object singleThingThat_factory(Parser yyp) { return new singleThingThat(yyp); }
+        public static object oobjectCmp_ff0528b2d05e491e8f6feadcdb7a5070_factory(Parser yyp) { return new oobjectCmp_ff0528b2d05e491e8f6feadcdb7a5070(yyp); }
+        public static object word_number_factory(Parser yyp) { return new word_number(yyp); }
+        public static object singleThing_eff0badc6a2b437fbf4688f7c457b0ea_factory(Parser yyp) { return new singleThing_eff0badc6a2b437fbf4688f7c457b0ea(yyp); }
+        public static object exeargs_26c6dfa4d57a4228aafb1dd705608024_factory(Parser yyp) { return new exeargs_26c6dfa4d57a4228aafb1dd705608024(yyp); }
+        public static object facet_35a26489569e44c89c44ce226a3368bc_factory(Parser yyp) { return new facet_35a26489569e44c89c44ce226a3368bc(yyp); }
+        public static object facet_522c79e37a364067a3af29e0c191bfac_factory(Parser yyp) { return new facet_522c79e37a364067a3af29e0c191bfac(yyp); }
+        public static object exclusives_factory(Parser yyp) { return new exclusives(yyp); }
+        public static object chain_5daba5ce21514b7b8d7cd821e7c45d4e_factory(Parser yyp) { return new chain_5daba5ce21514b7b8d7cd821e7c45d4e(yyp); }
+        public static object instancer_b276f0b0160f40d786e314b752ebe195_factory(Parser yyp) { return new instancer_b276f0b0160f40d786e314b752ebe195(yyp); }
+        public static object modality_8f69bc2826e14a64b655e1d64d497a75_factory(Parser yyp) { return new modality_8f69bc2826e14a64b655e1d64d497a75(yyp); }
+        public static object builtin_duration_ba10ee6406b74fe6a00ea802f3072516_factory(Parser yyp) { return new builtin_duration_ba10ee6406b74fe6a00ea802f3072516(yyp); }
+        public static object subjectBigName_factory(Parser yyp) { return new subjectBigName(yyp); }
+        public static object Float_9a6d2ea064fb4affa593690db836281b_factory(Parser yyp) { return new Float_9a6d2ea064fb4affa593690db836281b(yyp); }
+        public static object oobjectSomethingThat_factory(Parser yyp) { return new oobjectSomethingThat(yyp); }
+        public static object comparer2_11e106ec73574e0d8853ad29dfb3ed8e_factory(Parser yyp) { return new comparer2_11e106ec73574e0d8853ad29dfb3ed8e(yyp); }
+        public static object oobjectCardinal_factory(Parser yyp) { return new oobjectCardinal(yyp); }
+        public static object rolesubsumption_factory(Parser yyp) { return new rolesubsumption(yyp); }
+        public static object singleNameThat_factory(Parser yyp) { return new singleNameThat(yyp); }
+    }
+    public class endl : Parser
+    {
+        public endl() : base(new yyendl(), new tokens()) { }
+        public endl(YyParser syms) : base(syms, new tokens()) { }
+        public endl(YyParser syms, ErrorHandler erh) : base(syms, new tokens(erh)) { }
 
- }
+    }
 }

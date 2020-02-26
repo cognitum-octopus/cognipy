@@ -1,26 +1,24 @@
-﻿using System;
+﻿using CogniPy.ARS;
+using CogniPy.CNL;
+using CogniPy.OWL;
+using org.semanticweb.owlapi.apibinding;
+using org.semanticweb.owlapi.model;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using java.io;
-using org.semanticweb.owlapi.model;
-using org.semanticweb.owlapi.apibinding;
-using CogniPy.OWL;
-using CogniPy.CNL;
-using System.Diagnostics;
-using System.Text.RegularExpressions;
-using System.Xml.Linq;
-using System.Xml;
 using System.Net;
-using CogniPy.ARS;
+using System.Text.RegularExpressions;
+using System.Xml;
 
 namespace CogniPy
 {
     public class ReferenceManager
     {
         Func<string, IEnumerable<string>> getForms = null;
-        public void setForms(Func<string,IEnumerable<string>> forms){ 
+        public void setForms(Func<string, IEnumerable<string>> forms)
+        {
             getForms = forms;
         }
         public bool OWLReferencesProblem = false;
@@ -96,18 +94,18 @@ namespace CogniPy
                 this.workspace = workspace;
             }
 
-            protected string getFileName(string url,string extension)
+            protected string getFileName(string url, string extension)
             {
                 if (url.EndsWith("/") || url.EndsWith("#"))
                 {
                     string tmp = url.Remove(url.Length - 1, 1);
                     return tmp + extension;
-                }                    
+                }
                 else
                     return url;
             }
 
-            protected string getFilePath(string ontoStr,string dir,string extension=".rdf")
+            protected string getFilePath(string ontoStr, string dir, string extension = ".rdf")
             {
                 if (String.IsNullOrEmpty(dir))
                     return null;
@@ -115,7 +113,7 @@ namespace CogniPy
                 string fn = System.IO.Path.GetFileName(ontoStr);
                 if (ontoStr.EndsWith("/") || ontoStr.EndsWith("#")) // the ontologyIRI was not a filePath. Try to remove the last / and add .rdf....
                 {
-                    fn = System.IO.Path.GetFileName(getFileName(ontoStr,extension));
+                    fn = System.IO.Path.GetFileName(getFileName(ontoStr, extension));
                 }
 
                 var gfn = System.IO.Path.Combine(dir, fn);
@@ -165,13 +163,13 @@ namespace CogniPy
             }
 
 
-            protected bool IsLocalFile(IRI ontologyIRI, out IRI fileIRI ,string extension=".rdf")
+            protected bool IsLocalFile(IRI ontologyIRI, out IRI fileIRI, string extension = ".rdf")
             {
                 bool localFile = false;
                 fileIRI = null;
                 var ontoStr = OWLPathUriTools.IRI2Path(ontologyIRI);
 
-                string gfn = getFilePath(ontoStr, currDir,extension);
+                string gfn = getFilePath(ontoStr, currDir, extension);
                 if (!System.IO.File.Exists(gfn))
                 {
                     var dirs = Directory.GetDirectories(currDir);
@@ -185,7 +183,8 @@ namespace CogniPy
                         }
                     }
                 }
-                else{
+                else
+                {
                     localFile = true;
                 }
 
@@ -193,7 +192,7 @@ namespace CogniPy
                 return localFile;
             }
 
-            protected bool IsRemoteFile(IRI ontologyIRI,out IRI remoteIRI)
+            protected bool IsRemoteFile(IRI ontologyIRI, out IRI remoteIRI)
             {
                 remoteIRI = null;
                 // not local --> try remotely
@@ -235,7 +234,7 @@ namespace CogniPy
                     return actualIRI;
 
                 // prefer local
-                if (IsLocalFile(ontologyIRI,out actualIRI))
+                if (IsLocalFile(ontologyIRI, out actualIRI))
                 {
                     return actualIRI;
                 }
@@ -293,7 +292,7 @@ namespace CogniPy
                     return true;
                 }
             }
-            
+
 
             public List<ReferenceTags> referencedTags = new List<ReferenceTags>();
             public Dictionary<Tuple<EntityKind, string>, string> uriMapping = new Dictionary<Tuple<EntityKind, string>, string>();
@@ -321,7 +320,7 @@ namespace CogniPy
                         if (annot.getValue() is OWLLiteral)
                         {
                             OWLLiteral owlLit = (OWLLiteral)annot.getValue();
-                            val = owlLit.getLiteral().Replace("\'","\''");
+                            val = owlLit.getLiteral().Replace("\'", "\''");
                         }
                         else if (annot.getValue() is IRI)
                         {
@@ -330,7 +329,7 @@ namespace CogniPy
                         }
 
 
-                        string result = "'"+annot.getProperty().getIRI() +"'::: '" + val + "'";
+                        string result = "'" + annot.getProperty().getIRI() + "'::: '" + val + "'";
                         allAnnot.Add(result);
                     }
                     break;
@@ -362,13 +361,13 @@ namespace CogniPy
                 ////////////////////////////////////////
                 if (owlManager.Value.getOntologyFormat(ont) == null)
                     continue;
-                var invtransform = new CogniPy.ARS.InvTransform(owlManager.Value,ont,null);
+                var invtransform = new CogniPy.ARS.InvTransform(owlManager.Value, ont, null);
                 ////////////////////////////////////////
 
                 var signIt = ont.getEntitiesInSignature(owlName.iri).iterator();
                 if (!signIt.hasNext())
                 {
-                    string newIri = owlName.iri.toString().Replace("#","");
+                    string newIri = owlName.iri.toString().Replace("#", "");
                     signIt = ont.getEntitiesInSignature(org.semanticweb.owlapi.model.IRI.create(newIri)).iterator();
                 }
 
@@ -380,8 +379,8 @@ namespace CogniPy
                     while (annotIt.hasNext())
                     {
                         OWLAnnotationAssertionAxiom annot = (OWLAnnotationAssertionAxiom)annotIt.next();
-                        CogniPy.CNL.DL.DLAnnotationAxiom dlNameAnnot = (CogniPy.CNL.DL.DLAnnotationAxiom) invtransform.Convert(annot);
-                        allAnnot.Add(new W3CAnnotation(true) { External=true, Language=dlNameAnnot.language,Type=dlNameAnnot.annotName,Value=dlNameAnnot.value});
+                        CogniPy.CNL.DL.DLAnnotationAxiom dlNameAnnot = (CogniPy.CNL.DL.DLAnnotationAxiom)invtransform.Convert(annot);
+                        allAnnot.Add(new W3CAnnotation(true) { External = true, Language = dlNameAnnot.language, Type = dlNameAnnot.annotName, Value = dlNameAnnot.value });
                     }
                 }
             }
@@ -431,7 +430,7 @@ namespace CogniPy
 
             if (ErrorsOnImports.ContainsKey(uri))
                 return ErrorsOnImports[uri];
-            else if(!String.IsNullOrEmpty(pathUri) &&  ErrorsOnImports.ContainsKey(pathUri))
+            else if (!String.IsNullOrEmpty(pathUri) && ErrorsOnImports.ContainsKey(pathUri))
                 return ErrorsOnImports[pathUri];
             else
                 return new List<string>();
@@ -451,15 +450,15 @@ namespace CogniPy
         /// <summary>
         /// dictionary with <prefix,namespace> for all (imported and non-imported) the references inside the ontology.
         /// </summary>
-        public SortedDictionary<string, string> AllReferences=new SortedDictionary<string,string>();
+        public SortedDictionary<string, string> AllReferences = new SortedDictionary<string, string>();
         /// <summary>
         /// dictionary with <namespace,location> of the direct imports in the ontology.
         /// </summary>
-        public Dictionary<string,string> DirectImports=new Dictionary<string,string>();
-        
+        public Dictionary<string, string> DirectImports = new Dictionary<string, string>();
+
         public string DefaultNamespace;
         private string _currentFilePath = null;
-        public string CurrentFilePath 
+        public string CurrentFilePath
         {
             set { _currentFilePath = value; }
         }
@@ -471,10 +470,10 @@ namespace CogniPy
             CnlFromString,
             OwlRdfFromString
         }
-        
+
         List<string> recursivelyLoadedOntologies = new List<string>();
 
-        public bool LoadOntology(WhatToLoad whatToLoad, CNLTools tools, string source, out HashSet<string> brokenImports, out ReferenceTags tags, out CNL.DL.Paragraph dlast, string rootontology = null, CogniPy.ARS.NameingConventionKind nck = CogniPy.ARS.NameingConventionKind.CamelCase, string defaultPfx = null, bool convertToAst = true, bool insertDependentAsts = true, OWLMissingOntologyReferencesStrategy missingReferencesStrategy = OWLMissingOntologyReferencesStrategy.Throw_Exception, bool loadAnnotations = true, bool useDefaultNamespaceAsFullUri = false, bool isFirstLevel=true)
+        public bool LoadOntology(WhatToLoad whatToLoad, CNLTools tools, string source, out HashSet<string> brokenImports, out ReferenceTags tags, out CNL.DL.Paragraph dlast, string rootontology = null, CogniPy.ARS.NameingConventionKind nck = CogniPy.ARS.NameingConventionKind.CamelCase, string defaultPfx = null, bool convertToAst = true, bool insertDependentAsts = true, OWLMissingOntologyReferencesStrategy missingReferencesStrategy = OWLMissingOntologyReferencesStrategy.Throw_Exception, bool loadAnnotations = true, bool useDefaultNamespaceAsFullUri = false, bool isFirstLevel = true)
         {
 
         RETRY:
@@ -491,7 +490,7 @@ namespace CogniPy
             brokenImports = null;
             dlast = null;
             if (defaultPfx != null && (defaultPfx.EndsWith("#") || defaultPfx.EndsWith("/")))
-                defaultPfx.Replace("#","").Replace("/","");
+                defaultPfx.Replace("#", "").Replace("/", "");
 
             bool isendl = (whatToLoad == WhatToLoad.CnlFromString);
             bool fromString = (whatToLoad != WhatToLoad.FromUri);
@@ -502,7 +501,7 @@ namespace CogniPy
                     if (System.IO.Path.GetExtension(source) == ".encnl")
                         isendl = true;
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     if (!ErrorsOnImports.ContainsKey(source))
                         ErrorsOnImports.Add(source, new HashSet<string>());
@@ -531,7 +530,7 @@ namespace CogniPy
             if (isendl) // encnl reference
             {
                 dlast = null;
-                
+
                 try
                 {
                     if (!fromString && LoadedOntologies.ContainsKey(source)) // check that the ontology was not already loaded.
@@ -577,7 +576,7 @@ namespace CogniPy
                                 if (ontologyIri.StartsWith("\'") && ontologyIri.Length > 2)
                                     ontologyIri = ontologyIri.Substring(1, ontologyIri.Length - 2).Replace("\'\'", "\'");
                                 ontologyIri = ontologyIri.Replace(" ", "");
-                                ontologyIri = ontologyIri.Replace("\\","/");
+                                ontologyIri = ontologyIri.Replace("\\", "/");
                                 if (System.IO.Path.IsPathRooted(ontologyIri))
                                     ontologyIri = "file:" + ontologyIri;
                                 cnlDefaultNamespace = ontologyIri;
@@ -597,11 +596,11 @@ namespace CogniPy
                                         if ((String.IsNullOrWhiteSpace(onto) || !loadAnnotations) && !AllReferences.ContainsKey(pfx)) // shortcut for load annotations
                                         {
                                             // case in which there is no location --> it is not an import.
-                                            if(String.IsNullOrEmpty(ns))
+                                            if (String.IsNullOrEmpty(ns))
                                                 if (!String.IsNullOrEmpty(onto))
                                                     AllReferences.Add(pfx, onto);
                                                 else
-                                                    AllReferences.Add(pfx, "http://unknown.prefix/" + pfx );
+                                                    AllReferences.Add(pfx, "http://unknown.prefix/" + pfx);
                                             else
                                                 AllReferences.Add(pfx, ns);
 
@@ -624,13 +623,13 @@ namespace CogniPy
                                         {
                                             recursivelyLoadedOntologies.Add(onto);
                                             bool loaded = false;
-                                            if (LoadOntology(WhatToLoad.FromUri, tools, onto, out innerbrokenImports, out innertags, out innerdlast, source, nck, pfx, convertToAst, insertDependentAsts, missingReferencesStrategy,true,false,false))
+                                            if (LoadOntology(WhatToLoad.FromUri, tools, onto, out innerbrokenImports, out innertags, out innerdlast, source, nck, pfx, convertToAst, insertDependentAsts, missingReferencesStrategy, true, false, false))
                                             {
                                                 loaded = true;
                                                 if (!DirectImports.ContainsKey(innertags.baseNamespace))
                                                 {
                                                     DirectImports.Add(innertags.baseNamespace, onto);
-                                                    if(!AllReferences.ContainsKey(pfx))
+                                                    if (!AllReferences.ContainsKey(pfx))
                                                         AllReferences.Add(pfx, innertags.baseNamespace);
                                                 }
                                                 tags.concepts.UnionWith(innertags.concepts);
@@ -703,7 +702,7 @@ namespace CogniPy
                                         }
                                     }
                                 }
-                                catch(ParseException ex)
+                                catch (ParseException ex)
                                 {
                                     SyntaxErrors.Add(ex);
                                     continue;
@@ -721,7 +720,7 @@ namespace CogniPy
                         throw new Exception("File is empty or all cnl sentences are incorrect.");
                     if (SyntaxErrors.Count == 1)
                         throw SyntaxErrors[0];
-                    else if (SyntaxErrors.Count>0)
+                    else if (SyntaxErrors.Count > 0)
                         throw new AggregateException(SyntaxErrors);
 
                     if (String.IsNullOrEmpty(DefaultNamespace)) DefaultNamespace = "http://www.ontorion.com/ontologies/Ontology" + Guid.NewGuid().ToString("N");
@@ -787,7 +786,7 @@ namespace CogniPy
 
                     if (!fromString && LoadedOntologies.ContainsKey(source))
                     {
-                        if (!BrokenImports.ContainsKey(source) ||  missingReferencesStrategy == OWLMissingOntologyReferencesStrategy.Retry)
+                        if (!BrokenImports.ContainsKey(source) || missingReferencesStrategy == OWLMissingOntologyReferencesStrategy.Retry)
                         {
                             tags = LoadedOntologies[source];
                             dlast = LoadedDlAsts[source];
@@ -812,21 +811,21 @@ namespace CogniPy
                     try
                     {
                         // http://ehc.ac/p/owlapi/mailman/message/28914114/
-                        
+
                         bool containsOntology = false;
                         foreach (org.semanticweb.owlapi.model.OWLOntology owlOntology in owlManager.Value.getOntologies().toArray().ToList())
                         {
                             var iri = owlOntology.getOntologyID().getVersionIRI();
-                            if(iri != null)
-                            if (iri.compareTo(OWLPathUriTools.Path2IRI(source)) == 0 && !fromString)
-                            {
-                                ontology = owlOntology;
-                                containsOntology = true;
-                                break;
-                            }
-                        }                                
-                        
-                        if (!fromString && convertToAst &&  !containsOntology)
+                            if (iri != null)
+                                if (iri.compareTo(OWLPathUriTools.Path2IRI(source)) == 0 && !fromString)
+                                {
+                                    ontology = owlOntology;
+                                    containsOntology = true;
+                                    break;
+                                }
+                        }
+
+                        if (!fromString && convertToAst && !containsOntology)
                         {
                             ontology = owlManager.Value.loadOntology(OWLPathUriTools.Path2IRI(source));
                         }
@@ -880,11 +879,11 @@ namespace CogniPy
 
                         if (convertToAst)
                         {
-                            CogniPy.ARS.InvTransform invtransform = new CogniPy.ARS.InvTransform(owlManager.Value,ontology,source,nck,getForms);
+                            CogniPy.ARS.InvTransform invtransform = new CogniPy.ARS.InvTransform(owlManager.Value, ontology, source, nck, getForms);
 
                             dlast = SetOWLOntologyTagsAndAst(ontology, invtransform, source, defaultPfx, out tags, useDefaultNamespaceAsFullUri);
 
-                            if(!String.IsNullOrWhiteSpace(invtransform.defaultNs))
+                            if (!String.IsNullOrWhiteSpace(invtransform.defaultNs))
                                 DefaultNamespace = invtransform.defaultNs;
 
                             var refs = invtransform.Pfx2ns.Keys;
@@ -906,27 +905,27 @@ namespace CogniPy
                                 // This could be because no default namespace is defined inside but still there is this import....
                                 var impp = imports.next() as OWLImportsDeclaration;
                                 OWLOntology impOnt = owlManager.Value.getImportedOntology(impp);
-                                
+
                                 var reff = impp.getIRI().toString();
 
                                 var impSource = reff;
 
                                 if (impOnt != null) // if imported ontology if different from null --> we have imported it, let's get the DocumentIRI (location) and OntoriogyID (namespace)
                                 {
-                                    if(impOnt.getOntologyID().getOntologyIRI()!=null)
-                                    {         
+                                    if (impOnt.getOntologyID().getOntologyIRI() != null)
+                                    {
 
-                                        var refKey = AllReferences.FirstOrDefault( reference => reference.Value.Contains(reff)).Key;
-                                        
+                                        var refKey = AllReferences.FirstOrDefault(reference => reference.Value.Contains(reff)).Key;
+
                                         // replace the reff in AllReferences.
                                         reff = impOnt.getOntologyID().getOntologyIRI().toString();
 
                                         if (!reff.EndsWith("/") && !reff.EndsWith("#") && !reff.Contains("#"))
                                             reff += "#";
 
-                                        
-                                        if(!String.IsNullOrEmpty(refKey))
-                                            if(AllReferences.ContainsKey(refKey))
+
+                                        if (!String.IsNullOrEmpty(refKey))
+                                            if (AllReferences.ContainsKey(refKey))
                                                 AllReferences[refKey] = reff;
 
                                         IRI importedIRI = owlManager.Value.getOntologyDocumentIRI(impOnt);
@@ -937,21 +936,21 @@ namespace CogniPy
                                         }
                                     }
                                 }
-                                
-                                if (!reff.EndsWith("/") && !reff.EndsWith("#") && !reff.Contains("#") )
+
+                                if (!reff.EndsWith("/") && !reff.EndsWith("#") && !reff.Contains("#"))
                                     reff += "#";
-                                
+
                                 // At this point impSource should be updated with the appropriate namespace so, all if-else if belowe would be wasteless
                                 // and should be replaced by  the single sentence:  
-                                if(!String.IsNullOrEmpty(reff))
+                                if (!String.IsNullOrEmpty(reff))
                                     DirectImports.Add(reff, impSource);
-                                if (String.IsNullOrEmpty(AllReferences.FirstOrDefault(reference => reference.Value.Contains(reff)).Key) && String.IsNullOrEmpty(AllReferences.FirstOrDefault(reference => reference.Value.Contains(reff + "#")).Key) && String.IsNullOrEmpty(AllReferences.FirstOrDefault(reference => reference.Value.Contains(reff+"/")).Key))
+                                if (String.IsNullOrEmpty(AllReferences.FirstOrDefault(reference => reference.Value.Contains(reff)).Key) && String.IsNullOrEmpty(AllReferences.FirstOrDefault(reference => reference.Value.Contains(reff + "#")).Key) && String.IsNullOrEmpty(AllReferences.FirstOrDefault(reference => reference.Value.Contains(reff + "/")).Key))
                                 {
-                                    string pfx=null;
+                                    string pfx = null;
                                     if (reff.Split('/') != null)
                                     {
                                         var end = reff.Split('/').Last();
-                                        pfx = end.Replace("#", "").Replace("/", "")+Guid.NewGuid();
+                                        pfx = end.Replace("#", "").Replace("/", "") + Guid.NewGuid();
                                     }
                                     else
                                     {
@@ -959,12 +958,12 @@ namespace CogniPy
                                     }
                                     // this will solve a problem that appeared when a referenced ontology was using the same pfx used in the another referenced ontology or in the main ontology.
                                     // nevertheless it means that AllReferences will not contain all references. Maybe we should change the AllReferences to a <string,List<string>> dictionary?
-                                    if(!AllReferences.ContainsKey(pfx))
-                                        AllReferences.Add(pfx,reff);
+                                    if (!AllReferences.ContainsKey(pfx))
+                                        AllReferences.Add(pfx, reff);
                                 }
 
                                 // if no error was found for the imported ontology, add the referencedTags and ast to the memory.
-                                if (!ErrorsOnImports.ContainsKey(reff) || !ErrorsOnImports.ContainsKey(reff.Replace("#","")))
+                                if (!ErrorsOnImports.ContainsKey(reff) || !ErrorsOnImports.ContainsKey(reff.Replace("#", "")))
                                 {
                                     string impPrefix = AllReferences.FirstOrDefault(x => x.Value == reff).Key;
                                     ReferenceTags impTags;
@@ -974,11 +973,11 @@ namespace CogniPy
                                     if (impOnt != null)
                                     {
                                         invtransform = new ARS.InvTransform(owlManager.Value, impOnt, impSource, nck, getForms);
-                                        impAst = SetOWLOntologyTagsAndAst(impOnt, invtransform, impSource, impPrefix, out impTags,useDefaultNamespaceAsFullUri);
+                                        impAst = SetOWLOntologyTagsAndAst(impOnt, invtransform, impSource, impPrefix, out impTags, useDefaultNamespaceAsFullUri);
                                         impTags.ontologyLocation = impSource;
                                         tags.referencedTags.Add(impTags);
                                     }
- 
+
                                     if (insertDependentAsts && impAst != null)
                                     {
                                         dlast.Statements.AddRange(impAst.Statements);
@@ -988,7 +987,7 @@ namespace CogniPy
                         }
 
                         // BUG FIX START --- FE2-190 (http://ehc.ac/p/owlapi/mailman/message/28914114/)
-                        var logIRI = ((org.semanticweb.owlapi.model.OWLOntology) ontology).getOntologyID().getOntologyIRI();
+                        var logIRI = ((org.semanticweb.owlapi.model.OWLOntology)ontology).getOntologyID().getOntologyIRI();
                         if (logIRI == null)
                         {
                             string iri = source;
@@ -998,8 +997,8 @@ namespace CogniPy
                         }
 
                         var newID = new org.semanticweb.owlapi.model.OWLOntologyID(logIRI, OWLPathUriTools.Path2IRI(source));
-                        
-                        owlManager.Value.applyChange(new org.semanticweb.owlapi.model.SetOntologyID((org.semanticweb.owlapi.model.OWLOntology) ontology, newID));
+
+                        owlManager.Value.applyChange(new org.semanticweb.owlapi.model.SetOntologyID((org.semanticweb.owlapi.model.OWLOntology)ontology, newID));
                         // BUG FIX END --- FE2-190 
 
                         //owlManager.Value.removeOntology(ontology);
@@ -1008,7 +1007,7 @@ namespace CogniPy
                     catch (OWLOntologyAlreadyExistsException)
                     {
                         CreateOWLManager();
-                        ForgetOntology(source,false);
+                        ForgetOntology(source, false);
                         goto RETRY;
                     }
                     catch (Exception ex)
@@ -1058,7 +1057,7 @@ namespace CogniPy
             CNL.DL.Paragraph dlast = invtransform.Convert(ontology);
             tags.uriMapping = invtransform.UriMappings;
             tags.invUriMapping = invtransform.InvUriMappings;
-            
+
             if (ontology.getOntologyID().getOntologyIRI() != null)
                 tags.baseNamespace = ontology.getOntologyID().getOntologyIRI().toString().Split('#').First();
             else
@@ -1085,7 +1084,7 @@ namespace CogniPy
             }
             else if (useDefaultNamespaceAsFullUri && !String.IsNullOrWhiteSpace(tags.baseNamespace))
             {
-                CogniPy.CNL.DL.SetDefaultPfxVisitor defPfxVis = new CogniPy.CNL.DL.SetDefaultPfxVisitor(null,tags.baseNamespace);
+                CogniPy.CNL.DL.SetDefaultPfxVisitor defPfxVis = new CogniPy.CNL.DL.SetDefaultPfxVisitor(null, tags.baseNamespace);
                 defPfxVis.Visit(dlast);
             }
 
@@ -1096,7 +1095,7 @@ namespace CogniPy
 
             foreach (var smb in sign)
             {
-                if (smb.Item1== ARS.EntityKind.Instance)
+                if (smb.Item1 == ARS.EntityKind.Instance)
                 {
                     var inam = smb.Item2;
                     if (!String.IsNullOrWhiteSpace(inam) && !inam.StartsWith("["))
@@ -1135,11 +1134,11 @@ namespace CogniPy
 
             var k = LoadedOntologies.Keys.ToArray();
             foreach (var uri in k)
-                ForgetOntology(uri,false);
+                ForgetOntology(uri, false);
 
             var k2 = BrokenImports.Keys.ToArray();
             foreach (var uri in k2)
-                ForgetOntology(uri,false);
+                ForgetOntology(uri, false);
 
             ExceptionsOnImports = new Dictionary<string, HashSet<Exception>>();
             BrokenImports = new Dictionary<string, HashSet<string>>();
@@ -1147,7 +1146,7 @@ namespace CogniPy
         }
 
         // If forgetOntology = true --> also remove the ontology from the owlManager (--> the only way I found is by creating again the owl manager)
-        public void ForgetOntology(string uri,bool resetOntologyManager=true) // remove all informations about this ontology in the refence manager. 
+        public void ForgetOntology(string uri, bool resetOntologyManager = true) // remove all informations about this ontology in the refence manager. 
         {
             bool isendl = false;
             try
@@ -1236,7 +1235,7 @@ namespace CogniPy
             {
                 config = config.setProxy(null);
             }
-            if(owlManager.IsValueCreated)
+            if (owlManager.IsValueCreated)
                 owlManager.Value.setOntologyLoaderConfiguration(config);
         }
     }

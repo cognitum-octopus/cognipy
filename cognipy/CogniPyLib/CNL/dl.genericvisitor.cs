@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace CogniPy.CNL.DL
 {
@@ -410,7 +408,7 @@ namespace CogniPy.CNL.DL
             e.vars.accept(this);
             return e;
         }
-        
+
         public virtual object Visit(SwrlItemList e)
         {
             foreach (var i in e.list)
@@ -463,7 +461,7 @@ namespace CogniPy.CNL.DL
 
         public virtual object Visit(SwrlBuiltIn e)
         {
-            foreach(var v in e.Values)
+            foreach (var v in e.Values)
                 v.accept(this);
             return e;
         }

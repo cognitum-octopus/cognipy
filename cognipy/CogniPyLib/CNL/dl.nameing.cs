@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
 
 namespace CogniPy.ARS
 {
-    public enum EntityKind { Concept, Role, DataRole, DataType, Instance, SWRLVariable, Annotation,Statement }
+    public enum EntityKind { Concept, Role, DataRole, DataType, Instance, SWRLVariable, Annotation, Statement }
 }
 
 namespace CogniPy.CNL.DL
@@ -30,7 +27,7 @@ namespace CogniPy.CNL.DL
 
             public Parts Clone()
             {
-                return (new Parts() { local=this.local,name=this.name,quoted=this.quoted,term=this.term});
+                return (new Parts() { local = this.local, name = this.name, quoted = this.quoted, term = this.term });
             }
         }
 

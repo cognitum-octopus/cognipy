@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using org.semanticweb.owlapi.model;
-using org.semanticweb.owlapi.vocab;
-using System.Globalization;
-using org.semanticweb.owlapi.reasoner;
-using CogniPy.CNL.DL;
+﻿using CogniPy.CNL.DL;
 using CogniPy.CNL.EN;
-using org.coode.xml;
-using System.Text.RegularExpressions;
+using org.semanticweb.owlapi.model;
+using org.semanticweb.owlapi.reasoner;
+using org.semanticweb.owlapi.vocab;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using org.semanticweb.owlapi.util;
+using System.Globalization;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace CogniPy.ARS
 {
@@ -70,7 +68,7 @@ namespace CogniPy.ARS
 
         public void setOWLDataFactory(bool forReasoning, string defaultNS, OWLDataFactory factory, PrefixOWLOntologyFormat namespaceManager, CogniPy.CNL.EN.endict lex)
         {
-            this.owlNC.setOWLFormat(defaultNS,namespaceManager, lex);
+            this.owlNC.setOWLFormat(defaultNS, namespaceManager, lex);
             this.factory = factory;
             this.forReasoning = forReasoning;
         }
@@ -96,7 +94,7 @@ namespace CogniPy.ARS
         private OWLReasoner resolvingReasoner = null;
 
 
-        
+
         private List<OWLAxiom> additionalAxioms = null;
         private List<OWLAxiom> additionalHotfixDeclarations = null;
 
@@ -122,7 +120,7 @@ namespace CogniPy.ARS
         private bool hasAnnotationsForStatement = false;
         private Dictionary<string, List<DLAnnotationAxiom>> annotationsBySubject = null;
 
-        public Axioms Convert(CogniPy.CNL.DL.Paragraph p,CogniPy.CNL.DL.Paragraph paraFromAnnotStatements=null)
+        public Axioms Convert(CogniPy.CNL.DL.Paragraph p, CogniPy.CNL.DL.Paragraph paraFromAnnotStatements = null)
         {
             if (paraFromAnnotStatements != null && paraFromAnnotStatements.Statements.Count > 0)
             {
@@ -208,7 +206,7 @@ namespace CogniPy.ARS
             if (hasAnnotationsForStatement)
             {
                 var ser = new CogniPy.CNL.DL.Serializer(false);
-                var stmtSer = ser.Serialize(new CNL.DL.Paragraph(null) { Statements = new List<CNL.DL.Statement>() { e } }).Replace("\r\n","");
+                var stmtSer = ser.Serialize(new CNL.DL.Paragraph(null) { Statements = new List<CNL.DL.Statement>() { e } }).Replace("\r\n", "");
                 if (annotationsBySubject.ContainsKey(stmtSer))
                 {
                     foreach (var ann in annotationsBySubject[stmtSer])
@@ -396,10 +394,10 @@ namespace CogniPy.ARS
 
         public object Visit(CNL.DL.DLAnnotationAxiom a)
         {
-            var annotProp = factory.getOWLAnnotationProperty(owlNC.getIRIFromId(a.annotName,CogniPy.ARS.EntityKind.Role));
+            var annotProp = factory.getOWLAnnotationProperty(owlNC.getIRIFromId(a.annotName, CogniPy.ARS.EntityKind.Role));
             OWLLiteral annotLit;
-            if(!System.String.IsNullOrEmpty(a.language))
-                annotLit = factory.getOWLLiteral(a.value,a.language);
+            if (!System.String.IsNullOrEmpty(a.language))
+                annotLit = factory.getOWLLiteral(a.value, a.language);
             else
                 annotLit = factory.getOWLLiteral(a.value);
 
@@ -460,7 +458,7 @@ namespace CogniPy.ARS
                                 OWLDataPropertyExpression r;
                                 using (context.set(VisitingContext.DataRole))
                                     r = (e.D as SomeValueRestriction).R.accept(this) as OWLDataPropertyExpression;
-                               return factory.getOWLDataPropertyAssertionAxiom(r, iC.accept(this) as OWLNamedIndividual, iV.accept(this) as OWLLiteral, getOWLAnnotationForStatement(e));
+                                return factory.getOWLDataPropertyAssertionAxiom(r, iC.accept(this) as OWLNamedIndividual, iV.accept(this) as OWLLiteral, getOWLAnnotationForStatement(e));
                             }
                         }
                         return factory.getOWLClassAssertionAxiom(e.D.accept(this) as OWLClassExpression, iC.accept(this) as OWLNamedIndividual, getOWLAnnotationForStatement(e));
@@ -482,7 +480,7 @@ namespace CogniPy.ARS
                                     OWLObjectPropertyExpression r;
                                     using (context.set(VisitingContext.ObjectRole))
                                         r = (e.D as CNL.DL.NumberRestriction).R.accept(this) as OWLObjectPropertyExpression;
-                                    return factory.getOWLFunctionalObjectPropertyAxiom(r,getOWLAnnotationForStatement(e));
+                                    return factory.getOWLFunctionalObjectPropertyAxiom(r, getOWLAnnotationForStatement(e));
                                 }
                                 else if ((e.D as CNL.DL.NumberRestriction).R is RoleInversion)
                                 {
@@ -491,7 +489,7 @@ namespace CogniPy.ARS
                                         OWLObjectPropertyExpression r;
                                         using (context.set(VisitingContext.ObjectRole))
                                             r = ((e.D as CNL.DL.NumberRestriction).R as RoleInversion).R.accept(this) as OWLObjectPropertyExpression;
-                                        return factory.getOWLInverseFunctionalObjectPropertyAxiom(r,getOWLAnnotationForStatement(e));
+                                        return factory.getOWLInverseFunctionalObjectPropertyAxiom(r, getOWLAnnotationForStatement(e));
                                     }
                                 }
                             }
@@ -508,7 +506,7 @@ namespace CogniPy.ARS
                                 OWLDataPropertyExpression r;
                                 using (context.set(VisitingContext.DataRole))
                                     r = (e.D as CNL.DL.NumberValueRestriction).R.accept(this) as OWLDataPropertyExpression;
-                                return factory.getOWLFunctionalDataPropertyAxiom(r,getOWLAnnotationForStatement(e));
+                                return factory.getOWLFunctionalDataPropertyAxiom(r, getOWLAnnotationForStatement(e));
                             }
                     }
                     else if (e.D is CNL.DL.OnlyRestriction) // object range
@@ -521,7 +519,7 @@ namespace CogniPy.ARS
 
                             return factory.getOWLObjectPropertyRangeAxiom(
                                 r,
-                                (e.D as CNL.DL.OnlyRestriction).C.accept(this) as OWLClassExpression,getOWLAnnotationForStatement(e));
+                                (e.D as CNL.DL.OnlyRestriction).C.accept(this) as OWLClassExpression, getOWLAnnotationForStatement(e));
                         }
                     }
                     else if (e.D is CNL.DL.OnlyValueRestriction) // data range
@@ -535,7 +533,7 @@ namespace CogniPy.ARS
 
                             return factory.getOWLDataPropertyRangeAxiom(
                                 r,
-                                (e.D as CNL.DL.OnlyValueRestriction).B.accept(this) as OWLDataRange,getOWLAnnotationForStatement(e));
+                                (e.D as CNL.DL.OnlyValueRestriction).B.accept(this) as OWLDataRange, getOWLAnnotationForStatement(e));
                         }
                     }
                     else if (e.D is CNL.DL.SelfReference) // reflexive
@@ -544,7 +542,7 @@ namespace CogniPy.ARS
                         using (context.set(VisitingContext.ObjectRole))
                             r = (e.D as CNL.DL.SelfReference).R.accept(this) as OWLObjectPropertyExpression;
 
-                        return factory.getOWLReflexiveObjectPropertyAxiom(r,getOWLAnnotationForStatement(e));
+                        return factory.getOWLReflexiveObjectPropertyAxiom(r, getOWLAnnotationForStatement(e));
                     }
                 }
                 else if (e.C is SomeRestriction)
@@ -559,7 +557,7 @@ namespace CogniPy.ARS
 
                             return factory.getOWLObjectPropertyDomainAxiom(
                                 r,
-                                e.D.accept(this) as OWLClassExpression,getOWLAnnotationForStatement(e));
+                                e.D.accept(this) as OWLClassExpression, getOWLAnnotationForStatement(e));
                         }
                     }
                 }
@@ -575,7 +573,7 @@ namespace CogniPy.ARS
 
                             return factory.getOWLDataPropertyDomainAxiom(
                                 r,
-                                e.D.accept(this) as OWLClassExpression,getOWLAnnotationForStatement(e));
+                                e.D.accept(this) as OWLClassExpression, getOWLAnnotationForStatement(e));
                         }
                     }
                 }
@@ -588,7 +586,7 @@ namespace CogniPy.ARS
                         using (context.set(VisitingContext.ObjectRole))
                             r = (e.C as CNL.DL.SelfReference).R.accept(this) as OWLObjectPropertyExpression;
 
-                        return factory.getOWLIrreflexiveObjectPropertyAxiom(r,getOWLAnnotationForStatement(e));
+                        return factory.getOWLIrreflexiveObjectPropertyAxiom(r, getOWLAnnotationForStatement(e));
                     }
                 }
                 return factory.getOWLSubClassOfAxiom(e.C.accept(this) as OWLClassExpression, e.D.accept(this) as OWLClassExpression, getOWLAnnotationForStatement(e));
@@ -630,7 +628,7 @@ namespace CogniPy.ARS
                     if (s.size() < 2)
                         throw new NoTautology();
                     else
-                       return factory.getOWLEquivalentClassesAxiom(s, getOWLAnnotationForStatement(e));
+                        return factory.getOWLEquivalentClassesAxiom(s, getOWLAnnotationForStatement(e));
                 }
             }
         }
@@ -674,7 +672,7 @@ namespace CogniPy.ARS
             using (context.set(VisitingContext.Concept))
             {
                 setCurrentStatement(e);
-                return factory.getOWLDatatypeDefinitionAxiom(factory.getOWLDatatype(owlNC.getIRIFromId(e.name, EntityKind.Concept)), e.B.accept(this) as OWLDataRange,getOWLAnnotationForStatement(e));
+                return factory.getOWLDatatypeDefinitionAxiom(factory.getOWLDatatype(owlNC.getIRIFromId(e.name, EntityKind.Concept)), e.B.accept(this) as OWLDataRange, getOWLAnnotationForStatement(e));
             }
         }
 
@@ -692,11 +690,11 @@ namespace CogniPy.ARS
                 {
                     if (((e.C as RoleInversion).R as Atomic).id == (e.D as Atomic).id)
                     { //symmetric
-                        return factory.getOWLSymmetricObjectPropertyAxiom(e.D.accept(this) as OWLObjectPropertyExpression,getOWLAnnotationForStatement(e));
+                        return factory.getOWLSymmetricObjectPropertyAxiom(e.D.accept(this) as OWLObjectPropertyExpression, getOWLAnnotationForStatement(e));
                     }
                     else
                     { // role inversion
-                        return factory.getOWLInverseObjectPropertiesAxiom((e.C as RoleInversion).R.accept(this) as OWLObjectPropertyExpression, e.D.accept(this) as OWLObjectPropertyExpression,getOWLAnnotationForStatement(e));
+                        return factory.getOWLInverseObjectPropertiesAxiom((e.C as RoleInversion).R.accept(this) as OWLObjectPropertyExpression, e.D.accept(this) as OWLObjectPropertyExpression, getOWLAnnotationForStatement(e));
                     }
                 }
                 return factory.getOWLSubObjectPropertyOfAxiom(e.C.accept(this) as OWLObjectPropertyExpression, e.D.accept(this) as OWLObjectPropertyExpression, getOWLAnnotationForStatement(e));
@@ -716,7 +714,7 @@ namespace CogniPy.ARS
                 }
                 //if (s.size() < 2)
                 //    throw new NoTautology();
-               //else
+                //else
                 return factory.getOWLEquivalentObjectPropertiesAxiom(s, getOWLAnnotationForStatement(e));
             }
         }
@@ -733,14 +731,14 @@ namespace CogniPy.ARS
                     {
                         if (((e.Disjoints[0] as RoleInversion).R as Atomic).id == (e.Disjoints[1] as Atomic).id)
                         { //asymmetric
-                            return factory.getOWLAsymmetricObjectPropertyAxiom(e.Disjoints[1].accept(this) as OWLObjectPropertyExpression,getOWLAnnotationForStatement(e));
+                            return factory.getOWLAsymmetricObjectPropertyAxiom(e.Disjoints[1].accept(this) as OWLObjectPropertyExpression, getOWLAnnotationForStatement(e));
                         }
                     }
                     else if ((e.Disjoints[1] is RoleInversion) && (e.Disjoints[1] as RoleInversion).R is Atomic && e.Disjoints[0] is Atomic)
                     {
                         if (((e.Disjoints[1] as RoleInversion).R as Atomic).id == (e.Disjoints[0] as Atomic).id)
                         { //asymmetric
-                            return factory.getOWLAsymmetricObjectPropertyAxiom(e.Disjoints[0].accept(this) as OWLObjectPropertyExpression,getOWLAnnotationForStatement(e));
+                            return factory.getOWLAsymmetricObjectPropertyAxiom(e.Disjoints[0].accept(this) as OWLObjectPropertyExpression, getOWLAnnotationForStatement(e));
                         }
                     }
                 }
@@ -768,7 +766,7 @@ namespace CogniPy.ARS
                     if ((e.R as Atomic).id == (e.RoleChain[0] as Atomic).id && (e.R as Atomic).id == (e.RoleChain[1] as Atomic).id)
                     {
                         //transitive 
-                        return factory.getOWLTransitiveObjectPropertyAxiom(e.R.accept(this) as OWLObjectPropertyExpression,getOWLAnnotationForStatement(e));
+                        return factory.getOWLTransitiveObjectPropertyAxiom(e.R.accept(this) as OWLObjectPropertyExpression, getOWLAnnotationForStatement(e));
                     }
                 }
 
@@ -848,7 +846,7 @@ namespace CogniPy.ARS
             OWLDataPropertyExpression prop;
             using (context.set(VisitingContext.DataRole))
                 prop = e.R.accept(this) as OWLDataPropertyExpression;
-            return factory.getOWLDataPropertyAssertionAxiom(prop,e.I.accept(this) as OWLIndividual,
+            return factory.getOWLDataPropertyAssertionAxiom(prop, e.I.accept(this) as OWLIndividual,
                 e.V.accept(this) as OWLLiteral, getOWLAnnotationForStatement(e));
         }
 
@@ -1059,10 +1057,10 @@ namespace CogniPy.ARS
         public object Visit(BoundFacets e)
         {
             var dtp = getLiteralVal(e.FL.List[0].V).getDatatype();
-            forcedDatatype=null;
+            forcedDatatype = null;
             var set = e.FL.accept(this) as java.util.Set;
 
-            return factory.getOWLDatatypeRestriction(forcedDatatype==null?dtp:forcedDatatype,set ); 
+            return factory.getOWLDatatypeRestriction(forcedDatatype == null ? dtp : forcedDatatype, set);
         }
 
         public object Visit(BoundOr e)
@@ -1085,7 +1083,7 @@ namespace CogniPy.ARS
         {
             return factory.getOWLDataComplementOf(e.B.accept(this) as OWLDataRange);
         }
-        
+
         public object Visit(BoundVal e)
         {
             var val = getLiteralVal(e.V);
@@ -1352,7 +1350,7 @@ namespace CogniPy.ARS
         ///////////////// SWRL ///////////////////////////////////////////
         public object Visit(CNL.DL.SwrlStatement e)
         {
-            return factory.getSWRLRule(e.slp.accept(this) as java.util.Set, e.slc.accept(this) as java.util.Set,getOWLAnnotationForStatement(e));
+            return factory.getSWRLRule(e.slp.accept(this) as java.util.Set, e.slc.accept(this) as java.util.Set, getOWLAnnotationForStatement(e));
         }
 
         public object Visit(CNL.DL.SwrlItemList e)
@@ -1458,7 +1456,7 @@ namespace CogniPy.ARS
                 default: return code;
             }
         }
-        
+
         public object Visit(SwrlBuiltIn e)
         {
             var builtInName = e.builtInName;
@@ -1476,9 +1474,9 @@ namespace CogniPy.ARS
                 IRI buitIn = null;
 
                 java.util.ArrayList lst = new java.util.ArrayList();
-                lst.add(e.Values[e.Values.Count-1].accept(this));
+                lst.add(e.Values[e.Values.Count - 1].accept(this));
 
-                for (int i = 0; i < e.Values.Count-1; i++)
+                for (int i = 0; i < e.Values.Count - 1; i++)
                     lst.add(e.Values[i].accept(this));
 
                 if (builtInName == "plus" || builtInName == "times" || builtInName == "followed-by")
@@ -1588,7 +1586,7 @@ namespace CogniPy.ARS
             }
             return ret;
         }
-        
+
         public object Visit(CNL.DL.SwrlDataRange e)
         {
             OWLDataRange dr = e.B.accept(this) as OWLDataRange;

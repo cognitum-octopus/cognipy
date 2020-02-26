@@ -1,12 +1,4 @@
-﻿using CogniPy.ARS;
-using org.semanticweb.owlapi.vocab;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading;
+﻿using System.Collections.Generic;
 
 namespace CogniPy.CNL.DL
 {

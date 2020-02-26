@@ -1,252 +1,425 @@
-using System;using Tools;
-namespace CogniPy.CNL.DL {
-//%+STR+3
-public partial class STR : TOKEN{
-public override string yyname { get { return "STR"; }}
-public override int yynum { get { return 3; }}
-public STR(Lexer yyl):base(yyl){}}
-//%+ID+4
-public partial class ID : TOKEN{
-public override string yyname { get { return "ID"; }}
-public override int yynum { get { return 4; }}
-public ID(Lexer yyl):base(yyl){}}
-//%+NAT+5
-public partial class NAT : TOKEN{
-public override string yyname { get { return "NAT"; }}
-public override int yynum { get { return 5; }}
-public NAT(Lexer yyl):base(yyl){}}
-//%+NUM+6
-public partial class NUM : TOKEN{
-public override string yyname { get { return "NUM"; }}
-public override int yynum { get { return 6; }}
-public NUM(Lexer yyl):base(yyl){}}
-//%+DBL+7
-public partial class DBL : TOKEN{
-public override string yyname { get { return "DBL"; }}
-public override int yynum { get { return 7; }}
-public DBL(Lexer yyl):base(yyl){}}
-//%+BOL+8
-public partial class BOL : TOKEN{
-public override string yyname { get { return "BOL"; }}
-public override int yynum { get { return 8; }}
-public BOL(Lexer yyl):base(yyl){}}
-//%+CODE+9
-public partial class CODE : TOKEN{
-public override string yyname { get { return "CODE"; }}
-public override int yynum { get { return 9; }}
-public CODE(Lexer yyl):base(yyl){}}
-//%+COMMENT+10
-public partial class COMMENT : TOKEN{
-public override string yyname { get { return "COMMENT"; }}
-public override int yynum { get { return 10; }}
-public COMMENT(Lexer yyl):base(yyl){}}
-//%OPEN+11
-public class OPEN : TOKEN{ public override string yyname { get { return "OPEN";}}
-public override int yynum { get { return 11; }}
- public OPEN(Lexer yyl):base(yyl) {}}
-//%CLOSE+12
-public class CLOSE : TOKEN{ public override string yyname { get { return "CLOSE";}}
-public override int yynum { get { return 12; }}
- public CLOSE(Lexer yyl):base(yyl) {}}
-//%COMMA+13
-public class COMMA : TOKEN{ public override string yyname { get { return "COMMA";}}
-public override int yynum { get { return 13; }}
- public COMMA(Lexer yyl):base(yyl) {}}
-//%SOPEN+14
-public class SOPEN : TOKEN{ public override string yyname { get { return "SOPEN";}}
-public override int yynum { get { return 14; }}
- public SOPEN(Lexer yyl):base(yyl) {}}
-//%SCLOSE+15
-public class SCLOSE : TOKEN{ public override string yyname { get { return "SCLOSE";}}
-public override int yynum { get { return 15; }}
- public SCLOSE(Lexer yyl):base(yyl) {}}
-//%QOPEN+16
-public class QOPEN : TOKEN{ public override string yyname { get { return "QOPEN";}}
-public override int yynum { get { return 16; }}
- public QOPEN(Lexer yyl):base(yyl) {}}
-//%QCLOSE+17
-public class QCLOSE : TOKEN{ public override string yyname { get { return "QCLOSE";}}
-public override int yynum { get { return 17; }}
- public QCLOSE(Lexer yyl):base(yyl) {}}
-//%SUB+18
-public class SUB : TOKEN{ public override string yyname { get { return "SUB";}}
-public override int yynum { get { return 18; }}
- public SUB(Lexer yyl):base(yyl) {}}
-//%SUP+19
-public class SUP : TOKEN{ public override string yyname { get { return "SUP";}}
-public override int yynum { get { return 19; }}
- public SUP(Lexer yyl):base(yyl) {}}
-//%EQV+20
-public class EQV : TOKEN{ public override string yyname { get { return "EQV";}}
-public override int yynum { get { return 20; }}
- public EQV(Lexer yyl):base(yyl) {}}
-//%EQV2+21
-public class EQV2 : TOKEN{ public override string yyname { get { return "EQV2";}}
-public override int yynum { get { return 21; }}
- public EQV2(Lexer yyl):base(yyl) {}}
-//%SUBR+22
-public class SUBR : TOKEN{ public override string yyname { get { return "SUBR";}}
-public override int yynum { get { return 22; }}
- public SUBR(Lexer yyl):base(yyl) {}}
-//%SUPR+23
-public class SUPR : TOKEN{ public override string yyname { get { return "SUPR";}}
-public override int yynum { get { return 23; }}
- public SUPR(Lexer yyl):base(yyl) {}}
-//%EQVR+24
-public class EQVR : TOKEN{ public override string yyname { get { return "EQVR";}}
-public override int yynum { get { return 24; }}
- public EQVR(Lexer yyl):base(yyl) {}}
-//%SUBD+25
-public class SUBD : TOKEN{ public override string yyname { get { return "SUBD";}}
-public override int yynum { get { return 25; }}
- public SUBD(Lexer yyl):base(yyl) {}}
-//%SUPD+26
-public class SUPD : TOKEN{ public override string yyname { get { return "SUPD";}}
-public override int yynum { get { return 26; }}
- public SUPD(Lexer yyl):base(yyl) {}}
-//%EQVD+27
-public class EQVD : TOKEN{ public override string yyname { get { return "EQVD";}}
-public override int yynum { get { return 27; }}
- public EQVD(Lexer yyl):base(yyl) {}}
-//%CIRCLE+28
-public class CIRCLE : TOKEN{ public override string yyname { get { return "CIRCLE";}}
-public override int yynum { get { return 28; }}
- public CIRCLE(Lexer yyl):base(yyl) {}}
-//%AND+29
-public class AND : TOKEN{ public override string yyname { get { return "AND";}}
-public override int yynum { get { return 29; }}
- public AND(Lexer yyl):base(yyl) {}}
-//%OR+30
-public class OR : TOKEN{ public override string yyname { get { return "OR";}}
-public override int yynum { get { return 30; }}
- public OR(Lexer yyl):base(yyl) {}}
-//%NOT+31
-public class NOT : TOKEN{ public override string yyname { get { return "NOT";}}
-public override int yynum { get { return 31; }}
- public NOT(Lexer yyl):base(yyl) {}}
-//%ONLY+32
-public class ONLY : TOKEN{ public override string yyname { get { return "ONLY";}}
-public override int yynum { get { return 32; }}
- public ONLY(Lexer yyl):base(yyl) {}}
-//%SOME+33
-public class SOME : TOKEN{ public override string yyname { get { return "SOME";}}
-public override int yynum { get { return 33; }}
- public SOME(Lexer yyl):base(yyl) {}}
-//%EQ+34
-public class EQ : TOKEN{ public override string yyname { get { return "EQ";}}
-public override int yynum { get { return 34; }}
- public EQ(Lexer yyl):base(yyl) {}}
-//%NE+35
-public class NE : TOKEN{ public override string yyname { get { return "NE";}}
-public override int yynum { get { return 35; }}
- public NE(Lexer yyl):base(yyl) {}}
-//%LE+36
-public class LE : TOKEN{ public override string yyname { get { return "LE";}}
-public override int yynum { get { return 36; }}
- public LE(Lexer yyl):base(yyl) {}}
-//%GE+37
-public class GE : TOKEN{ public override string yyname { get { return "GE";}}
-public override int yynum { get { return 37; }}
- public GE(Lexer yyl):base(yyl) {}}
-//%LT+38
-public class LT : TOKEN{ public override string yyname { get { return "LT";}}
-public override int yynum { get { return 38; }}
- public LT(Lexer yyl):base(yyl) {}}
-//%GT+39
-public class GT : TOKEN{ public override string yyname { get { return "GT";}}
-public override int yynum { get { return 39; }}
- public GT(Lexer yyl):base(yyl) {}}
-//%PAT+40
-public class PAT : TOKEN{ public override string yyname { get { return "PAT";}}
-public override int yynum { get { return 40; }}
- public PAT(Lexer yyl):base(yyl) {}}
-//%LEN+41
-public class LEN : TOKEN{ public override string yyname { get { return "LEN";}}
-public override int yynum { get { return 41; }}
- public LEN(Lexer yyl):base(yyl) {}}
-//%MUST+42
-public class MUST : TOKEN{ public override string yyname { get { return "MUST";}}
-public override int yynum { get { return 42; }}
- public MUST(Lexer yyl):base(yyl) {}}
-//%SHOULD+43
-public class SHOULD : TOKEN{ public override string yyname { get { return "SHOULD";}}
-public override int yynum { get { return 43; }}
- public SHOULD(Lexer yyl):base(yyl) {}}
-//%CAN+44
-public class CAN : TOKEN{ public override string yyname { get { return "CAN";}}
-public override int yynum { get { return 44; }}
- public CAN(Lexer yyl):base(yyl) {}}
-//%MUSTNOT+45
-public class MUSTNOT : TOKEN{ public override string yyname { get { return "MUSTNOT";}}
-public override int yynum { get { return 45; }}
- public MUSTNOT(Lexer yyl):base(yyl) {}}
-//%SHOULDNOT+46
-public class SHOULDNOT : TOKEN{ public override string yyname { get { return "SHOULDNOT";}}
-public override int yynum { get { return 46; }}
- public SHOULDNOT(Lexer yyl):base(yyl) {}}
-//%CANNOT+47
-public class CANNOT : TOKEN{ public override string yyname { get { return "CANNOT";}}
-public override int yynum { get { return 47; }}
- public CANNOT(Lexer yyl):base(yyl) {}}
-//%SWRLTHEN+48
-public class SWRLTHEN : TOKEN{ public override string yyname { get { return "SWRLTHEN";}}
-public override int yynum { get { return 48; }}
- public SWRLTHEN(Lexer yyl):base(yyl) {}}
-//%EXETHEN+49
-public class EXETHEN : TOKEN{ public override string yyname { get { return "EXETHEN";}}
-public override int yynum { get { return 49; }}
- public EXETHEN(Lexer yyl):base(yyl) {}}
-//%ITERTHEN+50
-public class ITERTHEN : TOKEN{ public override string yyname { get { return "ITERTHEN";}}
-public override int yynum { get { return 50; }}
- public ITERTHEN(Lexer yyl):base(yyl) {}}
-//%SWRLAND+51
-public class SWRLAND : TOKEN{ public override string yyname { get { return "SWRLAND";}}
-public override int yynum { get { return 51; }}
- public SWRLAND(Lexer yyl):base(yyl) {}}
-//%SWRLSTART+52
-public class SWRLSTART : TOKEN{ public override string yyname { get { return "SWRLSTART";}}
-public override int yynum { get { return 52; }}
- public SWRLSTART(Lexer yyl):base(yyl) {}}
-//%DPSTART+53
-public class DPSTART : TOKEN{ public override string yyname { get { return "DPSTART";}}
-public override int yynum { get { return 53; }}
- public DPSTART(Lexer yyl):base(yyl) {}}
-//%DOT+54
-public class DOT : TOKEN{ public override string yyname { get { return "DOT";}}
-public override int yynum { get { return 54; }}
- public DOT(Lexer yyl):base(yyl) {}}
-//%COLON+55
-public class COLON : TOKEN{ public override string yyname { get { return "COLON";}}
-public override int yynum { get { return 55; }}
- public COLON(Lexer yyl):base(yyl) {}}
-//%QUOTATION+56
-public class QUOTATION : TOKEN{ public override string yyname { get { return "QUOTATION";}}
-public override int yynum { get { return 56; }}
- public QUOTATION(Lexer yyl):base(yyl) {}}
-//%INVERSE+57
-public class INVERSE : TOKEN{ public override string yyname { get { return "INVERSE";}}
-public override int yynum { get { return 57; }}
- public INVERSE(Lexer yyl):base(yyl) {}}
-//%TOP+58
-public class TOP : TOKEN{ public override string yyname { get { return "TOP";}}
-public override int yynum { get { return 58; }}
- public TOP(Lexer yyl):base(yyl) {}}
-//%BOTTOM+59
-public class BOTTOM : TOKEN{ public override string yyname { get { return "BOTTOM";}}
-public override int yynum { get { return 59; }}
- public BOTTOM(Lexer yyl):base(yyl) {}}
-//%DTM+60
-public class DTM : TOKEN{ public override string yyname { get { return "DTM";}}
-public override int yynum { get { return 60; }}
- public DTM(Lexer yyl):base(yyl) {}}
-//%DUR+61
-public class DUR : TOKEN{ public override string yyname { get { return "DUR";}}
-public override int yynum { get { return 61; }}
- public DUR(Lexer yyl):base(yyl) {}}
-//%|tokens
-public class yytokens : YyLexer {
- public yytokens(ErrorHandler eh):base(eh) { arr = new int[] { 
+using Tools;
+namespace CogniPy.CNL.DL
+{
+    //%+STR+3
+    public partial class STR : TOKEN
+    {
+        public override string yyname { get { return "STR"; } }
+        public override int yynum { get { return 3; } }
+        public STR(Lexer yyl) : base(yyl) { }
+    }
+    //%+ID+4
+    public partial class ID : TOKEN
+    {
+        public override string yyname { get { return "ID"; } }
+        public override int yynum { get { return 4; } }
+        public ID(Lexer yyl) : base(yyl) { }
+    }
+    //%+NAT+5
+    public partial class NAT : TOKEN
+    {
+        public override string yyname { get { return "NAT"; } }
+        public override int yynum { get { return 5; } }
+        public NAT(Lexer yyl) : base(yyl) { }
+    }
+    //%+NUM+6
+    public partial class NUM : TOKEN
+    {
+        public override string yyname { get { return "NUM"; } }
+        public override int yynum { get { return 6; } }
+        public NUM(Lexer yyl) : base(yyl) { }
+    }
+    //%+DBL+7
+    public partial class DBL : TOKEN
+    {
+        public override string yyname { get { return "DBL"; } }
+        public override int yynum { get { return 7; } }
+        public DBL(Lexer yyl) : base(yyl) { }
+    }
+    //%+BOL+8
+    public partial class BOL : TOKEN
+    {
+        public override string yyname { get { return "BOL"; } }
+        public override int yynum { get { return 8; } }
+        public BOL(Lexer yyl) : base(yyl) { }
+    }
+    //%+CODE+9
+    public partial class CODE : TOKEN
+    {
+        public override string yyname { get { return "CODE"; } }
+        public override int yynum { get { return 9; } }
+        public CODE(Lexer yyl) : base(yyl) { }
+    }
+    //%+COMMENT+10
+    public partial class COMMENT : TOKEN
+    {
+        public override string yyname { get { return "COMMENT"; } }
+        public override int yynum { get { return 10; } }
+        public COMMENT(Lexer yyl) : base(yyl) { }
+    }
+    //%OPEN+11
+    public class OPEN : TOKEN
+    {
+        public override string yyname { get { return "OPEN"; } }
+        public override int yynum { get { return 11; } }
+        public OPEN(Lexer yyl) : base(yyl) { }
+    }
+    //%CLOSE+12
+    public class CLOSE : TOKEN
+    {
+        public override string yyname { get { return "CLOSE"; } }
+        public override int yynum { get { return 12; } }
+        public CLOSE(Lexer yyl) : base(yyl) { }
+    }
+    //%COMMA+13
+    public class COMMA : TOKEN
+    {
+        public override string yyname { get { return "COMMA"; } }
+        public override int yynum { get { return 13; } }
+        public COMMA(Lexer yyl) : base(yyl) { }
+    }
+    //%SOPEN+14
+    public class SOPEN : TOKEN
+    {
+        public override string yyname { get { return "SOPEN"; } }
+        public override int yynum { get { return 14; } }
+        public SOPEN(Lexer yyl) : base(yyl) { }
+    }
+    //%SCLOSE+15
+    public class SCLOSE : TOKEN
+    {
+        public override string yyname { get { return "SCLOSE"; } }
+        public override int yynum { get { return 15; } }
+        public SCLOSE(Lexer yyl) : base(yyl) { }
+    }
+    //%QOPEN+16
+    public class QOPEN : TOKEN
+    {
+        public override string yyname { get { return "QOPEN"; } }
+        public override int yynum { get { return 16; } }
+        public QOPEN(Lexer yyl) : base(yyl) { }
+    }
+    //%QCLOSE+17
+    public class QCLOSE : TOKEN
+    {
+        public override string yyname { get { return "QCLOSE"; } }
+        public override int yynum { get { return 17; } }
+        public QCLOSE(Lexer yyl) : base(yyl) { }
+    }
+    //%SUB+18
+    public class SUB : TOKEN
+    {
+        public override string yyname { get { return "SUB"; } }
+        public override int yynum { get { return 18; } }
+        public SUB(Lexer yyl) : base(yyl) { }
+    }
+    //%SUP+19
+    public class SUP : TOKEN
+    {
+        public override string yyname { get { return "SUP"; } }
+        public override int yynum { get { return 19; } }
+        public SUP(Lexer yyl) : base(yyl) { }
+    }
+    //%EQV+20
+    public class EQV : TOKEN
+    {
+        public override string yyname { get { return "EQV"; } }
+        public override int yynum { get { return 20; } }
+        public EQV(Lexer yyl) : base(yyl) { }
+    }
+    //%EQV2+21
+    public class EQV2 : TOKEN
+    {
+        public override string yyname { get { return "EQV2"; } }
+        public override int yynum { get { return 21; } }
+        public EQV2(Lexer yyl) : base(yyl) { }
+    }
+    //%SUBR+22
+    public class SUBR : TOKEN
+    {
+        public override string yyname { get { return "SUBR"; } }
+        public override int yynum { get { return 22; } }
+        public SUBR(Lexer yyl) : base(yyl) { }
+    }
+    //%SUPR+23
+    public class SUPR : TOKEN
+    {
+        public override string yyname { get { return "SUPR"; } }
+        public override int yynum { get { return 23; } }
+        public SUPR(Lexer yyl) : base(yyl) { }
+    }
+    //%EQVR+24
+    public class EQVR : TOKEN
+    {
+        public override string yyname { get { return "EQVR"; } }
+        public override int yynum { get { return 24; } }
+        public EQVR(Lexer yyl) : base(yyl) { }
+    }
+    //%SUBD+25
+    public class SUBD : TOKEN
+    {
+        public override string yyname { get { return "SUBD"; } }
+        public override int yynum { get { return 25; } }
+        public SUBD(Lexer yyl) : base(yyl) { }
+    }
+    //%SUPD+26
+    public class SUPD : TOKEN
+    {
+        public override string yyname { get { return "SUPD"; } }
+        public override int yynum { get { return 26; } }
+        public SUPD(Lexer yyl) : base(yyl) { }
+    }
+    //%EQVD+27
+    public class EQVD : TOKEN
+    {
+        public override string yyname { get { return "EQVD"; } }
+        public override int yynum { get { return 27; } }
+        public EQVD(Lexer yyl) : base(yyl) { }
+    }
+    //%CIRCLE+28
+    public class CIRCLE : TOKEN
+    {
+        public override string yyname { get { return "CIRCLE"; } }
+        public override int yynum { get { return 28; } }
+        public CIRCLE(Lexer yyl) : base(yyl) { }
+    }
+    //%AND+29
+    public class AND : TOKEN
+    {
+        public override string yyname { get { return "AND"; } }
+        public override int yynum { get { return 29; } }
+        public AND(Lexer yyl) : base(yyl) { }
+    }
+    //%OR+30
+    public class OR : TOKEN
+    {
+        public override string yyname { get { return "OR"; } }
+        public override int yynum { get { return 30; } }
+        public OR(Lexer yyl) : base(yyl) { }
+    }
+    //%NOT+31
+    public class NOT : TOKEN
+    {
+        public override string yyname { get { return "NOT"; } }
+        public override int yynum { get { return 31; } }
+        public NOT(Lexer yyl) : base(yyl) { }
+    }
+    //%ONLY+32
+    public class ONLY : TOKEN
+    {
+        public override string yyname { get { return "ONLY"; } }
+        public override int yynum { get { return 32; } }
+        public ONLY(Lexer yyl) : base(yyl) { }
+    }
+    //%SOME+33
+    public class SOME : TOKEN
+    {
+        public override string yyname { get { return "SOME"; } }
+        public override int yynum { get { return 33; } }
+        public SOME(Lexer yyl) : base(yyl) { }
+    }
+    //%EQ+34
+    public class EQ : TOKEN
+    {
+        public override string yyname { get { return "EQ"; } }
+        public override int yynum { get { return 34; } }
+        public EQ(Lexer yyl) : base(yyl) { }
+    }
+    //%NE+35
+    public class NE : TOKEN
+    {
+        public override string yyname { get { return "NE"; } }
+        public override int yynum { get { return 35; } }
+        public NE(Lexer yyl) : base(yyl) { }
+    }
+    //%LE+36
+    public class LE : TOKEN
+    {
+        public override string yyname { get { return "LE"; } }
+        public override int yynum { get { return 36; } }
+        public LE(Lexer yyl) : base(yyl) { }
+    }
+    //%GE+37
+    public class GE : TOKEN
+    {
+        public override string yyname { get { return "GE"; } }
+        public override int yynum { get { return 37; } }
+        public GE(Lexer yyl) : base(yyl) { }
+    }
+    //%LT+38
+    public class LT : TOKEN
+    {
+        public override string yyname { get { return "LT"; } }
+        public override int yynum { get { return 38; } }
+        public LT(Lexer yyl) : base(yyl) { }
+    }
+    //%GT+39
+    public class GT : TOKEN
+    {
+        public override string yyname { get { return "GT"; } }
+        public override int yynum { get { return 39; } }
+        public GT(Lexer yyl) : base(yyl) { }
+    }
+    //%PAT+40
+    public class PAT : TOKEN
+    {
+        public override string yyname { get { return "PAT"; } }
+        public override int yynum { get { return 40; } }
+        public PAT(Lexer yyl) : base(yyl) { }
+    }
+    //%LEN+41
+    public class LEN : TOKEN
+    {
+        public override string yyname { get { return "LEN"; } }
+        public override int yynum { get { return 41; } }
+        public LEN(Lexer yyl) : base(yyl) { }
+    }
+    //%MUST+42
+    public class MUST : TOKEN
+    {
+        public override string yyname { get { return "MUST"; } }
+        public override int yynum { get { return 42; } }
+        public MUST(Lexer yyl) : base(yyl) { }
+    }
+    //%SHOULD+43
+    public class SHOULD : TOKEN
+    {
+        public override string yyname { get { return "SHOULD"; } }
+        public override int yynum { get { return 43; } }
+        public SHOULD(Lexer yyl) : base(yyl) { }
+    }
+    //%CAN+44
+    public class CAN : TOKEN
+    {
+        public override string yyname { get { return "CAN"; } }
+        public override int yynum { get { return 44; } }
+        public CAN(Lexer yyl) : base(yyl) { }
+    }
+    //%MUSTNOT+45
+    public class MUSTNOT : TOKEN
+    {
+        public override string yyname { get { return "MUSTNOT"; } }
+        public override int yynum { get { return 45; } }
+        public MUSTNOT(Lexer yyl) : base(yyl) { }
+    }
+    //%SHOULDNOT+46
+    public class SHOULDNOT : TOKEN
+    {
+        public override string yyname { get { return "SHOULDNOT"; } }
+        public override int yynum { get { return 46; } }
+        public SHOULDNOT(Lexer yyl) : base(yyl) { }
+    }
+    //%CANNOT+47
+    public class CANNOT : TOKEN
+    {
+        public override string yyname { get { return "CANNOT"; } }
+        public override int yynum { get { return 47; } }
+        public CANNOT(Lexer yyl) : base(yyl) { }
+    }
+    //%SWRLTHEN+48
+    public class SWRLTHEN : TOKEN
+    {
+        public override string yyname { get { return "SWRLTHEN"; } }
+        public override int yynum { get { return 48; } }
+        public SWRLTHEN(Lexer yyl) : base(yyl) { }
+    }
+    //%EXETHEN+49
+    public class EXETHEN : TOKEN
+    {
+        public override string yyname { get { return "EXETHEN"; } }
+        public override int yynum { get { return 49; } }
+        public EXETHEN(Lexer yyl) : base(yyl) { }
+    }
+    //%ITERTHEN+50
+    public class ITERTHEN : TOKEN
+    {
+        public override string yyname { get { return "ITERTHEN"; } }
+        public override int yynum { get { return 50; } }
+        public ITERTHEN(Lexer yyl) : base(yyl) { }
+    }
+    //%SWRLAND+51
+    public class SWRLAND : TOKEN
+    {
+        public override string yyname { get { return "SWRLAND"; } }
+        public override int yynum { get { return 51; } }
+        public SWRLAND(Lexer yyl) : base(yyl) { }
+    }
+    //%SWRLSTART+52
+    public class SWRLSTART : TOKEN
+    {
+        public override string yyname { get { return "SWRLSTART"; } }
+        public override int yynum { get { return 52; } }
+        public SWRLSTART(Lexer yyl) : base(yyl) { }
+    }
+    //%DPSTART+53
+    public class DPSTART : TOKEN
+    {
+        public override string yyname { get { return "DPSTART"; } }
+        public override int yynum { get { return 53; } }
+        public DPSTART(Lexer yyl) : base(yyl) { }
+    }
+    //%DOT+54
+    public class DOT : TOKEN
+    {
+        public override string yyname { get { return "DOT"; } }
+        public override int yynum { get { return 54; } }
+        public DOT(Lexer yyl) : base(yyl) { }
+    }
+    //%COLON+55
+    public class COLON : TOKEN
+    {
+        public override string yyname { get { return "COLON"; } }
+        public override int yynum { get { return 55; } }
+        public COLON(Lexer yyl) : base(yyl) { }
+    }
+    //%QUOTATION+56
+    public class QUOTATION : TOKEN
+    {
+        public override string yyname { get { return "QUOTATION"; } }
+        public override int yynum { get { return 56; } }
+        public QUOTATION(Lexer yyl) : base(yyl) { }
+    }
+    //%INVERSE+57
+    public class INVERSE : TOKEN
+    {
+        public override string yyname { get { return "INVERSE"; } }
+        public override int yynum { get { return 57; } }
+        public INVERSE(Lexer yyl) : base(yyl) { }
+    }
+    //%TOP+58
+    public class TOP : TOKEN
+    {
+        public override string yyname { get { return "TOP"; } }
+        public override int yynum { get { return 58; } }
+        public TOP(Lexer yyl) : base(yyl) { }
+    }
+    //%BOTTOM+59
+    public class BOTTOM : TOKEN
+    {
+        public override string yyname { get { return "BOTTOM"; } }
+        public override int yynum { get { return 59; } }
+        public BOTTOM(Lexer yyl) : base(yyl) { }
+    }
+    //%DTM+60
+    public class DTM : TOKEN
+    {
+        public override string yyname { get { return "DTM"; } }
+        public override int yynum { get { return 60; } }
+        public DTM(Lexer yyl) : base(yyl) { }
+    }
+    //%DUR+61
+    public class DUR : TOKEN
+    {
+        public override string yyname { get { return "DUR"; } }
+        public override int yynum { get { return 61; } }
+        public DUR(Lexer yyl) : base(yyl) { }
+    }
+    //%|tokens
+    public class yytokens : YyLexer
+    {
+        public yytokens(ErrorHandler eh) : base(eh)
+        {
+            arr = new int[] {
 101,4,6,52,0,
 46,0,53,0,6,
 102,4,10,117,0,
@@ -8652,193 +8825,225 @@ public class yytokens : YyLexer {
 623,862,10,623,1,
 8,785,863,10,785,
 1,11,864,5,0,0};
- new Tfactory(this,"DTM",new TCreator(DTM_factory));
- new Tfactory(this,"AND",new TCreator(AND_factory));
- new Tfactory(this,"MUSTNOT",new TCreator(MUSTNOT_factory));
- new Tfactory(this,"COLON",new TCreator(COLON_factory));
- new Tfactory(this,"SOME",new TCreator(SOME_factory));
- new Tfactory(this,"EQ",new TCreator(EQ_factory));
- new Tfactory(this,"COMMENT",new TCreator(COMMENT_factory));
- new Tfactory(this,"SWRLAND",new TCreator(SWRLAND_factory));
- new Tfactory(this,"SHOULDNOT",new TCreator(SHOULDNOT_factory));
- new Tfactory(this,"EQV2",new TCreator(EQV2_factory));
- new Tfactory(this,"EQVD",new TCreator(EQVD_factory));
- new Tfactory(this,"NE",new TCreator(NE_factory));
- new Tfactory(this,"NAT",new TCreator(NAT_factory));
- new Tfactory(this,"LE",new TCreator(LE_factory));
- new Tfactory(this,"BOTTOM",new TCreator(BOTTOM_factory));
- new Tfactory(this,"NOT",new TCreator(NOT_factory));
- new Tfactory(this,"TOP",new TCreator(TOP_factory));
- new Tfactory(this,"CODE",new TCreator(CODE_factory));
- new Tfactory(this,"GE",new TCreator(GE_factory));
- new Tfactory(this,"INVERSE",new TCreator(INVERSE_factory));
- new Tfactory(this,"STR",new TCreator(STR_factory));
- new Tfactory(this,"SUB",new TCreator(SUB_factory));
- new Tfactory(this,"MUST",new TCreator(MUST_factory));
- new Tfactory(this,"DUR",new TCreator(DUR_factory));
- new Tfactory(this,"QUOTATION",new TCreator(QUOTATION_factory));
- new Tfactory(this,"ITERTHEN",new TCreator(ITERTHEN_factory));
- new Tfactory(this,"SUBD",new TCreator(SUBD_factory));
- new Tfactory(this,"PAT",new TCreator(PAT_factory));
- new Tfactory(this,"SHOULD",new TCreator(SHOULD_factory));
- new Tfactory(this,"CLOSE",new TCreator(CLOSE_factory));
- new Tfactory(this,"CANNOT",new TCreator(CANNOT_factory));
- new Tfactory(this,"SUP",new TCreator(SUP_factory));
- new Tfactory(this,"CAN",new TCreator(CAN_factory));
- new Tfactory(this,"DOT",new TCreator(DOT_factory));
- new Tfactory(this,"LEN",new TCreator(LEN_factory));
- new Tfactory(this,"OR",new TCreator(OR_factory));
- new Tfactory(this,"SUPD",new TCreator(SUPD_factory));
- new Tfactory(this,"SUBR",new TCreator(SUBR_factory));
- new Tfactory(this,"EXETHEN",new TCreator(EXETHEN_factory));
- new Tfactory(this,"DPSTART",new TCreator(DPSTART_factory));
- new Tfactory(this,"ONLY",new TCreator(ONLY_factory));
- new Tfactory(this,"QOPEN",new TCreator(QOPEN_factory));
- new Tfactory(this,"ID",new TCreator(ID_factory));
- new Tfactory(this,"DBL",new TCreator(DBL_factory));
- new Tfactory(this,"CIRCLE",new TCreator(CIRCLE_factory));
- new Tfactory(this,"GT",new TCreator(GT_factory));
- new Tfactory(this,"SWRLSTART",new TCreator(SWRLSTART_factory));
- new Tfactory(this,"SUPR",new TCreator(SUPR_factory));
- new Tfactory(this,"LT",new TCreator(LT_factory));
- new Tfactory(this,"SOPEN",new TCreator(SOPEN_factory));
- new Tfactory(this,"QCLOSE",new TCreator(QCLOSE_factory));
- new Tfactory(this,"COMMA",new TCreator(COMMA_factory));
- new Tfactory(this,"EQV",new TCreator(EQV_factory));
- new Tfactory(this,"EQVR",new TCreator(EQVR_factory));
- new Tfactory(this,"SWRLTHEN",new TCreator(SWRLTHEN_factory));
- new Tfactory(this,"NUM",new TCreator(NUM_factory));
- new Tfactory(this,"SCLOSE",new TCreator(SCLOSE_factory));
- new Tfactory(this,"BOL",new TCreator(BOL_factory));
- new Tfactory(this,"OPEN",new TCreator(OPEN_factory));
-}
-public static object DTM_factory(Lexer yyl) { return new DTM(yyl);}
-public static object AND_factory(Lexer yyl) { return new AND(yyl);}
-public static object MUSTNOT_factory(Lexer yyl) { return new MUSTNOT(yyl);}
-public static object COLON_factory(Lexer yyl) { return new COLON(yyl);}
-public static object SOME_factory(Lexer yyl) { return new SOME(yyl);}
-public static object EQ_factory(Lexer yyl) { return new EQ(yyl);}
-public static object COMMENT_factory(Lexer yyl) { return new COMMENT(yyl);}
-public static object SWRLAND_factory(Lexer yyl) { return new SWRLAND(yyl);}
-public static object SHOULDNOT_factory(Lexer yyl) { return new SHOULDNOT(yyl);}
-public static object EQV2_factory(Lexer yyl) { return new EQV2(yyl);}
-public static object EQVD_factory(Lexer yyl) { return new EQVD(yyl);}
-public static object NE_factory(Lexer yyl) { return new NE(yyl);}
-public static object NAT_factory(Lexer yyl) { return new NAT(yyl);}
-public static object LE_factory(Lexer yyl) { return new LE(yyl);}
-public static object BOTTOM_factory(Lexer yyl) { return new BOTTOM(yyl);}
-public static object NOT_factory(Lexer yyl) { return new NOT(yyl);}
-public static object TOP_factory(Lexer yyl) { return new TOP(yyl);}
-public static object CODE_factory(Lexer yyl) { return new CODE(yyl);}
-public static object GE_factory(Lexer yyl) { return new GE(yyl);}
-public static object INVERSE_factory(Lexer yyl) { return new INVERSE(yyl);}
-public static object STR_factory(Lexer yyl) { return new STR(yyl);}
-public static object SUB_factory(Lexer yyl) { return new SUB(yyl);}
-public static object MUST_factory(Lexer yyl) { return new MUST(yyl);}
-public static object DUR_factory(Lexer yyl) { return new DUR(yyl);}
-public static object QUOTATION_factory(Lexer yyl) { return new QUOTATION(yyl);}
-public static object ITERTHEN_factory(Lexer yyl) { return new ITERTHEN(yyl);}
-public static object SUBD_factory(Lexer yyl) { return new SUBD(yyl);}
-public static object PAT_factory(Lexer yyl) { return new PAT(yyl);}
-public static object SHOULD_factory(Lexer yyl) { return new SHOULD(yyl);}
-public static object CLOSE_factory(Lexer yyl) { return new CLOSE(yyl);}
-public static object CANNOT_factory(Lexer yyl) { return new CANNOT(yyl);}
-public static object SUP_factory(Lexer yyl) { return new SUP(yyl);}
-public static object CAN_factory(Lexer yyl) { return new CAN(yyl);}
-public static object DOT_factory(Lexer yyl) { return new DOT(yyl);}
-public static object LEN_factory(Lexer yyl) { return new LEN(yyl);}
-public static object OR_factory(Lexer yyl) { return new OR(yyl);}
-public static object SUPD_factory(Lexer yyl) { return new SUPD(yyl);}
-public static object SUBR_factory(Lexer yyl) { return new SUBR(yyl);}
-public static object EXETHEN_factory(Lexer yyl) { return new EXETHEN(yyl);}
-public static object DPSTART_factory(Lexer yyl) { return new DPSTART(yyl);}
-public static object ONLY_factory(Lexer yyl) { return new ONLY(yyl);}
-public static object QOPEN_factory(Lexer yyl) { return new QOPEN(yyl);}
-public static object ID_factory(Lexer yyl) { return new ID(yyl);}
-public static object DBL_factory(Lexer yyl) { return new DBL(yyl);}
-public static object CIRCLE_factory(Lexer yyl) { return new CIRCLE(yyl);}
-public static object GT_factory(Lexer yyl) { return new GT(yyl);}
-public static object SWRLSTART_factory(Lexer yyl) { return new SWRLSTART(yyl);}
-public static object SUPR_factory(Lexer yyl) { return new SUPR(yyl);}
-public static object LT_factory(Lexer yyl) { return new LT(yyl);}
-public static object SOPEN_factory(Lexer yyl) { return new SOPEN(yyl);}
-public static object QCLOSE_factory(Lexer yyl) { return new QCLOSE(yyl);}
-public static object COMMA_factory(Lexer yyl) { return new COMMA(yyl);}
-public static object EQV_factory(Lexer yyl) { return new EQV(yyl);}
-public static object EQVR_factory(Lexer yyl) { return new EQVR(yyl);}
-public static object SWRLTHEN_factory(Lexer yyl) { return new SWRLTHEN(yyl);}
-public static object NUM_factory(Lexer yyl) { return new NUM(yyl);}
-public static object SCLOSE_factory(Lexer yyl) { return new SCLOSE(yyl);}
-public static object BOL_factory(Lexer yyl) { return new BOL(yyl);}
-public static object OPEN_factory(Lexer yyl) { return new OPEN(yyl);}
-public override TOKEN OldAction(Lexer yym,ref string yytext,int action, ref bool reject) {
-  switch(action) {
-  case -1: break;
-   case 1540: { ((tokens)yym).str += yytext;}
-      break;
-   case 1559: { ((tokens)yym).str += yytext;}
-      break;
-   case 1359: { ((tokens)yym).str += yytext; yym.yy_begin("COMMENTSTR2");}
-      break;
-   case 1439: { ((tokens)yym).str += yytext;}
-      break;
-   case 1364: { ((tokens)yym).str += yytext;}
-      break;
-   case 1535: { yym.yy_begin("STR"); ((tokens)yym).str=yytext; }
-      break;
-   case 1337: { ((tokens)yym).str += yytext;}
-      break;
-   case 1332: { ((tokens)yym).str += yytext; yym.yy_begin("COMMENT");}
-      break;
-   case 1581: { yym.yy_begin("CODE"); ((tokens)yym).str=yytext; }
-      break;
-   case 1517: { ((tokens)yym).str += yytext;}
-      break;
-   case 1318: { ((tokens)yym).str += yytext;}
-      break;
-   case 1510: { ((tokens)yym).yytext = ((tokens)yym).str; yym.yy_begin("YYINITIAL"); return new COMMENT(yym);}
-      break;
-   case 1311: { ((tokens)yym).str += yytext; yym.yy_begin("COMMENTSTR");}
-      break;
-   case 1478: { yym.yy_begin("COMMENT"); ((tokens)yym).str=""; }
-      break;
-   case 1554: { ((tokens)yym).yytext = ((tokens)yym).str+yytext; yym.yy_begin("YYINITIAL"); return new STR(yym);}
-      break;
-   case 1587: { ((tokens)yym).str += yytext;}
-      break;
-   case 1456: { ((tokens)yym).str += yytext;}
-      break;
-   case 1451: { ((tokens)yym).yytext = ((tokens)yym).str+yytext; yym.yy_begin("YYINITIAL"); return new COMMENT(yym);}
-      break;
-   case 1494: { ((tokens)yym).str += "%";}
-      break;
-   case 1624: { }
-      break;
-   case 1227: { yym.yy_begin("COMMENT"); ((tokens)yym).str=yytext; }
-      break;
-   case 1602: { ((tokens)yym).str += yytext;}
-      break;
-   case 1417: { ((tokens)yym).str += yytext;}
-      break;
-   case 1378: { ((tokens)yym).str += yytext; yym.yy_begin("COMMENT");}
-      break;
-   case 1410: { ((tokens)yym).str += yytext; yym.yy_begin("COMMENT");}
-      break;
-   case 1405: { ((tokens)yym).str += yytext; yym.yy_begin("COMMENTSB");}
-      break;
-   case 1596: { ((tokens)yym).yytext = ((tokens)yym).str+yytext; yym.yy_begin("YYINITIAL"); return new CODE(yym);}
-      break;
-   case 1383: { ((tokens)yym).str += yytext;}
-      break;
-  }
-  return null;
-}}
-public class tokens:Lexer {
-public tokens():base(new yytokens(new ErrorHandler(false))) {}
-public tokens(ErrorHandler eh):base(new yytokens(eh)) {}
-public tokens(YyLexer tks):base(tks){}
+            new Tfactory(this, "DTM", new TCreator(DTM_factory));
+            new Tfactory(this, "AND", new TCreator(AND_factory));
+            new Tfactory(this, "MUSTNOT", new TCreator(MUSTNOT_factory));
+            new Tfactory(this, "COLON", new TCreator(COLON_factory));
+            new Tfactory(this, "SOME", new TCreator(SOME_factory));
+            new Tfactory(this, "EQ", new TCreator(EQ_factory));
+            new Tfactory(this, "COMMENT", new TCreator(COMMENT_factory));
+            new Tfactory(this, "SWRLAND", new TCreator(SWRLAND_factory));
+            new Tfactory(this, "SHOULDNOT", new TCreator(SHOULDNOT_factory));
+            new Tfactory(this, "EQV2", new TCreator(EQV2_factory));
+            new Tfactory(this, "EQVD", new TCreator(EQVD_factory));
+            new Tfactory(this, "NE", new TCreator(NE_factory));
+            new Tfactory(this, "NAT", new TCreator(NAT_factory));
+            new Tfactory(this, "LE", new TCreator(LE_factory));
+            new Tfactory(this, "BOTTOM", new TCreator(BOTTOM_factory));
+            new Tfactory(this, "NOT", new TCreator(NOT_factory));
+            new Tfactory(this, "TOP", new TCreator(TOP_factory));
+            new Tfactory(this, "CODE", new TCreator(CODE_factory));
+            new Tfactory(this, "GE", new TCreator(GE_factory));
+            new Tfactory(this, "INVERSE", new TCreator(INVERSE_factory));
+            new Tfactory(this, "STR", new TCreator(STR_factory));
+            new Tfactory(this, "SUB", new TCreator(SUB_factory));
+            new Tfactory(this, "MUST", new TCreator(MUST_factory));
+            new Tfactory(this, "DUR", new TCreator(DUR_factory));
+            new Tfactory(this, "QUOTATION", new TCreator(QUOTATION_factory));
+            new Tfactory(this, "ITERTHEN", new TCreator(ITERTHEN_factory));
+            new Tfactory(this, "SUBD", new TCreator(SUBD_factory));
+            new Tfactory(this, "PAT", new TCreator(PAT_factory));
+            new Tfactory(this, "SHOULD", new TCreator(SHOULD_factory));
+            new Tfactory(this, "CLOSE", new TCreator(CLOSE_factory));
+            new Tfactory(this, "CANNOT", new TCreator(CANNOT_factory));
+            new Tfactory(this, "SUP", new TCreator(SUP_factory));
+            new Tfactory(this, "CAN", new TCreator(CAN_factory));
+            new Tfactory(this, "DOT", new TCreator(DOT_factory));
+            new Tfactory(this, "LEN", new TCreator(LEN_factory));
+            new Tfactory(this, "OR", new TCreator(OR_factory));
+            new Tfactory(this, "SUPD", new TCreator(SUPD_factory));
+            new Tfactory(this, "SUBR", new TCreator(SUBR_factory));
+            new Tfactory(this, "EXETHEN", new TCreator(EXETHEN_factory));
+            new Tfactory(this, "DPSTART", new TCreator(DPSTART_factory));
+            new Tfactory(this, "ONLY", new TCreator(ONLY_factory));
+            new Tfactory(this, "QOPEN", new TCreator(QOPEN_factory));
+            new Tfactory(this, "ID", new TCreator(ID_factory));
+            new Tfactory(this, "DBL", new TCreator(DBL_factory));
+            new Tfactory(this, "CIRCLE", new TCreator(CIRCLE_factory));
+            new Tfactory(this, "GT", new TCreator(GT_factory));
+            new Tfactory(this, "SWRLSTART", new TCreator(SWRLSTART_factory));
+            new Tfactory(this, "SUPR", new TCreator(SUPR_factory));
+            new Tfactory(this, "LT", new TCreator(LT_factory));
+            new Tfactory(this, "SOPEN", new TCreator(SOPEN_factory));
+            new Tfactory(this, "QCLOSE", new TCreator(QCLOSE_factory));
+            new Tfactory(this, "COMMA", new TCreator(COMMA_factory));
+            new Tfactory(this, "EQV", new TCreator(EQV_factory));
+            new Tfactory(this, "EQVR", new TCreator(EQVR_factory));
+            new Tfactory(this, "SWRLTHEN", new TCreator(SWRLTHEN_factory));
+            new Tfactory(this, "NUM", new TCreator(NUM_factory));
+            new Tfactory(this, "SCLOSE", new TCreator(SCLOSE_factory));
+            new Tfactory(this, "BOL", new TCreator(BOL_factory));
+            new Tfactory(this, "OPEN", new TCreator(OPEN_factory));
+        }
+        public static object DTM_factory(Lexer yyl) { return new DTM(yyl); }
+        public static object AND_factory(Lexer yyl) { return new AND(yyl); }
+        public static object MUSTNOT_factory(Lexer yyl) { return new MUSTNOT(yyl); }
+        public static object COLON_factory(Lexer yyl) { return new COLON(yyl); }
+        public static object SOME_factory(Lexer yyl) { return new SOME(yyl); }
+        public static object EQ_factory(Lexer yyl) { return new EQ(yyl); }
+        public static object COMMENT_factory(Lexer yyl) { return new COMMENT(yyl); }
+        public static object SWRLAND_factory(Lexer yyl) { return new SWRLAND(yyl); }
+        public static object SHOULDNOT_factory(Lexer yyl) { return new SHOULDNOT(yyl); }
+        public static object EQV2_factory(Lexer yyl) { return new EQV2(yyl); }
+        public static object EQVD_factory(Lexer yyl) { return new EQVD(yyl); }
+        public static object NE_factory(Lexer yyl) { return new NE(yyl); }
+        public static object NAT_factory(Lexer yyl) { return new NAT(yyl); }
+        public static object LE_factory(Lexer yyl) { return new LE(yyl); }
+        public static object BOTTOM_factory(Lexer yyl) { return new BOTTOM(yyl); }
+        public static object NOT_factory(Lexer yyl) { return new NOT(yyl); }
+        public static object TOP_factory(Lexer yyl) { return new TOP(yyl); }
+        public static object CODE_factory(Lexer yyl) { return new CODE(yyl); }
+        public static object GE_factory(Lexer yyl) { return new GE(yyl); }
+        public static object INVERSE_factory(Lexer yyl) { return new INVERSE(yyl); }
+        public static object STR_factory(Lexer yyl) { return new STR(yyl); }
+        public static object SUB_factory(Lexer yyl) { return new SUB(yyl); }
+        public static object MUST_factory(Lexer yyl) { return new MUST(yyl); }
+        public static object DUR_factory(Lexer yyl) { return new DUR(yyl); }
+        public static object QUOTATION_factory(Lexer yyl) { return new QUOTATION(yyl); }
+        public static object ITERTHEN_factory(Lexer yyl) { return new ITERTHEN(yyl); }
+        public static object SUBD_factory(Lexer yyl) { return new SUBD(yyl); }
+        public static object PAT_factory(Lexer yyl) { return new PAT(yyl); }
+        public static object SHOULD_factory(Lexer yyl) { return new SHOULD(yyl); }
+        public static object CLOSE_factory(Lexer yyl) { return new CLOSE(yyl); }
+        public static object CANNOT_factory(Lexer yyl) { return new CANNOT(yyl); }
+        public static object SUP_factory(Lexer yyl) { return new SUP(yyl); }
+        public static object CAN_factory(Lexer yyl) { return new CAN(yyl); }
+        public static object DOT_factory(Lexer yyl) { return new DOT(yyl); }
+        public static object LEN_factory(Lexer yyl) { return new LEN(yyl); }
+        public static object OR_factory(Lexer yyl) { return new OR(yyl); }
+        public static object SUPD_factory(Lexer yyl) { return new SUPD(yyl); }
+        public static object SUBR_factory(Lexer yyl) { return new SUBR(yyl); }
+        public static object EXETHEN_factory(Lexer yyl) { return new EXETHEN(yyl); }
+        public static object DPSTART_factory(Lexer yyl) { return new DPSTART(yyl); }
+        public static object ONLY_factory(Lexer yyl) { return new ONLY(yyl); }
+        public static object QOPEN_factory(Lexer yyl) { return new QOPEN(yyl); }
+        public static object ID_factory(Lexer yyl) { return new ID(yyl); }
+        public static object DBL_factory(Lexer yyl) { return new DBL(yyl); }
+        public static object CIRCLE_factory(Lexer yyl) { return new CIRCLE(yyl); }
+        public static object GT_factory(Lexer yyl) { return new GT(yyl); }
+        public static object SWRLSTART_factory(Lexer yyl) { return new SWRLSTART(yyl); }
+        public static object SUPR_factory(Lexer yyl) { return new SUPR(yyl); }
+        public static object LT_factory(Lexer yyl) { return new LT(yyl); }
+        public static object SOPEN_factory(Lexer yyl) { return new SOPEN(yyl); }
+        public static object QCLOSE_factory(Lexer yyl) { return new QCLOSE(yyl); }
+        public static object COMMA_factory(Lexer yyl) { return new COMMA(yyl); }
+        public static object EQV_factory(Lexer yyl) { return new EQV(yyl); }
+        public static object EQVR_factory(Lexer yyl) { return new EQVR(yyl); }
+        public static object SWRLTHEN_factory(Lexer yyl) { return new SWRLTHEN(yyl); }
+        public static object NUM_factory(Lexer yyl) { return new NUM(yyl); }
+        public static object SCLOSE_factory(Lexer yyl) { return new SCLOSE(yyl); }
+        public static object BOL_factory(Lexer yyl) { return new BOL(yyl); }
+        public static object OPEN_factory(Lexer yyl) { return new OPEN(yyl); }
+        public override TOKEN OldAction(Lexer yym, ref string yytext, int action, ref bool reject)
+        {
+            switch (action)
+            {
+                case -1: break;
+                case 1540:
+                    { ((tokens)yym).str += yytext; }
+                    break;
+                case 1559:
+                    { ((tokens)yym).str += yytext; }
+                    break;
+                case 1359:
+                    { ((tokens)yym).str += yytext; yym.yy_begin("COMMENTSTR2"); }
+                    break;
+                case 1439:
+                    { ((tokens)yym).str += yytext; }
+                    break;
+                case 1364:
+                    { ((tokens)yym).str += yytext; }
+                    break;
+                case 1535:
+                    { yym.yy_begin("STR"); ((tokens)yym).str = yytext; }
+                    break;
+                case 1337:
+                    { ((tokens)yym).str += yytext; }
+                    break;
+                case 1332:
+                    { ((tokens)yym).str += yytext; yym.yy_begin("COMMENT"); }
+                    break;
+                case 1581:
+                    { yym.yy_begin("CODE"); ((tokens)yym).str = yytext; }
+                    break;
+                case 1517:
+                    { ((tokens)yym).str += yytext; }
+                    break;
+                case 1318:
+                    { ((tokens)yym).str += yytext; }
+                    break;
+                case 1510:
+                    { ((tokens)yym).yytext = ((tokens)yym).str; yym.yy_begin("YYINITIAL"); return new COMMENT(yym); }
+                    break;
+                case 1311:
+                    { ((tokens)yym).str += yytext; yym.yy_begin("COMMENTSTR"); }
+                    break;
+                case 1478:
+                    { yym.yy_begin("COMMENT"); ((tokens)yym).str = ""; }
+                    break;
+                case 1554:
+                    { ((tokens)yym).yytext = ((tokens)yym).str + yytext; yym.yy_begin("YYINITIAL"); return new STR(yym); }
+                    break;
+                case 1587:
+                    { ((tokens)yym).str += yytext; }
+                    break;
+                case 1456:
+                    { ((tokens)yym).str += yytext; }
+                    break;
+                case 1451:
+                    { ((tokens)yym).yytext = ((tokens)yym).str + yytext; yym.yy_begin("YYINITIAL"); return new COMMENT(yym); }
+                    break;
+                case 1494:
+                    { ((tokens)yym).str += "%"; }
+                    break;
+                case 1624:
+                    { }
+                    break;
+                case 1227:
+                    { yym.yy_begin("COMMENT"); ((tokens)yym).str = yytext; }
+                    break;
+                case 1602:
+                    { ((tokens)yym).str += yytext; }
+                    break;
+                case 1417:
+                    { ((tokens)yym).str += yytext; }
+                    break;
+                case 1378:
+                    { ((tokens)yym).str += yytext; yym.yy_begin("COMMENT"); }
+                    break;
+                case 1410:
+                    { ((tokens)yym).str += yytext; yym.yy_begin("COMMENT"); }
+                    break;
+                case 1405:
+                    { ((tokens)yym).str += yytext; yym.yy_begin("COMMENTSB"); }
+                    break;
+                case 1596:
+                    { ((tokens)yym).yytext = ((tokens)yym).str + yytext; yym.yy_begin("YYINITIAL"); return new CODE(yym); }
+                    break;
+                case 1383:
+                    { ((tokens)yym).str += yytext; }
+                    break;
+            }
+            return null;
+        }
+    }
+    public class tokens : Lexer
+    {
+        public tokens() : base(new yytokens(new ErrorHandler(false))) { }
+        public tokens(ErrorHandler eh) : base(new yytokens(eh)) { }
+        public tokens(YyLexer tks) : base(tks) { }
 
-	public string str;
+        public string str;
 
- }
+    }
 }

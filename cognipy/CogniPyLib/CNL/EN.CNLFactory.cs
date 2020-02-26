@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using Tools;
-using System.IO;
-using System.Reflection;
 
 namespace CogniPy.CNL.EN
 {
@@ -16,7 +16,7 @@ namespace CogniPy.CNL.EN
             var name = (from x in System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceNames() where x.EndsWith("." + shortName) select x).First();
             return System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream(name);
         }
-        
+
         public static CogniPy.CNL.EN.endict lex = new CogniPy.CNL.EN.endict(FindResourceString("en.dict"));
 
         [ThreadStatic]

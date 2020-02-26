@@ -1,1488 +1,2078 @@
-using System;using Tools;
-namespace CogniPy.CNL.DL {
-//%+Statement+62
-public partial class Statement : PartialSymbol{
-public override string yyname_dl { get { return "Statement"; }}
-public override int yynum_dl { get { return 62; }}
-}
-//%+Paragraph+63
-public partial class Paragraph : PartialSymbol{
-public override string yyname_dl { get { return "Paragraph"; }}
-public override int yynum_dl { get { return 63; }}
-}
-//%+Node+64
-public partial class Node : PartialSymbol{
-public override string yyname_dl { get { return "Node"; }}
-public override int yynum_dl { get { return 64; }}
-}
-//%+Expression+65
-public partial class Expression : Node{
-public override string yyname_dl { get { return "Expression"; }}
-public override int yynum_dl { get { return 65; }}
-}
-//%+modality+66
-public partial class modality : PartialSymbol{
-public override string yyname_dl { get { return "modality"; }}
-public override int yynum_dl { get { return 66; }}
-}
-//%+Subsumption+67
-public partial class Subsumption : Statement{
-public override string yyname_dl { get { return "Subsumption"; }}
-public override int yynum_dl { get { return 67; }}
-}
-//%+Annotation+68
-public partial class Annotation : Statement{
-public override string yyname_dl { get { return "Annotation"; }}
-public override int yynum_dl { get { return 68; }}
-}
-//%+DLAnnotationAxiom+69
-public partial class DLAnnotationAxiom : Statement{
-public override string yyname_dl { get { return "DLAnnotationAxiom"; }}
-public override int yynum_dl { get { return 69; }}
-}
-//%+Equivalence+70
-public partial class Equivalence : Statement{
-public override string yyname_dl { get { return "Equivalence"; }}
-public override int yynum_dl { get { return 70; }}
-}
-//%+Disjoint+71
-public partial class Disjoint : Statement{
-public override string yyname_dl { get { return "Disjoint"; }}
-public override int yynum_dl { get { return 71; }}
-}
-//%+DisjointUnion+72
-public partial class DisjointUnion : Statement{
-public override string yyname_dl { get { return "DisjointUnion"; }}
-public override int yynum_dl { get { return 72; }}
-}
-//%+DataTypeDefinition+73
-public partial class DataTypeDefinition : Statement{
-public override string yyname_dl { get { return "DataTypeDefinition"; }}
-public override int yynum_dl { get { return 73; }}
-}
-//%+RoleInclusion+74
-public partial class RoleInclusion : Statement{
-public override string yyname_dl { get { return "RoleInclusion"; }}
-public override int yynum_dl { get { return 74; }}
-}
-//%+RoleEquivalence+75
-public partial class RoleEquivalence : Statement{
-public override string yyname_dl { get { return "RoleEquivalence"; }}
-public override int yynum_dl { get { return 75; }}
-}
-//%+RoleDisjoint+76
-public partial class RoleDisjoint : Statement{
-public override string yyname_dl { get { return "RoleDisjoint"; }}
-public override int yynum_dl { get { return 76; }}
-}
-//%+ComplexRoleInclusion+77
-public partial class ComplexRoleInclusion : Statement{
-public override string yyname_dl { get { return "ComplexRoleInclusion"; }}
-public override int yynum_dl { get { return 77; }}
-}
-//%+DataRoleInclusion+78
-public partial class DataRoleInclusion : Statement{
-public override string yyname_dl { get { return "DataRoleInclusion"; }}
-public override int yynum_dl { get { return 78; }}
-}
-//%+DataRoleEquivalence+79
-public partial class DataRoleEquivalence : Statement{
-public override string yyname_dl { get { return "DataRoleEquivalence"; }}
-public override int yynum_dl { get { return 79; }}
-}
-//%+DataRoleDisjoint+80
-public partial class DataRoleDisjoint : Statement{
-public override string yyname_dl { get { return "DataRoleDisjoint"; }}
-public override int yynum_dl { get { return 80; }}
-}
-//%+Instance+81
-public partial class Instance : PartialSymbol{
-public override string yyname_dl { get { return "Instance"; }}
-public override int yynum_dl { get { return 81; }}
-}
-//%+NamedInstance+82
-public partial class NamedInstance : Instance{
-public override string yyname_dl { get { return "NamedInstance"; }}
-public override int yynum_dl { get { return 82; }}
-}
-//%+UnnamedInstance+83
-public partial class UnnamedInstance : Instance{
-public override string yyname_dl { get { return "UnnamedInstance"; }}
-public override int yynum_dl { get { return 83; }}
-}
-//%+InstanceOf+84
-public partial class InstanceOf : Statement{
-public override string yyname_dl { get { return "InstanceOf"; }}
-public override int yynum_dl { get { return 84; }}
-}
-//%+RelatedInstances+85
-public partial class RelatedInstances : Statement{
-public override string yyname_dl { get { return "RelatedInstances"; }}
-public override int yynum_dl { get { return 85; }}
-}
-//%+Value+86
-public partial class Value : PartialSymbol{
-public override string yyname_dl { get { return "Value"; }}
-public override int yynum_dl { get { return 86; }}
-}
-//%+InstanceValue+87
-public partial class InstanceValue : Statement{
-public override string yyname_dl { get { return "InstanceValue"; }}
-public override int yynum_dl { get { return 87; }}
-}
-//%+InstanceList+88
-public partial class InstanceList : PartialSymbol{
-public override string yyname_dl { get { return "InstanceList"; }}
-public override int yynum_dl { get { return 88; }}
-}
-//%+NodeList+89
-public partial class NodeList : PartialSymbol{
-public override string yyname_dl { get { return "NodeList"; }}
-public override int yynum_dl { get { return 89; }}
-}
-//%+SameInstances+90
-public partial class SameInstances : Statement{
-public override string yyname_dl { get { return "SameInstances"; }}
-public override int yynum_dl { get { return 90; }}
-}
-//%+DifferentInstances+91
-public partial class DifferentInstances : Statement{
-public override string yyname_dl { get { return "DifferentInstances"; }}
-public override int yynum_dl { get { return 91; }}
-}
-//%+HasKey+92
-public partial class HasKey : Statement{
-public override string yyname_dl { get { return "HasKey"; }}
-public override int yynum_dl { get { return 92; }}
-}
-//%+Number+93
-public partial class Number : Value{
-public override string yyname_dl { get { return "Number"; }}
-public override int yynum_dl { get { return 93; }}
-}
-//%+String+94
-public partial class String : Value{
-public override string yyname_dl { get { return "String"; }}
-public override int yynum_dl { get { return 94; }}
-}
-//%+Float+95
-public partial class Float : Value{
-public override string yyname_dl { get { return "Float"; }}
-public override int yynum_dl { get { return 95; }}
-}
-//%+Bool+96
-public partial class Bool : Value{
-public override string yyname_dl { get { return "Bool"; }}
-public override int yynum_dl { get { return 96; }}
-}
-//%+DateTimeVal+97
-public partial class DateTimeVal : Value{
-public override string yyname_dl { get { return "DateTimeVal"; }}
-public override int yynum_dl { get { return 97; }}
-}
-//%+Duration+98
-public partial class Duration : Value{
-public override string yyname_dl { get { return "Duration"; }}
-public override int yynum_dl { get { return 98; }}
-}
-//%+ValueList+99
-public partial class ValueList : PartialSymbol{
-public override string yyname_dl { get { return "ValueList"; }}
-public override int yynum_dl { get { return 99; }}
-}
-//%+AbstractBound+100
-public partial class AbstractBound : PartialSymbol{
-public override string yyname_dl { get { return "AbstractBound"; }}
-public override int yynum_dl { get { return 100; }}
-}
-//%+BoundFacets+101
-public partial class BoundFacets : AbstractBound{
-public override string yyname_dl { get { return "BoundFacets"; }}
-public override int yynum_dl { get { return 101; }}
-}
-//%+BoundVal+102
-public partial class BoundVal : AbstractBound{
-public override string yyname_dl { get { return "BoundVal"; }}
-public override int yynum_dl { get { return 102; }}
-}
-//%+TotalBound+103
-public partial class TotalBound : AbstractBound{
-public override string yyname_dl { get { return "TotalBound"; }}
-public override int yynum_dl { get { return 103; }}
-}
-//%+DTBound+104
-public partial class DTBound : AbstractBound{
-public override string yyname_dl { get { return "DTBound"; }}
-public override int yynum_dl { get { return 104; }}
-}
-//%+TopBound+105
-public partial class TopBound : AbstractBound{
-public override string yyname_dl { get { return "TopBound"; }}
-public override int yynum_dl { get { return 105; }}
-}
-//%+ValueSet+106
-public partial class ValueSet : AbstractBound{
-public override string yyname_dl { get { return "ValueSet"; }}
-public override int yynum_dl { get { return 106; }}
-}
-//%+IdentityBound+107
-public partial class IdentityBound : AbstractBound{
-public override string yyname_dl { get { return "IdentityBound"; }}
-public override int yynum_dl { get { return 107; }}
-}
-//%+BoundNot+108
-public partial class BoundNot : AbstractBound{
-public override string yyname_dl { get { return "BoundNot"; }}
-public override int yynum_dl { get { return 108; }}
-}
-//%+BoundAnd+109
-public partial class BoundAnd : AbstractBound{
-public override string yyname_dl { get { return "BoundAnd"; }}
-public override int yynum_dl { get { return 109; }}
-}
-//%+BoundOr+110
-public partial class BoundOr : AbstractBound{
-public override string yyname_dl { get { return "BoundOr"; }}
-public override int yynum_dl { get { return 110; }}
-}
-//%+Identity+111
-public partial class Identity : Node{
-public override string yyname_dl { get { return "Identity"; }}
-public override int yynum_dl { get { return 111; }}
-}
-//%+Atomic+112
-public partial class Atomic : Node{
-public override string yyname_dl { get { return "Atomic"; }}
-public override int yynum_dl { get { return 112; }}
-}
-//%+Top+113
-public partial class Top : Node{
-public override string yyname_dl { get { return "Top"; }}
-public override int yynum_dl { get { return 113; }}
-}
-//%+Bottom+114
-public partial class Bottom : Node{
-public override string yyname_dl { get { return "Bottom"; }}
-public override int yynum_dl { get { return 114; }}
-}
-//%+RoleInversion+115
-public partial class RoleInversion : Expression{
-public override string yyname_dl { get { return "RoleInversion"; }}
-public override int yynum_dl { get { return 115; }}
-}
-//%+InstanceSet+116
-public partial class InstanceSet : Expression{
-public override string yyname_dl { get { return "InstanceSet"; }}
-public override int yynum_dl { get { return 116; }}
-}
-//%+ConceptList+117
-public partial class ConceptList : Expression{
-public override string yyname_dl { get { return "ConceptList"; }}
-public override int yynum_dl { get { return 117; }}
-}
-//%+ConceptOr+118
-public partial class ConceptOr : ConceptList{
-public override string yyname_dl { get { return "ConceptOr"; }}
-public override int yynum_dl { get { return 118; }}
-}
-//%+ConceptAnd+119
-public partial class ConceptAnd : ConceptList{
-public override string yyname_dl { get { return "ConceptAnd"; }}
-public override int yynum_dl { get { return 119; }}
-}
-//%+ConceptNot+120
-public partial class ConceptNot : Expression{
-public override string yyname_dl { get { return "ConceptNot"; }}
-public override int yynum_dl { get { return 120; }}
-}
-//%+Restriction+121
-public partial class Restriction : Expression{
-public override string yyname_dl { get { return "Restriction"; }}
-public override int yynum_dl { get { return 121; }}
-}
-//%+OnlyRestriction+122
-public partial class OnlyRestriction : Restriction{
-public override string yyname_dl { get { return "OnlyRestriction"; }}
-public override int yynum_dl { get { return 122; }}
-}
-//%+SomeRestriction+123
-public partial class SomeRestriction : Restriction{
-public override string yyname_dl { get { return "SomeRestriction"; }}
-public override int yynum_dl { get { return 123; }}
-}
-//%+OnlyValueRestriction+124
-public partial class OnlyValueRestriction : Restriction{
-public override string yyname_dl { get { return "OnlyValueRestriction"; }}
-public override int yynum_dl { get { return 124; }}
-}
-//%+SomeValueRestriction+125
-public partial class SomeValueRestriction : Restriction{
-public override string yyname_dl { get { return "SomeValueRestriction"; }}
-public override int yynum_dl { get { return 125; }}
-}
-//%+SelfReference+126
-public partial class SelfReference : Restriction{
-public override string yyname_dl { get { return "SelfReference"; }}
-public override int yynum_dl { get { return 126; }}
-}
-//%+CardinalRestriction+127
-public partial class CardinalRestriction : Restriction{
-public override string yyname_dl { get { return "CardinalRestriction"; }}
-public override int yynum_dl { get { return 127; }}
-}
-//%+NumberRestriction+128
-public partial class NumberRestriction : CardinalRestriction{
-public override string yyname_dl { get { return "NumberRestriction"; }}
-public override int yynum_dl { get { return 128; }}
-}
-//%+NumberValueRestriction+129
-public partial class NumberValueRestriction : CardinalRestriction{
-public override string yyname_dl { get { return "NumberValueRestriction"; }}
-public override int yynum_dl { get { return 129; }}
-}
-//%+RoleChain+130
-public partial class RoleChain : PartialSymbol{
-public override string yyname_dl { get { return "RoleChain"; }}
-public override int yynum_dl { get { return 130; }}
-}
-//%+SwrlStatement+131
-public partial class SwrlStatement : Statement{
-public override string yyname_dl { get { return "SwrlStatement"; }}
-public override int yynum_dl { get { return 131; }}
-}
-//%+SwrlIterate+132
-public partial class SwrlIterate : Statement{
-public override string yyname_dl { get { return "SwrlIterate"; }}
-public override int yynum_dl { get { return 132; }}
-}
-//%+SwrlItemList+133
-public partial class SwrlItemList : PartialSymbol{
-public override string yyname_dl { get { return "SwrlItemList"; }}
-public override int yynum_dl { get { return 133; }}
-}
-//%+SwrlItem+134
-public partial class SwrlItem : PartialSymbol{
-public override string yyname_dl { get { return "SwrlItem"; }}
-public override int yynum_dl { get { return 134; }}
-}
-//%+SwrlInstance+135
-public partial class SwrlInstance : SwrlItem{
-public override string yyname_dl { get { return "SwrlInstance"; }}
-public override int yynum_dl { get { return 135; }}
-}
-//%+SwrlRole+136
-public partial class SwrlRole : SwrlItem{
-public override string yyname_dl { get { return "SwrlRole"; }}
-public override int yynum_dl { get { return 136; }}
-}
-//%+SwrlSameAs+137
-public partial class SwrlSameAs : SwrlItem{
-public override string yyname_dl { get { return "SwrlSameAs"; }}
-public override int yynum_dl { get { return 137; }}
-}
-//%+SwrlDifferentFrom+138
-public partial class SwrlDifferentFrom : SwrlItem{
-public override string yyname_dl { get { return "SwrlDifferentFrom"; }}
-public override int yynum_dl { get { return 138; }}
-}
-//%+SwrlDataProperty+139
-public partial class SwrlDataProperty : SwrlItem{
-public override string yyname_dl { get { return "SwrlDataProperty"; }}
-public override int yynum_dl { get { return 139; }}
-}
-//%+SwrlBuiltIn+140
-public partial class SwrlBuiltIn : SwrlItem{
-public override string yyname_dl { get { return "SwrlBuiltIn"; }}
-public override int yynum_dl { get { return 140; }}
-}
-//%+SwrlDataRange+141
-public partial class SwrlDataRange : SwrlItem{
-public override string yyname_dl { get { return "SwrlDataRange"; }}
-public override int yynum_dl { get { return 141; }}
-}
-//%+SwrlIObject+142
-public partial class SwrlIObject : PartialSymbol{
-public override string yyname_dl { get { return "SwrlIObject"; }}
-public override int yynum_dl { get { return 142; }}
-}
-//%+SwrlIVar+143
-public partial class SwrlIVar : SwrlIObject{
-public override string yyname_dl { get { return "SwrlIVar"; }}
-public override int yynum_dl { get { return 143; }}
-}
-//%+SwrlIVal+144
-public partial class SwrlIVal : SwrlIObject{
-public override string yyname_dl { get { return "SwrlIVal"; }}
-public override int yynum_dl { get { return 144; }}
-}
-//%+SwrlDObject+145
-public partial class SwrlDObject : PartialSymbol{
-public override string yyname_dl { get { return "SwrlDObject"; }}
-public override int yynum_dl { get { return 145; }}
-}
-//%+SwrlObjectList+146
-public partial class SwrlObjectList : PartialSymbol{
-public override string yyname_dl { get { return "SwrlObjectList"; }}
-public override int yynum_dl { get { return 146; }}
-}
-//%+SwrlDVar+147
-public partial class SwrlDVar : SwrlDObject{
-public override string yyname_dl { get { return "SwrlDVar"; }}
-public override int yynum_dl { get { return 147; }}
-}
-//%+SwrlDVal+148
-public partial class SwrlDVal : SwrlDObject{
-public override string yyname_dl { get { return "SwrlDVal"; }}
-public override int yynum_dl { get { return 148; }}
-}
-//%+ExeStatement+149
-public partial class ExeStatement : Statement{
-public override string yyname_dl { get { return "ExeStatement"; }}
-public override int yynum_dl { get { return 149; }}
-}
-//%+CodeStatement+150
-public partial class CodeStatement : Statement{
-public override string yyname_dl { get { return "CodeStatement"; }}
-public override int yynum_dl { get { return 150; }}
-}
-//%+SwrlVarList+151
-public partial class SwrlVarList : PartialSymbol{
-public override string yyname_dl { get { return "SwrlVarList"; }}
-public override int yynum_dl { get { return 151; }}
-}
-
-public class Paragraph_309291dc7bd741f288754a136db35dc4 : Paragraph {
-  public Paragraph_309291dc7bd741f288754a136db35dc4(Parser yyq):base(yyq,
-	((Statement)(yyq.StackAt(0).m_value))
-	){}}
-
-public class Paragraph_a039d85c8fbd4469b57f76a2607e24f7 : Paragraph {
-  public Paragraph_a039d85c8fbd4469b57f76a2607e24f7(Parser yyq):base(yyq,
-	((Paragraph)(yyq.StackAt(1).m_value))
-	,
-	((Statement)(yyq.StackAt(0).m_value))
-	){}}
-
-public class modality_f5b860d28b48427e9293c2301dbedc1d : modality {
-  public modality_f5b860d28b48427e9293c2301dbedc1d(Parser yyq):base(yyq){}}
-
-public class modality_3c73154806bf42dfb2833091da2679ab : modality {
-  public modality_3c73154806bf42dfb2833091da2679ab(Parser yyq):base(yyq){}}
-
-public class modality_3c73154806bf42dfb2833091da2679ab_e30f4f3fb1ed4bb19e89002c75f94b57 : modality_3c73154806bf42dfb2833091da2679ab {
-  public modality_3c73154806bf42dfb2833091da2679ab_e30f4f3fb1ed4bb19e89002c75f94b57(Parser yyq):base(yyq){mod=Statement.Modality.IS;}}
-
-public class modality_12a24df93b6346eba60dbf3238903c6f : modality {
-  public modality_12a24df93b6346eba60dbf3238903c6f(Parser yyq):base(yyq){}}
-
-public class modality_479dad065d5c4393a30696b670c3e65b : modality {
-  public modality_479dad065d5c4393a30696b670c3e65b(Parser yyq):base(yyq){}}
-
-public class modality_479dad065d5c4393a30696b670c3e65b_7a24221a640849e6b928f4dabc3ccd98 : modality_479dad065d5c4393a30696b670c3e65b {
-  public modality_479dad065d5c4393a30696b670c3e65b_7a24221a640849e6b928f4dabc3ccd98(Parser yyq):base(yyq){mod=Statement.Modality.MUST;}}
-
-public class modality_d2aafe2308924a719dd6396e251078b6 : modality {
-  public modality_d2aafe2308924a719dd6396e251078b6(Parser yyq):base(yyq){}}
-
-public class modality_7c544fb85dd448b1809e7986327f6fd6 : modality {
-  public modality_7c544fb85dd448b1809e7986327f6fd6(Parser yyq):base(yyq){}}
-
-public class modality_7c544fb85dd448b1809e7986327f6fd6_1cc012ce15b747f4a0e4bf976fcffdc7 : modality_7c544fb85dd448b1809e7986327f6fd6 {
-  public modality_7c544fb85dd448b1809e7986327f6fd6_1cc012ce15b747f4a0e4bf976fcffdc7(Parser yyq):base(yyq){mod=Statement.Modality.SHOULD;}}
-
-public class modality_5a4fd01f65aa44b08f801e1e5740e736 : modality {
-  public modality_5a4fd01f65aa44b08f801e1e5740e736(Parser yyq):base(yyq){}}
-
-public class modality_c218e85a91514a13b1261e71cb842c84 : modality {
-  public modality_c218e85a91514a13b1261e71cb842c84(Parser yyq):base(yyq){}}
-
-public class modality_c218e85a91514a13b1261e71cb842c84_9e69ff621fb84cd6a5ce6cc9310c7f8f : modality_c218e85a91514a13b1261e71cb842c84 {
-  public modality_c218e85a91514a13b1261e71cb842c84_9e69ff621fb84cd6a5ce6cc9310c7f8f(Parser yyq):base(yyq){mod=Statement.Modality.CAN;}}
-
-public class modality_4040741ab25c40ebbef2748e36e852f4 : modality {
-  public modality_4040741ab25c40ebbef2748e36e852f4(Parser yyq):base(yyq){}}
-
-public class modality_23e5b2d6a5f5470fbf43211a38c248e0 : modality {
-  public modality_23e5b2d6a5f5470fbf43211a38c248e0(Parser yyq):base(yyq){}}
-
-public class modality_23e5b2d6a5f5470fbf43211a38c248e0_e6f99599b2904bcf913d69e7609f6ac0 : modality_23e5b2d6a5f5470fbf43211a38c248e0 {
-  public modality_23e5b2d6a5f5470fbf43211a38c248e0_e6f99599b2904bcf913d69e7609f6ac0(Parser yyq):base(yyq){mod=Statement.Modality.MUSTNOT;}}
-
-public class modality_ebb97c76929649c999074dd95041a09e : modality {
-  public modality_ebb97c76929649c999074dd95041a09e(Parser yyq):base(yyq){}}
-
-public class modality_62c2ed5949b2408581b7548e7da70940 : modality {
-  public modality_62c2ed5949b2408581b7548e7da70940(Parser yyq):base(yyq){}}
-
-public class modality_62c2ed5949b2408581b7548e7da70940_eb516229894d4ab4aab77331999c1ed0 : modality_62c2ed5949b2408581b7548e7da70940 {
-  public modality_62c2ed5949b2408581b7548e7da70940_eb516229894d4ab4aab77331999c1ed0(Parser yyq):base(yyq){mod=Statement.Modality.SHOULDNOT;}}
-
-public class modality_5226455df8d441ea9469e14b89045326 : modality {
-  public modality_5226455df8d441ea9469e14b89045326(Parser yyq):base(yyq){}}
-
-public class modality_003a05311abb41718aac93f51b5ddc93 : modality {
-  public modality_003a05311abb41718aac93f51b5ddc93(Parser yyq):base(yyq){}}
-
-public class modality_003a05311abb41718aac93f51b5ddc93_1b5963ccd36c47eb9a0ccb223640471f : modality_003a05311abb41718aac93f51b5ddc93 {
-  public modality_003a05311abb41718aac93f51b5ddc93_1b5963ccd36c47eb9a0ccb223640471f(Parser yyq):base(yyq){mod=Statement.Modality.CANNOT;}}
-
-public class Subsumption_0db10df2d43344a2bf76d55f6f1d4930 : Subsumption {
-  public Subsumption_0db10df2d43344a2bf76d55f6f1d4930(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(3).m_value))
-	,
-	((Node)(yyq.StackAt(0).m_value))
-	,
-	((modality)(yyq.StackAt(1).m_value))
-	.mod){}}
-
-public class Subsumption_6af97029206a46029ef9e7fe13252256 : Subsumption {
-  public Subsumption_6af97029206a46029ef9e7fe13252256(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(0).m_value))
-	,
-	((Node)(yyq.StackAt(3).m_value))
-	,
-	((modality)(yyq.StackAt(1).m_value))
-	.mod){}}
-
-public class Equivalence_092cb61658f24abc9b8aed5c12ef863a : Equivalence {
-  public Equivalence_092cb61658f24abc9b8aed5c12ef863a(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(3).m_value))
-	,
-	((Node)(yyq.StackAt(0).m_value))
-	,
-	((modality)(yyq.StackAt(1).m_value))
-	.mod){}}
-
-public class Equivalence_a56b89fb27634398b32836467c987584 : Equivalence {
-  public Equivalence_a56b89fb27634398b32836467c987584(Parser yyq):base(yyq,
-	((NodeList)(yyq.StackAt(1).m_value))
-	,
-	((modality)(yyq.StackAt(3).m_value))
-	.mod){}}
-
-public class Disjoint_6ad137ae410a4c7b806612c6b8dfd66f : Disjoint {
-  public Disjoint_6ad137ae410a4c7b806612c6b8dfd66f(Parser yyq):base(yyq,
-	((NodeList)(yyq.StackAt(1).m_value))
-	,
-	((modality)(yyq.StackAt(3).m_value))
-	.mod){}}
-
-public class DisjointUnion_0dcd7600aaac4cac9a975d8318a1c269 : DisjointUnion {
-  public DisjointUnion_0dcd7600aaac4cac9a975d8318a1c269(Parser yyq):base(yyq,
-	((ID)(yyq.StackAt(6).m_value))
-	,
-	((NodeList)(yyq.StackAt(1).m_value))
-	,
-	((modality)(yyq.StackAt(3).m_value))
-	.mod){}}
-
-public class DataTypeDefinition_47c50bc6851e4337899c0012a3d4d74e : DataTypeDefinition {
-  public DataTypeDefinition_47c50bc6851e4337899c0012a3d4d74e(Parser yyq):base(yyq,
-	((ID)(yyq.StackAt(2).m_value))
-	,
-	((AbstractBound)(yyq.StackAt(0).m_value))
-	){}}
-
-public class RoleInclusion_fa72066a4d4f41f69ca190dab81c4e31 : RoleInclusion {
-  public RoleInclusion_fa72066a4d4f41f69ca190dab81c4e31(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(3).m_value))
-	,
-	((Node)(yyq.StackAt(0).m_value))
-	,
-	((modality)(yyq.StackAt(1).m_value))
-	.mod){}}
-
-public class RoleInclusion_699872d2b4db42c2bd2f98d71660564a : RoleInclusion {
-  public RoleInclusion_699872d2b4db42c2bd2f98d71660564a(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(0).m_value))
-	,
-	((Node)(yyq.StackAt(3).m_value))
-	,
-	((modality)(yyq.StackAt(1).m_value))
-	.mod){}}
-
-public class RoleEquivalence_8a84e63367894740860328420a892224 : RoleEquivalence {
-  public RoleEquivalence_8a84e63367894740860328420a892224(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(3).m_value))
-	,
-	((Node)(yyq.StackAt(0).m_value))
-	,
-	((modality)(yyq.StackAt(1).m_value))
-	.mod){}}
-
-public class RoleEquivalence_19c149708a784ba7ab3013d8f8bde9ba : RoleEquivalence {
-  public RoleEquivalence_19c149708a784ba7ab3013d8f8bde9ba(Parser yyq):base(yyq,
-	((NodeList)(yyq.StackAt(1).m_value))
-	,
-	((modality)(yyq.StackAt(3).m_value))
-	.mod){}}
-
-public class RoleDisjoint_39baa456d89941f196a9e5585bf16d48 : RoleDisjoint {
-  public RoleDisjoint_39baa456d89941f196a9e5585bf16d48(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(4).m_value))
-	,
-	((Node)(yyq.StackAt(0).m_value))
-	,
-	((modality)(yyq.StackAt(1).m_value))
-	.mod){}}
-
-public class RoleDisjoint_8805ae727ad547a3bcecbc6d34f9731f : RoleDisjoint {
-  public RoleDisjoint_8805ae727ad547a3bcecbc6d34f9731f(Parser yyq):base(yyq,
-	((NodeList)(yyq.StackAt(1).m_value))
-	,
-	((modality)(yyq.StackAt(3).m_value))
-	.mod){}}
-
-public class ComplexRoleInclusion_1c736a0cc94646e081d10db9a3ec1f9d : ComplexRoleInclusion {
-  public ComplexRoleInclusion_1c736a0cc94646e081d10db9a3ec1f9d(Parser yyq):base(yyq,
-	((RoleChain)(yyq.StackAt(3).m_value))
-	,
-	((Node)(yyq.StackAt(0).m_value))
-	,
-	((modality)(yyq.StackAt(1).m_value))
-	.mod){}}
-
-public class ComplexRoleInclusion_cd10aa2be07047efacc122c918f02b72 : ComplexRoleInclusion {
-  public ComplexRoleInclusion_cd10aa2be07047efacc122c918f02b72(Parser yyq):base(yyq,
-	((RoleChain)(yyq.StackAt(0).m_value))
-	,
-	((Node)(yyq.StackAt(3).m_value))
-	,
-	((modality)(yyq.StackAt(1).m_value))
-	.mod){}}
-
-public class DataRoleInclusion_81e2ffd85fe14217b796bf33e5d28dfc : DataRoleInclusion {
-  public DataRoleInclusion_81e2ffd85fe14217b796bf33e5d28dfc(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(3).m_value))
-	,
-	((Node)(yyq.StackAt(0).m_value))
-	,
-	((modality)(yyq.StackAt(1).m_value))
-	.mod){}}
-
-public class DataRoleInclusion_e67f9d83163e4ae29db1ae493f8d04c8 : DataRoleInclusion {
-  public DataRoleInclusion_e67f9d83163e4ae29db1ae493f8d04c8(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(0).m_value))
-	,
-	((Node)(yyq.StackAt(3).m_value))
-	,
-	((modality)(yyq.StackAt(1).m_value))
-	.mod){}}
-
-public class DataRoleEquivalence_0526da3e1ab64c44a033ec303466ef28 : DataRoleEquivalence {
-  public DataRoleEquivalence_0526da3e1ab64c44a033ec303466ef28(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(3).m_value))
-	,
-	((Node)(yyq.StackAt(0).m_value))
-	,
-	((modality)(yyq.StackAt(1).m_value))
-	.mod){}}
-
-public class DataRoleEquivalence_db7e9dbf9bd146efa788a5b8ff0983b3 : DataRoleEquivalence {
-  public DataRoleEquivalence_db7e9dbf9bd146efa788a5b8ff0983b3(Parser yyq):base(yyq,
-	((NodeList)(yyq.StackAt(1).m_value))
-	,
-	((modality)(yyq.StackAt(3).m_value))
-	.mod){}}
-
-public class DataRoleDisjoint_cabee559a8f547298a9c154c6a482921 : DataRoleDisjoint {
-  public DataRoleDisjoint_cabee559a8f547298a9c154c6a482921(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(4).m_value))
-	,
-	((Node)(yyq.StackAt(0).m_value))
-	,
-	((modality)(yyq.StackAt(1).m_value))
-	.mod){}}
-
-public class DataRoleDisjoint_1359956a28e14189aa934a4f95cf367d : DataRoleDisjoint {
-  public DataRoleDisjoint_1359956a28e14189aa934a4f95cf367d(Parser yyq):base(yyq,
-	((NodeList)(yyq.StackAt(1).m_value))
-	,
-	((modality)(yyq.StackAt(3).m_value))
-	.mod){}}
-
-public class InstanceOf_e822dd8ae6d14f55b5f220cda2ae11ab : InstanceOf {
-  public InstanceOf_e822dd8ae6d14f55b5f220cda2ae11ab(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(4).m_value))
-	,
-	((ID)(yyq.StackAt(1).m_value))
-	,
-	((modality)(yyq.StackAt(3).m_value))
-	.mod){}}
-
-public class RelatedInstances_2cc079760c924ff0a6129a2b458c1451 : RelatedInstances {
-  public RelatedInstances_2cc079760c924ff0a6129a2b458c1451(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(6).m_value))
-	,
-	((ID)(yyq.StackAt(3).m_value))
-	,
-	((ID)(yyq.StackAt(1).m_value))
-	,
-	((modality)(yyq.StackAt(5).m_value))
-	.mod){}}
-
-public class InstanceValue_b38f37c589ce4054871e30e99ba5e420 : InstanceValue {
-  public InstanceValue_b38f37c589ce4054871e30e99ba5e420(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(6).m_value))
-	,
-	((ID)(yyq.StackAt(3).m_value))
-	,
-	((Value)(yyq.StackAt(1).m_value))
-	,
-	((modality)(yyq.StackAt(5).m_value))
-	.mod){}}
-
-public class SameInstances_3b7c95f2fe8d4f11935ee17f5dfe6d26 : SameInstances {
-  public SameInstances_3b7c95f2fe8d4f11935ee17f5dfe6d26(Parser yyq):base(yyq,
-	((ID)(yyq.StackAt(3).m_value))
-	,
-	((ID)(yyq.StackAt(0).m_value))
-	,
-	((modality)(yyq.StackAt(1).m_value))
-	.mod){}}
-
-public class DifferentInstances_bffdcdc7c36c49019243db04c6a8fb51 : DifferentInstances {
-  public DifferentInstances_bffdcdc7c36c49019243db04c6a8fb51(Parser yyq):base(yyq,
-	((ID)(yyq.StackAt(3).m_value))
-	,
-	((ID)(yyq.StackAt(0).m_value))
-	,
-	((modality)(yyq.StackAt(1).m_value))
-	.mod){}}
-
-public class SameInstances_9d3771993f9047c8a3793265faa8823b : SameInstances {
-  public SameInstances_9d3771993f9047c8a3793265faa8823b(Parser yyq):base(yyq,
-	((InstanceList)(yyq.StackAt(1).m_value))
-	,
-	((modality)(yyq.StackAt(3).m_value))
-	.mod){}}
-
-public class DifferentInstances_8194f8416edd44efb1a4c15ee321d7e0 : DifferentInstances {
-  public DifferentInstances_8194f8416edd44efb1a4c15ee321d7e0(Parser yyq):base(yyq,
-	((InstanceList)(yyq.StackAt(1).m_value))
-	,
-	((modality)(yyq.StackAt(3).m_value))
-	.mod){}}
-
-public class HasKey_c2a5d75e95674df797ecd9d7b5ccd962 : HasKey {
-  public HasKey_c2a5d75e95674df797ecd9d7b5ccd962(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(5).m_value))
-	,
-	((NodeList)(yyq.StackAt(1).m_value))
-	,null){}}
-
-public class HasKey_3580de8bdd314074a04e39b672fd9ed9 : HasKey {
-  public HasKey_3580de8bdd314074a04e39b672fd9ed9(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(6).m_value))
-	,null,
-	((NodeList)(yyq.StackAt(1).m_value))
-	){}}
-
-public class HasKey_d1576b6e88974dc193b3ad72ef7d0fd6 : HasKey {
-  public HasKey_d1576b6e88974dc193b3ad72ef7d0fd6(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(9).m_value))
-	,
-	((NodeList)(yyq.StackAt(5).m_value))
-	,
-	((NodeList)(yyq.StackAt(1).m_value))
-	){}}
-
-public class DLAnnotationAxiom_922d57b777df4fb584d1341f1ffe29aa : DLAnnotationAxiom {
-  public DLAnnotationAxiom_922d57b777df4fb584d1341f1ffe29aa(Parser yyq):base(yyq,
-	((ID)(yyq.StackAt(4).m_value))
-	.yytext,
-	((ID)(yyq.StackAt(3).m_value))
-	.yytext,
-	((ID)(yyq.StackAt(2).m_value))
-	.yytext,
-	((ID)(yyq.StackAt(1).m_value))
-	.yytext,
-	((STR)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class DLAnnotationAxiom_4079aa91fa1f45b5b7c7cd5355bf2175 : DLAnnotationAxiom {
-  public DLAnnotationAxiom_4079aa91fa1f45b5b7c7cd5355bf2175(Parser yyq):base(yyq,
-	((ID)(yyq.StackAt(3).m_value))
-	.yytext,
-	((ID)(yyq.StackAt(2).m_value))
-	.yytext,
-	((ID)(yyq.StackAt(1).m_value))
-	.yytext,
-	((STR)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class Annotation_a36648de3daa49879b43174782a51082 : Annotation {
-  public Annotation_a36648de3daa49879b43174782a51082(Parser yyq):base(yyq,
-	((COMMENT)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class SwrlStatement_bb68799131144255ab1c586961282f23 : SwrlStatement {
-  public SwrlStatement_bb68799131144255ab1c586961282f23(Parser yyq):base(yyq,
-	((SwrlItemList)(yyq.StackAt(3).m_value))
-	,
-	((SwrlItemList)(yyq.StackAt(0).m_value))
-	,
-	((modality)(yyq.StackAt(2).m_value))
-	.mod){}}
-
-public class SwrlIterate_cb627029b00f49dbbfa910bc4c8835b1 : SwrlIterate {
-  public SwrlIterate_cb627029b00f49dbbfa910bc4c8835b1(Parser yyq):base(yyq,
-	((SwrlItemList)(yyq.StackAt(5).m_value))
-	,
-	((SwrlItemList)(yyq.StackAt(3).m_value))
-	,
-	((SwrlVarList)(yyq.StackAt(1).m_value))
-	){}}
-
-public class ExeStatement_ab8afa2b999c4f87b4e4d823a22c1871 : ExeStatement {
-  public ExeStatement_ab8afa2b999c4f87b4e4d823a22c1871(Parser yyq):base(yyq,
-	((SwrlItemList)(yyq.StackAt(5).m_value))
-	,
-	((SwrlVarList)(yyq.StackAt(1).m_value))
-	,
-	((CODE)(yyq.StackAt(3).m_value))
-	.yytext){}}
-
-public class ExeStatement_6341ef43c3484a0bb826d2dc3dfdc28a : ExeStatement {
-  public ExeStatement_6341ef43c3484a0bb826d2dc3dfdc28a(Parser yyq):base(yyq,
-	((SwrlItemList)(yyq.StackAt(5).m_value))
-	,
-	((SwrlVarList)(yyq.StackAt(1).m_value))
-	,
-	((STR)(yyq.StackAt(3).m_value))
-	.yytext){}}
-
-public class CodeStatement_4dd9b13152334ab5bed69dcf073e2af1 : CodeStatement {
-  public CodeStatement_4dd9b13152334ab5bed69dcf073e2af1(Parser yyq):base(yyq,
-	((CODE)(yyq.StackAt(0).m_value))
-	.yytext){}}
-public partial class CmpOrID : PartialSymbol {
-public override string yyname_dl { get { return "CmpOrID"; }}
-public override int yynum_dl { get { return 214; }}}
-
-public class CmpOrID_1fdb755c2d4049d596c481e8b6511065 : CmpOrID {
-  public CmpOrID_1fdb755c2d4049d596c481e8b6511065(Parser yyq):base(yyq){}}
-
-public class CmpOrID_c51be4882fbb468191ea3d5b27923cb3 : CmpOrID {
-  public CmpOrID_c51be4882fbb468191ea3d5b27923cb3(Parser yyq):base(yyq){}}
-
-public class CmpOrID_c51be4882fbb468191ea3d5b27923cb3_71f6f255a26a4bc69310f4a855d107b0 : CmpOrID_c51be4882fbb468191ea3d5b27923cb3 {
-  public CmpOrID_c51be4882fbb468191ea3d5b27923cb3_71f6f255a26a4bc69310f4a855d107b0(Parser yyq):base(yyq){yytext=
-	((GE)(yyq.StackAt(0).m_value))
-	.yytext;}}
-
-public class CmpOrID_106a26397604436b84ef59eaa2ab9f51 : CmpOrID {
-  public CmpOrID_106a26397604436b84ef59eaa2ab9f51(Parser yyq):base(yyq){}}
-
-public class CmpOrID_5db1e7132b784124ac8de7af7b6082f9 : CmpOrID {
-  public CmpOrID_5db1e7132b784124ac8de7af7b6082f9(Parser yyq):base(yyq){}}
-
-public class CmpOrID_5db1e7132b784124ac8de7af7b6082f9_8e83713925bf4e569b22b7c1600510db : CmpOrID_5db1e7132b784124ac8de7af7b6082f9 {
-  public CmpOrID_5db1e7132b784124ac8de7af7b6082f9_8e83713925bf4e569b22b7c1600510db(Parser yyq):base(yyq){yytext=
-	((LE)(yyq.StackAt(0).m_value))
-	.yytext;}}
-
-public class CmpOrID_38eb55858f304f17b10fdf196ce5f241 : CmpOrID {
-  public CmpOrID_38eb55858f304f17b10fdf196ce5f241(Parser yyq):base(yyq){}}
-
-public class CmpOrID_2ad2113ae03f488ba1c8496463f60da6 : CmpOrID {
-  public CmpOrID_2ad2113ae03f488ba1c8496463f60da6(Parser yyq):base(yyq){}}
-
-public class CmpOrID_2ad2113ae03f488ba1c8496463f60da6_b3f38bff8dbd47e5a0448779414360f7 : CmpOrID_2ad2113ae03f488ba1c8496463f60da6 {
-  public CmpOrID_2ad2113ae03f488ba1c8496463f60da6_b3f38bff8dbd47e5a0448779414360f7(Parser yyq):base(yyq){yytext=
-	((GT)(yyq.StackAt(0).m_value))
-	.yytext;}}
-
-public class CmpOrID_57e2875c4a4d46f080863179d4564d39 : CmpOrID {
-  public CmpOrID_57e2875c4a4d46f080863179d4564d39(Parser yyq):base(yyq){}}
-
-public class CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843 : CmpOrID {
-  public CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843(Parser yyq):base(yyq){}}
-
-public class CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843_5692ee6c86c04e4fa51293d7df54367a : CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843 {
-  public CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843_5692ee6c86c04e4fa51293d7df54367a(Parser yyq):base(yyq){yytext=
-	((LT)(yyq.StackAt(0).m_value))
-	.yytext;}}
-
-public class CmpOrID_bac4173eadf84599ba6158f469cc7e05 : CmpOrID {
-  public CmpOrID_bac4173eadf84599ba6158f469cc7e05(Parser yyq):base(yyq){}}
-
-public class CmpOrID_cc775bed70664c39a341bfa90e69b796 : CmpOrID {
-  public CmpOrID_cc775bed70664c39a341bfa90e69b796(Parser yyq):base(yyq){}}
-
-public class CmpOrID_cc775bed70664c39a341bfa90e69b796_4c6ddc89945c411698606a62c01ef986 : CmpOrID_cc775bed70664c39a341bfa90e69b796 {
-  public CmpOrID_cc775bed70664c39a341bfa90e69b796_4c6ddc89945c411698606a62c01ef986(Parser yyq):base(yyq){yytext=
-	((NE)(yyq.StackAt(0).m_value))
-	.yytext;}}
-
-public class CmpOrID_f5837b33878145a4b4b2f88d52f138b7 : CmpOrID {
-  public CmpOrID_f5837b33878145a4b4b2f88d52f138b7(Parser yyq):base(yyq){}}
-
-public class CmpOrID_90caf4944e2b47c69f614bbb85bb6024 : CmpOrID {
-  public CmpOrID_90caf4944e2b47c69f614bbb85bb6024(Parser yyq):base(yyq){}}
-
-public class CmpOrID_90caf4944e2b47c69f614bbb85bb6024_13b84ebeb47b47dcaf09ab9fc2e3694d : CmpOrID_90caf4944e2b47c69f614bbb85bb6024 {
-  public CmpOrID_90caf4944e2b47c69f614bbb85bb6024_13b84ebeb47b47dcaf09ab9fc2e3694d(Parser yyq):base(yyq){yytext=
-	((EQ)(yyq.StackAt(0).m_value))
-	.yytext;}}
-
-public class CmpOrID_0d37d54ef4ac479a9d50bd44e0f928eb : CmpOrID {
-  public CmpOrID_0d37d54ef4ac479a9d50bd44e0f928eb(Parser yyq):base(yyq){}}
-
-public class CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b : CmpOrID {
-  public CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b(Parser yyq):base(yyq){}}
-
-public class CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b_68004f2890e741dfb0cf09739d7943d2 : CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b {
-  public CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b_68004f2890e741dfb0cf09739d7943d2(Parser yyq):base(yyq){yytext=
-	((ID)(yyq.StackAt(0).m_value))
-	.yytext;}}
-
-public class SwrlInstance_098aa891bae040149be8008927ac763b : SwrlInstance {
-  public SwrlInstance_098aa891bae040149be8008927ac763b(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(3).m_value))
-	,
-	((SwrlIObject)(yyq.StackAt(1).m_value))
-	){}}
-
-public class SwrlRole_36d2aa76edee4fc592b6b3d96a89524a : SwrlRole {
-  public SwrlRole_36d2aa76edee4fc592b6b3d96a89524a(Parser yyq):base(yyq,
-	((ID)(yyq.StackAt(5).m_value))
-	,
-	((SwrlIObject)(yyq.StackAt(3).m_value))
-	,
-	((SwrlIObject)(yyq.StackAt(1).m_value))
-	){}}
-
-public class SwrlSameAs_5ffa2983a1494e01ace14e32c3889d24 : SwrlSameAs {
-  public SwrlSameAs_5ffa2983a1494e01ace14e32c3889d24(Parser yyq):base(yyq,
-	((SwrlIObject)(yyq.StackAt(3).m_value))
-	,
-	((SwrlIObject)(yyq.StackAt(1).m_value))
-	){}}
-
-public class SwrlDifferentFrom_b199165630004a9cb7e2bd9feb98758e : SwrlDifferentFrom {
-  public SwrlDifferentFrom_b199165630004a9cb7e2bd9feb98758e(Parser yyq):base(yyq,
-	((SwrlIObject)(yyq.StackAt(3).m_value))
-	,
-	((SwrlIObject)(yyq.StackAt(1).m_value))
-	){}}
-
-public class SwrlDataRange_af9fb9b113c04d61814b0eca275e59fa : SwrlDataRange {
-  public SwrlDataRange_af9fb9b113c04d61814b0eca275e59fa(Parser yyq):base(yyq,
-	((AbstractBound)(yyq.StackAt(3).m_value))
-	,
-	((SwrlDObject)(yyq.StackAt(1).m_value))
-	){}}
-
-public class SwrlDataProperty_46fa136ef8244364ba0f9de599eca64d : SwrlDataProperty {
-  public SwrlDataProperty_46fa136ef8244364ba0f9de599eca64d(Parser yyq):base(yyq,
-	((ID)(yyq.StackAt(5).m_value))
-	,
-	((SwrlIObject)(yyq.StackAt(3).m_value))
-	,
-	((SwrlDObject)(yyq.StackAt(1).m_value))
-	){}}
-
-public class SwrlBuiltIn_9808fad53bbd4a848f875eb526c67428 : SwrlBuiltIn {
-  public SwrlBuiltIn_9808fad53bbd4a848f875eb526c67428(Parser yyq):base(yyq,
-	((CmpOrID)(yyq.StackAt(3).m_value))
-	.yytext,
-	((SwrlObjectList)(yyq.StackAt(1).m_value))
-	){}}
-
-public class SwrlIVar_71bc00261a0e468e92c955190eb69e98 : SwrlIVar {
-  public SwrlIVar_71bc00261a0e468e92c955190eb69e98(Parser yyq):base(yyq,
-	((ID)(yyq.StackAt(0).m_value))
-	){}}
-
-public class SwrlIVal_429b1a59c61b4d22891881778bb82b3b : SwrlIVal {
-  public SwrlIVal_429b1a59c61b4d22891881778bb82b3b(Parser yyq):base(yyq,
-	((ID)(yyq.StackAt(0).m_value))
-	){}}
-
-public class SwrlDVar_07f77b9b88194cdb91655566521a3b5d : SwrlDVar {
-  public SwrlDVar_07f77b9b88194cdb91655566521a3b5d(Parser yyq):base(yyq,
-	((ID)(yyq.StackAt(0).m_value))
-	){}}
-
-public class SwrlDVal_62bfa7ba78ff47a8b7652cd763d38abe : SwrlDVal {
-  public SwrlDVal_62bfa7ba78ff47a8b7652cd763d38abe(Parser yyq):base(yyq,
-	((Value)(yyq.StackAt(0).m_value))
-	){}}
-
-public class SwrlObjectList_07113cf3b3d648da90ba6e0aa89786aa : SwrlObjectList {
-  public SwrlObjectList_07113cf3b3d648da90ba6e0aa89786aa(Parser yyq):base(yyq,
-	((SwrlDObject)(yyq.StackAt(0).m_value))
-	){}}
-
-public class SwrlObjectList_e5e33123ad894734bf50cf8e9b97db94 : SwrlObjectList {
-  public SwrlObjectList_e5e33123ad894734bf50cf8e9b97db94(Parser yyq):base(yyq,
-	((SwrlIObject)(yyq.StackAt(0).m_value))
-	){}}
-
-public class SwrlObjectList_3b9b884c320449898bf97943a191b5dd : SwrlObjectList {
-  public SwrlObjectList_3b9b884c320449898bf97943a191b5dd(Parser yyq):base(yyq,
-	((SwrlObjectList)(yyq.StackAt(2).m_value))
-	,
-	((SwrlDObject)(yyq.StackAt(0).m_value))
-	){}}
-
-public class SwrlObjectList_a9b99e55f7684203942226aafea71eb4 : SwrlObjectList {
-  public SwrlObjectList_a9b99e55f7684203942226aafea71eb4(Parser yyq):base(yyq,
-	((SwrlObjectList)(yyq.StackAt(2).m_value))
-	,
-	((SwrlIObject)(yyq.StackAt(0).m_value))
-	){}}
-
-public class SwrlVarList_34f14c4b77a74efcaa85856dfe1c3b61 : SwrlVarList {
-  public SwrlVarList_34f14c4b77a74efcaa85856dfe1c3b61(Parser yyq):base(yyq,
-	((ID)(yyq.StackAt(0).m_value))
-	,null){}}
-
-public class SwrlVarList_71a8a1d242cc48cea932bc153a9239be : SwrlVarList {
-  public SwrlVarList_71a8a1d242cc48cea932bc153a9239be(Parser yyq):base(yyq,null,
-	((ID)(yyq.StackAt(0).m_value))
-	){}}
-
-public class SwrlVarList_8395a76253f64476a12ab23fe1bf2739 : SwrlVarList {
-  public SwrlVarList_8395a76253f64476a12ab23fe1bf2739(Parser yyq):base(yyq,
-	((ID)(yyq.StackAt(0).m_value))
-	,null,
-	((SwrlVarList)(yyq.StackAt(3).m_value))
-	){}}
-
-public class SwrlVarList_a6758d770397480b99211f9252795b66 : SwrlVarList {
-  public SwrlVarList_a6758d770397480b99211f9252795b66(Parser yyq):base(yyq,null,
-	((ID)(yyq.StackAt(0).m_value))
-	,
-	((SwrlVarList)(yyq.StackAt(4).m_value))
-	){}}
-
-public class SwrlItemList_dc1646c9b66b483ca4932ae5ce5900d7 : SwrlItemList {
-  public SwrlItemList_dc1646c9b66b483ca4932ae5ce5900d7(Parser yyq):base(yyq,
-	((SwrlItem)(yyq.StackAt(0).m_value))
-	){}}
-
-public class SwrlItemList_0b6d02ca94894658ba1246b6e757d997 : SwrlItemList {
-  public SwrlItemList_0b6d02ca94894658ba1246b6e757d997(Parser yyq):base(yyq,
-	((SwrlItemList)(yyq.StackAt(2).m_value))
-	,
-	((SwrlItem)(yyq.StackAt(0).m_value))
-	){}}
-
-public class InstanceList_e0f9eda985ac444795ef1d2a6f24bb01 : InstanceList {
-  public InstanceList_e0f9eda985ac444795ef1d2a6f24bb01(Parser yyq):base(yyq,
-	((Instance)(yyq.StackAt(0).m_value))
-	){}}
-
-public class InstanceList_f2b45dab447e49f7a7f383bbdf7fd3c7 : InstanceList {
-  public InstanceList_f2b45dab447e49f7a7f383bbdf7fd3c7(Parser yyq):base(yyq,
-	((InstanceList)(yyq.StackAt(2).m_value))
-	,
-	((Instance)(yyq.StackAt(0).m_value))
-	){}}
-
-public class NodeList_9f311f95b1ba43798e65f80d2756e61f : NodeList {
-  public NodeList_9f311f95b1ba43798e65f80d2756e61f(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(0).m_value))
-	){}}
-
-public class NodeList_95aeed5b3b3a4799b5b346b5fe074447 : NodeList {
-  public NodeList_95aeed5b3b3a4799b5b346b5fe074447(Parser yyq):base(yyq,
-	((NodeList)(yyq.StackAt(2).m_value))
-	,
-	((Node)(yyq.StackAt(0).m_value))
-	){}}
-
-public class Number_3a039afaa0d3402bb962b7c38e026a1a : Number {
-  public Number_3a039afaa0d3402bb962b7c38e026a1a(Parser yyq):base(yyq,
-	((NAT)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class Number_d233049866da4004957ac8ce9402feda : Number {
-  public Number_d233049866da4004957ac8ce9402feda(Parser yyq):base(yyq,
-	((NUM)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class String_3185406054654ec48472d3f64e7de19f : String {
-  public String_3185406054654ec48472d3f64e7de19f(Parser yyq):base(yyq,
-	((STR)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class Float_06e43cd247034ae38647eba1dcb668cd : Float {
-  public Float_06e43cd247034ae38647eba1dcb668cd(Parser yyq):base(yyq,
-	((DBL)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class Bool_0286ef456dd84b2693a6bf816c892c9e : Bool {
-  public Bool_0286ef456dd84b2693a6bf816c892c9e(Parser yyq):base(yyq,
-	((BOL)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class DateTimeVal_6a01711465ba4d58b8e08b78c4de58ab : DateTimeVal {
-  public DateTimeVal_6a01711465ba4d58b8e08b78c4de58ab(Parser yyq):base(yyq,
-	((DTM)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class Duration_b41138dc430c465ca85fa65527495f7c : Duration {
-  public Duration_b41138dc430c465ca85fa65527495f7c(Parser yyq):base(yyq,
-	((DUR)(yyq.StackAt(0).m_value))
-	.yytext){}}
-
-public class ValueList_3ad68c9ca7ea4e508320883a68890f85 : ValueList {
-  public ValueList_3ad68c9ca7ea4e508320883a68890f85(Parser yyq):base(yyq,
-	((Value)(yyq.StackAt(0).m_value))
-	){}}
-
-public class ValueList_2ec5f6babdd649f183e934f4e307e6b1 : ValueList {
-  public ValueList_2ec5f6babdd649f183e934f4e307e6b1(Parser yyq):base(yyq,
-	((ValueList)(yyq.StackAt(2).m_value))
-	,
-	((Value)(yyq.StackAt(0).m_value))
-	){}}
-public partial class Facet : PartialSymbol {
-public override string yyname_dl { get { return "Facet"; }}
-public override int yynum_dl { get { return 270; }}}
-
-public class Facet_f86b0e9c60b141e5b75da1242af1daa3 : Facet {
-  public Facet_f86b0e9c60b141e5b75da1242af1daa3(Parser yyq):base(yyq,"≥",
-	((Value)(yyq.StackAt(0).m_value))
-	){}}
-
-public class Facet_0a6a2d5234914d5cb0664e9d22d4bbb7 : Facet {
-  public Facet_0a6a2d5234914d5cb0664e9d22d4bbb7(Parser yyq):base(yyq,"≤",
-	((Value)(yyq.StackAt(0).m_value))
-	){}}
-
-public class Facet_e6aa1278470e497b8fed8a45f795d7f8 : Facet {
-  public Facet_e6aa1278470e497b8fed8a45f795d7f8(Parser yyq):base(yyq,">",
-	((Value)(yyq.StackAt(0).m_value))
-	){}}
-
-public class Facet_7234202359cc41aa892a7ee044bee6b9 : Facet {
-  public Facet_7234202359cc41aa892a7ee044bee6b9(Parser yyq):base(yyq,"<",
-	((Value)(yyq.StackAt(0).m_value))
-	){}}
-
-public class Facet_76fcec0ce96d4ae6afff869c66403a95 : Facet {
-  public Facet_76fcec0ce96d4ae6afff869c66403a95(Parser yyq):base(yyq,"#",
-	((Value)(yyq.StackAt(0).m_value))
-	){}}
-
-public class Facet_e4cb627134b9481687deb9f3221c10a7 : Facet {
-  public Facet_e4cb627134b9481687deb9f3221c10a7(Parser yyq):base(yyq,"<->",
-	((Value)(yyq.StackAt(0).m_value))
-	){}}
-
-public class Facet_ab7aff70573149678df458aaf1d4bbe1 : Facet {
-  public Facet_ab7aff70573149678df458aaf1d4bbe1(Parser yyq):base(yyq,"<-> ≥",
-	((Value)(yyq.StackAt(0).m_value))
-	){}}
-
-public class Facet_05f0f8f0e704405499f48e980cad32ff : Facet {
-  public Facet_05f0f8f0e704405499f48e980cad32ff(Parser yyq):base(yyq,"<-> ≤",
-	((Value)(yyq.StackAt(0).m_value))
-	){}}
-public partial class FacetList : PartialSymbol {
-public override string yyname_dl { get { return "FacetList"; }}
-public override int yynum_dl { get { return 279; }}}
-
-public class FacetList_2a0671592cf2441ead3371e24c7c3b8a : FacetList {
-  public FacetList_2a0671592cf2441ead3371e24c7c3b8a(Parser yyq):base(yyq,
-	((Facet)(yyq.StackAt(0).m_value))
-	){}}
-
-public class FacetList_ec47cb25c66e4234835b9829ba41670a : FacetList {
-  public FacetList_ec47cb25c66e4234835b9829ba41670a(Parser yyq):base(yyq,
-	((Facet)(yyq.StackAt(3).m_value))
-	,
-	((Facet)(yyq.StackAt(1).m_value))
-	){}}
-
-public class FacetList_7abee1793e424a79a19be8265ea0c037 : FacetList {
-  public FacetList_7abee1793e424a79a19be8265ea0c037(Parser yyq):base(yyq,
-	((FacetList)(yyq.StackAt(3).m_value))
-	,
-	((Facet)(yyq.StackAt(1).m_value))
-	){}}
-
-public class BoundFacets_60956f277fe940c4ae89df22f3176f3f : BoundFacets {
-  public BoundFacets_60956f277fe940c4ae89df22f3176f3f(Parser yyq):base(yyq,
-	((FacetList)(yyq.StackAt(0).m_value))
-	){}}
-
-public class BoundVal_33240dcee92243a1b2eef2b6a2268a5f : BoundVal {
-  public BoundVal_33240dcee92243a1b2eef2b6a2268a5f(Parser yyq):base(yyq,"=",
-	((Value)(yyq.StackAt(0).m_value))
-	){}}
-
-public class BoundVal_6d4dea106ec841799e28d393c6033cd9 : BoundVal {
-  public BoundVal_6d4dea106ec841799e28d393c6033cd9(Parser yyq):base(yyq,"≠",
-	((Value)(yyq.StackAt(0).m_value))
-	){}}
-
-public class TotalBound_5157988b7d074850b320162d44601b7d : TotalBound {
-  public TotalBound_5157988b7d074850b320162d44601b7d(Parser yyq):base(yyq,
-	((Value)(yyq.StackAt(0).m_value))
-	){}}
-
-public class DTBound_df5664059c574b5ea22cc121b101361e : DTBound {
-  public DTBound_df5664059c574b5ea22cc121b101361e(Parser yyq):base(yyq,
-	((ID)(yyq.StackAt(0).m_value))
-	){}}
-
-public class TopBound_7a64d17dbe664c499b0010194f854446 : TopBound {
-  public TopBound_7a64d17dbe664c499b0010194f854446(Parser yyq):base(yyq){}}
-
-public class ValueSet_3b642fe7fd5f477fb9ec44594d458d42 : ValueSet {
-  public ValueSet_3b642fe7fd5f477fb9ec44594d458d42(Parser yyq):base(yyq,
-	((ValueList)(yyq.StackAt(1).m_value))
-	){}}
-
-public class IdentityBound_276ef64c1c7f4c5ea965fe7ba94c06a9 : IdentityBound {
-  public IdentityBound_276ef64c1c7f4c5ea965fe7ba94c06a9(Parser yyq):base(yyq,
-	((AbstractBound)(yyq.StackAt(1).m_value))
-	){}}
-
-public class BoundOr_87a3acae08144bcca1bb4bec8ac186ae : BoundOr {
-  public BoundOr_87a3acae08144bcca1bb4bec8ac186ae(Parser yyq):base(yyq,
-	((AbstractBound)(yyq.StackAt(2).m_value))
-	,
-	((AbstractBound)(yyq.StackAt(0).m_value))
-	){}}
-
-public class BoundAnd_89a3e3448c084581b30516bfc0be2579 : BoundAnd {
-  public BoundAnd_89a3e3448c084581b30516bfc0be2579(Parser yyq):base(yyq,
-	((AbstractBound)(yyq.StackAt(2).m_value))
-	,
-	((AbstractBound)(yyq.StackAt(0).m_value))
-	){}}
-
-public class BoundNot_34b8e8541ed74f49bb00942d37b8fbbb : BoundNot {
-  public BoundNot_34b8e8541ed74f49bb00942d37b8fbbb(Parser yyq):base(yyq,
-	((AbstractBound)(yyq.StackAt(0).m_value))
-	){}}
-
-public class Atomic_2e8503f19ec149edbbb070ca6d18cfcf : Atomic {
-  public Atomic_2e8503f19ec149edbbb070ca6d18cfcf(Parser yyq):base(yyq,
-	((ID)(yyq.StackAt(0).m_value))
-	){}}
-
-public class Top_7efc6fad648547808256af7cd9223817 : Top {
-  public Top_7efc6fad648547808256af7cd9223817(Parser yyq):base(yyq){}}
-
-public class Bottom_82c4459e15624b4eaf8b95683fcce6b3 : Bottom {
-  public Bottom_82c4459e15624b4eaf8b95683fcce6b3(Parser yyq):base(yyq){}}
-
-public class RoleInversion_166197aa5f784dc78d6cf95e223fbedf : RoleInversion {
-  public RoleInversion_166197aa5f784dc78d6cf95e223fbedf(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(1).m_value))
-	){}}
-
-public class Identity_ce2a47caf981469d841cfe3571781f68 : Identity {
-  public Identity_ce2a47caf981469d841cfe3571781f68(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(1).m_value))
-	){}}
-
-public class InstanceSet_7f1254c92b7c439892e4b889d0f75e34 : InstanceSet {
-  public InstanceSet_7f1254c92b7c439892e4b889d0f75e34(Parser yyq):base(yyq,
-	((InstanceList)(yyq.StackAt(1).m_value))
-	){}}
-
-public class ConceptOr_88e4dbd472f549db9011b00eb06efb60 : ConceptOr {
-  public ConceptOr_88e4dbd472f549db9011b00eb06efb60(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(2).m_value))
-	,
-	((Node)(yyq.StackAt(0).m_value))
-	){}}
-
-public class ConceptAnd_2b0d8e7f563940cfa08af35afa638d20 : ConceptAnd {
-  public ConceptAnd_2b0d8e7f563940cfa08af35afa638d20(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(2).m_value))
-	,
-	((Node)(yyq.StackAt(0).m_value))
-	){}}
-
-public class ConceptNot_dcfb5eddd8fa4bf1a727f86e61d33ba6 : ConceptNot {
-  public ConceptNot_dcfb5eddd8fa4bf1a727f86e61d33ba6(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(0).m_value))
-	){}}
-
-public class OnlyRestriction_2a4bfcfa3f4d40a997a8c169157a972c : OnlyRestriction {
-  public OnlyRestriction_2a4bfcfa3f4d40a997a8c169157a972c(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(2).m_value))
-	,
-	((Node)(yyq.StackAt(0).m_value))
-	){}}
-
-public class SomeRestriction_ab4fecc7ccd74e4abc2758247f25236b : SomeRestriction {
-  public SomeRestriction_ab4fecc7ccd74e4abc2758247f25236b(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(2).m_value))
-	,
-	((Node)(yyq.StackAt(0).m_value))
-	){}}
-
-public class OnlyValueRestriction_86fbafdc71a443aaacb2ea955ff77a8d : OnlyValueRestriction {
-  public OnlyValueRestriction_86fbafdc71a443aaacb2ea955ff77a8d(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(1).m_value))
-	,
-	((AbstractBound)(yyq.StackAt(0).m_value))
-	){}}
-
-public class SomeValueRestriction_ac4399d6fa624d6b907bf818b9ef79ae : SomeValueRestriction {
-  public SomeValueRestriction_ac4399d6fa624d6b907bf818b9ef79ae(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(1).m_value))
-	,
-	((AbstractBound)(yyq.StackAt(0).m_value))
-	){}}
-
-public class SelfReference_bf21aca2cb4148dc99c05c0700b8f0ef : SelfReference {
-  public SelfReference_bf21aca2cb4148dc99c05c0700b8f0ef(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(2).m_value))
-	){}}
-
-public class NumberRestriction_35c3e99ad5214406912c313f4f5adb3e : NumberRestriction {
-  public NumberRestriction_35c3e99ad5214406912c313f4f5adb3e(Parser yyq):base(yyq,"=",
-	((Node)(yyq.StackAt(2).m_value))
-	,
-	((NAT)(yyq.StackAt(3).m_value))
-	.yytext,
-	((Node)(yyq.StackAt(0).m_value))
-	){}}
-
-public class NumberRestriction_74de8317f4aa445baed21dc9142d85d2 : NumberRestriction {
-  public NumberRestriction_74de8317f4aa445baed21dc9142d85d2(Parser yyq):base(yyq,"≥",
-	((Node)(yyq.StackAt(2).m_value))
-	,
-	((NAT)(yyq.StackAt(3).m_value))
-	.yytext,
-	((Node)(yyq.StackAt(0).m_value))
-	){}}
-
-public class NumberRestriction_fe951de01fbd4d2494b2534c1f757c4d : NumberRestriction {
-  public NumberRestriction_fe951de01fbd4d2494b2534c1f757c4d(Parser yyq):base(yyq,"≤",
-	((Node)(yyq.StackAt(2).m_value))
-	,
-	((NAT)(yyq.StackAt(3).m_value))
-	.yytext,
-	((Node)(yyq.StackAt(0).m_value))
-	){}}
-
-public class NumberRestriction_a0b895c11f164594a347e9e780488c45 : NumberRestriction {
-  public NumberRestriction_a0b895c11f164594a347e9e780488c45(Parser yyq):base(yyq,">",
-	((Node)(yyq.StackAt(2).m_value))
-	,
-	((NAT)(yyq.StackAt(3).m_value))
-	.yytext,
-	((Node)(yyq.StackAt(0).m_value))
-	){}}
-
-public class NumberRestriction_8a75b84464794133afc25f6203798229 : NumberRestriction {
-  public NumberRestriction_8a75b84464794133afc25f6203798229(Parser yyq):base(yyq,"<",
-	((Node)(yyq.StackAt(2).m_value))
-	,
-	((NAT)(yyq.StackAt(3).m_value))
-	.yytext,
-	((Node)(yyq.StackAt(0).m_value))
-	){}}
-
-public class NumberRestriction_b9c1d4a6a98c4cbf96d4fe04375d79b7 : NumberRestriction {
-  public NumberRestriction_b9c1d4a6a98c4cbf96d4fe04375d79b7(Parser yyq):base(yyq,"≠",
-	((Node)(yyq.StackAt(2).m_value))
-	,
-	((NAT)(yyq.StackAt(3).m_value))
-	.yytext,
-	((Node)(yyq.StackAt(0).m_value))
-	){}}
-
-public class NumberValueRestriction_bb7f05bcd768455c8dac16b6e9db9d46 : NumberValueRestriction {
-  public NumberValueRestriction_bb7f05bcd768455c8dac16b6e9db9d46(Parser yyq):base(yyq,"=",
-	((Node)(yyq.StackAt(1).m_value))
-	,
-	((NAT)(yyq.StackAt(2).m_value))
-	.yytext,
-	((AbstractBound)(yyq.StackAt(0).m_value))
-	){}}
-
-public class NumberValueRestriction_14042a7223b648279ddfa1d927f97063 : NumberValueRestriction {
-  public NumberValueRestriction_14042a7223b648279ddfa1d927f97063(Parser yyq):base(yyq,"≥",
-	((Node)(yyq.StackAt(1).m_value))
-	,
-	((NAT)(yyq.StackAt(2).m_value))
-	.yytext,
-	((AbstractBound)(yyq.StackAt(0).m_value))
-	){}}
-
-public class NumberValueRestriction_204ccdc951d04d68bd4c5ebfb3407ecd : NumberValueRestriction {
-  public NumberValueRestriction_204ccdc951d04d68bd4c5ebfb3407ecd(Parser yyq):base(yyq,"≤",
-	((Node)(yyq.StackAt(1).m_value))
-	,
-	((NAT)(yyq.StackAt(2).m_value))
-	.yytext,
-	((AbstractBound)(yyq.StackAt(0).m_value))
-	){}}
-
-public class NumberValueRestriction_55a3cb924bee4e939ae4dfa13af6793b : NumberValueRestriction {
-  public NumberValueRestriction_55a3cb924bee4e939ae4dfa13af6793b(Parser yyq):base(yyq,">",
-	((Node)(yyq.StackAt(1).m_value))
-	,
-	((NAT)(yyq.StackAt(2).m_value))
-	.yytext,
-	((AbstractBound)(yyq.StackAt(0).m_value))
-	){}}
-
-public class NumberValueRestriction_59c461909a73464680b7df04544a86cf : NumberValueRestriction {
-  public NumberValueRestriction_59c461909a73464680b7df04544a86cf(Parser yyq):base(yyq,"<",
-	((Node)(yyq.StackAt(1).m_value))
-	,
-	((NAT)(yyq.StackAt(2).m_value))
-	.yytext,
-	((AbstractBound)(yyq.StackAt(0).m_value))
-	){}}
-
-public class NumberValueRestriction_4f30de024f25478dbfa953e915f1c9b8 : NumberValueRestriction {
-  public NumberValueRestriction_4f30de024f25478dbfa953e915f1c9b8(Parser yyq):base(yyq,"≠",
-	((Node)(yyq.StackAt(1).m_value))
-	,
-	((NAT)(yyq.StackAt(2).m_value))
-	.yytext,
-	((AbstractBound)(yyq.StackAt(0).m_value))
-	){}}
-
-public class NamedInstance_1963c16918d442f9bdfdb31e030a2378 : NamedInstance {
-  public NamedInstance_1963c16918d442f9bdfdb31e030a2378(Parser yyq):base(yyq,
-	((ID)(yyq.StackAt(0).m_value))
-	){}}
-
-public class UnnamedInstance_1994cb126da1455abb2345df25bad6ab : UnnamedInstance {
-  public UnnamedInstance_1994cb126da1455abb2345df25bad6ab(Parser yyq):base(yyq,false,
-	((Node)(yyq.StackAt(1).m_value))
-	){}}
-
-public class UnnamedInstance_8895935bdbff47f1992c0f29895dee95 : UnnamedInstance {
-  public UnnamedInstance_8895935bdbff47f1992c0f29895dee95(Parser yyq):base(yyq,true,
-	((Node)(yyq.StackAt(2).m_value))
-	){}}
-
-public class RoleChain_d5307d57ef094676b06a3c01b938c594 : RoleChain {
-  public RoleChain_d5307d57ef094676b06a3c01b938c594(Parser yyq):base(yyq,
-	((Node)(yyq.StackAt(2).m_value))
-	,
-	((Node)(yyq.StackAt(0).m_value))
-	){}}
-
-public class RoleChain_1dedab1aca2346418444500048f8d91e : RoleChain {
-  public RoleChain_1dedab1aca2346418444500048f8d91e(Parser yyq):base(yyq,
-	((RoleChain)(yyq.StackAt(2).m_value))
-	,
-	((Node)(yyq.StackAt(0).m_value))
-	){}}
-public class yydl: YyParser {
-  public override object Action(Parser yyq,SYMBOL yysym, int yyact) {
-    switch(yyact) {
-	 case -1: break; //// keep compiler happy
-}  return null; }
-public yydl():base() { arr = new int[] { 
+using Tools;
+namespace CogniPy.CNL.DL
+{
+    //%+Statement+62
+    public partial class Statement : PartialSymbol
+    {
+        public override string yyname_dl { get { return "Statement"; } }
+        public override int yynum_dl { get { return 62; } }
+    }
+    //%+Paragraph+63
+    public partial class Paragraph : PartialSymbol
+    {
+        public override string yyname_dl { get { return "Paragraph"; } }
+        public override int yynum_dl { get { return 63; } }
+    }
+    //%+Node+64
+    public partial class Node : PartialSymbol
+    {
+        public override string yyname_dl { get { return "Node"; } }
+        public override int yynum_dl { get { return 64; } }
+    }
+    //%+Expression+65
+    public partial class Expression : Node
+    {
+        public override string yyname_dl { get { return "Expression"; } }
+        public override int yynum_dl { get { return 65; } }
+    }
+    //%+modality+66
+    public partial class modality : PartialSymbol
+    {
+        public override string yyname_dl { get { return "modality"; } }
+        public override int yynum_dl { get { return 66; } }
+    }
+    //%+Subsumption+67
+    public partial class Subsumption : Statement
+    {
+        public override string yyname_dl { get { return "Subsumption"; } }
+        public override int yynum_dl { get { return 67; } }
+    }
+    //%+Annotation+68
+    public partial class Annotation : Statement
+    {
+        public override string yyname_dl { get { return "Annotation"; } }
+        public override int yynum_dl { get { return 68; } }
+    }
+    //%+DLAnnotationAxiom+69
+    public partial class DLAnnotationAxiom : Statement
+    {
+        public override string yyname_dl { get { return "DLAnnotationAxiom"; } }
+        public override int yynum_dl { get { return 69; } }
+    }
+    //%+Equivalence+70
+    public partial class Equivalence : Statement
+    {
+        public override string yyname_dl { get { return "Equivalence"; } }
+        public override int yynum_dl { get { return 70; } }
+    }
+    //%+Disjoint+71
+    public partial class Disjoint : Statement
+    {
+        public override string yyname_dl { get { return "Disjoint"; } }
+        public override int yynum_dl { get { return 71; } }
+    }
+    //%+DisjointUnion+72
+    public partial class DisjointUnion : Statement
+    {
+        public override string yyname_dl { get { return "DisjointUnion"; } }
+        public override int yynum_dl { get { return 72; } }
+    }
+    //%+DataTypeDefinition+73
+    public partial class DataTypeDefinition : Statement
+    {
+        public override string yyname_dl { get { return "DataTypeDefinition"; } }
+        public override int yynum_dl { get { return 73; } }
+    }
+    //%+RoleInclusion+74
+    public partial class RoleInclusion : Statement
+    {
+        public override string yyname_dl { get { return "RoleInclusion"; } }
+        public override int yynum_dl { get { return 74; } }
+    }
+    //%+RoleEquivalence+75
+    public partial class RoleEquivalence : Statement
+    {
+        public override string yyname_dl { get { return "RoleEquivalence"; } }
+        public override int yynum_dl { get { return 75; } }
+    }
+    //%+RoleDisjoint+76
+    public partial class RoleDisjoint : Statement
+    {
+        public override string yyname_dl { get { return "RoleDisjoint"; } }
+        public override int yynum_dl { get { return 76; } }
+    }
+    //%+ComplexRoleInclusion+77
+    public partial class ComplexRoleInclusion : Statement
+    {
+        public override string yyname_dl { get { return "ComplexRoleInclusion"; } }
+        public override int yynum_dl { get { return 77; } }
+    }
+    //%+DataRoleInclusion+78
+    public partial class DataRoleInclusion : Statement
+    {
+        public override string yyname_dl { get { return "DataRoleInclusion"; } }
+        public override int yynum_dl { get { return 78; } }
+    }
+    //%+DataRoleEquivalence+79
+    public partial class DataRoleEquivalence : Statement
+    {
+        public override string yyname_dl { get { return "DataRoleEquivalence"; } }
+        public override int yynum_dl { get { return 79; } }
+    }
+    //%+DataRoleDisjoint+80
+    public partial class DataRoleDisjoint : Statement
+    {
+        public override string yyname_dl { get { return "DataRoleDisjoint"; } }
+        public override int yynum_dl { get { return 80; } }
+    }
+    //%+Instance+81
+    public partial class Instance : PartialSymbol
+    {
+        public override string yyname_dl { get { return "Instance"; } }
+        public override int yynum_dl { get { return 81; } }
+    }
+    //%+NamedInstance+82
+    public partial class NamedInstance : Instance
+    {
+        public override string yyname_dl { get { return "NamedInstance"; } }
+        public override int yynum_dl { get { return 82; } }
+    }
+    //%+UnnamedInstance+83
+    public partial class UnnamedInstance : Instance
+    {
+        public override string yyname_dl { get { return "UnnamedInstance"; } }
+        public override int yynum_dl { get { return 83; } }
+    }
+    //%+InstanceOf+84
+    public partial class InstanceOf : Statement
+    {
+        public override string yyname_dl { get { return "InstanceOf"; } }
+        public override int yynum_dl { get { return 84; } }
+    }
+    //%+RelatedInstances+85
+    public partial class RelatedInstances : Statement
+    {
+        public override string yyname_dl { get { return "RelatedInstances"; } }
+        public override int yynum_dl { get { return 85; } }
+    }
+    //%+Value+86
+    public partial class Value : PartialSymbol
+    {
+        public override string yyname_dl { get { return "Value"; } }
+        public override int yynum_dl { get { return 86; } }
+    }
+    //%+InstanceValue+87
+    public partial class InstanceValue : Statement
+    {
+        public override string yyname_dl { get { return "InstanceValue"; } }
+        public override int yynum_dl { get { return 87; } }
+    }
+    //%+InstanceList+88
+    public partial class InstanceList : PartialSymbol
+    {
+        public override string yyname_dl { get { return "InstanceList"; } }
+        public override int yynum_dl { get { return 88; } }
+    }
+    //%+NodeList+89
+    public partial class NodeList : PartialSymbol
+    {
+        public override string yyname_dl { get { return "NodeList"; } }
+        public override int yynum_dl { get { return 89; } }
+    }
+    //%+SameInstances+90
+    public partial class SameInstances : Statement
+    {
+        public override string yyname_dl { get { return "SameInstances"; } }
+        public override int yynum_dl { get { return 90; } }
+    }
+    //%+DifferentInstances+91
+    public partial class DifferentInstances : Statement
+    {
+        public override string yyname_dl { get { return "DifferentInstances"; } }
+        public override int yynum_dl { get { return 91; } }
+    }
+    //%+HasKey+92
+    public partial class HasKey : Statement
+    {
+        public override string yyname_dl { get { return "HasKey"; } }
+        public override int yynum_dl { get { return 92; } }
+    }
+    //%+Number+93
+    public partial class Number : Value
+    {
+        public override string yyname_dl { get { return "Number"; } }
+        public override int yynum_dl { get { return 93; } }
+    }
+    //%+String+94
+    public partial class String : Value
+    {
+        public override string yyname_dl { get { return "String"; } }
+        public override int yynum_dl { get { return 94; } }
+    }
+    //%+Float+95
+    public partial class Float : Value
+    {
+        public override string yyname_dl { get { return "Float"; } }
+        public override int yynum_dl { get { return 95; } }
+    }
+    //%+Bool+96
+    public partial class Bool : Value
+    {
+        public override string yyname_dl { get { return "Bool"; } }
+        public override int yynum_dl { get { return 96; } }
+    }
+    //%+DateTimeVal+97
+    public partial class DateTimeVal : Value
+    {
+        public override string yyname_dl { get { return "DateTimeVal"; } }
+        public override int yynum_dl { get { return 97; } }
+    }
+    //%+Duration+98
+    public partial class Duration : Value
+    {
+        public override string yyname_dl { get { return "Duration"; } }
+        public override int yynum_dl { get { return 98; } }
+    }
+    //%+ValueList+99
+    public partial class ValueList : PartialSymbol
+    {
+        public override string yyname_dl { get { return "ValueList"; } }
+        public override int yynum_dl { get { return 99; } }
+    }
+    //%+AbstractBound+100
+    public partial class AbstractBound : PartialSymbol
+    {
+        public override string yyname_dl { get { return "AbstractBound"; } }
+        public override int yynum_dl { get { return 100; } }
+    }
+    //%+BoundFacets+101
+    public partial class BoundFacets : AbstractBound
+    {
+        public override string yyname_dl { get { return "BoundFacets"; } }
+        public override int yynum_dl { get { return 101; } }
+    }
+    //%+BoundVal+102
+    public partial class BoundVal : AbstractBound
+    {
+        public override string yyname_dl { get { return "BoundVal"; } }
+        public override int yynum_dl { get { return 102; } }
+    }
+    //%+TotalBound+103
+    public partial class TotalBound : AbstractBound
+    {
+        public override string yyname_dl { get { return "TotalBound"; } }
+        public override int yynum_dl { get { return 103; } }
+    }
+    //%+DTBound+104
+    public partial class DTBound : AbstractBound
+    {
+        public override string yyname_dl { get { return "DTBound"; } }
+        public override int yynum_dl { get { return 104; } }
+    }
+    //%+TopBound+105
+    public partial class TopBound : AbstractBound
+    {
+        public override string yyname_dl { get { return "TopBound"; } }
+        public override int yynum_dl { get { return 105; } }
+    }
+    //%+ValueSet+106
+    public partial class ValueSet : AbstractBound
+    {
+        public override string yyname_dl { get { return "ValueSet"; } }
+        public override int yynum_dl { get { return 106; } }
+    }
+    //%+IdentityBound+107
+    public partial class IdentityBound : AbstractBound
+    {
+        public override string yyname_dl { get { return "IdentityBound"; } }
+        public override int yynum_dl { get { return 107; } }
+    }
+    //%+BoundNot+108
+    public partial class BoundNot : AbstractBound
+    {
+        public override string yyname_dl { get { return "BoundNot"; } }
+        public override int yynum_dl { get { return 108; } }
+    }
+    //%+BoundAnd+109
+    public partial class BoundAnd : AbstractBound
+    {
+        public override string yyname_dl { get { return "BoundAnd"; } }
+        public override int yynum_dl { get { return 109; } }
+    }
+    //%+BoundOr+110
+    public partial class BoundOr : AbstractBound
+    {
+        public override string yyname_dl { get { return "BoundOr"; } }
+        public override int yynum_dl { get { return 110; } }
+    }
+    //%+Identity+111
+    public partial class Identity : Node
+    {
+        public override string yyname_dl { get { return "Identity"; } }
+        public override int yynum_dl { get { return 111; } }
+    }
+    //%+Atomic+112
+    public partial class Atomic : Node
+    {
+        public override string yyname_dl { get { return "Atomic"; } }
+        public override int yynum_dl { get { return 112; } }
+    }
+    //%+Top+113
+    public partial class Top : Node
+    {
+        public override string yyname_dl { get { return "Top"; } }
+        public override int yynum_dl { get { return 113; } }
+    }
+    //%+Bottom+114
+    public partial class Bottom : Node
+    {
+        public override string yyname_dl { get { return "Bottom"; } }
+        public override int yynum_dl { get { return 114; } }
+    }
+    //%+RoleInversion+115
+    public partial class RoleInversion : Expression
+    {
+        public override string yyname_dl { get { return "RoleInversion"; } }
+        public override int yynum_dl { get { return 115; } }
+    }
+    //%+InstanceSet+116
+    public partial class InstanceSet : Expression
+    {
+        public override string yyname_dl { get { return "InstanceSet"; } }
+        public override int yynum_dl { get { return 116; } }
+    }
+    //%+ConceptList+117
+    public partial class ConceptList : Expression
+    {
+        public override string yyname_dl { get { return "ConceptList"; } }
+        public override int yynum_dl { get { return 117; } }
+    }
+    //%+ConceptOr+118
+    public partial class ConceptOr : ConceptList
+    {
+        public override string yyname_dl { get { return "ConceptOr"; } }
+        public override int yynum_dl { get { return 118; } }
+    }
+    //%+ConceptAnd+119
+    public partial class ConceptAnd : ConceptList
+    {
+        public override string yyname_dl { get { return "ConceptAnd"; } }
+        public override int yynum_dl { get { return 119; } }
+    }
+    //%+ConceptNot+120
+    public partial class ConceptNot : Expression
+    {
+        public override string yyname_dl { get { return "ConceptNot"; } }
+        public override int yynum_dl { get { return 120; } }
+    }
+    //%+Restriction+121
+    public partial class Restriction : Expression
+    {
+        public override string yyname_dl { get { return "Restriction"; } }
+        public override int yynum_dl { get { return 121; } }
+    }
+    //%+OnlyRestriction+122
+    public partial class OnlyRestriction : Restriction
+    {
+        public override string yyname_dl { get { return "OnlyRestriction"; } }
+        public override int yynum_dl { get { return 122; } }
+    }
+    //%+SomeRestriction+123
+    public partial class SomeRestriction : Restriction
+    {
+        public override string yyname_dl { get { return "SomeRestriction"; } }
+        public override int yynum_dl { get { return 123; } }
+    }
+    //%+OnlyValueRestriction+124
+    public partial class OnlyValueRestriction : Restriction
+    {
+        public override string yyname_dl { get { return "OnlyValueRestriction"; } }
+        public override int yynum_dl { get { return 124; } }
+    }
+    //%+SomeValueRestriction+125
+    public partial class SomeValueRestriction : Restriction
+    {
+        public override string yyname_dl { get { return "SomeValueRestriction"; } }
+        public override int yynum_dl { get { return 125; } }
+    }
+    //%+SelfReference+126
+    public partial class SelfReference : Restriction
+    {
+        public override string yyname_dl { get { return "SelfReference"; } }
+        public override int yynum_dl { get { return 126; } }
+    }
+    //%+CardinalRestriction+127
+    public partial class CardinalRestriction : Restriction
+    {
+        public override string yyname_dl { get { return "CardinalRestriction"; } }
+        public override int yynum_dl { get { return 127; } }
+    }
+    //%+NumberRestriction+128
+    public partial class NumberRestriction : CardinalRestriction
+    {
+        public override string yyname_dl { get { return "NumberRestriction"; } }
+        public override int yynum_dl { get { return 128; } }
+    }
+    //%+NumberValueRestriction+129
+    public partial class NumberValueRestriction : CardinalRestriction
+    {
+        public override string yyname_dl { get { return "NumberValueRestriction"; } }
+        public override int yynum_dl { get { return 129; } }
+    }
+    //%+RoleChain+130
+    public partial class RoleChain : PartialSymbol
+    {
+        public override string yyname_dl { get { return "RoleChain"; } }
+        public override int yynum_dl { get { return 130; } }
+    }
+    //%+SwrlStatement+131
+    public partial class SwrlStatement : Statement
+    {
+        public override string yyname_dl { get { return "SwrlStatement"; } }
+        public override int yynum_dl { get { return 131; } }
+    }
+    //%+SwrlIterate+132
+    public partial class SwrlIterate : Statement
+    {
+        public override string yyname_dl { get { return "SwrlIterate"; } }
+        public override int yynum_dl { get { return 132; } }
+    }
+    //%+SwrlItemList+133
+    public partial class SwrlItemList : PartialSymbol
+    {
+        public override string yyname_dl { get { return "SwrlItemList"; } }
+        public override int yynum_dl { get { return 133; } }
+    }
+    //%+SwrlItem+134
+    public partial class SwrlItem : PartialSymbol
+    {
+        public override string yyname_dl { get { return "SwrlItem"; } }
+        public override int yynum_dl { get { return 134; } }
+    }
+    //%+SwrlInstance+135
+    public partial class SwrlInstance : SwrlItem
+    {
+        public override string yyname_dl { get { return "SwrlInstance"; } }
+        public override int yynum_dl { get { return 135; } }
+    }
+    //%+SwrlRole+136
+    public partial class SwrlRole : SwrlItem
+    {
+        public override string yyname_dl { get { return "SwrlRole"; } }
+        public override int yynum_dl { get { return 136; } }
+    }
+    //%+SwrlSameAs+137
+    public partial class SwrlSameAs : SwrlItem
+    {
+        public override string yyname_dl { get { return "SwrlSameAs"; } }
+        public override int yynum_dl { get { return 137; } }
+    }
+    //%+SwrlDifferentFrom+138
+    public partial class SwrlDifferentFrom : SwrlItem
+    {
+        public override string yyname_dl { get { return "SwrlDifferentFrom"; } }
+        public override int yynum_dl { get { return 138; } }
+    }
+    //%+SwrlDataProperty+139
+    public partial class SwrlDataProperty : SwrlItem
+    {
+        public override string yyname_dl { get { return "SwrlDataProperty"; } }
+        public override int yynum_dl { get { return 139; } }
+    }
+    //%+SwrlBuiltIn+140
+    public partial class SwrlBuiltIn : SwrlItem
+    {
+        public override string yyname_dl { get { return "SwrlBuiltIn"; } }
+        public override int yynum_dl { get { return 140; } }
+    }
+    //%+SwrlDataRange+141
+    public partial class SwrlDataRange : SwrlItem
+    {
+        public override string yyname_dl { get { return "SwrlDataRange"; } }
+        public override int yynum_dl { get { return 141; } }
+    }
+    //%+SwrlIObject+142
+    public partial class SwrlIObject : PartialSymbol
+    {
+        public override string yyname_dl { get { return "SwrlIObject"; } }
+        public override int yynum_dl { get { return 142; } }
+    }
+    //%+SwrlIVar+143
+    public partial class SwrlIVar : SwrlIObject
+    {
+        public override string yyname_dl { get { return "SwrlIVar"; } }
+        public override int yynum_dl { get { return 143; } }
+    }
+    //%+SwrlIVal+144
+    public partial class SwrlIVal : SwrlIObject
+    {
+        public override string yyname_dl { get { return "SwrlIVal"; } }
+        public override int yynum_dl { get { return 144; } }
+    }
+    //%+SwrlDObject+145
+    public partial class SwrlDObject : PartialSymbol
+    {
+        public override string yyname_dl { get { return "SwrlDObject"; } }
+        public override int yynum_dl { get { return 145; } }
+    }
+    //%+SwrlObjectList+146
+    public partial class SwrlObjectList : PartialSymbol
+    {
+        public override string yyname_dl { get { return "SwrlObjectList"; } }
+        public override int yynum_dl { get { return 146; } }
+    }
+    //%+SwrlDVar+147
+    public partial class SwrlDVar : SwrlDObject
+    {
+        public override string yyname_dl { get { return "SwrlDVar"; } }
+        public override int yynum_dl { get { return 147; } }
+    }
+    //%+SwrlDVal+148
+    public partial class SwrlDVal : SwrlDObject
+    {
+        public override string yyname_dl { get { return "SwrlDVal"; } }
+        public override int yynum_dl { get { return 148; } }
+    }
+    //%+ExeStatement+149
+    public partial class ExeStatement : Statement
+    {
+        public override string yyname_dl { get { return "ExeStatement"; } }
+        public override int yynum_dl { get { return 149; } }
+    }
+    //%+CodeStatement+150
+    public partial class CodeStatement : Statement
+    {
+        public override string yyname_dl { get { return "CodeStatement"; } }
+        public override int yynum_dl { get { return 150; } }
+    }
+    //%+SwrlVarList+151
+    public partial class SwrlVarList : PartialSymbol
+    {
+        public override string yyname_dl { get { return "SwrlVarList"; } }
+        public override int yynum_dl { get { return 151; } }
+    }
+
+    public class Paragraph_309291dc7bd741f288754a136db35dc4 : Paragraph
+    {
+        public Paragraph_309291dc7bd741f288754a136db35dc4(Parser yyq) : base(yyq,
+          ((Statement)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class Paragraph_a039d85c8fbd4469b57f76a2607e24f7 : Paragraph
+    {
+        public Paragraph_a039d85c8fbd4469b57f76a2607e24f7(Parser yyq) : base(yyq,
+          ((Paragraph)(yyq.StackAt(1).m_value))
+          ,
+          ((Statement)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class modality_f5b860d28b48427e9293c2301dbedc1d : modality
+    {
+        public modality_f5b860d28b48427e9293c2301dbedc1d(Parser yyq) : base(yyq) { }
+    }
+
+    public class modality_3c73154806bf42dfb2833091da2679ab : modality
+    {
+        public modality_3c73154806bf42dfb2833091da2679ab(Parser yyq) : base(yyq) { }
+    }
+
+    public class modality_3c73154806bf42dfb2833091da2679ab_e30f4f3fb1ed4bb19e89002c75f94b57 : modality_3c73154806bf42dfb2833091da2679ab
+    {
+        public modality_3c73154806bf42dfb2833091da2679ab_e30f4f3fb1ed4bb19e89002c75f94b57(Parser yyq) : base(yyq) { mod = Statement.Modality.IS; }
+    }
+
+    public class modality_12a24df93b6346eba60dbf3238903c6f : modality
+    {
+        public modality_12a24df93b6346eba60dbf3238903c6f(Parser yyq) : base(yyq) { }
+    }
+
+    public class modality_479dad065d5c4393a30696b670c3e65b : modality
+    {
+        public modality_479dad065d5c4393a30696b670c3e65b(Parser yyq) : base(yyq) { }
+    }
+
+    public class modality_479dad065d5c4393a30696b670c3e65b_7a24221a640849e6b928f4dabc3ccd98 : modality_479dad065d5c4393a30696b670c3e65b
+    {
+        public modality_479dad065d5c4393a30696b670c3e65b_7a24221a640849e6b928f4dabc3ccd98(Parser yyq) : base(yyq) { mod = Statement.Modality.MUST; }
+    }
+
+    public class modality_d2aafe2308924a719dd6396e251078b6 : modality
+    {
+        public modality_d2aafe2308924a719dd6396e251078b6(Parser yyq) : base(yyq) { }
+    }
+
+    public class modality_7c544fb85dd448b1809e7986327f6fd6 : modality
+    {
+        public modality_7c544fb85dd448b1809e7986327f6fd6(Parser yyq) : base(yyq) { }
+    }
+
+    public class modality_7c544fb85dd448b1809e7986327f6fd6_1cc012ce15b747f4a0e4bf976fcffdc7 : modality_7c544fb85dd448b1809e7986327f6fd6
+    {
+        public modality_7c544fb85dd448b1809e7986327f6fd6_1cc012ce15b747f4a0e4bf976fcffdc7(Parser yyq) : base(yyq) { mod = Statement.Modality.SHOULD; }
+    }
+
+    public class modality_5a4fd01f65aa44b08f801e1e5740e736 : modality
+    {
+        public modality_5a4fd01f65aa44b08f801e1e5740e736(Parser yyq) : base(yyq) { }
+    }
+
+    public class modality_c218e85a91514a13b1261e71cb842c84 : modality
+    {
+        public modality_c218e85a91514a13b1261e71cb842c84(Parser yyq) : base(yyq) { }
+    }
+
+    public class modality_c218e85a91514a13b1261e71cb842c84_9e69ff621fb84cd6a5ce6cc9310c7f8f : modality_c218e85a91514a13b1261e71cb842c84
+    {
+        public modality_c218e85a91514a13b1261e71cb842c84_9e69ff621fb84cd6a5ce6cc9310c7f8f(Parser yyq) : base(yyq) { mod = Statement.Modality.CAN; }
+    }
+
+    public class modality_4040741ab25c40ebbef2748e36e852f4 : modality
+    {
+        public modality_4040741ab25c40ebbef2748e36e852f4(Parser yyq) : base(yyq) { }
+    }
+
+    public class modality_23e5b2d6a5f5470fbf43211a38c248e0 : modality
+    {
+        public modality_23e5b2d6a5f5470fbf43211a38c248e0(Parser yyq) : base(yyq) { }
+    }
+
+    public class modality_23e5b2d6a5f5470fbf43211a38c248e0_e6f99599b2904bcf913d69e7609f6ac0 : modality_23e5b2d6a5f5470fbf43211a38c248e0
+    {
+        public modality_23e5b2d6a5f5470fbf43211a38c248e0_e6f99599b2904bcf913d69e7609f6ac0(Parser yyq) : base(yyq) { mod = Statement.Modality.MUSTNOT; }
+    }
+
+    public class modality_ebb97c76929649c999074dd95041a09e : modality
+    {
+        public modality_ebb97c76929649c999074dd95041a09e(Parser yyq) : base(yyq) { }
+    }
+
+    public class modality_62c2ed5949b2408581b7548e7da70940 : modality
+    {
+        public modality_62c2ed5949b2408581b7548e7da70940(Parser yyq) : base(yyq) { }
+    }
+
+    public class modality_62c2ed5949b2408581b7548e7da70940_eb516229894d4ab4aab77331999c1ed0 : modality_62c2ed5949b2408581b7548e7da70940
+    {
+        public modality_62c2ed5949b2408581b7548e7da70940_eb516229894d4ab4aab77331999c1ed0(Parser yyq) : base(yyq) { mod = Statement.Modality.SHOULDNOT; }
+    }
+
+    public class modality_5226455df8d441ea9469e14b89045326 : modality
+    {
+        public modality_5226455df8d441ea9469e14b89045326(Parser yyq) : base(yyq) { }
+    }
+
+    public class modality_003a05311abb41718aac93f51b5ddc93 : modality
+    {
+        public modality_003a05311abb41718aac93f51b5ddc93(Parser yyq) : base(yyq) { }
+    }
+
+    public class modality_003a05311abb41718aac93f51b5ddc93_1b5963ccd36c47eb9a0ccb223640471f : modality_003a05311abb41718aac93f51b5ddc93
+    {
+        public modality_003a05311abb41718aac93f51b5ddc93_1b5963ccd36c47eb9a0ccb223640471f(Parser yyq) : base(yyq) { mod = Statement.Modality.CANNOT; }
+    }
+
+    public class Subsumption_0db10df2d43344a2bf76d55f6f1d4930 : Subsumption
+    {
+        public Subsumption_0db10df2d43344a2bf76d55f6f1d4930(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(3).m_value))
+          ,
+          ((Node)(yyq.StackAt(0).m_value))
+          ,
+          ((modality)(yyq.StackAt(1).m_value))
+          .mod)
+        { }
+    }
+
+    public class Subsumption_6af97029206a46029ef9e7fe13252256 : Subsumption
+    {
+        public Subsumption_6af97029206a46029ef9e7fe13252256(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(0).m_value))
+          ,
+          ((Node)(yyq.StackAt(3).m_value))
+          ,
+          ((modality)(yyq.StackAt(1).m_value))
+          .mod)
+        { }
+    }
+
+    public class Equivalence_092cb61658f24abc9b8aed5c12ef863a : Equivalence
+    {
+        public Equivalence_092cb61658f24abc9b8aed5c12ef863a(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(3).m_value))
+          ,
+          ((Node)(yyq.StackAt(0).m_value))
+          ,
+          ((modality)(yyq.StackAt(1).m_value))
+          .mod)
+        { }
+    }
+
+    public class Equivalence_a56b89fb27634398b32836467c987584 : Equivalence
+    {
+        public Equivalence_a56b89fb27634398b32836467c987584(Parser yyq) : base(yyq,
+          ((NodeList)(yyq.StackAt(1).m_value))
+          ,
+          ((modality)(yyq.StackAt(3).m_value))
+          .mod)
+        { }
+    }
+
+    public class Disjoint_6ad137ae410a4c7b806612c6b8dfd66f : Disjoint
+    {
+        public Disjoint_6ad137ae410a4c7b806612c6b8dfd66f(Parser yyq) : base(yyq,
+          ((NodeList)(yyq.StackAt(1).m_value))
+          ,
+          ((modality)(yyq.StackAt(3).m_value))
+          .mod)
+        { }
+    }
+
+    public class DisjointUnion_0dcd7600aaac4cac9a975d8318a1c269 : DisjointUnion
+    {
+        public DisjointUnion_0dcd7600aaac4cac9a975d8318a1c269(Parser yyq) : base(yyq,
+          ((ID)(yyq.StackAt(6).m_value))
+          ,
+          ((NodeList)(yyq.StackAt(1).m_value))
+          ,
+          ((modality)(yyq.StackAt(3).m_value))
+          .mod)
+        { }
+    }
+
+    public class DataTypeDefinition_47c50bc6851e4337899c0012a3d4d74e : DataTypeDefinition
+    {
+        public DataTypeDefinition_47c50bc6851e4337899c0012a3d4d74e(Parser yyq) : base(yyq,
+          ((ID)(yyq.StackAt(2).m_value))
+          ,
+          ((AbstractBound)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class RoleInclusion_fa72066a4d4f41f69ca190dab81c4e31 : RoleInclusion
+    {
+        public RoleInclusion_fa72066a4d4f41f69ca190dab81c4e31(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(3).m_value))
+          ,
+          ((Node)(yyq.StackAt(0).m_value))
+          ,
+          ((modality)(yyq.StackAt(1).m_value))
+          .mod)
+        { }
+    }
+
+    public class RoleInclusion_699872d2b4db42c2bd2f98d71660564a : RoleInclusion
+    {
+        public RoleInclusion_699872d2b4db42c2bd2f98d71660564a(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(0).m_value))
+          ,
+          ((Node)(yyq.StackAt(3).m_value))
+          ,
+          ((modality)(yyq.StackAt(1).m_value))
+          .mod)
+        { }
+    }
+
+    public class RoleEquivalence_8a84e63367894740860328420a892224 : RoleEquivalence
+    {
+        public RoleEquivalence_8a84e63367894740860328420a892224(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(3).m_value))
+          ,
+          ((Node)(yyq.StackAt(0).m_value))
+          ,
+          ((modality)(yyq.StackAt(1).m_value))
+          .mod)
+        { }
+    }
+
+    public class RoleEquivalence_19c149708a784ba7ab3013d8f8bde9ba : RoleEquivalence
+    {
+        public RoleEquivalence_19c149708a784ba7ab3013d8f8bde9ba(Parser yyq) : base(yyq,
+          ((NodeList)(yyq.StackAt(1).m_value))
+          ,
+          ((modality)(yyq.StackAt(3).m_value))
+          .mod)
+        { }
+    }
+
+    public class RoleDisjoint_39baa456d89941f196a9e5585bf16d48 : RoleDisjoint
+    {
+        public RoleDisjoint_39baa456d89941f196a9e5585bf16d48(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(4).m_value))
+          ,
+          ((Node)(yyq.StackAt(0).m_value))
+          ,
+          ((modality)(yyq.StackAt(1).m_value))
+          .mod)
+        { }
+    }
+
+    public class RoleDisjoint_8805ae727ad547a3bcecbc6d34f9731f : RoleDisjoint
+    {
+        public RoleDisjoint_8805ae727ad547a3bcecbc6d34f9731f(Parser yyq) : base(yyq,
+          ((NodeList)(yyq.StackAt(1).m_value))
+          ,
+          ((modality)(yyq.StackAt(3).m_value))
+          .mod)
+        { }
+    }
+
+    public class ComplexRoleInclusion_1c736a0cc94646e081d10db9a3ec1f9d : ComplexRoleInclusion
+    {
+        public ComplexRoleInclusion_1c736a0cc94646e081d10db9a3ec1f9d(Parser yyq) : base(yyq,
+          ((RoleChain)(yyq.StackAt(3).m_value))
+          ,
+          ((Node)(yyq.StackAt(0).m_value))
+          ,
+          ((modality)(yyq.StackAt(1).m_value))
+          .mod)
+        { }
+    }
+
+    public class ComplexRoleInclusion_cd10aa2be07047efacc122c918f02b72 : ComplexRoleInclusion
+    {
+        public ComplexRoleInclusion_cd10aa2be07047efacc122c918f02b72(Parser yyq) : base(yyq,
+          ((RoleChain)(yyq.StackAt(0).m_value))
+          ,
+          ((Node)(yyq.StackAt(3).m_value))
+          ,
+          ((modality)(yyq.StackAt(1).m_value))
+          .mod)
+        { }
+    }
+
+    public class DataRoleInclusion_81e2ffd85fe14217b796bf33e5d28dfc : DataRoleInclusion
+    {
+        public DataRoleInclusion_81e2ffd85fe14217b796bf33e5d28dfc(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(3).m_value))
+          ,
+          ((Node)(yyq.StackAt(0).m_value))
+          ,
+          ((modality)(yyq.StackAt(1).m_value))
+          .mod)
+        { }
+    }
+
+    public class DataRoleInclusion_e67f9d83163e4ae29db1ae493f8d04c8 : DataRoleInclusion
+    {
+        public DataRoleInclusion_e67f9d83163e4ae29db1ae493f8d04c8(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(0).m_value))
+          ,
+          ((Node)(yyq.StackAt(3).m_value))
+          ,
+          ((modality)(yyq.StackAt(1).m_value))
+          .mod)
+        { }
+    }
+
+    public class DataRoleEquivalence_0526da3e1ab64c44a033ec303466ef28 : DataRoleEquivalence
+    {
+        public DataRoleEquivalence_0526da3e1ab64c44a033ec303466ef28(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(3).m_value))
+          ,
+          ((Node)(yyq.StackAt(0).m_value))
+          ,
+          ((modality)(yyq.StackAt(1).m_value))
+          .mod)
+        { }
+    }
+
+    public class DataRoleEquivalence_db7e9dbf9bd146efa788a5b8ff0983b3 : DataRoleEquivalence
+    {
+        public DataRoleEquivalence_db7e9dbf9bd146efa788a5b8ff0983b3(Parser yyq) : base(yyq,
+          ((NodeList)(yyq.StackAt(1).m_value))
+          ,
+          ((modality)(yyq.StackAt(3).m_value))
+          .mod)
+        { }
+    }
+
+    public class DataRoleDisjoint_cabee559a8f547298a9c154c6a482921 : DataRoleDisjoint
+    {
+        public DataRoleDisjoint_cabee559a8f547298a9c154c6a482921(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(4).m_value))
+          ,
+          ((Node)(yyq.StackAt(0).m_value))
+          ,
+          ((modality)(yyq.StackAt(1).m_value))
+          .mod)
+        { }
+    }
+
+    public class DataRoleDisjoint_1359956a28e14189aa934a4f95cf367d : DataRoleDisjoint
+    {
+        public DataRoleDisjoint_1359956a28e14189aa934a4f95cf367d(Parser yyq) : base(yyq,
+          ((NodeList)(yyq.StackAt(1).m_value))
+          ,
+          ((modality)(yyq.StackAt(3).m_value))
+          .mod)
+        { }
+    }
+
+    public class InstanceOf_e822dd8ae6d14f55b5f220cda2ae11ab : InstanceOf
+    {
+        public InstanceOf_e822dd8ae6d14f55b5f220cda2ae11ab(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(4).m_value))
+          ,
+          ((ID)(yyq.StackAt(1).m_value))
+          ,
+          ((modality)(yyq.StackAt(3).m_value))
+          .mod)
+        { }
+    }
+
+    public class RelatedInstances_2cc079760c924ff0a6129a2b458c1451 : RelatedInstances
+    {
+        public RelatedInstances_2cc079760c924ff0a6129a2b458c1451(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(6).m_value))
+          ,
+          ((ID)(yyq.StackAt(3).m_value))
+          ,
+          ((ID)(yyq.StackAt(1).m_value))
+          ,
+          ((modality)(yyq.StackAt(5).m_value))
+          .mod)
+        { }
+    }
+
+    public class InstanceValue_b38f37c589ce4054871e30e99ba5e420 : InstanceValue
+    {
+        public InstanceValue_b38f37c589ce4054871e30e99ba5e420(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(6).m_value))
+          ,
+          ((ID)(yyq.StackAt(3).m_value))
+          ,
+          ((Value)(yyq.StackAt(1).m_value))
+          ,
+          ((modality)(yyq.StackAt(5).m_value))
+          .mod)
+        { }
+    }
+
+    public class SameInstances_3b7c95f2fe8d4f11935ee17f5dfe6d26 : SameInstances
+    {
+        public SameInstances_3b7c95f2fe8d4f11935ee17f5dfe6d26(Parser yyq) : base(yyq,
+          ((ID)(yyq.StackAt(3).m_value))
+          ,
+          ((ID)(yyq.StackAt(0).m_value))
+          ,
+          ((modality)(yyq.StackAt(1).m_value))
+          .mod)
+        { }
+    }
+
+    public class DifferentInstances_bffdcdc7c36c49019243db04c6a8fb51 : DifferentInstances
+    {
+        public DifferentInstances_bffdcdc7c36c49019243db04c6a8fb51(Parser yyq) : base(yyq,
+          ((ID)(yyq.StackAt(3).m_value))
+          ,
+          ((ID)(yyq.StackAt(0).m_value))
+          ,
+          ((modality)(yyq.StackAt(1).m_value))
+          .mod)
+        { }
+    }
+
+    public class SameInstances_9d3771993f9047c8a3793265faa8823b : SameInstances
+    {
+        public SameInstances_9d3771993f9047c8a3793265faa8823b(Parser yyq) : base(yyq,
+          ((InstanceList)(yyq.StackAt(1).m_value))
+          ,
+          ((modality)(yyq.StackAt(3).m_value))
+          .mod)
+        { }
+    }
+
+    public class DifferentInstances_8194f8416edd44efb1a4c15ee321d7e0 : DifferentInstances
+    {
+        public DifferentInstances_8194f8416edd44efb1a4c15ee321d7e0(Parser yyq) : base(yyq,
+          ((InstanceList)(yyq.StackAt(1).m_value))
+          ,
+          ((modality)(yyq.StackAt(3).m_value))
+          .mod)
+        { }
+    }
+
+    public class HasKey_c2a5d75e95674df797ecd9d7b5ccd962 : HasKey
+    {
+        public HasKey_c2a5d75e95674df797ecd9d7b5ccd962(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(5).m_value))
+          ,
+          ((NodeList)(yyq.StackAt(1).m_value))
+          , null)
+        { }
+    }
+
+    public class HasKey_3580de8bdd314074a04e39b672fd9ed9 : HasKey
+    {
+        public HasKey_3580de8bdd314074a04e39b672fd9ed9(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(6).m_value))
+          , null,
+          ((NodeList)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class HasKey_d1576b6e88974dc193b3ad72ef7d0fd6 : HasKey
+    {
+        public HasKey_d1576b6e88974dc193b3ad72ef7d0fd6(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(9).m_value))
+          ,
+          ((NodeList)(yyq.StackAt(5).m_value))
+          ,
+          ((NodeList)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class DLAnnotationAxiom_922d57b777df4fb584d1341f1ffe29aa : DLAnnotationAxiom
+    {
+        public DLAnnotationAxiom_922d57b777df4fb584d1341f1ffe29aa(Parser yyq) : base(yyq,
+          ((ID)(yyq.StackAt(4).m_value))
+          .yytext,
+          ((ID)(yyq.StackAt(3).m_value))
+          .yytext,
+          ((ID)(yyq.StackAt(2).m_value))
+          .yytext,
+          ((ID)(yyq.StackAt(1).m_value))
+          .yytext,
+          ((STR)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class DLAnnotationAxiom_4079aa91fa1f45b5b7c7cd5355bf2175 : DLAnnotationAxiom
+    {
+        public DLAnnotationAxiom_4079aa91fa1f45b5b7c7cd5355bf2175(Parser yyq) : base(yyq,
+          ((ID)(yyq.StackAt(3).m_value))
+          .yytext,
+          ((ID)(yyq.StackAt(2).m_value))
+          .yytext,
+          ((ID)(yyq.StackAt(1).m_value))
+          .yytext,
+          ((STR)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class Annotation_a36648de3daa49879b43174782a51082 : Annotation
+    {
+        public Annotation_a36648de3daa49879b43174782a51082(Parser yyq) : base(yyq,
+          ((COMMENT)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class SwrlStatement_bb68799131144255ab1c586961282f23 : SwrlStatement
+    {
+        public SwrlStatement_bb68799131144255ab1c586961282f23(Parser yyq) : base(yyq,
+          ((SwrlItemList)(yyq.StackAt(3).m_value))
+          ,
+          ((SwrlItemList)(yyq.StackAt(0).m_value))
+          ,
+          ((modality)(yyq.StackAt(2).m_value))
+          .mod)
+        { }
+    }
+
+    public class SwrlIterate_cb627029b00f49dbbfa910bc4c8835b1 : SwrlIterate
+    {
+        public SwrlIterate_cb627029b00f49dbbfa910bc4c8835b1(Parser yyq) : base(yyq,
+          ((SwrlItemList)(yyq.StackAt(5).m_value))
+          ,
+          ((SwrlItemList)(yyq.StackAt(3).m_value))
+          ,
+          ((SwrlVarList)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class ExeStatement_ab8afa2b999c4f87b4e4d823a22c1871 : ExeStatement
+    {
+        public ExeStatement_ab8afa2b999c4f87b4e4d823a22c1871(Parser yyq) : base(yyq,
+          ((SwrlItemList)(yyq.StackAt(5).m_value))
+          ,
+          ((SwrlVarList)(yyq.StackAt(1).m_value))
+          ,
+          ((CODE)(yyq.StackAt(3).m_value))
+          .yytext)
+        { }
+    }
+
+    public class ExeStatement_6341ef43c3484a0bb826d2dc3dfdc28a : ExeStatement
+    {
+        public ExeStatement_6341ef43c3484a0bb826d2dc3dfdc28a(Parser yyq) : base(yyq,
+          ((SwrlItemList)(yyq.StackAt(5).m_value))
+          ,
+          ((SwrlVarList)(yyq.StackAt(1).m_value))
+          ,
+          ((STR)(yyq.StackAt(3).m_value))
+          .yytext)
+        { }
+    }
+
+    public class CodeStatement_4dd9b13152334ab5bed69dcf073e2af1 : CodeStatement
+    {
+        public CodeStatement_4dd9b13152334ab5bed69dcf073e2af1(Parser yyq) : base(yyq,
+          ((CODE)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+    public partial class CmpOrID : PartialSymbol
+    {
+        public override string yyname_dl { get { return "CmpOrID"; } }
+        public override int yynum_dl { get { return 214; } }
+    }
+
+    public class CmpOrID_1fdb755c2d4049d596c481e8b6511065 : CmpOrID
+    {
+        public CmpOrID_1fdb755c2d4049d596c481e8b6511065(Parser yyq) : base(yyq) { }
+    }
+
+    public class CmpOrID_c51be4882fbb468191ea3d5b27923cb3 : CmpOrID
+    {
+        public CmpOrID_c51be4882fbb468191ea3d5b27923cb3(Parser yyq) : base(yyq) { }
+    }
+
+    public class CmpOrID_c51be4882fbb468191ea3d5b27923cb3_71f6f255a26a4bc69310f4a855d107b0 : CmpOrID_c51be4882fbb468191ea3d5b27923cb3
+    {
+        public CmpOrID_c51be4882fbb468191ea3d5b27923cb3_71f6f255a26a4bc69310f4a855d107b0(Parser yyq) : base(yyq)
+        {
+            yytext =
+((GE)(yyq.StackAt(0).m_value))
+.yytext;
+        }
+    }
+
+    public class CmpOrID_106a26397604436b84ef59eaa2ab9f51 : CmpOrID
+    {
+        public CmpOrID_106a26397604436b84ef59eaa2ab9f51(Parser yyq) : base(yyq) { }
+    }
+
+    public class CmpOrID_5db1e7132b784124ac8de7af7b6082f9 : CmpOrID
+    {
+        public CmpOrID_5db1e7132b784124ac8de7af7b6082f9(Parser yyq) : base(yyq) { }
+    }
+
+    public class CmpOrID_5db1e7132b784124ac8de7af7b6082f9_8e83713925bf4e569b22b7c1600510db : CmpOrID_5db1e7132b784124ac8de7af7b6082f9
+    {
+        public CmpOrID_5db1e7132b784124ac8de7af7b6082f9_8e83713925bf4e569b22b7c1600510db(Parser yyq) : base(yyq)
+        {
+            yytext =
+((LE)(yyq.StackAt(0).m_value))
+.yytext;
+        }
+    }
+
+    public class CmpOrID_38eb55858f304f17b10fdf196ce5f241 : CmpOrID
+    {
+        public CmpOrID_38eb55858f304f17b10fdf196ce5f241(Parser yyq) : base(yyq) { }
+    }
+
+    public class CmpOrID_2ad2113ae03f488ba1c8496463f60da6 : CmpOrID
+    {
+        public CmpOrID_2ad2113ae03f488ba1c8496463f60da6(Parser yyq) : base(yyq) { }
+    }
+
+    public class CmpOrID_2ad2113ae03f488ba1c8496463f60da6_b3f38bff8dbd47e5a0448779414360f7 : CmpOrID_2ad2113ae03f488ba1c8496463f60da6
+    {
+        public CmpOrID_2ad2113ae03f488ba1c8496463f60da6_b3f38bff8dbd47e5a0448779414360f7(Parser yyq) : base(yyq)
+        {
+            yytext =
+((GT)(yyq.StackAt(0).m_value))
+.yytext;
+        }
+    }
+
+    public class CmpOrID_57e2875c4a4d46f080863179d4564d39 : CmpOrID
+    {
+        public CmpOrID_57e2875c4a4d46f080863179d4564d39(Parser yyq) : base(yyq) { }
+    }
+
+    public class CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843 : CmpOrID
+    {
+        public CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843(Parser yyq) : base(yyq) { }
+    }
+
+    public class CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843_5692ee6c86c04e4fa51293d7df54367a : CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843
+    {
+        public CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843_5692ee6c86c04e4fa51293d7df54367a(Parser yyq) : base(yyq)
+        {
+            yytext =
+((LT)(yyq.StackAt(0).m_value))
+.yytext;
+        }
+    }
+
+    public class CmpOrID_bac4173eadf84599ba6158f469cc7e05 : CmpOrID
+    {
+        public CmpOrID_bac4173eadf84599ba6158f469cc7e05(Parser yyq) : base(yyq) { }
+    }
+
+    public class CmpOrID_cc775bed70664c39a341bfa90e69b796 : CmpOrID
+    {
+        public CmpOrID_cc775bed70664c39a341bfa90e69b796(Parser yyq) : base(yyq) { }
+    }
+
+    public class CmpOrID_cc775bed70664c39a341bfa90e69b796_4c6ddc89945c411698606a62c01ef986 : CmpOrID_cc775bed70664c39a341bfa90e69b796
+    {
+        public CmpOrID_cc775bed70664c39a341bfa90e69b796_4c6ddc89945c411698606a62c01ef986(Parser yyq) : base(yyq)
+        {
+            yytext =
+((NE)(yyq.StackAt(0).m_value))
+.yytext;
+        }
+    }
+
+    public class CmpOrID_f5837b33878145a4b4b2f88d52f138b7 : CmpOrID
+    {
+        public CmpOrID_f5837b33878145a4b4b2f88d52f138b7(Parser yyq) : base(yyq) { }
+    }
+
+    public class CmpOrID_90caf4944e2b47c69f614bbb85bb6024 : CmpOrID
+    {
+        public CmpOrID_90caf4944e2b47c69f614bbb85bb6024(Parser yyq) : base(yyq) { }
+    }
+
+    public class CmpOrID_90caf4944e2b47c69f614bbb85bb6024_13b84ebeb47b47dcaf09ab9fc2e3694d : CmpOrID_90caf4944e2b47c69f614bbb85bb6024
+    {
+        public CmpOrID_90caf4944e2b47c69f614bbb85bb6024_13b84ebeb47b47dcaf09ab9fc2e3694d(Parser yyq) : base(yyq)
+        {
+            yytext =
+((EQ)(yyq.StackAt(0).m_value))
+.yytext;
+        }
+    }
+
+    public class CmpOrID_0d37d54ef4ac479a9d50bd44e0f928eb : CmpOrID
+    {
+        public CmpOrID_0d37d54ef4ac479a9d50bd44e0f928eb(Parser yyq) : base(yyq) { }
+    }
+
+    public class CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b : CmpOrID
+    {
+        public CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b(Parser yyq) : base(yyq) { }
+    }
+
+    public class CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b_68004f2890e741dfb0cf09739d7943d2 : CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b
+    {
+        public CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b_68004f2890e741dfb0cf09739d7943d2(Parser yyq) : base(yyq)
+        {
+            yytext =
+((ID)(yyq.StackAt(0).m_value))
+.yytext;
+        }
+    }
+
+    public class SwrlInstance_098aa891bae040149be8008927ac763b : SwrlInstance
+    {
+        public SwrlInstance_098aa891bae040149be8008927ac763b(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(3).m_value))
+          ,
+          ((SwrlIObject)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class SwrlRole_36d2aa76edee4fc592b6b3d96a89524a : SwrlRole
+    {
+        public SwrlRole_36d2aa76edee4fc592b6b3d96a89524a(Parser yyq) : base(yyq,
+          ((ID)(yyq.StackAt(5).m_value))
+          ,
+          ((SwrlIObject)(yyq.StackAt(3).m_value))
+          ,
+          ((SwrlIObject)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class SwrlSameAs_5ffa2983a1494e01ace14e32c3889d24 : SwrlSameAs
+    {
+        public SwrlSameAs_5ffa2983a1494e01ace14e32c3889d24(Parser yyq) : base(yyq,
+          ((SwrlIObject)(yyq.StackAt(3).m_value))
+          ,
+          ((SwrlIObject)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class SwrlDifferentFrom_b199165630004a9cb7e2bd9feb98758e : SwrlDifferentFrom
+    {
+        public SwrlDifferentFrom_b199165630004a9cb7e2bd9feb98758e(Parser yyq) : base(yyq,
+          ((SwrlIObject)(yyq.StackAt(3).m_value))
+          ,
+          ((SwrlIObject)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class SwrlDataRange_af9fb9b113c04d61814b0eca275e59fa : SwrlDataRange
+    {
+        public SwrlDataRange_af9fb9b113c04d61814b0eca275e59fa(Parser yyq) : base(yyq,
+          ((AbstractBound)(yyq.StackAt(3).m_value))
+          ,
+          ((SwrlDObject)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class SwrlDataProperty_46fa136ef8244364ba0f9de599eca64d : SwrlDataProperty
+    {
+        public SwrlDataProperty_46fa136ef8244364ba0f9de599eca64d(Parser yyq) : base(yyq,
+          ((ID)(yyq.StackAt(5).m_value))
+          ,
+          ((SwrlIObject)(yyq.StackAt(3).m_value))
+          ,
+          ((SwrlDObject)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class SwrlBuiltIn_9808fad53bbd4a848f875eb526c67428 : SwrlBuiltIn
+    {
+        public SwrlBuiltIn_9808fad53bbd4a848f875eb526c67428(Parser yyq) : base(yyq,
+          ((CmpOrID)(yyq.StackAt(3).m_value))
+          .yytext,
+          ((SwrlObjectList)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class SwrlIVar_71bc00261a0e468e92c955190eb69e98 : SwrlIVar
+    {
+        public SwrlIVar_71bc00261a0e468e92c955190eb69e98(Parser yyq) : base(yyq,
+          ((ID)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class SwrlIVal_429b1a59c61b4d22891881778bb82b3b : SwrlIVal
+    {
+        public SwrlIVal_429b1a59c61b4d22891881778bb82b3b(Parser yyq) : base(yyq,
+          ((ID)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class SwrlDVar_07f77b9b88194cdb91655566521a3b5d : SwrlDVar
+    {
+        public SwrlDVar_07f77b9b88194cdb91655566521a3b5d(Parser yyq) : base(yyq,
+          ((ID)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class SwrlDVal_62bfa7ba78ff47a8b7652cd763d38abe : SwrlDVal
+    {
+        public SwrlDVal_62bfa7ba78ff47a8b7652cd763d38abe(Parser yyq) : base(yyq,
+          ((Value)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class SwrlObjectList_07113cf3b3d648da90ba6e0aa89786aa : SwrlObjectList
+    {
+        public SwrlObjectList_07113cf3b3d648da90ba6e0aa89786aa(Parser yyq) : base(yyq,
+          ((SwrlDObject)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class SwrlObjectList_e5e33123ad894734bf50cf8e9b97db94 : SwrlObjectList
+    {
+        public SwrlObjectList_e5e33123ad894734bf50cf8e9b97db94(Parser yyq) : base(yyq,
+          ((SwrlIObject)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class SwrlObjectList_3b9b884c320449898bf97943a191b5dd : SwrlObjectList
+    {
+        public SwrlObjectList_3b9b884c320449898bf97943a191b5dd(Parser yyq) : base(yyq,
+          ((SwrlObjectList)(yyq.StackAt(2).m_value))
+          ,
+          ((SwrlDObject)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class SwrlObjectList_a9b99e55f7684203942226aafea71eb4 : SwrlObjectList
+    {
+        public SwrlObjectList_a9b99e55f7684203942226aafea71eb4(Parser yyq) : base(yyq,
+          ((SwrlObjectList)(yyq.StackAt(2).m_value))
+          ,
+          ((SwrlIObject)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class SwrlVarList_34f14c4b77a74efcaa85856dfe1c3b61 : SwrlVarList
+    {
+        public SwrlVarList_34f14c4b77a74efcaa85856dfe1c3b61(Parser yyq) : base(yyq,
+          ((ID)(yyq.StackAt(0).m_value))
+          , null)
+        { }
+    }
+
+    public class SwrlVarList_71a8a1d242cc48cea932bc153a9239be : SwrlVarList
+    {
+        public SwrlVarList_71a8a1d242cc48cea932bc153a9239be(Parser yyq) : base(yyq, null,
+          ((ID)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class SwrlVarList_8395a76253f64476a12ab23fe1bf2739 : SwrlVarList
+    {
+        public SwrlVarList_8395a76253f64476a12ab23fe1bf2739(Parser yyq) : base(yyq,
+          ((ID)(yyq.StackAt(0).m_value))
+          , null,
+          ((SwrlVarList)(yyq.StackAt(3).m_value))
+          )
+        { }
+    }
+
+    public class SwrlVarList_a6758d770397480b99211f9252795b66 : SwrlVarList
+    {
+        public SwrlVarList_a6758d770397480b99211f9252795b66(Parser yyq) : base(yyq, null,
+          ((ID)(yyq.StackAt(0).m_value))
+          ,
+          ((SwrlVarList)(yyq.StackAt(4).m_value))
+          )
+        { }
+    }
+
+    public class SwrlItemList_dc1646c9b66b483ca4932ae5ce5900d7 : SwrlItemList
+    {
+        public SwrlItemList_dc1646c9b66b483ca4932ae5ce5900d7(Parser yyq) : base(yyq,
+          ((SwrlItem)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class SwrlItemList_0b6d02ca94894658ba1246b6e757d997 : SwrlItemList
+    {
+        public SwrlItemList_0b6d02ca94894658ba1246b6e757d997(Parser yyq) : base(yyq,
+          ((SwrlItemList)(yyq.StackAt(2).m_value))
+          ,
+          ((SwrlItem)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class InstanceList_e0f9eda985ac444795ef1d2a6f24bb01 : InstanceList
+    {
+        public InstanceList_e0f9eda985ac444795ef1d2a6f24bb01(Parser yyq) : base(yyq,
+          ((Instance)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class InstanceList_f2b45dab447e49f7a7f383bbdf7fd3c7 : InstanceList
+    {
+        public InstanceList_f2b45dab447e49f7a7f383bbdf7fd3c7(Parser yyq) : base(yyq,
+          ((InstanceList)(yyq.StackAt(2).m_value))
+          ,
+          ((Instance)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class NodeList_9f311f95b1ba43798e65f80d2756e61f : NodeList
+    {
+        public NodeList_9f311f95b1ba43798e65f80d2756e61f(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class NodeList_95aeed5b3b3a4799b5b346b5fe074447 : NodeList
+    {
+        public NodeList_95aeed5b3b3a4799b5b346b5fe074447(Parser yyq) : base(yyq,
+          ((NodeList)(yyq.StackAt(2).m_value))
+          ,
+          ((Node)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class Number_3a039afaa0d3402bb962b7c38e026a1a : Number
+    {
+        public Number_3a039afaa0d3402bb962b7c38e026a1a(Parser yyq) : base(yyq,
+          ((NAT)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class Number_d233049866da4004957ac8ce9402feda : Number
+    {
+        public Number_d233049866da4004957ac8ce9402feda(Parser yyq) : base(yyq,
+          ((NUM)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class String_3185406054654ec48472d3f64e7de19f : String
+    {
+        public String_3185406054654ec48472d3f64e7de19f(Parser yyq) : base(yyq,
+          ((STR)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class Float_06e43cd247034ae38647eba1dcb668cd : Float
+    {
+        public Float_06e43cd247034ae38647eba1dcb668cd(Parser yyq) : base(yyq,
+          ((DBL)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class Bool_0286ef456dd84b2693a6bf816c892c9e : Bool
+    {
+        public Bool_0286ef456dd84b2693a6bf816c892c9e(Parser yyq) : base(yyq,
+          ((BOL)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class DateTimeVal_6a01711465ba4d58b8e08b78c4de58ab : DateTimeVal
+    {
+        public DateTimeVal_6a01711465ba4d58b8e08b78c4de58ab(Parser yyq) : base(yyq,
+          ((DTM)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class Duration_b41138dc430c465ca85fa65527495f7c : Duration
+    {
+        public Duration_b41138dc430c465ca85fa65527495f7c(Parser yyq) : base(yyq,
+          ((DUR)(yyq.StackAt(0).m_value))
+          .yytext)
+        { }
+    }
+
+    public class ValueList_3ad68c9ca7ea4e508320883a68890f85 : ValueList
+    {
+        public ValueList_3ad68c9ca7ea4e508320883a68890f85(Parser yyq) : base(yyq,
+          ((Value)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class ValueList_2ec5f6babdd649f183e934f4e307e6b1 : ValueList
+    {
+        public ValueList_2ec5f6babdd649f183e934f4e307e6b1(Parser yyq) : base(yyq,
+          ((ValueList)(yyq.StackAt(2).m_value))
+          ,
+          ((Value)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+    public partial class Facet : PartialSymbol
+    {
+        public override string yyname_dl { get { return "Facet"; } }
+        public override int yynum_dl { get { return 270; } }
+    }
+
+    public class Facet_f86b0e9c60b141e5b75da1242af1daa3 : Facet
+    {
+        public Facet_f86b0e9c60b141e5b75da1242af1daa3(Parser yyq) : base(yyq, "≥",
+          ((Value)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class Facet_0a6a2d5234914d5cb0664e9d22d4bbb7 : Facet
+    {
+        public Facet_0a6a2d5234914d5cb0664e9d22d4bbb7(Parser yyq) : base(yyq, "≤",
+          ((Value)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class Facet_e6aa1278470e497b8fed8a45f795d7f8 : Facet
+    {
+        public Facet_e6aa1278470e497b8fed8a45f795d7f8(Parser yyq) : base(yyq, ">",
+          ((Value)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class Facet_7234202359cc41aa892a7ee044bee6b9 : Facet
+    {
+        public Facet_7234202359cc41aa892a7ee044bee6b9(Parser yyq) : base(yyq, "<",
+          ((Value)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class Facet_76fcec0ce96d4ae6afff869c66403a95 : Facet
+    {
+        public Facet_76fcec0ce96d4ae6afff869c66403a95(Parser yyq) : base(yyq, "#",
+          ((Value)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class Facet_e4cb627134b9481687deb9f3221c10a7 : Facet
+    {
+        public Facet_e4cb627134b9481687deb9f3221c10a7(Parser yyq) : base(yyq, "<->",
+          ((Value)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class Facet_ab7aff70573149678df458aaf1d4bbe1 : Facet
+    {
+        public Facet_ab7aff70573149678df458aaf1d4bbe1(Parser yyq) : base(yyq, "<-> ≥",
+          ((Value)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class Facet_05f0f8f0e704405499f48e980cad32ff : Facet
+    {
+        public Facet_05f0f8f0e704405499f48e980cad32ff(Parser yyq) : base(yyq, "<-> ≤",
+          ((Value)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+    public partial class FacetList : PartialSymbol
+    {
+        public override string yyname_dl { get { return "FacetList"; } }
+        public override int yynum_dl { get { return 279; } }
+    }
+
+    public class FacetList_2a0671592cf2441ead3371e24c7c3b8a : FacetList
+    {
+        public FacetList_2a0671592cf2441ead3371e24c7c3b8a(Parser yyq) : base(yyq,
+          ((Facet)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class FacetList_ec47cb25c66e4234835b9829ba41670a : FacetList
+    {
+        public FacetList_ec47cb25c66e4234835b9829ba41670a(Parser yyq) : base(yyq,
+          ((Facet)(yyq.StackAt(3).m_value))
+          ,
+          ((Facet)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class FacetList_7abee1793e424a79a19be8265ea0c037 : FacetList
+    {
+        public FacetList_7abee1793e424a79a19be8265ea0c037(Parser yyq) : base(yyq,
+          ((FacetList)(yyq.StackAt(3).m_value))
+          ,
+          ((Facet)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class BoundFacets_60956f277fe940c4ae89df22f3176f3f : BoundFacets
+    {
+        public BoundFacets_60956f277fe940c4ae89df22f3176f3f(Parser yyq) : base(yyq,
+          ((FacetList)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class BoundVal_33240dcee92243a1b2eef2b6a2268a5f : BoundVal
+    {
+        public BoundVal_33240dcee92243a1b2eef2b6a2268a5f(Parser yyq) : base(yyq, "=",
+          ((Value)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class BoundVal_6d4dea106ec841799e28d393c6033cd9 : BoundVal
+    {
+        public BoundVal_6d4dea106ec841799e28d393c6033cd9(Parser yyq) : base(yyq, "≠",
+          ((Value)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class TotalBound_5157988b7d074850b320162d44601b7d : TotalBound
+    {
+        public TotalBound_5157988b7d074850b320162d44601b7d(Parser yyq) : base(yyq,
+          ((Value)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class DTBound_df5664059c574b5ea22cc121b101361e : DTBound
+    {
+        public DTBound_df5664059c574b5ea22cc121b101361e(Parser yyq) : base(yyq,
+          ((ID)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class TopBound_7a64d17dbe664c499b0010194f854446 : TopBound
+    {
+        public TopBound_7a64d17dbe664c499b0010194f854446(Parser yyq) : base(yyq) { }
+    }
+
+    public class ValueSet_3b642fe7fd5f477fb9ec44594d458d42 : ValueSet
+    {
+        public ValueSet_3b642fe7fd5f477fb9ec44594d458d42(Parser yyq) : base(yyq,
+          ((ValueList)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class IdentityBound_276ef64c1c7f4c5ea965fe7ba94c06a9 : IdentityBound
+    {
+        public IdentityBound_276ef64c1c7f4c5ea965fe7ba94c06a9(Parser yyq) : base(yyq,
+          ((AbstractBound)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class BoundOr_87a3acae08144bcca1bb4bec8ac186ae : BoundOr
+    {
+        public BoundOr_87a3acae08144bcca1bb4bec8ac186ae(Parser yyq) : base(yyq,
+          ((AbstractBound)(yyq.StackAt(2).m_value))
+          ,
+          ((AbstractBound)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class BoundAnd_89a3e3448c084581b30516bfc0be2579 : BoundAnd
+    {
+        public BoundAnd_89a3e3448c084581b30516bfc0be2579(Parser yyq) : base(yyq,
+          ((AbstractBound)(yyq.StackAt(2).m_value))
+          ,
+          ((AbstractBound)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class BoundNot_34b8e8541ed74f49bb00942d37b8fbbb : BoundNot
+    {
+        public BoundNot_34b8e8541ed74f49bb00942d37b8fbbb(Parser yyq) : base(yyq,
+          ((AbstractBound)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class Atomic_2e8503f19ec149edbbb070ca6d18cfcf : Atomic
+    {
+        public Atomic_2e8503f19ec149edbbb070ca6d18cfcf(Parser yyq) : base(yyq,
+          ((ID)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class Top_7efc6fad648547808256af7cd9223817 : Top
+    {
+        public Top_7efc6fad648547808256af7cd9223817(Parser yyq) : base(yyq) { }
+    }
+
+    public class Bottom_82c4459e15624b4eaf8b95683fcce6b3 : Bottom
+    {
+        public Bottom_82c4459e15624b4eaf8b95683fcce6b3(Parser yyq) : base(yyq) { }
+    }
+
+    public class RoleInversion_166197aa5f784dc78d6cf95e223fbedf : RoleInversion
+    {
+        public RoleInversion_166197aa5f784dc78d6cf95e223fbedf(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class Identity_ce2a47caf981469d841cfe3571781f68 : Identity
+    {
+        public Identity_ce2a47caf981469d841cfe3571781f68(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class InstanceSet_7f1254c92b7c439892e4b889d0f75e34 : InstanceSet
+    {
+        public InstanceSet_7f1254c92b7c439892e4b889d0f75e34(Parser yyq) : base(yyq,
+          ((InstanceList)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class ConceptOr_88e4dbd472f549db9011b00eb06efb60 : ConceptOr
+    {
+        public ConceptOr_88e4dbd472f549db9011b00eb06efb60(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(2).m_value))
+          ,
+          ((Node)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class ConceptAnd_2b0d8e7f563940cfa08af35afa638d20 : ConceptAnd
+    {
+        public ConceptAnd_2b0d8e7f563940cfa08af35afa638d20(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(2).m_value))
+          ,
+          ((Node)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class ConceptNot_dcfb5eddd8fa4bf1a727f86e61d33ba6 : ConceptNot
+    {
+        public ConceptNot_dcfb5eddd8fa4bf1a727f86e61d33ba6(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class OnlyRestriction_2a4bfcfa3f4d40a997a8c169157a972c : OnlyRestriction
+    {
+        public OnlyRestriction_2a4bfcfa3f4d40a997a8c169157a972c(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(2).m_value))
+          ,
+          ((Node)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class SomeRestriction_ab4fecc7ccd74e4abc2758247f25236b : SomeRestriction
+    {
+        public SomeRestriction_ab4fecc7ccd74e4abc2758247f25236b(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(2).m_value))
+          ,
+          ((Node)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class OnlyValueRestriction_86fbafdc71a443aaacb2ea955ff77a8d : OnlyValueRestriction
+    {
+        public OnlyValueRestriction_86fbafdc71a443aaacb2ea955ff77a8d(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(1).m_value))
+          ,
+          ((AbstractBound)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class SomeValueRestriction_ac4399d6fa624d6b907bf818b9ef79ae : SomeValueRestriction
+    {
+        public SomeValueRestriction_ac4399d6fa624d6b907bf818b9ef79ae(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(1).m_value))
+          ,
+          ((AbstractBound)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class SelfReference_bf21aca2cb4148dc99c05c0700b8f0ef : SelfReference
+    {
+        public SelfReference_bf21aca2cb4148dc99c05c0700b8f0ef(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(2).m_value))
+          )
+        { }
+    }
+
+    public class NumberRestriction_35c3e99ad5214406912c313f4f5adb3e : NumberRestriction
+    {
+        public NumberRestriction_35c3e99ad5214406912c313f4f5adb3e(Parser yyq) : base(yyq, "=",
+          ((Node)(yyq.StackAt(2).m_value))
+          ,
+          ((NAT)(yyq.StackAt(3).m_value))
+          .yytext,
+          ((Node)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class NumberRestriction_74de8317f4aa445baed21dc9142d85d2 : NumberRestriction
+    {
+        public NumberRestriction_74de8317f4aa445baed21dc9142d85d2(Parser yyq) : base(yyq, "≥",
+          ((Node)(yyq.StackAt(2).m_value))
+          ,
+          ((NAT)(yyq.StackAt(3).m_value))
+          .yytext,
+          ((Node)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class NumberRestriction_fe951de01fbd4d2494b2534c1f757c4d : NumberRestriction
+    {
+        public NumberRestriction_fe951de01fbd4d2494b2534c1f757c4d(Parser yyq) : base(yyq, "≤",
+          ((Node)(yyq.StackAt(2).m_value))
+          ,
+          ((NAT)(yyq.StackAt(3).m_value))
+          .yytext,
+          ((Node)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class NumberRestriction_a0b895c11f164594a347e9e780488c45 : NumberRestriction
+    {
+        public NumberRestriction_a0b895c11f164594a347e9e780488c45(Parser yyq) : base(yyq, ">",
+          ((Node)(yyq.StackAt(2).m_value))
+          ,
+          ((NAT)(yyq.StackAt(3).m_value))
+          .yytext,
+          ((Node)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class NumberRestriction_8a75b84464794133afc25f6203798229 : NumberRestriction
+    {
+        public NumberRestriction_8a75b84464794133afc25f6203798229(Parser yyq) : base(yyq, "<",
+          ((Node)(yyq.StackAt(2).m_value))
+          ,
+          ((NAT)(yyq.StackAt(3).m_value))
+          .yytext,
+          ((Node)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class NumberRestriction_b9c1d4a6a98c4cbf96d4fe04375d79b7 : NumberRestriction
+    {
+        public NumberRestriction_b9c1d4a6a98c4cbf96d4fe04375d79b7(Parser yyq) : base(yyq, "≠",
+          ((Node)(yyq.StackAt(2).m_value))
+          ,
+          ((NAT)(yyq.StackAt(3).m_value))
+          .yytext,
+          ((Node)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class NumberValueRestriction_bb7f05bcd768455c8dac16b6e9db9d46 : NumberValueRestriction
+    {
+        public NumberValueRestriction_bb7f05bcd768455c8dac16b6e9db9d46(Parser yyq) : base(yyq, "=",
+          ((Node)(yyq.StackAt(1).m_value))
+          ,
+          ((NAT)(yyq.StackAt(2).m_value))
+          .yytext,
+          ((AbstractBound)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class NumberValueRestriction_14042a7223b648279ddfa1d927f97063 : NumberValueRestriction
+    {
+        public NumberValueRestriction_14042a7223b648279ddfa1d927f97063(Parser yyq) : base(yyq, "≥",
+          ((Node)(yyq.StackAt(1).m_value))
+          ,
+          ((NAT)(yyq.StackAt(2).m_value))
+          .yytext,
+          ((AbstractBound)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class NumberValueRestriction_204ccdc951d04d68bd4c5ebfb3407ecd : NumberValueRestriction
+    {
+        public NumberValueRestriction_204ccdc951d04d68bd4c5ebfb3407ecd(Parser yyq) : base(yyq, "≤",
+          ((Node)(yyq.StackAt(1).m_value))
+          ,
+          ((NAT)(yyq.StackAt(2).m_value))
+          .yytext,
+          ((AbstractBound)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class NumberValueRestriction_55a3cb924bee4e939ae4dfa13af6793b : NumberValueRestriction
+    {
+        public NumberValueRestriction_55a3cb924bee4e939ae4dfa13af6793b(Parser yyq) : base(yyq, ">",
+          ((Node)(yyq.StackAt(1).m_value))
+          ,
+          ((NAT)(yyq.StackAt(2).m_value))
+          .yytext,
+          ((AbstractBound)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class NumberValueRestriction_59c461909a73464680b7df04544a86cf : NumberValueRestriction
+    {
+        public NumberValueRestriction_59c461909a73464680b7df04544a86cf(Parser yyq) : base(yyq, "<",
+          ((Node)(yyq.StackAt(1).m_value))
+          ,
+          ((NAT)(yyq.StackAt(2).m_value))
+          .yytext,
+          ((AbstractBound)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class NumberValueRestriction_4f30de024f25478dbfa953e915f1c9b8 : NumberValueRestriction
+    {
+        public NumberValueRestriction_4f30de024f25478dbfa953e915f1c9b8(Parser yyq) : base(yyq, "≠",
+          ((Node)(yyq.StackAt(1).m_value))
+          ,
+          ((NAT)(yyq.StackAt(2).m_value))
+          .yytext,
+          ((AbstractBound)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class NamedInstance_1963c16918d442f9bdfdb31e030a2378 : NamedInstance
+    {
+        public NamedInstance_1963c16918d442f9bdfdb31e030a2378(Parser yyq) : base(yyq,
+          ((ID)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class UnnamedInstance_1994cb126da1455abb2345df25bad6ab : UnnamedInstance
+    {
+        public UnnamedInstance_1994cb126da1455abb2345df25bad6ab(Parser yyq) : base(yyq, false,
+          ((Node)(yyq.StackAt(1).m_value))
+          )
+        { }
+    }
+
+    public class UnnamedInstance_8895935bdbff47f1992c0f29895dee95 : UnnamedInstance
+    {
+        public UnnamedInstance_8895935bdbff47f1992c0f29895dee95(Parser yyq) : base(yyq, true,
+          ((Node)(yyq.StackAt(2).m_value))
+          )
+        { }
+    }
+
+    public class RoleChain_d5307d57ef094676b06a3c01b938c594 : RoleChain
+    {
+        public RoleChain_d5307d57ef094676b06a3c01b938c594(Parser yyq) : base(yyq,
+          ((Node)(yyq.StackAt(2).m_value))
+          ,
+          ((Node)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+
+    public class RoleChain_1dedab1aca2346418444500048f8d91e : RoleChain
+    {
+        public RoleChain_1dedab1aca2346418444500048f8d91e(Parser yyq) : base(yyq,
+          ((RoleChain)(yyq.StackAt(2).m_value))
+          ,
+          ((Node)(yyq.StackAt(0).m_value))
+          )
+        { }
+    }
+    public class yydl : YyParser
+    {
+        public override object Action(Parser yyq, SYMBOL yysym, int yyact)
+        {
+            switch (yyact)
+            {
+                case -1: break; //// keep compiler happy
+            }
+            return null;
+        }
+        public yydl() : base()
+        {
+            arr = new int[] {
 101,4,6,52,0,
 46,0,53,0,102,
 20,103,4,18,80,
@@ -12755,540 +13345,541 @@ public yydl():base() { arr = new int[] {
 1,3,1995,1,1472,
 1727,1,1766,1933,2,
 1,0};
-new Sfactory(this,"DTBound_df5664059c574b5ea22cc121b101361e",new SCreator(DTBound_df5664059c574b5ea22cc121b101361e_factory));
-new Sfactory(this,"ComplexRoleInclusion_cd10aa2be07047efacc122c918f02b72",new SCreator(ComplexRoleInclusion_cd10aa2be07047efacc122c918f02b72_factory));
-new Sfactory(this,"BoundNot",new SCreator(BoundNot_factory));
-new Sfactory(this,"FacetList_2a0671592cf2441ead3371e24c7c3b8a",new SCreator(FacetList_2a0671592cf2441ead3371e24c7c3b8a_factory));
-new Sfactory(this,"SwrlObjectList_e5e33123ad894734bf50cf8e9b97db94",new SCreator(SwrlObjectList_e5e33123ad894734bf50cf8e9b97db94_factory));
-new Sfactory(this,"CmpOrID_90caf4944e2b47c69f614bbb85bb6024",new SCreator(CmpOrID_90caf4944e2b47c69f614bbb85bb6024_factory));
-new Sfactory(this,"BoundFacets",new SCreator(BoundFacets_factory));
-new Sfactory(this,"SwrlSameAs_5ffa2983a1494e01ace14e32c3889d24",new SCreator(SwrlSameAs_5ffa2983a1494e01ace14e32c3889d24_factory));
-new Sfactory(this,"SwrlVarList_34f14c4b77a74efcaa85856dfe1c3b61",new SCreator(SwrlVarList_34f14c4b77a74efcaa85856dfe1c3b61_factory));
-new Sfactory(this,"RoleEquivalence_19c149708a784ba7ab3013d8f8bde9ba",new SCreator(RoleEquivalence_19c149708a784ba7ab3013d8f8bde9ba_factory));
-new Sfactory(this,"DataRoleEquivalence_0526da3e1ab64c44a033ec303466ef28",new SCreator(DataRoleEquivalence_0526da3e1ab64c44a033ec303466ef28_factory));
-new Sfactory(this,"modality_3c73154806bf42dfb2833091da2679ab",new SCreator(modality_3c73154806bf42dfb2833091da2679ab_factory));
-new Sfactory(this,"Facet_76fcec0ce96d4ae6afff869c66403a95",new SCreator(Facet_76fcec0ce96d4ae6afff869c66403a95_factory));
-new Sfactory(this,"SomeValueRestriction_ac4399d6fa624d6b907bf818b9ef79ae",new SCreator(SomeValueRestriction_ac4399d6fa624d6b907bf818b9ef79ae_factory));
-new Sfactory(this,"Float_06e43cd247034ae38647eba1dcb668cd",new SCreator(Float_06e43cd247034ae38647eba1dcb668cd_factory));
-new Sfactory(this,"NodeList_9f311f95b1ba43798e65f80d2756e61f",new SCreator(NodeList_9f311f95b1ba43798e65f80d2756e61f_factory));
-new Sfactory(this,"BoundVal",new SCreator(BoundVal_factory));
-new Sfactory(this,"ConceptList",new SCreator(ConceptList_factory));
-new Sfactory(this,"Value",new SCreator(Value_factory));
-new Sfactory(this,"RoleChain_1dedab1aca2346418444500048f8d91e",new SCreator(RoleChain_1dedab1aca2346418444500048f8d91e_factory));
-new Sfactory(this,"modality_c218e85a91514a13b1261e71cb842c84_9e69ff621fb84cd6a5ce6cc9310c7f8f",new SCreator(modality_c218e85a91514a13b1261e71cb842c84_9e69ff621fb84cd6a5ce6cc9310c7f8f_factory));
-new Sfactory(this,"HasKey",new SCreator(HasKey_factory));
-new Sfactory(this,"SwrlItem",new SCreator(SwrlItem_factory));
-new Sfactory(this,"SomeRestriction_ab4fecc7ccd74e4abc2758247f25236b",new SCreator(SomeRestriction_ab4fecc7ccd74e4abc2758247f25236b_factory));
-new Sfactory(this,"SwrlInstance",new SCreator(SwrlInstance_factory));
-new Sfactory(this,"CmpOrID_38eb55858f304f17b10fdf196ce5f241",new SCreator(CmpOrID_38eb55858f304f17b10fdf196ce5f241_factory));
-new Sfactory(this,"CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843",new SCreator(CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843_factory));
-new Sfactory(this,"SwrlDataProperty",new SCreator(SwrlDataProperty_factory));
-new Sfactory(this,"error",new SCreator(error_factory));
-new Sfactory(this,"AbstractBound",new SCreator(AbstractBound_factory));
-new Sfactory(this,"Facet_7234202359cc41aa892a7ee044bee6b9",new SCreator(Facet_7234202359cc41aa892a7ee044bee6b9_factory));
-new Sfactory(this,"modality_4040741ab25c40ebbef2748e36e852f4",new SCreator(modality_4040741ab25c40ebbef2748e36e852f4_factory));
-new Sfactory(this,"CmpOrID_2ad2113ae03f488ba1c8496463f60da6",new SCreator(CmpOrID_2ad2113ae03f488ba1c8496463f60da6_factory));
-new Sfactory(this,"Atomic_2e8503f19ec149edbbb070ca6d18cfcf",new SCreator(Atomic_2e8503f19ec149edbbb070ca6d18cfcf_factory));
-new Sfactory(this,"NamedInstance",new SCreator(NamedInstance_factory));
-new Sfactory(this,"ExeStatement_ab8afa2b999c4f87b4e4d823a22c1871",new SCreator(ExeStatement_ab8afa2b999c4f87b4e4d823a22c1871_factory));
-new Sfactory(this,"Bottom",new SCreator(Bottom_factory));
-new Sfactory(this,"CmpOrID_bac4173eadf84599ba6158f469cc7e05",new SCreator(CmpOrID_bac4173eadf84599ba6158f469cc7e05_factory));
-new Sfactory(this,"ValueList_2ec5f6babdd649f183e934f4e307e6b1",new SCreator(ValueList_2ec5f6babdd649f183e934f4e307e6b1_factory));
-new Sfactory(this,"SwrlObjectList",new SCreator(SwrlObjectList_factory));
-new Sfactory(this,"SomeValueRestriction",new SCreator(SomeValueRestriction_factory));
-new Sfactory(this,"modality_479dad065d5c4393a30696b670c3e65b",new SCreator(modality_479dad065d5c4393a30696b670c3e65b_factory));
-new Sfactory(this,"DataRoleDisjoint_cabee559a8f547298a9c154c6a482921",new SCreator(DataRoleDisjoint_cabee559a8f547298a9c154c6a482921_factory));
-new Sfactory(this,"String",new SCreator(String_factory));
-new Sfactory(this,"DataTypeDefinition",new SCreator(DataTypeDefinition_factory));
-new Sfactory(this,"SwrlRole_36d2aa76edee4fc592b6b3d96a89524a",new SCreator(SwrlRole_36d2aa76edee4fc592b6b3d96a89524a_factory));
-new Sfactory(this,"NumberRestriction_a0b895c11f164594a347e9e780488c45",new SCreator(NumberRestriction_a0b895c11f164594a347e9e780488c45_factory));
-new Sfactory(this,"RoleChain",new SCreator(RoleChain_factory));
-new Sfactory(this,"InstanceList",new SCreator(InstanceList_factory));
-new Sfactory(this,"Bottom_82c4459e15624b4eaf8b95683fcce6b3",new SCreator(Bottom_82c4459e15624b4eaf8b95683fcce6b3_factory));
-new Sfactory(this,"RoleDisjoint_39baa456d89941f196a9e5585bf16d48",new SCreator(RoleDisjoint_39baa456d89941f196a9e5585bf16d48_factory));
-new Sfactory(this,"NamedInstance_1963c16918d442f9bdfdb31e030a2378",new SCreator(NamedInstance_1963c16918d442f9bdfdb31e030a2378_factory));
-new Sfactory(this,"modality_ebb97c76929649c999074dd95041a09e",new SCreator(modality_ebb97c76929649c999074dd95041a09e_factory));
-new Sfactory(this,"modality_3c73154806bf42dfb2833091da2679ab_e30f4f3fb1ed4bb19e89002c75f94b57",new SCreator(modality_3c73154806bf42dfb2833091da2679ab_e30f4f3fb1ed4bb19e89002c75f94b57_factory));
-new Sfactory(this,"ConceptOr",new SCreator(ConceptOr_factory));
-new Sfactory(this,"CmpOrID_5db1e7132b784124ac8de7af7b6082f9",new SCreator(CmpOrID_5db1e7132b784124ac8de7af7b6082f9_factory));
-new Sfactory(this,"SwrlObjectList_a9b99e55f7684203942226aafea71eb4",new SCreator(SwrlObjectList_a9b99e55f7684203942226aafea71eb4_factory));
-new Sfactory(this,"SwrlDifferentFrom_b199165630004a9cb7e2bd9feb98758e",new SCreator(SwrlDifferentFrom_b199165630004a9cb7e2bd9feb98758e_factory));
-new Sfactory(this,"SwrlIterate",new SCreator(SwrlIterate_factory));
-new Sfactory(this,"RoleInversion_166197aa5f784dc78d6cf95e223fbedf",new SCreator(RoleInversion_166197aa5f784dc78d6cf95e223fbedf_factory));
-new Sfactory(this,"modality_003a05311abb41718aac93f51b5ddc93_1b5963ccd36c47eb9a0ccb223640471f",new SCreator(modality_003a05311abb41718aac93f51b5ddc93_1b5963ccd36c47eb9a0ccb223640471f_factory));
-new Sfactory(this,"SwrlSameAs",new SCreator(SwrlSameAs_factory));
-new Sfactory(this,"modality_62c2ed5949b2408581b7548e7da70940",new SCreator(modality_62c2ed5949b2408581b7548e7da70940_factory));
-new Sfactory(this,"SwrlRole",new SCreator(SwrlRole_factory));
-new Sfactory(this,"DataRoleInclusion_81e2ffd85fe14217b796bf33e5d28dfc",new SCreator(DataRoleInclusion_81e2ffd85fe14217b796bf33e5d28dfc_factory));
-new Sfactory(this,"SwrlStatement",new SCreator(SwrlStatement_factory));
-new Sfactory(this,"CmpOrID_f5837b33878145a4b4b2f88d52f138b7",new SCreator(CmpOrID_f5837b33878145a4b4b2f88d52f138b7_factory));
-new Sfactory(this,"TopBound",new SCreator(TopBound_factory));
-new Sfactory(this,"SwrlIVal",new SCreator(SwrlIVal_factory));
-new Sfactory(this,"Top_7efc6fad648547808256af7cd9223817",new SCreator(Top_7efc6fad648547808256af7cd9223817_factory));
-new Sfactory(this,"modality_003a05311abb41718aac93f51b5ddc93",new SCreator(modality_003a05311abb41718aac93f51b5ddc93_factory));
-new Sfactory(this,"UnnamedInstance_8895935bdbff47f1992c0f29895dee95",new SCreator(UnnamedInstance_8895935bdbff47f1992c0f29895dee95_factory));
-new Sfactory(this,"modality_23e5b2d6a5f5470fbf43211a38c248e0_e6f99599b2904bcf913d69e7609f6ac0",new SCreator(modality_23e5b2d6a5f5470fbf43211a38c248e0_e6f99599b2904bcf913d69e7609f6ac0_factory));
-new Sfactory(this,"Facet",new SCreator(Facet_factory));
-new Sfactory(this,"Atomic",new SCreator(Atomic_factory));
-new Sfactory(this,"CmpOrID_1fdb755c2d4049d596c481e8b6511065",new SCreator(CmpOrID_1fdb755c2d4049d596c481e8b6511065_factory));
-new Sfactory(this,"SwrlIVar",new SCreator(SwrlIVar_factory));
-new Sfactory(this,"modality_5a4fd01f65aa44b08f801e1e5740e736",new SCreator(modality_5a4fd01f65aa44b08f801e1e5740e736_factory));
-new Sfactory(this,"BoundVal_33240dcee92243a1b2eef2b6a2268a5f",new SCreator(BoundVal_33240dcee92243a1b2eef2b6a2268a5f_factory));
-new Sfactory(this,"SwrlIVal_429b1a59c61b4d22891881778bb82b3b",new SCreator(SwrlIVal_429b1a59c61b4d22891881778bb82b3b_factory));
-new Sfactory(this,"Identity",new SCreator(Identity_factory));
-new Sfactory(this,"SelfReference_bf21aca2cb4148dc99c05c0700b8f0ef",new SCreator(SelfReference_bf21aca2cb4148dc99c05c0700b8f0ef_factory));
-new Sfactory(this,"Bool_0286ef456dd84b2693a6bf816c892c9e",new SCreator(Bool_0286ef456dd84b2693a6bf816c892c9e_factory));
-new Sfactory(this,"BoundAnd_89a3e3448c084581b30516bfc0be2579",new SCreator(BoundAnd_89a3e3448c084581b30516bfc0be2579_factory));
-new Sfactory(this,"OnlyValueRestriction_86fbafdc71a443aaacb2ea955ff77a8d",new SCreator(OnlyValueRestriction_86fbafdc71a443aaacb2ea955ff77a8d_factory));
-new Sfactory(this,"CmpOrID",new SCreator(CmpOrID_factory));
-new Sfactory(this,"Node",new SCreator(Node_factory));
-new Sfactory(this,"SwrlIVar_71bc00261a0e468e92c955190eb69e98",new SCreator(SwrlIVar_71bc00261a0e468e92c955190eb69e98_factory));
-new Sfactory(this,"SwrlItemList_dc1646c9b66b483ca4932ae5ce5900d7",new SCreator(SwrlItemList_dc1646c9b66b483ca4932ae5ce5900d7_factory));
-new Sfactory(this,"SwrlStatement_bb68799131144255ab1c586961282f23",new SCreator(SwrlStatement_bb68799131144255ab1c586961282f23_factory));
-new Sfactory(this,"SwrlItemList_0b6d02ca94894658ba1246b6e757d997",new SCreator(SwrlItemList_0b6d02ca94894658ba1246b6e757d997_factory));
-new Sfactory(this,"Facet_05f0f8f0e704405499f48e980cad32ff",new SCreator(Facet_05f0f8f0e704405499f48e980cad32ff_factory));
-new Sfactory(this,"InstanceValue_b38f37c589ce4054871e30e99ba5e420",new SCreator(InstanceValue_b38f37c589ce4054871e30e99ba5e420_factory));
-new Sfactory(this,"FacetList",new SCreator(FacetList_factory));
-new Sfactory(this,"Annotation",new SCreator(Annotation_factory));
-new Sfactory(this,"ComplexRoleInclusion_1c736a0cc94646e081d10db9a3ec1f9d",new SCreator(ComplexRoleInclusion_1c736a0cc94646e081d10db9a3ec1f9d_factory));
-new Sfactory(this,"Disjoint",new SCreator(Disjoint_factory));
-new Sfactory(this,"Facet_f86b0e9c60b141e5b75da1242af1daa3",new SCreator(Facet_f86b0e9c60b141e5b75da1242af1daa3_factory));
-new Sfactory(this,"IdentityBound_276ef64c1c7f4c5ea965fe7ba94c06a9",new SCreator(IdentityBound_276ef64c1c7f4c5ea965fe7ba94c06a9_factory));
-new Sfactory(this,"modality_23e5b2d6a5f5470fbf43211a38c248e0",new SCreator(modality_23e5b2d6a5f5470fbf43211a38c248e0_factory));
-new Sfactory(this,"DataRoleDisjoint",new SCreator(DataRoleDisjoint_factory));
-new Sfactory(this,"DataRoleInclusion_e67f9d83163e4ae29db1ae493f8d04c8",new SCreator(DataRoleInclusion_e67f9d83163e4ae29db1ae493f8d04c8_factory));
-new Sfactory(this,"InstanceSet",new SCreator(InstanceSet_factory));
-new Sfactory(this,"SwrlIterate_cb627029b00f49dbbfa910bc4c8835b1",new SCreator(SwrlIterate_cb627029b00f49dbbfa910bc4c8835b1_factory));
-new Sfactory(this,"UnnamedInstance",new SCreator(UnnamedInstance_factory));
-new Sfactory(this,"DifferentInstances_bffdcdc7c36c49019243db04c6a8fb51",new SCreator(DifferentInstances_bffdcdc7c36c49019243db04c6a8fb51_factory));
-new Sfactory(this,"SomeRestriction",new SCreator(SomeRestriction_factory));
-new Sfactory(this,"SwrlDataRange",new SCreator(SwrlDataRange_factory));
-new Sfactory(this,"NumberValueRestriction",new SCreator(NumberValueRestriction_factory));
-new Sfactory(this,"ExeStatement",new SCreator(ExeStatement_factory));
-new Sfactory(this,"Facet_ab7aff70573149678df458aaf1d4bbe1",new SCreator(Facet_ab7aff70573149678df458aaf1d4bbe1_factory));
-new Sfactory(this,"SwrlDVar_07f77b9b88194cdb91655566521a3b5d",new SCreator(SwrlDVar_07f77b9b88194cdb91655566521a3b5d_factory));
-new Sfactory(this,"CmpOrID_cc775bed70664c39a341bfa90e69b796",new SCreator(CmpOrID_cc775bed70664c39a341bfa90e69b796_factory));
-new Sfactory(this,"ValueSet",new SCreator(ValueSet_factory));
-new Sfactory(this,"ValueList_3ad68c9ca7ea4e508320883a68890f85",new SCreator(ValueList_3ad68c9ca7ea4e508320883a68890f85_factory));
-new Sfactory(this,"modality_5226455df8d441ea9469e14b89045326",new SCreator(modality_5226455df8d441ea9469e14b89045326_factory));
-new Sfactory(this,"CodeStatement_4dd9b13152334ab5bed69dcf073e2af1",new SCreator(CodeStatement_4dd9b13152334ab5bed69dcf073e2af1_factory));
-new Sfactory(this,"NumberValueRestriction_bb7f05bcd768455c8dac16b6e9db9d46",new SCreator(NumberValueRestriction_bb7f05bcd768455c8dac16b6e9db9d46_factory));
-new Sfactory(this,"modality_7c544fb85dd448b1809e7986327f6fd6",new SCreator(modality_7c544fb85dd448b1809e7986327f6fd6_factory));
-new Sfactory(this,"InstanceValue",new SCreator(InstanceValue_factory));
-new Sfactory(this,"DLAnnotationAxiom_922d57b777df4fb584d1341f1ffe29aa",new SCreator(DLAnnotationAxiom_922d57b777df4fb584d1341f1ffe29aa_factory));
-new Sfactory(this,"BoundAnd",new SCreator(BoundAnd_factory));
-new Sfactory(this,"ValueList",new SCreator(ValueList_factory));
-new Sfactory(this,"NumberValueRestriction_4f30de024f25478dbfa953e915f1c9b8",new SCreator(NumberValueRestriction_4f30de024f25478dbfa953e915f1c9b8_factory));
-new Sfactory(this,"Facet_0a6a2d5234914d5cb0664e9d22d4bbb7",new SCreator(Facet_0a6a2d5234914d5cb0664e9d22d4bbb7_factory));
-new Sfactory(this,"RoleChain_d5307d57ef094676b06a3c01b938c594",new SCreator(RoleChain_d5307d57ef094676b06a3c01b938c594_factory));
-new Sfactory(this,"modality_7c544fb85dd448b1809e7986327f6fd6_1cc012ce15b747f4a0e4bf976fcffdc7",new SCreator(modality_7c544fb85dd448b1809e7986327f6fd6_1cc012ce15b747f4a0e4bf976fcffdc7_factory));
-new Sfactory(this,"Identity_ce2a47caf981469d841cfe3571781f68",new SCreator(Identity_ce2a47caf981469d841cfe3571781f68_factory));
-new Sfactory(this,"DisjointUnion_0dcd7600aaac4cac9a975d8318a1c269",new SCreator(DisjointUnion_0dcd7600aaac4cac9a975d8318a1c269_factory));
-new Sfactory(this,"TotalBound_5157988b7d074850b320162d44601b7d",new SCreator(TotalBound_5157988b7d074850b320162d44601b7d_factory));
-new Sfactory(this,"SwrlDataProperty_46fa136ef8244364ba0f9de599eca64d",new SCreator(SwrlDataProperty_46fa136ef8244364ba0f9de599eca64d_factory));
-new Sfactory(this,"ConceptAnd",new SCreator(ConceptAnd_factory));
-new Sfactory(this,"RoleEquivalence_8a84e63367894740860328420a892224",new SCreator(RoleEquivalence_8a84e63367894740860328420a892224_factory));
-new Sfactory(this,"FacetList_ec47cb25c66e4234835b9829ba41670a",new SCreator(FacetList_ec47cb25c66e4234835b9829ba41670a_factory));
-new Sfactory(this,"InstanceSet_7f1254c92b7c439892e4b889d0f75e34",new SCreator(InstanceSet_7f1254c92b7c439892e4b889d0f75e34_factory));
-new Sfactory(this,"modality_479dad065d5c4393a30696b670c3e65b_7a24221a640849e6b928f4dabc3ccd98",new SCreator(modality_479dad065d5c4393a30696b670c3e65b_7a24221a640849e6b928f4dabc3ccd98_factory));
-new Sfactory(this,"NodeList",new SCreator(NodeList_factory));
-new Sfactory(this,"CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b",new SCreator(CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b_factory));
-new Sfactory(this,"InstanceList_f2b45dab447e49f7a7f383bbdf7fd3c7",new SCreator(InstanceList_f2b45dab447e49f7a7f383bbdf7fd3c7_factory));
-new Sfactory(this,"SwrlVarList_71a8a1d242cc48cea932bc153a9239be",new SCreator(SwrlVarList_71a8a1d242cc48cea932bc153a9239be_factory));
-new Sfactory(this,"SwrlInstance_098aa891bae040149be8008927ac763b",new SCreator(SwrlInstance_098aa891bae040149be8008927ac763b_factory));
-new Sfactory(this,"CmpOrID_c51be4882fbb468191ea3d5b27923cb3_71f6f255a26a4bc69310f4a855d107b0",new SCreator(CmpOrID_c51be4882fbb468191ea3d5b27923cb3_71f6f255a26a4bc69310f4a855d107b0_factory));
-new Sfactory(this,"Float",new SCreator(Float_factory));
-new Sfactory(this,"SwrlObjectList_3b9b884c320449898bf97943a191b5dd",new SCreator(SwrlObjectList_3b9b884c320449898bf97943a191b5dd_factory));
-new Sfactory(this,"NumberRestriction_35c3e99ad5214406912c313f4f5adb3e",new SCreator(NumberRestriction_35c3e99ad5214406912c313f4f5adb3e_factory));
-new Sfactory(this,"SwrlBuiltIn",new SCreator(SwrlBuiltIn_factory));
-new Sfactory(this,"InstanceOf_e822dd8ae6d14f55b5f220cda2ae11ab",new SCreator(InstanceOf_e822dd8ae6d14f55b5f220cda2ae11ab_factory));
-new Sfactory(this,"SwrlIObject",new SCreator(SwrlIObject_factory));
-new Sfactory(this,"CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843_5692ee6c86c04e4fa51293d7df54367a",new SCreator(CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843_5692ee6c86c04e4fa51293d7df54367a_factory));
-new Sfactory(this,"SwrlVarList_8395a76253f64476a12ab23fe1bf2739",new SCreator(SwrlVarList_8395a76253f64476a12ab23fe1bf2739_factory));
-new Sfactory(this,"TopBound_7a64d17dbe664c499b0010194f854446",new SCreator(TopBound_7a64d17dbe664c499b0010194f854446_factory));
-new Sfactory(this,"Bool",new SCreator(Bool_factory));
-new Sfactory(this,"DataTypeDefinition_47c50bc6851e4337899c0012a3d4d74e",new SCreator(DataTypeDefinition_47c50bc6851e4337899c0012a3d4d74e_factory));
-new Sfactory(this,"RelatedInstances_2cc079760c924ff0a6129a2b458c1451",new SCreator(RelatedInstances_2cc079760c924ff0a6129a2b458c1451_factory));
-new Sfactory(this,"Duration",new SCreator(Duration_factory));
-new Sfactory(this,"BoundOr",new SCreator(BoundOr_factory));
-new Sfactory(this,"RelatedInstances",new SCreator(RelatedInstances_factory));
-new Sfactory(this,"DisjointUnion",new SCreator(DisjointUnion_factory));
-new Sfactory(this,"OnlyValueRestriction",new SCreator(OnlyValueRestriction_factory));
-new Sfactory(this,"Paragraph",new SCreator(Paragraph_factory));
-new Sfactory(this,"CmpOrID_0d37d54ef4ac479a9d50bd44e0f928eb",new SCreator(CmpOrID_0d37d54ef4ac479a9d50bd44e0f928eb_factory));
-new Sfactory(this,"Duration_b41138dc430c465ca85fa65527495f7c",new SCreator(Duration_b41138dc430c465ca85fa65527495f7c_factory));
-new Sfactory(this,"BoundFacets_60956f277fe940c4ae89df22f3176f3f",new SCreator(BoundFacets_60956f277fe940c4ae89df22f3176f3f_factory));
-new Sfactory(this,"NumberValueRestriction_55a3cb924bee4e939ae4dfa13af6793b",new SCreator(NumberValueRestriction_55a3cb924bee4e939ae4dfa13af6793b_factory));
-new Sfactory(this,"RoleDisjoint_8805ae727ad547a3bcecbc6d34f9731f",new SCreator(RoleDisjoint_8805ae727ad547a3bcecbc6d34f9731f_factory));
-new Sfactory(this,"Paragraph_309291dc7bd741f288754a136db35dc4",new SCreator(Paragraph_309291dc7bd741f288754a136db35dc4_factory));
-new Sfactory(this,"SameInstances_9d3771993f9047c8a3793265faa8823b",new SCreator(SameInstances_9d3771993f9047c8a3793265faa8823b_factory));
-new Sfactory(this,"SwrlBuiltIn_9808fad53bbd4a848f875eb526c67428",new SCreator(SwrlBuiltIn_9808fad53bbd4a848f875eb526c67428_factory));
-new Sfactory(this,"Facet_e6aa1278470e497b8fed8a45f795d7f8",new SCreator(Facet_e6aa1278470e497b8fed8a45f795d7f8_factory));
-new Sfactory(this,"CmpOrID_cc775bed70664c39a341bfa90e69b796_4c6ddc89945c411698606a62c01ef986",new SCreator(CmpOrID_cc775bed70664c39a341bfa90e69b796_4c6ddc89945c411698606a62c01ef986_factory));
-new Sfactory(this,"InstanceOf",new SCreator(InstanceOf_factory));
-new Sfactory(this,"SwrlObjectList_07113cf3b3d648da90ba6e0aa89786aa",new SCreator(SwrlObjectList_07113cf3b3d648da90ba6e0aa89786aa_factory));
-new Sfactory(this,"ConceptOr_88e4dbd472f549db9011b00eb06efb60",new SCreator(ConceptOr_88e4dbd472f549db9011b00eb06efb60_factory));
-new Sfactory(this,"Expression",new SCreator(Expression_factory));
-new Sfactory(this,"Equivalence",new SCreator(Equivalence_factory));
-new Sfactory(this,"SelfReference",new SCreator(SelfReference_factory));
-new Sfactory(this,"FacetList_7abee1793e424a79a19be8265ea0c037",new SCreator(FacetList_7abee1793e424a79a19be8265ea0c037_factory));
-new Sfactory(this,"BoundVal_6d4dea106ec841799e28d393c6033cd9",new SCreator(BoundVal_6d4dea106ec841799e28d393c6033cd9_factory));
-new Sfactory(this,"RoleInclusion_699872d2b4db42c2bd2f98d71660564a",new SCreator(RoleInclusion_699872d2b4db42c2bd2f98d71660564a_factory));
-new Sfactory(this,"SwrlDVal",new SCreator(SwrlDVal_factory));
-new Sfactory(this,"DLAnnotationAxiom_4079aa91fa1f45b5b7c7cd5355bf2175",new SCreator(DLAnnotationAxiom_4079aa91fa1f45b5b7c7cd5355bf2175_factory));
-new Sfactory(this,"DataRoleEquivalence",new SCreator(DataRoleEquivalence_factory));
-new Sfactory(this,"CodeStatement",new SCreator(CodeStatement_factory));
-new Sfactory(this,"BoundNot_34b8e8541ed74f49bb00942d37b8fbbb",new SCreator(BoundNot_34b8e8541ed74f49bb00942d37b8fbbb_factory));
-new Sfactory(this,"NumberRestriction_b9c1d4a6a98c4cbf96d4fe04375d79b7",new SCreator(NumberRestriction_b9c1d4a6a98c4cbf96d4fe04375d79b7_factory));
-new Sfactory(this,"modality_d2aafe2308924a719dd6396e251078b6",new SCreator(modality_d2aafe2308924a719dd6396e251078b6_factory));
-new Sfactory(this,"SwrlDVar",new SCreator(SwrlDVar_factory));
-new Sfactory(this,"SameInstances_3b7c95f2fe8d4f11935ee17f5dfe6d26",new SCreator(SameInstances_3b7c95f2fe8d4f11935ee17f5dfe6d26_factory));
-new Sfactory(this,"modality_c218e85a91514a13b1261e71cb842c84",new SCreator(modality_c218e85a91514a13b1261e71cb842c84_factory));
-new Sfactory(this,"DifferentInstances_8194f8416edd44efb1a4c15ee321d7e0",new SCreator(DifferentInstances_8194f8416edd44efb1a4c15ee321d7e0_factory));
-new Sfactory(this,"Number",new SCreator(Number_factory));
-new Sfactory(this,"DataRoleDisjoint_1359956a28e14189aa934a4f95cf367d",new SCreator(DataRoleDisjoint_1359956a28e14189aa934a4f95cf367d_factory));
-new Sfactory(this,"SwrlDVal_62bfa7ba78ff47a8b7652cd763d38abe",new SCreator(SwrlDVal_62bfa7ba78ff47a8b7652cd763d38abe_factory));
-new Sfactory(this,"SwrlDataRange_af9fb9b113c04d61814b0eca275e59fa",new SCreator(SwrlDataRange_af9fb9b113c04d61814b0eca275e59fa_factory));
-new Sfactory(this,"Restriction",new SCreator(Restriction_factory));
-new Sfactory(this,"CmpOrID_2ad2113ae03f488ba1c8496463f60da6_b3f38bff8dbd47e5a0448779414360f7",new SCreator(CmpOrID_2ad2113ae03f488ba1c8496463f60da6_b3f38bff8dbd47e5a0448779414360f7_factory));
-new Sfactory(this,"NumberRestriction_8a75b84464794133afc25f6203798229",new SCreator(NumberRestriction_8a75b84464794133afc25f6203798229_factory));
-new Sfactory(this,"CmpOrID_c51be4882fbb468191ea3d5b27923cb3",new SCreator(CmpOrID_c51be4882fbb468191ea3d5b27923cb3_factory));
-new Sfactory(this,"Paragraph_a039d85c8fbd4469b57f76a2607e24f7",new SCreator(Paragraph_a039d85c8fbd4469b57f76a2607e24f7_factory));
-new Sfactory(this,"NumberValueRestriction_14042a7223b648279ddfa1d927f97063",new SCreator(NumberValueRestriction_14042a7223b648279ddfa1d927f97063_factory));
-new Sfactory(this,"NumberRestriction",new SCreator(NumberRestriction_factory));
-new Sfactory(this,"DataRoleInclusion",new SCreator(DataRoleInclusion_factory));
-new Sfactory(this,"NumberRestriction_fe951de01fbd4d2494b2534c1f757c4d",new SCreator(NumberRestriction_fe951de01fbd4d2494b2534c1f757c4d_factory));
-new Sfactory(this,"DTBound",new SCreator(DTBound_factory));
-new Sfactory(this,"CmpOrID_57e2875c4a4d46f080863179d4564d39",new SCreator(CmpOrID_57e2875c4a4d46f080863179d4564d39_factory));
-new Sfactory(this,"modality_f5b860d28b48427e9293c2301dbedc1d",new SCreator(modality_f5b860d28b48427e9293c2301dbedc1d_factory));
-new Sfactory(this,"modality_62c2ed5949b2408581b7548e7da70940_eb516229894d4ab4aab77331999c1ed0",new SCreator(modality_62c2ed5949b2408581b7548e7da70940_eb516229894d4ab4aab77331999c1ed0_factory));
-new Sfactory(this,"SwrlDObject",new SCreator(SwrlDObject_factory));
-new Sfactory(this,"NodeList_95aeed5b3b3a4799b5b346b5fe074447",new SCreator(NodeList_95aeed5b3b3a4799b5b346b5fe074447_factory));
-new Sfactory(this,"Subsumption_0db10df2d43344a2bf76d55f6f1d4930",new SCreator(Subsumption_0db10df2d43344a2bf76d55f6f1d4930_factory));
-new Sfactory(this,"HasKey_c2a5d75e95674df797ecd9d7b5ccd962",new SCreator(HasKey_c2a5d75e95674df797ecd9d7b5ccd962_factory));
-new Sfactory(this,"IdentityBound",new SCreator(IdentityBound_factory));
-new Sfactory(this,"TotalBound",new SCreator(TotalBound_factory));
-new Sfactory(this,"InstanceList_e0f9eda985ac444795ef1d2a6f24bb01",new SCreator(InstanceList_e0f9eda985ac444795ef1d2a6f24bb01_factory));
-new Sfactory(this,"CardinalRestriction",new SCreator(CardinalRestriction_factory));
-new Sfactory(this,"SameInstances",new SCreator(SameInstances_factory));
-new Sfactory(this,"Facet_e4cb627134b9481687deb9f3221c10a7",new SCreator(Facet_e4cb627134b9481687deb9f3221c10a7_factory));
-new Sfactory(this,"CmpOrID_5db1e7132b784124ac8de7af7b6082f9_8e83713925bf4e569b22b7c1600510db",new SCreator(CmpOrID_5db1e7132b784124ac8de7af7b6082f9_8e83713925bf4e569b22b7c1600510db_factory));
-new Sfactory(this,"SwrlVarList_a6758d770397480b99211f9252795b66",new SCreator(SwrlVarList_a6758d770397480b99211f9252795b66_factory));
-new Sfactory(this,"ConceptNot",new SCreator(ConceptNot_factory));
-new Sfactory(this,"modality",new SCreator(modality_factory));
-new Sfactory(this,"OnlyRestriction_2a4bfcfa3f4d40a997a8c169157a972c",new SCreator(OnlyRestriction_2a4bfcfa3f4d40a997a8c169157a972c_factory));
-new Sfactory(this,"DateTimeVal",new SCreator(DateTimeVal_factory));
-new Sfactory(this,"CmpOrID_90caf4944e2b47c69f614bbb85bb6024_13b84ebeb47b47dcaf09ab9fc2e3694d",new SCreator(CmpOrID_90caf4944e2b47c69f614bbb85bb6024_13b84ebeb47b47dcaf09ab9fc2e3694d_factory));
-new Sfactory(this,"Subsumption_6af97029206a46029ef9e7fe13252256",new SCreator(Subsumption_6af97029206a46029ef9e7fe13252256_factory));
-new Sfactory(this,"HasKey_3580de8bdd314074a04e39b672fd9ed9",new SCreator(HasKey_3580de8bdd314074a04e39b672fd9ed9_factory));
-new Sfactory(this,"ComplexRoleInclusion",new SCreator(ComplexRoleInclusion_factory));
-new Sfactory(this,"Subsumption",new SCreator(Subsumption_factory));
-new Sfactory(this,"CmpOrID_106a26397604436b84ef59eaa2ab9f51",new SCreator(CmpOrID_106a26397604436b84ef59eaa2ab9f51_factory));
-new Sfactory(this,"Disjoint_6ad137ae410a4c7b806612c6b8dfd66f",new SCreator(Disjoint_6ad137ae410a4c7b806612c6b8dfd66f_factory));
-new Sfactory(this,"RoleInclusion",new SCreator(RoleInclusion_factory));
-new Sfactory(this,"String_3185406054654ec48472d3f64e7de19f",new SCreator(String_3185406054654ec48472d3f64e7de19f_factory));
-new Sfactory(this,"CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b_68004f2890e741dfb0cf09739d7943d2",new SCreator(CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b_68004f2890e741dfb0cf09739d7943d2_factory));
-new Sfactory(this,"OnlyRestriction",new SCreator(OnlyRestriction_factory));
-new Sfactory(this,"ValueSet_3b642fe7fd5f477fb9ec44594d458d42",new SCreator(ValueSet_3b642fe7fd5f477fb9ec44594d458d42_factory));
-new Sfactory(this,"NumberValueRestriction_59c461909a73464680b7df04544a86cf",new SCreator(NumberValueRestriction_59c461909a73464680b7df04544a86cf_factory));
-new Sfactory(this,"ConceptAnd_2b0d8e7f563940cfa08af35afa638d20",new SCreator(ConceptAnd_2b0d8e7f563940cfa08af35afa638d20_factory));
-new Sfactory(this,"SwrlVarList",new SCreator(SwrlVarList_factory));
-new Sfactory(this,"RoleInclusion_fa72066a4d4f41f69ca190dab81c4e31",new SCreator(RoleInclusion_fa72066a4d4f41f69ca190dab81c4e31_factory));
-new Sfactory(this,"NumberValueRestriction_204ccdc951d04d68bd4c5ebfb3407ecd",new SCreator(NumberValueRestriction_204ccdc951d04d68bd4c5ebfb3407ecd_factory));
-new Sfactory(this,"Annotation_a36648de3daa49879b43174782a51082",new SCreator(Annotation_a36648de3daa49879b43174782a51082_factory));
-new Sfactory(this,"UnnamedInstance_1994cb126da1455abb2345df25bad6ab",new SCreator(UnnamedInstance_1994cb126da1455abb2345df25bad6ab_factory));
-new Sfactory(this,"SwrlItemList",new SCreator(SwrlItemList_factory));
-new Sfactory(this,"DataRoleEquivalence_db7e9dbf9bd146efa788a5b8ff0983b3",new SCreator(DataRoleEquivalence_db7e9dbf9bd146efa788a5b8ff0983b3_factory));
-new Sfactory(this,"Number_d233049866da4004957ac8ce9402feda",new SCreator(Number_d233049866da4004957ac8ce9402feda_factory));
-new Sfactory(this,"modality_12a24df93b6346eba60dbf3238903c6f",new SCreator(modality_12a24df93b6346eba60dbf3238903c6f_factory));
-new Sfactory(this,"RoleDisjoint",new SCreator(RoleDisjoint_factory));
-new Sfactory(this,"ExeStatement_6341ef43c3484a0bb826d2dc3dfdc28a",new SCreator(ExeStatement_6341ef43c3484a0bb826d2dc3dfdc28a_factory));
-new Sfactory(this,"BoundOr_87a3acae08144bcca1bb4bec8ac186ae",new SCreator(BoundOr_87a3acae08144bcca1bb4bec8ac186ae_factory));
-new Sfactory(this,"Equivalence_092cb61658f24abc9b8aed5c12ef863a",new SCreator(Equivalence_092cb61658f24abc9b8aed5c12ef863a_factory));
-new Sfactory(this,"DLAnnotationAxiom",new SCreator(DLAnnotationAxiom_factory));
-new Sfactory(this,"Statement",new SCreator(Statement_factory));
-new Sfactory(this,"Instance",new SCreator(Instance_factory));
-new Sfactory(this,"Top",new SCreator(Top_factory));
-new Sfactory(this,"RoleInversion",new SCreator(RoleInversion_factory));
-new Sfactory(this,"ConceptNot_dcfb5eddd8fa4bf1a727f86e61d33ba6",new SCreator(ConceptNot_dcfb5eddd8fa4bf1a727f86e61d33ba6_factory));
-new Sfactory(this,"SwrlDifferentFrom",new SCreator(SwrlDifferentFrom_factory));
-new Sfactory(this,"NumberRestriction_74de8317f4aa445baed21dc9142d85d2",new SCreator(NumberRestriction_74de8317f4aa445baed21dc9142d85d2_factory));
-new Sfactory(this,"DateTimeVal_6a01711465ba4d58b8e08b78c4de58ab",new SCreator(DateTimeVal_6a01711465ba4d58b8e08b78c4de58ab_factory));
-new Sfactory(this,"Equivalence_a56b89fb27634398b32836467c987584",new SCreator(Equivalence_a56b89fb27634398b32836467c987584_factory));
-new Sfactory(this,"DifferentInstances",new SCreator(DifferentInstances_factory));
-new Sfactory(this,"HasKey_d1576b6e88974dc193b3ad72ef7d0fd6",new SCreator(HasKey_d1576b6e88974dc193b3ad72ef7d0fd6_factory));
-new Sfactory(this,"RoleEquivalence",new SCreator(RoleEquivalence_factory));
-new Sfactory(this,"Number_3a039afaa0d3402bb962b7c38e026a1a",new SCreator(Number_3a039afaa0d3402bb962b7c38e026a1a_factory));
-}
-public static object DTBound_df5664059c574b5ea22cc121b101361e_factory(Parser yyp) { return new DTBound_df5664059c574b5ea22cc121b101361e(yyp); }
-public static object ComplexRoleInclusion_cd10aa2be07047efacc122c918f02b72_factory(Parser yyp) { return new ComplexRoleInclusion_cd10aa2be07047efacc122c918f02b72(yyp); }
-public static object BoundNot_factory(Parser yyp) { return new BoundNot(yyp); }
-public static object FacetList_2a0671592cf2441ead3371e24c7c3b8a_factory(Parser yyp) { return new FacetList_2a0671592cf2441ead3371e24c7c3b8a(yyp); }
-public static object SwrlObjectList_e5e33123ad894734bf50cf8e9b97db94_factory(Parser yyp) { return new SwrlObjectList_e5e33123ad894734bf50cf8e9b97db94(yyp); }
-public static object CmpOrID_90caf4944e2b47c69f614bbb85bb6024_factory(Parser yyp) { return new CmpOrID_90caf4944e2b47c69f614bbb85bb6024(yyp); }
-public static object BoundFacets_factory(Parser yyp) { return new BoundFacets(yyp); }
-public static object SwrlSameAs_5ffa2983a1494e01ace14e32c3889d24_factory(Parser yyp) { return new SwrlSameAs_5ffa2983a1494e01ace14e32c3889d24(yyp); }
-public static object SwrlVarList_34f14c4b77a74efcaa85856dfe1c3b61_factory(Parser yyp) { return new SwrlVarList_34f14c4b77a74efcaa85856dfe1c3b61(yyp); }
-public static object RoleEquivalence_19c149708a784ba7ab3013d8f8bde9ba_factory(Parser yyp) { return new RoleEquivalence_19c149708a784ba7ab3013d8f8bde9ba(yyp); }
-public static object DataRoleEquivalence_0526da3e1ab64c44a033ec303466ef28_factory(Parser yyp) { return new DataRoleEquivalence_0526da3e1ab64c44a033ec303466ef28(yyp); }
-public static object modality_3c73154806bf42dfb2833091da2679ab_factory(Parser yyp) { return new modality_3c73154806bf42dfb2833091da2679ab(yyp); }
-public static object Facet_76fcec0ce96d4ae6afff869c66403a95_factory(Parser yyp) { return new Facet_76fcec0ce96d4ae6afff869c66403a95(yyp); }
-public static object SomeValueRestriction_ac4399d6fa624d6b907bf818b9ef79ae_factory(Parser yyp) { return new SomeValueRestriction_ac4399d6fa624d6b907bf818b9ef79ae(yyp); }
-public static object Float_06e43cd247034ae38647eba1dcb668cd_factory(Parser yyp) { return new Float_06e43cd247034ae38647eba1dcb668cd(yyp); }
-public static object NodeList_9f311f95b1ba43798e65f80d2756e61f_factory(Parser yyp) { return new NodeList_9f311f95b1ba43798e65f80d2756e61f(yyp); }
-public static object BoundVal_factory(Parser yyp) { return new BoundVal(yyp); }
-public static object ConceptList_factory(Parser yyp) { return new ConceptList(yyp); }
-public static object Value_factory(Parser yyp) { return new Value(yyp); }
-public static object RoleChain_1dedab1aca2346418444500048f8d91e_factory(Parser yyp) { return new RoleChain_1dedab1aca2346418444500048f8d91e(yyp); }
-public static object modality_c218e85a91514a13b1261e71cb842c84_9e69ff621fb84cd6a5ce6cc9310c7f8f_factory(Parser yyp) { return new modality_c218e85a91514a13b1261e71cb842c84_9e69ff621fb84cd6a5ce6cc9310c7f8f(yyp); }
-public static object HasKey_factory(Parser yyp) { return new HasKey(yyp); }
-public static object SwrlItem_factory(Parser yyp) { return new SwrlItem(yyp); }
-public static object SomeRestriction_ab4fecc7ccd74e4abc2758247f25236b_factory(Parser yyp) { return new SomeRestriction_ab4fecc7ccd74e4abc2758247f25236b(yyp); }
-public static object SwrlInstance_factory(Parser yyp) { return new SwrlInstance(yyp); }
-public static object CmpOrID_38eb55858f304f17b10fdf196ce5f241_factory(Parser yyp) { return new CmpOrID_38eb55858f304f17b10fdf196ce5f241(yyp); }
-public static object CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843_factory(Parser yyp) { return new CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843(yyp); }
-public static object SwrlDataProperty_factory(Parser yyp) { return new SwrlDataProperty(yyp); }
-public static object error_factory(Parser yyp) { return new error(yyp); }
-public static object AbstractBound_factory(Parser yyp) { return new AbstractBound(yyp); }
-public static object Facet_7234202359cc41aa892a7ee044bee6b9_factory(Parser yyp) { return new Facet_7234202359cc41aa892a7ee044bee6b9(yyp); }
-public static object modality_4040741ab25c40ebbef2748e36e852f4_factory(Parser yyp) { return new modality_4040741ab25c40ebbef2748e36e852f4(yyp); }
-public static object CmpOrID_2ad2113ae03f488ba1c8496463f60da6_factory(Parser yyp) { return new CmpOrID_2ad2113ae03f488ba1c8496463f60da6(yyp); }
-public static object Atomic_2e8503f19ec149edbbb070ca6d18cfcf_factory(Parser yyp) { return new Atomic_2e8503f19ec149edbbb070ca6d18cfcf(yyp); }
-public static object NamedInstance_factory(Parser yyp) { return new NamedInstance(yyp); }
-public static object ExeStatement_ab8afa2b999c4f87b4e4d823a22c1871_factory(Parser yyp) { return new ExeStatement_ab8afa2b999c4f87b4e4d823a22c1871(yyp); }
-public static object Bottom_factory(Parser yyp) { return new Bottom(yyp); }
-public static object CmpOrID_bac4173eadf84599ba6158f469cc7e05_factory(Parser yyp) { return new CmpOrID_bac4173eadf84599ba6158f469cc7e05(yyp); }
-public static object ValueList_2ec5f6babdd649f183e934f4e307e6b1_factory(Parser yyp) { return new ValueList_2ec5f6babdd649f183e934f4e307e6b1(yyp); }
-public static object SwrlObjectList_factory(Parser yyp) { return new SwrlObjectList(yyp); }
-public static object SomeValueRestriction_factory(Parser yyp) { return new SomeValueRestriction(yyp); }
-public static object modality_479dad065d5c4393a30696b670c3e65b_factory(Parser yyp) { return new modality_479dad065d5c4393a30696b670c3e65b(yyp); }
-public static object DataRoleDisjoint_cabee559a8f547298a9c154c6a482921_factory(Parser yyp) { return new DataRoleDisjoint_cabee559a8f547298a9c154c6a482921(yyp); }
-public static object String_factory(Parser yyp) { return new String(yyp); }
-public static object DataTypeDefinition_factory(Parser yyp) { return new DataTypeDefinition(yyp); }
-public static object SwrlRole_36d2aa76edee4fc592b6b3d96a89524a_factory(Parser yyp) { return new SwrlRole_36d2aa76edee4fc592b6b3d96a89524a(yyp); }
-public static object NumberRestriction_a0b895c11f164594a347e9e780488c45_factory(Parser yyp) { return new NumberRestriction_a0b895c11f164594a347e9e780488c45(yyp); }
-public static object RoleChain_factory(Parser yyp) { return new RoleChain(yyp); }
-public static object InstanceList_factory(Parser yyp) { return new InstanceList(yyp); }
-public static object Bottom_82c4459e15624b4eaf8b95683fcce6b3_factory(Parser yyp) { return new Bottom_82c4459e15624b4eaf8b95683fcce6b3(yyp); }
-public static object RoleDisjoint_39baa456d89941f196a9e5585bf16d48_factory(Parser yyp) { return new RoleDisjoint_39baa456d89941f196a9e5585bf16d48(yyp); }
-public static object NamedInstance_1963c16918d442f9bdfdb31e030a2378_factory(Parser yyp) { return new NamedInstance_1963c16918d442f9bdfdb31e030a2378(yyp); }
-public static object modality_ebb97c76929649c999074dd95041a09e_factory(Parser yyp) { return new modality_ebb97c76929649c999074dd95041a09e(yyp); }
-public static object modality_3c73154806bf42dfb2833091da2679ab_e30f4f3fb1ed4bb19e89002c75f94b57_factory(Parser yyp) { return new modality_3c73154806bf42dfb2833091da2679ab_e30f4f3fb1ed4bb19e89002c75f94b57(yyp); }
-public static object ConceptOr_factory(Parser yyp) { return new ConceptOr(yyp); }
-public static object CmpOrID_5db1e7132b784124ac8de7af7b6082f9_factory(Parser yyp) { return new CmpOrID_5db1e7132b784124ac8de7af7b6082f9(yyp); }
-public static object SwrlObjectList_a9b99e55f7684203942226aafea71eb4_factory(Parser yyp) { return new SwrlObjectList_a9b99e55f7684203942226aafea71eb4(yyp); }
-public static object SwrlDifferentFrom_b199165630004a9cb7e2bd9feb98758e_factory(Parser yyp) { return new SwrlDifferentFrom_b199165630004a9cb7e2bd9feb98758e(yyp); }
-public static object SwrlIterate_factory(Parser yyp) { return new SwrlIterate(yyp); }
-public static object RoleInversion_166197aa5f784dc78d6cf95e223fbedf_factory(Parser yyp) { return new RoleInversion_166197aa5f784dc78d6cf95e223fbedf(yyp); }
-public static object modality_003a05311abb41718aac93f51b5ddc93_1b5963ccd36c47eb9a0ccb223640471f_factory(Parser yyp) { return new modality_003a05311abb41718aac93f51b5ddc93_1b5963ccd36c47eb9a0ccb223640471f(yyp); }
-public static object SwrlSameAs_factory(Parser yyp) { return new SwrlSameAs(yyp); }
-public static object modality_62c2ed5949b2408581b7548e7da70940_factory(Parser yyp) { return new modality_62c2ed5949b2408581b7548e7da70940(yyp); }
-public static object SwrlRole_factory(Parser yyp) { return new SwrlRole(yyp); }
-public static object DataRoleInclusion_81e2ffd85fe14217b796bf33e5d28dfc_factory(Parser yyp) { return new DataRoleInclusion_81e2ffd85fe14217b796bf33e5d28dfc(yyp); }
-public static object SwrlStatement_factory(Parser yyp) { return new SwrlStatement(yyp); }
-public static object CmpOrID_f5837b33878145a4b4b2f88d52f138b7_factory(Parser yyp) { return new CmpOrID_f5837b33878145a4b4b2f88d52f138b7(yyp); }
-public static object TopBound_factory(Parser yyp) { return new TopBound(yyp); }
-public static object SwrlIVal_factory(Parser yyp) { return new SwrlIVal(yyp); }
-public static object Top_7efc6fad648547808256af7cd9223817_factory(Parser yyp) { return new Top_7efc6fad648547808256af7cd9223817(yyp); }
-public static object modality_003a05311abb41718aac93f51b5ddc93_factory(Parser yyp) { return new modality_003a05311abb41718aac93f51b5ddc93(yyp); }
-public static object UnnamedInstance_8895935bdbff47f1992c0f29895dee95_factory(Parser yyp) { return new UnnamedInstance_8895935bdbff47f1992c0f29895dee95(yyp); }
-public static object modality_23e5b2d6a5f5470fbf43211a38c248e0_e6f99599b2904bcf913d69e7609f6ac0_factory(Parser yyp) { return new modality_23e5b2d6a5f5470fbf43211a38c248e0_e6f99599b2904bcf913d69e7609f6ac0(yyp); }
-public static object Facet_factory(Parser yyp) { return new Facet(yyp); }
-public static object Atomic_factory(Parser yyp) { return new Atomic(yyp); }
-public static object CmpOrID_1fdb755c2d4049d596c481e8b6511065_factory(Parser yyp) { return new CmpOrID_1fdb755c2d4049d596c481e8b6511065(yyp); }
-public static object SwrlIVar_factory(Parser yyp) { return new SwrlIVar(yyp); }
-public static object modality_5a4fd01f65aa44b08f801e1e5740e736_factory(Parser yyp) { return new modality_5a4fd01f65aa44b08f801e1e5740e736(yyp); }
-public static object BoundVal_33240dcee92243a1b2eef2b6a2268a5f_factory(Parser yyp) { return new BoundVal_33240dcee92243a1b2eef2b6a2268a5f(yyp); }
-public static object SwrlIVal_429b1a59c61b4d22891881778bb82b3b_factory(Parser yyp) { return new SwrlIVal_429b1a59c61b4d22891881778bb82b3b(yyp); }
-public static object Identity_factory(Parser yyp) { return new Identity(yyp); }
-public static object SelfReference_bf21aca2cb4148dc99c05c0700b8f0ef_factory(Parser yyp) { return new SelfReference_bf21aca2cb4148dc99c05c0700b8f0ef(yyp); }
-public static object Bool_0286ef456dd84b2693a6bf816c892c9e_factory(Parser yyp) { return new Bool_0286ef456dd84b2693a6bf816c892c9e(yyp); }
-public static object BoundAnd_89a3e3448c084581b30516bfc0be2579_factory(Parser yyp) { return new BoundAnd_89a3e3448c084581b30516bfc0be2579(yyp); }
-public static object OnlyValueRestriction_86fbafdc71a443aaacb2ea955ff77a8d_factory(Parser yyp) { return new OnlyValueRestriction_86fbafdc71a443aaacb2ea955ff77a8d(yyp); }
-public static object CmpOrID_factory(Parser yyp) { return new CmpOrID(yyp); }
-public static object Node_factory(Parser yyp) { return new Node(yyp); }
-public static object SwrlIVar_71bc00261a0e468e92c955190eb69e98_factory(Parser yyp) { return new SwrlIVar_71bc00261a0e468e92c955190eb69e98(yyp); }
-public static object SwrlItemList_dc1646c9b66b483ca4932ae5ce5900d7_factory(Parser yyp) { return new SwrlItemList_dc1646c9b66b483ca4932ae5ce5900d7(yyp); }
-public static object SwrlStatement_bb68799131144255ab1c586961282f23_factory(Parser yyp) { return new SwrlStatement_bb68799131144255ab1c586961282f23(yyp); }
-public static object SwrlItemList_0b6d02ca94894658ba1246b6e757d997_factory(Parser yyp) { return new SwrlItemList_0b6d02ca94894658ba1246b6e757d997(yyp); }
-public static object Facet_05f0f8f0e704405499f48e980cad32ff_factory(Parser yyp) { return new Facet_05f0f8f0e704405499f48e980cad32ff(yyp); }
-public static object InstanceValue_b38f37c589ce4054871e30e99ba5e420_factory(Parser yyp) { return new InstanceValue_b38f37c589ce4054871e30e99ba5e420(yyp); }
-public static object FacetList_factory(Parser yyp) { return new FacetList(yyp); }
-public static object Annotation_factory(Parser yyp) { return new Annotation(yyp); }
-public static object ComplexRoleInclusion_1c736a0cc94646e081d10db9a3ec1f9d_factory(Parser yyp) { return new ComplexRoleInclusion_1c736a0cc94646e081d10db9a3ec1f9d(yyp); }
-public static object Disjoint_factory(Parser yyp) { return new Disjoint(yyp); }
-public static object Facet_f86b0e9c60b141e5b75da1242af1daa3_factory(Parser yyp) { return new Facet_f86b0e9c60b141e5b75da1242af1daa3(yyp); }
-public static object IdentityBound_276ef64c1c7f4c5ea965fe7ba94c06a9_factory(Parser yyp) { return new IdentityBound_276ef64c1c7f4c5ea965fe7ba94c06a9(yyp); }
-public static object modality_23e5b2d6a5f5470fbf43211a38c248e0_factory(Parser yyp) { return new modality_23e5b2d6a5f5470fbf43211a38c248e0(yyp); }
-public static object DataRoleDisjoint_factory(Parser yyp) { return new DataRoleDisjoint(yyp); }
-public static object DataRoleInclusion_e67f9d83163e4ae29db1ae493f8d04c8_factory(Parser yyp) { return new DataRoleInclusion_e67f9d83163e4ae29db1ae493f8d04c8(yyp); }
-public static object InstanceSet_factory(Parser yyp) { return new InstanceSet(yyp); }
-public static object SwrlIterate_cb627029b00f49dbbfa910bc4c8835b1_factory(Parser yyp) { return new SwrlIterate_cb627029b00f49dbbfa910bc4c8835b1(yyp); }
-public static object UnnamedInstance_factory(Parser yyp) { return new UnnamedInstance(yyp); }
-public static object DifferentInstances_bffdcdc7c36c49019243db04c6a8fb51_factory(Parser yyp) { return new DifferentInstances_bffdcdc7c36c49019243db04c6a8fb51(yyp); }
-public static object SomeRestriction_factory(Parser yyp) { return new SomeRestriction(yyp); }
-public static object SwrlDataRange_factory(Parser yyp) { return new SwrlDataRange(yyp); }
-public static object NumberValueRestriction_factory(Parser yyp) { return new NumberValueRestriction(yyp); }
-public static object ExeStatement_factory(Parser yyp) { return new ExeStatement(yyp); }
-public static object Facet_ab7aff70573149678df458aaf1d4bbe1_factory(Parser yyp) { return new Facet_ab7aff70573149678df458aaf1d4bbe1(yyp); }
-public static object SwrlDVar_07f77b9b88194cdb91655566521a3b5d_factory(Parser yyp) { return new SwrlDVar_07f77b9b88194cdb91655566521a3b5d(yyp); }
-public static object CmpOrID_cc775bed70664c39a341bfa90e69b796_factory(Parser yyp) { return new CmpOrID_cc775bed70664c39a341bfa90e69b796(yyp); }
-public static object ValueSet_factory(Parser yyp) { return new ValueSet(yyp); }
-public static object ValueList_3ad68c9ca7ea4e508320883a68890f85_factory(Parser yyp) { return new ValueList_3ad68c9ca7ea4e508320883a68890f85(yyp); }
-public static object modality_5226455df8d441ea9469e14b89045326_factory(Parser yyp) { return new modality_5226455df8d441ea9469e14b89045326(yyp); }
-public static object CodeStatement_4dd9b13152334ab5bed69dcf073e2af1_factory(Parser yyp) { return new CodeStatement_4dd9b13152334ab5bed69dcf073e2af1(yyp); }
-public static object NumberValueRestriction_bb7f05bcd768455c8dac16b6e9db9d46_factory(Parser yyp) { return new NumberValueRestriction_bb7f05bcd768455c8dac16b6e9db9d46(yyp); }
-public static object modality_7c544fb85dd448b1809e7986327f6fd6_factory(Parser yyp) { return new modality_7c544fb85dd448b1809e7986327f6fd6(yyp); }
-public static object InstanceValue_factory(Parser yyp) { return new InstanceValue(yyp); }
-public static object DLAnnotationAxiom_922d57b777df4fb584d1341f1ffe29aa_factory(Parser yyp) { return new DLAnnotationAxiom_922d57b777df4fb584d1341f1ffe29aa(yyp); }
-public static object BoundAnd_factory(Parser yyp) { return new BoundAnd(yyp); }
-public static object ValueList_factory(Parser yyp) { return new ValueList(yyp); }
-public static object NumberValueRestriction_4f30de024f25478dbfa953e915f1c9b8_factory(Parser yyp) { return new NumberValueRestriction_4f30de024f25478dbfa953e915f1c9b8(yyp); }
-public static object Facet_0a6a2d5234914d5cb0664e9d22d4bbb7_factory(Parser yyp) { return new Facet_0a6a2d5234914d5cb0664e9d22d4bbb7(yyp); }
-public static object RoleChain_d5307d57ef094676b06a3c01b938c594_factory(Parser yyp) { return new RoleChain_d5307d57ef094676b06a3c01b938c594(yyp); }
-public static object modality_7c544fb85dd448b1809e7986327f6fd6_1cc012ce15b747f4a0e4bf976fcffdc7_factory(Parser yyp) { return new modality_7c544fb85dd448b1809e7986327f6fd6_1cc012ce15b747f4a0e4bf976fcffdc7(yyp); }
-public static object Identity_ce2a47caf981469d841cfe3571781f68_factory(Parser yyp) { return new Identity_ce2a47caf981469d841cfe3571781f68(yyp); }
-public static object DisjointUnion_0dcd7600aaac4cac9a975d8318a1c269_factory(Parser yyp) { return new DisjointUnion_0dcd7600aaac4cac9a975d8318a1c269(yyp); }
-public static object TotalBound_5157988b7d074850b320162d44601b7d_factory(Parser yyp) { return new TotalBound_5157988b7d074850b320162d44601b7d(yyp); }
-public static object SwrlDataProperty_46fa136ef8244364ba0f9de599eca64d_factory(Parser yyp) { return new SwrlDataProperty_46fa136ef8244364ba0f9de599eca64d(yyp); }
-public static object ConceptAnd_factory(Parser yyp) { return new ConceptAnd(yyp); }
-public static object RoleEquivalence_8a84e63367894740860328420a892224_factory(Parser yyp) { return new RoleEquivalence_8a84e63367894740860328420a892224(yyp); }
-public static object FacetList_ec47cb25c66e4234835b9829ba41670a_factory(Parser yyp) { return new FacetList_ec47cb25c66e4234835b9829ba41670a(yyp); }
-public static object InstanceSet_7f1254c92b7c439892e4b889d0f75e34_factory(Parser yyp) { return new InstanceSet_7f1254c92b7c439892e4b889d0f75e34(yyp); }
-public static object modality_479dad065d5c4393a30696b670c3e65b_7a24221a640849e6b928f4dabc3ccd98_factory(Parser yyp) { return new modality_479dad065d5c4393a30696b670c3e65b_7a24221a640849e6b928f4dabc3ccd98(yyp); }
-public static object NodeList_factory(Parser yyp) { return new NodeList(yyp); }
-public static object CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b_factory(Parser yyp) { return new CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b(yyp); }
-public static object InstanceList_f2b45dab447e49f7a7f383bbdf7fd3c7_factory(Parser yyp) { return new InstanceList_f2b45dab447e49f7a7f383bbdf7fd3c7(yyp); }
-public static object SwrlVarList_71a8a1d242cc48cea932bc153a9239be_factory(Parser yyp) { return new SwrlVarList_71a8a1d242cc48cea932bc153a9239be(yyp); }
-public static object SwrlInstance_098aa891bae040149be8008927ac763b_factory(Parser yyp) { return new SwrlInstance_098aa891bae040149be8008927ac763b(yyp); }
-public static object CmpOrID_c51be4882fbb468191ea3d5b27923cb3_71f6f255a26a4bc69310f4a855d107b0_factory(Parser yyp) { return new CmpOrID_c51be4882fbb468191ea3d5b27923cb3_71f6f255a26a4bc69310f4a855d107b0(yyp); }
-public static object Float_factory(Parser yyp) { return new Float(yyp); }
-public static object SwrlObjectList_3b9b884c320449898bf97943a191b5dd_factory(Parser yyp) { return new SwrlObjectList_3b9b884c320449898bf97943a191b5dd(yyp); }
-public static object NumberRestriction_35c3e99ad5214406912c313f4f5adb3e_factory(Parser yyp) { return new NumberRestriction_35c3e99ad5214406912c313f4f5adb3e(yyp); }
-public static object SwrlBuiltIn_factory(Parser yyp) { return new SwrlBuiltIn(yyp); }
-public static object InstanceOf_e822dd8ae6d14f55b5f220cda2ae11ab_factory(Parser yyp) { return new InstanceOf_e822dd8ae6d14f55b5f220cda2ae11ab(yyp); }
-public static object SwrlIObject_factory(Parser yyp) { return new SwrlIObject(yyp); }
-public static object CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843_5692ee6c86c04e4fa51293d7df54367a_factory(Parser yyp) { return new CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843_5692ee6c86c04e4fa51293d7df54367a(yyp); }
-public static object SwrlVarList_8395a76253f64476a12ab23fe1bf2739_factory(Parser yyp) { return new SwrlVarList_8395a76253f64476a12ab23fe1bf2739(yyp); }
-public static object TopBound_7a64d17dbe664c499b0010194f854446_factory(Parser yyp) { return new TopBound_7a64d17dbe664c499b0010194f854446(yyp); }
-public static object Bool_factory(Parser yyp) { return new Bool(yyp); }
-public static object DataTypeDefinition_47c50bc6851e4337899c0012a3d4d74e_factory(Parser yyp) { return new DataTypeDefinition_47c50bc6851e4337899c0012a3d4d74e(yyp); }
-public static object RelatedInstances_2cc079760c924ff0a6129a2b458c1451_factory(Parser yyp) { return new RelatedInstances_2cc079760c924ff0a6129a2b458c1451(yyp); }
-public static object Duration_factory(Parser yyp) { return new Duration(yyp); }
-public static object BoundOr_factory(Parser yyp) { return new BoundOr(yyp); }
-public static object RelatedInstances_factory(Parser yyp) { return new RelatedInstances(yyp); }
-public static object DisjointUnion_factory(Parser yyp) { return new DisjointUnion(yyp); }
-public static object OnlyValueRestriction_factory(Parser yyp) { return new OnlyValueRestriction(yyp); }
-public static object Paragraph_factory(Parser yyp) { return new Paragraph(yyp); }
-public static object CmpOrID_0d37d54ef4ac479a9d50bd44e0f928eb_factory(Parser yyp) { return new CmpOrID_0d37d54ef4ac479a9d50bd44e0f928eb(yyp); }
-public static object Duration_b41138dc430c465ca85fa65527495f7c_factory(Parser yyp) { return new Duration_b41138dc430c465ca85fa65527495f7c(yyp); }
-public static object BoundFacets_60956f277fe940c4ae89df22f3176f3f_factory(Parser yyp) { return new BoundFacets_60956f277fe940c4ae89df22f3176f3f(yyp); }
-public static object NumberValueRestriction_55a3cb924bee4e939ae4dfa13af6793b_factory(Parser yyp) { return new NumberValueRestriction_55a3cb924bee4e939ae4dfa13af6793b(yyp); }
-public static object RoleDisjoint_8805ae727ad547a3bcecbc6d34f9731f_factory(Parser yyp) { return new RoleDisjoint_8805ae727ad547a3bcecbc6d34f9731f(yyp); }
-public static object Paragraph_309291dc7bd741f288754a136db35dc4_factory(Parser yyp) { return new Paragraph_309291dc7bd741f288754a136db35dc4(yyp); }
-public static object SameInstances_9d3771993f9047c8a3793265faa8823b_factory(Parser yyp) { return new SameInstances_9d3771993f9047c8a3793265faa8823b(yyp); }
-public static object SwrlBuiltIn_9808fad53bbd4a848f875eb526c67428_factory(Parser yyp) { return new SwrlBuiltIn_9808fad53bbd4a848f875eb526c67428(yyp); }
-public static object Facet_e6aa1278470e497b8fed8a45f795d7f8_factory(Parser yyp) { return new Facet_e6aa1278470e497b8fed8a45f795d7f8(yyp); }
-public static object CmpOrID_cc775bed70664c39a341bfa90e69b796_4c6ddc89945c411698606a62c01ef986_factory(Parser yyp) { return new CmpOrID_cc775bed70664c39a341bfa90e69b796_4c6ddc89945c411698606a62c01ef986(yyp); }
-public static object InstanceOf_factory(Parser yyp) { return new InstanceOf(yyp); }
-public static object SwrlObjectList_07113cf3b3d648da90ba6e0aa89786aa_factory(Parser yyp) { return new SwrlObjectList_07113cf3b3d648da90ba6e0aa89786aa(yyp); }
-public static object ConceptOr_88e4dbd472f549db9011b00eb06efb60_factory(Parser yyp) { return new ConceptOr_88e4dbd472f549db9011b00eb06efb60(yyp); }
-public static object Expression_factory(Parser yyp) { return new Expression(yyp); }
-public static object Equivalence_factory(Parser yyp) { return new Equivalence(yyp); }
-public static object SelfReference_factory(Parser yyp) { return new SelfReference(yyp); }
-public static object FacetList_7abee1793e424a79a19be8265ea0c037_factory(Parser yyp) { return new FacetList_7abee1793e424a79a19be8265ea0c037(yyp); }
-public static object BoundVal_6d4dea106ec841799e28d393c6033cd9_factory(Parser yyp) { return new BoundVal_6d4dea106ec841799e28d393c6033cd9(yyp); }
-public static object RoleInclusion_699872d2b4db42c2bd2f98d71660564a_factory(Parser yyp) { return new RoleInclusion_699872d2b4db42c2bd2f98d71660564a(yyp); }
-public static object SwrlDVal_factory(Parser yyp) { return new SwrlDVal(yyp); }
-public static object DLAnnotationAxiom_4079aa91fa1f45b5b7c7cd5355bf2175_factory(Parser yyp) { return new DLAnnotationAxiom_4079aa91fa1f45b5b7c7cd5355bf2175(yyp); }
-public static object DataRoleEquivalence_factory(Parser yyp) { return new DataRoleEquivalence(yyp); }
-public static object CodeStatement_factory(Parser yyp) { return new CodeStatement(yyp); }
-public static object BoundNot_34b8e8541ed74f49bb00942d37b8fbbb_factory(Parser yyp) { return new BoundNot_34b8e8541ed74f49bb00942d37b8fbbb(yyp); }
-public static object NumberRestriction_b9c1d4a6a98c4cbf96d4fe04375d79b7_factory(Parser yyp) { return new NumberRestriction_b9c1d4a6a98c4cbf96d4fe04375d79b7(yyp); }
-public static object modality_d2aafe2308924a719dd6396e251078b6_factory(Parser yyp) { return new modality_d2aafe2308924a719dd6396e251078b6(yyp); }
-public static object SwrlDVar_factory(Parser yyp) { return new SwrlDVar(yyp); }
-public static object SameInstances_3b7c95f2fe8d4f11935ee17f5dfe6d26_factory(Parser yyp) { return new SameInstances_3b7c95f2fe8d4f11935ee17f5dfe6d26(yyp); }
-public static object modality_c218e85a91514a13b1261e71cb842c84_factory(Parser yyp) { return new modality_c218e85a91514a13b1261e71cb842c84(yyp); }
-public static object DifferentInstances_8194f8416edd44efb1a4c15ee321d7e0_factory(Parser yyp) { return new DifferentInstances_8194f8416edd44efb1a4c15ee321d7e0(yyp); }
-public static object Number_factory(Parser yyp) { return new Number(yyp); }
-public static object DataRoleDisjoint_1359956a28e14189aa934a4f95cf367d_factory(Parser yyp) { return new DataRoleDisjoint_1359956a28e14189aa934a4f95cf367d(yyp); }
-public static object SwrlDVal_62bfa7ba78ff47a8b7652cd763d38abe_factory(Parser yyp) { return new SwrlDVal_62bfa7ba78ff47a8b7652cd763d38abe(yyp); }
-public static object SwrlDataRange_af9fb9b113c04d61814b0eca275e59fa_factory(Parser yyp) { return new SwrlDataRange_af9fb9b113c04d61814b0eca275e59fa(yyp); }
-public static object Restriction_factory(Parser yyp) { return new Restriction(yyp); }
-public static object CmpOrID_2ad2113ae03f488ba1c8496463f60da6_b3f38bff8dbd47e5a0448779414360f7_factory(Parser yyp) { return new CmpOrID_2ad2113ae03f488ba1c8496463f60da6_b3f38bff8dbd47e5a0448779414360f7(yyp); }
-public static object NumberRestriction_8a75b84464794133afc25f6203798229_factory(Parser yyp) { return new NumberRestriction_8a75b84464794133afc25f6203798229(yyp); }
-public static object CmpOrID_c51be4882fbb468191ea3d5b27923cb3_factory(Parser yyp) { return new CmpOrID_c51be4882fbb468191ea3d5b27923cb3(yyp); }
-public static object Paragraph_a039d85c8fbd4469b57f76a2607e24f7_factory(Parser yyp) { return new Paragraph_a039d85c8fbd4469b57f76a2607e24f7(yyp); }
-public static object NumberValueRestriction_14042a7223b648279ddfa1d927f97063_factory(Parser yyp) { return new NumberValueRestriction_14042a7223b648279ddfa1d927f97063(yyp); }
-public static object NumberRestriction_factory(Parser yyp) { return new NumberRestriction(yyp); }
-public static object DataRoleInclusion_factory(Parser yyp) { return new DataRoleInclusion(yyp); }
-public static object NumberRestriction_fe951de01fbd4d2494b2534c1f757c4d_factory(Parser yyp) { return new NumberRestriction_fe951de01fbd4d2494b2534c1f757c4d(yyp); }
-public static object DTBound_factory(Parser yyp) { return new DTBound(yyp); }
-public static object CmpOrID_57e2875c4a4d46f080863179d4564d39_factory(Parser yyp) { return new CmpOrID_57e2875c4a4d46f080863179d4564d39(yyp); }
-public static object modality_f5b860d28b48427e9293c2301dbedc1d_factory(Parser yyp) { return new modality_f5b860d28b48427e9293c2301dbedc1d(yyp); }
-public static object modality_62c2ed5949b2408581b7548e7da70940_eb516229894d4ab4aab77331999c1ed0_factory(Parser yyp) { return new modality_62c2ed5949b2408581b7548e7da70940_eb516229894d4ab4aab77331999c1ed0(yyp); }
-public static object SwrlDObject_factory(Parser yyp) { return new SwrlDObject(yyp); }
-public static object NodeList_95aeed5b3b3a4799b5b346b5fe074447_factory(Parser yyp) { return new NodeList_95aeed5b3b3a4799b5b346b5fe074447(yyp); }
-public static object Subsumption_0db10df2d43344a2bf76d55f6f1d4930_factory(Parser yyp) { return new Subsumption_0db10df2d43344a2bf76d55f6f1d4930(yyp); }
-public static object HasKey_c2a5d75e95674df797ecd9d7b5ccd962_factory(Parser yyp) { return new HasKey_c2a5d75e95674df797ecd9d7b5ccd962(yyp); }
-public static object IdentityBound_factory(Parser yyp) { return new IdentityBound(yyp); }
-public static object TotalBound_factory(Parser yyp) { return new TotalBound(yyp); }
-public static object InstanceList_e0f9eda985ac444795ef1d2a6f24bb01_factory(Parser yyp) { return new InstanceList_e0f9eda985ac444795ef1d2a6f24bb01(yyp); }
-public static object CardinalRestriction_factory(Parser yyp) { return new CardinalRestriction(yyp); }
-public static object SameInstances_factory(Parser yyp) { return new SameInstances(yyp); }
-public static object Facet_e4cb627134b9481687deb9f3221c10a7_factory(Parser yyp) { return new Facet_e4cb627134b9481687deb9f3221c10a7(yyp); }
-public static object CmpOrID_5db1e7132b784124ac8de7af7b6082f9_8e83713925bf4e569b22b7c1600510db_factory(Parser yyp) { return new CmpOrID_5db1e7132b784124ac8de7af7b6082f9_8e83713925bf4e569b22b7c1600510db(yyp); }
-public static object SwrlVarList_a6758d770397480b99211f9252795b66_factory(Parser yyp) { return new SwrlVarList_a6758d770397480b99211f9252795b66(yyp); }
-public static object ConceptNot_factory(Parser yyp) { return new ConceptNot(yyp); }
-public static object modality_factory(Parser yyp) { return new modality(yyp); }
-public static object OnlyRestriction_2a4bfcfa3f4d40a997a8c169157a972c_factory(Parser yyp) { return new OnlyRestriction_2a4bfcfa3f4d40a997a8c169157a972c(yyp); }
-public static object DateTimeVal_factory(Parser yyp) { return new DateTimeVal(yyp); }
-public static object CmpOrID_90caf4944e2b47c69f614bbb85bb6024_13b84ebeb47b47dcaf09ab9fc2e3694d_factory(Parser yyp) { return new CmpOrID_90caf4944e2b47c69f614bbb85bb6024_13b84ebeb47b47dcaf09ab9fc2e3694d(yyp); }
-public static object Subsumption_6af97029206a46029ef9e7fe13252256_factory(Parser yyp) { return new Subsumption_6af97029206a46029ef9e7fe13252256(yyp); }
-public static object HasKey_3580de8bdd314074a04e39b672fd9ed9_factory(Parser yyp) { return new HasKey_3580de8bdd314074a04e39b672fd9ed9(yyp); }
-public static object ComplexRoleInclusion_factory(Parser yyp) { return new ComplexRoleInclusion(yyp); }
-public static object Subsumption_factory(Parser yyp) { return new Subsumption(yyp); }
-public static object CmpOrID_106a26397604436b84ef59eaa2ab9f51_factory(Parser yyp) { return new CmpOrID_106a26397604436b84ef59eaa2ab9f51(yyp); }
-public static object Disjoint_6ad137ae410a4c7b806612c6b8dfd66f_factory(Parser yyp) { return new Disjoint_6ad137ae410a4c7b806612c6b8dfd66f(yyp); }
-public static object RoleInclusion_factory(Parser yyp) { return new RoleInclusion(yyp); }
-public static object String_3185406054654ec48472d3f64e7de19f_factory(Parser yyp) { return new String_3185406054654ec48472d3f64e7de19f(yyp); }
-public static object CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b_68004f2890e741dfb0cf09739d7943d2_factory(Parser yyp) { return new CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b_68004f2890e741dfb0cf09739d7943d2(yyp); }
-public static object OnlyRestriction_factory(Parser yyp) { return new OnlyRestriction(yyp); }
-public static object ValueSet_3b642fe7fd5f477fb9ec44594d458d42_factory(Parser yyp) { return new ValueSet_3b642fe7fd5f477fb9ec44594d458d42(yyp); }
-public static object NumberValueRestriction_59c461909a73464680b7df04544a86cf_factory(Parser yyp) { return new NumberValueRestriction_59c461909a73464680b7df04544a86cf(yyp); }
-public static object ConceptAnd_2b0d8e7f563940cfa08af35afa638d20_factory(Parser yyp) { return new ConceptAnd_2b0d8e7f563940cfa08af35afa638d20(yyp); }
-public static object SwrlVarList_factory(Parser yyp) { return new SwrlVarList(yyp); }
-public static object RoleInclusion_fa72066a4d4f41f69ca190dab81c4e31_factory(Parser yyp) { return new RoleInclusion_fa72066a4d4f41f69ca190dab81c4e31(yyp); }
-public static object NumberValueRestriction_204ccdc951d04d68bd4c5ebfb3407ecd_factory(Parser yyp) { return new NumberValueRestriction_204ccdc951d04d68bd4c5ebfb3407ecd(yyp); }
-public static object Annotation_a36648de3daa49879b43174782a51082_factory(Parser yyp) { return new Annotation_a36648de3daa49879b43174782a51082(yyp); }
-public static object UnnamedInstance_1994cb126da1455abb2345df25bad6ab_factory(Parser yyp) { return new UnnamedInstance_1994cb126da1455abb2345df25bad6ab(yyp); }
-public static object SwrlItemList_factory(Parser yyp) { return new SwrlItemList(yyp); }
-public static object DataRoleEquivalence_db7e9dbf9bd146efa788a5b8ff0983b3_factory(Parser yyp) { return new DataRoleEquivalence_db7e9dbf9bd146efa788a5b8ff0983b3(yyp); }
-public static object Number_d233049866da4004957ac8ce9402feda_factory(Parser yyp) { return new Number_d233049866da4004957ac8ce9402feda(yyp); }
-public static object modality_12a24df93b6346eba60dbf3238903c6f_factory(Parser yyp) { return new modality_12a24df93b6346eba60dbf3238903c6f(yyp); }
-public static object RoleDisjoint_factory(Parser yyp) { return new RoleDisjoint(yyp); }
-public static object ExeStatement_6341ef43c3484a0bb826d2dc3dfdc28a_factory(Parser yyp) { return new ExeStatement_6341ef43c3484a0bb826d2dc3dfdc28a(yyp); }
-public static object BoundOr_87a3acae08144bcca1bb4bec8ac186ae_factory(Parser yyp) { return new BoundOr_87a3acae08144bcca1bb4bec8ac186ae(yyp); }
-public static object Equivalence_092cb61658f24abc9b8aed5c12ef863a_factory(Parser yyp) { return new Equivalence_092cb61658f24abc9b8aed5c12ef863a(yyp); }
-public static object DLAnnotationAxiom_factory(Parser yyp) { return new DLAnnotationAxiom(yyp); }
-public static object Statement_factory(Parser yyp) { return new Statement(yyp); }
-public static object Instance_factory(Parser yyp) { return new Instance(yyp); }
-public static object Top_factory(Parser yyp) { return new Top(yyp); }
-public static object RoleInversion_factory(Parser yyp) { return new RoleInversion(yyp); }
-public static object ConceptNot_dcfb5eddd8fa4bf1a727f86e61d33ba6_factory(Parser yyp) { return new ConceptNot_dcfb5eddd8fa4bf1a727f86e61d33ba6(yyp); }
-public static object SwrlDifferentFrom_factory(Parser yyp) { return new SwrlDifferentFrom(yyp); }
-public static object NumberRestriction_74de8317f4aa445baed21dc9142d85d2_factory(Parser yyp) { return new NumberRestriction_74de8317f4aa445baed21dc9142d85d2(yyp); }
-public static object DateTimeVal_6a01711465ba4d58b8e08b78c4de58ab_factory(Parser yyp) { return new DateTimeVal_6a01711465ba4d58b8e08b78c4de58ab(yyp); }
-public static object Equivalence_a56b89fb27634398b32836467c987584_factory(Parser yyp) { return new Equivalence_a56b89fb27634398b32836467c987584(yyp); }
-public static object DifferentInstances_factory(Parser yyp) { return new DifferentInstances(yyp); }
-public static object HasKey_d1576b6e88974dc193b3ad72ef7d0fd6_factory(Parser yyp) { return new HasKey_d1576b6e88974dc193b3ad72ef7d0fd6(yyp); }
-public static object RoleEquivalence_factory(Parser yyp) { return new RoleEquivalence(yyp); }
-public static object Number_3a039afaa0d3402bb962b7c38e026a1a_factory(Parser yyp) { return new Number_3a039afaa0d3402bb962b7c38e026a1a(yyp); }
-}
-public class dl: Parser {
-public dl():base(new yydl(),new tokens()) {}
-public dl(YyParser syms):base(syms,new tokens()) {}
-public dl(YyParser syms,ErrorHandler erh):base(syms,new tokens(erh)) {}
+            new Sfactory(this, "DTBound_df5664059c574b5ea22cc121b101361e", new SCreator(DTBound_df5664059c574b5ea22cc121b101361e_factory));
+            new Sfactory(this, "ComplexRoleInclusion_cd10aa2be07047efacc122c918f02b72", new SCreator(ComplexRoleInclusion_cd10aa2be07047efacc122c918f02b72_factory));
+            new Sfactory(this, "BoundNot", new SCreator(BoundNot_factory));
+            new Sfactory(this, "FacetList_2a0671592cf2441ead3371e24c7c3b8a", new SCreator(FacetList_2a0671592cf2441ead3371e24c7c3b8a_factory));
+            new Sfactory(this, "SwrlObjectList_e5e33123ad894734bf50cf8e9b97db94", new SCreator(SwrlObjectList_e5e33123ad894734bf50cf8e9b97db94_factory));
+            new Sfactory(this, "CmpOrID_90caf4944e2b47c69f614bbb85bb6024", new SCreator(CmpOrID_90caf4944e2b47c69f614bbb85bb6024_factory));
+            new Sfactory(this, "BoundFacets", new SCreator(BoundFacets_factory));
+            new Sfactory(this, "SwrlSameAs_5ffa2983a1494e01ace14e32c3889d24", new SCreator(SwrlSameAs_5ffa2983a1494e01ace14e32c3889d24_factory));
+            new Sfactory(this, "SwrlVarList_34f14c4b77a74efcaa85856dfe1c3b61", new SCreator(SwrlVarList_34f14c4b77a74efcaa85856dfe1c3b61_factory));
+            new Sfactory(this, "RoleEquivalence_19c149708a784ba7ab3013d8f8bde9ba", new SCreator(RoleEquivalence_19c149708a784ba7ab3013d8f8bde9ba_factory));
+            new Sfactory(this, "DataRoleEquivalence_0526da3e1ab64c44a033ec303466ef28", new SCreator(DataRoleEquivalence_0526da3e1ab64c44a033ec303466ef28_factory));
+            new Sfactory(this, "modality_3c73154806bf42dfb2833091da2679ab", new SCreator(modality_3c73154806bf42dfb2833091da2679ab_factory));
+            new Sfactory(this, "Facet_76fcec0ce96d4ae6afff869c66403a95", new SCreator(Facet_76fcec0ce96d4ae6afff869c66403a95_factory));
+            new Sfactory(this, "SomeValueRestriction_ac4399d6fa624d6b907bf818b9ef79ae", new SCreator(SomeValueRestriction_ac4399d6fa624d6b907bf818b9ef79ae_factory));
+            new Sfactory(this, "Float_06e43cd247034ae38647eba1dcb668cd", new SCreator(Float_06e43cd247034ae38647eba1dcb668cd_factory));
+            new Sfactory(this, "NodeList_9f311f95b1ba43798e65f80d2756e61f", new SCreator(NodeList_9f311f95b1ba43798e65f80d2756e61f_factory));
+            new Sfactory(this, "BoundVal", new SCreator(BoundVal_factory));
+            new Sfactory(this, "ConceptList", new SCreator(ConceptList_factory));
+            new Sfactory(this, "Value", new SCreator(Value_factory));
+            new Sfactory(this, "RoleChain_1dedab1aca2346418444500048f8d91e", new SCreator(RoleChain_1dedab1aca2346418444500048f8d91e_factory));
+            new Sfactory(this, "modality_c218e85a91514a13b1261e71cb842c84_9e69ff621fb84cd6a5ce6cc9310c7f8f", new SCreator(modality_c218e85a91514a13b1261e71cb842c84_9e69ff621fb84cd6a5ce6cc9310c7f8f_factory));
+            new Sfactory(this, "HasKey", new SCreator(HasKey_factory));
+            new Sfactory(this, "SwrlItem", new SCreator(SwrlItem_factory));
+            new Sfactory(this, "SomeRestriction_ab4fecc7ccd74e4abc2758247f25236b", new SCreator(SomeRestriction_ab4fecc7ccd74e4abc2758247f25236b_factory));
+            new Sfactory(this, "SwrlInstance", new SCreator(SwrlInstance_factory));
+            new Sfactory(this, "CmpOrID_38eb55858f304f17b10fdf196ce5f241", new SCreator(CmpOrID_38eb55858f304f17b10fdf196ce5f241_factory));
+            new Sfactory(this, "CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843", new SCreator(CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843_factory));
+            new Sfactory(this, "SwrlDataProperty", new SCreator(SwrlDataProperty_factory));
+            new Sfactory(this, "error", new SCreator(error_factory));
+            new Sfactory(this, "AbstractBound", new SCreator(AbstractBound_factory));
+            new Sfactory(this, "Facet_7234202359cc41aa892a7ee044bee6b9", new SCreator(Facet_7234202359cc41aa892a7ee044bee6b9_factory));
+            new Sfactory(this, "modality_4040741ab25c40ebbef2748e36e852f4", new SCreator(modality_4040741ab25c40ebbef2748e36e852f4_factory));
+            new Sfactory(this, "CmpOrID_2ad2113ae03f488ba1c8496463f60da6", new SCreator(CmpOrID_2ad2113ae03f488ba1c8496463f60da6_factory));
+            new Sfactory(this, "Atomic_2e8503f19ec149edbbb070ca6d18cfcf", new SCreator(Atomic_2e8503f19ec149edbbb070ca6d18cfcf_factory));
+            new Sfactory(this, "NamedInstance", new SCreator(NamedInstance_factory));
+            new Sfactory(this, "ExeStatement_ab8afa2b999c4f87b4e4d823a22c1871", new SCreator(ExeStatement_ab8afa2b999c4f87b4e4d823a22c1871_factory));
+            new Sfactory(this, "Bottom", new SCreator(Bottom_factory));
+            new Sfactory(this, "CmpOrID_bac4173eadf84599ba6158f469cc7e05", new SCreator(CmpOrID_bac4173eadf84599ba6158f469cc7e05_factory));
+            new Sfactory(this, "ValueList_2ec5f6babdd649f183e934f4e307e6b1", new SCreator(ValueList_2ec5f6babdd649f183e934f4e307e6b1_factory));
+            new Sfactory(this, "SwrlObjectList", new SCreator(SwrlObjectList_factory));
+            new Sfactory(this, "SomeValueRestriction", new SCreator(SomeValueRestriction_factory));
+            new Sfactory(this, "modality_479dad065d5c4393a30696b670c3e65b", new SCreator(modality_479dad065d5c4393a30696b670c3e65b_factory));
+            new Sfactory(this, "DataRoleDisjoint_cabee559a8f547298a9c154c6a482921", new SCreator(DataRoleDisjoint_cabee559a8f547298a9c154c6a482921_factory));
+            new Sfactory(this, "String", new SCreator(String_factory));
+            new Sfactory(this, "DataTypeDefinition", new SCreator(DataTypeDefinition_factory));
+            new Sfactory(this, "SwrlRole_36d2aa76edee4fc592b6b3d96a89524a", new SCreator(SwrlRole_36d2aa76edee4fc592b6b3d96a89524a_factory));
+            new Sfactory(this, "NumberRestriction_a0b895c11f164594a347e9e780488c45", new SCreator(NumberRestriction_a0b895c11f164594a347e9e780488c45_factory));
+            new Sfactory(this, "RoleChain", new SCreator(RoleChain_factory));
+            new Sfactory(this, "InstanceList", new SCreator(InstanceList_factory));
+            new Sfactory(this, "Bottom_82c4459e15624b4eaf8b95683fcce6b3", new SCreator(Bottom_82c4459e15624b4eaf8b95683fcce6b3_factory));
+            new Sfactory(this, "RoleDisjoint_39baa456d89941f196a9e5585bf16d48", new SCreator(RoleDisjoint_39baa456d89941f196a9e5585bf16d48_factory));
+            new Sfactory(this, "NamedInstance_1963c16918d442f9bdfdb31e030a2378", new SCreator(NamedInstance_1963c16918d442f9bdfdb31e030a2378_factory));
+            new Sfactory(this, "modality_ebb97c76929649c999074dd95041a09e", new SCreator(modality_ebb97c76929649c999074dd95041a09e_factory));
+            new Sfactory(this, "modality_3c73154806bf42dfb2833091da2679ab_e30f4f3fb1ed4bb19e89002c75f94b57", new SCreator(modality_3c73154806bf42dfb2833091da2679ab_e30f4f3fb1ed4bb19e89002c75f94b57_factory));
+            new Sfactory(this, "ConceptOr", new SCreator(ConceptOr_factory));
+            new Sfactory(this, "CmpOrID_5db1e7132b784124ac8de7af7b6082f9", new SCreator(CmpOrID_5db1e7132b784124ac8de7af7b6082f9_factory));
+            new Sfactory(this, "SwrlObjectList_a9b99e55f7684203942226aafea71eb4", new SCreator(SwrlObjectList_a9b99e55f7684203942226aafea71eb4_factory));
+            new Sfactory(this, "SwrlDifferentFrom_b199165630004a9cb7e2bd9feb98758e", new SCreator(SwrlDifferentFrom_b199165630004a9cb7e2bd9feb98758e_factory));
+            new Sfactory(this, "SwrlIterate", new SCreator(SwrlIterate_factory));
+            new Sfactory(this, "RoleInversion_166197aa5f784dc78d6cf95e223fbedf", new SCreator(RoleInversion_166197aa5f784dc78d6cf95e223fbedf_factory));
+            new Sfactory(this, "modality_003a05311abb41718aac93f51b5ddc93_1b5963ccd36c47eb9a0ccb223640471f", new SCreator(modality_003a05311abb41718aac93f51b5ddc93_1b5963ccd36c47eb9a0ccb223640471f_factory));
+            new Sfactory(this, "SwrlSameAs", new SCreator(SwrlSameAs_factory));
+            new Sfactory(this, "modality_62c2ed5949b2408581b7548e7da70940", new SCreator(modality_62c2ed5949b2408581b7548e7da70940_factory));
+            new Sfactory(this, "SwrlRole", new SCreator(SwrlRole_factory));
+            new Sfactory(this, "DataRoleInclusion_81e2ffd85fe14217b796bf33e5d28dfc", new SCreator(DataRoleInclusion_81e2ffd85fe14217b796bf33e5d28dfc_factory));
+            new Sfactory(this, "SwrlStatement", new SCreator(SwrlStatement_factory));
+            new Sfactory(this, "CmpOrID_f5837b33878145a4b4b2f88d52f138b7", new SCreator(CmpOrID_f5837b33878145a4b4b2f88d52f138b7_factory));
+            new Sfactory(this, "TopBound", new SCreator(TopBound_factory));
+            new Sfactory(this, "SwrlIVal", new SCreator(SwrlIVal_factory));
+            new Sfactory(this, "Top_7efc6fad648547808256af7cd9223817", new SCreator(Top_7efc6fad648547808256af7cd9223817_factory));
+            new Sfactory(this, "modality_003a05311abb41718aac93f51b5ddc93", new SCreator(modality_003a05311abb41718aac93f51b5ddc93_factory));
+            new Sfactory(this, "UnnamedInstance_8895935bdbff47f1992c0f29895dee95", new SCreator(UnnamedInstance_8895935bdbff47f1992c0f29895dee95_factory));
+            new Sfactory(this, "modality_23e5b2d6a5f5470fbf43211a38c248e0_e6f99599b2904bcf913d69e7609f6ac0", new SCreator(modality_23e5b2d6a5f5470fbf43211a38c248e0_e6f99599b2904bcf913d69e7609f6ac0_factory));
+            new Sfactory(this, "Facet", new SCreator(Facet_factory));
+            new Sfactory(this, "Atomic", new SCreator(Atomic_factory));
+            new Sfactory(this, "CmpOrID_1fdb755c2d4049d596c481e8b6511065", new SCreator(CmpOrID_1fdb755c2d4049d596c481e8b6511065_factory));
+            new Sfactory(this, "SwrlIVar", new SCreator(SwrlIVar_factory));
+            new Sfactory(this, "modality_5a4fd01f65aa44b08f801e1e5740e736", new SCreator(modality_5a4fd01f65aa44b08f801e1e5740e736_factory));
+            new Sfactory(this, "BoundVal_33240dcee92243a1b2eef2b6a2268a5f", new SCreator(BoundVal_33240dcee92243a1b2eef2b6a2268a5f_factory));
+            new Sfactory(this, "SwrlIVal_429b1a59c61b4d22891881778bb82b3b", new SCreator(SwrlIVal_429b1a59c61b4d22891881778bb82b3b_factory));
+            new Sfactory(this, "Identity", new SCreator(Identity_factory));
+            new Sfactory(this, "SelfReference_bf21aca2cb4148dc99c05c0700b8f0ef", new SCreator(SelfReference_bf21aca2cb4148dc99c05c0700b8f0ef_factory));
+            new Sfactory(this, "Bool_0286ef456dd84b2693a6bf816c892c9e", new SCreator(Bool_0286ef456dd84b2693a6bf816c892c9e_factory));
+            new Sfactory(this, "BoundAnd_89a3e3448c084581b30516bfc0be2579", new SCreator(BoundAnd_89a3e3448c084581b30516bfc0be2579_factory));
+            new Sfactory(this, "OnlyValueRestriction_86fbafdc71a443aaacb2ea955ff77a8d", new SCreator(OnlyValueRestriction_86fbafdc71a443aaacb2ea955ff77a8d_factory));
+            new Sfactory(this, "CmpOrID", new SCreator(CmpOrID_factory));
+            new Sfactory(this, "Node", new SCreator(Node_factory));
+            new Sfactory(this, "SwrlIVar_71bc00261a0e468e92c955190eb69e98", new SCreator(SwrlIVar_71bc00261a0e468e92c955190eb69e98_factory));
+            new Sfactory(this, "SwrlItemList_dc1646c9b66b483ca4932ae5ce5900d7", new SCreator(SwrlItemList_dc1646c9b66b483ca4932ae5ce5900d7_factory));
+            new Sfactory(this, "SwrlStatement_bb68799131144255ab1c586961282f23", new SCreator(SwrlStatement_bb68799131144255ab1c586961282f23_factory));
+            new Sfactory(this, "SwrlItemList_0b6d02ca94894658ba1246b6e757d997", new SCreator(SwrlItemList_0b6d02ca94894658ba1246b6e757d997_factory));
+            new Sfactory(this, "Facet_05f0f8f0e704405499f48e980cad32ff", new SCreator(Facet_05f0f8f0e704405499f48e980cad32ff_factory));
+            new Sfactory(this, "InstanceValue_b38f37c589ce4054871e30e99ba5e420", new SCreator(InstanceValue_b38f37c589ce4054871e30e99ba5e420_factory));
+            new Sfactory(this, "FacetList", new SCreator(FacetList_factory));
+            new Sfactory(this, "Annotation", new SCreator(Annotation_factory));
+            new Sfactory(this, "ComplexRoleInclusion_1c736a0cc94646e081d10db9a3ec1f9d", new SCreator(ComplexRoleInclusion_1c736a0cc94646e081d10db9a3ec1f9d_factory));
+            new Sfactory(this, "Disjoint", new SCreator(Disjoint_factory));
+            new Sfactory(this, "Facet_f86b0e9c60b141e5b75da1242af1daa3", new SCreator(Facet_f86b0e9c60b141e5b75da1242af1daa3_factory));
+            new Sfactory(this, "IdentityBound_276ef64c1c7f4c5ea965fe7ba94c06a9", new SCreator(IdentityBound_276ef64c1c7f4c5ea965fe7ba94c06a9_factory));
+            new Sfactory(this, "modality_23e5b2d6a5f5470fbf43211a38c248e0", new SCreator(modality_23e5b2d6a5f5470fbf43211a38c248e0_factory));
+            new Sfactory(this, "DataRoleDisjoint", new SCreator(DataRoleDisjoint_factory));
+            new Sfactory(this, "DataRoleInclusion_e67f9d83163e4ae29db1ae493f8d04c8", new SCreator(DataRoleInclusion_e67f9d83163e4ae29db1ae493f8d04c8_factory));
+            new Sfactory(this, "InstanceSet", new SCreator(InstanceSet_factory));
+            new Sfactory(this, "SwrlIterate_cb627029b00f49dbbfa910bc4c8835b1", new SCreator(SwrlIterate_cb627029b00f49dbbfa910bc4c8835b1_factory));
+            new Sfactory(this, "UnnamedInstance", new SCreator(UnnamedInstance_factory));
+            new Sfactory(this, "DifferentInstances_bffdcdc7c36c49019243db04c6a8fb51", new SCreator(DifferentInstances_bffdcdc7c36c49019243db04c6a8fb51_factory));
+            new Sfactory(this, "SomeRestriction", new SCreator(SomeRestriction_factory));
+            new Sfactory(this, "SwrlDataRange", new SCreator(SwrlDataRange_factory));
+            new Sfactory(this, "NumberValueRestriction", new SCreator(NumberValueRestriction_factory));
+            new Sfactory(this, "ExeStatement", new SCreator(ExeStatement_factory));
+            new Sfactory(this, "Facet_ab7aff70573149678df458aaf1d4bbe1", new SCreator(Facet_ab7aff70573149678df458aaf1d4bbe1_factory));
+            new Sfactory(this, "SwrlDVar_07f77b9b88194cdb91655566521a3b5d", new SCreator(SwrlDVar_07f77b9b88194cdb91655566521a3b5d_factory));
+            new Sfactory(this, "CmpOrID_cc775bed70664c39a341bfa90e69b796", new SCreator(CmpOrID_cc775bed70664c39a341bfa90e69b796_factory));
+            new Sfactory(this, "ValueSet", new SCreator(ValueSet_factory));
+            new Sfactory(this, "ValueList_3ad68c9ca7ea4e508320883a68890f85", new SCreator(ValueList_3ad68c9ca7ea4e508320883a68890f85_factory));
+            new Sfactory(this, "modality_5226455df8d441ea9469e14b89045326", new SCreator(modality_5226455df8d441ea9469e14b89045326_factory));
+            new Sfactory(this, "CodeStatement_4dd9b13152334ab5bed69dcf073e2af1", new SCreator(CodeStatement_4dd9b13152334ab5bed69dcf073e2af1_factory));
+            new Sfactory(this, "NumberValueRestriction_bb7f05bcd768455c8dac16b6e9db9d46", new SCreator(NumberValueRestriction_bb7f05bcd768455c8dac16b6e9db9d46_factory));
+            new Sfactory(this, "modality_7c544fb85dd448b1809e7986327f6fd6", new SCreator(modality_7c544fb85dd448b1809e7986327f6fd6_factory));
+            new Sfactory(this, "InstanceValue", new SCreator(InstanceValue_factory));
+            new Sfactory(this, "DLAnnotationAxiom_922d57b777df4fb584d1341f1ffe29aa", new SCreator(DLAnnotationAxiom_922d57b777df4fb584d1341f1ffe29aa_factory));
+            new Sfactory(this, "BoundAnd", new SCreator(BoundAnd_factory));
+            new Sfactory(this, "ValueList", new SCreator(ValueList_factory));
+            new Sfactory(this, "NumberValueRestriction_4f30de024f25478dbfa953e915f1c9b8", new SCreator(NumberValueRestriction_4f30de024f25478dbfa953e915f1c9b8_factory));
+            new Sfactory(this, "Facet_0a6a2d5234914d5cb0664e9d22d4bbb7", new SCreator(Facet_0a6a2d5234914d5cb0664e9d22d4bbb7_factory));
+            new Sfactory(this, "RoleChain_d5307d57ef094676b06a3c01b938c594", new SCreator(RoleChain_d5307d57ef094676b06a3c01b938c594_factory));
+            new Sfactory(this, "modality_7c544fb85dd448b1809e7986327f6fd6_1cc012ce15b747f4a0e4bf976fcffdc7", new SCreator(modality_7c544fb85dd448b1809e7986327f6fd6_1cc012ce15b747f4a0e4bf976fcffdc7_factory));
+            new Sfactory(this, "Identity_ce2a47caf981469d841cfe3571781f68", new SCreator(Identity_ce2a47caf981469d841cfe3571781f68_factory));
+            new Sfactory(this, "DisjointUnion_0dcd7600aaac4cac9a975d8318a1c269", new SCreator(DisjointUnion_0dcd7600aaac4cac9a975d8318a1c269_factory));
+            new Sfactory(this, "TotalBound_5157988b7d074850b320162d44601b7d", new SCreator(TotalBound_5157988b7d074850b320162d44601b7d_factory));
+            new Sfactory(this, "SwrlDataProperty_46fa136ef8244364ba0f9de599eca64d", new SCreator(SwrlDataProperty_46fa136ef8244364ba0f9de599eca64d_factory));
+            new Sfactory(this, "ConceptAnd", new SCreator(ConceptAnd_factory));
+            new Sfactory(this, "RoleEquivalence_8a84e63367894740860328420a892224", new SCreator(RoleEquivalence_8a84e63367894740860328420a892224_factory));
+            new Sfactory(this, "FacetList_ec47cb25c66e4234835b9829ba41670a", new SCreator(FacetList_ec47cb25c66e4234835b9829ba41670a_factory));
+            new Sfactory(this, "InstanceSet_7f1254c92b7c439892e4b889d0f75e34", new SCreator(InstanceSet_7f1254c92b7c439892e4b889d0f75e34_factory));
+            new Sfactory(this, "modality_479dad065d5c4393a30696b670c3e65b_7a24221a640849e6b928f4dabc3ccd98", new SCreator(modality_479dad065d5c4393a30696b670c3e65b_7a24221a640849e6b928f4dabc3ccd98_factory));
+            new Sfactory(this, "NodeList", new SCreator(NodeList_factory));
+            new Sfactory(this, "CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b", new SCreator(CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b_factory));
+            new Sfactory(this, "InstanceList_f2b45dab447e49f7a7f383bbdf7fd3c7", new SCreator(InstanceList_f2b45dab447e49f7a7f383bbdf7fd3c7_factory));
+            new Sfactory(this, "SwrlVarList_71a8a1d242cc48cea932bc153a9239be", new SCreator(SwrlVarList_71a8a1d242cc48cea932bc153a9239be_factory));
+            new Sfactory(this, "SwrlInstance_098aa891bae040149be8008927ac763b", new SCreator(SwrlInstance_098aa891bae040149be8008927ac763b_factory));
+            new Sfactory(this, "CmpOrID_c51be4882fbb468191ea3d5b27923cb3_71f6f255a26a4bc69310f4a855d107b0", new SCreator(CmpOrID_c51be4882fbb468191ea3d5b27923cb3_71f6f255a26a4bc69310f4a855d107b0_factory));
+            new Sfactory(this, "Float", new SCreator(Float_factory));
+            new Sfactory(this, "SwrlObjectList_3b9b884c320449898bf97943a191b5dd", new SCreator(SwrlObjectList_3b9b884c320449898bf97943a191b5dd_factory));
+            new Sfactory(this, "NumberRestriction_35c3e99ad5214406912c313f4f5adb3e", new SCreator(NumberRestriction_35c3e99ad5214406912c313f4f5adb3e_factory));
+            new Sfactory(this, "SwrlBuiltIn", new SCreator(SwrlBuiltIn_factory));
+            new Sfactory(this, "InstanceOf_e822dd8ae6d14f55b5f220cda2ae11ab", new SCreator(InstanceOf_e822dd8ae6d14f55b5f220cda2ae11ab_factory));
+            new Sfactory(this, "SwrlIObject", new SCreator(SwrlIObject_factory));
+            new Sfactory(this, "CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843_5692ee6c86c04e4fa51293d7df54367a", new SCreator(CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843_5692ee6c86c04e4fa51293d7df54367a_factory));
+            new Sfactory(this, "SwrlVarList_8395a76253f64476a12ab23fe1bf2739", new SCreator(SwrlVarList_8395a76253f64476a12ab23fe1bf2739_factory));
+            new Sfactory(this, "TopBound_7a64d17dbe664c499b0010194f854446", new SCreator(TopBound_7a64d17dbe664c499b0010194f854446_factory));
+            new Sfactory(this, "Bool", new SCreator(Bool_factory));
+            new Sfactory(this, "DataTypeDefinition_47c50bc6851e4337899c0012a3d4d74e", new SCreator(DataTypeDefinition_47c50bc6851e4337899c0012a3d4d74e_factory));
+            new Sfactory(this, "RelatedInstances_2cc079760c924ff0a6129a2b458c1451", new SCreator(RelatedInstances_2cc079760c924ff0a6129a2b458c1451_factory));
+            new Sfactory(this, "Duration", new SCreator(Duration_factory));
+            new Sfactory(this, "BoundOr", new SCreator(BoundOr_factory));
+            new Sfactory(this, "RelatedInstances", new SCreator(RelatedInstances_factory));
+            new Sfactory(this, "DisjointUnion", new SCreator(DisjointUnion_factory));
+            new Sfactory(this, "OnlyValueRestriction", new SCreator(OnlyValueRestriction_factory));
+            new Sfactory(this, "Paragraph", new SCreator(Paragraph_factory));
+            new Sfactory(this, "CmpOrID_0d37d54ef4ac479a9d50bd44e0f928eb", new SCreator(CmpOrID_0d37d54ef4ac479a9d50bd44e0f928eb_factory));
+            new Sfactory(this, "Duration_b41138dc430c465ca85fa65527495f7c", new SCreator(Duration_b41138dc430c465ca85fa65527495f7c_factory));
+            new Sfactory(this, "BoundFacets_60956f277fe940c4ae89df22f3176f3f", new SCreator(BoundFacets_60956f277fe940c4ae89df22f3176f3f_factory));
+            new Sfactory(this, "NumberValueRestriction_55a3cb924bee4e939ae4dfa13af6793b", new SCreator(NumberValueRestriction_55a3cb924bee4e939ae4dfa13af6793b_factory));
+            new Sfactory(this, "RoleDisjoint_8805ae727ad547a3bcecbc6d34f9731f", new SCreator(RoleDisjoint_8805ae727ad547a3bcecbc6d34f9731f_factory));
+            new Sfactory(this, "Paragraph_309291dc7bd741f288754a136db35dc4", new SCreator(Paragraph_309291dc7bd741f288754a136db35dc4_factory));
+            new Sfactory(this, "SameInstances_9d3771993f9047c8a3793265faa8823b", new SCreator(SameInstances_9d3771993f9047c8a3793265faa8823b_factory));
+            new Sfactory(this, "SwrlBuiltIn_9808fad53bbd4a848f875eb526c67428", new SCreator(SwrlBuiltIn_9808fad53bbd4a848f875eb526c67428_factory));
+            new Sfactory(this, "Facet_e6aa1278470e497b8fed8a45f795d7f8", new SCreator(Facet_e6aa1278470e497b8fed8a45f795d7f8_factory));
+            new Sfactory(this, "CmpOrID_cc775bed70664c39a341bfa90e69b796_4c6ddc89945c411698606a62c01ef986", new SCreator(CmpOrID_cc775bed70664c39a341bfa90e69b796_4c6ddc89945c411698606a62c01ef986_factory));
+            new Sfactory(this, "InstanceOf", new SCreator(InstanceOf_factory));
+            new Sfactory(this, "SwrlObjectList_07113cf3b3d648da90ba6e0aa89786aa", new SCreator(SwrlObjectList_07113cf3b3d648da90ba6e0aa89786aa_factory));
+            new Sfactory(this, "ConceptOr_88e4dbd472f549db9011b00eb06efb60", new SCreator(ConceptOr_88e4dbd472f549db9011b00eb06efb60_factory));
+            new Sfactory(this, "Expression", new SCreator(Expression_factory));
+            new Sfactory(this, "Equivalence", new SCreator(Equivalence_factory));
+            new Sfactory(this, "SelfReference", new SCreator(SelfReference_factory));
+            new Sfactory(this, "FacetList_7abee1793e424a79a19be8265ea0c037", new SCreator(FacetList_7abee1793e424a79a19be8265ea0c037_factory));
+            new Sfactory(this, "BoundVal_6d4dea106ec841799e28d393c6033cd9", new SCreator(BoundVal_6d4dea106ec841799e28d393c6033cd9_factory));
+            new Sfactory(this, "RoleInclusion_699872d2b4db42c2bd2f98d71660564a", new SCreator(RoleInclusion_699872d2b4db42c2bd2f98d71660564a_factory));
+            new Sfactory(this, "SwrlDVal", new SCreator(SwrlDVal_factory));
+            new Sfactory(this, "DLAnnotationAxiom_4079aa91fa1f45b5b7c7cd5355bf2175", new SCreator(DLAnnotationAxiom_4079aa91fa1f45b5b7c7cd5355bf2175_factory));
+            new Sfactory(this, "DataRoleEquivalence", new SCreator(DataRoleEquivalence_factory));
+            new Sfactory(this, "CodeStatement", new SCreator(CodeStatement_factory));
+            new Sfactory(this, "BoundNot_34b8e8541ed74f49bb00942d37b8fbbb", new SCreator(BoundNot_34b8e8541ed74f49bb00942d37b8fbbb_factory));
+            new Sfactory(this, "NumberRestriction_b9c1d4a6a98c4cbf96d4fe04375d79b7", new SCreator(NumberRestriction_b9c1d4a6a98c4cbf96d4fe04375d79b7_factory));
+            new Sfactory(this, "modality_d2aafe2308924a719dd6396e251078b6", new SCreator(modality_d2aafe2308924a719dd6396e251078b6_factory));
+            new Sfactory(this, "SwrlDVar", new SCreator(SwrlDVar_factory));
+            new Sfactory(this, "SameInstances_3b7c95f2fe8d4f11935ee17f5dfe6d26", new SCreator(SameInstances_3b7c95f2fe8d4f11935ee17f5dfe6d26_factory));
+            new Sfactory(this, "modality_c218e85a91514a13b1261e71cb842c84", new SCreator(modality_c218e85a91514a13b1261e71cb842c84_factory));
+            new Sfactory(this, "DifferentInstances_8194f8416edd44efb1a4c15ee321d7e0", new SCreator(DifferentInstances_8194f8416edd44efb1a4c15ee321d7e0_factory));
+            new Sfactory(this, "Number", new SCreator(Number_factory));
+            new Sfactory(this, "DataRoleDisjoint_1359956a28e14189aa934a4f95cf367d", new SCreator(DataRoleDisjoint_1359956a28e14189aa934a4f95cf367d_factory));
+            new Sfactory(this, "SwrlDVal_62bfa7ba78ff47a8b7652cd763d38abe", new SCreator(SwrlDVal_62bfa7ba78ff47a8b7652cd763d38abe_factory));
+            new Sfactory(this, "SwrlDataRange_af9fb9b113c04d61814b0eca275e59fa", new SCreator(SwrlDataRange_af9fb9b113c04d61814b0eca275e59fa_factory));
+            new Sfactory(this, "Restriction", new SCreator(Restriction_factory));
+            new Sfactory(this, "CmpOrID_2ad2113ae03f488ba1c8496463f60da6_b3f38bff8dbd47e5a0448779414360f7", new SCreator(CmpOrID_2ad2113ae03f488ba1c8496463f60da6_b3f38bff8dbd47e5a0448779414360f7_factory));
+            new Sfactory(this, "NumberRestriction_8a75b84464794133afc25f6203798229", new SCreator(NumberRestriction_8a75b84464794133afc25f6203798229_factory));
+            new Sfactory(this, "CmpOrID_c51be4882fbb468191ea3d5b27923cb3", new SCreator(CmpOrID_c51be4882fbb468191ea3d5b27923cb3_factory));
+            new Sfactory(this, "Paragraph_a039d85c8fbd4469b57f76a2607e24f7", new SCreator(Paragraph_a039d85c8fbd4469b57f76a2607e24f7_factory));
+            new Sfactory(this, "NumberValueRestriction_14042a7223b648279ddfa1d927f97063", new SCreator(NumberValueRestriction_14042a7223b648279ddfa1d927f97063_factory));
+            new Sfactory(this, "NumberRestriction", new SCreator(NumberRestriction_factory));
+            new Sfactory(this, "DataRoleInclusion", new SCreator(DataRoleInclusion_factory));
+            new Sfactory(this, "NumberRestriction_fe951de01fbd4d2494b2534c1f757c4d", new SCreator(NumberRestriction_fe951de01fbd4d2494b2534c1f757c4d_factory));
+            new Sfactory(this, "DTBound", new SCreator(DTBound_factory));
+            new Sfactory(this, "CmpOrID_57e2875c4a4d46f080863179d4564d39", new SCreator(CmpOrID_57e2875c4a4d46f080863179d4564d39_factory));
+            new Sfactory(this, "modality_f5b860d28b48427e9293c2301dbedc1d", new SCreator(modality_f5b860d28b48427e9293c2301dbedc1d_factory));
+            new Sfactory(this, "modality_62c2ed5949b2408581b7548e7da70940_eb516229894d4ab4aab77331999c1ed0", new SCreator(modality_62c2ed5949b2408581b7548e7da70940_eb516229894d4ab4aab77331999c1ed0_factory));
+            new Sfactory(this, "SwrlDObject", new SCreator(SwrlDObject_factory));
+            new Sfactory(this, "NodeList_95aeed5b3b3a4799b5b346b5fe074447", new SCreator(NodeList_95aeed5b3b3a4799b5b346b5fe074447_factory));
+            new Sfactory(this, "Subsumption_0db10df2d43344a2bf76d55f6f1d4930", new SCreator(Subsumption_0db10df2d43344a2bf76d55f6f1d4930_factory));
+            new Sfactory(this, "HasKey_c2a5d75e95674df797ecd9d7b5ccd962", new SCreator(HasKey_c2a5d75e95674df797ecd9d7b5ccd962_factory));
+            new Sfactory(this, "IdentityBound", new SCreator(IdentityBound_factory));
+            new Sfactory(this, "TotalBound", new SCreator(TotalBound_factory));
+            new Sfactory(this, "InstanceList_e0f9eda985ac444795ef1d2a6f24bb01", new SCreator(InstanceList_e0f9eda985ac444795ef1d2a6f24bb01_factory));
+            new Sfactory(this, "CardinalRestriction", new SCreator(CardinalRestriction_factory));
+            new Sfactory(this, "SameInstances", new SCreator(SameInstances_factory));
+            new Sfactory(this, "Facet_e4cb627134b9481687deb9f3221c10a7", new SCreator(Facet_e4cb627134b9481687deb9f3221c10a7_factory));
+            new Sfactory(this, "CmpOrID_5db1e7132b784124ac8de7af7b6082f9_8e83713925bf4e569b22b7c1600510db", new SCreator(CmpOrID_5db1e7132b784124ac8de7af7b6082f9_8e83713925bf4e569b22b7c1600510db_factory));
+            new Sfactory(this, "SwrlVarList_a6758d770397480b99211f9252795b66", new SCreator(SwrlVarList_a6758d770397480b99211f9252795b66_factory));
+            new Sfactory(this, "ConceptNot", new SCreator(ConceptNot_factory));
+            new Sfactory(this, "modality", new SCreator(modality_factory));
+            new Sfactory(this, "OnlyRestriction_2a4bfcfa3f4d40a997a8c169157a972c", new SCreator(OnlyRestriction_2a4bfcfa3f4d40a997a8c169157a972c_factory));
+            new Sfactory(this, "DateTimeVal", new SCreator(DateTimeVal_factory));
+            new Sfactory(this, "CmpOrID_90caf4944e2b47c69f614bbb85bb6024_13b84ebeb47b47dcaf09ab9fc2e3694d", new SCreator(CmpOrID_90caf4944e2b47c69f614bbb85bb6024_13b84ebeb47b47dcaf09ab9fc2e3694d_factory));
+            new Sfactory(this, "Subsumption_6af97029206a46029ef9e7fe13252256", new SCreator(Subsumption_6af97029206a46029ef9e7fe13252256_factory));
+            new Sfactory(this, "HasKey_3580de8bdd314074a04e39b672fd9ed9", new SCreator(HasKey_3580de8bdd314074a04e39b672fd9ed9_factory));
+            new Sfactory(this, "ComplexRoleInclusion", new SCreator(ComplexRoleInclusion_factory));
+            new Sfactory(this, "Subsumption", new SCreator(Subsumption_factory));
+            new Sfactory(this, "CmpOrID_106a26397604436b84ef59eaa2ab9f51", new SCreator(CmpOrID_106a26397604436b84ef59eaa2ab9f51_factory));
+            new Sfactory(this, "Disjoint_6ad137ae410a4c7b806612c6b8dfd66f", new SCreator(Disjoint_6ad137ae410a4c7b806612c6b8dfd66f_factory));
+            new Sfactory(this, "RoleInclusion", new SCreator(RoleInclusion_factory));
+            new Sfactory(this, "String_3185406054654ec48472d3f64e7de19f", new SCreator(String_3185406054654ec48472d3f64e7de19f_factory));
+            new Sfactory(this, "CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b_68004f2890e741dfb0cf09739d7943d2", new SCreator(CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b_68004f2890e741dfb0cf09739d7943d2_factory));
+            new Sfactory(this, "OnlyRestriction", new SCreator(OnlyRestriction_factory));
+            new Sfactory(this, "ValueSet_3b642fe7fd5f477fb9ec44594d458d42", new SCreator(ValueSet_3b642fe7fd5f477fb9ec44594d458d42_factory));
+            new Sfactory(this, "NumberValueRestriction_59c461909a73464680b7df04544a86cf", new SCreator(NumberValueRestriction_59c461909a73464680b7df04544a86cf_factory));
+            new Sfactory(this, "ConceptAnd_2b0d8e7f563940cfa08af35afa638d20", new SCreator(ConceptAnd_2b0d8e7f563940cfa08af35afa638d20_factory));
+            new Sfactory(this, "SwrlVarList", new SCreator(SwrlVarList_factory));
+            new Sfactory(this, "RoleInclusion_fa72066a4d4f41f69ca190dab81c4e31", new SCreator(RoleInclusion_fa72066a4d4f41f69ca190dab81c4e31_factory));
+            new Sfactory(this, "NumberValueRestriction_204ccdc951d04d68bd4c5ebfb3407ecd", new SCreator(NumberValueRestriction_204ccdc951d04d68bd4c5ebfb3407ecd_factory));
+            new Sfactory(this, "Annotation_a36648de3daa49879b43174782a51082", new SCreator(Annotation_a36648de3daa49879b43174782a51082_factory));
+            new Sfactory(this, "UnnamedInstance_1994cb126da1455abb2345df25bad6ab", new SCreator(UnnamedInstance_1994cb126da1455abb2345df25bad6ab_factory));
+            new Sfactory(this, "SwrlItemList", new SCreator(SwrlItemList_factory));
+            new Sfactory(this, "DataRoleEquivalence_db7e9dbf9bd146efa788a5b8ff0983b3", new SCreator(DataRoleEquivalence_db7e9dbf9bd146efa788a5b8ff0983b3_factory));
+            new Sfactory(this, "Number_d233049866da4004957ac8ce9402feda", new SCreator(Number_d233049866da4004957ac8ce9402feda_factory));
+            new Sfactory(this, "modality_12a24df93b6346eba60dbf3238903c6f", new SCreator(modality_12a24df93b6346eba60dbf3238903c6f_factory));
+            new Sfactory(this, "RoleDisjoint", new SCreator(RoleDisjoint_factory));
+            new Sfactory(this, "ExeStatement_6341ef43c3484a0bb826d2dc3dfdc28a", new SCreator(ExeStatement_6341ef43c3484a0bb826d2dc3dfdc28a_factory));
+            new Sfactory(this, "BoundOr_87a3acae08144bcca1bb4bec8ac186ae", new SCreator(BoundOr_87a3acae08144bcca1bb4bec8ac186ae_factory));
+            new Sfactory(this, "Equivalence_092cb61658f24abc9b8aed5c12ef863a", new SCreator(Equivalence_092cb61658f24abc9b8aed5c12ef863a_factory));
+            new Sfactory(this, "DLAnnotationAxiom", new SCreator(DLAnnotationAxiom_factory));
+            new Sfactory(this, "Statement", new SCreator(Statement_factory));
+            new Sfactory(this, "Instance", new SCreator(Instance_factory));
+            new Sfactory(this, "Top", new SCreator(Top_factory));
+            new Sfactory(this, "RoleInversion", new SCreator(RoleInversion_factory));
+            new Sfactory(this, "ConceptNot_dcfb5eddd8fa4bf1a727f86e61d33ba6", new SCreator(ConceptNot_dcfb5eddd8fa4bf1a727f86e61d33ba6_factory));
+            new Sfactory(this, "SwrlDifferentFrom", new SCreator(SwrlDifferentFrom_factory));
+            new Sfactory(this, "NumberRestriction_74de8317f4aa445baed21dc9142d85d2", new SCreator(NumberRestriction_74de8317f4aa445baed21dc9142d85d2_factory));
+            new Sfactory(this, "DateTimeVal_6a01711465ba4d58b8e08b78c4de58ab", new SCreator(DateTimeVal_6a01711465ba4d58b8e08b78c4de58ab_factory));
+            new Sfactory(this, "Equivalence_a56b89fb27634398b32836467c987584", new SCreator(Equivalence_a56b89fb27634398b32836467c987584_factory));
+            new Sfactory(this, "DifferentInstances", new SCreator(DifferentInstances_factory));
+            new Sfactory(this, "HasKey_d1576b6e88974dc193b3ad72ef7d0fd6", new SCreator(HasKey_d1576b6e88974dc193b3ad72ef7d0fd6_factory));
+            new Sfactory(this, "RoleEquivalence", new SCreator(RoleEquivalence_factory));
+            new Sfactory(this, "Number_3a039afaa0d3402bb962b7c38e026a1a", new SCreator(Number_3a039afaa0d3402bb962b7c38e026a1a_factory));
+        }
+        public static object DTBound_df5664059c574b5ea22cc121b101361e_factory(Parser yyp) { return new DTBound_df5664059c574b5ea22cc121b101361e(yyp); }
+        public static object ComplexRoleInclusion_cd10aa2be07047efacc122c918f02b72_factory(Parser yyp) { return new ComplexRoleInclusion_cd10aa2be07047efacc122c918f02b72(yyp); }
+        public static object BoundNot_factory(Parser yyp) { return new BoundNot(yyp); }
+        public static object FacetList_2a0671592cf2441ead3371e24c7c3b8a_factory(Parser yyp) { return new FacetList_2a0671592cf2441ead3371e24c7c3b8a(yyp); }
+        public static object SwrlObjectList_e5e33123ad894734bf50cf8e9b97db94_factory(Parser yyp) { return new SwrlObjectList_e5e33123ad894734bf50cf8e9b97db94(yyp); }
+        public static object CmpOrID_90caf4944e2b47c69f614bbb85bb6024_factory(Parser yyp) { return new CmpOrID_90caf4944e2b47c69f614bbb85bb6024(yyp); }
+        public static object BoundFacets_factory(Parser yyp) { return new BoundFacets(yyp); }
+        public static object SwrlSameAs_5ffa2983a1494e01ace14e32c3889d24_factory(Parser yyp) { return new SwrlSameAs_5ffa2983a1494e01ace14e32c3889d24(yyp); }
+        public static object SwrlVarList_34f14c4b77a74efcaa85856dfe1c3b61_factory(Parser yyp) { return new SwrlVarList_34f14c4b77a74efcaa85856dfe1c3b61(yyp); }
+        public static object RoleEquivalence_19c149708a784ba7ab3013d8f8bde9ba_factory(Parser yyp) { return new RoleEquivalence_19c149708a784ba7ab3013d8f8bde9ba(yyp); }
+        public static object DataRoleEquivalence_0526da3e1ab64c44a033ec303466ef28_factory(Parser yyp) { return new DataRoleEquivalence_0526da3e1ab64c44a033ec303466ef28(yyp); }
+        public static object modality_3c73154806bf42dfb2833091da2679ab_factory(Parser yyp) { return new modality_3c73154806bf42dfb2833091da2679ab(yyp); }
+        public static object Facet_76fcec0ce96d4ae6afff869c66403a95_factory(Parser yyp) { return new Facet_76fcec0ce96d4ae6afff869c66403a95(yyp); }
+        public static object SomeValueRestriction_ac4399d6fa624d6b907bf818b9ef79ae_factory(Parser yyp) { return new SomeValueRestriction_ac4399d6fa624d6b907bf818b9ef79ae(yyp); }
+        public static object Float_06e43cd247034ae38647eba1dcb668cd_factory(Parser yyp) { return new Float_06e43cd247034ae38647eba1dcb668cd(yyp); }
+        public static object NodeList_9f311f95b1ba43798e65f80d2756e61f_factory(Parser yyp) { return new NodeList_9f311f95b1ba43798e65f80d2756e61f(yyp); }
+        public static object BoundVal_factory(Parser yyp) { return new BoundVal(yyp); }
+        public static object ConceptList_factory(Parser yyp) { return new ConceptList(yyp); }
+        public static object Value_factory(Parser yyp) { return new Value(yyp); }
+        public static object RoleChain_1dedab1aca2346418444500048f8d91e_factory(Parser yyp) { return new RoleChain_1dedab1aca2346418444500048f8d91e(yyp); }
+        public static object modality_c218e85a91514a13b1261e71cb842c84_9e69ff621fb84cd6a5ce6cc9310c7f8f_factory(Parser yyp) { return new modality_c218e85a91514a13b1261e71cb842c84_9e69ff621fb84cd6a5ce6cc9310c7f8f(yyp); }
+        public static object HasKey_factory(Parser yyp) { return new HasKey(yyp); }
+        public static object SwrlItem_factory(Parser yyp) { return new SwrlItem(yyp); }
+        public static object SomeRestriction_ab4fecc7ccd74e4abc2758247f25236b_factory(Parser yyp) { return new SomeRestriction_ab4fecc7ccd74e4abc2758247f25236b(yyp); }
+        public static object SwrlInstance_factory(Parser yyp) { return new SwrlInstance(yyp); }
+        public static object CmpOrID_38eb55858f304f17b10fdf196ce5f241_factory(Parser yyp) { return new CmpOrID_38eb55858f304f17b10fdf196ce5f241(yyp); }
+        public static object CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843_factory(Parser yyp) { return new CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843(yyp); }
+        public static object SwrlDataProperty_factory(Parser yyp) { return new SwrlDataProperty(yyp); }
+        public static object error_factory(Parser yyp) { return new error(yyp); }
+        public static object AbstractBound_factory(Parser yyp) { return new AbstractBound(yyp); }
+        public static object Facet_7234202359cc41aa892a7ee044bee6b9_factory(Parser yyp) { return new Facet_7234202359cc41aa892a7ee044bee6b9(yyp); }
+        public static object modality_4040741ab25c40ebbef2748e36e852f4_factory(Parser yyp) { return new modality_4040741ab25c40ebbef2748e36e852f4(yyp); }
+        public static object CmpOrID_2ad2113ae03f488ba1c8496463f60da6_factory(Parser yyp) { return new CmpOrID_2ad2113ae03f488ba1c8496463f60da6(yyp); }
+        public static object Atomic_2e8503f19ec149edbbb070ca6d18cfcf_factory(Parser yyp) { return new Atomic_2e8503f19ec149edbbb070ca6d18cfcf(yyp); }
+        public static object NamedInstance_factory(Parser yyp) { return new NamedInstance(yyp); }
+        public static object ExeStatement_ab8afa2b999c4f87b4e4d823a22c1871_factory(Parser yyp) { return new ExeStatement_ab8afa2b999c4f87b4e4d823a22c1871(yyp); }
+        public static object Bottom_factory(Parser yyp) { return new Bottom(yyp); }
+        public static object CmpOrID_bac4173eadf84599ba6158f469cc7e05_factory(Parser yyp) { return new CmpOrID_bac4173eadf84599ba6158f469cc7e05(yyp); }
+        public static object ValueList_2ec5f6babdd649f183e934f4e307e6b1_factory(Parser yyp) { return new ValueList_2ec5f6babdd649f183e934f4e307e6b1(yyp); }
+        public static object SwrlObjectList_factory(Parser yyp) { return new SwrlObjectList(yyp); }
+        public static object SomeValueRestriction_factory(Parser yyp) { return new SomeValueRestriction(yyp); }
+        public static object modality_479dad065d5c4393a30696b670c3e65b_factory(Parser yyp) { return new modality_479dad065d5c4393a30696b670c3e65b(yyp); }
+        public static object DataRoleDisjoint_cabee559a8f547298a9c154c6a482921_factory(Parser yyp) { return new DataRoleDisjoint_cabee559a8f547298a9c154c6a482921(yyp); }
+        public static object String_factory(Parser yyp) { return new String(yyp); }
+        public static object DataTypeDefinition_factory(Parser yyp) { return new DataTypeDefinition(yyp); }
+        public static object SwrlRole_36d2aa76edee4fc592b6b3d96a89524a_factory(Parser yyp) { return new SwrlRole_36d2aa76edee4fc592b6b3d96a89524a(yyp); }
+        public static object NumberRestriction_a0b895c11f164594a347e9e780488c45_factory(Parser yyp) { return new NumberRestriction_a0b895c11f164594a347e9e780488c45(yyp); }
+        public static object RoleChain_factory(Parser yyp) { return new RoleChain(yyp); }
+        public static object InstanceList_factory(Parser yyp) { return new InstanceList(yyp); }
+        public static object Bottom_82c4459e15624b4eaf8b95683fcce6b3_factory(Parser yyp) { return new Bottom_82c4459e15624b4eaf8b95683fcce6b3(yyp); }
+        public static object RoleDisjoint_39baa456d89941f196a9e5585bf16d48_factory(Parser yyp) { return new RoleDisjoint_39baa456d89941f196a9e5585bf16d48(yyp); }
+        public static object NamedInstance_1963c16918d442f9bdfdb31e030a2378_factory(Parser yyp) { return new NamedInstance_1963c16918d442f9bdfdb31e030a2378(yyp); }
+        public static object modality_ebb97c76929649c999074dd95041a09e_factory(Parser yyp) { return new modality_ebb97c76929649c999074dd95041a09e(yyp); }
+        public static object modality_3c73154806bf42dfb2833091da2679ab_e30f4f3fb1ed4bb19e89002c75f94b57_factory(Parser yyp) { return new modality_3c73154806bf42dfb2833091da2679ab_e30f4f3fb1ed4bb19e89002c75f94b57(yyp); }
+        public static object ConceptOr_factory(Parser yyp) { return new ConceptOr(yyp); }
+        public static object CmpOrID_5db1e7132b784124ac8de7af7b6082f9_factory(Parser yyp) { return new CmpOrID_5db1e7132b784124ac8de7af7b6082f9(yyp); }
+        public static object SwrlObjectList_a9b99e55f7684203942226aafea71eb4_factory(Parser yyp) { return new SwrlObjectList_a9b99e55f7684203942226aafea71eb4(yyp); }
+        public static object SwrlDifferentFrom_b199165630004a9cb7e2bd9feb98758e_factory(Parser yyp) { return new SwrlDifferentFrom_b199165630004a9cb7e2bd9feb98758e(yyp); }
+        public static object SwrlIterate_factory(Parser yyp) { return new SwrlIterate(yyp); }
+        public static object RoleInversion_166197aa5f784dc78d6cf95e223fbedf_factory(Parser yyp) { return new RoleInversion_166197aa5f784dc78d6cf95e223fbedf(yyp); }
+        public static object modality_003a05311abb41718aac93f51b5ddc93_1b5963ccd36c47eb9a0ccb223640471f_factory(Parser yyp) { return new modality_003a05311abb41718aac93f51b5ddc93_1b5963ccd36c47eb9a0ccb223640471f(yyp); }
+        public static object SwrlSameAs_factory(Parser yyp) { return new SwrlSameAs(yyp); }
+        public static object modality_62c2ed5949b2408581b7548e7da70940_factory(Parser yyp) { return new modality_62c2ed5949b2408581b7548e7da70940(yyp); }
+        public static object SwrlRole_factory(Parser yyp) { return new SwrlRole(yyp); }
+        public static object DataRoleInclusion_81e2ffd85fe14217b796bf33e5d28dfc_factory(Parser yyp) { return new DataRoleInclusion_81e2ffd85fe14217b796bf33e5d28dfc(yyp); }
+        public static object SwrlStatement_factory(Parser yyp) { return new SwrlStatement(yyp); }
+        public static object CmpOrID_f5837b33878145a4b4b2f88d52f138b7_factory(Parser yyp) { return new CmpOrID_f5837b33878145a4b4b2f88d52f138b7(yyp); }
+        public static object TopBound_factory(Parser yyp) { return new TopBound(yyp); }
+        public static object SwrlIVal_factory(Parser yyp) { return new SwrlIVal(yyp); }
+        public static object Top_7efc6fad648547808256af7cd9223817_factory(Parser yyp) { return new Top_7efc6fad648547808256af7cd9223817(yyp); }
+        public static object modality_003a05311abb41718aac93f51b5ddc93_factory(Parser yyp) { return new modality_003a05311abb41718aac93f51b5ddc93(yyp); }
+        public static object UnnamedInstance_8895935bdbff47f1992c0f29895dee95_factory(Parser yyp) { return new UnnamedInstance_8895935bdbff47f1992c0f29895dee95(yyp); }
+        public static object modality_23e5b2d6a5f5470fbf43211a38c248e0_e6f99599b2904bcf913d69e7609f6ac0_factory(Parser yyp) { return new modality_23e5b2d6a5f5470fbf43211a38c248e0_e6f99599b2904bcf913d69e7609f6ac0(yyp); }
+        public static object Facet_factory(Parser yyp) { return new Facet(yyp); }
+        public static object Atomic_factory(Parser yyp) { return new Atomic(yyp); }
+        public static object CmpOrID_1fdb755c2d4049d596c481e8b6511065_factory(Parser yyp) { return new CmpOrID_1fdb755c2d4049d596c481e8b6511065(yyp); }
+        public static object SwrlIVar_factory(Parser yyp) { return new SwrlIVar(yyp); }
+        public static object modality_5a4fd01f65aa44b08f801e1e5740e736_factory(Parser yyp) { return new modality_5a4fd01f65aa44b08f801e1e5740e736(yyp); }
+        public static object BoundVal_33240dcee92243a1b2eef2b6a2268a5f_factory(Parser yyp) { return new BoundVal_33240dcee92243a1b2eef2b6a2268a5f(yyp); }
+        public static object SwrlIVal_429b1a59c61b4d22891881778bb82b3b_factory(Parser yyp) { return new SwrlIVal_429b1a59c61b4d22891881778bb82b3b(yyp); }
+        public static object Identity_factory(Parser yyp) { return new Identity(yyp); }
+        public static object SelfReference_bf21aca2cb4148dc99c05c0700b8f0ef_factory(Parser yyp) { return new SelfReference_bf21aca2cb4148dc99c05c0700b8f0ef(yyp); }
+        public static object Bool_0286ef456dd84b2693a6bf816c892c9e_factory(Parser yyp) { return new Bool_0286ef456dd84b2693a6bf816c892c9e(yyp); }
+        public static object BoundAnd_89a3e3448c084581b30516bfc0be2579_factory(Parser yyp) { return new BoundAnd_89a3e3448c084581b30516bfc0be2579(yyp); }
+        public static object OnlyValueRestriction_86fbafdc71a443aaacb2ea955ff77a8d_factory(Parser yyp) { return new OnlyValueRestriction_86fbafdc71a443aaacb2ea955ff77a8d(yyp); }
+        public static object CmpOrID_factory(Parser yyp) { return new CmpOrID(yyp); }
+        public static object Node_factory(Parser yyp) { return new Node(yyp); }
+        public static object SwrlIVar_71bc00261a0e468e92c955190eb69e98_factory(Parser yyp) { return new SwrlIVar_71bc00261a0e468e92c955190eb69e98(yyp); }
+        public static object SwrlItemList_dc1646c9b66b483ca4932ae5ce5900d7_factory(Parser yyp) { return new SwrlItemList_dc1646c9b66b483ca4932ae5ce5900d7(yyp); }
+        public static object SwrlStatement_bb68799131144255ab1c586961282f23_factory(Parser yyp) { return new SwrlStatement_bb68799131144255ab1c586961282f23(yyp); }
+        public static object SwrlItemList_0b6d02ca94894658ba1246b6e757d997_factory(Parser yyp) { return new SwrlItemList_0b6d02ca94894658ba1246b6e757d997(yyp); }
+        public static object Facet_05f0f8f0e704405499f48e980cad32ff_factory(Parser yyp) { return new Facet_05f0f8f0e704405499f48e980cad32ff(yyp); }
+        public static object InstanceValue_b38f37c589ce4054871e30e99ba5e420_factory(Parser yyp) { return new InstanceValue_b38f37c589ce4054871e30e99ba5e420(yyp); }
+        public static object FacetList_factory(Parser yyp) { return new FacetList(yyp); }
+        public static object Annotation_factory(Parser yyp) { return new Annotation(yyp); }
+        public static object ComplexRoleInclusion_1c736a0cc94646e081d10db9a3ec1f9d_factory(Parser yyp) { return new ComplexRoleInclusion_1c736a0cc94646e081d10db9a3ec1f9d(yyp); }
+        public static object Disjoint_factory(Parser yyp) { return new Disjoint(yyp); }
+        public static object Facet_f86b0e9c60b141e5b75da1242af1daa3_factory(Parser yyp) { return new Facet_f86b0e9c60b141e5b75da1242af1daa3(yyp); }
+        public static object IdentityBound_276ef64c1c7f4c5ea965fe7ba94c06a9_factory(Parser yyp) { return new IdentityBound_276ef64c1c7f4c5ea965fe7ba94c06a9(yyp); }
+        public static object modality_23e5b2d6a5f5470fbf43211a38c248e0_factory(Parser yyp) { return new modality_23e5b2d6a5f5470fbf43211a38c248e0(yyp); }
+        public static object DataRoleDisjoint_factory(Parser yyp) { return new DataRoleDisjoint(yyp); }
+        public static object DataRoleInclusion_e67f9d83163e4ae29db1ae493f8d04c8_factory(Parser yyp) { return new DataRoleInclusion_e67f9d83163e4ae29db1ae493f8d04c8(yyp); }
+        public static object InstanceSet_factory(Parser yyp) { return new InstanceSet(yyp); }
+        public static object SwrlIterate_cb627029b00f49dbbfa910bc4c8835b1_factory(Parser yyp) { return new SwrlIterate_cb627029b00f49dbbfa910bc4c8835b1(yyp); }
+        public static object UnnamedInstance_factory(Parser yyp) { return new UnnamedInstance(yyp); }
+        public static object DifferentInstances_bffdcdc7c36c49019243db04c6a8fb51_factory(Parser yyp) { return new DifferentInstances_bffdcdc7c36c49019243db04c6a8fb51(yyp); }
+        public static object SomeRestriction_factory(Parser yyp) { return new SomeRestriction(yyp); }
+        public static object SwrlDataRange_factory(Parser yyp) { return new SwrlDataRange(yyp); }
+        public static object NumberValueRestriction_factory(Parser yyp) { return new NumberValueRestriction(yyp); }
+        public static object ExeStatement_factory(Parser yyp) { return new ExeStatement(yyp); }
+        public static object Facet_ab7aff70573149678df458aaf1d4bbe1_factory(Parser yyp) { return new Facet_ab7aff70573149678df458aaf1d4bbe1(yyp); }
+        public static object SwrlDVar_07f77b9b88194cdb91655566521a3b5d_factory(Parser yyp) { return new SwrlDVar_07f77b9b88194cdb91655566521a3b5d(yyp); }
+        public static object CmpOrID_cc775bed70664c39a341bfa90e69b796_factory(Parser yyp) { return new CmpOrID_cc775bed70664c39a341bfa90e69b796(yyp); }
+        public static object ValueSet_factory(Parser yyp) { return new ValueSet(yyp); }
+        public static object ValueList_3ad68c9ca7ea4e508320883a68890f85_factory(Parser yyp) { return new ValueList_3ad68c9ca7ea4e508320883a68890f85(yyp); }
+        public static object modality_5226455df8d441ea9469e14b89045326_factory(Parser yyp) { return new modality_5226455df8d441ea9469e14b89045326(yyp); }
+        public static object CodeStatement_4dd9b13152334ab5bed69dcf073e2af1_factory(Parser yyp) { return new CodeStatement_4dd9b13152334ab5bed69dcf073e2af1(yyp); }
+        public static object NumberValueRestriction_bb7f05bcd768455c8dac16b6e9db9d46_factory(Parser yyp) { return new NumberValueRestriction_bb7f05bcd768455c8dac16b6e9db9d46(yyp); }
+        public static object modality_7c544fb85dd448b1809e7986327f6fd6_factory(Parser yyp) { return new modality_7c544fb85dd448b1809e7986327f6fd6(yyp); }
+        public static object InstanceValue_factory(Parser yyp) { return new InstanceValue(yyp); }
+        public static object DLAnnotationAxiom_922d57b777df4fb584d1341f1ffe29aa_factory(Parser yyp) { return new DLAnnotationAxiom_922d57b777df4fb584d1341f1ffe29aa(yyp); }
+        public static object BoundAnd_factory(Parser yyp) { return new BoundAnd(yyp); }
+        public static object ValueList_factory(Parser yyp) { return new ValueList(yyp); }
+        public static object NumberValueRestriction_4f30de024f25478dbfa953e915f1c9b8_factory(Parser yyp) { return new NumberValueRestriction_4f30de024f25478dbfa953e915f1c9b8(yyp); }
+        public static object Facet_0a6a2d5234914d5cb0664e9d22d4bbb7_factory(Parser yyp) { return new Facet_0a6a2d5234914d5cb0664e9d22d4bbb7(yyp); }
+        public static object RoleChain_d5307d57ef094676b06a3c01b938c594_factory(Parser yyp) { return new RoleChain_d5307d57ef094676b06a3c01b938c594(yyp); }
+        public static object modality_7c544fb85dd448b1809e7986327f6fd6_1cc012ce15b747f4a0e4bf976fcffdc7_factory(Parser yyp) { return new modality_7c544fb85dd448b1809e7986327f6fd6_1cc012ce15b747f4a0e4bf976fcffdc7(yyp); }
+        public static object Identity_ce2a47caf981469d841cfe3571781f68_factory(Parser yyp) { return new Identity_ce2a47caf981469d841cfe3571781f68(yyp); }
+        public static object DisjointUnion_0dcd7600aaac4cac9a975d8318a1c269_factory(Parser yyp) { return new DisjointUnion_0dcd7600aaac4cac9a975d8318a1c269(yyp); }
+        public static object TotalBound_5157988b7d074850b320162d44601b7d_factory(Parser yyp) { return new TotalBound_5157988b7d074850b320162d44601b7d(yyp); }
+        public static object SwrlDataProperty_46fa136ef8244364ba0f9de599eca64d_factory(Parser yyp) { return new SwrlDataProperty_46fa136ef8244364ba0f9de599eca64d(yyp); }
+        public static object ConceptAnd_factory(Parser yyp) { return new ConceptAnd(yyp); }
+        public static object RoleEquivalence_8a84e63367894740860328420a892224_factory(Parser yyp) { return new RoleEquivalence_8a84e63367894740860328420a892224(yyp); }
+        public static object FacetList_ec47cb25c66e4234835b9829ba41670a_factory(Parser yyp) { return new FacetList_ec47cb25c66e4234835b9829ba41670a(yyp); }
+        public static object InstanceSet_7f1254c92b7c439892e4b889d0f75e34_factory(Parser yyp) { return new InstanceSet_7f1254c92b7c439892e4b889d0f75e34(yyp); }
+        public static object modality_479dad065d5c4393a30696b670c3e65b_7a24221a640849e6b928f4dabc3ccd98_factory(Parser yyp) { return new modality_479dad065d5c4393a30696b670c3e65b_7a24221a640849e6b928f4dabc3ccd98(yyp); }
+        public static object NodeList_factory(Parser yyp) { return new NodeList(yyp); }
+        public static object CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b_factory(Parser yyp) { return new CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b(yyp); }
+        public static object InstanceList_f2b45dab447e49f7a7f383bbdf7fd3c7_factory(Parser yyp) { return new InstanceList_f2b45dab447e49f7a7f383bbdf7fd3c7(yyp); }
+        public static object SwrlVarList_71a8a1d242cc48cea932bc153a9239be_factory(Parser yyp) { return new SwrlVarList_71a8a1d242cc48cea932bc153a9239be(yyp); }
+        public static object SwrlInstance_098aa891bae040149be8008927ac763b_factory(Parser yyp) { return new SwrlInstance_098aa891bae040149be8008927ac763b(yyp); }
+        public static object CmpOrID_c51be4882fbb468191ea3d5b27923cb3_71f6f255a26a4bc69310f4a855d107b0_factory(Parser yyp) { return new CmpOrID_c51be4882fbb468191ea3d5b27923cb3_71f6f255a26a4bc69310f4a855d107b0(yyp); }
+        public static object Float_factory(Parser yyp) { return new Float(yyp); }
+        public static object SwrlObjectList_3b9b884c320449898bf97943a191b5dd_factory(Parser yyp) { return new SwrlObjectList_3b9b884c320449898bf97943a191b5dd(yyp); }
+        public static object NumberRestriction_35c3e99ad5214406912c313f4f5adb3e_factory(Parser yyp) { return new NumberRestriction_35c3e99ad5214406912c313f4f5adb3e(yyp); }
+        public static object SwrlBuiltIn_factory(Parser yyp) { return new SwrlBuiltIn(yyp); }
+        public static object InstanceOf_e822dd8ae6d14f55b5f220cda2ae11ab_factory(Parser yyp) { return new InstanceOf_e822dd8ae6d14f55b5f220cda2ae11ab(yyp); }
+        public static object SwrlIObject_factory(Parser yyp) { return new SwrlIObject(yyp); }
+        public static object CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843_5692ee6c86c04e4fa51293d7df54367a_factory(Parser yyp) { return new CmpOrID_ad9f64ee758a46fcb286ae84dc4fc843_5692ee6c86c04e4fa51293d7df54367a(yyp); }
+        public static object SwrlVarList_8395a76253f64476a12ab23fe1bf2739_factory(Parser yyp) { return new SwrlVarList_8395a76253f64476a12ab23fe1bf2739(yyp); }
+        public static object TopBound_7a64d17dbe664c499b0010194f854446_factory(Parser yyp) { return new TopBound_7a64d17dbe664c499b0010194f854446(yyp); }
+        public static object Bool_factory(Parser yyp) { return new Bool(yyp); }
+        public static object DataTypeDefinition_47c50bc6851e4337899c0012a3d4d74e_factory(Parser yyp) { return new DataTypeDefinition_47c50bc6851e4337899c0012a3d4d74e(yyp); }
+        public static object RelatedInstances_2cc079760c924ff0a6129a2b458c1451_factory(Parser yyp) { return new RelatedInstances_2cc079760c924ff0a6129a2b458c1451(yyp); }
+        public static object Duration_factory(Parser yyp) { return new Duration(yyp); }
+        public static object BoundOr_factory(Parser yyp) { return new BoundOr(yyp); }
+        public static object RelatedInstances_factory(Parser yyp) { return new RelatedInstances(yyp); }
+        public static object DisjointUnion_factory(Parser yyp) { return new DisjointUnion(yyp); }
+        public static object OnlyValueRestriction_factory(Parser yyp) { return new OnlyValueRestriction(yyp); }
+        public static object Paragraph_factory(Parser yyp) { return new Paragraph(yyp); }
+        public static object CmpOrID_0d37d54ef4ac479a9d50bd44e0f928eb_factory(Parser yyp) { return new CmpOrID_0d37d54ef4ac479a9d50bd44e0f928eb(yyp); }
+        public static object Duration_b41138dc430c465ca85fa65527495f7c_factory(Parser yyp) { return new Duration_b41138dc430c465ca85fa65527495f7c(yyp); }
+        public static object BoundFacets_60956f277fe940c4ae89df22f3176f3f_factory(Parser yyp) { return new BoundFacets_60956f277fe940c4ae89df22f3176f3f(yyp); }
+        public static object NumberValueRestriction_55a3cb924bee4e939ae4dfa13af6793b_factory(Parser yyp) { return new NumberValueRestriction_55a3cb924bee4e939ae4dfa13af6793b(yyp); }
+        public static object RoleDisjoint_8805ae727ad547a3bcecbc6d34f9731f_factory(Parser yyp) { return new RoleDisjoint_8805ae727ad547a3bcecbc6d34f9731f(yyp); }
+        public static object Paragraph_309291dc7bd741f288754a136db35dc4_factory(Parser yyp) { return new Paragraph_309291dc7bd741f288754a136db35dc4(yyp); }
+        public static object SameInstances_9d3771993f9047c8a3793265faa8823b_factory(Parser yyp) { return new SameInstances_9d3771993f9047c8a3793265faa8823b(yyp); }
+        public static object SwrlBuiltIn_9808fad53bbd4a848f875eb526c67428_factory(Parser yyp) { return new SwrlBuiltIn_9808fad53bbd4a848f875eb526c67428(yyp); }
+        public static object Facet_e6aa1278470e497b8fed8a45f795d7f8_factory(Parser yyp) { return new Facet_e6aa1278470e497b8fed8a45f795d7f8(yyp); }
+        public static object CmpOrID_cc775bed70664c39a341bfa90e69b796_4c6ddc89945c411698606a62c01ef986_factory(Parser yyp) { return new CmpOrID_cc775bed70664c39a341bfa90e69b796_4c6ddc89945c411698606a62c01ef986(yyp); }
+        public static object InstanceOf_factory(Parser yyp) { return new InstanceOf(yyp); }
+        public static object SwrlObjectList_07113cf3b3d648da90ba6e0aa89786aa_factory(Parser yyp) { return new SwrlObjectList_07113cf3b3d648da90ba6e0aa89786aa(yyp); }
+        public static object ConceptOr_88e4dbd472f549db9011b00eb06efb60_factory(Parser yyp) { return new ConceptOr_88e4dbd472f549db9011b00eb06efb60(yyp); }
+        public static object Expression_factory(Parser yyp) { return new Expression(yyp); }
+        public static object Equivalence_factory(Parser yyp) { return new Equivalence(yyp); }
+        public static object SelfReference_factory(Parser yyp) { return new SelfReference(yyp); }
+        public static object FacetList_7abee1793e424a79a19be8265ea0c037_factory(Parser yyp) { return new FacetList_7abee1793e424a79a19be8265ea0c037(yyp); }
+        public static object BoundVal_6d4dea106ec841799e28d393c6033cd9_factory(Parser yyp) { return new BoundVal_6d4dea106ec841799e28d393c6033cd9(yyp); }
+        public static object RoleInclusion_699872d2b4db42c2bd2f98d71660564a_factory(Parser yyp) { return new RoleInclusion_699872d2b4db42c2bd2f98d71660564a(yyp); }
+        public static object SwrlDVal_factory(Parser yyp) { return new SwrlDVal(yyp); }
+        public static object DLAnnotationAxiom_4079aa91fa1f45b5b7c7cd5355bf2175_factory(Parser yyp) { return new DLAnnotationAxiom_4079aa91fa1f45b5b7c7cd5355bf2175(yyp); }
+        public static object DataRoleEquivalence_factory(Parser yyp) { return new DataRoleEquivalence(yyp); }
+        public static object CodeStatement_factory(Parser yyp) { return new CodeStatement(yyp); }
+        public static object BoundNot_34b8e8541ed74f49bb00942d37b8fbbb_factory(Parser yyp) { return new BoundNot_34b8e8541ed74f49bb00942d37b8fbbb(yyp); }
+        public static object NumberRestriction_b9c1d4a6a98c4cbf96d4fe04375d79b7_factory(Parser yyp) { return new NumberRestriction_b9c1d4a6a98c4cbf96d4fe04375d79b7(yyp); }
+        public static object modality_d2aafe2308924a719dd6396e251078b6_factory(Parser yyp) { return new modality_d2aafe2308924a719dd6396e251078b6(yyp); }
+        public static object SwrlDVar_factory(Parser yyp) { return new SwrlDVar(yyp); }
+        public static object SameInstances_3b7c95f2fe8d4f11935ee17f5dfe6d26_factory(Parser yyp) { return new SameInstances_3b7c95f2fe8d4f11935ee17f5dfe6d26(yyp); }
+        public static object modality_c218e85a91514a13b1261e71cb842c84_factory(Parser yyp) { return new modality_c218e85a91514a13b1261e71cb842c84(yyp); }
+        public static object DifferentInstances_8194f8416edd44efb1a4c15ee321d7e0_factory(Parser yyp) { return new DifferentInstances_8194f8416edd44efb1a4c15ee321d7e0(yyp); }
+        public static object Number_factory(Parser yyp) { return new Number(yyp); }
+        public static object DataRoleDisjoint_1359956a28e14189aa934a4f95cf367d_factory(Parser yyp) { return new DataRoleDisjoint_1359956a28e14189aa934a4f95cf367d(yyp); }
+        public static object SwrlDVal_62bfa7ba78ff47a8b7652cd763d38abe_factory(Parser yyp) { return new SwrlDVal_62bfa7ba78ff47a8b7652cd763d38abe(yyp); }
+        public static object SwrlDataRange_af9fb9b113c04d61814b0eca275e59fa_factory(Parser yyp) { return new SwrlDataRange_af9fb9b113c04d61814b0eca275e59fa(yyp); }
+        public static object Restriction_factory(Parser yyp) { return new Restriction(yyp); }
+        public static object CmpOrID_2ad2113ae03f488ba1c8496463f60da6_b3f38bff8dbd47e5a0448779414360f7_factory(Parser yyp) { return new CmpOrID_2ad2113ae03f488ba1c8496463f60da6_b3f38bff8dbd47e5a0448779414360f7(yyp); }
+        public static object NumberRestriction_8a75b84464794133afc25f6203798229_factory(Parser yyp) { return new NumberRestriction_8a75b84464794133afc25f6203798229(yyp); }
+        public static object CmpOrID_c51be4882fbb468191ea3d5b27923cb3_factory(Parser yyp) { return new CmpOrID_c51be4882fbb468191ea3d5b27923cb3(yyp); }
+        public static object Paragraph_a039d85c8fbd4469b57f76a2607e24f7_factory(Parser yyp) { return new Paragraph_a039d85c8fbd4469b57f76a2607e24f7(yyp); }
+        public static object NumberValueRestriction_14042a7223b648279ddfa1d927f97063_factory(Parser yyp) { return new NumberValueRestriction_14042a7223b648279ddfa1d927f97063(yyp); }
+        public static object NumberRestriction_factory(Parser yyp) { return new NumberRestriction(yyp); }
+        public static object DataRoleInclusion_factory(Parser yyp) { return new DataRoleInclusion(yyp); }
+        public static object NumberRestriction_fe951de01fbd4d2494b2534c1f757c4d_factory(Parser yyp) { return new NumberRestriction_fe951de01fbd4d2494b2534c1f757c4d(yyp); }
+        public static object DTBound_factory(Parser yyp) { return new DTBound(yyp); }
+        public static object CmpOrID_57e2875c4a4d46f080863179d4564d39_factory(Parser yyp) { return new CmpOrID_57e2875c4a4d46f080863179d4564d39(yyp); }
+        public static object modality_f5b860d28b48427e9293c2301dbedc1d_factory(Parser yyp) { return new modality_f5b860d28b48427e9293c2301dbedc1d(yyp); }
+        public static object modality_62c2ed5949b2408581b7548e7da70940_eb516229894d4ab4aab77331999c1ed0_factory(Parser yyp) { return new modality_62c2ed5949b2408581b7548e7da70940_eb516229894d4ab4aab77331999c1ed0(yyp); }
+        public static object SwrlDObject_factory(Parser yyp) { return new SwrlDObject(yyp); }
+        public static object NodeList_95aeed5b3b3a4799b5b346b5fe074447_factory(Parser yyp) { return new NodeList_95aeed5b3b3a4799b5b346b5fe074447(yyp); }
+        public static object Subsumption_0db10df2d43344a2bf76d55f6f1d4930_factory(Parser yyp) { return new Subsumption_0db10df2d43344a2bf76d55f6f1d4930(yyp); }
+        public static object HasKey_c2a5d75e95674df797ecd9d7b5ccd962_factory(Parser yyp) { return new HasKey_c2a5d75e95674df797ecd9d7b5ccd962(yyp); }
+        public static object IdentityBound_factory(Parser yyp) { return new IdentityBound(yyp); }
+        public static object TotalBound_factory(Parser yyp) { return new TotalBound(yyp); }
+        public static object InstanceList_e0f9eda985ac444795ef1d2a6f24bb01_factory(Parser yyp) { return new InstanceList_e0f9eda985ac444795ef1d2a6f24bb01(yyp); }
+        public static object CardinalRestriction_factory(Parser yyp) { return new CardinalRestriction(yyp); }
+        public static object SameInstances_factory(Parser yyp) { return new SameInstances(yyp); }
+        public static object Facet_e4cb627134b9481687deb9f3221c10a7_factory(Parser yyp) { return new Facet_e4cb627134b9481687deb9f3221c10a7(yyp); }
+        public static object CmpOrID_5db1e7132b784124ac8de7af7b6082f9_8e83713925bf4e569b22b7c1600510db_factory(Parser yyp) { return new CmpOrID_5db1e7132b784124ac8de7af7b6082f9_8e83713925bf4e569b22b7c1600510db(yyp); }
+        public static object SwrlVarList_a6758d770397480b99211f9252795b66_factory(Parser yyp) { return new SwrlVarList_a6758d770397480b99211f9252795b66(yyp); }
+        public static object ConceptNot_factory(Parser yyp) { return new ConceptNot(yyp); }
+        public static object modality_factory(Parser yyp) { return new modality(yyp); }
+        public static object OnlyRestriction_2a4bfcfa3f4d40a997a8c169157a972c_factory(Parser yyp) { return new OnlyRestriction_2a4bfcfa3f4d40a997a8c169157a972c(yyp); }
+        public static object DateTimeVal_factory(Parser yyp) { return new DateTimeVal(yyp); }
+        public static object CmpOrID_90caf4944e2b47c69f614bbb85bb6024_13b84ebeb47b47dcaf09ab9fc2e3694d_factory(Parser yyp) { return new CmpOrID_90caf4944e2b47c69f614bbb85bb6024_13b84ebeb47b47dcaf09ab9fc2e3694d(yyp); }
+        public static object Subsumption_6af97029206a46029ef9e7fe13252256_factory(Parser yyp) { return new Subsumption_6af97029206a46029ef9e7fe13252256(yyp); }
+        public static object HasKey_3580de8bdd314074a04e39b672fd9ed9_factory(Parser yyp) { return new HasKey_3580de8bdd314074a04e39b672fd9ed9(yyp); }
+        public static object ComplexRoleInclusion_factory(Parser yyp) { return new ComplexRoleInclusion(yyp); }
+        public static object Subsumption_factory(Parser yyp) { return new Subsumption(yyp); }
+        public static object CmpOrID_106a26397604436b84ef59eaa2ab9f51_factory(Parser yyp) { return new CmpOrID_106a26397604436b84ef59eaa2ab9f51(yyp); }
+        public static object Disjoint_6ad137ae410a4c7b806612c6b8dfd66f_factory(Parser yyp) { return new Disjoint_6ad137ae410a4c7b806612c6b8dfd66f(yyp); }
+        public static object RoleInclusion_factory(Parser yyp) { return new RoleInclusion(yyp); }
+        public static object String_3185406054654ec48472d3f64e7de19f_factory(Parser yyp) { return new String_3185406054654ec48472d3f64e7de19f(yyp); }
+        public static object CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b_68004f2890e741dfb0cf09739d7943d2_factory(Parser yyp) { return new CmpOrID_9cac7dacf8a146dc8894b8bf54140f6b_68004f2890e741dfb0cf09739d7943d2(yyp); }
+        public static object OnlyRestriction_factory(Parser yyp) { return new OnlyRestriction(yyp); }
+        public static object ValueSet_3b642fe7fd5f477fb9ec44594d458d42_factory(Parser yyp) { return new ValueSet_3b642fe7fd5f477fb9ec44594d458d42(yyp); }
+        public static object NumberValueRestriction_59c461909a73464680b7df04544a86cf_factory(Parser yyp) { return new NumberValueRestriction_59c461909a73464680b7df04544a86cf(yyp); }
+        public static object ConceptAnd_2b0d8e7f563940cfa08af35afa638d20_factory(Parser yyp) { return new ConceptAnd_2b0d8e7f563940cfa08af35afa638d20(yyp); }
+        public static object SwrlVarList_factory(Parser yyp) { return new SwrlVarList(yyp); }
+        public static object RoleInclusion_fa72066a4d4f41f69ca190dab81c4e31_factory(Parser yyp) { return new RoleInclusion_fa72066a4d4f41f69ca190dab81c4e31(yyp); }
+        public static object NumberValueRestriction_204ccdc951d04d68bd4c5ebfb3407ecd_factory(Parser yyp) { return new NumberValueRestriction_204ccdc951d04d68bd4c5ebfb3407ecd(yyp); }
+        public static object Annotation_a36648de3daa49879b43174782a51082_factory(Parser yyp) { return new Annotation_a36648de3daa49879b43174782a51082(yyp); }
+        public static object UnnamedInstance_1994cb126da1455abb2345df25bad6ab_factory(Parser yyp) { return new UnnamedInstance_1994cb126da1455abb2345df25bad6ab(yyp); }
+        public static object SwrlItemList_factory(Parser yyp) { return new SwrlItemList(yyp); }
+        public static object DataRoleEquivalence_db7e9dbf9bd146efa788a5b8ff0983b3_factory(Parser yyp) { return new DataRoleEquivalence_db7e9dbf9bd146efa788a5b8ff0983b3(yyp); }
+        public static object Number_d233049866da4004957ac8ce9402feda_factory(Parser yyp) { return new Number_d233049866da4004957ac8ce9402feda(yyp); }
+        public static object modality_12a24df93b6346eba60dbf3238903c6f_factory(Parser yyp) { return new modality_12a24df93b6346eba60dbf3238903c6f(yyp); }
+        public static object RoleDisjoint_factory(Parser yyp) { return new RoleDisjoint(yyp); }
+        public static object ExeStatement_6341ef43c3484a0bb826d2dc3dfdc28a_factory(Parser yyp) { return new ExeStatement_6341ef43c3484a0bb826d2dc3dfdc28a(yyp); }
+        public static object BoundOr_87a3acae08144bcca1bb4bec8ac186ae_factory(Parser yyp) { return new BoundOr_87a3acae08144bcca1bb4bec8ac186ae(yyp); }
+        public static object Equivalence_092cb61658f24abc9b8aed5c12ef863a_factory(Parser yyp) { return new Equivalence_092cb61658f24abc9b8aed5c12ef863a(yyp); }
+        public static object DLAnnotationAxiom_factory(Parser yyp) { return new DLAnnotationAxiom(yyp); }
+        public static object Statement_factory(Parser yyp) { return new Statement(yyp); }
+        public static object Instance_factory(Parser yyp) { return new Instance(yyp); }
+        public static object Top_factory(Parser yyp) { return new Top(yyp); }
+        public static object RoleInversion_factory(Parser yyp) { return new RoleInversion(yyp); }
+        public static object ConceptNot_dcfb5eddd8fa4bf1a727f86e61d33ba6_factory(Parser yyp) { return new ConceptNot_dcfb5eddd8fa4bf1a727f86e61d33ba6(yyp); }
+        public static object SwrlDifferentFrom_factory(Parser yyp) { return new SwrlDifferentFrom(yyp); }
+        public static object NumberRestriction_74de8317f4aa445baed21dc9142d85d2_factory(Parser yyp) { return new NumberRestriction_74de8317f4aa445baed21dc9142d85d2(yyp); }
+        public static object DateTimeVal_6a01711465ba4d58b8e08b78c4de58ab_factory(Parser yyp) { return new DateTimeVal_6a01711465ba4d58b8e08b78c4de58ab(yyp); }
+        public static object Equivalence_a56b89fb27634398b32836467c987584_factory(Parser yyp) { return new Equivalence_a56b89fb27634398b32836467c987584(yyp); }
+        public static object DifferentInstances_factory(Parser yyp) { return new DifferentInstances(yyp); }
+        public static object HasKey_d1576b6e88974dc193b3ad72ef7d0fd6_factory(Parser yyp) { return new HasKey_d1576b6e88974dc193b3ad72ef7d0fd6(yyp); }
+        public static object RoleEquivalence_factory(Parser yyp) { return new RoleEquivalence(yyp); }
+        public static object Number_3a039afaa0d3402bb962b7c38e026a1a_factory(Parser yyp) { return new Number_3a039afaa0d3402bb962b7c38e026a1a(yyp); }
+    }
+    public class dl : Parser
+    {
+        public dl() : base(new yydl(), new tokens()) { }
+        public dl(YyParser syms) : base(syms, new tokens()) { }
+        public dl(YyParser syms, ErrorHandler erh) : base(syms, new tokens(erh)) { }
 
- }
+    }
 }

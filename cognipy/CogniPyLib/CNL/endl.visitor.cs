@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CogniPy.CNL.EN
+﻿namespace CogniPy.CNL.EN
 {
     public interface IVisitor
     {
@@ -76,7 +72,7 @@ namespace CogniPy.CNL.EN
         object Visit(DateTimeData p);
         object Visit(Duration p);
         object Visit(Float p);
-        object Visit(Bool p); 
+        object Visit(Bool p);
         object Visit(swrlrule p);
         object Visit(clause p);
         object Visit(clause_result p);

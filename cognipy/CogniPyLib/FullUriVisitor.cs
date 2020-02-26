@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace CogniPy.CNL.DL
 {
@@ -9,7 +7,8 @@ namespace CogniPy.CNL.DL
     {
         Func<string, string> pfx2ns;
         string _defaultNs;
-        public FullUriVisitor(Func<string,string> pfx2ns,string defaultNs=null) {
+        public FullUriVisitor(Func<string, string> pfx2ns, string defaultNs = null)
+        {
             if (pfx2ns == null)
                 throw new Exception("Cannot initialize the FullUriVisitor without giving the prefix to namespace map.");
             this.pfx2ns = pfx2ns;
@@ -18,13 +17,13 @@ namespace CogniPy.CNL.DL
 
         string applyFullUri(string nm)
         {
-            return CNLTools.DLToFullUri(nm, ARS.EntityKind.Instance, pfx2ns,_defaultNs);
+            return CNLTools.DLToFullUri(nm, ARS.EntityKind.Instance, pfx2ns, _defaultNs);
         }
 
         public override object Visit(DLAnnotationAxiom e)
         {
             e.annotName = applyFullUri(e.annotName);
-            if(e.subjKind != ARS.EntityKind.Statement.ToString())
+            if (e.subjKind != ARS.EntityKind.Statement.ToString())
                 e.subject = applyFullUri(e.subject);
             return base.Visit(e);
         }
@@ -40,7 +39,7 @@ namespace CogniPy.CNL.DL
             e.name = applyFullUri(e.name);
             return base.Visit(e);
         }
-        
+
         public override object Visit(DisjointUnion e)
         {
             e.name = applyFullUri(e.name);

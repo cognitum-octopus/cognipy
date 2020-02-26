@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
+﻿using System.Linq;
 
 namespace CogniPy.CNL.DL
 {
     public class SetDefaultPfxVisitor : CogniPy.CNL.DL.GenericVisitor
     {
         string defaultPfx;
-        public SetDefaultPfxVisitor(string defaultPfx,string defaultNamespace=null) {
+        public SetDefaultPfxVisitor(string defaultPfx, string defaultNamespace = null)
+        {
             if (!string.IsNullOrWhiteSpace(defaultPfx))
                 this.defaultPfx = defaultPfx;
             else if (!string.IsNullOrWhiteSpace(defaultNamespace) && !defaultNamespace.StartsWith("<") && !defaultNamespace.EndsWith(">"))
@@ -42,7 +40,7 @@ namespace CogniPy.CNL.DL
             e.name = applyDefaultPfx(e.name);
             return base.Visit(e);
         }
-        
+
         public override object Visit(DisjointUnion e)
         {
             e.name = applyDefaultPfx(e.name);

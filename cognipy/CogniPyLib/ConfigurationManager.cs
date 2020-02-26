@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CogniPy.Configuration
 {
@@ -11,13 +8,15 @@ namespace CogniPy.Configuration
     /// OWLRLP --> DL/RL
     /// NONE --> no reasoning executed
     /// </summary>
-    public enum ReasoningConfiguration { OWLDL,OWLRLP, NONE }
+    public enum ReasoningConfiguration { OWLDL, OWLRLP, NONE }
     public enum ProfileValidationOptions { OWLRL, OWLRLP, OWLEL }
     public enum ReasoningMode { SROIQ, RL, NONE }
     public enum MatMode { Tbox, Abox, Both, SWRLOnly };
-    public enum GraphBackend { Titan, Virtuoso, BasicMode  //, Oracle
+    public enum GraphBackend
+    {
+        Titan, Virtuoso, BasicMode  //, Oracle
 #if DEBUG
-        , Cumulus 
+        , Cumulus
 #endif
     };
     public enum CacheBackend
@@ -27,7 +26,7 @@ namespace CogniPy.Configuration
             , MemCached
 #endif
     };
-    public enum ConfigurationEntry { ReasoningProfile, ReasoningRadius, BreakingChangeRadius, IntegrityConstraints, DefaultNamespace, PublicSPARQLEndpoint, DatabaseVersion, GraphDatabase, CacheEnabled, CacheDatabase, NamespaceModularizationEnabled , DomainAndRangeMaterialization};
+    public enum ConfigurationEntry { ReasoningProfile, ReasoningRadius, BreakingChangeRadius, IntegrityConstraints, DefaultNamespace, PublicSPARQLEndpoint, DatabaseVersion, GraphDatabase, CacheEnabled, CacheDatabase, NamespaceModularizationEnabled, DomainAndRangeMaterialization };
     public class DefaultValue
     {
 
@@ -38,7 +37,7 @@ namespace CogniPy.Configuration
         /// <param name="DatabaseVersion"></param>
         /// <param name="default_namespace">default value for the namespace</param>
         /// <param name="default_graphdb">default value for the graph database</param>
-        public DefaultValue(Version DatabaseVersion, string default_namespace=null,GraphBackend default_graphdb=GraphBackend.Titan)
+        public DefaultValue(Version DatabaseVersion, string default_namespace = null, GraphBackend default_graphdb = GraphBackend.Titan)
         {
             if (!String.IsNullOrWhiteSpace(default_namespace))
                 DEFAULT_NAMESPACE = default_namespace;
@@ -53,7 +52,7 @@ namespace CogniPy.Configuration
 
         public object getDefaultValue(ConfigurationEntry confEntry)
         {
-            switch(confEntry)
+            switch (confEntry)
             {
                 case ConfigurationEntry.DefaultNamespace:
                     return DEFAULT_NAMESPACE;
@@ -80,7 +79,7 @@ namespace CogniPy.Configuration
                 case ConfigurationEntry.NamespaceModularizationEnabled:
                     return false;
                 default:
-                    throw new Exception("No default value specified for ConfigurationEntry "+confEntry.ToString());
+                    throw new Exception("No default value specified for ConfigurationEntry " + confEntry.ToString());
             }
         }
     }

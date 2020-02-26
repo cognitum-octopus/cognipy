@@ -1,19 +1,17 @@
-﻿using System;
+﻿using CogniPy.CNL.DL;
+using org.semanticweb.owlapi.model;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using org.semanticweb.owlapi.model;
-using CogniPy.CNL.DL;
-using org.semanticweb.owlapi.util;
-using org.coode.xml;
 using System.Text.RegularExpressions;
-using System.Diagnostics;
 
 namespace CogniPy.ARS
 {
     public class IRIParser
     {
-        static List<char> CharsForInternalUse = new List<char>() { '\u0001','\u0002' };
+        static List<char> CharsForInternalUse = new List<char>() { '\u0001', '\u0002' };
         public static string getFirstCharForInternalUse()
         {
             return CharsForInternalUse[0].ToString();
@@ -42,7 +40,7 @@ namespace CogniPy.ARS
                 {
                     strBld.Append(Uri.EscapeUriString(el.ToString()));
                 }
-                else if (char.IsLetter(el) || char.IsNumber(el) )
+                else if (char.IsLetter(el) || char.IsNumber(el))
                 {
                     strBld.Append(el);
                 }
@@ -102,7 +100,7 @@ namespace CogniPy.ARS
             return strBld.ToString();
         }
 
-        public static bool AreNamespacesEqual(string ns1Ext,string ns2Ext)
+        public static bool AreNamespacesEqual(string ns1Ext, string ns2Ext)
         {
             var ns1 = ns1Ext;
             var ns2 = ns2Ext;
@@ -167,13 +165,13 @@ namespace CogniPy.ARS
                         string shortForm = iri.getFragment();
                         string ns = iri.getNamespace();
                         bool isGlobal = shortForm.StartsWith(globalInstanceIndicator);
-                        if (isGlobal)  shortForm = shortForm.Substring(1);
+                        if (isGlobal) shortForm = shortForm.Substring(1);
                         cache[key] = new Parts() { ns = ns, name = shortForm, global = isGlobal };
                         return cache[key];
                     }
                     else
                     {
-                        Uri u = new Uri(key,UriKind.RelativeOrAbsolute);
+                        Uri u = new Uri(key, UriKind.RelativeOrAbsolute);
                         if (u.IsAbsoluteUri)
                         {
                             if (!System.String.IsNullOrWhiteSpace(u.Fragment))
@@ -181,7 +179,7 @@ namespace CogniPy.ARS
                                 if (u.Fragment.StartsWith("#"))
                                 {
                                     string shortForm = Uri.UnescapeDataString(u.Fragment.Substring(1));
-                                    string ns = key.Substring(0, key.Length - IRIParser.encodeToIRI(shortForm).Length-1) + "#";
+                                    string ns = key.Substring(0, key.Length - IRIParser.encodeToIRI(shortForm).Length - 1) + "#";
                                     bool isGlobal = shortForm.StartsWith(globalInstanceIndicator);
                                     if (isGlobal) shortForm = shortForm.Substring(1);
                                     cache[key] = new Parts() { ns = ns, name = shortForm, global = isGlobal };
@@ -191,7 +189,7 @@ namespace CogniPy.ARS
                             if (!System.String.IsNullOrWhiteSpace(u.Segments[u.Segments.Count() - 1]))
                             {
                                 string shortForm = Uri.UnescapeDataString(u.Segments[u.Segments.Count() - 1]);
-                                var segmFullyEncoded = IRIParser.encodeToIRI(IRIParser.decodeIRI(u.Segments[u.Segments.Count()-1]));
+                                var segmFullyEncoded = IRIParser.encodeToIRI(IRIParser.decodeIRI(u.Segments[u.Segments.Count() - 1]));
                                 string ns = u.OriginalString.Substring(0, u.OriginalString.Length - segmFullyEncoded.Length);
                                 bool isGlobal = shortForm.StartsWith(globalInstanceIndicator);
                                 if (isGlobal) shortForm = shortForm.Substring(1);
@@ -206,7 +204,7 @@ namespace CogniPy.ARS
                             {
                                 var pr = str.Split(new char[] { '#' });
                                 string shortForm = pr[1];
-                                string ns = pr[0]+"#"; 
+                                string ns = pr[0] + "#";
                                 bool isGlobal = shortForm.StartsWith(globalInstanceIndicator);
                                 if (isGlobal) shortForm = shortForm.Substring(1);
                                 return new Parts() { ns = ns, name = shortForm, global = isGlobal };
@@ -379,7 +377,7 @@ namespace CogniPy.ARS
     //            return new DlName() { id = null };
 
     //        string pfx = null;
-            
+
     //        if(!IRIParser.AreNamespacesEqual(defaultNs,parts.ns))
     //            pfx = ns2pfx(parts.ns);
 
@@ -512,11 +510,11 @@ namespace CogniPy.ARS
         static string UPPERL = @"[A-Z]";
         static string LOWERL = @"[a-z]";
         static string DIGIT = @"[0-9]";
-        static string DIGIT_D = @"((\-)?" + DIGIT+"+)";
+        static string DIGIT_D = @"((\-)?" + DIGIT + "+)";
         static string NAME = "\\A(?<g>" + LOWERL + "+)?((?<g>" + UPPERL + LOWERL + @"*)|(?<g>" + DIGIT + DIGIT_D + "*))*\\b" + "(?<u>\\.(" + UPPERL + "|" + LOWERL + "|" + DIGIT + ")+)?\\Z";
         static string exoticUTFForUnderscore = IRIParser.getFirstCharForInternalUse();
         static string VBIGNAME = "\\A(?<g>" + UPPERL + UPPERL + @"+)(" + exoticUTFForUnderscore + "((?<g>" + UPPERL + @"+)|(?<g>" + DIGIT + "+)))*\\b" + "(?<u>\\.(" + UPPERL + "|" + LOWERL + "|" + DIGIT + ")+)?\\Z";
-        
+
         static Regex regexp = new Regex(NAME, RegexOptions.Compiled);
         static Regex vbregexp = new Regex(VBIGNAME, RegexOptions.Compiled);
 
@@ -566,13 +564,13 @@ namespace CogniPy.ARS
                 if (!isVBigName)
                     mth = regexp.Match(name_part);
                 Match mth2 = null;
-                if (isVBigName || !mth.Success )
+                if (isVBigName || !mth.Success)
                     mth2 = vbregexp.Match(name_part);
                 if (name_part != "" &&
                      (
                      (mth != null && mth.Success
                      && (
-                        (( madeFor == EntityKind.SWRLVariable || madeFor == EntityKind.Instance) && char.IsUpper(name_part.First()))
+                        ((madeFor == EntityKind.SWRLVariable || madeFor == EntityKind.Instance) && char.IsUpper(name_part.First()))
                      || ((madeFor == EntityKind.Concept || madeFor == EntityKind.DataRole || madeFor == EntityKind.SWRLVariable || madeFor == EntityKind.Role) && char.IsLower(name_part.First()))
                      )) ||
                      (mth2 != null && mth2.Success && madeFor == EntityKind.Instance)
@@ -714,7 +712,7 @@ namespace CogniPy.ARS
                 owlParts.name = dlParts.name;
             }
 
-            owlParts.global = (madeFor==EntityKind.Instance && !dlParts.local);
+            owlParts.global = (madeFor == EntityKind.Instance && !dlParts.local);
 
             return owlParts.Combine();
         }

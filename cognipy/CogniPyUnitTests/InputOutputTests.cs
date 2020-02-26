@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CogniPyUnitTests
 {
@@ -28,11 +26,11 @@ namespace CogniPyUnitTests
         public void LoadFileWithReference()
         {
             var feClient = new CogniPySvr();
-            
-            feClient.LoadCnl(Path.Combine(AssemblyDirectory, "TestFiles","CSHC.encnl"), true, true); 
+
+            feClient.LoadCnl(Path.Combine(AssemblyDirectory, "TestFiles", "CSHC.encnl"), true, true);
             var instances = new string[] { "Dynamic[sfo]", "Answer-2-1-10-1" };
             var result = feClient.DescribeInstancesByName(instances);
-            CollectionAssert.AreEquivalent(instances, result.Select(x=>x.Instance).ToArray());
+            CollectionAssert.AreEquivalent(instances, result.Select(x => x.Instance).ToArray());
         }
 
 
@@ -44,15 +42,15 @@ namespace CogniPyUnitTests
                     "Every man is a human-being."
             };
             var feClient = new CogniPySvr();
-            feClient.LoadCnlFromString(string.Join("\r\n", cnlSentences),true,false);
+            feClient.LoadCnlFromString(string.Join("\r\n", cnlSentences), true, false);
             var cnlOut = feClient.ToCNLList(true, true, true);
 
             Assert.AreEqual(cnlSentences.Count(), cnlOut.Count());
             for (int i = 0; i < cnlOut.Count(); i++)
-                Assert.AreEqual(cnlSentences[i],cnlOut[i]);
+                Assert.AreEqual(cnlSentences[i], cnlOut[i]);
         }
 
-        void CheckStatementCount(CogniPyStatement stmt,int Nconcept, int Ninstances, int NRoles, int NDataRole)
+        void CheckStatementCount(CogniPyStatement stmt, int Nconcept, int Ninstances, int NRoles, int NDataRole)
         {
             Assert.AreEqual(stmt.Concepts.Count(), Nconcept);
             Assert.AreEqual(stmt.Instances.Count(), Ninstances);
@@ -68,16 +66,16 @@ namespace CogniPyUnitTests
                     "Every man is a human-being."
             };
             var feClient = new CogniPySvr();
-            feClient.LoadCnlFromString(string.Join("\r\n", cnlSentences), true,false);
+            feClient.LoadCnlFromString(string.Join("\r\n", cnlSentences), true, false);
             var cnlOut = feClient.ToCNLStatementList(true);
 
             Assert.AreEqual(cnlSentences.Count(), cnlOut.Count());
             for (int i = 0; i < cnlOut.Count(); i++)
             {
                 Assert.AreEqual(cnlOut[i].CnlStatement, cnlSentences[i]);
-                if(i == 0)
+                if (i == 0)
                     CheckStatementCount(cnlOut[i], 1, 1, 0, 0);
-                else if(i == 1)
+                else if (i == 1)
                     CheckStatementCount(cnlOut[i], 2, 0, 0, 0);
             }
         }
@@ -94,7 +92,7 @@ namespace CogniPyUnitTests
             };
             var feClient = new CogniPySvr();
             var ruleId = feClient.GetStatementId(cnlSentences[4]);
-            feClient.SetDebugListener((statementId,elements) =>
+            feClient.SetDebugListener((statementId, elements) =>
             {
                 Assert.AreEqual(ruleId, statementId);
                 Assert.AreEqual(2, elements.Count());
@@ -102,7 +100,7 @@ namespace CogniPyUnitTests
                 Assert.AreEqual("man", elements[0].Name);
                 Assert.AreEqual("Mary", elements[1].Value.ToString());
                 Assert.AreEqual("woman", elements[1].Name);
-            }, (s,c) => Tuple.Create(s,c));
+            }, (s, c) => Tuple.Create(s, c));
             feClient.LoadCnlFromString(string.Join("\r\n", cnlSentences), true, true);
 
         }

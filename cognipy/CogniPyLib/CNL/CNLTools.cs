@@ -21,17 +21,17 @@ namespace CogniPy.CNL
 
         bool isParagraph(SYMBOL smb);
 
-        void setPfx2NsSource(Func<string,string> pfx2Ns);
+        void setPfx2NsSource(Func<string, string> pfx2Ns);
 
-        DL.Paragraph InvConvert(SYMBOL smb,bool useFullUri=false,Func<string,string> pfx2ns=null);
+        DL.Paragraph InvConvert(SYMBOL smb, bool useFullUri = false, Func<string, string> pfx2ns = null);
 
-        object Convert(DL.Statement stmast,bool usePrefixes=false,Func<string,string> ns2pfx=null);
+        object Convert(DL.Statement stmast, bool usePrefixes = false, Func<string, string> ns2pfx = null);
 
         object Convert(DL.IAccept nodeast, bool usePrefixes = false, Func<string, string> ns2pfx = null);
 
         object Convert(DL.Paragraph para, bool usePrefixes = false, Func<string, string> ns2pfx = null);
 
-        string Serialize(object enast, bool serializeAnnotations, out AnnotationManager annotMan, bool templateMode=false);
+        string Serialize(object enast, bool serializeAnnotations, out AnnotationManager annotMan, bool templateMode = false);
 
         IEnumerable<string> Morphology(IEnumerable<string> col, string str, string form, bool bigName);
 
@@ -128,14 +128,14 @@ namespace CogniPy.CNL
         {
             lock (factories)
             {
-                name=name.ToLower(System.Globalization.CultureInfo.InvariantCulture);
+                name = name.ToLower(System.Globalization.CultureInfo.InvariantCulture);
                 factories[name] = factory;
             }
         }
 
         public string currentLang = string.Empty;
 
-        public CNLTools(string languageSymbol,Func<string,string> pfx2Ns=null)
+        public CNLTools(string languageSymbol, Func<string, string> pfx2Ns = null)
         {
             Type t_factory = null;
             languageSymbol = languageSymbol.ToLower(System.Globalization.CultureInfo.InvariantCulture);
@@ -221,7 +221,7 @@ namespace CogniPy.CNL
             return false;
         }
 
-        public static string DLToFullUri(string entity,ARS.EntityKind entKind, Func<string, string> pfx2ns = null,string defaultNs=null)
+        public static string DLToFullUri(string entity, ARS.EntityKind entKind, Func<string, string> pfx2ns = null, string defaultNs = null)
         {
             if (pfx2ns == null)
                 return entity;
@@ -236,13 +236,13 @@ namespace CogniPy.CNL
                 {
                     var tterm = pfx2ns(allParts.term);
                     if (!System.String.IsNullOrWhiteSpace(tterm))
-                        allParts.term = "<"+tterm+">";
+                        allParts.term = "<" + tterm + ">";
                     else
                         throw new Exception("No namespace found for prefix " + allParts.term + ". You need to define it before saving into Ontorion.");
                 }
                 else if (System.String.IsNullOrWhiteSpace(allParts.term) && !System.String.IsNullOrWhiteSpace(defaultNs)) // if a default namespace is given, add it to the entity if it does not have a namespace associated
                 {
-                    allParts.term = "<" +defaultNs +">";
+                    allParts.term = "<" + defaultNs + ">";
                 }
                 else if (!System.String.IsNullOrWhiteSpace(allParts.term) && allParts.term.StartsWith("<") && allParts.term.EndsWith(">"))
                 {
@@ -255,7 +255,7 @@ namespace CogniPy.CNL
             }
         }
 
-        public void setPfx2NsSource(Func<string,string> pfx2Ns)
+        public void setPfx2NsSource(Func<string, string> pfx2Ns)
         {
             factory.setPfx2NsSource(pfx2Ns);
         }
@@ -342,8 +342,8 @@ namespace CogniPy.CNL
                 get { return val.wsAfter; }
             }
 
-            
-            
+
+
             public CacheLine(InternalCacheLine val)
             {
                 this.val = val;
@@ -518,7 +518,7 @@ namespace CogniPy.CNL
         {
             public int start;
 
-            public string   line
+            public string line
             {
                 get { return wsBefore + text + wsAfter; }
                 set
@@ -615,8 +615,8 @@ namespace CogniPy.CNL
                 lastIdx = newIdx;
             }
         }
-        
-        
+
+
         public void LoadCache(string txt)
         {
             lock (cacheLinesGuard)
@@ -686,7 +686,7 @@ namespace CogniPy.CNL
                 LoadCache(txt);
                 GetOverlappingFragment(txt, ref start, ref end);
                 int strt = start, ed = end;
-                return (from l in cacheLines where l.start >= strt && l.start < ed select new CacheLine( l)).ToList();
+                return (from l in cacheLines where l.start >= strt && l.start < ed select new CacheLine(l)).ToList();
             }
         }
 
@@ -770,16 +770,16 @@ namespace CogniPy.CNL
                     else
                         return null;
                 }
-                pattern = this.GetENFromAstSentence(smb,false,true);
+                pattern = this.GetENFromAstSentence(smb, false, true);
                 var TF = "then for";
                 var thenForPos = pattern.LastIndexOf(TF);
-                pattern = pattern.Substring(0, thenForPos-1);
+                pattern = pattern.Substring(0, thenForPos - 1);
                 pattern = pattern.Substring(PRE.Length);
                 return factory.InvConvert(smb, useFullUri, pfx2Ns);
             }
         }
 
-        public CogniPy.CNL.DL.Node GetEN2DLNode(string text, bool throwOnError = true,bool useFullUri=false,Func<string,string> pfx2Ns=null)
+        public CogniPy.CNL.DL.Node GetEN2DLNode(string text, bool throwOnError = true, bool useFullUri = false, Func<string, string> pfx2Ns = null)
         {
             if (text.Trim() == "") return null;
             Tools.SYMBOL smb = factory.getParser().Parse("Every loooooked-for is " + text + " .");
@@ -801,7 +801,7 @@ namespace CogniPy.CNL
                     else
                         return null;
                 }
-                var stmt = factory.InvConvert(smb,useFullUri,pfx2Ns);
+                var stmt = factory.InvConvert(smb, useFullUri, pfx2Ns);
                 return (stmt.Statements.First() as CogniPy.CNL.DL.Subsumption).D;
             }
         }
@@ -827,14 +827,14 @@ namespace CogniPy.CNL
                         throw new InvalidOperationException();
                     else
                         return null;
-                } 
+                }
                 return smb;
             }
         }
 
         public string GetENFromAstSentence(object astSent, bool serializeAnnotations = false, bool templateMode = false)
         {
-            return factory.Serialize(astSent,serializeAnnotations,out _annotMan, templateMode);
+            return factory.Serialize(astSent, serializeAnnotations, out _annotMan, templateMode);
         }
 
         /// <summary>
@@ -864,7 +864,7 @@ namespace CogniPy.CNL
                         throw new InvalidOperationException();
                     else
                         return null;
-                } 
+                }
                 return factory.InvConvert(smb, useFullUri, pfx2ns);
             }
         }
@@ -878,10 +878,10 @@ namespace CogniPy.CNL
                 else
                     return null;
             }
-            return factory.InvConvert((Tools.SYMBOL) smb, useFullUri, pfx2ns);
+            return factory.InvConvert((Tools.SYMBOL)smb, useFullUri, pfx2ns);
         }
 
-        static readonly Regex regxForPrefixes = new Regex(@"(?<=\[).*?(?=\])"            ,RegexOptions.Compiled         );
+        static readonly Regex regxForPrefixes = new Regex(@"(?<=\[).*?(?=\])", RegexOptions.Compiled);
         /// <summary>
         /// Returns the prefixes found in the cnl string given
         /// </summary>
@@ -930,15 +930,16 @@ namespace CogniPy.CNL
             }
         }
 
-        public Dictionary<ARS.EntityKind,CogniPy.CNL.DL.Paragraph> GetENAnnotations2DLAst(bool useFullUri=false,Func<string,string> pfx2ns=null)
+        public Dictionary<ARS.EntityKind, CogniPy.CNL.DL.Paragraph> GetENAnnotations2DLAst(bool useFullUri = false, Func<string, string> pfx2ns = null)
         {
-            if (annotMan != null){
-                var res = new Dictionary<ARS.EntityKind,CogniPy.CNL.DL.Paragraph>();
+            if (annotMan != null)
+            {
+                var res = new Dictionary<ARS.EntityKind, CogniPy.CNL.DL.Paragraph>();
                 var annAx = annotMan.getDLAnnotationAxioms(pfx2ns);
-                foreach(var ann in annAx)
+                foreach (var ann in annAx)
                 {
-                    if(!res.ContainsKey(ann.Key))
-                        res.Add(ann.Key,new DL.Paragraph(null){Statements = new List<DL.Statement>()});
+                    if (!res.ContainsKey(ann.Key))
+                        res.Add(ann.Key, new DL.Paragraph(null) { Statements = new List<DL.Statement>() });
                     res[ann.Key].Statements.AddRange(ann.Value.Select(x => x as DL.Statement).ToList());
                 }
                 return res;
@@ -980,21 +981,21 @@ namespace CogniPy.CNL
             return (ser.Serialize(dlast));
         }
 
-        public HashSet<Tuple<CogniPy.ARS.EntityKind,string>> GetDLAstSignature(CogniPy.CNL.DL.Paragraph dlast, bool simplifyBrackets = false)
+        public HashSet<Tuple<CogniPy.ARS.EntityKind, string>> GetDLAstSignature(CogniPy.CNL.DL.Paragraph dlast, bool simplifyBrackets = false)
         {
             var ser = new CogniPy.CNL.DL.Serializer(simplifyBrackets);
             ser.Serialize(dlast);
             return ser.GetTaggedSignature();
         }
 
-        public HashSet<Tuple<string,string,string>> GetDLAstDataSignature(CogniPy.CNL.DL.Paragraph dlast, bool simplifyBrackets = false)
+        public HashSet<Tuple<string, string, string>> GetDLAstDataSignature(CogniPy.CNL.DL.Paragraph dlast, bool simplifyBrackets = false)
         {
             var ser = new CogniPy.CNL.DL.Serializer(simplifyBrackets);
             ser.Serialize(dlast);
             return ser.GetDataValues();
         }
 
-        public Tuple<HashSet<Tuple<CogniPy.ARS.EntityKind,string>>, HashSet<Tuple<string, string, string>>> GetDLAstFullSignature(CogniPy.CNL.DL.Paragraph dlast, bool simplifyBrackets = false)
+        public Tuple<HashSet<Tuple<CogniPy.ARS.EntityKind, string>>, HashSet<Tuple<string, string, string>>> GetDLAstFullSignature(CogniPy.CNL.DL.Paragraph dlast, bool simplifyBrackets = false)
         {
             var ser = new CogniPy.CNL.DL.Serializer(simplifyBrackets);
             ser.Serialize(dlast);
@@ -1007,22 +1008,22 @@ namespace CogniPy.CNL
             return ast == null ? null : SerializeDLAst(ast, simplifyBrackets);
         }
 
-        public string GetENDLFromAst(CogniPy.CNL.DL.IAccept nodeast,bool serializeAnnotations=false,Func<string,string> ns2pfx=null)
+        public string GetENDLFromAst(CogniPy.CNL.DL.IAccept nodeast, bool serializeAnnotations = false, Func<string, string> ns2pfx = null)
         {
             var enast = factory.Convert(nodeast, (ns2pfx == null) ? false : true, ns2pfx);
-            return factory.Serialize(enast,serializeAnnotations,out _annotMan);
+            return factory.Serialize(enast, serializeAnnotations, out _annotMan);
         }
 
-        public string GetENDLFromAst(CogniPy.CNL.DL.Statement stmast, bool serializeAnnotations=false,Func<string,string> ns2pfx=null)
+        public string GetENDLFromAst(CogniPy.CNL.DL.Statement stmast, bool serializeAnnotations = false, Func<string, string> ns2pfx = null)
         {
-            var enast = factory.Convert(stmast,(ns2pfx == null)?false:true,ns2pfx);
-            return factory.Serialize(enast,serializeAnnotations,out _annotMan);
+            var enast = factory.Convert(stmast, (ns2pfx == null) ? false : true, ns2pfx);
+            return factory.Serialize(enast, serializeAnnotations, out _annotMan);
         }
 
-        public string GetENDLFromAst(CogniPy.CNL.DL.Paragraph dlast,bool serializeAnnotations=false,Func<string,string> ns2pfx=null)
+        public string GetENDLFromAst(CogniPy.CNL.DL.Paragraph dlast, bool serializeAnnotations = false, Func<string, string> ns2pfx = null)
         {
             var enast = factory.Convert(dlast, (ns2pfx == null) ? false : true, ns2pfx);
-            return factory.Serialize(enast,serializeAnnotations,out _annotMan);
+            return factory.Serialize(enast, serializeAnnotations, out _annotMan);
         }
 
         AnnotationManager _annotMan;
@@ -1044,7 +1045,7 @@ namespace CogniPy.CNL
 
         public List<string> GetModalKeywords()
         {
-            List<string> modalities= new List<string>();
+            List<string> modalities = new List<string>();
             modalities.Add(GetKeyword("MUST"));
             modalities.Add(GetKeyword("SHOULD"));
             modalities.Add(GetKeyword("CAN"));
@@ -1312,7 +1313,7 @@ namespace CogniPy.CNL
         /// <param name="max"></param>
         /// <param name="wordsToSkip"></param>
         /// <returns></returns>
-        public List<string> AutoComplete2(CogniPy.CNL.DL.Populator populator, string full, out List<KeyValuePair<string, string>> symbols, int max,List<string> wordsToSkip= null)
+        public List<string> AutoComplete2(CogniPy.CNL.DL.Populator populator, string full, out List<KeyValuePair<string, string>> symbols, int max, List<string> wordsToSkip = null)
         {
             if (wordsToSkip == null)
                 wordsToSkip = new List<string>();
@@ -1381,7 +1382,7 @@ namespace CogniPy.CNL
             possibleKeywords.Sort();
 
             List<string> possibleWords = new List<string>();
-            
+
             foreach (string w in names)
             {
                 if (!possibleWords.Contains(w) && !wordsToSkip.Contains(w))
@@ -1395,7 +1396,7 @@ namespace CogniPy.CNL
             }
 
             possibleWords.AddRange(possibleKeywords);
-            
+
             if (wasDot)
                 possibleWords.Add(GetKeyword(factory.GetEOLTag()));
 
@@ -1468,10 +1469,10 @@ namespace CogniPy.CNL
                 BuildSmallestSentenceCacheForGenerator(GenerateSwrl7);
                 BuildSmallestSentenceCacheForGenerator(GenerateSwrl8);
                 BuildSmallestSentenceCacheForGenerator(GenerateSwrlWithBuiltins1);
-                BuildSmallestSentenceCacheForGenerator(GenerateSwrlWithBuiltins2);  
-                BuildSmallestSentenceCacheForGenerator(()=>GenerateSwrlWithUnaryBuiltinNamed("sine-of"));
-                BuildSmallestSentenceCacheForGenerator(()=>GenerateSwrlWithUnaryBuiltinNamed("ends-with-string"));
-                BuildSmallestSentenceCacheForGenerator(()=>GenerateSwrlWithBinaryBuiltinNamed("raised-to-the-power-of"));
+                BuildSmallestSentenceCacheForGenerator(GenerateSwrlWithBuiltins2);
+                BuildSmallestSentenceCacheForGenerator(() => GenerateSwrlWithUnaryBuiltinNamed("sine-of"));
+                BuildSmallestSentenceCacheForGenerator(() => GenerateSwrlWithUnaryBuiltinNamed("ends-with-string"));
+                BuildSmallestSentenceCacheForGenerator(() => GenerateSwrlWithBinaryBuiltinNamed("raised-to-the-power-of"));
 
                 BuildSmallestSentenceCacheForGenerator(GenerateEvery1);
                 BuildSmallestSentenceCacheForGenerator(GenerateEvery2);
@@ -1625,7 +1626,7 @@ namespace CogniPy.CNL
                     return null;
 
                 Dictionary<string, string> propset = new Dictionary<string, string>();
-                
+
                 foreach (string p in props)
                 {
                     if (!KeywordExists(p))
@@ -1663,7 +1664,7 @@ namespace CogniPy.CNL
                     }
                 }
 
-                if (proparr.Count == 0 )
+                if (proparr.Count == 0)
                 {
                     sentence += " " + suffix;
                     sentencekey.Add(sentence);
@@ -1689,7 +1690,7 @@ namespace CogniPy.CNL
             foreach (var key in sentencekey)
                 if (!smallestSentenceCache.ContainsKey(key))
                     smallestSentenceCache.Add(key, sentence);
-            
+
             return sentence;
         }
 
@@ -1724,7 +1725,7 @@ namespace CogniPy.CNL
 
         private bool isPartOfWord(char c)
         {
-            return char.IsLetterOrDigit(c) || c == '-' || c=='\"';
+            return char.IsLetterOrDigit(c) || c == '-' || c == '\"';
         }
 
         private bool isSpecialSign(char c)
@@ -1735,7 +1736,7 @@ namespace CogniPy.CNL
                 return char.IsPunctuation(c) && c != '-';
         }
 
-        private char[] sentent = new char[] { '(', ')',  '.', '[', ']' };
+        private char[] sentent = new char[] { '(', ')', '.', '[', ']' };
 
         public KeyValuePair<string, string> GetSentenceWitoutLastWord(string sentence)
         {
@@ -1805,14 +1806,14 @@ namespace CogniPy.CNL
                 return true;
 
             bool ok = false;
-            string reformated=null;
+            string reformated = null;
             string snt = BuildSmallestSentenceStartigWith(begigning + kwd + " name", suf != "" ? "name" : "", suf);
             if (snt != null)
             {
                 RewriteSentence(snt, out reformated);
                 ok = reformated != null;
             }
-            if(ok)
+            if (ok)
             {
                 var refWrds = splitToWords(dropAAn(reformated));
 
@@ -1885,7 +1886,7 @@ namespace CogniPy.CNL
                     //var en = GetENDLFromAst(dl);
                     //reformated = UpCase(en.Trim());
                     AnnotationManager annotManLoc;
-                    reformated = UpCase(factory.Serialize(smb,false, out annotManLoc).Trim());
+                    reformated = UpCase(factory.Serialize(smb, false, out annotManLoc).Trim());
                     return null;
                 }
             }
@@ -2254,7 +2255,7 @@ namespace CogniPy.CNL
             var v3 = new DL.ID(null) { yytext = "val" + "_1" };
             var v4 = new DL.ID(null) { yytext = "val" + "_2" };
             var v5 = new DL.ID(null) { yytext = "val" + "_3" };
-            
+
             var ex = new DL.SwrlStatement(null, new DL.SwrlItemList(null)
             {
                 list = new List<DL.SwrlItem>(){
@@ -2330,7 +2331,7 @@ namespace CogniPy.CNL
             );
             return GetENDLFromAst(ex);
         }
-       
+
         public string GenerateSwrl8()
         {
             var t1 = make_noun();

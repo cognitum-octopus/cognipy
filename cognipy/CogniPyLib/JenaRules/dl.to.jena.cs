@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using System.Data.Linq;
-using org.semanticweb.owlapi.model;
-using org.semanticweb.owlapi.vocab;
-using System.Globalization;
-using org.semanticweb.owlapi.reasoner;
+﻿using CogniPy.ARS;
 using CogniPy.CNL.DL;
-using CogniPy.CNL.EN;
-using org.coode.xml;
+using org.semanticweb.owlapi.vocab;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
-using System.Diagnostics;
-using org.semanticweb.owlapi.util;
-using CogniPy.ARS;
 
 namespace CogniPy.Executing.HermiT
 {
@@ -129,7 +121,7 @@ namespace CogniPy.Executing.HermiT
 
         static public object ToTypedValue(string uri)
         {
-            var ttpos = uri.LastIndexOf('^') ;
+            var ttpos = uri.LastIndexOf('^');
             string ttag;
             string str;
             if (ttpos <= 0)
@@ -141,12 +133,12 @@ namespace CogniPy.Executing.HermiT
             {
                 var ttxpos = uri.IndexOf('^');
                 str = unescapeString(uri.Substring(0, ttxpos));
-                ttag = uri.Substring(ttpos+1).ToLower();
+                ttag = uri.Substring(ttpos + 1).ToLower();
             }
             if (ttag.EndsWith(">"))
                 ttag = ttag.Substring(1, ttag.Length - 2);
             if (ttag.EndsWith("boolean"))
-                return (str.CompareTo("true")==0);
+                return (str.CompareTo("true") == 0);
             else if (ttag.EndsWith("string"))
                 return str;
             else if (ttag.EndsWith("double"))
@@ -280,22 +272,22 @@ namespace CogniPy.Executing.HermiT
         {
             this.nodes = nodes;
         }
-        public override string ToJenaRule( )
+        public override string ToJenaRule()
         {
             return string.Join(",", (from n in nodes select n.ToJenaRule()));
         }
     }
-    
+
     public class TransformToJenaRules : CogniPy.CNL.DL.GenericVisitor
     {
 
         DLToOWLNameConv owlNC;
-        
+
         public Dictionary<string, string> InvUriMappings { get { return owlNC.InvUriMappings; } set { owlNC.InvUriMappings = value; } }
 
         public void setOWLDataFactory(DLToOWLNameConv owlNC)
         {
-            this.owlNC=owlNC;
+            this.owlNC = owlNC;
         }
 
         public string ToOwlName(string name, ARS.EntityKind whatFor)
@@ -448,7 +440,7 @@ namespace CogniPy.Executing.HermiT
                 d = e.R.accept(this) as string;
             using (activeAttribute.set(d))
             {
-                    return e.B.accept(this);
+                return e.B.accept(this);
             }
         }
 

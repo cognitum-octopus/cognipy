@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 
 namespace CNL.NET
 {
@@ -36,16 +34,16 @@ namespace CNL.NET
         bool _isOntorionMode = false;
         public bool IsInOntorionModule
         {
-            get{return _isOntorionMode;}
-            set 
-            { 
+            get { return _isOntorionMode; }
+            set
+            {
                 _isOntorionMode = value;
                 notifyPropertyChanged("IsInOntorionModule");
 
             }
         }
         bool _isExpanded = false;
-        public bool isExpandedNoPropertyChanged 
+        public bool isExpandedNoPropertyChanged
         {
             set { _isExpanded = value; }
         }
@@ -53,8 +51,8 @@ namespace CNL.NET
         public bool IsExpanded
         {
             get { return _isExpanded; }
-            set 
-            { 
+            set
+            {
                 _isExpanded = value;
                 notifyPropertyChanged("IsExpanded");
 
@@ -137,9 +135,9 @@ namespace CNL.NET
         public abstract string ENText { get; }
 
 
-        public enum NodeType { Standard, TopConcept, TopRole, TopAttribute, Nothing, FictiousChild, OntorionSynced, OntorionNotSynced}
+        public enum NodeType { Standard, TopConcept, TopRole, TopAttribute, Nothing, FictiousChild, OntorionSynced, OntorionNotSynced }
 
-        string _prefix="";
+        string _prefix = "";
         public string Prefix
         {
             protected set { _prefix = value; }
@@ -147,13 +145,15 @@ namespace CNL.NET
         }
 
         public bool IsImported { get; set; }
-        NodeType _myType=NodeType.Standard;
-        public NodeType MyType { get{return _myType;}
+        NodeType _myType = NodeType.Standard;
+        public NodeType MyType
+        {
+            get { return _myType; }
             set
             {
-                _myType=value;
+                _myType = value;
                 notifyPropertyChanged("MyType");
-           } 
+            }
         }
 
         public Object Self { get { return this; } }

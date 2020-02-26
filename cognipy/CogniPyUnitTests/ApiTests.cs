@@ -6,9 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using static CogniPy.CNL.DL.Statement;
 
 namespace CogniPyUnitTests
@@ -29,7 +27,7 @@ namespace CogniPyUnitTests
             };
 
             var feClient = new CogniPySvr();
-            feClient.LoadCnlFromString(string.Join("\r\n", cnlSentences),true, true);
+            feClient.LoadCnlFromString(string.Join("\r\n", cnlSentences), true, true);
 
             var result = feClient.DescribeInstances("John");
             Assert.AreEqual(1, result.Count);
@@ -398,7 +396,7 @@ _Ala Instance: ""backwardCompatibleWith"":owl 'sdsgd'@ar
 
             var feClient = new CogniPySvr();
             feClient.LoadCnlFromString(string.Join("\r\n", cnlSentences.Union<string>(new List<string>() { "Comment: This comment should not be returned." })), true, true);
-            var sentencesReturned = feClient.ToCNLList(includeImplicit, removeTrivials,true);
+            var sentencesReturned = feClient.ToCNLList(includeImplicit, removeTrivials, true);
 
             Assert.AreEqual(sentencesReturned.Count, sentencesReturned.Distinct().ToList().Count, "There are duplicate senetences!");
 
@@ -526,10 +524,10 @@ _Ala Instance: ""backwardCompatibleWith"":owl 'sdsgd'@ar
             Assert.IsTrue(annots.Where(a => a.Property == "network-description").Count() > 0);
 
             //Check for number of Annotations: blocks, should be exactly 1 
-            var toCnl = feClient.ToCNL(includeImplicit,true);
+            var toCnl = feClient.ToCNL(includeImplicit, true);
             Assert.AreEqual(1, toCnl.Split(' ').Where(tok => tok.Contains("Annotations:")).Count());
 
-            var toCnlList = feClient.ToCNLList(includeImplicit, removeTrivials,true);
+            var toCnlList = feClient.ToCNLList(includeImplicit, removeTrivials, true);
             Assert.AreEqual(1, toCnlList.Count(s => s.Contains("Annotations:")));
         }
     }

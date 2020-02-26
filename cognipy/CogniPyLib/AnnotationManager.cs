@@ -168,7 +168,7 @@ namespace CogniPy.CNL
         static string allSubjectQuotedStart = @"(""|{""|The-""|THE-""|the-""|_"")";
         static string allPossibleSubjectEnd = @"(""|""}|"")";
         static string allPossibleReferenceEnding = @"\[[^\s\]]*\]|:[^\s]*";
-        public static Regex w3cAnnotRg = new Regex(@"^\s*(\r\n)?(?<annotated>(("+allSubjectQuotedStart+@"?[^""]*"+allPossibleSubjectEnd+@")("+allPossibleReferenceEnding+@")?\s|([\S]*)))(?<annotatedKind>[^:]*):\s*(?<type>\S*)\s+[""']?(?<value>(((?<=[""'])([^""']|\\'|\\"")*(?=[""'])))|([0-9-\.,]*))[""']?(@(?<language>[a-zA-Z-]*))?\s*($|(?<dot>\.))",
+        public static Regex w3cAnnotRg = new Regex(@"^\s*(\r\n)?(?<annotated>((" + allSubjectQuotedStart + @"?[^""]*" + allPossibleSubjectEnd + @")(" + allPossibleReferenceEnding + @")?\s|([\S]*)))(?<annotatedKind>[^:]*):\s*(?<type>\S*)\s+[""']?(?<value>(((?<=[""'])([^""']|\\'|\\"")*(?=[""'])))|([0-9-\.,]*))[""']?(@(?<language>[a-zA-Z-]*))?\s*($|(?<dot>\.))",
  RegexOptions.Compiled |
  RegexOptions.Multiline);
 
@@ -270,7 +270,7 @@ namespace CogniPy.CNL
 
                 // if the subject is a statement, then the annotation manager keeps it internally as: statement with quotes inside (no quotes around!)
                 if (res == ARS.EntityKind.Statement && annotated.StartsWith("\"") && annotated.EndsWith("\""))
-                    annotated = annotated.Substring(1, annotated.Length - 2).Replace("\''","\"");
+                    annotated = annotated.Substring(1, annotated.Length - 2).Replace("\''", "\"");
                 else if (res == ARS.EntityKind.Statement && !annotated.StartsWith("\"") && !annotated.EndsWith("\"")) //statement should be quoted! If not, continue.
                     continue;
 
@@ -373,7 +373,7 @@ namespace CogniPy.CNL
             var subj = subjExt;
             if (subjType == ARS.EntityKind.Statement.ToString())
             {
-                subj = subj.Replace("\r\n", "").Replace("''","\"");
+                subj = subj.Replace("\r\n", "").Replace("''", "\"");
             }
 
             appendAnnotations(subj, subjType, dlannot);
@@ -423,7 +423,7 @@ namespace CogniPy.CNL
                 {
                     var subj = annotEl.Key;
                     if (subjectType[annotEl.Key] == ARS.EntityKind.Statement.ToString())
-                        subj = "\"" + subj.Replace("\"","''") + "\"";
+                        subj = "\"" + subj.Replace("\"", "''") + "\"";
 
                     foreach (var annotContain in annotEl.Value)
                     {

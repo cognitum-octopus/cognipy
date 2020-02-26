@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using org.semanticweb.owlapi.model;
-using org.semanticweb.owlapi.vocab;
-using org.coode.xml;
+﻿using org.semanticweb.owlapi.model;
 using org.semanticweb.owlapi.util;
+using org.semanticweb.owlapi.vocab;
+using System;
+using System.Collections.Generic;
 //using Ontorion.OWL;
 
 namespace CogniPy.ARS
@@ -19,7 +18,7 @@ namespace CogniPy.ARS
     public class InvTransform : OWLObjectVisitor
     {
         OWLOntologyManager owlManager;
-        OWLOntology _ontology=null;
+        OWLOntology _ontology = null;
 
         public Dictionary<string, string> Pfx2ns = new Dictionary<string, string>(){
             {"rdf", @"http://www.w3.org/1999/02/22-rdf-syntax-ns#"},
@@ -47,12 +46,12 @@ namespace CogniPy.ARS
         /// </summary>
         /// <param name="owlManager"></param>
         /// <param name="defaultOntology">This is the default ontology that will be used each time (unless than for the Convert(OWLOntology) function.</param>
-        public InvTransform(OWLOntologyManager owlManager, OWLOntology defaultOntology, string ontologyLocation, NameingConventionKind nck = NameingConventionKind.CamelCase,Func<string,IEnumerable<string>> getForms=null) 
+        public InvTransform(OWLOntologyManager owlManager, OWLOntology defaultOntology, string ontologyLocation, NameingConventionKind nck = NameingConventionKind.CamelCase, Func<string, IEnumerable<string>> getForms = null)
         {
             if (getForms == null)
                 getForms = new Func<string, IEnumerable<string>>((word) => new List<string>() { word });
 
-            this.owlManager = owlManager; 
+            this.owlManager = owlManager;
             this._ontology = defaultOntology;
 
             if (owlManager.getOntologyFormat(defaultOntology) == null)
@@ -70,14 +69,14 @@ namespace CogniPy.ARS
                 CogniPy.ARS.IOwlNameingConvention namc = null;
                 if (nck == NameingConventionKind.Smart)
                     throw new NotImplementedException();
-//                    namc = new Ontorion.ARS.OwlNameingConventionSmartImport(getForms);
+                //                    namc = new Ontorion.ARS.OwlNameingConventionSmartImport(getForms);
                 else
                     namc = new CogniPy.ARS.OwlNameingConventionUnderscore(nck == NameingConventionKind.Underscored ? '_' : '-', nck == NameingConventionKind.Underscored ? false : true);
                 setNameingConvention(namc);
             }
         }
 
-		/// <summary>
+        /// <summary>
         /// Zero constructor 
         /// </summary>
         public InvTransform() { }
@@ -87,7 +86,7 @@ namespace CogniPy.ARS
             this.owlManager = owlManager;
             this._ontology = defaultOntology;
             setNameProvider(namespaceManager, lex);
-            if(owlNameingConvention != null)
+            if (owlNameingConvention != null)
                 setNameingConvention(owlNameingConvention);
         }
 
@@ -105,14 +104,14 @@ namespace CogniPy.ARS
                     defaultNs = v;
                     continue;
                 }
-                if (!Pfx2ns.ContainsKey(k.Replace(".","$")))
+                if (!Pfx2ns.ContainsKey(k.Replace(".", "$")))
                 {
-                    Pfx2ns.Add(k.Replace(".","$"), v);
+                    Pfx2ns.Add(k.Replace(".", "$"), v);
                     if (!Ns2pfx.ContainsKey(v))
-                        Ns2pfx.Add(v, k.Replace(".","$"));
+                        Ns2pfx.Add(v, k.Replace(".", "$"));
                 }
             }
-           
+
             this.lex = lex;
         }
 
@@ -124,7 +123,7 @@ namespace CogniPy.ARS
             if (!(owlNameingConvention is OwlNameingConventionCamelCase))
                 this.owlNameingConventionCC = new OwlNameingConventionCamelCase();
         }
-        
+
         private object ret = null;
 
         public CogniPy.CNL.DL.Paragraph Convert(OWLOntology ontology)
@@ -182,10 +181,10 @@ namespace CogniPy.ARS
             par.Statements.InsertRange(0, decls);
             if (_annotMan.GetAnnotationSubjects().Count > 0)
             {
-                foreach(var ann in _annotMan.getDLAnnotationAxioms())
+                foreach (var ann in _annotMan.getDLAnnotationAxioms())
                     par.Statements.AddRange(ann.Value);
             }
-            
+
             ret = par;
         }
 
@@ -195,10 +194,10 @@ namespace CogniPy.ARS
         string ns2pfx(string arg)
         {
             if (arg == null)
-                return "<"+defaultNs+">";
+                return "<" + defaultNs + ">";
 
             if (!arg.EndsWith("/") && !arg.EndsWith("#") && !arg.Contains("#"))
-                arg +="#";
+                arg += "#";
 
             if (Ns2pfx.ContainsKey(arg))
                 return Ns2pfx[arg];
@@ -263,15 +262,15 @@ namespace CogniPy.ARS
                 string convId;
                 if (!useCamelCase && owlNameingConventionCC != null)
                 {
-                    if (UriMappings.ContainsKey(Tuple.Create(makeFor,owlName.iri.toString())))
-                        return UriMappings[Tuple.Create(makeFor,owlName.iri.toString())];
+                    if (UriMappings.ContainsKey(Tuple.Create(makeFor, owlName.iri.toString())))
+                        return UriMappings[Tuple.Create(makeFor, owlName.iri.toString())];
                     var id = ensureQuotation(owlNameingConventionCC, owlNameingConvention.ToDL(owlName, lex, ns2pfx, makeFor), makeFor);
                     var ccid = ensureQuotation(owlNameingConventionCC, owlNameingConventionCC.ToDL(owlName, lex, ns2pfx, makeFor), makeFor);
                     if (ccid != id)
                     {
                         if (InvUriMappings.ContainsKey(id))
                             return id;
-                        UriMappings[Tuple.Create(makeFor,owlName.iri.toString())] = id;
+                        UriMappings[Tuple.Create(makeFor, owlName.iri.toString())] = id;
                         InvUriMappings[id] = owlName.iri.toString();
                     }
                     convId = id;
@@ -289,9 +288,9 @@ namespace CogniPy.ARS
             return null;
         }
 
-        public string renderEntity(string uri, EntityKind makeFor, bool useCamelCase=false)
+        public string renderEntity(string uri, EntityKind makeFor, bool useCamelCase = false)
         {
-            return renderEntity(new OwlName() { iri = IRI.create(uri) }, makeFor,useCamelCase);
+            return renderEntity(new OwlName() { iri = IRI.create(uri) }, makeFor, useCamelCase);
         }
 
         SortedDictionary<string, CogniPy.CNL.DL.Statement> declaredEntities = new SortedDictionary<string, CNL.DL.Statement>();
@@ -316,7 +315,7 @@ namespace CogniPy.ARS
 
                 stmt.C = atom;
                 stmt.D = new CNL.DL.Top(null);
-                if(!declaredEntities.ContainsKey("C:" + atom.id))
+                if (!declaredEntities.ContainsKey("C:" + atom.id))
                     declaredEntities.Add("C:" + atom.id, stmt);
 
                 if (axiom.isAnnotated())
@@ -336,7 +335,7 @@ namespace CogniPy.ARS
 
                 stmt.I = atom;
                 stmt.C = new CNL.DL.Top(null);
-                if(!declaredEntities.ContainsKey("I:" + atom.name))
+                if (!declaredEntities.ContainsKey("I:" + atom.name))
                     declaredEntities.Add("I:" + atom.name, stmt);
 
                 if (axiom.isAnnotated())
@@ -376,7 +375,7 @@ namespace CogniPy.ARS
 
                 stmt.C = atom;
                 stmt.D = new CNL.DL.Top(null);
-                if(!declaredEntities.ContainsKey("D:" + atom.id))
+                if (!declaredEntities.ContainsKey("D:" + atom.id))
                     declaredEntities.Add("D:" + atom.id, stmt);
 
                 if (axiom.isAnnotated())
@@ -850,7 +849,7 @@ namespace CogniPy.ARS
                 appendAnnotationsToManager(property);
                 // annotations end   
                 var id = renderEntity(property, EntityKind.Role);
-                ret = new CNL.DL.Atomic(null) { id = id};
+                ret = new CNL.DL.Atomic(null) { id = id };
                 if (!useEntityDeclMode)
                     usedEntities.Add("R:" + id);
             }
@@ -876,7 +875,7 @@ namespace CogniPy.ARS
                 appendAnnotationsToManager(property);
                 // annotations end
                 var id = renderEntity(property, EntityKind.DataRole);
-                ret = new CNL.DL.Atomic(null) { id = id};
+                ret = new CNL.DL.Atomic(null) { id = id };
                 if (!useEntityDeclMode)
                     usedEntities.Add("D:" + id);
             }
@@ -944,7 +943,7 @@ namespace CogniPy.ARS
         public void visit(OWLDisjointUnionAxiom axiom)
         {
             CogniPy.CNL.DL.DisjointUnion stmt = new CNL.DL.DisjointUnion(null) { Union = new List<CNL.DL.Node>() };
-            axiom.getOWLClass().accept((OWLClassExpressionVisitor) this);
+            axiom.getOWLClass().accept((OWLClassExpressionVisitor)this);
             Assert(ret is CNL.DL.Atomic);
             stmt.name = (ret as CNL.DL.Atomic).id;
             var unions = axiom.getClassExpressions().iterator();
@@ -1120,8 +1119,8 @@ namespace CogniPy.ARS
             }
             else
             {
-                if (    node.getIRI().toString() == "http://www.w3.org/2001/XMLSchema#date"
-                   ||   node.getIRI().toString() == "http://www.w3.org/2001/XMLSchema#time")
+                if (node.getIRI().toString() == "http://www.w3.org/2001/XMLSchema#date"
+                   || node.getIRI().toString() == "http://www.w3.org/2001/XMLSchema#time")
                 {
                     ret = new CNL.DL.TotalBound(null) { V = new CNL.DL.DateTimeVal(null, "2012-01-03") };
                 }
@@ -1192,7 +1191,7 @@ namespace CogniPy.ARS
             while (fr.hasNext())
             {
                 var val = fr.next() as OWLObject;
-                ret = null;               
+                ret = null;
                 val.accept(this);
                 FL.List.Add(ret as CNL.DL.Facet);
             }
@@ -1237,28 +1236,36 @@ namespace CogniPy.ARS
             var a2 = f.name().ToUpper();
             switch (a2)
             {
-                case "MIN_INCLUSIVE": expr.Kind = "≥";
+                case "MIN_INCLUSIVE":
+                    expr.Kind = "≥";
                     expr.V = getNumberOrFloatValFromLiteral(owli);
                     break;
-                case "MAX_INCLUSIVE": expr.Kind = "≤";
+                case "MAX_INCLUSIVE":
+                    expr.Kind = "≤";
                     expr.V = getNumberOrFloatValFromLiteral(owli);
                     break;
-                case "MIN_EXCLUSIVE": expr.Kind = ">";
+                case "MIN_EXCLUSIVE":
+                    expr.Kind = ">";
                     expr.V = getNumberOrFloatValFromLiteral(owli);
                     break;
-                case "MAX_EXCLUSIVE": expr.Kind = "<";
+                case "MAX_EXCLUSIVE":
+                    expr.Kind = "<";
                     expr.V = getNumberOrFloatValFromLiteral(owli);
                     break;
-                case "PATTERN": expr.Kind = "#";
+                case "PATTERN":
+                    expr.Kind = "#";
                     expr.V = new CNL.DL.String(null, "\'" + owli.getLiteral().Replace("\'", "\'\'") + "\'");
                     break;
-                case "LENGTH": expr.Kind = "<->";
+                case "LENGTH":
+                    expr.Kind = "<->";
                     expr.V = getNumberLiteral(owli);
                     break;
-                case "MIN_LENGTH": expr.Kind = "<-> ≥";
+                case "MIN_LENGTH":
+                    expr.Kind = "<-> ≥";
                     expr.V = getNumberLiteral(owli);
                     break;
-                case "MAX_LENGTH": expr.Kind = "<-> ≤";
+                case "MAX_LENGTH":
+                    expr.Kind = "<-> ≤";
                     expr.V = getNumberLiteral(owli);
                     break;
                 default:
@@ -1271,13 +1278,13 @@ namespace CogniPy.ARS
         public void visit(OWLDatatypeDefinitionAxiom axiom)
         {
             var expr = new CNL.DL.DataTypeDefinition(null);
-            
+
             var owlName = new OwlName() { iri = axiom.getDatatype().getIRI() };
-            expr.name=owlNameingConvention.ToDL(owlName, lex, ns2pfx, EntityKind.Concept).id;
-            
+            expr.name = owlNameingConvention.ToDL(owlName, lex, ns2pfx, EntityKind.Concept).id;
+
             if (!useEntityDeclMode)
                 usedEntities.Add("T:" + expr.name);
-            
+
             axiom.getDataRange().accept(this);
             expr.B = ret as CNL.DL.AbstractBound;
             if (axiom.isAnnotated())
@@ -1291,8 +1298,8 @@ namespace CogniPy.ARS
             {
                 var it = desc.getAnnotations(_ontology).iterator();
                 var owlName = new OwlName() { iri = desc.getIRI() };
-                appendAnnotationsToManager(owlNameingConvention.ToDL(owlName, lex, ns2pfx, EntityKind.Concept).id,EntityKind.Concept, it);
-                if(!iriKindCache.ContainsKey(desc.getIRI().toString()))
+                appendAnnotationsToManager(owlNameingConvention.ToDL(owlName, lex, ns2pfx, EntityKind.Concept).id, EntityKind.Concept, it);
+                if (!iriKindCache.ContainsKey(desc.getIRI().toString()))
                     iriKindCache.Add(desc.getIRI().toString(), EntityKind.Concept);
             }
         }
@@ -1304,9 +1311,9 @@ namespace CogniPy.ARS
                 var it = prop.getAnnotations(_ontology).iterator();
                 var owlName = new OwlName() { iri = prop.getIRI() };
                 EntityKind kind = EntityKind.Role;
-                if(prop is OWLDataProperty)
+                if (prop is OWLDataProperty)
                     kind = EntityKind.DataRole;
-                appendAnnotationsToManager(owlNameingConvention.ToDL(owlName, lex, ns2pfx, kind).id,kind,it);
+                appendAnnotationsToManager(owlNameingConvention.ToDL(owlName, lex, ns2pfx, kind).id, kind, it);
                 if (!iriKindCache.ContainsKey(prop.getIRI().toString()))
                     iriKindCache.Add(prop.getIRI().toString(), kind);
             }
@@ -1328,14 +1335,14 @@ namespace CogniPy.ARS
 
         private CogniPy.CNL.AnnotationManager _annotMan = new CogniPy.CNL.AnnotationManager();
 
-        private void appendAnnotationsToManager(string subj,EntityKind kind, java.util.Iterator it)
+        private void appendAnnotationsToManager(string subj, EntityKind kind, java.util.Iterator it)
         {
             if (_ontology != null)
             {
                 while (it.hasNext())
                 {
                     var annot = (OWLAnnotation)it.next();
-                    _annotMan.appendAnnotations(visitWithReturn(subj,kind,annot));
+                    _annotMan.appendAnnotations(visitWithReturn(subj, kind, annot));
                 }
             }
         }
@@ -1344,7 +1351,7 @@ namespace CogniPy.ARS
         {
             var owlName = new OwlName() { iri = annot.getProperty().getIRI() };
 
-            string val="";
+            string val = "";
             if (annot.getValue() is IRI)
             {
                 val = annot.getValue().ToString();
@@ -1434,7 +1441,7 @@ namespace CogniPy.ARS
                     OWLAnnotation annot = axiom.getAnnotation();
                     var dlSent = visitWithReturn(renderEntity(owlName, subjKind), subjKind, annot);
                     if (axiom.isAnnotated())
-                        appendAnnotationsToManager(axiom,dlSent);
+                        appendAnnotationsToManager(axiom, dlSent);
                     ret = dlSent;
                     // TODO ALESSANDRO this should be the way in which we search for the entity because in OWL there is the pruning so it is possible to have the same name for concept,role,...
                     // in this case we should return more than one annotation! The problem is that there is no possibility to return more than one axiom at a time.
@@ -1534,12 +1541,12 @@ namespace CogniPy.ARS
         {
             CogniPy.CNL.DL.SwrlStatement statement = new CogniPy.CNL.DL.SwrlStatement(null);
 
-            var slpi = rule.getBody().iterator();            
+            var slpi = rule.getBody().iterator();
             statement.slp = new CNL.DL.SwrlItemList(null)
             {
-                list = new List<CNL.DL.SwrlItem>()                 
-            }; 
-            while(slpi.hasNext())
+                list = new List<CNL.DL.SwrlItem>()
+            };
+            while (slpi.hasNext())
             {
                 var atom = slpi.next() as SWRLAtom;
                 ret = null;
@@ -1548,7 +1555,7 @@ namespace CogniPy.ARS
                     statement.slp.list.Add(ret as CNL.DL.SwrlItem);
             }
 
-            var slci = rule.getHead().iterator();    
+            var slci = rule.getHead().iterator();
             statement.slc = new CNL.DL.SwrlItemList(null)
             {
                 list = new List<CNL.DL.SwrlItem>()
@@ -1564,7 +1571,7 @@ namespace CogniPy.ARS
 
             if (rule.isAnnotated())
                 appendAnnotationsToManager(rule, statement);
-            ret = statement;           
+            ret = statement;
         }
 
         public void visit(SWRLClassAtom node)
@@ -1630,11 +1637,11 @@ namespace CogniPy.ARS
                 var arg1 = args.next() as SWRLArgument;
                 ret = null;
                 arg1.accept(this);
-                if(ret is CogniPy.CNL.DL.SwrlBuiltIn)
+                if (ret is CogniPy.CNL.DL.SwrlBuiltIn)
                     id_var = ret as CogniPy.CNL.DL.SwrlDObject;
-                else if(ret is CogniPy.CNL.DL.Value)
+                else if (ret is CogniPy.CNL.DL.Value)
                     id_var = new CogniPy.CNL.DL.SwrlDVal(null, ret as CogniPy.CNL.DL.Value);
-                else if(ret is CogniPy.CNL.DL.ISwrlVar)
+                else if (ret is CogniPy.CNL.DL.ISwrlVar)
                     id_var = new CogniPy.CNL.DL.SwrlDVar(null, (ret as CogniPy.CNL.DL.ISwrlVar).getVar());
 
                 Assert(id_var != null);
@@ -1694,7 +1701,7 @@ namespace CogniPy.ARS
                 args.Add(A);
             }
 
-            
+
             string buildInName = null;
 
             var pred = node.getPredicate();
@@ -1844,7 +1851,7 @@ namespace CogniPy.ARS
             else if (pred.compareTo(IRI.create("http://ontorion.com/swrlb#" + "annotation")) == 0)
                 buildInName = "annotation";
 
-            if (buildInName==null)
+            if (buildInName == null)
                 throw new NotImplementedException("BuiltIn:<" + pred.toURI().toString() + "> is currently not supported");
 
             ret = new CNL.DL.SwrlBuiltIn(null, buildInName, args);
@@ -1909,10 +1916,10 @@ namespace CogniPy.ARS
                 n2 = ret as CNL.DL.SwrlIObject;
 
             ret = new CNL.DL.SwrlSameAs(null)
-                {
-                    I = n1,
-                    J = n2
-                };
+            {
+                I = n1,
+                J = n2
+            };
         }
 
         public void visit(SWRLDifferentIndividualsAtom node)
@@ -1926,8 +1933,8 @@ namespace CogniPy.ARS
 
             ret = new CNL.DL.SwrlDifferentFrom(null)
             {
-                I = n1 ,
-                J = n2 
+                I = n1,
+                J = n2
             };
         }
 

@@ -5,9 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace CogniPyUnitTests
 {
@@ -74,7 +72,7 @@ Element-2-Form-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3a9ab5
             client.KnowledgeDelete(@"Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3a9ab53-4423-4354-885d-2776ba98505d#>] have-field-2-1-3 Answer-2-1-3-1.
 Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3a9ab53-4423-4354-885d-2776ba98505d#>] have-field-2-1-3 Answer-2-1-3-2.
 Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3a9ab53-4423-4354-885d-2776ba98505d#>] have-field-2-1-3 Answer-2-1-3-4.
-Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3a9ab53-4423-4354-885d-2776ba98505d#>] have-field-2-1-3 Answer-2-1-3-5.",true);
+Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3a9ab53-4423-4354-885d-2776ba98505d#>] have-field-2-1-3 Answer-2-1-3-5.", true);
 
             client.KnowledgeInsert(@"Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3a9ab53-4423-4354-885d-2776ba98505d#>] have-field-2-1-3 Answer-2-1-3-3.", true, true);
 
@@ -83,14 +81,14 @@ Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3
 Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3a9ab53-4423-4354-885d-2776ba98505d#>] have-field-2-1-3 Answer-2-1-3-3.
 Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3a9ab53-4423-4354-885d-2776ba98505d#>] have-field-2-1-3 Answer-2-1-3-4.
 "
-,true);
+, true);
             var desc = client.DescribeInstances("Survey[<http://www.sfo.cognitum.eu/Survey/c3a9ab53-4423-4354-885d-2776ba98505d#>]");
 
             var all = client.GetInstancesOf("thing", false); // OK
             var inst1 = client.GetInstancesOf("field-1-1-1", false); // OK
-//            Assert.IsNotEmpty(inst0);
+                                                                     //            Assert.IsNotEmpty(inst0);
             Assert.IsNotEmpty(all);
-//            CollectionAssert.AreEquivalent(inst0, inst1);
+            //            CollectionAssert.AreEquivalent(inst0, inst1);
         }
 
 
@@ -172,19 +170,19 @@ Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3
         {
             var numberOfThreads = 12;
             var proto = InitializeClient("RODO.encnl");
-            Func<Guid,string> toAddString = (guid) =>
-            {
-                var uri = "http://www.sfo.cognitum.eu/Survey/" + guid.ToString();
-                var str = String.Join("\r\n", new List<string>() {
+            Func<Guid, string> toAddString = (guid) =>
+             {
+                 var uri = "http://www.sfo.cognitum.eu/Survey/" + guid.ToString();
+                 var str = String.Join("\r\n", new List<string>() {
             $"Element-1-Form-D-24-01-2019-T-15-42-57[<{uri}>] is a element-1-form.",
             $"Survey[<{uri}>] is a subject[sfo].",
             $"Element-1-Form-D-24-01-2019-T-15-42-57[<{uri}>] concern[sfo] Survey[<{uri}>].",
             $"Survey[<{uri}>] is-concerned-by[sfo] Element-1-Form-D-24-01-2019-T-15-42-57[<{uri}>].",
             $"Element-1-1-Section-D-24-01-2019-T-15-42-57[<{uri}>] is a element-1-1-section.",
             $"Element-1-Form-D-24-01-2019-T-15-42-57[<{uri}>] concern[sfo] Element-1-1-Section-D-24-01-2019-T-15-42-57[<{uri}>]."
-            });
-                return str;
-            };
+             });
+                 return str;
+             };
 
 
             var countdownEvent = new CountdownEvent(numberOfThreads);
@@ -211,12 +209,12 @@ Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3
         }
 
         [Test]
-      //  [Ignore("this concurrency test takes too much time.")]
+        //  [Ignore("this concurrency test takes too much time.")]
         [TestCase(true, true)]
         [TestCase(true, false)]
         [TestCase(false, false)]
         [TestCase(false, true)]
-        public void MixedLoadConcurrencyTest(bool direct,bool clone)
+        public void MixedLoadConcurrencyTest(bool direct, bool clone)
         {
             const int n = 20;
             const int m = 200;
@@ -224,7 +222,7 @@ Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3
 
             var reaonsers = new List<CogniPySvr>();
 
-            if(clone)
+            if (clone)
             {
                 var proto = InitializeClient("Ont.encnl");
                 for (var i = 0; i < n; ++i)
@@ -246,7 +244,7 @@ Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3
                 Random rnd = new Random();
                 countdownEvent.Signal();
                 countdownEvent.Wait();
-                int taskid= Interlocked.Increment(ref taskCnt);
+                int taskid = Interlocked.Increment(ref taskCnt);
                 string instance = "";
                 for (var j = 0; j < m; ++j)
                 {
@@ -274,7 +272,7 @@ Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3
                     else
                     {
                         Assert.AreEqual(qq.Count, k + 1);
-                        reasoner.KnowledgeDelete(qq[0] +" to-nasz Pan.", true);
+                        reasoner.KnowledgeDelete(qq[0] + " to-nasz Pan.", true);
                     }
                 }
 
@@ -287,7 +285,7 @@ Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3
                 t.Join();
         }
 
-        private CogniPySvr InitializeClient(string ontologyFile,bool materialize=true)
+        private CogniPySvr InitializeClient(string ontologyFile, bool materialize = true)
         {
             var ontologyDirectory = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
             var ontologyPath = Path.Combine(ontologyDirectory, "TestFiles", ontologyFile);
@@ -302,7 +300,7 @@ Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3
         [Test]
         public void LongAnnotationLoadingTimeBug()
         {
-            var reasoner = InitializeClient("RODO.encnl",false);
+            var reasoner = InitializeClient("RODO.encnl", false);
             var result = reasoner.GetSubConceptsOf("a starting-form[sfo]", true);
         }
     }

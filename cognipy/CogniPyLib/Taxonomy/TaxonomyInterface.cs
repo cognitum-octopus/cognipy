@@ -1,10 +1,6 @@
 ﻿using CogniPy.Collections;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 
 namespace CNL.NET
 {
@@ -20,7 +16,7 @@ namespace CNL.NET
         /// </summary>
         bool IsStructural { get; set; }
 
-        
+
 
         /// <summary>
         /// set the invokable element that will be connected to this taxonomy
@@ -39,14 +35,14 @@ namespace CNL.NET
         /// </summary>
         /// <param name="structural"></param>
         void Merge();
-        
+
         /// <summary>
         /// Merges the taxonomy contained in newTaxo into the current taxonomy
         /// If generate is true we are generating a new taxonomy
         /// </summary>
         /// <param name="newTaxo">taxonomy from which to merge</param>
         /// <param name="generate">Decides wether we are generating a new taxonomy or merging with an old one</param>
-        void Merge(TaxonomyInterface newTaxo,bool generate);
+        void Merge(TaxonomyInterface newTaxo, bool generate);
 
         void Refresh();
 

@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
-using System;
 
 namespace CogniPy.Collections
 {
@@ -38,13 +38,14 @@ namespace CogniPy.Collections
         {
             if (invokableprovider.GetInvokable() != null)
             {
-                invokableprovider.GetInvokable().Invoke(() => {
+                invokableprovider.GetInvokable().Invoke(() =>
+                {
                     try
                     {
-                        lock(guard)
+                        lock (guard)
                             act();
                     }
-                    catch(Exception)
+                    catch (Exception)
                     {
                         if (this.CollectionChanged != null)
                             this.CollectionChanged(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
@@ -83,11 +84,11 @@ namespace CogniPy.Collections
 
         public void OnPropertyChanged(string propertyName)
         {
-           Invoke(() =>
-                {
-                    if (this.PropertyChanged != null)
-                        this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-                });
+            Invoke(() =>
+                 {
+                     if (this.PropertyChanged != null)
+                         this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                 });
         }
 
         public override void Insert(int index, TValue value)

@@ -3,10 +3,8 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CogniPyCLI
 {
@@ -39,7 +37,7 @@ namespace CogniPyCLI
                     clients.Remove(uid);
                     writer.Write("@deleted");
                 }
-                else if (cmd==null || cmd == "@exit")
+                else if (cmd == null || cmd == "@exit")
                 {
                     break;
                 }
@@ -50,7 +48,7 @@ namespace CogniPyCLI
                         var uid = reader.ReadLine();
                         var fe = clients[uid];
                         StringBuilder sb = new StringBuilder();
-                        while(true)
+                        while (true)
                         {
                             var line = reader.ReadLine();
                             if (line == "\0")
@@ -68,7 +66,7 @@ namespace CogniPyCLI
                         writer.WriteLine("@result");
                         serializer.Serialize(w, ret);
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         writer.WriteLine("@exception");
                         var w = new JsonTextWriter(writer);

@@ -1,6 +1,6 @@
 ﻿
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
 namespace CogniPy.CNL.DL
 {
     public class VisitingParam<T>
@@ -8,7 +8,7 @@ namespace CogniPy.CNL.DL
         Stack<T> Stack = new Stack<T>();
         T def;
 
-        public VisitingParam(T def){this.def=def;}
+        public VisitingParam(T def) { this.def = def; }
 
         class Lock : IDisposable
         {
@@ -44,10 +44,10 @@ namespace CogniPy.CNL.DL
                 return new NullLock();
         }
 
-        public T get() 
+        public T get()
         {
-            if (Stack.Count == 0) return def; 
-            else return Stack.Peek(); 
+            if (Stack.Count == 0) return def;
+            else return Stack.Peek();
         }
     }
 }

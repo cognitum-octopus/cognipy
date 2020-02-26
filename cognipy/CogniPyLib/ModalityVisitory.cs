@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace CogniPy.CNL.DL
 {
@@ -11,9 +8,9 @@ namespace CogniPy.CNL.DL
 
         Func<string, string> ns2pfx;
 
-        public ModalityVisitor(CogniPy.CNL.CNLTools _tools,Func<string,string> ns2pfx=null)
+        public ModalityVisitor(CogniPy.CNL.CNLTools _tools, Func<string, string> ns2pfx = null)
         {
-            tools = _tools; 
+            tools = _tools;
             this.ns2pfx = ns2pfx;
         }
 
@@ -98,13 +95,13 @@ namespace CogniPy.CNL.DL
                     }
 
                     relation = restriction;
-                    string restrVal = tools.GetENDLFromAst(node,false,ns2pfx);
-                    relatedConcept = restrVal.Replace("is ", ""); 
+                    string restrVal = tools.GetENDLFromAst(node, false, ns2pfx);
+                    relatedConcept = restrVal.Replace("is ", "");
                 }
                 else
                 {
                     relation = null;
-                    relatedConcept = tools.GetENDLFromAst(e.D,false,ns2pfx);
+                    relatedConcept = tools.GetENDLFromAst(e.D, false, ns2pfx);
                 }
 
                 //var instSet = new List<Ontorion.CNL.DL.Instance>();

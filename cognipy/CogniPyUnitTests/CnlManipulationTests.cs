@@ -1,10 +1,7 @@
 ﻿using CogniPy;
 using NUnit.Framework;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CogniPyUnitTests
 {
@@ -29,7 +26,7 @@ namespace CogniPyUnitTests
             {
                 Assert.IsTrue(mergedCnl.Any(x => x == cnl));
             }
-            Assert.AreEqual(3,mergedCnl.Count());
+            Assert.AreEqual(3, mergedCnl.Count());
         }
 
         [Test]
@@ -67,7 +64,7 @@ namespace CogniPyUnitTests
 
             feClient.LoadCnlFromString(CnlContent, true, true);
             feClient.KnowledgeDelete(string.Join("\r\n", CnlToRemove), false);
-            var mergedCnl = feClient.ToCNLList(true,true,true);
+            var mergedCnl = feClient.ToCNLList(true, true, true);
 
             foreach (var cnl in CnlToRemove)
             {
@@ -88,12 +85,12 @@ namespace CogniPyUnitTests
                     "John is a man."
                 };
 
-            feClient.LoadCnlFromString(string.Join("\r\n",CnlContent), true, true);
+            feClient.LoadCnlFromString(string.Join("\r\n", CnlContent), true, true);
             feClient.KnowledgeInsert(string.Join("\r\n", CnlToAdd), true, true);
             var mergedCnl = feClient.ToCNLList(true, true, true);
 
             Assert.AreEqual(2, mergedCnl.Count());
-            foreach(var cnl in CnlContent)
+            foreach (var cnl in CnlContent)
             {
                 Assert.IsTrue(mergedCnl.Any(x => x == cnl));
             }
@@ -110,11 +107,11 @@ namespace CogniPyUnitTests
         [TestCase("man", "concept")]
         [TestCase("has-name", "role")]
         [TestCase("John[TIS]", "instance")]
-        public void FromToUriTest(string cnlName,string type)
+        public void FromToUriTest(string cnlName, string type)
         {
             var feClient = new CogniPySvr();
-            feClient.LoadCnlFromString("John is a man.\r\nReferences: [TIS] (\"http://www.somenamespace.com/\").",true,false);
-            
+            feClient.LoadCnlFromString("John is a man.\r\nReferences: [TIS] (\"http://www.somenamespace.com/\").", true, false);
+
             var uri = feClient.UriFromCnl(cnlName, type);
             var transformedCnl = feClient.CnlFromUri(uri, type);
 

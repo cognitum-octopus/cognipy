@@ -1,14 +1,11 @@
 ﻿using CNL.NET;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace CogniPy.CNL.EN
 {
-    public class TaxonomyNodeEN :TaxonomyNode
+    public class TaxonomyNodeEN : TaxonomyNode
     {
-        public TaxonomyNodeEN(CogniPy.Collections.IInvokableProvider invokableProvider) :base(invokableProvider)
+        public TaxonomyNodeEN(CogniPy.Collections.IInvokableProvider invokableProvider) : base(invokableProvider)
         {
         }
 
@@ -53,9 +50,9 @@ namespace CogniPy.CNL.EN
 
         public string TextNoPrefix
         {
-            get 
+            get
             {
-                string enText=this.ENText;
+                string enText = this.ENText;
                 if (enText.EndsWith("]"))
                 {
                     // we should check here if we are in Ontorion mode, otherwise it will change the way in which it is displayed also on the normal taxonomy!

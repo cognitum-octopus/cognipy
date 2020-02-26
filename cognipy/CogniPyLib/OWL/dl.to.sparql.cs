@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using System.Data.Linq;
+﻿using CogniPy.ARS;
+using CogniPy.CNL.DL;
 using org.semanticweb.owlapi.model;
 using org.semanticweb.owlapi.vocab;
-using System.Globalization;
-using org.semanticweb.owlapi.reasoner;
-using CogniPy.CNL.DL;
-using CogniPy.CNL.EN;
-using org.coode.xml;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
-using System.Diagnostics;
-using org.semanticweb.owlapi.util;
-using CogniPy.ARS;
 
 namespace CogniPy.SPARQL
 {
@@ -42,7 +35,7 @@ namespace CogniPy.SPARQL
         {
             return "";
         }
-        
+
         public virtual string ToSparqlFilter(bool includeTopBot, bool removeClass)
         {
             return "";
@@ -51,9 +44,9 @@ namespace CogniPy.SPARQL
         public virtual bool UseDistinct() { return false; }
 
 
-        public string ToCombinedBlock(bool meanSuperConcept,bool instance=true)
+        public string ToCombinedBlock(bool meanSuperConcept, bool instance = true)
         {
-            var bod = ToSparqlBody(meanSuperConcept,instance);
+            var bod = ToSparqlBody(meanSuperConcept, instance);
             var flt = ToSparqlFilter();
 
             return bod +
@@ -62,16 +55,16 @@ namespace CogniPy.SPARQL
 
         public string ToCombinedBlock(bool meanSuperConcept, bool instance, bool direct, bool includeTopBot, bool removeClass)
         {
-            var bod = ToSparqlBody(meanSuperConcept,instance);
+            var bod = ToSparqlBody(meanSuperConcept, instance);
             var flt = ToSparqlFilter(includeTopBot, removeClass);
 
             string wholeBody = bod;
             if (direct)
             {
-                var min = ToSparqlMinus(meanSuperConcept,instance);
+                var min = ToSparqlMinus(meanSuperConcept, instance);
                 if (!string.IsNullOrEmpty(min))
                 {
-                    wholeBody = "{" + bod + "}\r\nMINUS{"+min+"}";
+                    wholeBody = "{" + bod + "}\r\nMINUS{" + min + "}";
                 }
             }
             return wholeBody +
@@ -127,7 +120,7 @@ namespace CogniPy.SPARQL
             char begChar = str[0];
             if (begChar != '\'' && begChar != '\"')
                 return str;
-            
+
             foreach (var c in str)
             {
                 if (wasBS)
@@ -173,7 +166,7 @@ namespace CogniPy.SPARQL
 
         static public object ToTypedValue(string uri)
         {
-            var ttpos = uri.LastIndexOf('^') ;
+            var ttpos = uri.LastIndexOf('^');
             string ttag;
             string str;
             if (ttpos <= 0)
@@ -185,12 +178,12 @@ namespace CogniPy.SPARQL
             {
                 var ttxpos = uri.IndexOf('^');
                 str = unescapeString(uri.Substring(0, ttxpos));
-                ttag = uri.Substring(ttpos+1).ToLower();
+                ttag = uri.Substring(ttpos + 1).ToLower();
             }
             if (ttag.EndsWith(">"))
                 ttag = ttag.Substring(1, ttag.Length - 2);
             if (ttag.EndsWith("boolean"))
-                return (str.CompareTo("true")==0);
+                return (str.CompareTo("true") == 0);
             else if (ttag.EndsWith("string"))
                 return str;
             else if (ttag.EndsWith("double"))
@@ -226,7 +219,7 @@ namespace CogniPy.SPARQL
                 return string.IsNullOrEmpty(flt) ? "" : "( " + flt + " )";
         }
 
-        public override string ToSparqlBody( bool meanSuperConcept, bool instance = true)
+        public override string ToSparqlBody(bool meanSuperConcept, bool instance = true)
         {
             if (!instance)
             {
@@ -241,19 +234,19 @@ namespace CogniPy.SPARQL
             }
         }
 
-        public override string ToSparqlMinus( bool meanSuperConcept, bool instance = true)
+        public override string ToSparqlMinus(bool meanSuperConcept, bool instance = true)
         {
             string freeId2 = "?x1";
             if (freeId2 == GetFreeVariableId())
             {
-                freeId2="?x2";
+                freeId2 = "?x2";
             }
 
-            string firstBody = ToSparqlBody(meanSuperConcept,instance);
+            string firstBody = ToSparqlBody(meanSuperConcept, instance);
             string minusBody = firstBody + ".\r\n ";
             if (!instance)
             {
-                minusBody += firstBody.Replace(GetFreeVariableId(),freeId2)+".\r\n";
+                minusBody += firstBody.Replace(GetFreeVariableId(), freeId2) + ".\r\n";
                 if (!meanSuperConcept)
                 {
                     minusBody += GetFreeVariableId() + " rdfs:subClassOf " + freeId2 + ".\r\n";
@@ -269,7 +262,7 @@ namespace CogniPy.SPARQL
             }
             else
             {
-                minusBody+= GetFreeVariableId()+ " rdf:type " + freeId2+".\r\n";
+                minusBody += GetFreeVariableId() + " rdf:type " + freeId2 + ".\r\n";
                 if (clsname != null)
                 {
                     minusBody += freeId2 + " rdfs:subClassOf " + ToOwlName(clsname, ARS.EntityKind.Concept);
@@ -361,7 +354,7 @@ namespace CogniPy.SPARQL
             this.varVarId = varVarId;
             this.bound = bound;
         }
-        public override string ToSparqlBody( bool meanSuperConcept,bool instance=true )
+        public override string ToSparqlBody(bool meanSuperConcept, bool instance = true)
         {
             if (bound == "=")
                 return GetFreeVariableId() + " " + ToOwlName(attribute, ARS.EntityKind.DataRole) + " " + GetLiteralVal(value);
@@ -378,8 +371,8 @@ namespace CogniPy.SPARQL
         {
             if (bound == "=")
                 return "";
-            else if(bound=="#")
-                return "regex("+ varVarId + ", "+ GetLiteralVal(value) + ")";
+            else if (bound == "#")
+                return "regex(" + varVarId + ", " + GetLiteralVal(value) + ")";
             else
             {
                 var b = bound;
@@ -409,7 +402,7 @@ namespace CogniPy.SPARQL
             this.isInversed = isInversed;
             this.useDistinct = useDistinct;
         }
-        public override string ToSparqlBody( bool meanSuperConcept,bool instance=true )
+        public override string ToSparqlBody(bool meanSuperConcept, bool instance = true)
         {
             if (!isInversed)
                 return GetFreeVariableId() + " " + ToOwlName(role, ARS.EntityKind.Role) + " " + variableId;
@@ -434,7 +427,7 @@ namespace CogniPy.SPARQL
             this.role = role;
             this.isInversed = isInversed;
         }
-        public override string ToSparqlBody( bool meanSuperConcept,bool instance=true )
+        public override string ToSparqlBody(bool meanSuperConcept, bool instance = true)
         {
             if (!isInversed)
                 return GetFreeVariableId() + " " + ToOwlName(role, ARS.EntityKind.Role) + " " + ToOwlName(instName, ARS.EntityKind.Instance);
@@ -455,7 +448,7 @@ namespace CogniPy.SPARQL
         }
         public override string ToSparqlFilter()
         {
-           return GetFreeVariableId() + " = " + ToOwlName(instName, ARS.EntityKind.Instance);
+            return GetFreeVariableId() + " = " + ToOwlName(instName, ARS.EntityKind.Instance);
         }
 
         public override string ToSparqlFilter(bool includeTopBot, bool removeClass)
@@ -466,7 +459,7 @@ namespace CogniPy.SPARQL
                 return "";
         }
 
-        public override string ToSparqlBody( bool meanSuperConcept, bool instance = true)
+        public override string ToSparqlBody(bool meanSuperConcept, bool instance = true)
         {
             if (meanSuperConcept)
             {
@@ -476,7 +469,7 @@ namespace CogniPy.SPARQL
                 return "";
         }
 
-        public override string ToSparqlMinus( bool meanSuperConcept, bool instance = true)
+        public override string ToSparqlMinus(bool meanSuperConcept, bool instance = true)
         {
             if (!meanSuperConcept)
             {
@@ -491,7 +484,7 @@ namespace CogniPy.SPARQL
 
             string firstBody = ToSparqlBody(meanSuperConcept, instance);
             string minusBody = firstBody + ".\r\n";
-            minusBody += firstBody.Replace(GetFreeVariableId(), freeId2)+".\r\n";
+            minusBody += firstBody.Replace(GetFreeVariableId(), freeId2) + ".\r\n";
             minusBody += freeId2 + " rdfs:subClassOf " + GetFreeVariableId() + ".\r\n";
 
             return minusBody;
@@ -506,7 +499,7 @@ namespace CogniPy.SPARQL
         {
             this.nodes = nodes;
         }
-        public override string ToSparqlBody( bool meanSuperConcept,bool instance=true )
+        public override string ToSparqlBody(bool meanSuperConcept, bool instance = true)
         {
             return string.Join(" .\r\n", (from n in nodes select n.ToSparqlBody(meanSuperConcept)));
         }
@@ -545,7 +538,7 @@ namespace CogniPy.SPARQL
         {
             this.nodes = nodes;
         }
-        public override string ToSparqlBody( bool meanSuperConcept,bool instance=true)
+        public override string ToSparqlBody(bool meanSuperConcept, bool instance = true)
         {
             return string.Join("\r\nUNION\r\n", (from n in nodes select "{" + n.ToCombinedBlock(meanSuperConcept) + "}"));
         }
@@ -605,7 +598,7 @@ namespace CogniPy.SPARQL
             return node.UseDistinct();
         }
     }
-    
+
     public class Transform : CogniPy.CNL.DL.GenericVisitor
     {
 
@@ -633,7 +626,7 @@ namespace CogniPy.SPARQL
                         storedPfxs = tmpStoredPfxs;
                         PrefixOWLOntologyFormat namespaceManager = new org.semanticweb.owlapi.io.RDFXMLOntologyFormat();
                         this._owlNC.ClearOWLFormat();
-                        if(_defaultNs != null)
+                        if (_defaultNs != null)
                             namespaceManager.setDefaultPrefix(_defaultNs);
                         foreach (var kv in storedPfxs)
                         {
@@ -645,10 +638,10 @@ namespace CogniPy.SPARQL
                 }
                 return _owlNC;
             }
-            set{_owlNC=value;}
+            set { _owlNC = value; }
         }
 
-        Dictionary<string, string> storedPfxs=new Dictionary<string,string>();
+        Dictionary<string, string> storedPfxs = new Dictionary<string, string>();
 
         private OWLDataFactory factory;
 
@@ -658,7 +651,7 @@ namespace CogniPy.SPARQL
         public void setOWLDataFactory(string defaultNS, OWLDataFactory factory, PrefixOWLOntologyFormat namespaceManager, CogniPy.CNL.EN.endict lex)
         {
             this.factory = factory;
-            this._pfx2ns = null ;
+            this._pfx2ns = null;
             this._lex = lex;
             this._defaultNs = defaultNS;
             this.owlNC.setOWLFormat(defaultNS, namespaceManager, _lex);
@@ -667,7 +660,7 @@ namespace CogniPy.SPARQL
         Func<Dictionary<string, string>> _pfx2ns;
         CogniPy.CNL.EN.endict _lex;
         string _defaultNs;
-        public void setOWLDataFactory(string defaultNs, Func<Dictionary<string,string>> pfx2ns,CogniPy.CNL.EN.endict lex)
+        public void setOWLDataFactory(string defaultNs, Func<Dictionary<string, string>> pfx2ns, CogniPy.CNL.EN.endict lex)
         {
             this._defaultNs = defaultNs;
 
@@ -710,7 +703,7 @@ PREFIX fn: <http://www.w3.org/2005/xpath-functions#>
 ";
         bool useTypeOf;
 
-        public string ConvertToGetInstancesOf(CNL.DL.Node n,  List<string> roles, List<string> attributes, out Dictionary<string, string> roleBinding,
+        public string ConvertToGetInstancesOf(CNL.DL.Node n, List<string> roles, List<string> attributes, out Dictionary<string, string> roleBinding,
             out Dictionary<string, string> attributeBinding, out string defaultIntance, int offset, int pageSize, bool useTypeOf = false, bool direct = true, string order = "NONE")
         {
 
@@ -741,7 +734,7 @@ PREFIX fn: <http://www.w3.org/2005/xpath-functions#>
                 q += orderByBlock;
 
             q += (pageSize > -1 ? " LIMIT " + pageSize + " OFFSET " + offset : string.Empty);
-            
+
             return q;
 
         }
@@ -839,7 +832,7 @@ PREFIX fn: <http://www.w3.org/2005/xpath-functions#>
 
             if (ordering)
             {
-                whereBlock += ". "+selectVars+" <http://www.ontorion.com#label> ?z1";
+                whereBlock += ". " + selectVars + " <http://www.ontorion.com#label> ?z1";
                 orderByBlock = string.Format(" ORDER BY {0}(?z1) ", order);
                 distinct = true;
             }
@@ -900,11 +893,11 @@ PREFIX fn: <http://www.w3.org/2005/xpath-functions#>
                 using (activeFreeVarId.set(newFreeVarId()))
                 {
                     selectVars = activeFreeVarId.get();
-                    whereBlock = lhs + (useTypeOf ? " rdf:type " : " rdf:instanceOf ")+ activeFreeVarId.get();
+                    whereBlock = lhs + (useTypeOf ? " rdf:type " : " rdf:instanceOf ") + activeFreeVarId.get();
                     defaultIntance = null;
                     var flt = lhs + "!=" + activeFreeVarId.get();
                     filterBlock = "( " + flt + " && " + activeFreeVarId.get() + " != owl:Thing" + " && " + activeFreeVarId.get() + " != owl:Nothing" + " )";
-                    if(direct)
+                    if (direct)
                     {
                         string freeId2 = "?x1";
                         if (freeId2 == activeFreeVarId.get())
@@ -969,7 +962,7 @@ PREFIX fn: <http://www.w3.org/2005/xpath-functions#>
             return ConvertToGetRelatedConceptOf(n, false, direct, includeTopBot, offset, pageSize, useTypeOf, order);
         }
 
-        public string ConvertToGetRelatedConceptOf(CNL.DL.Node n,  bool meanSuperConcept, bool direct, bool includeTopBot, int offset, int pageSize, bool useTypeOf = false, string order = "NONE")
+        public string ConvertToGetRelatedConceptOf(CNL.DL.Node n, bool meanSuperConcept, bool direct, bool includeTopBot, int offset, int pageSize, bool useTypeOf = false, string order = "NONE")
         {
             this.useTypeOf = useTypeOf;
             freeVarIdBase = 0;
@@ -988,7 +981,7 @@ PREFIX fn: <http://www.w3.org/2005/xpath-functions#>
                 distinct = sparqlNode.UseDistinct();
 
                 selectVars = sparqlNode.GetFreeVariableId();
-                whereBlock = sparqlNode.ToCombinedBlock(meanSuperConcept, false, direct, includeTopBot,true);
+                whereBlock = sparqlNode.ToCombinedBlock(meanSuperConcept, false, direct, includeTopBot, true);
 
                 if (ordering)
                     whereBlock += ". " + selectVars + " <http://www.ontorion.com#label> ?z1";
@@ -997,8 +990,8 @@ PREFIX fn: <http://www.w3.org/2005/xpath-functions#>
 
             return PREAMBLE + "SELECT " + (distinct ? "DISTINCT " : " ") + selectVars + "\r\n"
                 + "WHERE {" + whereBlock + "}"
-                + (ordering ? string.Format(" ORDER BY {0}(?z1) ", order) : string.Empty )
-                + (pageSize > -1 ? " LIMIT "+pageSize+" OFFSET " + offset : string.Empty );
+                + (ordering ? string.Format(" ORDER BY {0}(?z1) ", order) : string.Empty)
+                + (pageSize > -1 ? " LIMIT " + pageSize + " OFFSET " + offset : string.Empty);
         }
 
         public string ConvertToSolutionExists(CNL.DL.Node n, bool useTypeOf = false)
@@ -1010,7 +1003,7 @@ PREFIX fn: <http://www.w3.org/2005/xpath-functions#>
             {
                 var sparqlNode = n.accept(this) as SparqlNode;
 
-                return PREAMBLE + "ASK {" + sparqlNode.ToCombinedBlock(false) +"}";
+                return PREAMBLE + "ASK {" + sparqlNode.ToCombinedBlock(false) + "}";
             }
         }
         public override object Visit(Top e)
@@ -1145,7 +1138,7 @@ PREFIX fn: <http://www.w3.org/2005/xpath-functions#>
                 d = e.R.accept(this) as string;
             using (activeAttribute.set(d))
             {
-                    return e.B.accept(this);
+                return e.B.accept(this);
             }
         }
 

@@ -1,18 +1,14 @@
-﻿using System;
-
+﻿using CogniPy.CNL.DL;
+using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
-using System.Text.RegularExpressions;
-using CogniPy.CNL.DL;
-using System.Diagnostics;
 
 namespace CogniPy.CNL.EN
 {
     public class Transform : CogniPy.CNL.DL.IVisitor
     {
 
-        public Transform() {}
+        public Transform() { }
 
         public CogniPy.CNL.EN.paragraph Convert(CogniPy.CNL.DL.Paragraph p, bool usePrefixes = false, Func<string, string> ns2pfxEx = null)
         {
@@ -27,8 +23,8 @@ namespace CogniPy.CNL.EN
             var o = s.accept(this);
             if (o is IEnumerable<CNL.EN.sentence>)
                 return o as IEnumerable<CogniPy.CNL.EN.sentence>;
-            else 
-                return new List<CNL.EN.sentence>(){ o as CogniPy.CNL.EN.sentence};
+            else
+                return new List<CNL.EN.sentence>() { o as CogniPy.CNL.EN.sentence };
         }
         public object Convert(CogniPy.CNL.DL.IAccept n, bool usePrefixes = false, Func<string, string> ns2pfxEx = null)
         {
@@ -146,7 +142,7 @@ namespace CogniPy.CNL.EN
                 var sent = new CNL.EN.subsumption(null, (LeftSide as TransNode).subject()
                     , resolveModality(p.modality)
                     , (RightSide as TransNode).makeorloop(false, p.modality != Statement.Modality.IS));
-                
+
                 return sent;
             }
         }
@@ -158,7 +154,7 @@ namespace CogniPy.CNL.EN
 
         public object Visit(DLAnnotationAxiom a)
         {
-            return new dlannotationassertion(null) { subject =a.subject, subjKind = a.subjKind, annotName = a.annotName, value = a.value, language = a.language };
+            return new dlannotationassertion(null) { subject = a.subject, subjKind = a.subjKind, annotName = a.annotName, value = a.value, language = a.language };
         }
 
         public object Visit(CogniPy.CNL.DL.Equivalence p)
@@ -190,7 +186,7 @@ namespace CogniPy.CNL.EN
         {
             if (p.Disjoints.Count == 2)
             {
-                var LeftSide =  p.Disjoints[0].accept(this);
+                var LeftSide = p.Disjoints[0].accept(this);
                 var RightSide = new DL.ConceptNot(null, p.Disjoints[1]).accept(this);
                 Assert(LeftSide is TransNode);
                 Assert(RightSide is TransNode);
@@ -217,12 +213,12 @@ namespace CogniPy.CNL.EN
         string defNs2Pfx(string ns)
         {
             if (!ns.EndsWith("/") && !ns.EndsWith("#") && !ns.Contains("#"))
-                return ns +"#";
-			else
-            	return ns;
+                return ns + "#";
+            else
+                return ns;
         }
 
-        bool usePrefixes=false;
+        bool usePrefixes = false;
         Func<string, string> _ns2Pfx = null;
         Func<string, string> ns2Pfx
         {
@@ -239,7 +235,7 @@ namespace CogniPy.CNL.EN
         {
             return FromDL(name, endict.WordKind.NormalForm, bigName);
         }
-        
+
         string FromDL(string name, endict.WordKind kind, bool bigName)
         {
             var allParts = (new DlName() { id = name }).Split();
@@ -287,7 +283,7 @@ namespace CogniPy.CNL.EN
             bool inv = e.D is CogniPy.CNL.DL.RoleInversion;
             var rr = convertToRoleWithXY((s as TransNode).role(false, e.modality != Statement.Modality.IS, inv));
             rr.inverse = inv;
-            var sent = new CNL.EN.rolesubsumption(null,  (r as TransNode).role(false, false, false), rr);
+            var sent = new CNL.EN.rolesubsumption(null, (r as TransNode).role(false, false, false), rr);
             return sent;
         }
 
@@ -311,7 +307,7 @@ namespace CogniPy.CNL.EN
                 var d = p.Equivalents[0].accept(this);
                 Assert(d is TransNode);
                 rol = (d as TransNode).role(false, false, false);
-                
+
             }
             if (p.Equivalents.Count == 1)
             {
@@ -376,14 +372,14 @@ namespace CogniPy.CNL.EN
         {
             var ret = new CNL.EN.roledisjoint2(null);
             Assert(p.Disjoints.Count == 2);
-            for(int i=0; i<p.Disjoints.Count;i++)
+            for (int i = 0; i < p.Disjoints.Count; i++)
             {
                 bool inv = p.Disjoints[i] is CogniPy.CNL.DL.RoleInversion;
                 var d = p.Disjoints[i].accept(this);
                 Assert(d is TransNode);
 
-                if(i==0)
-                    ret.r=(d as TransNode).role(false, false, false);
+                if (i == 0)
+                    ret.r = (d as TransNode).role(false, false, false);
                 if (i == 1)
                 {
                     var rr = convertToNotRoleWithXY((d as TransNode).role(false, true, null));
@@ -435,13 +431,13 @@ namespace CogniPy.CNL.EN
                 if (i == 1)
                     ret.s = (d as TransNode).role(false, true, false);
             }
-            return ret; 
+            return ret;
         }
 
         public object Visit(CogniPy.CNL.DL.InstanceOf e)
         {
             object c = e.C.accept(this);
-            var i = new TransInstanceSingle() { Instance = e.I.accept(this) as TransInstance};
+            var i = new TransInstanceSingle() { Instance = e.I.accept(this) as TransInstance };
 
             var sent = new CNL.EN.subsumption(null, i.subject()
                 , resolveModality(e.modality)
@@ -455,11 +451,11 @@ namespace CogniPy.CNL.EN
             var j = new TransInstanceSingle() { Instance = p.J.accept(this) as TransInstance };
             var Role = p.R.accept(this) as TransNode;
 
-            var ore = new TransSomeRestriction(){ C = j, R = Role};
+            var ore = new TransSomeRestriction() { C = j, R = Role };
 
             var sent = new CNL.EN.subsumption(null, i.subject()
                 , resolveModality(p.modality)
-                , ore.makeorloop(false, p.modality != Statement.Modality.IS));          
+                , ore.makeorloop(false, p.modality != Statement.Modality.IS));
             return sent;
         }
 
@@ -549,7 +545,7 @@ namespace CogniPy.CNL.EN
             public CNL.EN.instance instance(bool isPlural, bool isModal)
             {
                 if (id.StartsWith("_"))
-                    return new CNL.EN.instanceBigName(null,_me.FromDL(id.Substring(1), true), false);
+                    return new CNL.EN.instanceBigName(null, _me.FromDL(id.Substring(1), true), false);
                 else
                     return new CNL.EN.instanceBigName(null, _me.FromDL(id, true), true);
             }
@@ -557,7 +553,7 @@ namespace CogniPy.CNL.EN
 
         public object Visit(CogniPy.CNL.DL.NamedInstance e)
         {
-            return new TransNamedInstance(this) {  id = e.name };
+            return new TransNamedInstance(this) { id = e.name };
         }
 
         class TransUnnamedInstance : TransInstance
@@ -565,7 +561,7 @@ namespace CogniPy.CNL.EN
             public TransNode C;
             public CNL.EN.instance instance(bool isPlural, bool isModal)
             {
-                return new CNL.EN.instanceThe(null,false, C.single(isPlural, isModal));
+                return new CNL.EN.instanceThe(null, false, C.single(isPlural, isModal));
             }
         }
 
@@ -580,8 +576,8 @@ namespace CogniPy.CNL.EN
 
         public object Visit(CogniPy.CNL.DL.UnnamedInstance e)
         {
-            object o =  e.C.accept(this);
-            Assert ( o  is TransNode);
+            object o = e.C.accept(this);
+            Assert(o is TransNode);
             if (e.Only)
                 return new TransUnnamedOnlyInstance() { C = o as TransNode };
             else
@@ -662,7 +658,7 @@ namespace CogniPy.CNL.EN
             return new TransString() { val = e.val };
         }
 
-        class TransFloat:TransValue
+        class TransFloat : TransValue
         {
             public string val;
             public override dataval dataval()
@@ -754,7 +750,7 @@ namespace CogniPy.CNL.EN
             }
         }
 
-        class TransFacet 
+        class TransFacet
         {
             public string Kind;
             public TransValue V;
@@ -789,9 +785,9 @@ namespace CogniPy.CNL.EN
         public object Visit(CogniPy.CNL.DL.BoundFacets e)
         {
             var tf = new List<TransFacet>();
-            foreach(var f in e.FL.List)
-                tf.Add(new TransFacet(){ Kind = f.Kind, V = f.V.accept(this) as TransValue});
-            return new TransBoundFacet() { TF= tf};
+            foreach (var f in e.FL.List)
+                tf.Add(new TransFacet() { Kind = f.Kind, V = f.V.accept(this) as TransValue });
+            return new TransBoundFacet() { TF = tf };
         }
 
         class TransBoundOr : TransAbstractBound
@@ -808,10 +804,10 @@ namespace CogniPy.CNL.EN
 
         public object Visit(BoundOr e)
         {
-           var bnds= new List<TransAbstractBound>();
-           foreach (var b in e.List)
-               bnds.Add(b.accept(this) as TransAbstractBound);
-           return new TransBoundOr() { Bnds = bnds };
+            var bnds = new List<TransAbstractBound>();
+            foreach (var b in e.List)
+                bnds.Add(b.accept(this) as TransAbstractBound);
+            return new TransBoundOr() { Bnds = bnds };
         }
 
         class TransBoundAnd : TransAbstractBound
@@ -846,7 +842,7 @@ namespace CogniPy.CNL.EN
         {
             return new TransBoundNot() { Bnd = e.B.accept(this) as TransAbstractBound };
         }
-        
+
         class TransBoundVal : TransAbstractBound
         {
             public string Kind;
@@ -983,7 +979,7 @@ namespace CogniPy.CNL.EN
             }
             public override CNL.EN.role role(bool isPlural, bool isModal, bool? isInverse)
             {
-                return new CNL.EN.role(null, ENNameingConvention.BOTTOMROLENAME, isInverse??false);
+                return new CNL.EN.role(null, ENNameingConvention.BOTTOMROLENAME, isInverse ?? false);
             }
         }
         public object Visit(CogniPy.CNL.DL.Bottom e)
@@ -1156,7 +1152,7 @@ namespace CogniPy.CNL.EN
 
             public override CNL.EN.subject subject()
             {
-                return new CNL.EN.subjectEverything(null, new CNL.EN.thatOrLoop(null, makeorloop(false,false,null)));
+                return new CNL.EN.subjectEverything(null, new CNL.EN.thatOrLoop(null, makeorloop(false, false, null)));
             }
             public override CNL.EN.objectRoleExpr objectRoleExpr(bool isPlural, bool isModal)
             {
@@ -1221,19 +1217,19 @@ namespace CogniPy.CNL.EN
                 CNL.EN.andloop andloop = new CNL.EN.andloop(null) { exprs = new List<CNL.EN.objectRoleExpr>() };
                 foreach (var C in Exprs)
                 {
-                    if(C!=atom)
+                    if (C != atom)
                         andloop.exprs.Add(C.objectRoleExpr(isPlural, isModal));
                 }
-                return new CNL.EN.orloop(null,andloop);
+                return new CNL.EN.orloop(null, andloop);
             }
 
             public override CNL.EN.subject subject()
             {
-                return new CNL.EN.subjectEverything(null, new CNL.EN.thatOrLoop(null, makeorloop(false,false,null)));
+                return new CNL.EN.subjectEverything(null, new CNL.EN.thatOrLoop(null, makeorloop(false, false, null)));
             }
             public override CNL.EN.objectRoleExpr objectRoleExpr(bool isPlural, bool isModal)
             {
-                return new CNL.EN.objectRoleExpr1(null, false, oobject(isPlural,isModal));
+                return new CNL.EN.objectRoleExpr1(null, false, oobject(isPlural, isModal));
             }
             //public override CNL.EN.defObjectRoleExpr defObjectRoleExpr(bool isPlural, bool isModal)
             //{
@@ -1274,7 +1270,7 @@ namespace CogniPy.CNL.EN
             public TransNode C;
             public override CNL.EN.subject subject()
             {
-                return new CNL.EN.subjectEverything(null, new CNL.EN.thatOrLoop(null, new CNL.EN.orloop(null,new CNL.EN.andloop(null, objectRoleExpr(false,false)))));
+                return new CNL.EN.subjectEverything(null, new CNL.EN.thatOrLoop(null, new CNL.EN.orloop(null, new CNL.EN.andloop(null, objectRoleExpr(false, false)))));
             }
             public override CNL.EN.objectRoleExpr objectRoleExpr(bool isPlural, bool isModal)
             {
@@ -1331,7 +1327,7 @@ namespace CogniPy.CNL.EN
             //}
             public override CNL.EN.single single(bool isPlural, bool isModal)
             {
-                return new CNL.EN.singleThingThat(null, new CNL.EN.thatOrLoop(null, new CNL.EN.orloop(null, new CNL.EN.andloop(null, new CNL.EN.objectRoleExpr1(null, true, new CNL.EN.oobjectA(null, C.single(isPlural,isModal)))))));
+                return new CNL.EN.singleThingThat(null, new CNL.EN.thatOrLoop(null, new CNL.EN.orloop(null, new CNL.EN.andloop(null, new CNL.EN.objectRoleExpr1(null, true, new CNL.EN.oobjectA(null, C.single(isPlural, isModal)))))));
             }
             public override oobject oobject(bool isPlural, bool isModal)
             {
@@ -1351,13 +1347,13 @@ namespace CogniPy.CNL.EN
             public TransNode C;
             public override CNL.EN.subject subject()
             {
-                return new CNL.EN.subjectEverything(null, new CNL.EN.thatOrLoop(null, new CNL.EN.orloop(null, new CNL.EN.andloop(null, objectRoleExpr(false,false)))));
+                return new CNL.EN.subjectEverything(null, new CNL.EN.thatOrLoop(null, new CNL.EN.orloop(null, new CNL.EN.andloop(null, objectRoleExpr(false, false)))));
             }
             public override CNL.EN.objectRoleExpr objectRoleExpr(bool isPlural, bool isModal)
             {
                 CNL.EN.objectRoleExpr ore = null;
                 var RN = R.role(isPlural, isModal, false);
-                ore = new CNL.EN.objectRoleExpr2(null, false, new CNL.EN.oobjectOnly(null, C.single(true,false)), RN);
+                ore = new CNL.EN.objectRoleExpr2(null, false, new CNL.EN.oobjectOnly(null, C.single(true, false)), RN);
                 return ore;
             }
             //public override CNL.EN.defObjectRoleExpr defObjectRoleExpr(bool isPlural, bool isModal)
@@ -1415,7 +1411,7 @@ namespace CogniPy.CNL.EN
             }
             public override CNL.EN.single single(bool isPlural, bool isModal)
             {
-                return new CNL.EN.singleThingThat(null, new CNL.EN.thatOrLoop(null, new CNL.EN.orloop(null, new CNL.EN.andloop(null, objectRoleExpr(isPlural,isModal)))));
+                return new CNL.EN.singleThingThat(null, new CNL.EN.thatOrLoop(null, new CNL.EN.orloop(null, new CNL.EN.andloop(null, objectRoleExpr(isPlural, isModal)))));
             }
         }
         public object Visit(CogniPy.CNL.DL.SomeRestriction e)
@@ -1439,7 +1435,7 @@ namespace CogniPy.CNL.EN
             {
                 CNL.EN.objectRoleExpr ore = null;
                 var RN = R.role(isPlural, isModal, false);
-                ore = new CNL.EN.objectRoleExpr2(null, false, new CNL.EN.oobjectOnlyBnd(null, B.bound() ), RN);
+                ore = new CNL.EN.objectRoleExpr2(null, false, new CNL.EN.oobjectOnlyBnd(null, B.bound()), RN);
                 return ore;
             }
             public override CNL.EN.single single(bool isPlural, bool isModal)
@@ -1475,11 +1471,11 @@ namespace CogniPy.CNL.EN
                 ore = new CNL.EN.objectRoleExpr2(null, false, new CNL.EN.oobjectBnd(null, B.bound()), RN);
                 return ore;
             }
-                //public override CNL.EN.defObjectRoleExpr defObjectRoleExpr(bool isPlural, bool isModal)
-                //{
-                //    Assert(false);
-                //    return null;
-                //}
+            //public override CNL.EN.defObjectRoleExpr defObjectRoleExpr(bool isPlural, bool isModal)
+            //{
+            //    Assert(false);
+            //    return null;
+            //}
             public override CNL.EN.single single(bool isPlural, bool isModal)
             {
                 return new CNL.EN.singleThingThat(null, new CNL.EN.thatOrLoop(null, new CNL.EN.orloop(null, new CNL.EN.andloop(null, objectRoleExpr(isPlural, isModal)))));
@@ -1547,7 +1543,7 @@ namespace CogniPy.CNL.EN
             {
                 CNL.EN.objectRoleExpr ore = null;
                 var RN = R.role(isPlural, isModal, false);
-                ore = new CNL.EN.objectRoleExpr2(null, false, new CNL.EN.oobjectCmp(null, Kind, N, C.single(long.Parse(N)!=1,false)), RN);
+                ore = new CNL.EN.objectRoleExpr2(null, false, new CNL.EN.oobjectCmp(null, Kind, N, C.single(long.Parse(N) != 1, false)), RN);
                 return ore;
             }
             public override CNL.EN.single single(bool isPlural, bool isModal)
@@ -1594,7 +1590,7 @@ namespace CogniPy.CNL.EN
                 return new CNL.EN.oobjectA(null, single(isPlural, isModal));
             }
         }
-        public object Visit(CogniPy.CNL.DL.NumberValueRestriction e) 
+        public object Visit(CogniPy.CNL.DL.NumberValueRestriction e)
         {
             object r = e.R.accept(this);
             object b = e.B.accept(this);
@@ -1619,7 +1615,7 @@ namespace CogniPy.CNL.EN
 
         Dictionary<string, string> mapped_dvars = new Dictionary<string, string>();
         Dictionary<string, string> mapped_ivars = new Dictionary<string, string>();
-               
+
         VisitingParam<bool> inResult = new VisitingParam<bool>(false);
 
         public object Visit(SwrlStatement e)
@@ -1652,7 +1648,7 @@ namespace CogniPy.CNL.EN
                     slp = e.slp.accept(this) as CNL.EN.clause;
                     foreach (var v in var2class.Keys)
                     {
-                        if(!definedVars.Contains(v))
+                        if (!definedVars.Contains(v))
                             slp.Conditions.Add(new condition_exists(null, new objectr_nio(null, new notidentobject(null, FromDL(var2class[v], false)))));
                     }
                     CNL.EN.clause_result slc;
@@ -1719,8 +1715,8 @@ namespace CogniPy.CNL.EN
 
             public TransNode C;
             public TransSwrlIObject I;
-            
-            public TransSwrlInstance(Transform me){this.me = me;}
+
+            public TransSwrlInstance(Transform me) { this.me = me; }
 
             public override condition condition()
             {
@@ -1737,7 +1733,7 @@ namespace CogniPy.CNL.EN
                         me.class2var[cls].Add(ivar);
                     }
                     return new condition_definition(null) { objectClass = C.oobject(false, false), objectA = I.objectr() };
-                }   
+                }
                 else
                 {
                     if (C is TransAtomic && I is TransSwrlIVar)
@@ -1794,7 +1790,7 @@ namespace CogniPy.CNL.EN
 
             public override condition condition()
             {
-                return new condition_is(null, I.objectr(), J.objectr(), TrueForSame?condition_kind.None:condition_kind.Not);
+                return new condition_is(null, I.objectr(), J.objectr(), TrueForSame ? condition_kind.None : condition_kind.Not);
             }
 
             public override condition_result condition_result()
@@ -1813,7 +1809,7 @@ namespace CogniPy.CNL.EN
             return new TransSwrlSameOrDifferent() { I = e.I.accept(this) as TransSwrlIObject, J = e.J.accept(this) as TransSwrlIObject, TrueForSame = false };
         }
 
-        Dictionary<string, List<Tuple<string,TransSwrlIObject>>> var2dataProp = new Dictionary<string,List<Tuple<string,TransSwrlIObject>>>();
+        Dictionary<string, List<Tuple<string, TransSwrlIObject>>> var2dataProp = new Dictionary<string, List<Tuple<string, TransSwrlIObject>>>();
         Dictionary<string, List<TransAbstractBound>> var2dataRange = new Dictionary<string, List<TransAbstractBound>>();
 
         public bool mergablePropAndRange(string var)
@@ -2299,7 +2295,7 @@ namespace CogniPy.CNL.EN
 
         public object Visit(SwrlIVar e)
         {
-            if(preserveVarsNumbering.get())
+            if (preserveVarsNumbering.get())
             {
                 if (!mapped_ivars.ContainsKey(e.VAR))
                     mapped_ivars.Add(e.VAR, e.VAR);
@@ -2307,18 +2303,18 @@ namespace CogniPy.CNL.EN
             else
             {
                 if (!mapped_ivars.ContainsKey(e.VAR))
-                    mapped_ivars.Add(e.VAR, (mapped_ivars.Count+1).ToString());
+                    mapped_ivars.Add(e.VAR, (mapped_ivars.Count + 1).ToString());
             }
             return new TransSwrlIVar(this) { VAR = mapped_ivars[e.VAR] };
         }
-        
+
         public object Visit(SwrlDVar e)
         {
-            if(preserveVarsNumbering.get())
+            if (preserveVarsNumbering.get())
             {
-                var arr = e.VAR.Split('-'); 
+                var arr = e.VAR.Split('-');
                 var varidx = arr[arr.Length - 1];
-                
+
                 if (!mapped_dvars.ContainsKey(e.VAR))
                     mapped_dvars.Add(e.VAR, varidx);
             }
@@ -2404,7 +2400,7 @@ namespace CogniPy.CNL.EN
             allVars.Clear();
             identifiedVars.Clear();
 
-            using(preserveVarsNumbering.set(true))
+            using (preserveVarsNumbering.set(true))
             {
 
                 {
@@ -2423,7 +2419,7 @@ namespace CogniPy.CNL.EN
                             if (!definedVars.Contains(v))
                                 slp.Conditions.Add(new condition_exists(null, new objectr_nio(null, new notidentobject(null, FromDL(var2class[v], false)))));
                         }
-                        CNL.EN.exeargs args; 
+                        CNL.EN.exeargs args;
                         using (inResult.set(true))
                             args = e.args.accept(this) as CNL.EN.exeargs;
 
@@ -2468,5 +2464,5 @@ namespace CogniPy.CNL.EN
                 exe = e.exe
             };
         }
-    }  
+    }
 }

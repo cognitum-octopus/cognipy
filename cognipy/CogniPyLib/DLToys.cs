@@ -1,7 +1,6 @@
 ﻿using CogniPy.CNL.DL;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 
@@ -76,7 +75,7 @@ namespace CogniPy.Splitting
             return ser.GetSignature();
         }
 
-    /////////////////
+        /////////////////
 
 
         class DLLink : CNL.DL.Node

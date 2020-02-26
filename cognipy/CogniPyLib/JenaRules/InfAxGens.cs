@@ -26,7 +26,7 @@ namespace CogniPy.Executing.HermiT
                     }
                 }
             }
-            if(useData)
+            if (useData)
             {
                 var propIter = reasoner.getRootOntology().getDataPropertiesInSignature(true).iterator();
                 while (propIter.hasNext())

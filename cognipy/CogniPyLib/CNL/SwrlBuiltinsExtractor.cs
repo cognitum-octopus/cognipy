@@ -1,8 +1,6 @@
 ﻿using CogniPy.CNL.DL;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace CogniPy.CNL
 {
@@ -22,7 +20,7 @@ namespace CogniPy.CNL
             {
                 builtinFound = false;
                 x.accept(this);
-                if (builtinFound || x.modality!= Statement.Modality.IS)
+                if (builtinFound || x.modality != Statement.Modality.IS)
                     swrlBuiltinsStatements.Add(x);
                 else
                     normalStatements.Add(x);

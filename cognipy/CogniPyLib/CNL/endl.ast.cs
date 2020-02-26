@@ -1,6 +1,6 @@
-﻿    using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Tools;
-using System;
 
 namespace CogniPy.CNL.EN
 {
@@ -100,13 +100,13 @@ namespace CogniPy.CNL.EN
 
     public partial class dlannotationassertion : sentence
     {
-        public dlannotationassertion(Parser yyp):base(yyp) { }
-        public dlannotationassertion(Parser yyp,string subject, string subjKind, W3CAnnotation w3cannot):base(yyp) { this.subject = subject; this.subjKind = subjKind; this.annotName = w3cannot.Type; this.value = (string)w3cannot.Value; this.language = w3cannot.Language; }
+        public dlannotationassertion(Parser yyp) : base(yyp) { }
+        public dlannotationassertion(Parser yyp, string subject, string subjKind, W3CAnnotation w3cannot) : base(yyp) { this.subject = subject; this.subjKind = subjKind; this.annotName = w3cannot.Type; this.value = (string)w3cannot.Value; this.language = w3cannot.Language; }
         public string subjKind;
         public string subject;
         public string annotName;
         public string value;
-        public string language=null;
+        public string language = null;
         public override object accept(IVisitor v)
         {
             return v.Visit(this);
@@ -302,7 +302,7 @@ namespace CogniPy.CNL.EN
 
     public partial class subject : iaccept
     {
-        public subject(Parser yyp) : base(yyp) {}
+        public subject(Parser yyp) : base(yyp) { }
         public virtual object accept(IVisitor v)
         {
             return null;
@@ -438,7 +438,7 @@ namespace CogniPy.CNL.EN
     {
         public modality(Parser yyp) : base(yyp) { }
     }
-    
+
     public partial class modality2
     {
         public modality2(Parser yyp) : base(yyp) { }
@@ -456,7 +456,7 @@ namespace CogniPy.CNL.EN
 
     public partial class instance : iaccept
     {
-        public instance(Parser yyp) : base(yyp) {}
+        public instance(Parser yyp) : base(yyp) { }
         public virtual object accept(IVisitor v) { return null; }
     }
 
@@ -474,7 +474,7 @@ namespace CogniPy.CNL.EN
     }
     public partial class instanceBigName : instance
     {
-        public instanceBigName(Parser yyp) : base(yyp) { } 
+        public instanceBigName(Parser yyp) : base(yyp) { }
         public string name;
         public bool very;
         public override object accept(IVisitor v)
@@ -546,10 +546,10 @@ namespace CogniPy.CNL.EN
 
         public andanyrolechain(Parser yyp, role r, bool isDataRole)
             : base(yyp)
-        { chain = new System.Collections.Generic.List<role>(); datachain = new System.Collections.Generic.List<role>(); if (isDataRole)datachain.Add(r); else chain.Add(r); }
+        { chain = new System.Collections.Generic.List<role>(); datachain = new System.Collections.Generic.List<role>(); if (isDataRole) datachain.Add(r); else chain.Add(r); }
         public andanyrolechain(Parser yyp, andanyrolechain z, role r, bool isDataRole)
             : base(yyp)
-        { chain = z.chain; datachain = z.datachain; if (isDataRole)datachain.Add(r); else chain.Add(r); }
+        { chain = z.chain; datachain = z.datachain; if (isDataRole) datachain.Add(r); else chain.Add(r); }
         public virtual object accept(IVisitor v)
         {
             return null;
@@ -718,7 +718,7 @@ namespace CogniPy.CNL.EN
 
     public partial class role : iaccept
     {
-        public role(Parser yyp) : base(yyp) {}
+        public role(Parser yyp) : base(yyp) { }
         public string name;
         public bool inverse = false;
         public role(Parser yyp, string name_, bool inverse_) : base(yyp) { name = name_; inverse = inverse_; }
@@ -734,7 +734,7 @@ namespace CogniPy.CNL.EN
         public roleWithXY(Parser yyp) : base(yyp) { }
         public string name;
         public bool inverse = false;
-        public roleWithXY(Parser yyp, string name_, bool inverse_) : base(yyp) { name = name_; inverse = inverse_;}
+        public roleWithXY(Parser yyp, string name_, bool inverse_) : base(yyp) { name = name_; inverse = inverse_; }
 
         public virtual object accept(IVisitor v)
         {
@@ -757,13 +757,13 @@ namespace CogniPy.CNL.EN
 
     public partial class single : iaccept
     {
-        public single(Parser yyp) : base(yyp) {}
+        public single(Parser yyp) : base(yyp) { }
         public virtual object accept(IVisitor v) { return null; }
     }
 
     public partial class singleName : single
     {
-        public singleName(Parser yyp) : base(yyp) {}
+        public singleName(Parser yyp) : base(yyp) { }
         public string name;
         public override object accept(IVisitor v)
         {
@@ -773,7 +773,7 @@ namespace CogniPy.CNL.EN
     }
     public partial class singleThing : single
     {
-        public singleThing(Parser yyp) : base(yyp) {}
+        public singleThing(Parser yyp) : base(yyp) { }
         public override object accept(IVisitor v)
         {
             return v.Visit(this);
@@ -781,7 +781,7 @@ namespace CogniPy.CNL.EN
     }
     public partial class singleNameThat : single
     {
-        public singleNameThat(Parser yyp) : base(yyp) {}
+        public singleNameThat(Parser yyp) : base(yyp) { }
         public string name;
         public that t;
         public override object accept(IVisitor v)
@@ -792,7 +792,7 @@ namespace CogniPy.CNL.EN
     }
     public partial class singleThingThat : single
     {
-        public singleThingThat(Parser yyp) : base(yyp) {  }
+        public singleThingThat(Parser yyp) : base(yyp) { }
         public that t;
         public override object accept(IVisitor v)
         {
@@ -823,7 +823,7 @@ namespace CogniPy.CNL.EN
     {
         public singleOneOf(Parser yyp) : base(yyp) { }
         public System.Collections.Generic.List<instance> insts;
-        public singleOneOf(Parser yyp, instanceList il) : base(yyp) { insts = il.insts;}
+        public singleOneOf(Parser yyp, instanceList il) : base(yyp) { insts = il.insts; }
         public override object accept(IVisitor v)
         {
             return v.Visit(this);
@@ -995,7 +995,7 @@ namespace CogniPy.CNL.EN
     public partial class abstractbound : iaccept
     {
         public abstractbound(Parser yyp) : base(yyp) { }
-        public virtual bool isStrict() {return false;}
+        public virtual bool isStrict() { return false; }
         public virtual dataval getStrictVal() { throw new InvalidOperationException(); }
         public virtual object accept(IVisitor v)
         {
@@ -1080,12 +1080,12 @@ namespace CogniPy.CNL.EN
         public boundFacets(Parser yyp, facetList l_) : base(yyp) { l = l_; }
     }
 
-    public partial class  boundAnd : abstractbound
+    public partial class boundAnd : abstractbound
     {
         public List<abstractbound> List;
         public override int priority() { return 3; }
         public boundAnd(Parser yyp) : base(yyp) { }
-        public boundAnd(Parser yyp, abstractbound c, abstractbound d) : base(yyp) 
+        public boundAnd(Parser yyp, abstractbound c, abstractbound d) : base(yyp)
         {
             if (c.me() is boundAnd)
                 List = (c.me() as boundAnd).List;
@@ -1525,7 +1525,7 @@ namespace CogniPy.CNL.EN
         }
         public override object accept(IVisitor v) { return v.Visit(this); }
     }
-    
+
     public partial class datavalerPlusList : iaccept
     {
         public datavalerPlusList(Parser yyp) : base(yyp) { }
@@ -1576,7 +1576,7 @@ namespace CogniPy.CNL.EN
             return null;
         }
     }
-    
+
     public partial class builtin_list : builtin
     {
         public datavaler result;
@@ -1832,7 +1832,7 @@ namespace CogniPy.CNL.EN
         }
         public override object accept(IVisitor v) { return v.Visit(this); }
     }
-    
+
     public partial class condition_data_property_bound : condition
     {
         public string property_name;
@@ -2036,7 +2036,7 @@ namespace CogniPy.CNL.EN
             : base(yyp)
         {
             slp = slp_;
-            args=args_;
+            args = args_;
             exe = exe_;
         }
         public override object accept(IVisitor v) { return v.Visit(this); }
@@ -2056,7 +2056,7 @@ namespace CogniPy.CNL.EN
         { exevars = z.exevars; exevars.Add(r); }
         public virtual object accept(IVisitor v)
         {
-            return v.Visit(this); 
+            return v.Visit(this);
         }
     }
 

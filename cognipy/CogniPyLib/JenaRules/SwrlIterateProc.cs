@@ -1,17 +1,12 @@
-﻿using org.apache.jena.graph;
+﻿using CogniPy.ARS;
+using org.apache.jena.graph;
 using org.apache.jena.rdf.model;
 using org.apache.jena.reasoner.rulesys;
-using CogniPy.ARS;
-using CogniPy.CNL.EN;
-using CogniPy.Executing.HermiT;
 using org.semanticweb.owlapi.vocab;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading;
 
 namespace CogniPy.CNL.DL
 {
@@ -36,7 +31,7 @@ namespace CogniPy.CNL.DL
         public object[] allVars;
         bool swrlOnly = false;
 
-        public SwrlIterateProc(Model model, bool swrlOnly=false)
+        public SwrlIterateProc(Model model, bool swrlOnly = false)
         {
             this.model = model;
             this.swrlOnly = swrlOnly;
@@ -167,7 +162,7 @@ namespace CogniPy.CNL.DL
 
         public override object Visit(SwrlIVar e)
         {
-            var varN =  "?" + e.VAR.Replace("-", "_");
+            var varN = "?" + e.VAR.Replace("-", "_");
             object val;
             if (iterVar == varN)
                 val = iterVal;
@@ -226,4 +221,3 @@ namespace CogniPy.CNL.DL
 
     }
 }
-    

@@ -128,7 +128,7 @@ namespace CogniPy.CNL.DL
             dataValues = new HashSet<Tuple<string, string, string>>();
             foundValues = new Dictionary<string, Value>();
             dependentAttrs = new Dictionary<string, HashSet<string>>();
-            instanceValues = new List<InstanceValue>(); 
+            instanceValues = new List<InstanceValue>();
             return p.accept(this) as string;
         }
 
@@ -614,9 +614,9 @@ namespace CogniPy.CNL.DL
         public object Visit(CogniPy.CNL.DL.Number e)
         {
             var sval = e.val.ToString();
-            if(attributeName.get()!=null)
+            if (attributeName.get() != null)
                 dataValues.Add(Tuple.Create(e.getTypeTag(), attributeName.get(), sval));
-            if(!foundValues.ContainsKey(e.getTypeTag() + ":" + sval))
+            if (!foundValues.ContainsKey(e.getTypeTag() + ":" + sval))
                 foundValues.Add(e.getTypeTag() + ":" + sval, e);
             if (DeltaKind == "<" || DeltaKind == "≠")
             {
@@ -682,7 +682,7 @@ namespace CogniPy.CNL.DL
             return sval;
         }
 
-        string DeltaKind=null;
+        string DeltaKind = null;
         public object Visit(Facet e)
         {
             DeltaKind = e.Kind;
@@ -969,7 +969,7 @@ namespace CogniPy.CNL.DL
 
         public object Visit(DLAnnotationAxiom a)
         {
-            signature.Add(Tuple.Create(EntityKind.Annotation,a.annotName));
+            signature.Add(Tuple.Create(EntityKind.Annotation, a.annotName));
             CogniPy.ARS.EntityKind result = CogniPy.CNL.AnnotationManager.ParseSubjectKind(a.subjKind);
             if (result != EntityKind.Statement)
                 signature.Add(Tuple.Create(result, a.subject));
@@ -991,7 +991,7 @@ namespace CogniPy.CNL.DL
             string kind = a.subjKind.Trim();
             string annotName = a.annotName.Trim();
             string lang = "";
-            if(!System.String.IsNullOrWhiteSpace(a.language))
+            if (!System.String.IsNullOrWhiteSpace(a.language))
                 lang = a.language.Trim();
 
             if (!System.String.IsNullOrWhiteSpace(val))
@@ -1008,7 +1008,7 @@ namespace CogniPy.CNL.DL
             else
                 val += "''";
 
-            var retur ="# " + subj + " "+kind+" " + annotName + " " + lang + " " + val;
+            var retur = "# " + subj + " " + kind + " " + annotName + " " + lang + " " + val;
             return retur;
         }
 
@@ -1045,7 +1045,7 @@ namespace CogniPy.CNL.DL
             sb.Append("→→");
             using (swrlCurAttr.set(swrlAttrsHead))
                 sb.Append(e.slc.accept(this));
-            
+
             sb.Append("(");
             using (swrlCurAttr.set(swrlAttrsHead))
                 sb.Append(e.vars.accept(this));
@@ -1059,7 +1059,7 @@ namespace CogniPy.CNL.DL
             }
             return sb.ToString();
         }
-        
+
         public object Visit(CogniPy.CNL.DL.SwrlItemList e)
         {
             StringBuilder sb = new StringBuilder();

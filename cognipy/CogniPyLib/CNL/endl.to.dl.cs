@@ -1,11 +1,8 @@
-﻿using System;
+﻿using CogniPy.CNL.DL;
+using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using CogniPy.CNL.EN;
-using CogniPy.CNL.DL;
-using System.Text.RegularExpressions;
 using System.Diagnostics;
+using System.Linq;
 
 namespace CogniPy.CNL.EN
 {
@@ -57,7 +54,8 @@ namespace CogniPy.CNL.EN
             }
 
             var allParts = (new EnName() { id = name }).Split();
-            if (!System.String.IsNullOrWhiteSpace(allParts.term) && !allParts.term.Contains("<") && _useFullUri) {
+            if (!System.String.IsNullOrWhiteSpace(allParts.term) && !allParts.term.Contains("<") && _useFullUri)
+            {
                 var tterm = pfx2Ns(allParts.term);
                 if (!System.String.IsNullOrWhiteSpace(tterm))
                     allParts.term = "<" + tterm + ">";
@@ -1133,12 +1131,12 @@ namespace CogniPy.CNL.EN
             var listT = new List<CNL.DL.SwrlItem>();
             bool id_ex = true;
             if (p.objectA is identobject_name)
-                id_ex = isVarAlreadyIntroduced((identobject_name)p.objectA); 
+                id_ex = isVarAlreadyIntroduced((identobject_name)p.objectA);
 
             var id_o = p.objectA.accept(this) as CNL.DL.SwrlIObject;
-            if(!id_ex)
+            if (!id_ex)
             {
-                var inst = createSwrlInstanceFromObject_name((identobject_name)p.objectA,id_o);
+                var inst = createSwrlInstanceFromObject_name((identobject_name)p.objectA, id_o);
                 if (inst != null) listT.Add(inst);
             }
 
@@ -1149,7 +1147,7 @@ namespace CogniPy.CNL.EN
             var id_o2 = p.objectB.accept(this) as CNL.DL.SwrlIObject;
             if (!id_ex2)
             {
-                var inst = createSwrlInstanceFromObject_name((identobject_name)p.objectB,id_o2);
+                var inst = createSwrlInstanceFromObject_name((identobject_name)p.objectB, id_o2);
                 if (inst != null) listT.Add(inst);
             }
 
@@ -1518,7 +1516,7 @@ namespace CogniPy.CNL.EN
               ? -1
               : int.Parse(io.num);
 
-            if (!newInstanceValVar.ContainsKey(namet ))
+            if (!newInstanceValVar.ContainsKey(namet))
                 return false;
 
             string nn = "";
@@ -1592,7 +1590,7 @@ namespace CogniPy.CNL.EN
                     return null;
             }
         }
-    
+
         private CNL.DL.SwrlInstance createSwrlInstanceFromObjectR(CNL.EN.objectr o)
         {
             if (o is CNL.EN.objectr_nio)
@@ -1702,7 +1700,7 @@ namespace CogniPy.CNL.EN
             var exe_statement = new CNL.DL.ExeStatement(null);
             exe_statement.slp = p.slp.accept(this) as CNL.DL.SwrlItemList;
             exe_statement.args = p.args.accept(this) as CNL.DL.SwrlVarList;
-            exe_statement.exe =  p.exe;
+            exe_statement.exe = p.exe;
             return exe_statement;
         }
 
@@ -1722,12 +1720,12 @@ namespace CogniPy.CNL.EN
             code_statement.exe = p.exe;
             return code_statement;
         }
-        
+
         //////////// EXE //////////////////////////////////////////////////////////////
 
         public object Visit(annotation p)
         {
-            return new CNL.DL.Annotation(null, "%"+p.txt);
+            return new CNL.DL.Annotation(null, "%" + p.txt);
         }
 
         public object Visit(dlannotationassertion p)

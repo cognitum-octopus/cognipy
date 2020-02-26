@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web;
+﻿using CogniPy.ARS;
 using org.semanticweb.owlapi.model;
+using System;
 using System.IO;
-using CogniPy.ARS;
 
 namespace CogniPy.OWL
 {
@@ -23,7 +19,7 @@ namespace CogniPy.OWL
 
         static public IRI Path2IRI(string fileName)
         {
-            return IRI.create(fileName.Replace('\\','/'));
+            return IRI.create(fileName.Replace('\\', '/'));
         }
 
         static public string IRI2Path(IRI iri)
@@ -31,7 +27,7 @@ namespace CogniPy.OWL
             return iri.toURI().toString().Replace('\\', '/');
         }
 
-        static public string CombinePath(string dir,string end)
+        static public string CombinePath(string dir, string end)
         {
             var pt = Path.GetFullPath(dir).Replace("/", "\\");
             var et = end.Replace("/", "\\");

@@ -1,7 +1,6 @@
+using System;
 using System.Collections.Generic;
 using Tools;
-using System;
-using System.Diagnostics;
 
 namespace CogniPy.CNL.DL
 {
@@ -10,11 +9,11 @@ namespace CogniPy.CNL.DL
         object accept(IVisitor v);
     }
 
-    public enum StatementType {Rule,Role,Concept,Instance,Annotation}
+    public enum StatementType { Rule, Role, Concept, Instance, Annotation }
 
     public class StatementAttr : Attribute
     {
-        public StatementType type {get; private set;}
+        public StatementType type { get; private set; }
         public StatementAttr(StatementType type)
         {
             this.type = type;
@@ -90,7 +89,7 @@ namespace CogniPy.CNL.DL
         public modality(Parser yyp) : base(yyp) { }
     }
 
-    public partial class CmpOrID :IAccept
+    public partial class CmpOrID : IAccept
     {
         public CmpOrID(Parser yyp) : base(yyp) { }
 
@@ -104,7 +103,7 @@ namespace CogniPy.CNL.DL
     public partial class DLAnnotationAxiom : Statement
     {
         public DLAnnotationAxiom(Parser yyp) : base(yyp) { }
-        public DLAnnotationAxiom(Parser yyp, string subject,string subjectKind, string annotName, string language, string value)
+        public DLAnnotationAxiom(Parser yyp, string subject, string subjectKind, string annotName, string language, string value)
             : base(yyp)
         {
             this.subject = subject; this.annotName = annotName; this.language = language; this.value = value; this.subjKind = subjectKind;
@@ -118,7 +117,7 @@ namespace CogniPy.CNL.DL
         string _subject;
         public string subject
         {
-            get 
+            get
             {
                 if (_subjKind == CogniPy.ARS.EntityKind.Statement && _subject.StartsWith("\"") && _subject.EndsWith("\"") && !System.String.IsNullOrWhiteSpace(_subject))
                     return _subject.Substring(1, _subject.Length - 2);
@@ -464,7 +463,7 @@ namespace CogniPy.CNL.DL
         public RelatedInstances(Parser yyp, Node r, ID i, ID j, Modality m)
             : base(yyp)
         { R = r.me(); I = new NamedInstance(null) { name = i.yytext }; J = new NamedInstance(null) { name = j.yytext }; modality = m; }
-     
+
         public override object accept(IVisitor v)
         {
             return v.Visit(this);
@@ -489,16 +488,16 @@ namespace CogniPy.CNL.DL
             }
             else if (obj.GetType() == typeof(bool))
             {
-                return new CNL.DL.Bool(null) { val = ((bool)obj)?"[1]":"[0]" };
+                return new CNL.DL.Bool(null) { val = ((bool)obj) ? "[1]" : "[0]" };
             }
             else if (obj.GetType() == typeof(DateTimeOffset))
             {
-//                Debugger.Break(); // lets check if it can be serialized this way
+                //                Debugger.Break(); // lets check if it can be serialized this way
                 return new CNL.DL.DateTimeVal(null) { val = ((DateTimeOffset)obj).ToString("s") };
             }
             else if (obj.GetType() == typeof(TimeSpan))
             {
-//                Debugger.Break(); // lets check if it can be serialized this way
+                //                Debugger.Break(); // lets check if it can be serialized this way
                 return new CNL.DL.Duration(null) { val = System.Xml.XmlConvert.ToString((TimeSpan)obj) };
             }
             throw new InvalidOperationException();
@@ -555,13 +554,13 @@ namespace CogniPy.CNL.DL
             }
         }
 
- 
+
 
         public Value(Parser yyp) : base(yyp) { }
 
         public virtual object accept(IVisitor v) { return null; }
         public virtual string getVal() { return null; }
-        public virtual string getTypeTag() { return null;}
+        public virtual string getTypeTag() { return null; }
 
         public string ToStringExact()
         {
@@ -861,7 +860,7 @@ namespace CogniPy.CNL.DL
         public override int priority() { return 3; }
         public List<AbstractBound> List;
         public BoundAnd(Parser yyp) : base(yyp) { }
-        public BoundAnd(Parser yyp, AbstractBound c, AbstractBound d) : base(yyp) 
+        public BoundAnd(Parser yyp, AbstractBound c, AbstractBound d) : base(yyp)
         {
             if (c.me() is BoundAnd)
                 List = (c.me() as BoundAnd).List;
@@ -916,7 +915,7 @@ namespace CogniPy.CNL.DL
             return v.Visit(this);
         }
     }
-    
+
     public partial class BoundVal : AbstractBound
     {
         public string Kind;
@@ -928,7 +927,7 @@ namespace CogniPy.CNL.DL
             return v.Visit(this);
         }
     }
-    
+
     public partial class TotalBound : AbstractBound
     {
         public TotalBound(Parser yyp) : base(yyp) { }
@@ -1219,7 +1218,7 @@ namespace CogniPy.CNL.DL
     {
         public SwrlStatement(Parser yyp) : base(yyp) { }
         public SwrlItemList slp, slc;
-        public SwrlStatement(Parser yyp, SwrlItemList slp_, SwrlItemList slc_, Modality modality=Modality.IS) : base(yyp) { slp = slp_; slc = slc_; this.modality = modality; }
+        public SwrlStatement(Parser yyp, SwrlItemList slp_, SwrlItemList slc_, Modality modality = Modality.IS) : base(yyp) { slp = slp_; slc = slc_; this.modality = modality; }
         public override object accept(IVisitor v) { return v.Visit(this); }
     }
 
@@ -1231,7 +1230,7 @@ namespace CogniPy.CNL.DL
         public SwrlVarList vars;
         public SwrlIterate(Parser yyp, SwrlItemList slp_, SwrlItemList slc_, SwrlVarList vars_) : base(yyp) { slp = slp_; slc = slc_; this.vars = vars_; }
         public override object accept(IVisitor v) { return v.Visit(this); }
-    }    
+    }
 
     public partial class SwrlItemList : IAccept
     {
@@ -1302,7 +1301,7 @@ namespace CogniPy.CNL.DL
         public override object accept(IVisitor v) { return v.Visit(this); }
     }
 
-    public interface ISwrlObject 
+    public interface ISwrlObject
     {
         object accept(IVisitor v);
     }
@@ -1423,14 +1422,14 @@ namespace CogniPy.CNL.DL
         public SwrlDataRange(Parser yyp, AbstractBound B, SwrlDObject DO) : base(yyp) { this.B = B.me(); this.DO = DO; }
         public override object accept(IVisitor v) { return v.Visit(this); }
     }
-    
+
     public partial class SwrlDataProperty : SwrlItem
     {
         public SwrlDataProperty(Parser yyp) : base(yyp) { }
         public string R;
         public SwrlIObject IO;
         public SwrlDObject DO;
-        public SwrlDataProperty(Parser yyp, ID R, SwrlIObject IO, SwrlDObject DO) : base(yyp) { this.R = R.yytext; this.IO = IO; this.DO = DO; } 
+        public SwrlDataProperty(Parser yyp, ID R, SwrlIObject IO, SwrlDObject DO) : base(yyp) { this.R = R.yytext; this.IO = IO; this.DO = DO; }
         public override object accept(IVisitor v) { return v.Visit(this); }
     }
 

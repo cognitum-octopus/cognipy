@@ -1,7 +1,7 @@
 ﻿
 namespace CogniPy.CNL.DL
 {
-    public class Pair<C,D>
+    public class Pair<C, D>
     {
         public C First;
         public D Second;

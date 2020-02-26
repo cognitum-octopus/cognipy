@@ -1,35 +1,29 @@
-﻿using System;
+﻿using CogniPy.ARS;
+using CogniPy.CNL;
+using CogniPy.CNL.DL;
+using CogniPy.Configuration;
+using CogniPy.Executing.HermiT;
+using CogniPy.models;
+using com.clarkparsia.owlapi.explanation;
+using java.util;
+using org.semanticweb.owlapi.apibinding;
+using org.semanticweb.owlapi.model;
+using org.semanticweb.owlapi.profiles;
+using org.semanticweb.owlapi.reasoner;
+using org.semanticweb.owlapi.reasoner.impl;
+using org.semanticweb.owlapi.reasoner.structural;
+using org.semanticweb.owlapi.util;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
-using org.semanticweb.owlapi.model;
-using org.semanticweb.owlapi.apibinding;
-using org.semanticweb.owlapi.reasoner.impl;
-using org.semanticweb.owlapi.util;
-using org.semanticweb.owlapi.reasoner;
-using com.clarkparsia.owlapi.explanation;
-using System.Diagnostics;
-using CogniPy.CNL;
-using System.Xml;
-using org.semanticweb.owlapi.reasoner.structural;
-using CogniPy.OWL;
-using System.Reflection;
-using java.util;
-using org.apache.jena.util;
-using CogniPy.CNL.DL;
-using org.apache.jena.riot;
-using CogniPy.Configuration;
-using org.semanticweb.HermiT;
-using CogniPy.ARS;
-using org.semanticweb.owlapi.profiles;
-using CogniPy.Executing.HermiT;
 using System.Text.RegularExpressions;
-using CogniPy.models;
-using System.IO;
+using System.Xml;
 
 namespace CogniPy.Executing.HermiTClient
 {
-    public enum ReasoningMode { SROIQ, RL, SWRL, STRUCTURAL, NONE}
+    public enum ReasoningMode { SROIQ, RL, SWRL, STRUCTURAL, NONE }
 
     public class ReasoningServiceException : Exception
     {
@@ -86,8 +80,8 @@ namespace CogniPy.Executing.HermiTClient
         public class DebugTraceEventArgs : EventArgs
         {
             public string TraceMessage { get; private set; }
-            public Dictionary<string, Tuple<string,object>> Binding { get; private set; }
-            public DebugTraceEventArgs(string tm, Dictionary<string, Tuple<string,object>> bnd)
+            public Dictionary<string, Tuple<string, object>> Binding { get; private set; }
+            public DebugTraceEventArgs(string tm, Dictionary<string, Tuple<string, object>> bnd)
             {
                 TraceMessage = tm;
                 Binding = bnd;
@@ -96,7 +90,7 @@ namespace CogniPy.Executing.HermiTClient
 
         public EventHandler<DebugTraceEventArgs> DebugTrace;
 
-        void fireDebugTraceMessage(string msg, Dictionary<string, Tuple<string,object>> bnd)
+        void fireDebugTraceMessage(string msg, Dictionary<string, Tuple<string, object>> bnd)
         {
             if (DebugTrace != null)
                 DebugTrace(this, new DebugTraceEventArgs(msg, bnd));
@@ -398,10 +392,10 @@ namespace CogniPy.Executing.HermiTClient
         private org.apache.jena.reasoner.rulesys.GenericRuleReasoner bindedRsnr;
         public HermiTReasoningService Clone(dynamic TheAccessObject, dynamic Outer)
         {
-            
+
             lock (this)
             {
-                 if(bindedRsnr == null)
+                if (bindedRsnr == null)
                 {
                     ((org.apache.jena.rdf.model.impl.InfModelImpl)model).prepare();
                     bindedRsnr = (org.apache.jena.reasoner.rulesys.GenericRuleReasoner)((org.apache.jena.reasoner.rulesys.GenericRuleReasoner)rete_reasoner).bindSchema(model.getGraph());
@@ -410,7 +404,7 @@ namespace CogniPy.Executing.HermiTClient
 
 
                 var newModel = org.apache.jena.rdf.model.ModelFactory.createInfModel(bindedRsnr, org.apache.jena.rdf.model.ModelFactory.createDefaultModel());
-                return new HermiTReasoningService(this, newModel );
+                return new HermiTReasoningService(this, newModel);
             }
         }
 
@@ -513,7 +507,7 @@ namespace CogniPy.Executing.HermiTClient
                 return res;
             }
 
-//            public static object CommonLock = new object();
+            //            public static object CommonLock = new object();
 
             public IEnumerable<List<object>> GetRows()
             {
@@ -523,8 +517,8 @@ namespace CogniPy.Executing.HermiTClient
                     org.apache.jena.query.QuerySolution qbs = null;
                     try
                     {
-//                        lock (CommonLock)
-                            qbs = results.next();
+                        //                        lock (CommonLock)
+                        qbs = results.next();
                     }
                     catch (java.util.NoSuchElementException)
                     {
@@ -576,7 +570,7 @@ namespace CogniPy.Executing.HermiTClient
             return ontology.getOntologyID().getOntologyIRI().toString();
         }
 
-        public SparqlRowset SparqlQuery(string queryString, Dictionary<string, string> pfx2NsMap, bool detectTypesOfNodes = true, string defaultKindOfNode=null)
+        public SparqlRowset SparqlQuery(string queryString, Dictionary<string, string> pfx2NsMap, bool detectTypesOfNodes = true, string defaultKindOfNode = null)
         {
             fireReasonerTaskStarted("SPARQL query");
             fireReasonerTaskProgressChanged(0, 1);
@@ -655,10 +649,10 @@ namespace CogniPy.Executing.HermiTClient
             query.setPrefixMapping(newPrefixMap);
 
             org.apache.jena.query.QueryExecution qe = org.apache.jena.query.QueryExecutionFactory.create(query, model);
-//            lock (SparqlRowset.CommonLock)
+            //            lock (SparqlRowset.CommonLock)
             {
                 org.apache.jena.query.ResultSet results = qe.execSelect();
-                return new SparqlRowset(model, results, GetOntologyID(), newPrefixMap, detectTypesOfNodes,defaultKindOfNode);
+                return new SparqlRowset(model, results, GetOntologyID(), newPrefixMap, detectTypesOfNodes, defaultKindOfNode);
             }
         }
 
@@ -710,7 +704,7 @@ namespace CogniPy.Executing.HermiTClient
                 MyListener lst = new MyListener((stmt) =>
                 {
                     if (stmt.getObject().isAnon())
-                        addBlankStmt(stmt.getObject().asNode().getBlankNodeId().toString(),curstmt);
+                        addBlankStmt(stmt.getObject().asNode().getBlankNodeId().toString(), curstmt);
                     if (stmt.getPredicate().isAnon())
                         addBlankStmt(stmt.getPredicate().asNode().getBlankNodeId().toString(), curstmt);
                     if (stmt.getSubject().isAnon())
@@ -752,7 +746,7 @@ namespace CogniPy.Executing.HermiTClient
             else if (val is java.lang.String || val is string)
                 return new CNL.DL.String(null, "\'" + val.ToString().Replace("\'", "\'\'") + "\'");
             else if (val is java.lang.Boolean || val is bool)
-                return new CNL.DL.Bool(null, val.ToString()=="true" ? "[1]" : "[0]");
+                return new CNL.DL.Bool(null, val.ToString() == "true" ? "[1]" : "[0]");
             else if (val is org.apache.jena.datatypes.xsd.XSDDateTime)
                 return new CNL.DL.DateTimeVal(null, val.ToString());
             else if (val is org.apache.jena.datatypes.xsd.XSDDuration)
@@ -1029,16 +1023,16 @@ namespace CogniPy.Executing.HermiTClient
 
             foreach (var s in swrlRulesWIthBuiltInsParagraph.Statements)
             {
-                if(s.modality != Statement.Modality.IS)
+                if (s.modality != Statement.Modality.IS)
                 {
                     var subsumptn = ((Subsumption)s);
                     ConstraintResult result = new ConstraintResult();
                     if (results.Any(cr => cr.Concept == ((Atomic)subsumptn.C).id))
-                        result = results.Where(cr => cr.Concept == ((Atomic)subsumptn.C).id).First(); 
+                        result = results.Where(cr => cr.Concept == ((Atomic)subsumptn.C).id).First();
 
 
                     result.Concept = ((Atomic)subsumptn.C).id;
-                    if(result.Relations == null)
+                    if (result.Relations == null)
                         result.Relations = new Dictionary<Statement.Modality, List<string>>();
                     if (result.ThirdElement == null)
                         result.ThirdElement = new Dictionary<Statement.Modality, List<string>>();
@@ -1052,7 +1046,8 @@ namespace CogniPy.Executing.HermiTClient
                     {
                         result.Relations[s.modality].Add(((Atomic)((SomeRestriction)subsumptn.D).R).id);
                         result.ThirdElement[s.modality].Add(((Atomic)((SomeRestriction)subsumptn.D).C).id);
-                    }else if (subsumptn.D is SomeValueRestriction)
+                    }
+                    else if (subsumptn.D is SomeValueRestriction)
                     {
                         result.Relations[s.modality].Add(((Atomic)((SomeValueRestriction)subsumptn.D).R).id);
                         var type = string.Empty;
@@ -1080,7 +1075,7 @@ namespace CogniPy.Executing.HermiTClient
                                 throw new NotImplementedException();
                         }
 
-                        result.ThirdElement[s.modality].Add("(some " + type + " value)" );
+                        result.ThirdElement[s.modality].Add("(some " + type + " value)");
                     }
 
                     if (!results.Any(cr => cr.Concept == ((Atomic)subsumptn.C).id))
@@ -1094,7 +1089,7 @@ namespace CogniPy.Executing.HermiTClient
         bool isMaterializedTbox = false;
         bool isMaterializedAbox = false;
 
-        public bool Materialization(ReasoningMode TBox, ReasoningMode ABox, bool isAboxInsertOnly, bool modalChecker=false)
+        public bool Materialization(ReasoningMode TBox, ReasoningMode ABox, bool isAboxInsertOnly, bool modalChecker = false)
         {
             if (isMaterializedAbox)
                 return false;
@@ -1110,7 +1105,7 @@ namespace CogniPy.Executing.HermiTClient
             }
             else if (TBox == ReasoningMode.RL && ABox == ReasoningMode.RL)
             {
-                MaterializeRL(MatMode.Both, modalChecker:modalChecker);
+                MaterializeRL(MatMode.Both, modalChecker: modalChecker);
                 isMaterializedTbox = true;
                 isMaterializedAbox = true;
             }
@@ -1152,7 +1147,7 @@ namespace CogniPy.Executing.HermiTClient
 
         Dictionary<string, Statement> id2stmt = new Dictionary<string, Statement>();
 
-        private void MaterializeRL(MatMode mode, bool extended = true, bool sameAs = true, bool modalChecker=false, bool swrlOnly = false)
+        private void MaterializeRL(MatMode mode, bool extended = true, bool sameAs = true, bool modalChecker = false, bool swrlOnly = false)
         {
             fireReasonerTaskStarted("RL Materialization");
             fireReasonerTaskProgressChanged(0, 2);
@@ -1162,7 +1157,7 @@ namespace CogniPy.Executing.HermiTClient
             var src_model = model;
 
             var rules = JenaRuleManager.GetGeneralRules(mode, extended, sameAs, debugModeOn);
-            
+
             var para = GetParagraph(true, false);
 
 
@@ -1172,10 +1167,10 @@ namespace CogniPy.Executing.HermiTClient
 
             rules.addAll(JenaRuleManager.GetDynamicRules(mode, cdd.IntersectionDepth, cdd.UnionDepth,cdd.HasKeyDepth));
 #endif
-            var DebugAction = new Action<string, Dictionary<string, Tuple<string,object>>>((s, d) =>
-            {
-                fireDebugTraceMessage(s, d);
-            });
+            var DebugAction = new Action<string, Dictionary<string, Tuple<string, object>>>((s, d) =>
+             {
+                 fireDebugTraceMessage(s, d);
+             });
             var ExeRules = new Dictionary<int, Tuple<string, List<IExeVar>>>();
             var SwrlIterators = new Dictionary<int, SwrlIterate>();
             bool wdSet = false;
@@ -1183,7 +1178,7 @@ namespace CogniPy.Executing.HermiTClient
             {
                 if (stmt is ComplexRoleInclusion || stmt is Subsumption || stmt is HasKey || (mode != MatMode.Tbox && (stmt is SwrlStatement || stmt is ExeStatement || stmt is SwrlIterate) || (stmt.modality != Statement.Modality.IS)))
                 {
-                    var gen = new GenerateJenaRules(model,modalChecker, mode != MatMode.Tbox, debugModeOn, exeRulesOn, debugModeOn, swrlOnly);
+                    var gen = new GenerateJenaRules(model, modalChecker, mode != MatMode.Tbox, debugModeOn, exeRulesOn, debugModeOn, swrlOnly);
                     gen.setOWLDataFactory(ontologyBase, owlxmlFormat, CNL.EN.CNLFactory.lex);
                     gen.setId2stmt(id2stmt);
                     var scr = gen.Generate(new Paragraph(null) { Statements = new List<Statement>() { stmt } });
@@ -1214,9 +1209,9 @@ namespace CogniPy.Executing.HermiTClient
             var sproc = new SwrlIterateProc(model, swrlOnly);
             sproc.setOWLDataFactory(ontologyBase, owlxmlFormat, CNL.EN.CNLFactory.lex);
 
-            rete_reasoner = JenaRuleManager.CreateReasoner(rules, DebugAction, ExeRules, SwrlIterators, TheAccessObject, Outer, invtransform,sproc);
+            rete_reasoner = JenaRuleManager.CreateReasoner(rules, DebugAction, ExeRules, SwrlIterators, TheAccessObject, Outer, invtransform, sproc);
 
-            model =  org.apache.jena.rdf.model.ModelFactory.createInfModel(rete_reasoner, src_model);
+            model = org.apache.jena.rdf.model.ModelFactory.createInfModel(rete_reasoner, src_model);
             ((org.apache.jena.rdf.model.InfModel)model).setDerivationLogging(true);
 
             fireReasonerTaskProgressChanged(1, 2);
@@ -1252,7 +1247,7 @@ namespace CogniPy.Executing.HermiTClient
             }
         }
 
-        private string triple2Cnl( org.apache.jena.graph.Triple tri, org.apache.jena.reasoner.InfGraph infGraph)
+        private string triple2Cnl(org.apache.jena.graph.Triple tri, org.apache.jena.reasoner.InfGraph infGraph)
         {
             if (tri.getMatchSubject().isBlank() || tri.getMatchObject().isBlank() || tri.getMatchPredicate().isBlank())
                 return null;
@@ -1447,7 +1442,7 @@ namespace CogniPy.Executing.HermiTClient
         {
             strWriter.WriteLine(JESC("errors") + ":[");
             bool addComma = false;
-            foreach(var error in errors)
+            foreach (var error in errors)
             {
                 if (addComma)
                     strWriter.Write(',');
@@ -1489,7 +1484,7 @@ namespace CogniPy.Executing.HermiTClient
                     addComma = true;
                 var key = kv.Key;
                 var content = kv.Value;
-                strWriter.WriteLine( JESC(key) + ":[");
+                strWriter.WriteLine(JESC(key) + ":[");
                 bool addComma2 = false;
                 foreach (var cc in content)
                 {
@@ -1500,8 +1495,8 @@ namespace CogniPy.Executing.HermiTClient
                     strWriter.WriteLine("{");
                     foreach (var kv2 in cc)
                     {
-                        if(kv2.Value.IsInstance)
-                            strWriter.WriteLine(JESC(kv2.Key) + ":{\"instance\":" + JESC(kv2.Value.Value.ToString())+"}");
+                        if (kv2.Value.IsInstance)
+                            strWriter.WriteLine(JESC(kv2.Key) + ":{\"instance\":" + JESC(kv2.Value.Value.ToString()) + "}");
                         else
                             strWriter.WriteLine(JESC(kv2.Key) + ":{\"value\":" + JVAL(kv2.Value.Value) + "}");
                     }
@@ -1541,7 +1536,7 @@ namespace CogniPy.Executing.HermiTClient
 
         protected void printTrace(TextWriter strWriter, org.apache.jena.reasoner.InfGraph infGraph, org.apache.jena.reasoner.rulesys.RuleDerivation me, int indent, HashSet<org.apache.jena.reasoner.rulesys.RuleDerivation> seen, HashSet<string> alreadyPrinted)
         {
-            strWriter.Write(new string(' ', indent)+"{");
+            strWriter.Write(new string(' ', indent) + "{");
 
             if (id2stmt.ContainsKey(me.getRule().getName()))
                 strWriter.WriteLine(JESC("rule") + ":" + JESC(TheAccessObject.ToCNL(id2stmt[me.getRule().getName()])) + ",");
@@ -1550,7 +1545,7 @@ namespace CogniPy.Executing.HermiTClient
             if (tr != null)
                 strWriter.Write(JESC("concluded") + ":" + JESC(tr) + ",");
 
-            strWriter.WriteLine(JESC("by")+":[");
+            strWriter.WriteLine(JESC("by") + ":[");
             int margin = indent + 4;
             bool addComma = false;
             for (int i = 0; i < me.getMatches().size(); i++)
@@ -1599,7 +1594,7 @@ namespace CogniPy.Executing.HermiTClient
                     if (seen.Contains(derivation))
                     {
                         strWriter.Write(new string(' ', margin));
-                        strWriter.WriteLine(JESC("alreadyShown") + ":" +JESC(triple2Cnl(match, infGraph)));
+                        strWriter.WriteLine(JESC("alreadyShown") + ":" + JESC(triple2Cnl(match, infGraph)));
                     }
                     else
                     {
@@ -1623,7 +1618,7 @@ namespace CogniPy.Executing.HermiTClient
                 while (iter2.hasNext())
                 {
                     var deriv = (org.apache.jena.reasoner.rulesys.RuleDerivation)iter2.next();
-                    printTrace(wr,((org.apache.jena.reasoner.InfGraph)model.getGraph()), deriv, 0, new HashSet<org.apache.jena.reasoner.rulesys.RuleDerivation>(), new HashSet<string>());
+                    printTrace(wr, ((org.apache.jena.reasoner.InfGraph)model.getGraph()), deriv, 0, new HashSet<org.apache.jena.reasoner.rulesys.RuleDerivation>(), new HashSet<string>());
                 }
             }
             return wr.ToString();
@@ -1782,7 +1777,7 @@ namespace CogniPy.Executing.HermiTClient
                                     toRet.Statements.Add(new CNL.DL.DifferentInstances(null,
                                         new CNL.DL.InstanceList(null)
                                         {
-                                            List = new List<CNL.DL.Instance>(){ 
+                                            List = new List<CNL.DL.Instance>(){
                                         new CNL.DL.NamedInstance(null) { name = insts[i].First() },
                                         new CNL.DL.NamedInstance(null) { name = insts[j].First() }}
                                         }, CNL.DL.Statement.Modality.IS));
@@ -2151,13 +2146,13 @@ namespace CogniPy.Executing.HermiTClient
         {
             List<List<string>> x = new List<List<string>>();
             var ret = func(transform.GetObjectProperty(role), false);
-            for (var it = ret.iterator(); it.hasNext(); )
+            for (var it = ret.iterator(); it.hasNext();)
             {
                 List<string> y = new List<string>();
 
                 OWLClassNode cls = it.next() as OWLClassNode;
                 var s2 = cls.getEntities();
-                for (var it2 = s2.iterator(); it2.hasNext(); )
+                for (var it2 = s2.iterator(); it2.hasNext();)
                 {
                     var nod = it2.next() as OWLClassExpression;
                     if (nod.isBottomEntity())
@@ -2192,13 +2187,13 @@ namespace CogniPy.Executing.HermiTClient
         {
             List<List<string>> x = new List<List<string>>();
             var ret = func(transform.GetDataProperty(role), false);
-            for (var it = ret.iterator(); it.hasNext(); )
+            for (var it = ret.iterator(); it.hasNext();)
             {
                 List<string> y = new List<string>();
 
                 OWLClassNode cls = it.next() as OWLClassNode;
                 var s2 = cls.getEntities();
-                for (var it2 = s2.iterator(); it2.hasNext(); )
+                for (var it2 = s2.iterator(); it2.hasNext();)
                 {
                     var nod = it2.next() as OWLClassExpression;
                     if (nod.isBottomEntity())
@@ -2229,12 +2224,12 @@ namespace CogniPy.Executing.HermiTClient
         {
             List<List<string>> x = new List<List<string>>();
             var ret = reasoner.getInstances(transform.Convert(e).Key, direct);
-            for (var it = ret.iterator(); it.hasNext(); )
+            for (var it = ret.iterator(); it.hasNext();)
             {
                 OWLNamedIndividualNode ind = it.next() as OWLNamedIndividualNode;
                 List<string> y = new List<string>();
                 var s2 = ind.getEntities();
-                for (var it2 = s2.iterator(); it2.hasNext(); )
+                for (var it2 = s2.iterator(); it2.hasNext();)
                 {
                     var nod = it2.next() as OWLNamedIndividual;
                     y.Add(invtransform.renderEntity(nod, ARS.EntityKind.Instance));
@@ -2250,7 +2245,7 @@ namespace CogniPy.Executing.HermiTClient
             var res = new List<string>();
             OWLNamedIndividual individual = transform.GetNamedIndividual(instance);
             var x = individual.getDataPropertyValues(ontology);
-            for (var it = x.keySet().iterator(); it.hasNext(); )
+            for (var it = x.keySet().iterator(); it.hasNext();)
             {
                 var ind = it.next() as Map.Entry;//OWLDataPropertyExpression;
                 res.Add(invtransform.renderEntity(ind as OWLClass, ARS.EntityKind.DataRole));
@@ -2263,12 +2258,12 @@ namespace CogniPy.Executing.HermiTClient
         {
             var x = new List<List<string>>();
             var ret = reasoner.getObjectPropertyValues(transform.GetNamedIndividual(instance), transform.GetObjectProperty(r));
-            for (var it = ret.iterator(); it.hasNext(); )
+            for (var it = ret.iterator(); it.hasNext();)
             {
                 var ind = it.next() as OWLNamedIndividualNode;
                 var y = new List<string>();
                 var s2 = ind.getEntities();
-                for (var it2 = s2.iterator(); it2.hasNext(); )
+                for (var it2 = s2.iterator(); it2.hasNext();)
                 {
                     var nod = it2.next() as OWLNamedIndividual;
                     y.Add(invtransform.renderEntity(nod, ARS.EntityKind.Instance));
@@ -2283,7 +2278,7 @@ namespace CogniPy.Executing.HermiTClient
         {
             var x = new List<string>();
             var ret = getSupprtingReasoner().getDataPropertyValues(transform.GetNamedIndividual(instance), transform.GetDataProperty(r));
-            for (var it = ret.iterator(); it.hasNext(); )
+            for (var it = ret.iterator(); it.hasNext();)
             {
                 var y = (it.next() as org.semanticweb.owlapi.model.OWLLiteral);
                 if (y != null)
@@ -2300,31 +2295,31 @@ namespace CogniPy.Executing.HermiTClient
         {
             List<List<string>> x = new List<List<string>>();
             var ret = reasoner.getSubClasses(transform.Convert(e).Key, direct);
-            for (var it = ret.iterator(); it.hasNext(); )
+            for (var it = ret.iterator(); it.hasNext();)
             {
                 List<string> y = new List<string>();
 
                 OWLClassNode cls = it.next() as OWLClassNode;
                 var s2 = cls.getEntities();
-                for (var it2 = s2.iterator(); it2.hasNext(); )
+                for (var it2 = s2.iterator(); it2.hasNext();)
                 {
                     var nod = it2.next() as OWLClassExpression;
-                    if ( nod.isBottomEntity())
+                    if (nod.isBottomEntity())
                     {
-                        if(includeTopBot)
+                        if (includeTopBot)
                             y.Add("⊥");
                     }
                     else if (nod.isTopEntity())
                     {
-                        if(includeTopBot)
+                        if (includeTopBot)
                             y.Add("⊤");
                     }
-                    else if(nod.isClassExpressionLiteral())
+                    else if (nod.isClassExpressionLiteral())
                     {
                         y.Add(invtransform.renderEntity(nod as OWLClass, ARS.EntityKind.Concept));
                     }
                 }
-                if(y.Count>0)
+                if (y.Count > 0)
                     x.Add(y);
             }
             return x;
@@ -2343,19 +2338,19 @@ namespace CogniPy.Executing.HermiTClient
 
             List<List<string>> x = new List<List<string>>();
             var ret = getSupprtingReasoner().getSubObjectProperties(transform.GetObjectProperty(e), direct);
-            for (var it = ret.iterator(); it.hasNext(); )
+            for (var it = ret.iterator(); it.hasNext();)
             {
                 List<string> y = new List<string>();
 
-                var clsc = it.next() ;
+                var clsc = it.next();
                 var cls = clsc as OWLObjectPropertyNode;
                 if (cls == null)
                     continue;
                 var s2 = cls.getEntities();
-                for (var it2 = s2.iterator(); it2.hasNext(); )
+                for (var it2 = s2.iterator(); it2.hasNext();)
                 {
                     var nod2 = it2.next();
-                    var nod =  nod2 as OWLObjectPropertyExpression;
+                    var nod = nod2 as OWLObjectPropertyExpression;
                     if (nod.isBottomEntity())
                     {
                         if (includeTopBot)
@@ -2366,7 +2361,7 @@ namespace CogniPy.Executing.HermiTClient
                         if (includeTopBot)
                             y.Add("⊤");
                     }
-                    else if(nod2 is OWLObjectProperty)
+                    else if (nod2 is OWLObjectProperty)
                     {
                         y.Add(invtransform.renderEntity(nod2 as OWLObjectProperty, ARS.EntityKind.Role));
                     }
@@ -2381,13 +2376,13 @@ namespace CogniPy.Executing.HermiTClient
         {
             List<List<string>> x = new List<List<string>>();
             var ret = getSupprtingReasoner().getSubDataProperties(transform.GetDataProperty(e), direct);
-            for (var it = ret.iterator(); it.hasNext(); )
+            for (var it = ret.iterator(); it.hasNext();)
             {
                 List<string> y = new List<string>();
 
                 var cls = it.next() as OWLDataPropertyNode;
                 var s2 = cls.getEntities();
-                for (var it2 = s2.iterator(); it2.hasNext(); )
+                for (var it2 = s2.iterator(); it2.hasNext();)
                 {
                     var nod = it2.next() as OWLDataProperty;
                     if (nod.isBottomEntity())
@@ -2415,13 +2410,13 @@ namespace CogniPy.Executing.HermiTClient
         {
             List<List<string>> x = new List<List<string>>();
             var ret = getSupprtingReasoner().getSuperDataProperties(transform.GetDataProperty(e), direct);
-            for (var it = ret.iterator(); it.hasNext(); )
+            for (var it = ret.iterator(); it.hasNext();)
             {
                 List<string> y = new List<string>();
 
                 var cls = it.next() as OWLDataPropertyNode;
                 var s2 = cls.getEntities();
-                for (var it2 = s2.iterator(); it2.hasNext(); )
+                for (var it2 = s2.iterator(); it2.hasNext();)
                 {
                     var nod = it2.next() as OWLDataProperty;
                     if (nod.isBottomEntity())
@@ -2461,7 +2456,7 @@ namespace CogniPy.Executing.HermiTClient
 
             OWLClassNode ret = reasoner.getEquivalentClasses(ecls) as OWLClassNode;
             List<string> y = new List<string>();
-            for (var it2 = ret.iterator(); it2.hasNext(); )
+            for (var it2 = ret.iterator(); it2.hasNext();)
             {
                 var nod = it2.next() as OWLClassExpression;
                 if (nod.isBottomEntity())
@@ -2491,7 +2486,7 @@ namespace CogniPy.Executing.HermiTClient
 
             List<string> y = new List<string>();
             var ret = reasoner.getEquivalentDataProperties(ecls).getEntities();
-            for (var it2 = ret.iterator(); it2.hasNext(); )
+            for (var it2 = ret.iterator(); it2.hasNext();)
             {
                 var nod = it2.next() as OWLDataProperty;
                 if (nod.isBottomEntity())
@@ -2519,18 +2514,18 @@ namespace CogniPy.Executing.HermiTClient
         {
             List<List<string>> x = new List<List<string>>();
             NodeSet ret;
-            if(e is InstanceSet)
+            if (e is InstanceSet)
                 ret = reasoner.getTypes(transform.GetNamedIndividual(((NamedInstance)((InstanceSet)e).Instances[0]).name), direct);
             else
                 ret = reasoner.getSuperClasses(transform.Convert(e).Key, direct);
 
-            for (var it = ret.iterator(); it.hasNext(); )
+            for (var it = ret.iterator(); it.hasNext();)
             {
                 List<string> y = new List<string>();
 
                 OWLClassNode cls = it.next() as OWLClassNode;
                 var s2 = cls.getEntities();
-                for (var it2 = s2.iterator(); it2.hasNext(); )
+                for (var it2 = s2.iterator(); it2.hasNext();)
                 {
                     var nod = it2.next() as OWLClassExpression;
                     if (nod.isBottomEntity())
@@ -2678,7 +2673,7 @@ namespace CogniPy.Executing.HermiTClient
 
         private bool IsABox(CNL.DL.Statement stmt)
         {
-            return ((stmt is CNL.DL.InstanceOf) && (( (stmt as CNL.DL.InstanceOf).C is CNL.DL.Atomic)|| ((stmt as CNL.DL.InstanceOf).C is CNL.DL.Top))) || (stmt is CNL.DL.RelatedInstances) || (stmt is CNL.DL.InstanceValue) || (stmt is CNL.DL.SameInstances) || (stmt is CNL.DL.DifferentInstances);
+            return ((stmt is CNL.DL.InstanceOf) && (((stmt as CNL.DL.InstanceOf).C is CNL.DL.Atomic) || ((stmt as CNL.DL.InstanceOf).C is CNL.DL.Top))) || (stmt is CNL.DL.RelatedInstances) || (stmt is CNL.DL.InstanceValue) || (stmt is CNL.DL.SameInstances) || (stmt is CNL.DL.DifferentInstances);
         }
 
         void AddIfNotExistsRemoveIfExists(bool isAdd, org.apache.jena.rdf.model.Model model2, org.apache.jena.rdf.model.Resource s, org.apache.jena.rdf.model.Property v, org.apache.jena.rdf.model.RDFNode o)
@@ -2827,7 +2822,7 @@ namespace CogniPy.Executing.HermiTClient
             return ret;
         }
 
-        public List<Tuple<string,object>> GetInstancesOfFromModelFastURI(object a)
+        public List<Tuple<string, object>> GetInstancesOfFromModelFastURI(object a)
         {
             BuildModel();
             org.apache.jena.util.iterator.ExtendedIterator triples;
@@ -2853,7 +2848,7 @@ namespace CogniPy.Executing.HermiTClient
                 else
                 {
                     var ret2 = new List<Tuple<string, object>>();
-                    foreach(var i in set.Instances)
+                    foreach (var i in set.Instances)
                         ret2.AddRange(GetInstancesOfFromModelFastURI(i));
                     return ret2;
                 }
@@ -2869,7 +2864,7 @@ namespace CogniPy.Executing.HermiTClient
                 if (sub.isBlank())
                     continue;
                 var vra = sub.toString();
-                ret.Add(Tuple.Create(vra,(object)sub));
+                ret.Add(Tuple.Create(vra, (object)sub));
             }
             return ret;
         }
@@ -2905,7 +2900,7 @@ namespace CogniPy.Executing.HermiTClient
             return ret;
         }
 
-        public void AddRemoveKnowledge(CNL.DL.Paragraph para, bool isAdd, bool swrlOnly=false)
+        public void AddRemoveKnowledge(CNL.DL.Paragraph para, bool isAdd, bool swrlOnly = false)
         {
             BuildModel();
             InvalidateSyncOntologyToModel();
@@ -2919,7 +2914,7 @@ namespace CogniPy.Executing.HermiTClient
             }
             else
             {
-                if(!isAdd)
+                if (!isAdd)
                 {
                     lock (sourceParagraph)
                     {

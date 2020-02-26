@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CogniPy.models
+﻿namespace CogniPy.models
 {
     public class AnnotationResult
     {
@@ -19,7 +13,7 @@ namespace CogniPy.models
 
         //     value of the annotation
         public object Value { get; set; }
-        
+
         //     language of the annotation (can be empty or null!)
         public string Language { get; set; }
     }

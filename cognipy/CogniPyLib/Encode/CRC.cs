@@ -1,16 +1,13 @@
-﻿using System;
-using System.IO;
-
-namespace CogniPy.Common
+﻿namespace CogniPy.Common
 {
-  /// <summary>
-  /// A utility class to compute CRC32.
-  /// </summary>
-  internal class Crc32
-  {
-    private uint _crc32 = 0;
-    static private uint[] crc_32_tab =  // CRC polynomial 0xedb88320 
-      {
+    /// <summary>
+    /// A utility class to compute CRC32.
+    /// </summary>
+    internal class Crc32
+    {
+        private uint _crc32 = 0;
+        static private uint[] crc_32_tab =  // CRC polynomial 0xedb88320 
+          {
         0x00000000, 0x77073096, 0xee0e612c, 0x990951ba, 0x076dc419, 0x706af48f,
         0xe963a535, 0x9e6495a3, 0x0edb8832, 0x79dcb8a4, 0xe0d5e91e, 0x97d2d988,
         0x09b64c2b, 0x7eb17cbd, 0xe7b82d07, 0x90bf1d91, 0x1db71064, 0x6ab020f2,
@@ -53,87 +50,87 @@ namespace CogniPy.Common
         0x40df0b66, 0x37d83bf0, 0xa9bcae53, 0xdebb9ec5, 0x47b2cf7f, 0x30b5ffe9,
         0xbdbdf21c, 0xcabac28a, 0x53b39330, 0x24b4a3a6, 0xbad03605, 0xcdd70693,
         0x54de5729, 0x23d967bf, 0xb3667a2e, 0xc4614ab8, 0x5d681b02, 0x2a6f2b94,
-        0xb40bbe37, 0xc30c8ea1, 0x5a05df1b, 0x2d02ef8d 
-      };      
+        0xb40bbe37, 0xc30c8ea1, 0x5a05df1b, 0x2d02ef8d
+      };
 
-    static private uint UPDC32(byte octet, uint crc)
-    {
-      return (crc_32_tab[((crc)^((byte)octet)) & 0xff] ^ ((crc) >> 8));
-    }
-
-    internal uint CheckSum
-    {
-      get
-      {
-        return _crc32;
-      }
-      set
-      {
-        _crc32 = value;
-      }
-    }
-
-    internal uint AddToCRC32(int c)
-    {
-      return AddToCRC32((ushort)c);
-    }
-
-    internal uint AddToCRC32(ushort c)
-    {
-      byte lowByte, hiByte;
-      lowByte = (byte)(c & 0x00ff);
-      hiByte = (byte)(c >> 8);
-      _crc32 = UPDC32(hiByte, _crc32);
-      _crc32 = UPDC32(lowByte, _crc32);
-      return ~_crc32;
-    }
-
-    /// <summary>
-    /// Compute a checksum for a given string.
-    /// </summary>
-    /// <param name="text">The string to compute the checksum for.</param>
-    /// <returns>The computed checksum.</returns>
-    static public uint CRC32String(string text)
-    {
-      uint oldcrc32;
-      oldcrc32 = 0xFFFFFFFF;        
-      int len = text.Length;
-      ushort uCharVal;
-      byte lowByte, hiByte;
-        
-      for ( int i=0; len>0; i++)
-      {
-        --len;
-        uCharVal = text[len];
-        unchecked
+        static private uint UPDC32(byte octet, uint crc)
         {
-          lowByte = (byte)(uCharVal & 0x00ff);
-          hiByte = (byte)(uCharVal >> 8);
+            return (crc_32_tab[((crc) ^ ((byte)octet)) & 0xff] ^ ((crc) >> 8));
         }
-        oldcrc32 = UPDC32(hiByte, oldcrc32);
-        oldcrc32 = UPDC32(lowByte, oldcrc32);
-      }
 
-      return ~oldcrc32;
-    }
+        internal uint CheckSum
+        {
+            get
+            {
+                return _crc32;
+            }
+            set
+            {
+                _crc32 = value;
+            }
+        }
 
-    /// <summary>
-    /// Compute a checksum for a given array of bytes.
-    /// </summary>
-    /// <param name="bytes">The array of bytes to compute the checksum for.</param>
-    /// <returns>The computed checksum.</returns>
-    static public uint CRC32Bytes(byte[] bytes)
-    {
-      uint oldcrc32;
-      oldcrc32 = 0xFFFFFFFF;        
-      int len = bytes.Length;
-        
-      for ( int i=0; len>0; i++)
-      {
-        --len;
-        oldcrc32 = UPDC32(bytes[len], oldcrc32);
-      }
-      return ~oldcrc32;
+        internal uint AddToCRC32(int c)
+        {
+            return AddToCRC32((ushort)c);
+        }
+
+        internal uint AddToCRC32(ushort c)
+        {
+            byte lowByte, hiByte;
+            lowByte = (byte)(c & 0x00ff);
+            hiByte = (byte)(c >> 8);
+            _crc32 = UPDC32(hiByte, _crc32);
+            _crc32 = UPDC32(lowByte, _crc32);
+            return ~_crc32;
+        }
+
+        /// <summary>
+        /// Compute a checksum for a given string.
+        /// </summary>
+        /// <param name="text">The string to compute the checksum for.</param>
+        /// <returns>The computed checksum.</returns>
+        static public uint CRC32String(string text)
+        {
+            uint oldcrc32;
+            oldcrc32 = 0xFFFFFFFF;
+            int len = text.Length;
+            ushort uCharVal;
+            byte lowByte, hiByte;
+
+            for (int i = 0; len > 0; i++)
+            {
+                --len;
+                uCharVal = text[len];
+                unchecked
+                {
+                    lowByte = (byte)(uCharVal & 0x00ff);
+                    hiByte = (byte)(uCharVal >> 8);
+                }
+                oldcrc32 = UPDC32(hiByte, oldcrc32);
+                oldcrc32 = UPDC32(lowByte, oldcrc32);
+            }
+
+            return ~oldcrc32;
+        }
+
+        /// <summary>
+        /// Compute a checksum for a given array of bytes.
+        /// </summary>
+        /// <param name="bytes">The array of bytes to compute the checksum for.</param>
+        /// <returns>The computed checksum.</returns>
+        static public uint CRC32Bytes(byte[] bytes)
+        {
+            uint oldcrc32;
+            oldcrc32 = 0xFFFFFFFF;
+            int len = bytes.Length;
+
+            for (int i = 0; len > 0; i++)
+            {
+                --len;
+                oldcrc32 = UPDC32(bytes[len], oldcrc32);
+            }
+            return ~oldcrc32;
+        }
     }
-  }
 }

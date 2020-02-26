@@ -1,8 +1,5 @@
 ﻿using CogniPy.CNL.DL;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace CogniPy.CNL
 {
@@ -23,12 +20,12 @@ namespace CogniPy.CNL
         private List<string> allheadPart = new List<string>();
         private List<string> allbodyPart = new List<string>();
         private bool isBody = false;
-        private void addToHeadOrBody(string val,string type)
+        private void addToHeadOrBody(string val, string type)
         {
-            if (!isBody && !allheadPart.Contains(val+type))
-                    allheadPart.Add(val + type);
-            else if(isBody && !allbodyPart.Contains(val + type))
-                    allbodyPart.Add(val+type);
+            if (!isBody && !allheadPart.Contains(val + type))
+                allheadPart.Add(val + type);
+            else if (isBody && !allbodyPart.Contains(val + type))
+                allbodyPart.Add(val + type);
         }
 
         public override object Visit(Paragraph e)
@@ -173,7 +170,7 @@ namespace CogniPy.CNL
 
         public override object Visit(CogniPy.CNL.DL.Atomic e)
         {
-            if(isKindOf.get() == "C")
+            if (isKindOf.get() == "C")
                 addToHeadOrBody(e.id, ":C");
             return e;
         }

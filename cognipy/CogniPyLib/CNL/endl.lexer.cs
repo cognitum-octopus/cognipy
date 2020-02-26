@@ -1,412 +1,705 @@
-using System;using Tools;
-namespace CogniPy.CNL.EN {
-//%+STR+3
-public partial class STR : TOKEN{
-public override string yyname { get { return "STR"; }}
-public override int yynum { get { return 3; }}
-public STR(Lexer yyl):base(yyl){}}
-//%+ID+4
-public partial class ID : TOKEN{
-public override string yyname { get { return "ID"; }}
-public override int yynum { get { return 4; }}
-public ID(Lexer yyl):base(yyl){}}
-//%+NAT+5
-public partial class NAT : TOKEN{
-public override string yyname { get { return "NAT"; }}
-public override int yynum { get { return 5; }}
-public NAT(Lexer yyl):base(yyl){}}
-//%+NUM+6
-public partial class NUM : TOKEN{
-public override string yyname { get { return "NUM"; }}
-public override int yynum { get { return 6; }}
-public NUM(Lexer yyl):base(yyl){}}
-//%+DBL+7
-public partial class DBL : TOKEN{
-public override string yyname { get { return "DBL"; }}
-public override int yynum { get { return 7; }}
-public DBL(Lexer yyl):base(yyl){}}
-//%+BOL+8
-public partial class BOL : TOKEN{
-public override string yyname { get { return "BOL"; }}
-public override int yynum { get { return 8; }}
-public BOL(Lexer yyl):base(yyl){}}
-//%+CODE+9
-public partial class CODE : TOKEN{
-public override string yyname { get { return "CODE"; }}
-public override int yynum { get { return 9; }}
-public CODE(Lexer yyl):base(yyl){}}
-//%+COMMENT+10
-public partial class COMMENT : TOKEN{
-public override string yyname { get { return "COMMENT"; }}
-public override int yynum { get { return 10; }}
-public COMMENT(Lexer yyl):base(yyl){}}
-//%COMPARER+11
-public class COMPARER : TOKEN{ public override string yyname { get { return "COMPARER";}}
-public override int yynum { get { return 11; }}
- public COMPARER(Lexer yyl):base(yyl) {}}
-//%EITHER+12
-public class EITHER : TOKEN{ public override string yyname { get { return "EITHER";}}
-public override int yynum { get { return 12; }}
- public EITHER(Lexer yyl):base(yyl) {}}
-//%COMPARER2+13
-public class COMPARER2 : TOKEN{ public override string yyname { get { return "COMPARER2";}}
-public override int yynum { get { return 13; }}
- public COMPARER2(Lexer yyl):base(yyl) {}}
-//%EQUALTO+14
-public class EQUALTO : TOKEN{ public override string yyname { get { return "EQUALTO";}}
-public override int yynum { get { return 14; }}
- public EQUALTO(Lexer yyl):base(yyl) {}}
-//%DIFFERENTFROM+15
-public class DIFFERENTFROM : TOKEN{ public override string yyname { get { return "DIFFERENTFROM";}}
-public override int yynum { get { return 15; }}
- public DIFFERENTFROM(Lexer yyl):base(yyl) {}}
-//%MATCHES+16
-public class MATCHES : TOKEN{ public override string yyname { get { return "MATCHES";}}
-public override int yynum { get { return 16; }}
- public MATCHES(Lexer yyl):base(yyl) {}}
-//%THATHASLENGTH+17
-public class THATHASLENGTH : TOKEN{ public override string yyname { get { return "THATHASLENGTH";}}
-public override int yynum { get { return 17; }}
- public THATHASLENGTH(Lexer yyl):base(yyl) {}}
-//%THEONEANDONLY+18
-public class THEONEANDONLY : TOKEN{ public override string yyname { get { return "THEONEANDONLY";}}
-public override int yynum { get { return 18; }}
- public THEONEANDONLY(Lexer yyl):base(yyl) {}}
-//%THE+19
-public class THE : TOKEN{ public override string yyname { get { return "THE";}}
-public override int yynum { get { return 19; }}
- public THE(Lexer yyl):base(yyl) {}}
-//%NOTHINGBUT+20
-public class NOTHINGBUT : TOKEN{ public override string yyname { get { return "NOTHINGBUT";}}
-public override int yynum { get { return 20; }}
- public NOTHINGBUT(Lexer yyl):base(yyl) {}}
-//%ISUNIQUEIF+21
-public class ISUNIQUEIF : TOKEN{ public override string yyname { get { return "ISUNIQUEIF";}}
-public override int yynum { get { return 21; }}
- public ISUNIQUEIF(Lexer yyl):base(yyl) {}}
-//%IFANDONLYIF+22
-public class IFANDONLYIF : TOKEN{ public override string yyname { get { return "IFANDONLYIF";}}
-public override int yynum { get { return 22; }}
- public IFANDONLYIF(Lexer yyl):base(yyl) {}}
-//%IFANDONLYIFIT+23
-public class IFANDONLYIFIT : TOKEN{ public override string yyname { get { return "IFANDONLYIFIT";}}
-public override int yynum { get { return 23; }}
- public IFANDONLYIFIT(Lexer yyl):base(yyl) {}}
-//%IFANDONLYIFITEITHER+24
-public class IFANDONLYIFITEITHER : TOKEN{ public override string yyname { get { return "IFANDONLYIFITEITHER";}}
-public override int yynum { get { return 24; }}
- public IFANDONLYIFITEITHER(Lexer yyl):base(yyl) {}}
-//%ANYTHING+25
-public class ANYTHING : TOKEN{ public override string yyname { get { return "ANYTHING";}}
-public override int yynum { get { return 25; }}
- public ANYTHING(Lexer yyl):base(yyl) {}}
-//%ORSOMETHINGELSE+26
-public class ORSOMETHINGELSE : TOKEN{ public override string yyname { get { return "ORSOMETHINGELSE";}}
-public override int yynum { get { return 26; }}
- public ORSOMETHINGELSE(Lexer yyl):base(yyl) {}}
-//%DOESNOT+27
-public class DOESNOT : TOKEN{ public override string yyname { get { return "DOESNOT";}}
-public override int yynum { get { return 27; }}
- public DOESNOT(Lexer yyl):base(yyl) {}}
-//%DONOT+28
-public class DONOT : TOKEN{ public override string yyname { get { return "DONOT";}}
-public override int yynum { get { return 28; }}
- public DONOT(Lexer yyl):base(yyl) {}}
-//%ISNOT+29
-public class ISNOT : TOKEN{ public override string yyname { get { return "ISNOT";}}
-public override int yynum { get { return 29; }}
- public ISNOT(Lexer yyl):base(yyl) {}}
-//%BENOT+30
-public class BENOT : TOKEN{ public override string yyname { get { return "BENOT";}}
-public override int yynum { get { return 30; }}
- public BENOT(Lexer yyl):base(yyl) {}}
-//%ARENOT+31
-public class ARENOT : TOKEN{ public override string yyname { get { return "ARENOT";}}
-public override int yynum { get { return 31; }}
- public ARENOT(Lexer yyl):base(yyl) {}}
-//%ISTHESAMEAS+32
-public class ISTHESAMEAS : TOKEN{ public override string yyname { get { return "ISTHESAMEAS";}}
-public override int yynum { get { return 32; }}
- public ISTHESAMEAS(Lexer yyl):base(yyl) {}}
-//%ISNOTTHESAMEAS+33
-public class ISNOTTHESAMEAS : TOKEN{ public override string yyname { get { return "ISNOTTHESAMEAS";}}
-public override int yynum { get { return 33; }}
- public ISNOTTHESAMEAS(Lexer yyl):base(yyl) {}}
-//%IF+34
-public class IF : TOKEN{ public override string yyname { get { return "IF";}}
-public override int yynum { get { return 34; }}
- public IF(Lexer yyl):base(yyl) {}}
-//%THEN+35
-public class THEN : TOKEN{ public override string yyname { get { return "THEN";}}
-public override int yynum { get { return 35; }}
- public THEN(Lexer yyl):base(yyl) {}}
-//%IT+36
-public class IT : TOKEN{ public override string yyname { get { return "IT";}}
-public override int yynum { get { return 36; }}
- public IT(Lexer yyl):base(yyl) {}}
-//%EVERY+37
-public class EVERY : TOKEN{ public override string yyname { get { return "EVERY";}}
-public override int yynum { get { return 37; }}
- public EVERY(Lexer yyl):base(yyl) {}}
-//%NO+38
-public class NO : TOKEN{ public override string yyname { get { return "NO";}}
-public override int yynum { get { return 38; }}
- public NO(Lexer yyl):base(yyl) {}}
-//%EVERYTHING+39
-public class EVERYTHING : TOKEN{ public override string yyname { get { return "EVERYTHING";}}
-public override int yynum { get { return 39; }}
- public EVERYTHING(Lexer yyl):base(yyl) {}}
-//%NOTHING+40
-public class NOTHING : TOKEN{ public override string yyname { get { return "NOTHING";}}
-public override int yynum { get { return 40; }}
- public NOTHING(Lexer yyl):base(yyl) {}}
-//%SOMETHING+41
-public class SOMETHING : TOKEN{ public override string yyname { get { return "SOMETHING";}}
-public override int yynum { get { return 41; }}
- public SOMETHING(Lexer yyl):base(yyl) {}}
-//%NONE+42
-public class NONE : TOKEN{ public override string yyname { get { return "NONE";}}
-public override int yynum { get { return 42; }}
- public NONE(Lexer yyl):base(yyl) {}}
-//%THING+43
-public class THING : TOKEN{ public override string yyname { get { return "THING";}}
-public override int yynum { get { return 43; }}
- public THING(Lexer yyl):base(yyl) {}}
-//%THINGS+44
-public class THINGS : TOKEN{ public override string yyname { get { return "THINGS";}}
-public override int yynum { get { return 44; }}
- public THINGS(Lexer yyl):base(yyl) {}}
-//%THAT+45
-public class THAT : TOKEN{ public override string yyname { get { return "THAT";}}
-public override int yynum { get { return 45; }}
- public THAT(Lexer yyl):base(yyl) {}}
-//%IS+46
-public class IS : TOKEN{ public override string yyname { get { return "IS";}}
-public override int yynum { get { return 46; }}
- public IS(Lexer yyl):base(yyl) {}}
-//%AN+47
-public class AN : TOKEN{ public override string yyname { get { return "AN";}}
-public override int yynum { get { return 47; }}
- public AN(Lexer yyl):base(yyl) {}}
-//%NOT+48
-public class NOT : TOKEN{ public override string yyname { get { return "NOT";}}
-public override int yynum { get { return 48; }}
- public NOT(Lexer yyl):base(yyl) {}}
-//%AND+49
-public class AND : TOKEN{ public override string yyname { get { return "AND";}}
-public override int yynum { get { return 49; }}
- public AND(Lexer yyl):base(yyl) {}}
-//%OR+50
-public class OR : TOKEN{ public override string yyname { get { return "OR";}}
-public override int yynum { get { return 50; }}
- public OR(Lexer yyl):base(yyl) {}}
-//%ANDOR+51
-public class ANDOR : TOKEN{ public override string yyname { get { return "ANDOR";}}
-public override int yynum { get { return 51; }}
- public ANDOR(Lexer yyl):base(yyl) {}}
-//%ASWELLAS+52
-public class ASWELLAS : TOKEN{ public override string yyname { get { return "ASWELLAS";}}
-public override int yynum { get { return 52; }}
- public ASWELLAS(Lexer yyl):base(yyl) {}}
-//%BY+53
-public class BY : TOKEN{ public override string yyname { get { return "BY";}}
-public override int yynum { get { return 53; }}
- public BY(Lexer yyl):base(yyl) {}}
-//%ITSELF+54
-public class ITSELF : TOKEN{ public override string yyname { get { return "ITSELF";}}
-public override int yynum { get { return 54; }}
- public ITSELF(Lexer yyl):base(yyl) {}}
-//%MODAL+55
-public class MODAL : TOKEN{ public override string yyname { get { return "MODAL";}}
-public override int yynum { get { return 55; }}
- public MODAL(Lexer yyl):base(yyl) {}}
-//%BE+56
-public class BE : TOKEN{ public override string yyname { get { return "BE";}}
-public override int yynum { get { return 56; }}
- public BE(Lexer yyl):base(yyl) {}}
-//%X+57
-public class X : TOKEN{ public override string yyname { get { return "X";}}
-public override int yynum { get { return 57; }}
- public X(Lexer yyl):base(yyl) {}}
-//%Y+58
-public class Y : TOKEN{ public override string yyname { get { return "Y";}}
-public override int yynum { get { return 58; }}
- public Y(Lexer yyl):base(yyl) {}}
-//%WORDNUM+59
-public class WORDNUM : TOKEN{ public override string yyname { get { return "WORDNUM";}}
-public override int yynum { get { return 59; }}
- public WORDNUM(Lexer yyl):base(yyl) {}}
-//%SOME+60
-public class SOME : TOKEN{ public override string yyname { get { return "SOME";}}
-public override int yynum { get { return 60; }}
- public SOME(Lexer yyl):base(yyl) {}}
-//%VALUE+61
-public class VALUE : TOKEN{ public override string yyname { get { return "VALUE";}}
-public override int yynum { get { return 61; }}
- public VALUE(Lexer yyl):base(yyl) {}}
-//%VALUEOF+62
-public class VALUEOF : TOKEN{ public override string yyname { get { return "VALUEOF";}}
-public override int yynum { get { return 62; }}
- public VALUEOF(Lexer yyl):base(yyl) {}}
-//%DATATYPENAME+63
-public class DATATYPENAME : TOKEN{ public override string yyname { get { return "DATATYPENAME";}}
-public override int yynum { get { return 63; }}
- public DATATYPENAME(Lexer yyl):base(yyl) {}}
-//%DATE+64
-public class DATE : TOKEN{ public override string yyname { get { return "DATE";}}
-public override int yynum { get { return 64; }}
- public DATE(Lexer yyl):base(yyl) {}}
-//%TIME+65
-public class TIME : TOKEN{ public override string yyname { get { return "TIME";}}
-public override int yynum { get { return 65; }}
- public TIME(Lexer yyl):base(yyl) {}}
-//%EXECUTE+66
-public class EXECUTE : TOKEN{ public override string yyname { get { return "EXECUTE";}}
-public override int yynum { get { return 66; }}
- public EXECUTE(Lexer yyl):base(yyl) {}}
-//%FOR+67
-public class FOR : TOKEN{ public override string yyname { get { return "FOR";}}
-public override int yynum { get { return 67; }}
- public FOR(Lexer yyl):base(yyl) {}}
-//%EXISTS+68
-public class EXISTS : TOKEN{ public override string yyname { get { return "EXISTS";}}
-public override int yynum { get { return 68; }}
- public EXISTS(Lexer yyl):base(yyl) {}}
-//%BINOP+69
-public class BINOP : TOKEN{ public override string yyname { get { return "BINOP";}}
-public override int yynum { get { return 69; }}
- public BINOP(Lexer yyl):base(yyl) {}}
-//%SUBSTRING+70
-public class SUBSTRING : TOKEN{ public override string yyname { get { return "SUBSTRING";}}
-public override int yynum { get { return 70; }}
- public SUBSTRING(Lexer yyl):base(yyl) {}}
-//%FROM+71
-public class FROM : TOKEN{ public override string yyname { get { return "FROM";}}
-public override int yynum { get { return 71; }}
- public FROM(Lexer yyl):base(yyl) {}}
-//%WITH+72
-public class WITH : TOKEN{ public override string yyname { get { return "WITH";}}
-public override int yynum { get { return 72; }}
- public WITH(Lexer yyl):base(yyl) {}}
-//%SUBSTRINGFIX+73
-public class SUBSTRINGFIX : TOKEN{ public override string yyname { get { return "SUBSTRINGFIX";}}
-public override int yynum { get { return 73; }}
- public SUBSTRINGFIX(Lexer yyl):base(yyl) {}}
-//%UNOP+74
-public class UNOP : TOKEN{ public override string yyname { get { return "UNOP";}}
-public override int yynum { get { return 74; }}
- public UNOP(Lexer yyl):base(yyl) {}}
-//%UNOP2+75
-public class UNOP2 : TOKEN{ public override string yyname { get { return "UNOP2";}}
-public override int yynum { get { return 75; }}
- public UNOP2(Lexer yyl):base(yyl) {}}
-//%TRANSLATEDREPLACED+76
-public class TRANSLATEDREPLACED : TOKEN{ public override string yyname { get { return "TRANSLATEDREPLACED";}}
-public override int yynum { get { return 76; }}
- public TRANSLATEDREPLACED(Lexer yyl):base(yyl) {}}
-//%EQ+77
-public class EQ : TOKEN{ public override string yyname { get { return "EQ";}}
-public override int yynum { get { return 77; }}
- public EQ(Lexer yyl):base(yyl) {}}
-//%CMP+78
-public class CMP : TOKEN{ public override string yyname { get { return "CMP";}}
-public override int yynum { get { return 78; }}
- public CMP(Lexer yyl):base(yyl) {}}
-//%PLUS+79
-public class PLUS : TOKEN{ public override string yyname { get { return "PLUS";}}
-public override int yynum { get { return 79; }}
- public PLUS(Lexer yyl):base(yyl) {}}
-//%MINUS+80
-public class MINUS : TOKEN{ public override string yyname { get { return "MINUS";}}
-public override int yynum { get { return 80; }}
- public MINUS(Lexer yyl):base(yyl) {}}
-//%DASH+81
-public class DASH : TOKEN{ public override string yyname { get { return "DASH";}}
-public override int yynum { get { return 81; }}
- public DASH(Lexer yyl):base(yyl) {}}
-//%COLON+82
-public class COLON : TOKEN{ public override string yyname { get { return "COLON";}}
-public override int yynum { get { return 82; }}
- public COLON(Lexer yyl):base(yyl) {}}
-//%TIMES+83
-public class TIMES : TOKEN{ public override string yyname { get { return "TIMES";}}
-public override int yynum { get { return 83; }}
- public TIMES(Lexer yyl):base(yyl) {}}
-//%FOLLOWEDBY+84
-public class FOLLOWEDBY : TOKEN{ public override string yyname { get { return "FOLLOWEDBY";}}
-public override int yynum { get { return 84; }}
- public FOLLOWEDBY(Lexer yyl):base(yyl) {}}
-//%DAYS+85
-public class DAYS : TOKEN{ public override string yyname { get { return "DAYS";}}
-public override int yynum { get { return 85; }}
- public DAYS(Lexer yyl):base(yyl) {}}
-//%HOURS+86
-public class HOURS : TOKEN{ public override string yyname { get { return "HOURS";}}
-public override int yynum { get { return 86; }}
- public HOURS(Lexer yyl):base(yyl) {}}
-//%MINUTES+87
-public class MINUTES : TOKEN{ public override string yyname { get { return "MINUTES";}}
-public override int yynum { get { return 87; }}
- public MINUTES(Lexer yyl):base(yyl) {}}
-//%SECONDS+88
-public class SECONDS : TOKEN{ public override string yyname { get { return "SECONDS";}}
-public override int yynum { get { return 88; }}
- public SECONDS(Lexer yyl):base(yyl) {}}
-//%ALPHA+89
-public class ALPHA : TOKEN{ public override string yyname { get { return "ALPHA";}}
-public override int yynum { get { return 89; }}
- public ALPHA(Lexer yyl):base(yyl) {}}
-//%ANNOTATION+90
-public class ANNOTATION : TOKEN{ public override string yyname { get { return "ANNOTATION";}}
-public override int yynum { get { return 90; }}
- public ANNOTATION(Lexer yyl):base(yyl) {}}
-//%RESULTOF+91
-public class RESULTOF : TOKEN{ public override string yyname { get { return "RESULTOF";}}
-public override int yynum { get { return 91; }}
- public RESULTOF(Lexer yyl):base(yyl) {}}
-//%BETRUETHAT+92
-public class BETRUETHAT : TOKEN{ public override string yyname { get { return "BETRUETHAT";}}
-public override int yynum { get { return 92; }}
- public BETRUETHAT(Lexer yyl):base(yyl) {}}
-//%OPEN+93
-public class OPEN : TOKEN{ public override string yyname { get { return "OPEN";}}
-public override int yynum { get { return 93; }}
- public OPEN(Lexer yyl):base(yyl) {}}
-//%CLOSE+94
-public class CLOSE : TOKEN{ public override string yyname { get { return "CLOSE";}}
-public override int yynum { get { return 94; }}
- public CLOSE(Lexer yyl):base(yyl) {}}
-//%DTM+95
-public class DTM : TOKEN{ public override string yyname { get { return "DTM";}}
-public override int yynum { get { return 95; }}
- public DTM(Lexer yyl):base(yyl) {}}
-//%DUR+96
-public class DUR : TOKEN{ public override string yyname { get { return "DUR";}}
-public override int yynum { get { return 96; }}
- public DUR(Lexer yyl):base(yyl) {}}
-//%NAME+97
-public class NAME : TOKEN{ public override string yyname { get { return "NAME";}}
-public override int yynum { get { return 97; }}
- public NAME(Lexer yyl):base(yyl) {}}
-//%BIGNAME+98
-public class BIGNAME : TOKEN{ public override string yyname { get { return "BIGNAME";}}
-public override int yynum { get { return 98; }}
- public BIGNAME(Lexer yyl):base(yyl) {}}
-//%VERYBIGNAME+99
-public class VERYBIGNAME : TOKEN{ public override string yyname { get { return "VERYBIGNAME";}}
-public override int yynum { get { return 99; }}
- public VERYBIGNAME(Lexer yyl):base(yyl) {}}
-//%COMMA+100
-public class COMMA : TOKEN{ public override string yyname { get { return "COMMA";}}
-public override int yynum { get { return 100; }}
- public COMMA(Lexer yyl):base(yyl) {}}
-//%END+101
-public class END : TOKEN{ public override string yyname { get { return "END";}}
-public override int yynum { get { return 101; }}
- public END(Lexer yyl):base(yyl) {}}
-//%|tokens
-public class yytokens : YyLexer {
- public yytokens(ErrorHandler eh):base(eh) { arr = new int[] { 
+using Tools;
+namespace CogniPy.CNL.EN
+{
+    //%+STR+3
+    public partial class STR : TOKEN
+    {
+        public override string yyname { get { return "STR"; } }
+        public override int yynum { get { return 3; } }
+        public STR(Lexer yyl) : base(yyl) { }
+    }
+    //%+ID+4
+    public partial class ID : TOKEN
+    {
+        public override string yyname { get { return "ID"; } }
+        public override int yynum { get { return 4; } }
+        public ID(Lexer yyl) : base(yyl) { }
+    }
+    //%+NAT+5
+    public partial class NAT : TOKEN
+    {
+        public override string yyname { get { return "NAT"; } }
+        public override int yynum { get { return 5; } }
+        public NAT(Lexer yyl) : base(yyl) { }
+    }
+    //%+NUM+6
+    public partial class NUM : TOKEN
+    {
+        public override string yyname { get { return "NUM"; } }
+        public override int yynum { get { return 6; } }
+        public NUM(Lexer yyl) : base(yyl) { }
+    }
+    //%+DBL+7
+    public partial class DBL : TOKEN
+    {
+        public override string yyname { get { return "DBL"; } }
+        public override int yynum { get { return 7; } }
+        public DBL(Lexer yyl) : base(yyl) { }
+    }
+    //%+BOL+8
+    public partial class BOL : TOKEN
+    {
+        public override string yyname { get { return "BOL"; } }
+        public override int yynum { get { return 8; } }
+        public BOL(Lexer yyl) : base(yyl) { }
+    }
+    //%+CODE+9
+    public partial class CODE : TOKEN
+    {
+        public override string yyname { get { return "CODE"; } }
+        public override int yynum { get { return 9; } }
+        public CODE(Lexer yyl) : base(yyl) { }
+    }
+    //%+COMMENT+10
+    public partial class COMMENT : TOKEN
+    {
+        public override string yyname { get { return "COMMENT"; } }
+        public override int yynum { get { return 10; } }
+        public COMMENT(Lexer yyl) : base(yyl) { }
+    }
+    //%COMPARER+11
+    public class COMPARER : TOKEN
+    {
+        public override string yyname { get { return "COMPARER"; } }
+        public override int yynum { get { return 11; } }
+        public COMPARER(Lexer yyl) : base(yyl) { }
+    }
+    //%EITHER+12
+    public class EITHER : TOKEN
+    {
+        public override string yyname { get { return "EITHER"; } }
+        public override int yynum { get { return 12; } }
+        public EITHER(Lexer yyl) : base(yyl) { }
+    }
+    //%COMPARER2+13
+    public class COMPARER2 : TOKEN
+    {
+        public override string yyname { get { return "COMPARER2"; } }
+        public override int yynum { get { return 13; } }
+        public COMPARER2(Lexer yyl) : base(yyl) { }
+    }
+    //%EQUALTO+14
+    public class EQUALTO : TOKEN
+    {
+        public override string yyname { get { return "EQUALTO"; } }
+        public override int yynum { get { return 14; } }
+        public EQUALTO(Lexer yyl) : base(yyl) { }
+    }
+    //%DIFFERENTFROM+15
+    public class DIFFERENTFROM : TOKEN
+    {
+        public override string yyname { get { return "DIFFERENTFROM"; } }
+        public override int yynum { get { return 15; } }
+        public DIFFERENTFROM(Lexer yyl) : base(yyl) { }
+    }
+    //%MATCHES+16
+    public class MATCHES : TOKEN
+    {
+        public override string yyname { get { return "MATCHES"; } }
+        public override int yynum { get { return 16; } }
+        public MATCHES(Lexer yyl) : base(yyl) { }
+    }
+    //%THATHASLENGTH+17
+    public class THATHASLENGTH : TOKEN
+    {
+        public override string yyname { get { return "THATHASLENGTH"; } }
+        public override int yynum { get { return 17; } }
+        public THATHASLENGTH(Lexer yyl) : base(yyl) { }
+    }
+    //%THEONEANDONLY+18
+    public class THEONEANDONLY : TOKEN
+    {
+        public override string yyname { get { return "THEONEANDONLY"; } }
+        public override int yynum { get { return 18; } }
+        public THEONEANDONLY(Lexer yyl) : base(yyl) { }
+    }
+    //%THE+19
+    public class THE : TOKEN
+    {
+        public override string yyname { get { return "THE"; } }
+        public override int yynum { get { return 19; } }
+        public THE(Lexer yyl) : base(yyl) { }
+    }
+    //%NOTHINGBUT+20
+    public class NOTHINGBUT : TOKEN
+    {
+        public override string yyname { get { return "NOTHINGBUT"; } }
+        public override int yynum { get { return 20; } }
+        public NOTHINGBUT(Lexer yyl) : base(yyl) { }
+    }
+    //%ISUNIQUEIF+21
+    public class ISUNIQUEIF : TOKEN
+    {
+        public override string yyname { get { return "ISUNIQUEIF"; } }
+        public override int yynum { get { return 21; } }
+        public ISUNIQUEIF(Lexer yyl) : base(yyl) { }
+    }
+    //%IFANDONLYIF+22
+    public class IFANDONLYIF : TOKEN
+    {
+        public override string yyname { get { return "IFANDONLYIF"; } }
+        public override int yynum { get { return 22; } }
+        public IFANDONLYIF(Lexer yyl) : base(yyl) { }
+    }
+    //%IFANDONLYIFIT+23
+    public class IFANDONLYIFIT : TOKEN
+    {
+        public override string yyname { get { return "IFANDONLYIFIT"; } }
+        public override int yynum { get { return 23; } }
+        public IFANDONLYIFIT(Lexer yyl) : base(yyl) { }
+    }
+    //%IFANDONLYIFITEITHER+24
+    public class IFANDONLYIFITEITHER : TOKEN
+    {
+        public override string yyname { get { return "IFANDONLYIFITEITHER"; } }
+        public override int yynum { get { return 24; } }
+        public IFANDONLYIFITEITHER(Lexer yyl) : base(yyl) { }
+    }
+    //%ANYTHING+25
+    public class ANYTHING : TOKEN
+    {
+        public override string yyname { get { return "ANYTHING"; } }
+        public override int yynum { get { return 25; } }
+        public ANYTHING(Lexer yyl) : base(yyl) { }
+    }
+    //%ORSOMETHINGELSE+26
+    public class ORSOMETHINGELSE : TOKEN
+    {
+        public override string yyname { get { return "ORSOMETHINGELSE"; } }
+        public override int yynum { get { return 26; } }
+        public ORSOMETHINGELSE(Lexer yyl) : base(yyl) { }
+    }
+    //%DOESNOT+27
+    public class DOESNOT : TOKEN
+    {
+        public override string yyname { get { return "DOESNOT"; } }
+        public override int yynum { get { return 27; } }
+        public DOESNOT(Lexer yyl) : base(yyl) { }
+    }
+    //%DONOT+28
+    public class DONOT : TOKEN
+    {
+        public override string yyname { get { return "DONOT"; } }
+        public override int yynum { get { return 28; } }
+        public DONOT(Lexer yyl) : base(yyl) { }
+    }
+    //%ISNOT+29
+    public class ISNOT : TOKEN
+    {
+        public override string yyname { get { return "ISNOT"; } }
+        public override int yynum { get { return 29; } }
+        public ISNOT(Lexer yyl) : base(yyl) { }
+    }
+    //%BENOT+30
+    public class BENOT : TOKEN
+    {
+        public override string yyname { get { return "BENOT"; } }
+        public override int yynum { get { return 30; } }
+        public BENOT(Lexer yyl) : base(yyl) { }
+    }
+    //%ARENOT+31
+    public class ARENOT : TOKEN
+    {
+        public override string yyname { get { return "ARENOT"; } }
+        public override int yynum { get { return 31; } }
+        public ARENOT(Lexer yyl) : base(yyl) { }
+    }
+    //%ISTHESAMEAS+32
+    public class ISTHESAMEAS : TOKEN
+    {
+        public override string yyname { get { return "ISTHESAMEAS"; } }
+        public override int yynum { get { return 32; } }
+        public ISTHESAMEAS(Lexer yyl) : base(yyl) { }
+    }
+    //%ISNOTTHESAMEAS+33
+    public class ISNOTTHESAMEAS : TOKEN
+    {
+        public override string yyname { get { return "ISNOTTHESAMEAS"; } }
+        public override int yynum { get { return 33; } }
+        public ISNOTTHESAMEAS(Lexer yyl) : base(yyl) { }
+    }
+    //%IF+34
+    public class IF : TOKEN
+    {
+        public override string yyname { get { return "IF"; } }
+        public override int yynum { get { return 34; } }
+        public IF(Lexer yyl) : base(yyl) { }
+    }
+    //%THEN+35
+    public class THEN : TOKEN
+    {
+        public override string yyname { get { return "THEN"; } }
+        public override int yynum { get { return 35; } }
+        public THEN(Lexer yyl) : base(yyl) { }
+    }
+    //%IT+36
+    public class IT : TOKEN
+    {
+        public override string yyname { get { return "IT"; } }
+        public override int yynum { get { return 36; } }
+        public IT(Lexer yyl) : base(yyl) { }
+    }
+    //%EVERY+37
+    public class EVERY : TOKEN
+    {
+        public override string yyname { get { return "EVERY"; } }
+        public override int yynum { get { return 37; } }
+        public EVERY(Lexer yyl) : base(yyl) { }
+    }
+    //%NO+38
+    public class NO : TOKEN
+    {
+        public override string yyname { get { return "NO"; } }
+        public override int yynum { get { return 38; } }
+        public NO(Lexer yyl) : base(yyl) { }
+    }
+    //%EVERYTHING+39
+    public class EVERYTHING : TOKEN
+    {
+        public override string yyname { get { return "EVERYTHING"; } }
+        public override int yynum { get { return 39; } }
+        public EVERYTHING(Lexer yyl) : base(yyl) { }
+    }
+    //%NOTHING+40
+    public class NOTHING : TOKEN
+    {
+        public override string yyname { get { return "NOTHING"; } }
+        public override int yynum { get { return 40; } }
+        public NOTHING(Lexer yyl) : base(yyl) { }
+    }
+    //%SOMETHING+41
+    public class SOMETHING : TOKEN
+    {
+        public override string yyname { get { return "SOMETHING"; } }
+        public override int yynum { get { return 41; } }
+        public SOMETHING(Lexer yyl) : base(yyl) { }
+    }
+    //%NONE+42
+    public class NONE : TOKEN
+    {
+        public override string yyname { get { return "NONE"; } }
+        public override int yynum { get { return 42; } }
+        public NONE(Lexer yyl) : base(yyl) { }
+    }
+    //%THING+43
+    public class THING : TOKEN
+    {
+        public override string yyname { get { return "THING"; } }
+        public override int yynum { get { return 43; } }
+        public THING(Lexer yyl) : base(yyl) { }
+    }
+    //%THINGS+44
+    public class THINGS : TOKEN
+    {
+        public override string yyname { get { return "THINGS"; } }
+        public override int yynum { get { return 44; } }
+        public THINGS(Lexer yyl) : base(yyl) { }
+    }
+    //%THAT+45
+    public class THAT : TOKEN
+    {
+        public override string yyname { get { return "THAT"; } }
+        public override int yynum { get { return 45; } }
+        public THAT(Lexer yyl) : base(yyl) { }
+    }
+    //%IS+46
+    public class IS : TOKEN
+    {
+        public override string yyname { get { return "IS"; } }
+        public override int yynum { get { return 46; } }
+        public IS(Lexer yyl) : base(yyl) { }
+    }
+    //%AN+47
+    public class AN : TOKEN
+    {
+        public override string yyname { get { return "AN"; } }
+        public override int yynum { get { return 47; } }
+        public AN(Lexer yyl) : base(yyl) { }
+    }
+    //%NOT+48
+    public class NOT : TOKEN
+    {
+        public override string yyname { get { return "NOT"; } }
+        public override int yynum { get { return 48; } }
+        public NOT(Lexer yyl) : base(yyl) { }
+    }
+    //%AND+49
+    public class AND : TOKEN
+    {
+        public override string yyname { get { return "AND"; } }
+        public override int yynum { get { return 49; } }
+        public AND(Lexer yyl) : base(yyl) { }
+    }
+    //%OR+50
+    public class OR : TOKEN
+    {
+        public override string yyname { get { return "OR"; } }
+        public override int yynum { get { return 50; } }
+        public OR(Lexer yyl) : base(yyl) { }
+    }
+    //%ANDOR+51
+    public class ANDOR : TOKEN
+    {
+        public override string yyname { get { return "ANDOR"; } }
+        public override int yynum { get { return 51; } }
+        public ANDOR(Lexer yyl) : base(yyl) { }
+    }
+    //%ASWELLAS+52
+    public class ASWELLAS : TOKEN
+    {
+        public override string yyname { get { return "ASWELLAS"; } }
+        public override int yynum { get { return 52; } }
+        public ASWELLAS(Lexer yyl) : base(yyl) { }
+    }
+    //%BY+53
+    public class BY : TOKEN
+    {
+        public override string yyname { get { return "BY"; } }
+        public override int yynum { get { return 53; } }
+        public BY(Lexer yyl) : base(yyl) { }
+    }
+    //%ITSELF+54
+    public class ITSELF : TOKEN
+    {
+        public override string yyname { get { return "ITSELF"; } }
+        public override int yynum { get { return 54; } }
+        public ITSELF(Lexer yyl) : base(yyl) { }
+    }
+    //%MODAL+55
+    public class MODAL : TOKEN
+    {
+        public override string yyname { get { return "MODAL"; } }
+        public override int yynum { get { return 55; } }
+        public MODAL(Lexer yyl) : base(yyl) { }
+    }
+    //%BE+56
+    public class BE : TOKEN
+    {
+        public override string yyname { get { return "BE"; } }
+        public override int yynum { get { return 56; } }
+        public BE(Lexer yyl) : base(yyl) { }
+    }
+    //%X+57
+    public class X : TOKEN
+    {
+        public override string yyname { get { return "X"; } }
+        public override int yynum { get { return 57; } }
+        public X(Lexer yyl) : base(yyl) { }
+    }
+    //%Y+58
+    public class Y : TOKEN
+    {
+        public override string yyname { get { return "Y"; } }
+        public override int yynum { get { return 58; } }
+        public Y(Lexer yyl) : base(yyl) { }
+    }
+    //%WORDNUM+59
+    public class WORDNUM : TOKEN
+    {
+        public override string yyname { get { return "WORDNUM"; } }
+        public override int yynum { get { return 59; } }
+        public WORDNUM(Lexer yyl) : base(yyl) { }
+    }
+    //%SOME+60
+    public class SOME : TOKEN
+    {
+        public override string yyname { get { return "SOME"; } }
+        public override int yynum { get { return 60; } }
+        public SOME(Lexer yyl) : base(yyl) { }
+    }
+    //%VALUE+61
+    public class VALUE : TOKEN
+    {
+        public override string yyname { get { return "VALUE"; } }
+        public override int yynum { get { return 61; } }
+        public VALUE(Lexer yyl) : base(yyl) { }
+    }
+    //%VALUEOF+62
+    public class VALUEOF : TOKEN
+    {
+        public override string yyname { get { return "VALUEOF"; } }
+        public override int yynum { get { return 62; } }
+        public VALUEOF(Lexer yyl) : base(yyl) { }
+    }
+    //%DATATYPENAME+63
+    public class DATATYPENAME : TOKEN
+    {
+        public override string yyname { get { return "DATATYPENAME"; } }
+        public override int yynum { get { return 63; } }
+        public DATATYPENAME(Lexer yyl) : base(yyl) { }
+    }
+    //%DATE+64
+    public class DATE : TOKEN
+    {
+        public override string yyname { get { return "DATE"; } }
+        public override int yynum { get { return 64; } }
+        public DATE(Lexer yyl) : base(yyl) { }
+    }
+    //%TIME+65
+    public class TIME : TOKEN
+    {
+        public override string yyname { get { return "TIME"; } }
+        public override int yynum { get { return 65; } }
+        public TIME(Lexer yyl) : base(yyl) { }
+    }
+    //%EXECUTE+66
+    public class EXECUTE : TOKEN
+    {
+        public override string yyname { get { return "EXECUTE"; } }
+        public override int yynum { get { return 66; } }
+        public EXECUTE(Lexer yyl) : base(yyl) { }
+    }
+    //%FOR+67
+    public class FOR : TOKEN
+    {
+        public override string yyname { get { return "FOR"; } }
+        public override int yynum { get { return 67; } }
+        public FOR(Lexer yyl) : base(yyl) { }
+    }
+    //%EXISTS+68
+    public class EXISTS : TOKEN
+    {
+        public override string yyname { get { return "EXISTS"; } }
+        public override int yynum { get { return 68; } }
+        public EXISTS(Lexer yyl) : base(yyl) { }
+    }
+    //%BINOP+69
+    public class BINOP : TOKEN
+    {
+        public override string yyname { get { return "BINOP"; } }
+        public override int yynum { get { return 69; } }
+        public BINOP(Lexer yyl) : base(yyl) { }
+    }
+    //%SUBSTRING+70
+    public class SUBSTRING : TOKEN
+    {
+        public override string yyname { get { return "SUBSTRING"; } }
+        public override int yynum { get { return 70; } }
+        public SUBSTRING(Lexer yyl) : base(yyl) { }
+    }
+    //%FROM+71
+    public class FROM : TOKEN
+    {
+        public override string yyname { get { return "FROM"; } }
+        public override int yynum { get { return 71; } }
+        public FROM(Lexer yyl) : base(yyl) { }
+    }
+    //%WITH+72
+    public class WITH : TOKEN
+    {
+        public override string yyname { get { return "WITH"; } }
+        public override int yynum { get { return 72; } }
+        public WITH(Lexer yyl) : base(yyl) { }
+    }
+    //%SUBSTRINGFIX+73
+    public class SUBSTRINGFIX : TOKEN
+    {
+        public override string yyname { get { return "SUBSTRINGFIX"; } }
+        public override int yynum { get { return 73; } }
+        public SUBSTRINGFIX(Lexer yyl) : base(yyl) { }
+    }
+    //%UNOP+74
+    public class UNOP : TOKEN
+    {
+        public override string yyname { get { return "UNOP"; } }
+        public override int yynum { get { return 74; } }
+        public UNOP(Lexer yyl) : base(yyl) { }
+    }
+    //%UNOP2+75
+    public class UNOP2 : TOKEN
+    {
+        public override string yyname { get { return "UNOP2"; } }
+        public override int yynum { get { return 75; } }
+        public UNOP2(Lexer yyl) : base(yyl) { }
+    }
+    //%TRANSLATEDREPLACED+76
+    public class TRANSLATEDREPLACED : TOKEN
+    {
+        public override string yyname { get { return "TRANSLATEDREPLACED"; } }
+        public override int yynum { get { return 76; } }
+        public TRANSLATEDREPLACED(Lexer yyl) : base(yyl) { }
+    }
+    //%EQ+77
+    public class EQ : TOKEN
+    {
+        public override string yyname { get { return "EQ"; } }
+        public override int yynum { get { return 77; } }
+        public EQ(Lexer yyl) : base(yyl) { }
+    }
+    //%CMP+78
+    public class CMP : TOKEN
+    {
+        public override string yyname { get { return "CMP"; } }
+        public override int yynum { get { return 78; } }
+        public CMP(Lexer yyl) : base(yyl) { }
+    }
+    //%PLUS+79
+    public class PLUS : TOKEN
+    {
+        public override string yyname { get { return "PLUS"; } }
+        public override int yynum { get { return 79; } }
+        public PLUS(Lexer yyl) : base(yyl) { }
+    }
+    //%MINUS+80
+    public class MINUS : TOKEN
+    {
+        public override string yyname { get { return "MINUS"; } }
+        public override int yynum { get { return 80; } }
+        public MINUS(Lexer yyl) : base(yyl) { }
+    }
+    //%DASH+81
+    public class DASH : TOKEN
+    {
+        public override string yyname { get { return "DASH"; } }
+        public override int yynum { get { return 81; } }
+        public DASH(Lexer yyl) : base(yyl) { }
+    }
+    //%COLON+82
+    public class COLON : TOKEN
+    {
+        public override string yyname { get { return "COLON"; } }
+        public override int yynum { get { return 82; } }
+        public COLON(Lexer yyl) : base(yyl) { }
+    }
+    //%TIMES+83
+    public class TIMES : TOKEN
+    {
+        public override string yyname { get { return "TIMES"; } }
+        public override int yynum { get { return 83; } }
+        public TIMES(Lexer yyl) : base(yyl) { }
+    }
+    //%FOLLOWEDBY+84
+    public class FOLLOWEDBY : TOKEN
+    {
+        public override string yyname { get { return "FOLLOWEDBY"; } }
+        public override int yynum { get { return 84; } }
+        public FOLLOWEDBY(Lexer yyl) : base(yyl) { }
+    }
+    //%DAYS+85
+    public class DAYS : TOKEN
+    {
+        public override string yyname { get { return "DAYS"; } }
+        public override int yynum { get { return 85; } }
+        public DAYS(Lexer yyl) : base(yyl) { }
+    }
+    //%HOURS+86
+    public class HOURS : TOKEN
+    {
+        public override string yyname { get { return "HOURS"; } }
+        public override int yynum { get { return 86; } }
+        public HOURS(Lexer yyl) : base(yyl) { }
+    }
+    //%MINUTES+87
+    public class MINUTES : TOKEN
+    {
+        public override string yyname { get { return "MINUTES"; } }
+        public override int yynum { get { return 87; } }
+        public MINUTES(Lexer yyl) : base(yyl) { }
+    }
+    //%SECONDS+88
+    public class SECONDS : TOKEN
+    {
+        public override string yyname { get { return "SECONDS"; } }
+        public override int yynum { get { return 88; } }
+        public SECONDS(Lexer yyl) : base(yyl) { }
+    }
+    //%ALPHA+89
+    public class ALPHA : TOKEN
+    {
+        public override string yyname { get { return "ALPHA"; } }
+        public override int yynum { get { return 89; } }
+        public ALPHA(Lexer yyl) : base(yyl) { }
+    }
+    //%ANNOTATION+90
+    public class ANNOTATION : TOKEN
+    {
+        public override string yyname { get { return "ANNOTATION"; } }
+        public override int yynum { get { return 90; } }
+        public ANNOTATION(Lexer yyl) : base(yyl) { }
+    }
+    //%RESULTOF+91
+    public class RESULTOF : TOKEN
+    {
+        public override string yyname { get { return "RESULTOF"; } }
+        public override int yynum { get { return 91; } }
+        public RESULTOF(Lexer yyl) : base(yyl) { }
+    }
+    //%BETRUETHAT+92
+    public class BETRUETHAT : TOKEN
+    {
+        public override string yyname { get { return "BETRUETHAT"; } }
+        public override int yynum { get { return 92; } }
+        public BETRUETHAT(Lexer yyl) : base(yyl) { }
+    }
+    //%OPEN+93
+    public class OPEN : TOKEN
+    {
+        public override string yyname { get { return "OPEN"; } }
+        public override int yynum { get { return 93; } }
+        public OPEN(Lexer yyl) : base(yyl) { }
+    }
+    //%CLOSE+94
+    public class CLOSE : TOKEN
+    {
+        public override string yyname { get { return "CLOSE"; } }
+        public override int yynum { get { return 94; } }
+        public CLOSE(Lexer yyl) : base(yyl) { }
+    }
+    //%DTM+95
+    public class DTM : TOKEN
+    {
+        public override string yyname { get { return "DTM"; } }
+        public override int yynum { get { return 95; } }
+        public DTM(Lexer yyl) : base(yyl) { }
+    }
+    //%DUR+96
+    public class DUR : TOKEN
+    {
+        public override string yyname { get { return "DUR"; } }
+        public override int yynum { get { return 96; } }
+        public DUR(Lexer yyl) : base(yyl) { }
+    }
+    //%NAME+97
+    public class NAME : TOKEN
+    {
+        public override string yyname { get { return "NAME"; } }
+        public override int yynum { get { return 97; } }
+        public NAME(Lexer yyl) : base(yyl) { }
+    }
+    //%BIGNAME+98
+    public class BIGNAME : TOKEN
+    {
+        public override string yyname { get { return "BIGNAME"; } }
+        public override int yynum { get { return 98; } }
+        public BIGNAME(Lexer yyl) : base(yyl) { }
+    }
+    //%VERYBIGNAME+99
+    public class VERYBIGNAME : TOKEN
+    {
+        public override string yyname { get { return "VERYBIGNAME"; } }
+        public override int yynum { get { return 99; } }
+        public VERYBIGNAME(Lexer yyl) : base(yyl) { }
+    }
+    //%COMMA+100
+    public class COMMA : TOKEN
+    {
+        public override string yyname { get { return "COMMA"; } }
+        public override int yynum { get { return 100; } }
+        public COMMA(Lexer yyl) : base(yyl) { }
+    }
+    //%END+101
+    public class END : TOKEN
+    {
+        public override string yyname { get { return "END"; } }
+        public override int yynum { get { return 101; } }
+        public END(Lexer yyl) : base(yyl) { }
+    }
+    //%|tokens
+    public class yytokens : YyLexer
+    {
+        public yytokens(ErrorHandler eh) : base(eh)
+        {
+            arr = new int[] {
 101,4,6,52,0,
 46,0,53,0,6,
 102,4,10,117,0,
@@ -35809,265 +36102,293 @@ public class yytokens : YyLexer {
 2483,1,52,2312,3484,
 10,2312,1,15,3485,
 5,0,0};
- new Tfactory(this,"NOTHINGBUT",new TCreator(NOTHINGBUT_factory));
- new Tfactory(this,"TIMES",new TCreator(TIMES_factory));
- new Tfactory(this,"BIGNAME",new TCreator(BIGNAME_factory));
- new Tfactory(this,"BETRUETHAT",new TCreator(BETRUETHAT_factory));
- new Tfactory(this,"VERYBIGNAME",new TCreator(VERYBIGNAME_factory));
- new Tfactory(this,"ANYTHING",new TCreator(ANYTHING_factory));
- new Tfactory(this,"VALUE",new TCreator(VALUE_factory));
- new Tfactory(this,"SOMETHING",new TCreator(SOMETHING_factory));
- new Tfactory(this,"SUBSTRINGFIX",new TCreator(SUBSTRINGFIX_factory));
- new Tfactory(this,"AND",new TCreator(AND_factory));
- new Tfactory(this,"ALPHA",new TCreator(ALPHA_factory));
- new Tfactory(this,"EQUALTO",new TCreator(EQUALTO_factory));
- new Tfactory(this,"THATHASLENGTH",new TCreator(THATHASLENGTH_factory));
- new Tfactory(this,"FOLLOWEDBY",new TCreator(FOLLOWEDBY_factory));
- new Tfactory(this,"WORDNUM",new TCreator(WORDNUM_factory));
- new Tfactory(this,"DATATYPENAME",new TCreator(DATATYPENAME_factory));
- new Tfactory(this,"OR",new TCreator(OR_factory));
- new Tfactory(this,"BOL",new TCreator(BOL_factory));
- new Tfactory(this,"DATE",new TCreator(DATE_factory));
- new Tfactory(this,"COLON",new TCreator(COLON_factory));
- new Tfactory(this,"OPEN",new TCreator(OPEN_factory));
- new Tfactory(this,"UNOP2",new TCreator(UNOP2_factory));
- new Tfactory(this,"CLOSE",new TCreator(CLOSE_factory));
- new Tfactory(this,"BINOP",new TCreator(BINOP_factory));
- new Tfactory(this,"ITSELF",new TCreator(ITSELF_factory));
- new Tfactory(this,"MINUTES",new TCreator(MINUTES_factory));
- new Tfactory(this,"THAT",new TCreator(THAT_factory));
- new Tfactory(this,"COMMENT",new TCreator(COMMENT_factory));
- new Tfactory(this,"DUR",new TCreator(DUR_factory));
- new Tfactory(this,"COMPARER",new TCreator(COMPARER_factory));
- new Tfactory(this,"AN",new TCreator(AN_factory));
- new Tfactory(this,"NAME",new TCreator(NAME_factory));
- new Tfactory(this,"MINUS",new TCreator(MINUS_factory));
- new Tfactory(this,"NONE",new TCreator(NONE_factory));
- new Tfactory(this,"IF",new TCreator(IF_factory));
- new Tfactory(this,"IT",new TCreator(IT_factory));
- new Tfactory(this,"EVERY",new TCreator(EVERY_factory));
- new Tfactory(this,"DONOT",new TCreator(DONOT_factory));
- new Tfactory(this,"TRANSLATEDREPLACED",new TCreator(TRANSLATEDREPLACED_factory));
- new Tfactory(this,"ANNOTATION",new TCreator(ANNOTATION_factory));
- new Tfactory(this,"NAT",new TCreator(NAT_factory));
- new Tfactory(this,"FROM",new TCreator(FROM_factory));
- new Tfactory(this,"IFANDONLYIFITEITHER",new TCreator(IFANDONLYIFITEITHER_factory));
- new Tfactory(this,"NUM",new TCreator(NUM_factory));
- new Tfactory(this,"EITHER",new TCreator(EITHER_factory));
- new Tfactory(this,"TIME",new TCreator(TIME_factory));
- new Tfactory(this,"ID",new TCreator(ID_factory));
- new Tfactory(this,"THEONEANDONLY",new TCreator(THEONEANDONLY_factory));
- new Tfactory(this,"NOT",new TCreator(NOT_factory));
- new Tfactory(this,"EXECUTE",new TCreator(EXECUTE_factory));
- new Tfactory(this,"THING",new TCreator(THING_factory));
- new Tfactory(this,"CODE",new TCreator(CODE_factory));
- new Tfactory(this,"THEN",new TCreator(THEN_factory));
- new Tfactory(this,"ISNOT",new TCreator(ISNOT_factory));
- new Tfactory(this,"STR",new TCreator(STR_factory));
- new Tfactory(this,"CMP",new TCreator(CMP_factory));
- new Tfactory(this,"IFANDONLYIF",new TCreator(IFANDONLYIF_factory));
- new Tfactory(this,"VALUEOF",new TCreator(VALUEOF_factory));
- new Tfactory(this,"SECONDS",new TCreator(SECONDS_factory));
- new Tfactory(this,"DASH",new TCreator(DASH_factory));
- new Tfactory(this,"DTM",new TCreator(DTM_factory));
- new Tfactory(this,"HOURS",new TCreator(HOURS_factory));
- new Tfactory(this,"EVERYTHING",new TCreator(EVERYTHING_factory));
- new Tfactory(this,"IS",new TCreator(IS_factory));
- new Tfactory(this,"THINGS",new TCreator(THINGS_factory));
- new Tfactory(this,"DOESNOT",new TCreator(DOESNOT_factory));
- new Tfactory(this,"IFANDONLYIFIT",new TCreator(IFANDONLYIFIT_factory));
- new Tfactory(this,"END",new TCreator(END_factory));
- new Tfactory(this,"BY",new TCreator(BY_factory));
- new Tfactory(this,"THE",new TCreator(THE_factory));
- new Tfactory(this,"X",new TCreator(X_factory));
- new Tfactory(this,"ORSOMETHINGELSE",new TCreator(ORSOMETHINGELSE_factory));
- new Tfactory(this,"MODAL",new TCreator(MODAL_factory));
- new Tfactory(this,"SOME",new TCreator(SOME_factory));
- new Tfactory(this,"ISUNIQUEIF",new TCreator(ISUNIQUEIF_factory));
- new Tfactory(this,"RESULTOF",new TCreator(RESULTOF_factory));
- new Tfactory(this,"ISNOTTHESAMEAS",new TCreator(ISNOTTHESAMEAS_factory));
- new Tfactory(this,"COMMA",new TCreator(COMMA_factory));
- new Tfactory(this,"EQ",new TCreator(EQ_factory));
- new Tfactory(this,"NOTHING",new TCreator(NOTHING_factory));
- new Tfactory(this,"FOR",new TCreator(FOR_factory));
- new Tfactory(this,"EXISTS",new TCreator(EXISTS_factory));
- new Tfactory(this,"ANDOR",new TCreator(ANDOR_factory));
- new Tfactory(this,"BENOT",new TCreator(BENOT_factory));
- new Tfactory(this,"ISTHESAMEAS",new TCreator(ISTHESAMEAS_factory));
- new Tfactory(this,"DBL",new TCreator(DBL_factory));
- new Tfactory(this,"WITH",new TCreator(WITH_factory));
- new Tfactory(this,"PLUS",new TCreator(PLUS_factory));
- new Tfactory(this,"MATCHES",new TCreator(MATCHES_factory));
- new Tfactory(this,"DAYS",new TCreator(DAYS_factory));
- new Tfactory(this,"SUBSTRING",new TCreator(SUBSTRING_factory));
- new Tfactory(this,"BE",new TCreator(BE_factory));
- new Tfactory(this,"Y",new TCreator(Y_factory));
- new Tfactory(this,"UNOP",new TCreator(UNOP_factory));
- new Tfactory(this,"NO",new TCreator(NO_factory));
- new Tfactory(this,"ARENOT",new TCreator(ARENOT_factory));
- new Tfactory(this,"COMPARER2",new TCreator(COMPARER2_factory));
- new Tfactory(this,"ASWELLAS",new TCreator(ASWELLAS_factory));
- new Tfactory(this,"DIFFERENTFROM",new TCreator(DIFFERENTFROM_factory));
-}
-public static object NOTHINGBUT_factory(Lexer yyl) { return new NOTHINGBUT(yyl);}
-public static object TIMES_factory(Lexer yyl) { return new TIMES(yyl);}
-public static object BIGNAME_factory(Lexer yyl) { return new BIGNAME(yyl);}
-public static object BETRUETHAT_factory(Lexer yyl) { return new BETRUETHAT(yyl);}
-public static object VERYBIGNAME_factory(Lexer yyl) { return new VERYBIGNAME(yyl);}
-public static object ANYTHING_factory(Lexer yyl) { return new ANYTHING(yyl);}
-public static object VALUE_factory(Lexer yyl) { return new VALUE(yyl);}
-public static object SOMETHING_factory(Lexer yyl) { return new SOMETHING(yyl);}
-public static object SUBSTRINGFIX_factory(Lexer yyl) { return new SUBSTRINGFIX(yyl);}
-public static object AND_factory(Lexer yyl) { return new AND(yyl);}
-public static object ALPHA_factory(Lexer yyl) { return new ALPHA(yyl);}
-public static object EQUALTO_factory(Lexer yyl) { return new EQUALTO(yyl);}
-public static object THATHASLENGTH_factory(Lexer yyl) { return new THATHASLENGTH(yyl);}
-public static object FOLLOWEDBY_factory(Lexer yyl) { return new FOLLOWEDBY(yyl);}
-public static object WORDNUM_factory(Lexer yyl) { return new WORDNUM(yyl);}
-public static object DATATYPENAME_factory(Lexer yyl) { return new DATATYPENAME(yyl);}
-public static object OR_factory(Lexer yyl) { return new OR(yyl);}
-public static object BOL_factory(Lexer yyl) { return new BOL(yyl);}
-public static object DATE_factory(Lexer yyl) { return new DATE(yyl);}
-public static object COLON_factory(Lexer yyl) { return new COLON(yyl);}
-public static object OPEN_factory(Lexer yyl) { return new OPEN(yyl);}
-public static object UNOP2_factory(Lexer yyl) { return new UNOP2(yyl);}
-public static object CLOSE_factory(Lexer yyl) { return new CLOSE(yyl);}
-public static object BINOP_factory(Lexer yyl) { return new BINOP(yyl);}
-public static object ITSELF_factory(Lexer yyl) { return new ITSELF(yyl);}
-public static object MINUTES_factory(Lexer yyl) { return new MINUTES(yyl);}
-public static object THAT_factory(Lexer yyl) { return new THAT(yyl);}
-public static object COMMENT_factory(Lexer yyl) { return new COMMENT(yyl);}
-public static object DUR_factory(Lexer yyl) { return new DUR(yyl);}
-public static object COMPARER_factory(Lexer yyl) { return new COMPARER(yyl);}
-public static object AN_factory(Lexer yyl) { return new AN(yyl);}
-public static object NAME_factory(Lexer yyl) { return new NAME(yyl);}
-public static object MINUS_factory(Lexer yyl) { return new MINUS(yyl);}
-public static object NONE_factory(Lexer yyl) { return new NONE(yyl);}
-public static object IF_factory(Lexer yyl) { return new IF(yyl);}
-public static object IT_factory(Lexer yyl) { return new IT(yyl);}
-public static object EVERY_factory(Lexer yyl) { return new EVERY(yyl);}
-public static object DONOT_factory(Lexer yyl) { return new DONOT(yyl);}
-public static object TRANSLATEDREPLACED_factory(Lexer yyl) { return new TRANSLATEDREPLACED(yyl);}
-public static object ANNOTATION_factory(Lexer yyl) { return new ANNOTATION(yyl);}
-public static object NAT_factory(Lexer yyl) { return new NAT(yyl);}
-public static object FROM_factory(Lexer yyl) { return new FROM(yyl);}
-public static object IFANDONLYIFITEITHER_factory(Lexer yyl) { return new IFANDONLYIFITEITHER(yyl);}
-public static object NUM_factory(Lexer yyl) { return new NUM(yyl);}
-public static object EITHER_factory(Lexer yyl) { return new EITHER(yyl);}
-public static object TIME_factory(Lexer yyl) { return new TIME(yyl);}
-public static object ID_factory(Lexer yyl) { return new ID(yyl);}
-public static object THEONEANDONLY_factory(Lexer yyl) { return new THEONEANDONLY(yyl);}
-public static object NOT_factory(Lexer yyl) { return new NOT(yyl);}
-public static object EXECUTE_factory(Lexer yyl) { return new EXECUTE(yyl);}
-public static object THING_factory(Lexer yyl) { return new THING(yyl);}
-public static object CODE_factory(Lexer yyl) { return new CODE(yyl);}
-public static object THEN_factory(Lexer yyl) { return new THEN(yyl);}
-public static object ISNOT_factory(Lexer yyl) { return new ISNOT(yyl);}
-public static object STR_factory(Lexer yyl) { return new STR(yyl);}
-public static object CMP_factory(Lexer yyl) { return new CMP(yyl);}
-public static object IFANDONLYIF_factory(Lexer yyl) { return new IFANDONLYIF(yyl);}
-public static object VALUEOF_factory(Lexer yyl) { return new VALUEOF(yyl);}
-public static object SECONDS_factory(Lexer yyl) { return new SECONDS(yyl);}
-public static object DASH_factory(Lexer yyl) { return new DASH(yyl);}
-public static object DTM_factory(Lexer yyl) { return new DTM(yyl);}
-public static object HOURS_factory(Lexer yyl) { return new HOURS(yyl);}
-public static object EVERYTHING_factory(Lexer yyl) { return new EVERYTHING(yyl);}
-public static object IS_factory(Lexer yyl) { return new IS(yyl);}
-public static object THINGS_factory(Lexer yyl) { return new THINGS(yyl);}
-public static object DOESNOT_factory(Lexer yyl) { return new DOESNOT(yyl);}
-public static object IFANDONLYIFIT_factory(Lexer yyl) { return new IFANDONLYIFIT(yyl);}
-public static object END_factory(Lexer yyl) { return new END(yyl);}
-public static object BY_factory(Lexer yyl) { return new BY(yyl);}
-public static object THE_factory(Lexer yyl) { return new THE(yyl);}
-public static object X_factory(Lexer yyl) { return new X(yyl);}
-public static object ORSOMETHINGELSE_factory(Lexer yyl) { return new ORSOMETHINGELSE(yyl);}
-public static object MODAL_factory(Lexer yyl) { return new MODAL(yyl);}
-public static object SOME_factory(Lexer yyl) { return new SOME(yyl);}
-public static object ISUNIQUEIF_factory(Lexer yyl) { return new ISUNIQUEIF(yyl);}
-public static object RESULTOF_factory(Lexer yyl) { return new RESULTOF(yyl);}
-public static object ISNOTTHESAMEAS_factory(Lexer yyl) { return new ISNOTTHESAMEAS(yyl);}
-public static object COMMA_factory(Lexer yyl) { return new COMMA(yyl);}
-public static object EQ_factory(Lexer yyl) { return new EQ(yyl);}
-public static object NOTHING_factory(Lexer yyl) { return new NOTHING(yyl);}
-public static object FOR_factory(Lexer yyl) { return new FOR(yyl);}
-public static object EXISTS_factory(Lexer yyl) { return new EXISTS(yyl);}
-public static object ANDOR_factory(Lexer yyl) { return new ANDOR(yyl);}
-public static object BENOT_factory(Lexer yyl) { return new BENOT(yyl);}
-public static object ISTHESAMEAS_factory(Lexer yyl) { return new ISTHESAMEAS(yyl);}
-public static object DBL_factory(Lexer yyl) { return new DBL(yyl);}
-public static object WITH_factory(Lexer yyl) { return new WITH(yyl);}
-public static object PLUS_factory(Lexer yyl) { return new PLUS(yyl);}
-public static object MATCHES_factory(Lexer yyl) { return new MATCHES(yyl);}
-public static object DAYS_factory(Lexer yyl) { return new DAYS(yyl);}
-public static object SUBSTRING_factory(Lexer yyl) { return new SUBSTRING(yyl);}
-public static object BE_factory(Lexer yyl) { return new BE(yyl);}
-public static object Y_factory(Lexer yyl) { return new Y(yyl);}
-public static object UNOP_factory(Lexer yyl) { return new UNOP(yyl);}
-public static object NO_factory(Lexer yyl) { return new NO(yyl);}
-public static object ARENOT_factory(Lexer yyl) { return new ARENOT(yyl);}
-public static object COMPARER2_factory(Lexer yyl) { return new COMPARER2(yyl);}
-public static object ASWELLAS_factory(Lexer yyl) { return new ASWELLAS(yyl);}
-public static object DIFFERENTFROM_factory(Lexer yyl) { return new DIFFERENTFROM(yyl);}
-public override TOKEN OldAction(Lexer yym,ref string yytext,int action, ref bool reject) {
-  switch(action) {
-  case -1: break;
-   case 9910: { ((tokens)yym).str += yytext;}
-      break;
-   case 9905: { yym.yy_begin("STR"); ((tokens)yym).str=yytext; }
-      break;
-   case 9878: { ((tokens)yym).yytext = ((tokens)yym).str+yytext; yym.yy_begin("YYINITIAL"); return new COMMENT(yym);}
-      break;
-   case 9866: { ((tokens)yym).str += yytext;}
-      break;
-   case 9844: { ((tokens)yym).str += yytext;}
-      break;
-   case 9805: { ((tokens)yym).str += yytext; yym.yy_begin("COMMENT");}
-      break;
-   case 9832: { ((tokens)yym).str += yytext; yym.yy_begin("COMMENTSB");}
-      break;
-   case 9810: { ((tokens)yym).str += yytext;}
-      break;
-   case 9791: { ((tokens)yym).str += yytext;}
-      break;
-   case 9786: { ((tokens)yym).str += yytext; yym.yy_begin("COMMENTSTR2");}
-      break;
-   case 9966: { ((tokens)yym).yytext = ((tokens)yym).str+yytext; yym.yy_begin("YYINITIAL"); return new CODE(yym);}
-      break;
-   case 9764: { ((tokens)yym).str += yytext;}
-      break;
-   case 9759: { ((tokens)yym).str += yytext; yym.yy_begin("COMMENT");}
-      break;
-   case 9738: { ((tokens)yym).str += yytext; yym.yy_begin("COMMENTSTR");}
-      break;
-   case 9745: { ((tokens)yym).str += yytext;}
-      break;
-   case 9951: { yym.yy_begin("CODE"); ((tokens)yym).str=yytext; }
-      break;
-   case 9657: { yym.yy_begin("COMMENT"); ((tokens)yym).str=yytext; }
-      break;
-   case 9837: { ((tokens)yym).str += yytext; yym.yy_begin("COMMENT");}
-      break;
-   case 9883: { ((tokens)yym).str += yytext;}
-      break;
-   case 9929: { ((tokens)yym).str += yytext;}
-      break;
-   case 9994: { }
-      break;
-   case 9972: { ((tokens)yym).str += yytext;}
-      break;
-   case 9957: { ((tokens)yym).str += yytext;}
-      break;
-   case 9924: { ((tokens)yym).yytext = ((tokens)yym).str+yytext; yym.yy_begin("YYINITIAL"); return new STR(yym);}
-      break;
-  }
-  return null;
-}}
-public class tokens:Lexer {
-public tokens():base(new yytokens(new ErrorHandler(false))) {}
-public tokens(ErrorHandler eh):base(new yytokens(eh)) {}
-public tokens(YyLexer tks):base(tks){}
+            new Tfactory(this, "NOTHINGBUT", new TCreator(NOTHINGBUT_factory));
+            new Tfactory(this, "TIMES", new TCreator(TIMES_factory));
+            new Tfactory(this, "BIGNAME", new TCreator(BIGNAME_factory));
+            new Tfactory(this, "BETRUETHAT", new TCreator(BETRUETHAT_factory));
+            new Tfactory(this, "VERYBIGNAME", new TCreator(VERYBIGNAME_factory));
+            new Tfactory(this, "ANYTHING", new TCreator(ANYTHING_factory));
+            new Tfactory(this, "VALUE", new TCreator(VALUE_factory));
+            new Tfactory(this, "SOMETHING", new TCreator(SOMETHING_factory));
+            new Tfactory(this, "SUBSTRINGFIX", new TCreator(SUBSTRINGFIX_factory));
+            new Tfactory(this, "AND", new TCreator(AND_factory));
+            new Tfactory(this, "ALPHA", new TCreator(ALPHA_factory));
+            new Tfactory(this, "EQUALTO", new TCreator(EQUALTO_factory));
+            new Tfactory(this, "THATHASLENGTH", new TCreator(THATHASLENGTH_factory));
+            new Tfactory(this, "FOLLOWEDBY", new TCreator(FOLLOWEDBY_factory));
+            new Tfactory(this, "WORDNUM", new TCreator(WORDNUM_factory));
+            new Tfactory(this, "DATATYPENAME", new TCreator(DATATYPENAME_factory));
+            new Tfactory(this, "OR", new TCreator(OR_factory));
+            new Tfactory(this, "BOL", new TCreator(BOL_factory));
+            new Tfactory(this, "DATE", new TCreator(DATE_factory));
+            new Tfactory(this, "COLON", new TCreator(COLON_factory));
+            new Tfactory(this, "OPEN", new TCreator(OPEN_factory));
+            new Tfactory(this, "UNOP2", new TCreator(UNOP2_factory));
+            new Tfactory(this, "CLOSE", new TCreator(CLOSE_factory));
+            new Tfactory(this, "BINOP", new TCreator(BINOP_factory));
+            new Tfactory(this, "ITSELF", new TCreator(ITSELF_factory));
+            new Tfactory(this, "MINUTES", new TCreator(MINUTES_factory));
+            new Tfactory(this, "THAT", new TCreator(THAT_factory));
+            new Tfactory(this, "COMMENT", new TCreator(COMMENT_factory));
+            new Tfactory(this, "DUR", new TCreator(DUR_factory));
+            new Tfactory(this, "COMPARER", new TCreator(COMPARER_factory));
+            new Tfactory(this, "AN", new TCreator(AN_factory));
+            new Tfactory(this, "NAME", new TCreator(NAME_factory));
+            new Tfactory(this, "MINUS", new TCreator(MINUS_factory));
+            new Tfactory(this, "NONE", new TCreator(NONE_factory));
+            new Tfactory(this, "IF", new TCreator(IF_factory));
+            new Tfactory(this, "IT", new TCreator(IT_factory));
+            new Tfactory(this, "EVERY", new TCreator(EVERY_factory));
+            new Tfactory(this, "DONOT", new TCreator(DONOT_factory));
+            new Tfactory(this, "TRANSLATEDREPLACED", new TCreator(TRANSLATEDREPLACED_factory));
+            new Tfactory(this, "ANNOTATION", new TCreator(ANNOTATION_factory));
+            new Tfactory(this, "NAT", new TCreator(NAT_factory));
+            new Tfactory(this, "FROM", new TCreator(FROM_factory));
+            new Tfactory(this, "IFANDONLYIFITEITHER", new TCreator(IFANDONLYIFITEITHER_factory));
+            new Tfactory(this, "NUM", new TCreator(NUM_factory));
+            new Tfactory(this, "EITHER", new TCreator(EITHER_factory));
+            new Tfactory(this, "TIME", new TCreator(TIME_factory));
+            new Tfactory(this, "ID", new TCreator(ID_factory));
+            new Tfactory(this, "THEONEANDONLY", new TCreator(THEONEANDONLY_factory));
+            new Tfactory(this, "NOT", new TCreator(NOT_factory));
+            new Tfactory(this, "EXECUTE", new TCreator(EXECUTE_factory));
+            new Tfactory(this, "THING", new TCreator(THING_factory));
+            new Tfactory(this, "CODE", new TCreator(CODE_factory));
+            new Tfactory(this, "THEN", new TCreator(THEN_factory));
+            new Tfactory(this, "ISNOT", new TCreator(ISNOT_factory));
+            new Tfactory(this, "STR", new TCreator(STR_factory));
+            new Tfactory(this, "CMP", new TCreator(CMP_factory));
+            new Tfactory(this, "IFANDONLYIF", new TCreator(IFANDONLYIF_factory));
+            new Tfactory(this, "VALUEOF", new TCreator(VALUEOF_factory));
+            new Tfactory(this, "SECONDS", new TCreator(SECONDS_factory));
+            new Tfactory(this, "DASH", new TCreator(DASH_factory));
+            new Tfactory(this, "DTM", new TCreator(DTM_factory));
+            new Tfactory(this, "HOURS", new TCreator(HOURS_factory));
+            new Tfactory(this, "EVERYTHING", new TCreator(EVERYTHING_factory));
+            new Tfactory(this, "IS", new TCreator(IS_factory));
+            new Tfactory(this, "THINGS", new TCreator(THINGS_factory));
+            new Tfactory(this, "DOESNOT", new TCreator(DOESNOT_factory));
+            new Tfactory(this, "IFANDONLYIFIT", new TCreator(IFANDONLYIFIT_factory));
+            new Tfactory(this, "END", new TCreator(END_factory));
+            new Tfactory(this, "BY", new TCreator(BY_factory));
+            new Tfactory(this, "THE", new TCreator(THE_factory));
+            new Tfactory(this, "X", new TCreator(X_factory));
+            new Tfactory(this, "ORSOMETHINGELSE", new TCreator(ORSOMETHINGELSE_factory));
+            new Tfactory(this, "MODAL", new TCreator(MODAL_factory));
+            new Tfactory(this, "SOME", new TCreator(SOME_factory));
+            new Tfactory(this, "ISUNIQUEIF", new TCreator(ISUNIQUEIF_factory));
+            new Tfactory(this, "RESULTOF", new TCreator(RESULTOF_factory));
+            new Tfactory(this, "ISNOTTHESAMEAS", new TCreator(ISNOTTHESAMEAS_factory));
+            new Tfactory(this, "COMMA", new TCreator(COMMA_factory));
+            new Tfactory(this, "EQ", new TCreator(EQ_factory));
+            new Tfactory(this, "NOTHING", new TCreator(NOTHING_factory));
+            new Tfactory(this, "FOR", new TCreator(FOR_factory));
+            new Tfactory(this, "EXISTS", new TCreator(EXISTS_factory));
+            new Tfactory(this, "ANDOR", new TCreator(ANDOR_factory));
+            new Tfactory(this, "BENOT", new TCreator(BENOT_factory));
+            new Tfactory(this, "ISTHESAMEAS", new TCreator(ISTHESAMEAS_factory));
+            new Tfactory(this, "DBL", new TCreator(DBL_factory));
+            new Tfactory(this, "WITH", new TCreator(WITH_factory));
+            new Tfactory(this, "PLUS", new TCreator(PLUS_factory));
+            new Tfactory(this, "MATCHES", new TCreator(MATCHES_factory));
+            new Tfactory(this, "DAYS", new TCreator(DAYS_factory));
+            new Tfactory(this, "SUBSTRING", new TCreator(SUBSTRING_factory));
+            new Tfactory(this, "BE", new TCreator(BE_factory));
+            new Tfactory(this, "Y", new TCreator(Y_factory));
+            new Tfactory(this, "UNOP", new TCreator(UNOP_factory));
+            new Tfactory(this, "NO", new TCreator(NO_factory));
+            new Tfactory(this, "ARENOT", new TCreator(ARENOT_factory));
+            new Tfactory(this, "COMPARER2", new TCreator(COMPARER2_factory));
+            new Tfactory(this, "ASWELLAS", new TCreator(ASWELLAS_factory));
+            new Tfactory(this, "DIFFERENTFROM", new TCreator(DIFFERENTFROM_factory));
+        }
+        public static object NOTHINGBUT_factory(Lexer yyl) { return new NOTHINGBUT(yyl); }
+        public static object TIMES_factory(Lexer yyl) { return new TIMES(yyl); }
+        public static object BIGNAME_factory(Lexer yyl) { return new BIGNAME(yyl); }
+        public static object BETRUETHAT_factory(Lexer yyl) { return new BETRUETHAT(yyl); }
+        public static object VERYBIGNAME_factory(Lexer yyl) { return new VERYBIGNAME(yyl); }
+        public static object ANYTHING_factory(Lexer yyl) { return new ANYTHING(yyl); }
+        public static object VALUE_factory(Lexer yyl) { return new VALUE(yyl); }
+        public static object SOMETHING_factory(Lexer yyl) { return new SOMETHING(yyl); }
+        public static object SUBSTRINGFIX_factory(Lexer yyl) { return new SUBSTRINGFIX(yyl); }
+        public static object AND_factory(Lexer yyl) { return new AND(yyl); }
+        public static object ALPHA_factory(Lexer yyl) { return new ALPHA(yyl); }
+        public static object EQUALTO_factory(Lexer yyl) { return new EQUALTO(yyl); }
+        public static object THATHASLENGTH_factory(Lexer yyl) { return new THATHASLENGTH(yyl); }
+        public static object FOLLOWEDBY_factory(Lexer yyl) { return new FOLLOWEDBY(yyl); }
+        public static object WORDNUM_factory(Lexer yyl) { return new WORDNUM(yyl); }
+        public static object DATATYPENAME_factory(Lexer yyl) { return new DATATYPENAME(yyl); }
+        public static object OR_factory(Lexer yyl) { return new OR(yyl); }
+        public static object BOL_factory(Lexer yyl) { return new BOL(yyl); }
+        public static object DATE_factory(Lexer yyl) { return new DATE(yyl); }
+        public static object COLON_factory(Lexer yyl) { return new COLON(yyl); }
+        public static object OPEN_factory(Lexer yyl) { return new OPEN(yyl); }
+        public static object UNOP2_factory(Lexer yyl) { return new UNOP2(yyl); }
+        public static object CLOSE_factory(Lexer yyl) { return new CLOSE(yyl); }
+        public static object BINOP_factory(Lexer yyl) { return new BINOP(yyl); }
+        public static object ITSELF_factory(Lexer yyl) { return new ITSELF(yyl); }
+        public static object MINUTES_factory(Lexer yyl) { return new MINUTES(yyl); }
+        public static object THAT_factory(Lexer yyl) { return new THAT(yyl); }
+        public static object COMMENT_factory(Lexer yyl) { return new COMMENT(yyl); }
+        public static object DUR_factory(Lexer yyl) { return new DUR(yyl); }
+        public static object COMPARER_factory(Lexer yyl) { return new COMPARER(yyl); }
+        public static object AN_factory(Lexer yyl) { return new AN(yyl); }
+        public static object NAME_factory(Lexer yyl) { return new NAME(yyl); }
+        public static object MINUS_factory(Lexer yyl) { return new MINUS(yyl); }
+        public static object NONE_factory(Lexer yyl) { return new NONE(yyl); }
+        public static object IF_factory(Lexer yyl) { return new IF(yyl); }
+        public static object IT_factory(Lexer yyl) { return new IT(yyl); }
+        public static object EVERY_factory(Lexer yyl) { return new EVERY(yyl); }
+        public static object DONOT_factory(Lexer yyl) { return new DONOT(yyl); }
+        public static object TRANSLATEDREPLACED_factory(Lexer yyl) { return new TRANSLATEDREPLACED(yyl); }
+        public static object ANNOTATION_factory(Lexer yyl) { return new ANNOTATION(yyl); }
+        public static object NAT_factory(Lexer yyl) { return new NAT(yyl); }
+        public static object FROM_factory(Lexer yyl) { return new FROM(yyl); }
+        public static object IFANDONLYIFITEITHER_factory(Lexer yyl) { return new IFANDONLYIFITEITHER(yyl); }
+        public static object NUM_factory(Lexer yyl) { return new NUM(yyl); }
+        public static object EITHER_factory(Lexer yyl) { return new EITHER(yyl); }
+        public static object TIME_factory(Lexer yyl) { return new TIME(yyl); }
+        public static object ID_factory(Lexer yyl) { return new ID(yyl); }
+        public static object THEONEANDONLY_factory(Lexer yyl) { return new THEONEANDONLY(yyl); }
+        public static object NOT_factory(Lexer yyl) { return new NOT(yyl); }
+        public static object EXECUTE_factory(Lexer yyl) { return new EXECUTE(yyl); }
+        public static object THING_factory(Lexer yyl) { return new THING(yyl); }
+        public static object CODE_factory(Lexer yyl) { return new CODE(yyl); }
+        public static object THEN_factory(Lexer yyl) { return new THEN(yyl); }
+        public static object ISNOT_factory(Lexer yyl) { return new ISNOT(yyl); }
+        public static object STR_factory(Lexer yyl) { return new STR(yyl); }
+        public static object CMP_factory(Lexer yyl) { return new CMP(yyl); }
+        public static object IFANDONLYIF_factory(Lexer yyl) { return new IFANDONLYIF(yyl); }
+        public static object VALUEOF_factory(Lexer yyl) { return new VALUEOF(yyl); }
+        public static object SECONDS_factory(Lexer yyl) { return new SECONDS(yyl); }
+        public static object DASH_factory(Lexer yyl) { return new DASH(yyl); }
+        public static object DTM_factory(Lexer yyl) { return new DTM(yyl); }
+        public static object HOURS_factory(Lexer yyl) { return new HOURS(yyl); }
+        public static object EVERYTHING_factory(Lexer yyl) { return new EVERYTHING(yyl); }
+        public static object IS_factory(Lexer yyl) { return new IS(yyl); }
+        public static object THINGS_factory(Lexer yyl) { return new THINGS(yyl); }
+        public static object DOESNOT_factory(Lexer yyl) { return new DOESNOT(yyl); }
+        public static object IFANDONLYIFIT_factory(Lexer yyl) { return new IFANDONLYIFIT(yyl); }
+        public static object END_factory(Lexer yyl) { return new END(yyl); }
+        public static object BY_factory(Lexer yyl) { return new BY(yyl); }
+        public static object THE_factory(Lexer yyl) { return new THE(yyl); }
+        public static object X_factory(Lexer yyl) { return new X(yyl); }
+        public static object ORSOMETHINGELSE_factory(Lexer yyl) { return new ORSOMETHINGELSE(yyl); }
+        public static object MODAL_factory(Lexer yyl) { return new MODAL(yyl); }
+        public static object SOME_factory(Lexer yyl) { return new SOME(yyl); }
+        public static object ISUNIQUEIF_factory(Lexer yyl) { return new ISUNIQUEIF(yyl); }
+        public static object RESULTOF_factory(Lexer yyl) { return new RESULTOF(yyl); }
+        public static object ISNOTTHESAMEAS_factory(Lexer yyl) { return new ISNOTTHESAMEAS(yyl); }
+        public static object COMMA_factory(Lexer yyl) { return new COMMA(yyl); }
+        public static object EQ_factory(Lexer yyl) { return new EQ(yyl); }
+        public static object NOTHING_factory(Lexer yyl) { return new NOTHING(yyl); }
+        public static object FOR_factory(Lexer yyl) { return new FOR(yyl); }
+        public static object EXISTS_factory(Lexer yyl) { return new EXISTS(yyl); }
+        public static object ANDOR_factory(Lexer yyl) { return new ANDOR(yyl); }
+        public static object BENOT_factory(Lexer yyl) { return new BENOT(yyl); }
+        public static object ISTHESAMEAS_factory(Lexer yyl) { return new ISTHESAMEAS(yyl); }
+        public static object DBL_factory(Lexer yyl) { return new DBL(yyl); }
+        public static object WITH_factory(Lexer yyl) { return new WITH(yyl); }
+        public static object PLUS_factory(Lexer yyl) { return new PLUS(yyl); }
+        public static object MATCHES_factory(Lexer yyl) { return new MATCHES(yyl); }
+        public static object DAYS_factory(Lexer yyl) { return new DAYS(yyl); }
+        public static object SUBSTRING_factory(Lexer yyl) { return new SUBSTRING(yyl); }
+        public static object BE_factory(Lexer yyl) { return new BE(yyl); }
+        public static object Y_factory(Lexer yyl) { return new Y(yyl); }
+        public static object UNOP_factory(Lexer yyl) { return new UNOP(yyl); }
+        public static object NO_factory(Lexer yyl) { return new NO(yyl); }
+        public static object ARENOT_factory(Lexer yyl) { return new ARENOT(yyl); }
+        public static object COMPARER2_factory(Lexer yyl) { return new COMPARER2(yyl); }
+        public static object ASWELLAS_factory(Lexer yyl) { return new ASWELLAS(yyl); }
+        public static object DIFFERENTFROM_factory(Lexer yyl) { return new DIFFERENTFROM(yyl); }
+        public override TOKEN OldAction(Lexer yym, ref string yytext, int action, ref bool reject)
+        {
+            switch (action)
+            {
+                case -1: break;
+                case 9910:
+                    { ((tokens)yym).str += yytext; }
+                    break;
+                case 9905:
+                    { yym.yy_begin("STR"); ((tokens)yym).str = yytext; }
+                    break;
+                case 9878:
+                    { ((tokens)yym).yytext = ((tokens)yym).str + yytext; yym.yy_begin("YYINITIAL"); return new COMMENT(yym); }
+                    break;
+                case 9866:
+                    { ((tokens)yym).str += yytext; }
+                    break;
+                case 9844:
+                    { ((tokens)yym).str += yytext; }
+                    break;
+                case 9805:
+                    { ((tokens)yym).str += yytext; yym.yy_begin("COMMENT"); }
+                    break;
+                case 9832:
+                    { ((tokens)yym).str += yytext; yym.yy_begin("COMMENTSB"); }
+                    break;
+                case 9810:
+                    { ((tokens)yym).str += yytext; }
+                    break;
+                case 9791:
+                    { ((tokens)yym).str += yytext; }
+                    break;
+                case 9786:
+                    { ((tokens)yym).str += yytext; yym.yy_begin("COMMENTSTR2"); }
+                    break;
+                case 9966:
+                    { ((tokens)yym).yytext = ((tokens)yym).str + yytext; yym.yy_begin("YYINITIAL"); return new CODE(yym); }
+                    break;
+                case 9764:
+                    { ((tokens)yym).str += yytext; }
+                    break;
+                case 9759:
+                    { ((tokens)yym).str += yytext; yym.yy_begin("COMMENT"); }
+                    break;
+                case 9738:
+                    { ((tokens)yym).str += yytext; yym.yy_begin("COMMENTSTR"); }
+                    break;
+                case 9745:
+                    { ((tokens)yym).str += yytext; }
+                    break;
+                case 9951:
+                    { yym.yy_begin("CODE"); ((tokens)yym).str = yytext; }
+                    break;
+                case 9657:
+                    { yym.yy_begin("COMMENT"); ((tokens)yym).str = yytext; }
+                    break;
+                case 9837:
+                    { ((tokens)yym).str += yytext; yym.yy_begin("COMMENT"); }
+                    break;
+                case 9883:
+                    { ((tokens)yym).str += yytext; }
+                    break;
+                case 9929:
+                    { ((tokens)yym).str += yytext; }
+                    break;
+                case 9994:
+                    { }
+                    break;
+                case 9972:
+                    { ((tokens)yym).str += yytext; }
+                    break;
+                case 9957:
+                    { ((tokens)yym).str += yytext; }
+                    break;
+                case 9924:
+                    { ((tokens)yym).yytext = ((tokens)yym).str + yytext; yym.yy_begin("YYINITIAL"); return new STR(yym); }
+                    break;
+            }
+            return null;
+        }
+    }
+    public class tokens : Lexer
+    {
+        public tokens() : base(new yytokens(new ErrorHandler(false))) { }
+        public tokens(ErrorHandler eh) : base(new yytokens(eh)) { }
+        public tokens(YyLexer tks) : base(tks) { }
 
-	public string str;
+        public string str;
 
- }
+    }
 }

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace CogniPy.Executing.HermiT
 {
@@ -28,7 +26,7 @@ namespace CogniPy.Executing.HermiT
 
         public bool IsEntailed(CNL.DL.Statement e)
         {
-            if (!isImported) return false; 
+            if (!isImported) return false;
 
             entailmentFound = null;
             askMode = true;

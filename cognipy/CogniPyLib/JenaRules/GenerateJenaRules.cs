@@ -1,15 +1,14 @@
-﻿using org.apache.jena.rdf.model;
-using CogniPy.ARS;
+﻿using CogniPy.ARS;
 using CogniPy.CNL.EN;
+using CogniPy.Executing.HermiT;
+using org.apache.jena.rdf.model;
 using org.semanticweb.owlapi.vocab;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using CogniPy.Executing.HermiT;
 
 namespace CogniPy.CNL.DL
 {
@@ -32,7 +31,7 @@ namespace CogniPy.CNL.DL
         bool modalCheckerRules = false;
         bool swrlOnly = false;
 
-        public GenerateJenaRules(Model model, bool modalChecker, bool useSWRL = true,bool debugSWRL=false,bool runExeRules=false,bool debugExeRules=false, bool swrlOnly=false)
+        public GenerateJenaRules(Model model, bool modalChecker, bool useSWRL = true, bool debugSWRL = false, bool runExeRules = false, bool debugExeRules = false, bool swrlOnly = false)
         {
             this.model = model;
             this.useSWRL = useSWRL;
@@ -51,8 +50,8 @@ namespace CogniPy.CNL.DL
         }
 
 
-         Dictionary<string, Statement> id2stmt;
-        
+        Dictionary<string, Statement> id2stmt;
+
         public void setId2stmt(Dictionary<string, Statement> id2stmt)
         {
             this.id2stmt = id2stmt;
@@ -109,7 +108,7 @@ namespace CogniPy.CNL.DL
             return null;
         }
 
-        private Tuple<string,string,string> SolveSingleSome(string cid, object restr)
+        private Tuple<string, string, string> SolveSingleSome(string cid, object restr)
         {
             if (restr is CogniPy.CNL.DL.SomeRestriction)
             {
@@ -147,7 +146,7 @@ namespace CogniPy.CNL.DL
             return null;
         }
 
-        public void appendDebugString(StringBuilder sb,CNL.DL.Statement stmt )
+        public void appendDebugString(StringBuilder sb, CNL.DL.Statement stmt)
         {
             if (model != null)
             {
@@ -266,7 +265,7 @@ namespace CogniPy.CNL.DL
             var id = "prp-spo2-" + Interlocked.Increment(ref prp_spo2_cnt).ToString();
             id2stmt.Add(id, e);
 
-            sb.Append("["+id + ": ");
+            sb.Append("[" + id + ": ");
             int varid = 0;
             foreach (var r in e.RoleChain)
             {
@@ -440,7 +439,7 @@ namespace CogniPy.CNL.DL
                 e.slc.accept(this);
                 sb.AppendLine("]");
             }
-            else if(modalCheckerRules)
+            else if (modalCheckerRules)
             {
                 bool normal = (e.modality == Statement.Modality.CAN || e.modality == Statement.Modality.SHOULD || e.modality == Statement.Modality.MUST);
                 sb.Append("[swrl-modal-body-" + id + ": ");
@@ -482,7 +481,7 @@ namespace CogniPy.CNL.DL
                     DL.Serializer ser = new Serializer();
                     var dl = ser.Serialize(rule);
                     var iid = model.createTypedLiteral("\'" + dl.Replace("\'", "\\\'").ToString() + "\'", org.apache.jena.datatypes.xsd.XSDDatatype.XSDstring).toString();
-                    if(debugExeRules)
+                    if (debugExeRules)
                         sb.Append(" debugTraceBuiltIn (" + iid + "),");
                 }
                 sb.Append("swrlIterator(" + idx.ToString() + ")");
@@ -492,7 +491,7 @@ namespace CogniPy.CNL.DL
             }
             return null;
         }
-        
+
         public override object Visit(SwrlItemList e)
         {
             bool firstOne = true;
@@ -557,12 +556,12 @@ namespace CogniPy.CNL.DL
             if (!inSwrlBody && !swrlOnly)
             {
                 sb.Append("(");
-                sb.Append( inst );
+                sb.Append(inst);
                 sb.Append(" rdf:type ");
                 sb.Append("owl:NamedIndividual");
                 sb.Append(")");
                 sb.Append("(");
-                sb.Append( jnst );
+                sb.Append(jnst);
                 sb.Append(" rdf:type ");
                 sb.Append("owl:NamedIndividual");
                 sb.Append(")");
@@ -733,7 +732,7 @@ namespace CogniPy.CNL.DL
             }
             else
             {
-                var lst = e.Values[e.Values.Count-1].accept(this).ToString();;
+                var lst = e.Values[e.Values.Count - 1].accept(this).ToString(); ;
 
                 for (int i = 0; i < e.Values.Count - 1; i++)
                 {
@@ -753,7 +752,7 @@ namespace CogniPy.CNL.DL
                     else
                         SwrlBuiltInNoImpl(e);
                 }
-                else if (builtInName == "datetime" || builtInName=="duration")
+                else if (builtInName == "datetime" || builtInName == "duration")
                 {
                     if (builtInName == "datetime")
                         sb.Append("createDatetime(" + lst + ")");
@@ -865,7 +864,7 @@ namespace CogniPy.CNL.DL
         {
             DlName dl = new DlName() { id = e.I };
             var dlp = dl.Split();
-            if(char.IsLower(dlp.name[0]))
+            if (char.IsLower(dlp.name[0]))
                 return "<" + owlNC.getIRIFromId(e.I, EntityKind.Role) + ">";
             else
                 return "<" + owlNC.getIRIFromId(e.I, EntityKind.Instance) + ">";
@@ -897,7 +896,7 @@ namespace CogniPy.CNL.DL
         {
             if (model == null) return null;
 
-            if (v is CNL.DL.Bool) return model.createTypedLiteral(v.ToBool()?"true":"false", org.apache.jena.datatypes.xsd.XSDDatatype.XSDboolean);
+            if (v is CNL.DL.Bool) return model.createTypedLiteral(v.ToBool() ? "true" : "false", org.apache.jena.datatypes.xsd.XSDDatatype.XSDboolean);
             if (v is CNL.DL.String) return model.createTypedLiteral(v.getVal(), org.apache.jena.datatypes.xsd.XSDDatatype.XSDstring);
             if (v is CNL.DL.Float) return model.createTypedLiteral(v.getVal(), org.apache.jena.datatypes.xsd.XSDDatatype.XSDdouble);
             if (v is CNL.DL.Number) return model.createTypedLiteral(new java.lang.Integer(v.ToInt()), org.apache.jena.datatypes.xsd.XSDDatatype.XSDinteger);
@@ -915,7 +914,7 @@ namespace CogniPy.CNL.DL
             var l = vv.ToString();
             var p = l.LastIndexOf('^');
             if (p == -1)
-                    return vv.toString();
+                return vv.toString();
             else
                 return "'" + l.Substring(0, p - 1).Replace("\\", "\\\\") + "'^^" + l.Substring(p + 1).Replace("http://www.w3.org/2001/XMLSchema#", "xsd:");
         }
@@ -1077,20 +1076,20 @@ namespace CogniPy.CNL.DL
                     var nrule = new CNL.DL.ExeStatement(null) { args = rule.args, exe = "<?...?>", slp = rule.slp };
                     var dl = ser.Serialize(nrule);
                     var iid = model.createTypedLiteral("\'" + dl.Replace("\'", "\\\'").ToString() + "\'", org.apache.jena.datatypes.xsd.XSDDatatype.XSDstring).toString();
-                    if(debugExeRules)
+                    if (debugExeRules)
                         sb.Append(" debugTraceBuiltIn (" + iid + "),");
                 }
 
                 var lst = rule.exe;
 
-                for (int i = 0; i < rule.args.list.Count ; i++)
+                for (int i = 0; i < rule.args.list.Count; i++)
                 {
                     var dn = rule.args.list[i].accept(this).ToString();
                     lst += ", ";
                     lst += dn;
                 }
 
-                sb.Append("executeExternalRule(" +lst + ")");
+                sb.Append("executeExternalRule(" + lst + ")");
                 sb.AppendLine("]");
 
             }
@@ -1098,4 +1097,3 @@ namespace CogniPy.CNL.DL
         }
     }
 }
-    

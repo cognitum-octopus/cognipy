@@ -1,10 +1,5 @@
-﻿using CogniPy;
-using CogniPy.models;
-using System;
+﻿using CogniPy.models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CogniPy
 {
