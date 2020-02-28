@@ -1,0 +1,40 @@
+Namespace: 'http://cognitum.eu/african_wildlife'.
+
+Comment: 'Lets name our instances'.
+Comment: 'Lets specify the hierarchy of beings'. 
+Comment: 'What is what?'.
+
+Every lion is an animal.
+Every giraffe is an animal.
+
+Comment: 'Moreover'.
+Every impala is an animal.
+Every omnivore is an animal.
+Every rock-dassie is an animal.
+Every warthog is an animal.
+Every carnivore is an animal.
+Every herbivore is an animal.
+Every elephant is a herbivore.
+Every lion is carnivore.
+
+Comment: 'There are also plants there:'.
+Every tree is a plant.
+Every grass is a plant.
+Every palm-tree is a plant.
+
+Every branch is a plant-part.
+Every leaf is a plant-part.
+Every twig is a plant-part.
+
+Every phloem is a plant-part.
+Every root is a plant-part.
+Every parsnip is a root.
+Every stem is a plant-part.
+Every xylem is a plant-part.
+Every fruiting-body is a plant-part.
+Every berry is a fruiting-body.
+Every apple is a fruiting-body.
+
+Comment: 'We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words'.
+Every tasty-plant is a plant.
+Every carnivorous-plant is a plant.
