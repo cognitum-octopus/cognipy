@@ -7,8 +7,9 @@ from cognipy.ontology import Ontology
 
 def InitJS():
     with open(os.path.dirname(os.path.abspath(__file__))+"/edit.js", 'r') as file:
-#    with open("./edit.js", 'r') as file:
         return Javascript(file.read())
+        
+InitJS()
 
 class OntoeditWidget(widgets.DOMWidget):
     _view_name = Unicode('OntoeditView').tag(sync=True)

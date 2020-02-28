@@ -40,7 +40,7 @@ namespace CogniPy.CNL.EN
             return (tok is CogniPy.CNL.EN.END) || (tok is CogniPy.CNL.EN.COMMENT);
         }
 
-        public bool isANNNOT(TOKEN tok)
+        public bool IsAnnot(TOKEN tok)
         {
             return (tok is CogniPy.CNL.EN.COMMENT);
         }

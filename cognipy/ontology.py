@@ -10,9 +10,9 @@ import IPython
 from cognipy.interop import cognipy_create,cognipy_delete,cognipy_call
 
 
-def CQL(sparql):
+def CQL(sparql,ns='http://www.cognitum.eu/onto#'):
     def CONC(str):
-        return '<http://www.cognitum.eu/onto#'+ str.split('-')[0]+"".join( [x.title() for x in str.split('-')[1:]])+">"
+        return '<'+ns+ str.split('-')[0]+"".join( [x.title() for x in str.split('-')[1:]])+">"
     def my_replace(match):
         match = match.group()
         return CONC(match[1:-1])    
@@ -42,13 +42,13 @@ class Ontology:
         
         self._uid = cognipy_create()
         if source == "cnl/file":
-            cognipy_call(self._uid,"LoadCnl",arg,loadAnnotations,True,modalCheck)
+            cognipy_call(self._uid,"LoadCnl",arg,loadAnnotations,modalCheck,passParamsAsCnl)
         elif source == "cnl/string":
-            cognipy_call(self._uid,"LoadCnlFromString",arg,loadAnnotations,True,modalCheck)
+            cognipy_call(self._uid,"LoadCnlFromString",arg,loadAnnotations,modalCheck,passParamsAsCnl)
         elif source == "rdf/uri":
-            cognipy_call(self._uid,"LoadRdf",arg,loadAnnotations,True,modalCheck)
+            cognipy_call(self._uid,"LoadRdf",arg,loadAnnotations,modalCheck,passParamsAsCnl)
         elif source == "rdf/string":
-            cognipy_call(self._uid,"LoadRdfFromString",arg,loadAnnotations,True,modalCheck)
+            cognipy_call(self._uid,"LoadRdfFromString",arg,loadAnnotations,modalCheck,passParamsAsCnl)
 
         if self._verbose:
             cnl = self.as_cnl()
@@ -76,6 +76,16 @@ class Ontology:
             Pandas DataFrame congaing all the sub-concepts of the given concept expression
         """
         return cognipy_call(self._uid,"GetSubConceptsOf",cnl,direct)
+           
+    def sparql_query_for_instances(self, cnl):
+        return cognipy_call(self._uid,"SelectInstancesSPARQL",cnl,False)
+    
+#TODO    
+    def annotations_for_subject(self,subject,prop="", lang=""):
+        return self._to_pandas(robjects.r('ontorion.annotations.for.subject')(self._onto,subject,prop,lang))
+
+    def constrains_for_subject(self,concept):
+        return self._to_pandas(robjects.r('ontorion.constrains.for.subject')(self._onto,concept))
 
     def super_concepts_of(self, cnl,direct=False):
         """Get all the super-concepts of the given concept specification
@@ -88,9 +98,6 @@ class Ontology:
         """
         return cognipy_call(self._uid,"GetSuperConceptsOf",cnl,direct)
            
-    def sparql_query_for_instances(self, cnl):
-        return cognipy_call(self._uid,"SelectInstancesSPARQL",cnl,False)
-    
     def instances_of(self, cnl, direct=False):
         return cognipy_call(self._uid,"GetInstancesOf",cnl,direct)
 
@@ -161,6 +168,15 @@ class Ontology:
             markdown = "("+inst+")"
             display(Markdown(markdown))
             
+#TODO
+    def setup_function(self,name, func):
+        """Sets the function up so it can be called from within the complex cnl rule 
+
+        Args:
+            name (str): the name of the function
+            func : the function
+        """
+        robjects.globalenv[name]=func
     def sparql_query(self,query, asCNL = True, column_names=None):
         """Executes the SPARQL query
 
@@ -174,6 +190,20 @@ class Ontology:
         
         val= cognipy_call(self._uid,"SparqlQuery",query,True,asCNL)
         return pd.DataFrame(val["Item2"],columns=val["Item1"]) 
+
+#TODO
+    def why(self,cnl):
+        """Explains why
+
+        Args:
+            cnl (str): the cnl string
+        """
+        return cognipy_call(self._uid,"Why",cnl,True)
+        
+    def reasoningInfo(self):
+        self.super_concepts_of("a thing")
+        return cognipy_call(self._uid,"GetReasoningInfo")
+
     
     def create_graph(self, layout="hierarchical", show= {"subsumptions","types","relations","attributes"} , include = {}, exclude = {}, constrains=[], format="svg",filename=None):
         """Creates the ontology diagram as an image
@@ -437,3 +467,17 @@ class Ontology:
         """
         return IPython.display.SVG(data=self.create_graph(layout,show,include,exclude,constrains))
  
+
+#TODO
+from functools import wraps        
+
+def custom_predicate(onto):
+    def custom_inner_pred(func):
+        @wraps(func)
+        def wrapper(*args,**kwargs):
+            return func(*[onto._resolve_value(m) for m in args],**kwargs)
+
+        robjects.globalenv[func.__name__]=wrapper
+        return wrapper
+    return custom_inner_pred
+

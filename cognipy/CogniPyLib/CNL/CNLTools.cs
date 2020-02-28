@@ -17,7 +17,7 @@ namespace CogniPy.CNL
 
         bool isEOL(TOKEN tok);
 
-        bool isANNNOT(TOKEN tok);
+        bool IsAnnot(TOKEN tok);
 
         bool isParagraph(SYMBOL smb);
 
@@ -163,10 +163,7 @@ namespace CogniPy.CNL
 
             var nn = new CogniPy.CNL.DL.DlName() { id = entity };
             var sp = nn.Split();
-            if (!String.IsNullOrWhiteSpace(sp.term))
-                return true;
-
-            return false;
+            return !string.IsNullOrWhiteSpace(sp.term);
         }
 
         public string GetNamespaceFromNamespaceLine(string input)
@@ -204,7 +201,7 @@ namespace CogniPy.CNL
         /// <returns></returns>
         public static bool AreNamespacesEqual(string ns1, string ns2)
         {
-            if (String.IsNullOrWhiteSpace(ns1) || String.IsNullOrWhiteSpace(ns2))
+            if (string.IsNullOrWhiteSpace(ns1) || String.IsNullOrWhiteSpace(ns2))
                 return false;
 
             if (ns1 == ns2)
