@@ -1,5 +1,6 @@
 ﻿using CogniPy;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -55,16 +56,36 @@ namespace CogniPyCLI
                                 break;
                             sb.Append(line);
                         }
-                        var sread = new StringReader(sb.ToString());
-                        var r = new JsonTextReader(sread);
-                        var w = new JsonTextWriter(writer);
                         JsonSerializer serializer = new JsonSerializer();
-                        var parms = serializer.Deserialize<object[]>(r);
-                        var ret = fe.GetType().InvokeMember(cmd, BindingFlags.DeclaredOnly |
-                                BindingFlags.Public | BindingFlags.NonPublic |
-                                BindingFlags.Instance | BindingFlags.InvokeMethod, null, fe, parms);
+                        var parms = serializer.Deserialize<object[]>(new JsonTextReader(new StringReader(sb.ToString())));
+                        object ret = null;
+                        try
+                        {
+                            var method = fe.GetType().GetMethod(cmd);
+                            var ptp = method.GetParameters();
+                            var cps = new List<object>();
+                            for (var idx = 0; idx < ptp.Length; idx++)
+                            {
+                                object cp;
+                                if (parms[idx] is JToken)
+                                    cp = (parms[idx] as JToken).ToObject(ptp[idx].ParameterType);
+                                else
+                                    cp = parms[idx];
+                                cps.Add(cp);
+                            }
+
+                            ret = method.Invoke(fe, cps.ToArray());
+                        }
+                        catch (AmbiguousMatchException)
+                        { 
+                            ret = fe.GetType().InvokeMember(cmd, BindingFlags.DeclaredOnly |
+                                                               BindingFlags.Public | BindingFlags.NonPublic |
+                                                               BindingFlags.Instance | BindingFlags.InvokeMethod,
+                                null, fe, parms);
+                        }
+
                         writer.WriteLine("@result");
-                        serializer.Serialize(w, ret);
+                        serializer.Serialize(new JsonTextWriter(writer), ret);
                     }
                     catch (Exception ex)
                     {

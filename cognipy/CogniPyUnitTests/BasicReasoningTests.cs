@@ -109,7 +109,7 @@ namespace CogniPyUnitTests
             };
             var feClient = new CogniPySvr();
             feClient.LoadCnlFromString(string.Join("\r\n", cnlSentences), true, true);
-            var res = feClient.SparqlQuery("SELECT * WHERE {?x rdf:type :man}");
+            var res = feClient.SparqlQueryInternal("SELECT * WHERE {?x rdf:type :man}");
             Assert.IsNotNull(res);
             Assert.AreEqual(1, res.Item2.Count());
         }
@@ -127,7 +127,7 @@ namespace CogniPyUnitTests
             var res1 = feClient.GetSuperConceptsOf("John", false);
             Assert.Contains("human-being", res1);
 
-            var res2 = feClient.SparqlQuery(feClient.SelectSuperconceptsSPARQL("John", false));
+            var res2 = feClient.SparqlQueryInternal(feClient.SelectSuperconceptsSPARQL("John", false));
             var cnlRes2 = feClient.TranslateQueryResultsIntoCnlInPlace(res2);
 
             Assert.Contains("human-being", cnlRes2.Item2.SelectMany(x => x).ToList());

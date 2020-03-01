@@ -5,12 +5,15 @@ import os
 from IPython.display import Javascript
 from cognipy.ontology import Ontology
 
-def InitJS():
+_JS_initialized = False
+def _InitJS():
+    global _JS_initialized
+    if _JS_initialized:
+        return
     with open(os.path.dirname(os.path.abspath(__file__))+"/edit.js", 'r') as file:
-        return Javascript(file.read())
+        _JS_initialized = True
+        display( Javascript(file.read()) )
         
-InitJS()
-
 class OntoeditWidget(widgets.DOMWidget):
     _view_name = Unicode('OntoeditView').tag(sync=True)
     _model_name = Unicode('OntoeditModel').tag(sync=True)
@@ -45,7 +48,7 @@ def findcommonstart(strlist):
     return getcommonletters(strlist)
 
 def CnlEditBox(snap_filename,onto = None):
-
+    _InitJS()
     if onto is None:
         try:
             if not os.path.exists(snap_filename):
@@ -110,6 +113,7 @@ def CnlEditBox(snap_filename,onto = None):
 
     
 def CnlQueryForConcept(snap_filename,onto):
+    _InitJS()
     if not os.path.exists(snap_filename):
         open(snap_filename, 'a').close()
 

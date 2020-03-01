@@ -165,7 +165,7 @@ namespace CogniPyUnitTests
             var elapReasoner = sw.ElapsedMilliseconds;
 
             sw.Restart();
-            var res2 = feClient.SparqlQuery(feClient.SelectSuperconceptsSPARQL("Element-1-Form-D-14-08-2018-T-14-55-26[<http://www.sfo.cognitum.eu/Survey/5d09ffea-d461-4335-a3c9-03e74aec92eb#>]", false));
+            var res2 = feClient.SparqlQueryInternal(feClient.SelectSuperconceptsSPARQL("Element-1-Form-D-14-08-2018-T-14-55-26[<http://www.sfo.cognitum.eu/Survey/5d09ffea-d461-4335-a3c9-03e74aec92eb#>]", false));
             var cnlRes2 = feClient.TranslateQueryResultsIntoCnlInPlace(res2);
             var elapSparql = sw.ElapsedMilliseconds;
 

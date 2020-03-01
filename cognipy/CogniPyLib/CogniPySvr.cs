@@ -906,13 +906,13 @@ namespace CogniPy
 
         public Tuple<List<string>, List<List<object>>> SparqlQuery(string query, bool materialize, bool asCnl)
         {
-            var res = SparqlQuery(query, materialize, true, null);
+            var res = SparqlQueryInternal(query, materialize, true, null);
             if (asCnl)
                 res = TranslateQueryResultsIntoCnlInPlace(res);
             return res;
         }
 
-        public Tuple<List<string>, List<List<object>>> SparqlQuery(string query, bool materialize = true, bool detectTypesOfNodes = true, string defaultKindOfNode = null)
+        public Tuple<List<string>, List<List<object>>> SparqlQueryInternal(string query, bool materialize = true, bool detectTypesOfNodes = true, string defaultKindOfNode = null)
         {
             if (materialize)
                 Materialize();
@@ -992,7 +992,7 @@ namespace CogniPy
                         throw new NotImplementedException("It works only for atomic concept names");
                     sparql = SelectSuperconceptsSPARQL(cnlName, direct);
                 }
-                return TranslateQueryResultsIntoCnlInPlace(SparqlQuery(sparql, true, false, "concept")).Item2.SelectMany(x => x.Where(z => !toFilter.Contains(z)).Select(y => (y as String))).ToList();
+                return TranslateQueryResultsIntoCnlInPlace(SparqlQueryInternal(sparql, true, false, "concept")).Item2.SelectMany(x => x.Where(z => !toFilter.Contains(z)).Select(y => (y as String))).ToList();
             }
         }
 
@@ -1019,7 +1019,7 @@ namespace CogniPy
                     throw new NotImplementedException("It works only for atomic concept names");
                 string sparql;
                 sparql = SelectSubconceptsSPARQL(cnlName, direct);
-                return TranslateQueryResultsIntoCnlInPlace(SparqlQuery(sparql, true, false, "concept")).Item2.SelectMany(x => x.Where(z => !toFilter.Contains(z)).Select(y => (y as String))).ToList();
+                return TranslateQueryResultsIntoCnlInPlace(SparqlQueryInternal(sparql, true, false, "concept")).Item2.SelectMany(x => x.Where(z => !toFilter.Contains(z)).Select(y => (y as String))).ToList();
             }
         }
 
@@ -1044,7 +1044,7 @@ namespace CogniPy
                 Dictionary<string, string> attrMapping;
                 string defaultInstance;
                 var sparql = reasoner.SparqlTransform.ConvertToGetInstancesOf(node, null, null, out roleMapping, out attrMapping, out defaultInstance, 0, -1, true, direct);
-                return TranslateQueryResultsIntoCnlInPlace(SparqlQuery(sparql, true, false, "instance")).Item2.SelectMany(x => x.Where(z => !toFilter.Contains(z)).Select(y => (y as String))).ToList();
+                return TranslateQueryResultsIntoCnlInPlace(SparqlQueryInternal(sparql, true, false, "instance")).Item2.SelectMany(x => x.Where(z => !toFilter.Contains(z)).Select(y => (y as String))).ToList();
             }
         }
 
@@ -1492,7 +1492,7 @@ namespace CogniPy
 
             var fc = new Dictionary<Tuple<string, string>, HashSet<object>>();
             {
-                var res = SparqlQuery(sparqlO);
+                var res = SparqlQueryInternal(sparqlO);
                 var x0idx = res.Item1.IndexOf(qq[1].Substring(1));
                 var ridx = res.Item1.IndexOf("r");
                 var yidx = res.Item1.IndexOf("y");
@@ -1507,7 +1507,7 @@ namespace CogniPy
                 }
             }
             {
-                var res = SparqlQuery(sparqlInvO);
+                var res = SparqlQueryInternal(sparqlInvO);
                 var x0idx = res.Item1.IndexOf(qq[1].Substring(1));
                 var ridx = res.Item1.IndexOf("r");
                 var yidx = res.Item1.IndexOf("y");
@@ -1522,7 +1522,7 @@ namespace CogniPy
                 }
             }
             {
-                var res = SparqlQuery(sparqlD);
+                var res = SparqlQueryInternal(sparqlD);
                 var x0idx = res.Item1.IndexOf(qq[1].Substring(1));
                 var ridx = res.Item1.IndexOf("r");
                 var yidx = res.Item1.IndexOf("y");
@@ -1572,7 +1572,7 @@ namespace CogniPy
 
             {
                 var sparqlInstances = SelectInstancesSPARQL(query);
-                var res = SparqlQuery(sparqlInstances);
+                var res = SparqlQueryInternal(sparqlInstances);
                 foreach (var r in res.Item2)
                 {
                     var ins = CnlFromUri(r.First().ToString(), "instance");

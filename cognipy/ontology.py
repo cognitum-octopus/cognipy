@@ -467,6 +467,104 @@ class Ontology:
         """
         return IPython.display.SVG(data=self.create_graph(layout,show,include,exclude,constrains))
  
+class ABoxBatch:
+    def __init__(self):
+        self._rb = []
+        self._insts = []
+
+    def has_type(self,inst,cls):
+        self._rb.append("type")
+        self._rb.append(inst)
+        self._rb.append("")
+        self._rb.append(cls)
+        return self
+
+    def same_as(self,inst,inst2):
+        self._rb.append("==")
+        self._rb.append(inst)
+        self._rb.append("")
+        self._rb.append(inst2)
+        return self
+
+    def different_from(self,inst,inst2):
+        self._rb.append("!=")
+        self._rb.append(inst)
+        self._rb.append("")
+        self._rb.append(inst2)
+        return self
+    
+    def relates(self,inst,prop,inst2):
+        self._rb.append("R")
+        self._rb.append(inst)
+        self._rb.append(prop)
+        self._rb.append(inst2)
+        return self
+        
+    def value(self,inst,prop,v):
+        def tos(v):
+            if(isinstance(v,int)):
+                return "I:"+str(v)
+            elif(isinstance(v,float)):
+                return "F:"+str(v)
+            elif(isinstance(v,bool)):
+                return "B:"+"[1]" if v else "[0]"
+            else:
+                return "S:'"+str(v)+"'"
+            
+        self._rb.append("D")
+        self._rb.append(inst)
+        self._rb.append(prop)
+        self._rb.append(tos(v))
+        return self
+    
+    def delete_instance(self,name):
+        self._insts.append(name)
+        
+    def insert(self,onto):
+        cognipy_call(onto._uid,"AssertionsInsert", self._rb)
+        if onto._verbose:
+            markdown = ''
+            for i in range(0,len(self._rb),4):
+                if self._rb[i]=="type":
+                    markdown+= self._rb[i+3]+"("+self._rb[i+1]+")"
+                elif self._rb[i]=="==":
+                    markdown+= self._rb[i+1]+"=="+self._rb[i+3]
+                elif self._rb[i]=="!=":
+                    markdown+= self._rb[i+1]+"!="+self._rb[i+3]
+                elif self._rb[i]=="R":
+                    markdown+= self._rb[i+2]+"("+self._rb[i+1]+","+self._rb[i+3]+")"
+                else:
+                    markdown+= self._rb[i+2]+"("+self._rb[i+1]+","+self._rb[i+3]+")"
+                markdown+="<br>"
+            markdown+="" 
+            display(Markdown(markdown)) 
+
+    def delete(self,onto):
+        cognipy_call(onto._uid,"AssertionsDelete", self._rb)
+        for inst in self._insts:
+            cognipy_call(onto._uid,"RemoveInstance", inst)
+
+        if onto._verbose:
+            markdown = ''
+            for i in range(0,len(self._rb),4):
+                if self._rb[i]=="type":
+                    markdown+= self._rb[i+3]+"("+self._rb[i+1]+")"
+                elif self._rb[i]=="==":
+                    markdown+= self._rb[i+1]+"=="+self._rb[i+3]
+                elif self._rb[i]=="!=":
+                    markdown+= self._rb[i+1]+"!="+self._rb[i+3]
+                elif self._rb[i]=="R":
+                    markdown+= self._rb[i+2]+"("+self._rb[i+1]+","+self._rb[i+3]+")"
+                else:
+                    markdown+= self._rb[i+2]+"("+self._rb[i+1]+","+self._rb[i+3]+")"
+                markdown+="<br>"
+
+            for inst in self._insts:
+                markdown+= "*("+inst+")"
+                markdown+="<br>"
+
+            markdown+="" 
+            display(Markdown(markdown)) 
 
 #TODO
 from functools import wraps        
