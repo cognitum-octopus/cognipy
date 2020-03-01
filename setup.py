@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='cognipy',
-    version='0.1.4',
+    version='0.1.5',
     author="Cognitum Services S.A.",
     author_email="support@cognitum.eu",
     description="Semantic Tech Reasoner and Editor",
