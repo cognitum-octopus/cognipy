@@ -26,3 +26,13 @@ msbuild cognipy\CogniPy.sln /t:Rebuild /p:Configuration=Release /p:Platform="any
 python setup.py bdist_wheel
 python -m twine upload dist/* --verbose
 ```
+
+### Open Source Libraties this project is build on
+1. IKVM
+2. CommandLineParser
+3. Newtonsoft.JSon
+4. ELK - ELK is an ontology reasoner that aims to support the OWL 2 EL profile. See http://elk.semanticweb.org/ for further information.
+5. HermiT - HermiT is a conformant OWL 2 DL reasoner that uses the direct semantics. It
+supports all OWL2 DL constructs and the datatypes required by the OWL 2 specification.   
+6. Apache Jena -   Jena is a Java framework for building semantic web applications. It provides  tools and Java libraries to help you to develop semantic web and linked-data apps, tools and servers. 
+7. OWLAPI
