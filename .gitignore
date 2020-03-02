@@ -22,3 +22,7 @@ build/
 *.pyc
 /dokenv/
 /__pycache__/ 
+.ipynb_checkpoints/
+CommandLineParser.*/
+Newtonsoft.Json.*/
+cognipy.egg-info/
