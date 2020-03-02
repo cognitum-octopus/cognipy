@@ -36,3 +36,6 @@ python -m twine upload dist/* --verbose
 supports all OWL2 DL constructs and the datatypes required by the OWL 2 specification.   
 6. Apache Jena -   Jena is a Java framework for building semantic web applications. It provides  tools and Java libraries to help you to develop semantic web and linked-data apps, tools and servers. 
 7. OWLAPI
+
+## Why it is done this way?
+1. The sorfware emerged as an offspring of FluentEditor and therefore it has some common parts. One of them is the .net. Anyway, with your help we are going to move to java :). The `convert_to_java` branch already contains the project files converted automatically from .net to java. Anyway, manual crafting is now required to make it all work.
