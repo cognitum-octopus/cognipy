@@ -3,13 +3,16 @@ Namespace: 'http://cognitum.eu/african_wildlife'.
 Comment: 'Lets name our instances'.
 Comment: 'Lets specify the hierarchy of beings'. 
 Comment: 'What is what?'.
-
+Every man has a train.
 Every lion is an animal.
 Every giraffe is an animal.
 
+
+Every animal has a face. 
+
 Comment: 'Moreover'.
 Every impala is an animal.
-Every omnivore is an animal.
+Every omnivore is an animal. 
 Every rock-dassie is an animal.
 Every warthog is an animal.
 Every carnivore is an animal.

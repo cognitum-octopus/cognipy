@@ -1,0 +1,170 @@
+The-"Product$Food/Meat/Beef/Flat Iron Steak" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Whole Rib Eye" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Topside" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Brisket" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Tenderloin" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Flap Meat" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Blade Steak" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Striploin Steak" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Tenderloin Butt" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Clod" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Round Steak" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Scotch Fillet=Whiskey Fillet" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Outside" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Rib Roast" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Diced" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Rump Steak" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Tenderloin Center Cut Steak" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Rib Steak=Ribeye=Tomahawk Steak" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Chuck Eye Roll Steak" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Inside Skirt" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Striploin Roast" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Shin" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Rump Cap" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Chuck" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Topside Roast" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Tri Tip" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Rost Biff" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Rump Roast" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/D-Rump" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Topside Steak" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Grinding=Minced" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Shoulder Roast" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/T-Bone Steak" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Beef Strips" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Topside Cap Off" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Eye Round" is-inside The-"Category$Food/Meat/Beef".
+The-"Product$Food/Meat/Beef/Round" is-inside The-"Category$Food/Meat/Beef".
+The-"Facet$Food/Meat/Beef/Feeding/Grain Fed" is a facet-option.
+The-"Facet$Food/Meat/Beef/Feeding/Grain Fed" is-an-option-for The-"Facet$Food/Meat/Beef/Feeding".
+The-"Facet$Food/Meat/Beef/Feeding/Grass Fed" is a facet-option.
+The-"Facet$Food/Meat/Beef/Feeding/Grass Fed" is-an-option-for The-"Facet$Food/Meat/Beef/Feeding".
+The-"Facet$Food/Meat/Beef/Feeding/Pasture Fed" is a facet-option.
+The-"Facet$Food/Meat/Beef/Feeding/Pasture Fed" is-an-option-for The-"Facet$Food/Meat/Beef/Feeding".
+The-"Facet$Food/Meat/Beef/Age Sex/Veal=V" is a facet-option.
+The-"Facet$Food/Meat/Beef/Age Sex/Veal=V" is-an-option-for The-"Facet$Food/Meat/Beef/Age Sex".
+The-"Facet$Food/Meat/Beef/Age Sex/Beef=A" is a facet-option.
+The-"Facet$Food/Meat/Beef/Age Sex/Beef=A" is-an-option-for The-"Facet$Food/Meat/Beef/Age Sex".
+The-"Facet$Food/Meat/Beef/Age Sex/Bull=B" is a facet-option.
+The-"Facet$Food/Meat/Beef/Age Sex/Bull=B" is-an-option-for The-"Facet$Food/Meat/Beef/Age Sex".
+The-"Facet$Food/Meat/Beef/Age Sex/Yearling Beef=Y" is a facet-option.
+The-"Facet$Food/Meat/Beef/Age Sex/Yearling Beef=Y" is-an-option-for The-"Facet$Food/Meat/Beef/Age Sex".
+The-"Facet$Food/Meat/Beef/Age Sex/Yearling Steer=YS" is a facet-option.
+The-"Facet$Food/Meat/Beef/Age Sex/Yearling Steer=YS" is-an-option-for The-"Facet$Food/Meat/Beef/Age Sex".
+The-"Facet$Food/Meat/Beef/Age Sex/Young Beef=YG" is a facet-option.
+The-"Facet$Food/Meat/Beef/Age Sex/Young Beef=YG" is-an-option-for The-"Facet$Food/Meat/Beef/Age Sex".
+The-"Facet$Food/Meat/Beef/Age Sex/Young Steer=YGS" is a facet-option.
+The-"Facet$Food/Meat/Beef/Age Sex/Young Steer=YGS" is-an-option-for The-"Facet$Food/Meat/Beef/Age Sex".
+The-"Facet$Food/Meat/Beef/Age Sex/Young Prime Beef=YP" is a facet-option.
+The-"Facet$Food/Meat/Beef/Age Sex/Young Prime Beef=YP" is-an-option-for The-"Facet$Food/Meat/Beef/Age Sex".
+The-"Facet$Food/Meat/Beef/Age Sex/Young Prime Steer=YPS" is a facet-option.
+The-"Facet$Food/Meat/Beef/Age Sex/Young Prime Steer=YPS" is-an-option-for The-"Facet$Food/Meat/Beef/Age Sex".
+The-"Facet$Food/Meat/Beef/Age Sex/Prime Beef=PR" is a facet-option.
+The-"Facet$Food/Meat/Beef/Age Sex/Prime Beef=PR" is-an-option-for The-"Facet$Food/Meat/Beef/Age Sex".
+The-"Facet$Food/Meat/Beef/Age Sex/Prime Steer=PRS" is a facet-option.
+The-"Facet$Food/Meat/Beef/Age Sex/Prime Steer=PRS" is-an-option-for The-"Facet$Food/Meat/Beef/Age Sex".
+The-"Facet$Food/Meat/Beef/Age Sex/Ox=S" is a facet-option.
+The-"Facet$Food/Meat/Beef/Age Sex/Ox=S" is-an-option-for The-"Facet$Food/Meat/Beef/Age Sex".
+The-"Facet$Food/Meat/Beef/Age Sex/Steer=SS" is a facet-option.
+The-"Facet$Food/Meat/Beef/Age Sex/Steer=SS" is-an-option-for The-"Facet$Food/Meat/Beef/Age Sex".
+The-"Facet$Food/Meat/Beef/Age Sex/Cow=C" is a facet-option.
+The-"Facet$Food/Meat/Beef/Age Sex/Cow=C" is-an-option-for The-"Facet$Food/Meat/Beef/Age Sex".
+The-"Facet$Food/Meat/Beef/Packaging/Individually Wrapped=IW" is a facet-option.
+The-"Facet$Food/Meat/Beef/Packaging/Individually Wrapped=IW" is-an-option-for The-"Facet$Food/Meat/Beef/Packaging".
+The-"Facet$Food/Meat/Beef/Packaging/Layer Packed=LP" is a facet-option.
+The-"Facet$Food/Meat/Beef/Packaging/Layer Packed=LP" is-an-option-for The-"Facet$Food/Meat/Beef/Packaging".
+The-"Facet$Food/Meat/Beef/Packaging/Two Or More Items Wrapped In A Single Covering=MW" is a facet-option.
+The-"Facet$Food/Meat/Beef/Packaging/Two Or More Items Wrapped In A Single Covering=MW" is-an-option-for The-"Facet$Food/Meat/Beef/Packaging".
+The-"Facet$Food/Meat/Beef/Packaging/Non Specified Pieces Packed In Poly Bags=BAGS" is a facet-option.
+The-"Facet$Food/Meat/Beef/Packaging/Non Specified Pieces Packed In Poly Bags=BAGS" is-an-option-for The-"Facet$Food/Meat/Beef/Packaging".
+The-"Facet$Food/Meat/Beef/Packaging/Tray Packed=TP" is a facet-option.
+The-"Facet$Food/Meat/Beef/Packaging/Tray Packed=TP" is-an-option-for The-"Facet$Food/Meat/Beef/Packaging".
+The-"Facet$Food/Meat/Beef/Meat Color/MC 1" is a facet-option.
+The-"Facet$Food/Meat/Beef/Meat Color/MC 1" is-an-option-for The-"Facet$Food/Meat/Beef/Meat Color".
+The-"Facet$Food/Meat/Beef/Meat Color/MC 2" is a facet-option.
+The-"Facet$Food/Meat/Beef/Meat Color/MC 2" is-an-option-for The-"Facet$Food/Meat/Beef/Meat Color".
+The-"Facet$Food/Meat/Beef/Meat Color/MC 3" is a facet-option.
+The-"Facet$Food/Meat/Beef/Meat Color/MC 3" is-an-option-for The-"Facet$Food/Meat/Beef/Meat Color".
+The-"Facet$Food/Meat/Beef/Meat Color/MC 4" is a facet-option.
+The-"Facet$Food/Meat/Beef/Meat Color/MC 4" is-an-option-for The-"Facet$Food/Meat/Beef/Meat Color".
+The-"Facet$Food/Meat/Beef/Meat Color/MC 5" is a facet-option.
+The-"Facet$Food/Meat/Beef/Meat Color/MC 5" is-an-option-for The-"Facet$Food/Meat/Beef/Meat Color".
+The-"Facet$Food/Meat/Beef/Meat Color/MC 6" is a facet-option.
+The-"Facet$Food/Meat/Beef/Meat Color/MC 6" is-an-option-for The-"Facet$Food/Meat/Beef/Meat Color".
+The-"Facet$Food/Meat/Beef/Meat Color/MC 7" is a facet-option.
+The-"Facet$Food/Meat/Beef/Meat Color/MC 7" is-an-option-for The-"Facet$Food/Meat/Beef/Meat Color".
+The-"Facet$Food/Meat/Beef/Fat Color/FC 0" is a facet-option.
+The-"Facet$Food/Meat/Beef/Fat Color/FC 0" is-an-option-for The-"Facet$Food/Meat/Beef/Fat Color".
+The-"Facet$Food/Meat/Beef/Fat Color/FC 1" is a facet-option.
+The-"Facet$Food/Meat/Beef/Fat Color/FC 1" is-an-option-for The-"Facet$Food/Meat/Beef/Fat Color".
+The-"Facet$Food/Meat/Beef/Fat Color/FC 2" is a facet-option.
+The-"Facet$Food/Meat/Beef/Fat Color/FC 2" is-an-option-for The-"Facet$Food/Meat/Beef/Fat Color".
+The-"Facet$Food/Meat/Beef/Fat Color/FC 3" is a facet-option.
+The-"Facet$Food/Meat/Beef/Fat Color/FC 3" is-an-option-for The-"Facet$Food/Meat/Beef/Fat Color".
+The-"Facet$Food/Meat/Beef/Fat Color/FC 4" is a facet-option.
+The-"Facet$Food/Meat/Beef/Fat Color/FC 4" is-an-option-for The-"Facet$Food/Meat/Beef/Fat Color".
+The-"Facet$Food/Meat/Beef/Fat Color/FC 5" is a facet-option.
+The-"Facet$Food/Meat/Beef/Fat Color/FC 5" is-an-option-for The-"Facet$Food/Meat/Beef/Fat Color".
+The-"Facet$Food/Meat/Beef/Fat Color/FC 6" is a facet-option.
+The-"Facet$Food/Meat/Beef/Fat Color/FC 6" is-an-option-for The-"Facet$Food/Meat/Beef/Fat Color".
+The-"Facet$Food/Meat/Beef/Fat Color/FC 7" is a facet-option.
+The-"Facet$Food/Meat/Beef/Fat Color/FC 7" is-an-option-for The-"Facet$Food/Meat/Beef/Fat Color".
+The-"Facet$Food/Meat/Beef/Fat Color/FC 8" is a facet-option.
+The-"Facet$Food/Meat/Beef/Fat Color/FC 8" is-an-option-for The-"Facet$Food/Meat/Beef/Fat Color".
+The-"Facet$Food/Meat/Beef/Fat Color/FC 9" is a facet-option.
+The-"Facet$Food/Meat/Beef/Fat Color/FC 9" is-an-option-for The-"Facet$Food/Meat/Beef/Fat Color".
+The-"Facet$Food/Meat/Minced/50 CL" is a facet-option.
+The-"Facet$Food/Meat/Minced/50 CL" is-an-option-for The-"Facet$Food/Meat/Minced".
+The-"Facet$Food/Meat/Minced/60 CL" is a facet-option.
+The-"Facet$Food/Meat/Minced/60 CL" is-an-option-for The-"Facet$Food/Meat/Minced".
+The-"Facet$Food/Meat/Minced/70 CL" is a facet-option.
+The-"Facet$Food/Meat/Minced/70 CL" is-an-option-for The-"Facet$Food/Meat/Minced".
+The-"Facet$Food/Meat/Minced/80 CL" is a facet-option.
+The-"Facet$Food/Meat/Minced/80 CL" is-an-option-for The-"Facet$Food/Meat/Minced".
+The-"Facet$Food/Meat/Minced/90 CL" is a facet-option.
+The-"Facet$Food/Meat/Minced/90 CL" is-an-option-for The-"Facet$Food/Meat/Minced".
+The-"Facet$Food/Meat/Beef/Boxing Process/Vacuum Packed=VAC" is a facet-option.
+The-"Facet$Food/Meat/Beef/Boxing Process/Vacuum Packed=VAC" is-an-option-for The-"Facet$Food/Meat/Beef/Boxing Process".
+The-"Facet$Food/Meat/Beef/Boxing Process/Modified Atmosphere Packaging=MAP" is a facet-option.
+The-"Facet$Food/Meat/Beef/Boxing Process/Modified Atmosphere Packaging=MAP" is-an-option-for The-"Facet$Food/Meat/Beef/Boxing Process".
+The-"Facet$Food/Meat/Beef/Boxing Process/Frozen" is a facet-option.
+The-"Facet$Food/Meat/Beef/Boxing Process/Frozen" is-an-option-for The-"Facet$Food/Meat/Beef/Boxing Process".
+The-"Facet$Food/Meat/Beef/Boxing Process/Chilled" is a facet-option.
+The-"Facet$Food/Meat/Beef/Boxing Process/Chilled" is-an-option-for The-"Facet$Food/Meat/Beef/Boxing Process".
+The-"Facet$Food/Meat/Beef/Marbling/MB 0" is a facet-option.
+The-"Facet$Food/Meat/Beef/Marbling/MB 0" is-an-option-for The-"Facet$Food/Meat/Beef/Marbling".
+The-"Facet$Food/Meat/Beef/Marbling/MB 1" is a facet-option.
+The-"Facet$Food/Meat/Beef/Marbling/MB 1" is-an-option-for The-"Facet$Food/Meat/Beef/Marbling".
+The-"Facet$Food/Meat/Beef/Marbling/MB 2" is a facet-option.
+The-"Facet$Food/Meat/Beef/Marbling/MB 2" is-an-option-for The-"Facet$Food/Meat/Beef/Marbling".
+The-"Facet$Food/Meat/Beef/Marbling/MB 3" is a facet-option.
+The-"Facet$Food/Meat/Beef/Marbling/MB 3" is-an-option-for The-"Facet$Food/Meat/Beef/Marbling".
+The-"Facet$Food/Meat/Beef/Marbling/MB 4" is a facet-option.
+The-"Facet$Food/Meat/Beef/Marbling/MB 4" is-an-option-for The-"Facet$Food/Meat/Beef/Marbling".
+The-"Facet$Food/Meat/Beef/Marbling/MB 5" is a facet-option.
+The-"Facet$Food/Meat/Beef/Marbling/MB 5" is-an-option-for The-"Facet$Food/Meat/Beef/Marbling".
+The-"Facet$Food/Meat/Beef/Marbling/MB 6" is a facet-option.
+The-"Facet$Food/Meat/Beef/Marbling/MB 6" is-an-option-for The-"Facet$Food/Meat/Beef/Marbling".
+The-"Facet$Food/Meat/Beef/Marbling/MB 7" is a facet-option.
+The-"Facet$Food/Meat/Beef/Marbling/MB 7" is-an-option-for The-"Facet$Food/Meat/Beef/Marbling".
+The-"Facet$Food/Meat/Beef/Marbling/MB 8" is a facet-option.
+The-"Facet$Food/Meat/Beef/Marbling/MB 8" is-an-option-for The-"Facet$Food/Meat/Beef/Marbling".
+The-"Facet$Food/Meat/Beef/Marbling/MB 9" is a facet-option.
+The-"Facet$Food/Meat/Beef/Marbling/MB 9" is-an-option-for The-"Facet$Food/Meat/Beef/Marbling".
+The-"Facet$Food/Meat/Beef/Brand/Red Gum" is a facet-option.
+The-"Facet$Food/Meat/Beef/Brand/Red Gum" is-an-option-for The-"Facet$Food/Meat/Beef/Brand".
+The-"Facet$Food/Meat/Beef/Brand/Pinnacle" is a facet-option.
+The-"Facet$Food/Meat/Beef/Brand/Pinnacle" is-an-option-for The-"Facet$Food/Meat/Beef/Brand".
+The-"Facet$Food/Meat/Beef/Brand/Little Joe" is a facet-option.
+The-"Facet$Food/Meat/Beef/Brand/Little Joe" is-an-option-for The-"Facet$Food/Meat/Beef/Brand".
+The-"Facet$Food/Meat/Beef/Brand/De Palma" is a facet-option.
+The-"Facet$Food/Meat/Beef/Brand/De Palma" is-an-option-for The-"Facet$Food/Meat/Beef/Brand".
+The-"Facet$Food/Meat/Beef/Breed/Shorthorn" is a facet-option.
+The-"Facet$Food/Meat/Beef/Breed/Shorthorn" is-an-option-for The-"Facet$Food/Meat/Beef/Breed".
+The-"Facet$Food/Meat/Beef/Breed/Wagyu/Tajima,Kobe" is a facet-option.
+The-"Facet$Food/Meat/Beef/Breed/Wagyu/Tajima,Kobe" is-an-option-for The-"Facet$Food/Meat/Beef/Breed".
+The-"Facet$Food/Meat/Beef/Breed/Angus/Black,Riverina" is a facet-option.
+The-"Facet$Food/Meat/Beef/Breed/Angus/Black,Riverina" is-an-option-for The-"Facet$Food/Meat/Beef/Breed".
+
+References: 
+[] ('./meat-beef.encnl').

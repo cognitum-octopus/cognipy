@@ -1,0 +1,36 @@
+Every one-of is an attribute.
+Every optional is an attribute.
+
+Every-single-thing that is-a is a concept.
+
+Seafood is-a Food.
+Mollusc is-a Seafood.
+Abalone is-a Mollusc.
+Abalone-Black-Lip is-a Abalone.
+Abalone-Green-Lip is-a Abalone.
+
+Seafood-Process is a one-of and has-value equal-to '`[
+"Live",
+"Frozen"
+]`'.
+ 
+Mollusc-Process is a one-of and has-value equal-to '`[
+"Individually-Quick-Frozen"
+]`'.
+
+Mollusc has-attribute Mollusc-Process.
+Mollusc has-attribute Mollusc-Size.
+
+Mollusc-Size  is a one-of and has-value equal-to '`[
+"Cocktail",
+"Small",
+"Medium",
+"Large"
+]`'.
+
+Mollusc-Wildness is an optional and has-value equal-to '`["Wild"]`'.
+Mollusc has-attribute Mollusc-Wildness.
+
+Seafood has-attribute Seafood-Process.
+Abalone has-region equal-to 'Tasmania'.
+Abalone-Meat-Black is-a Abalone.
