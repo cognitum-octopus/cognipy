@@ -120,26 +120,26 @@ namespace CogniPy
         }
 
         //      bool traceOn = true;
-        public void LoadCnl(string filename, bool loadAnnotations, bool materialize, bool modalChecker = false)
+        public void LoadCnl(string filename,  bool loadAnnotations, bool materialize, bool modalChecker = false, bool throwOnError=true)
         {
             //            System.Diagnostics.Trace.WriteIf(this.traceOn, string.Format("onto.LoadCnl(\'{0}\',{1},{2})",Path.GetFullPath( filename).Replace("\\","/"),loadAnnotations,materialize) );
-            LoadCnl(filename, null, loadAnnotations, materialize, modalChecker);
+            LoadCnl(filename, null,throwOnError, loadAnnotations, materialize, modalChecker);
         }
 
-        public void LoadRdf(string uri, bool loadAnnotations, bool materialize, bool modalChecker = false)
+        public void LoadRdf(string uri, bool loadAnnotations, bool materialize, bool modalChecker = false, bool throwOnError = true)
         {
-            LoadRdf(uri, null, loadAnnotations, materialize, modalChecker);
+            LoadRdf(uri, null, throwOnError, loadAnnotations, materialize, modalChecker);
         }
 
 
-        public void LoadRdfFromString(string rdf, bool loadAnnotations, bool materialize, bool modalChecker = false)
+        public void LoadRdfFromString(string rdf, bool loadAnnotations, bool materialize, bool modalChecker = false, bool throwOnError = true)
         {
-            LoadRdfFromString(rdf, null, loadAnnotations, materialize, modalChecker);
+            LoadRdfFromString(rdf, null, throwOnError, loadAnnotations, materialize, modalChecker);
         }
 
-        public void LoadCnlFromString(string cnl, bool loadAnnotations, bool materialize, bool modalChecker = false)
+        public void LoadCnlFromString(string cnl, bool loadAnnotations, bool materialize, bool modalChecker = false,bool throwOnError=true)
         {
-            LoadCnlFromString(cnl, null, loadAnnotations, materialize, modalChecker);
+            LoadCnlFromString(cnl, null,throwOnError, loadAnnotations, materialize, modalChecker);
         }
 
         public string CnlFromUri(string uri, string type)
@@ -169,7 +169,14 @@ namespace CogniPy
             reasoner.SetValue(instance, datarole, val);
         }
 
-        private void Load(ReferenceManager.WhatToLoad whatToLoad, string contentToLoad, CogniPy.CNL.DL.Paragraph impliAst, bool loadAnns = false, bool materialize = false, bool modalChecker = false)
+        Exception LoadError = null;
+
+        public Exception GetLoadError()
+        {
+            return LoadError;
+        }
+
+        private void Load(ReferenceManager.WhatToLoad whatToLoad, string contentToLoad, CogniPy.CNL.DL.Paragraph impliAst, bool throwOnException, bool loadAnns , bool materialize , bool modalChecker )
         {
             ReferenceManager rm = new ReferenceManager(/*GetForms*/null);
             HashSet<string> brokenImports;
@@ -182,7 +189,14 @@ namespace CogniPy
             {
                 var excepts = rm.GetExceptionsOnImports(contentToLoad);
                 if (excepts.Count() > 0)
-                    throw excepts.First();
+                {
+                    if (throwOnException)
+                        throw excepts.First();
+                    else
+                    {
+                        LoadError = excepts.First();
+                    }
+                }
                 else
                     throw new InvalidOperationException("Unknown error during import");
             }
@@ -272,24 +286,24 @@ namespace CogniPy
             }
         }
 
-        void LoadRdf(string uri, CogniPy.CNL.DL.Paragraph impliAst, bool loadAnns = false, bool materialize = false, bool modalChecker = false)
+        void LoadRdf(string uri, CogniPy.CNL.DL.Paragraph impliAst, bool throwOnException, bool loadAnns, bool materialize , bool modalChecker )
         {
-            Load(ReferenceManager.WhatToLoad.FromUri, uri, impliAst, loadAnns, materialize, modalChecker);
+            Load(ReferenceManager.WhatToLoad.FromUri, uri, impliAst, throwOnException, loadAnns, materialize, modalChecker);
         }
 
-        void LoadRdfFromString(string rdf, CogniPy.CNL.DL.Paragraph impliAst, bool loadAnns = false, bool materialize = false, bool modalChecker = false)
+        void LoadRdfFromString(string rdf, CogniPy.CNL.DL.Paragraph impliAst, bool throwOnException, bool loadAnns, bool materialize, bool modalChecker)
         {
-            Load(ReferenceManager.WhatToLoad.OwlRdfFromString, rdf, impliAst, loadAnns, materialize, modalChecker);
+            Load(ReferenceManager.WhatToLoad.OwlRdfFromString, rdf, impliAst, throwOnException, loadAnns, materialize, modalChecker);
         }
 
-        void LoadCnl(string filename, CogniPy.CNL.DL.Paragraph impliAst, bool loadAnns = false, bool materialize = false, bool modalChecker = false)
+        void LoadCnl(string filename, CogniPy.CNL.DL.Paragraph impliAst, bool throwOnException, bool loadAnns, bool materialize, bool modalChecker)
         {
-            Load(ReferenceManager.WhatToLoad.FromUri, filename, impliAst, loadAnns, materialize, modalChecker);
+            Load(ReferenceManager.WhatToLoad.FromUri, filename, impliAst, throwOnException, loadAnns, materialize, modalChecker);
         }
 
-        void LoadCnlFromString(string cnl, CogniPy.CNL.DL.Paragraph impliAst, bool loadAnns, bool materialize = false, bool modalChecker = false)
+        void LoadCnlFromString(string cnl, CogniPy.CNL.DL.Paragraph impliAst, bool throwOnException, bool loadAnns, bool materialize, bool modalChecker)
         {
-            Load(ReferenceManager.WhatToLoad.CnlFromString, cnl, impliAst, loadAnns, materialize, modalChecker);
+            Load(ReferenceManager.WhatToLoad.CnlFromString, cnl, impliAst, throwOnException, loadAnns, materialize, modalChecker);
         }
 
         internal void GetOwlUriMapping(ref Dictionary<Tuple<EntityKind, string>, string> owlMapping, ReferenceManager.ReferenceTags tag)

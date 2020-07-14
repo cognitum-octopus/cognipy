@@ -39,6 +39,18 @@
 	(?R owl:onProperty ?P), 
 	(?X rdf:type ?R ), notBNode(?X), noValue(?X ?P ), makeTemp(?T) -> (?T rdf:type ?D ), (?X ?P ?T)]
 
+[cax-sco-some: 
+	(?C rdfs:subClassOf ?R),
+	notEqual(?C ?D), (?X rdf:type ?C ),
+	notBNode(?X),
+	(?R owl:someValuesFrom ?D),
+	(?R owl:onProperty ?P), 
+	(?D owl:oneOf ?l),
+	listLength(?l, ?len),
+	equal(?len, 1),
+	listEntry(?l, 0, ?Y),
+	notBNode(?Y) -> (?X ?P ?Y)]
+
 [someRec2: 
 	(?R owl:someValuesFrom ?D),
 	(?R owl:onProperty ?P),

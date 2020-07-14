@@ -117,9 +117,10 @@ namespace CogniPy.SPARQL
             bool wasBS = false;
             if (str.Length == 0)
                 return str;
+            bool bounded = true;
             char begChar = str[0];
             if (begChar != '\'' && begChar != '\"')
-                return str;
+                bounded = false;
 
             foreach (var c in str)
             {
@@ -143,7 +144,7 @@ namespace CogniPy.SPARQL
                 {
                     if (c == '\\')
                         wasBS = true;
-                    else if (c != begChar)
+                    else if ((!bounded) || (c != begChar))
                         ret.Append(c);
                 }
             }

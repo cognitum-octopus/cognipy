@@ -159,7 +159,7 @@ require.undef('ontoedit');
 define('ontoedit', ["@jupyter-widgets/base"], function(widgets) {
 
     var OntoeditModel = widgets.TextareaModel.extend({
-        
+
         defaults: $.extend(widgets.TextareaModel.prototype.defaults(), {
             _model_name: "OntoeditModel",
             _view_name: "OntoeditView",
@@ -168,24 +168,25 @@ define('ontoedit', ["@jupyter-widgets/base"], function(widgets) {
             rows: null,
             continuous_update: true,
             cursor: 0,
+            dot:0,
             hints:'',
             hintsX:0,
             hintT:''
         })
-    }); 
-    
+    });
+
     var OntoeditView = widgets.TextareaView.extend({
-        
+
         render: function() {
             OntoeditView.__super__.render.apply(this, arguments);
             this.model.on('change:hints', this.hints_changed, this);
             this.model.on('change:hintsX', this.hintsX_changed, this);
-            
+
             var model = this.model;
             var that = this;
-            
+
             var last_position = 0;
-        
+
             function cursor_changed(element) {
                 var new_position = getCursorPosition(element);
                 if (new_position !== last_position) {
@@ -215,9 +216,11 @@ define('ontoedit', ["@jupyter-widgets/base"], function(widgets) {
             this.dd=$('<div style="-moz-appearance: textfield-multiline;-webkit-appearance: textarea;font: medium -moz-fixed; font: -webkit-small-control; position: absolute;z-index: 1; background-color:navy;color:white;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4); "/>')
 
             $(this.el).bind("click keyup focus",function(e){
-                that.dd.get(0).style.visibility="visible";
-                var ele=$($(that.el).children("textarea")[0])
+                if (that.dd.get(0).style.visibility!="visible")
+                    return;
                 
+                var ele=$($(that.el).children("textarea")[0])
+
                 if(cursor_changed(ele)){
                    var  cursor = getCursorPosition(ele);
 //                    console.log(cursor);
@@ -227,22 +230,38 @@ define('ontoedit', ["@jupyter-widgets/base"], function(widgets) {
                     that.touch();
                 }
             });
-            
+
             $($(this.el).children("textarea")[0]).bind("blur",function(e){
 //                console.log("blur")
+                  model.set('dot',model.get('dot')+1);
+                  that.touch();
                 that.dd.get(0).style.visibility="hidden";
             });
 
             $($(this.el).children("textarea")[0]).bind("keydown",function(e){
-                  if (e.keyCode==9)
+                  if (String.fromCharCode(event.which)=='\t')
                   {
+                        if (that.dd.get(0).style.visibility!="visible")
+                        {
+                            var ele=$($(that.el).children("textarea")[0])
+
+                            if(cursor_changed(ele)){
+                               var  cursor = getCursorPosition(ele);
+            //                    console.log(cursor);
+            //                    console.log('(top, left, height) = (%s, %s, %s)', caret.top, caret.left, caret.height);
+                                model.set('cursor',cursor);
+            //                    console.log(cursor)
+                                that.touch();
+                                that.dd.get(0).style.visibility="visible";
+                            }
+                        }
 //                      console.log(model.get('hintT'));
                       var target=$($(that.el).children("textarea")[0])
                       var curpos = getCursorPosition(target)
                       var off=curpos-model.get('hintsX')
                       var data = model.get('hintT').slice(off)
 //                      console.log(off)
-                      
+
                       if (target.setRangeText) {
                          //if setRangeText function is supported by current browser
                          target.setRangeText(data)
@@ -253,8 +272,17 @@ define('ontoedit', ["@jupyter-widgets/base"], function(widgets) {
                       e.preventDefault();
                       return;
                   }
+                  else if (event.key=='.')
+                  {
+                      model.set('dot',model.get('dot')+1);
+                      that.touch();
+                  }
+                  else if(event.key== "Escape")
+                  {
+                    that.dd.get(0).style.visibility="hidden";
+                  }
             });
-            
+
             // this.el represents the widget's DOM
             $(this.el)
             .append(this.dd)
@@ -277,7 +305,7 @@ define('ontoedit', ["@jupyter-widgets/base"], function(widgets) {
 //            that.dd.get(0).style.width = '20%';
 //            that.dd.get(0).style.height = '50%';
             that.dd.get(0).style.fontFamily=element.style.fontFamily;
-            that.dd.get(0).style.fontSize=element.style.fontSize; 
+            that.dd.get(0).style.fontSize=element.style.fontSize;
 //                        console.log(model.get('hintsX'))
         },
     });
