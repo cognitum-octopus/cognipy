@@ -1,0 +1,16 @@
+Every carnivorous-plant must eat an animal.
+Every carnivor must eat an animal.
+Every omnivore must eat a plant.
+Every branch must be-part-of a tree.
+Every plant-part must be-part-of a plant.
+
+Comment: 'Role equivalence and inverted roles'.
+X has-part Y if-and-only-if Y is-part-of X.
+X eats Y if-and-only-if Y is-eaten-by X.
+
+Comment: 'Role subsumptions'.
+If X is-part-of Y then X is-part-of Y.
+If X has-part something that has-part Y then X has-part Y.
+
+Comment: 'Complex role subsumptions'.
+If X is-part-of something that is-part-of Y then X is-part-of Y.

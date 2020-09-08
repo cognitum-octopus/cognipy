@@ -1,0 +1,186 @@
+<svg height="337pt" viewBox="0.00 0.00 726.00 337.00" width="726pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g class="graph" id="graph0" transform="scale(1 1) rotate(0) translate(4 333)">
+<title>G</title>
+<polygon fill="white" points="-4,4 -4,-333 722,-333 722,4 -4,4" stroke="transparent"/>
+<!-- boxing&#45;process&#45;facet -->
+<g class="node" id="node1">
+<title>boxing-process-facet</title>
+<path d="M12,-146.5C12,-146.5 97,-146.5 97,-146.5 103,-146.5 109,-152.5 109,-158.5 109,-158.5 109,-170.5 109,-170.5 109,-176.5 103,-182.5 97,-182.5 97,-182.5 12,-182.5 12,-182.5 6,-182.5 0,-176.5 0,-170.5 0,-170.5 0,-158.5 0,-158.5 0,-152.5 6,-146.5 12,-146.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="54.5" y="-161.7">boxing-process-facet</text>
+</g>
+<!-- boxing&#45;facet -->
+<g class="node" id="node2">
+<title>boxing-facet</title>
+<path d="M208,-219.5C208,-219.5 255,-219.5 255,-219.5 261,-219.5 267,-225.5 267,-231.5 267,-231.5 267,-243.5 267,-243.5 267,-249.5 261,-255.5 255,-255.5 255,-255.5 208,-255.5 208,-255.5 202,-255.5 196,-249.5 196,-243.5 196,-243.5 196,-231.5 196,-231.5 196,-225.5 202,-219.5 208,-219.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="231.5" y="-234.7">boxing-facet</text>
+</g>
+<!-- boxing&#45;facet&#45;&#45;boxing&#45;process&#45;facet -->
+<g class="edge" id="edge1">
+<title>boxing-facet--boxing-process-facet</title>
+<path d="M186.31,-218.37C158.88,-207.37 124.08,-193.41 97.13,-182.6" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="none" points="185.1,-221.66 195.68,-222.13 187.7,-215.16 185.1,-221.66" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- packaging&#45;facet -->
+<g class="node" id="node13">
+<title>packaging-facet</title>
+<path d="M139,-146.5C139,-146.5 202,-146.5 202,-146.5 208,-146.5 214,-152.5 214,-158.5 214,-158.5 214,-170.5 214,-170.5 214,-176.5 208,-182.5 202,-182.5 202,-182.5 139,-182.5 139,-182.5 133,-182.5 127,-176.5 127,-170.5 127,-170.5 127,-158.5 127,-158.5 127,-152.5 133,-146.5 139,-146.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="170.5" y="-161.7">packaging-facet</text>
+</g>
+<!-- boxing&#45;facet&#45;&#45;packaging&#45;facet -->
+<g class="edge" id="edge10">
+<title>boxing-facet--packaging-facet</title>
+<path d="M210.09,-211.58C201.83,-201.97 192.6,-191.23 185.13,-182.53" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="none" points="207.56,-214.01 216.73,-219.31 212.87,-209.45 207.56,-214.01" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- item&#45;specification&#45;facet -->
+<g class="node" id="node16">
+<title>item-specification-facet</title>
+<path d="M244.5,-146.5C244.5,-146.5 340.5,-146.5 340.5,-146.5 346.5,-146.5 352.5,-152.5 352.5,-158.5 352.5,-158.5 352.5,-170.5 352.5,-170.5 352.5,-176.5 346.5,-182.5 340.5,-182.5 340.5,-182.5 244.5,-182.5 244.5,-182.5 238.5,-182.5 232.5,-176.5 232.5,-170.5 232.5,-170.5 232.5,-158.5 232.5,-158.5 232.5,-152.5 238.5,-146.5 244.5,-146.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="292.5" y="-161.7">item-specification-facet</text>
+</g>
+<!-- boxing&#45;facet&#45;&#45;item&#45;specification&#45;facet -->
+<g class="edge" id="edge14">
+<title>boxing-facet--item-specification-facet</title>
+<path d="M252.91,-211.58C261.17,-201.97 270.4,-191.23 277.87,-182.53" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="none" points="250.13,-209.45 246.27,-219.31 255.44,-214.01 250.13,-209.45" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- origin&#45;facet -->
+<g class="node" id="node3">
+<title>origin-facet</title>
+<path d="M339,-73.5C339,-73.5 382,-73.5 382,-73.5 388,-73.5 394,-79.5 394,-85.5 394,-85.5 394,-97.5 394,-97.5 394,-103.5 388,-109.5 382,-109.5 382,-109.5 339,-109.5 339,-109.5 333,-109.5 327,-103.5 327,-97.5 327,-97.5 327,-85.5 327,-85.5 327,-79.5 333,-73.5 339,-73.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="360.5" y="-88.7">origin-facet</text>
+</g>
+<!-- brand&#45;facet -->
+<g class="node" id="node8">
+<title>brand-facet</title>
+<path d="M247.5,-0.5C247.5,-0.5 291.5,-0.5 291.5,-0.5 297.5,-0.5 303.5,-6.5 303.5,-12.5 303.5,-12.5 303.5,-24.5 303.5,-24.5 303.5,-30.5 297.5,-36.5 291.5,-36.5 291.5,-36.5 247.5,-36.5 247.5,-36.5 241.5,-36.5 235.5,-30.5 235.5,-24.5 235.5,-24.5 235.5,-12.5 235.5,-12.5 235.5,-6.5 241.5,-0.5 247.5,-0.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="269.5" y="-15.7">brand-facet</text>
+</g>
+<!-- origin&#45;facet&#45;&#45;brand&#45;facet -->
+<g class="edge" id="edge6">
+<title>origin-facet--brand-facet</title>
+<path d="M330.4,-67.01C317.63,-57.05 303.03,-45.66 291.33,-36.53" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="none" points="328.43,-69.92 338.47,-73.31 332.74,-64.4 328.43,-69.92" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- location&#45;facet -->
+<g class="node" id="node11">
+<title>location-facet</title>
+<path d="M334,-0.5C334,-0.5 387,-0.5 387,-0.5 393,-0.5 399,-6.5 399,-12.5 399,-12.5 399,-24.5 399,-24.5 399,-30.5 393,-36.5 387,-36.5 387,-36.5 334,-36.5 334,-36.5 328,-36.5 322,-30.5 322,-24.5 322,-24.5 322,-12.5 322,-12.5 322,-6.5 328,-0.5 334,-0.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="360.5" y="-15.7">location-facet</text>
+</g>
+<!-- origin&#45;facet&#45;&#45;location&#45;facet -->
+<g class="edge" id="edge8">
+<title>origin-facet--location-facet</title>
+<path d="M360.5,-63.25C360.5,-54.27 360.5,-44.53 360.5,-36.53" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="none" points="357,-63.31 360.5,-73.31 364,-63.31 357,-63.31" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- source&#45;facet -->
+<g class="node" id="node14">
+<title>source-facet</title>
+<path d="M429.5,-0.5C429.5,-0.5 477.5,-0.5 477.5,-0.5 483.5,-0.5 489.5,-6.5 489.5,-12.5 489.5,-12.5 489.5,-24.5 489.5,-24.5 489.5,-30.5 483.5,-36.5 477.5,-36.5 477.5,-36.5 429.5,-36.5 429.5,-36.5 423.5,-36.5 417.5,-30.5 417.5,-24.5 417.5,-24.5 417.5,-12.5 417.5,-12.5 417.5,-6.5 423.5,-0.5 429.5,-0.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="453.5" y="-15.7">source-facet</text>
+</g>
+<!-- origin&#45;facet&#45;&#45;source&#45;facet -->
+<g class="edge" id="edge12">
+<title>origin-facet--source-facet</title>
+<path d="M391.27,-67.01C404.31,-57.05 419.23,-45.66 431.19,-36.53" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="none" points="388.84,-64.46 383.01,-73.31 393.09,-70.03 388.84,-64.46" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- quality&#45;facet -->
+<g class="node" id="node4">
+<title>quality-facet</title>
+<path d="M383,-146.5C383,-146.5 430,-146.5 430,-146.5 436,-146.5 442,-152.5 442,-158.5 442,-158.5 442,-170.5 442,-170.5 442,-176.5 436,-182.5 430,-182.5 430,-182.5 383,-182.5 383,-182.5 377,-182.5 371,-176.5 371,-170.5 371,-170.5 371,-158.5 371,-158.5 371,-152.5 377,-146.5 383,-146.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="406.5" y="-161.7">quality-facet</text>
+</g>
+<!-- quality&#45;facet&#45;&#45;origin&#45;facet -->
+<g class="edge" id="edge2">
+<title>quality-facet--origin-facet</title>
+<path d="M389.79,-137.71C383.71,-128.33 377,-117.96 371.53,-109.53" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="none" points="386.99,-139.82 395.36,-146.31 392.86,-136.02 386.99,-139.82" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- standard&#45;facet -->
+<g class="node" id="node7">
+<title>standard-facet</title>
+<path d="M424.5,-73.5C424.5,-73.5 480.5,-73.5 480.5,-73.5 486.5,-73.5 492.5,-79.5 492.5,-85.5 492.5,-85.5 492.5,-97.5 492.5,-97.5 492.5,-103.5 486.5,-109.5 480.5,-109.5 480.5,-109.5 424.5,-109.5 424.5,-109.5 418.5,-109.5 412.5,-103.5 412.5,-97.5 412.5,-97.5 412.5,-85.5 412.5,-85.5 412.5,-79.5 418.5,-73.5 424.5,-73.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="452.5" y="-88.7">standard-facet</text>
+</g>
+<!-- quality&#45;facet&#45;&#45;standard&#45;facet -->
+<g class="edge" id="edge5">
+<title>quality-facet--standard-facet</title>
+<path d="M423.21,-137.71C429.29,-128.33 436,-117.96 441.47,-109.53" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="none" points="420.14,-136.02 417.64,-146.31 426.01,-139.82 420.14,-136.02" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- facet -->
+<g class="node" id="node5">
+<title>facet</title>
+<path d="M334.5,-292.5C334.5,-292.5 364.5,-292.5 364.5,-292.5 370.5,-292.5 376.5,-298.5 376.5,-304.5 376.5,-304.5 376.5,-316.5 376.5,-316.5 376.5,-322.5 370.5,-328.5 364.5,-328.5 364.5,-328.5 334.5,-328.5 334.5,-328.5 328.5,-328.5 322.5,-322.5 322.5,-316.5 322.5,-316.5 322.5,-304.5 322.5,-304.5 322.5,-298.5 328.5,-292.5 334.5,-292.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="349.5" y="-307.7">facet</text>
+</g>
+<!-- facet&#45;&#45;boxing&#45;facet -->
+<g class="edge" id="edge3">
+<title>facet--boxing-facet</title>
+<path d="M313.76,-288C296.57,-277.65 276.24,-265.42 260.09,-255.7" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="none" points="312.06,-291.05 322.43,-293.21 315.66,-285.06 312.06,-291.05" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- specification&#45;facet -->
+<g class="node" id="node6">
+<title>specification-facet</title>
+<path d="M369.5,-219.5C369.5,-219.5 443.5,-219.5 443.5,-219.5 449.5,-219.5 455.5,-225.5 455.5,-231.5 455.5,-231.5 455.5,-243.5 455.5,-243.5 455.5,-249.5 449.5,-255.5 443.5,-255.5 443.5,-255.5 369.5,-255.5 369.5,-255.5 363.5,-255.5 357.5,-249.5 357.5,-243.5 357.5,-243.5 357.5,-231.5 357.5,-231.5 357.5,-225.5 363.5,-219.5 369.5,-219.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="406.5" y="-234.7">specification-facet</text>
+</g>
+<!-- facet&#45;&#45;specification&#45;facet -->
+<g class="edge" id="edge4">
+<title>facet--specification-facet</title>
+<path d="M369.74,-284.29C377.39,-274.76 385.92,-264.14 392.83,-255.53" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="none" points="366.83,-282.32 363.3,-292.31 372.29,-286.71 366.83,-282.32" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- specification&#45;facet&#45;&#45;quality&#45;facet -->
+<g class="edge" id="edge11">
+<title>specification-facet--quality-facet</title>
+<path d="M406.5,-209.25C406.5,-200.27 406.5,-190.53 406.5,-182.53" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="none" points="403,-209.31 406.5,-219.31 410,-209.31 403,-209.31" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- production&#45;process&#45;facet -->
+<g class="node" id="node12">
+<title>production-process-facet</title>
+<path d="M472.5,-146.5C472.5,-146.5 574.5,-146.5 574.5,-146.5 580.5,-146.5 586.5,-152.5 586.5,-158.5 586.5,-158.5 586.5,-170.5 586.5,-170.5 586.5,-176.5 580.5,-182.5 574.5,-182.5 574.5,-182.5 472.5,-182.5 472.5,-182.5 466.5,-182.5 460.5,-176.5 460.5,-170.5 460.5,-170.5 460.5,-158.5 460.5,-158.5 460.5,-152.5 466.5,-146.5 472.5,-146.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="523.5" y="-161.7">production-process-facet</text>
+</g>
+<!-- specification&#45;facet&#45;&#45;production&#45;process&#45;facet -->
+<g class="edge" id="edge9">
+<title>specification-facet--production-process-facet</title>
+<path d="M443.51,-214.04C460.27,-203.87 479.75,-192.05 495.3,-182.61" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="none" points="441.26,-211.31 434.52,-219.49 444.89,-217.3 441.26,-211.31" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- internal&#45;category -->
+<g class="node" id="node9">
+<title>internal-category</title>
+<path d="M486,-219.5C486,-219.5 553,-219.5 553,-219.5 559,-219.5 565,-225.5 565,-231.5 565,-231.5 565,-243.5 565,-243.5 565,-249.5 559,-255.5 553,-255.5 553,-255.5 486,-255.5 486,-255.5 480,-255.5 474,-249.5 474,-243.5 474,-243.5 474,-231.5 474,-231.5 474,-225.5 480,-219.5 486,-219.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="519.5" y="-234.7">internal-category</text>
+</g>
+<!-- category -->
+<g class="node" id="node10">
+<title>category</title>
+<path d="M569,-292.5C569,-292.5 600,-292.5 600,-292.5 606,-292.5 612,-298.5 612,-304.5 612,-304.5 612,-316.5 612,-316.5 612,-322.5 606,-328.5 600,-328.5 600,-328.5 569,-328.5 569,-328.5 563,-328.5 557,-322.5 557,-316.5 557,-316.5 557,-304.5 557,-304.5 557,-298.5 563,-292.5 569,-292.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="584.5" y="-307.7">category</text>
+</g>
+<!-- category&#45;&#45;internal&#45;category -->
+<g class="edge" id="edge7">
+<title>category--internal-category</title>
+<path d="M561.95,-284.87C553.09,-275.19 543.13,-264.31 535.09,-255.53" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="none" points="559.43,-287.3 568.77,-292.31 564.59,-282.57 559.43,-287.3" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- facet&#45;constrained&#45;category -->
+<g class="node" id="node15">
+<title>facet-constrained-category</title>
+<path d="M595,-219.5C595,-219.5 706,-219.5 706,-219.5 712,-219.5 718,-225.5 718,-231.5 718,-231.5 718,-243.5 718,-243.5 718,-249.5 712,-255.5 706,-255.5 706,-255.5 595,-255.5 595,-255.5 589,-255.5 583,-249.5 583,-243.5 583,-243.5 583,-231.5 583,-231.5 583,-225.5 589,-219.5 595,-219.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="650.5" y="-234.7">facet-constrained-category</text>
+</g>
+<!-- category&#45;&#45;facet&#45;constrained&#45;category -->
+<g class="edge" id="edge13">
+<title>category--facet-constrained-category</title>
+<path d="M607.4,-284.87C616.4,-275.19 626.51,-264.31 634.67,-255.53" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="none" points="604.72,-282.61 600.48,-292.31 609.85,-287.37 604.72,-282.61" stroke="black" stroke-width="0.5"/>
+</g>
+</g>
+</svg>

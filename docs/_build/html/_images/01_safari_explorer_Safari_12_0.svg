@@ -1,0 +1,271 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1526pt" height="191pt" viewBox="0.00 0.00 1526.00 191.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 187)">
+<title>G</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-187 1522,-187 1522,4 -4,4"/>
+<!-- tasty&#45;plant -->
+<g id="node1" class="node"><title>tasty-plant</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M12,-73.5C12,-73.5 50,-73.5 50,-73.5 56,-73.5 62,-79.5 62,-85.5 62,-85.5 62,-97.5 62,-97.5 62,-103.5 56,-109.5 50,-109.5 50,-109.5 12,-109.5 12,-109.5 6,-109.5 0,-103.5 0,-97.5 0,-97.5 0,-85.5 0,-85.5 0,-79.5 6,-73.5 12,-73.5"/>
+<text text-anchor="middle" x="31" y="-88.7" font-family="Times New Roman,serif" font-size="11.00">tasty-plant</text>
+</g>
+<!-- plant -->
+<g id="node2" class="node"><title>plant</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M205,-146.5C205,-146.5 235,-146.5 235,-146.5 241,-146.5 247,-152.5 247,-158.5 247,-158.5 247,-170.5 247,-170.5 247,-176.5 241,-182.5 235,-182.5 235,-182.5 205,-182.5 205,-182.5 199,-182.5 193,-176.5 193,-170.5 193,-170.5 193,-158.5 193,-158.5 193,-152.5 199,-146.5 205,-146.5"/>
+<text text-anchor="middle" x="220" y="-161.7" font-family="Times New Roman,serif" font-size="11.00">plant</text>
+</g>
+<!-- plant&#45;&#45;tasty&#45;plant -->
+<g id="edge1" class="edge"><title>plant--tasty-plant</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M183.149,-151.047C152.835,-140.617 108.86,-125.059 71,-110 68.1827,-108.879 65.2692,-107.682 62.3584,-106.458"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="182.282,-154.45 192.877,-154.379 184.551,-147.827 182.282,-154.45"/>
+</g>
+<!-- carnivorous&#45;plant -->
+<g id="node15" class="node"><title>carnivorous-plant</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M92,-73.5C92,-73.5 160,-73.5 160,-73.5 166,-73.5 172,-79.5 172,-85.5 172,-85.5 172,-97.5 172,-97.5 172,-103.5 166,-109.5 160,-109.5 160,-109.5 92,-109.5 92,-109.5 86,-109.5 80,-103.5 80,-97.5 80,-97.5 80,-85.5 80,-85.5 80,-79.5 86,-73.5 92,-73.5"/>
+<text text-anchor="middle" x="126" y="-88.7" font-family="Times New Roman,serif" font-size="11.00">carnivorous-plant</text>
+</g>
+<!-- plant&#45;&#45;carnivorous&#45;plant -->
+<g id="edge12" class="edge"><title>plant--carnivorous-plant</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M188.903,-140.012C175.716,-130.051 160.634,-118.66 148.545,-109.529"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="187.156,-143.079 197.245,-146.313 191.375,-137.493 187.156,-143.079"/>
+</g>
+<!-- palm&#45;tree -->
+<g id="node20" class="node"><title>palm-tree</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M202.5,-73.5C202.5,-73.5 237.5,-73.5 237.5,-73.5 243.5,-73.5 249.5,-79.5 249.5,-85.5 249.5,-85.5 249.5,-97.5 249.5,-97.5 249.5,-103.5 243.5,-109.5 237.5,-109.5 237.5,-109.5 202.5,-109.5 202.5,-109.5 196.5,-109.5 190.5,-103.5 190.5,-97.5 190.5,-97.5 190.5,-85.5 190.5,-85.5 190.5,-79.5 196.5,-73.5 202.5,-73.5"/>
+<text text-anchor="middle" x="220" y="-88.7" font-family="Times New Roman,serif" font-size="11.00">palm-tree</text>
+</g>
+<!-- plant&#45;&#45;palm&#45;tree -->
+<g id="edge17" class="edge"><title>plant--palm-tree</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M220,-136.253C220,-127.265 220,-117.529 220,-109.529"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="216.5,-136.313 220,-146.313 223.5,-136.313 216.5,-136.313"/>
+</g>
+<!-- tree -->
+<g id="node22" class="node"><title>tree</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M280,-73.5C280,-73.5 310,-73.5 310,-73.5 316,-73.5 322,-79.5 322,-85.5 322,-85.5 322,-97.5 322,-97.5 322,-103.5 316,-109.5 310,-109.5 310,-109.5 280,-109.5 280,-109.5 274,-109.5 268,-103.5 268,-97.5 268,-97.5 268,-85.5 268,-85.5 268,-79.5 274,-73.5 280,-73.5"/>
+<text text-anchor="middle" x="295" y="-88.7" font-family="Times New Roman,serif" font-size="11.00">tree</text>
+</g>
+<!-- plant&#45;&#45;tree -->
+<g id="edge19" class="edge"><title>plant--tree</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M245.717,-139.155C256.019,-129.402 267.642,-118.399 277.012,-109.529"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="243.011,-136.896 238.155,-146.313 247.824,-141.98 243.011,-136.896"/>
+</g>
+<!-- grass -->
+<g id="node26" class="node"><title>grass</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M352,-73.5C352,-73.5 382,-73.5 382,-73.5 388,-73.5 394,-79.5 394,-85.5 394,-85.5 394,-97.5 394,-97.5 394,-103.5 388,-109.5 382,-109.5 382,-109.5 352,-109.5 352,-109.5 346,-109.5 340,-103.5 340,-97.5 340,-97.5 340,-85.5 340,-85.5 340,-79.5 346,-73.5 352,-73.5"/>
+<text text-anchor="middle" x="367" y="-88.7" font-family="Times New Roman,serif" font-size="11.00">grass</text>
+</g>
+<!-- plant&#45;&#45;grass -->
+<g id="edge23" class="edge"><title>plant--grass</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M256.549,-145.922C278.203,-135.498 306.176,-122.016 331,-110 333.877,-108.607 336.883,-107.15 339.878,-105.696"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="254.875,-142.843 247.382,-150.334 257.911,-149.151 254.875,-142.843"/>
+</g>
+<!-- apple -->
+<g id="node3" class="node"><title>apple</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M397,-0.5C397,-0.5 427,-0.5 427,-0.5 433,-0.5 439,-6.5 439,-12.5 439,-12.5 439,-24.5 439,-24.5 439,-30.5 433,-36.5 427,-36.5 427,-36.5 397,-36.5 397,-36.5 391,-36.5 385,-30.5 385,-24.5 385,-24.5 385,-12.5 385,-12.5 385,-6.5 391,-0.5 397,-0.5"/>
+<text text-anchor="middle" x="412" y="-15.7" font-family="Times New Roman,serif" font-size="11.00">apple</text>
+</g>
+<!-- fruiting&#45;body -->
+<g id="node4" class="node"><title>fruiting-body</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M424,-73.5C424,-73.5 472,-73.5 472,-73.5 478,-73.5 484,-79.5 484,-85.5 484,-85.5 484,-97.5 484,-97.5 484,-103.5 478,-109.5 472,-109.5 472,-109.5 424,-109.5 424,-109.5 418,-109.5 412,-103.5 412,-97.5 412,-97.5 412,-85.5 412,-85.5 412,-79.5 418,-73.5 424,-73.5"/>
+<text text-anchor="middle" x="448" y="-88.7" font-family="Times New Roman,serif" font-size="11.00">fruiting-body</text>
+</g>
+<!-- fruiting&#45;body&#45;&#45;apple -->
+<g id="edge2" class="edge"><title>fruiting-body--apple</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M434.629,-64.1302C429.95,-54.9019 424.823,-44.7904 420.634,-36.5288"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="431.641,-65.9767 439.285,-73.3129 437.885,-62.811 431.641,-65.9767"/>
+</g>
+<!-- berry -->
+<g id="node12" class="node"><title>berry</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M469,-0.5C469,-0.5 499,-0.5 499,-0.5 505,-0.5 511,-6.5 511,-12.5 511,-12.5 511,-24.5 511,-24.5 511,-30.5 505,-36.5 499,-36.5 499,-36.5 469,-36.5 469,-36.5 463,-36.5 457,-30.5 457,-24.5 457,-24.5 457,-12.5 457,-12.5 457,-6.5 463,-0.5 469,-0.5"/>
+<text text-anchor="middle" x="484" y="-15.7" font-family="Times New Roman,serif" font-size="11.00">berry</text>
+</g>
+<!-- fruiting&#45;body&#45;&#45;berry -->
+<g id="edge9" class="edge"><title>fruiting-body--berry</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M461.371,-64.1302C466.05,-54.9019 471.177,-44.7904 475.366,-36.5288"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="458.115,-62.811 456.715,-73.3129 464.359,-65.9767 458.115,-62.811"/>
+</g>
+<!-- rock&#45;dassie -->
+<g id="node5" class="node"><title>rock-dassie</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M1018.5,-73.5C1018.5,-73.5 1061.5,-73.5 1061.5,-73.5 1067.5,-73.5 1073.5,-79.5 1073.5,-85.5 1073.5,-85.5 1073.5,-97.5 1073.5,-97.5 1073.5,-103.5 1067.5,-109.5 1061.5,-109.5 1061.5,-109.5 1018.5,-109.5 1018.5,-109.5 1012.5,-109.5 1006.5,-103.5 1006.5,-97.5 1006.5,-97.5 1006.5,-85.5 1006.5,-85.5 1006.5,-79.5 1012.5,-73.5 1018.5,-73.5"/>
+<text text-anchor="middle" x="1040" y="-88.7" font-family="Times New Roman,serif" font-size="11.00">rock-dassie</text>
+</g>
+<!-- animal -->
+<g id="node6" class="node"><title>animal</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M1254,-146.5C1254,-146.5 1284,-146.5 1284,-146.5 1290,-146.5 1296,-152.5 1296,-158.5 1296,-158.5 1296,-170.5 1296,-170.5 1296,-176.5 1290,-182.5 1284,-182.5 1284,-182.5 1254,-182.5 1254,-182.5 1248,-182.5 1242,-176.5 1242,-170.5 1242,-170.5 1242,-158.5 1242,-158.5 1242,-152.5 1248,-146.5 1254,-146.5"/>
+<text text-anchor="middle" x="1269" y="-161.7" font-family="Times New Roman,serif" font-size="11.00">animal</text>
+</g>
+<!-- animal&#45;&#45;rock&#45;dassie -->
+<g id="edge3" class="edge"><title>animal--rock-dassie</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M1231.88,-154.07C1194.07,-144.176 1133.94,-127.634 1083,-110 1079.95,-108.945 1076.81,-107.793 1073.67,-106.599"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="1231.36,-157.552 1241.92,-156.679 1233.12,-150.777 1231.36,-157.552"/>
+</g>
+<!-- warthog -->
+<g id="node11" class="node"><title>warthog</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M1104,-73.5C1104,-73.5 1134,-73.5 1134,-73.5 1140,-73.5 1146,-79.5 1146,-85.5 1146,-85.5 1146,-97.5 1146,-97.5 1146,-103.5 1140,-109.5 1134,-109.5 1134,-109.5 1104,-109.5 1104,-109.5 1098,-109.5 1092,-103.5 1092,-97.5 1092,-97.5 1092,-85.5 1092,-85.5 1092,-79.5 1098,-73.5 1104,-73.5"/>
+<text text-anchor="middle" x="1119" y="-88.7" font-family="Times New Roman,serif" font-size="11.00">warthog</text>
+</g>
+<!-- animal&#45;&#45;warthog -->
+<g id="edge8" class="edge"><title>animal--warthog</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M1232.62,-146.58C1210.2,-136.117 1180.89,-122.368 1155,-110 1152.12,-108.622 1149.11,-107.174 1146.11,-105.726"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="1231.23,-149.794 1241.77,-150.849 1234.19,-143.45 1231.23,-149.794"/>
+</g>
+<!-- herbivore -->
+<g id="node13" class="node"><title>herbivore</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M1176,-73.5C1176,-73.5 1210,-73.5 1210,-73.5 1216,-73.5 1222,-79.5 1222,-85.5 1222,-85.5 1222,-97.5 1222,-97.5 1222,-103.5 1216,-109.5 1210,-109.5 1210,-109.5 1176,-109.5 1176,-109.5 1170,-109.5 1164,-103.5 1164,-97.5 1164,-97.5 1164,-85.5 1164,-85.5 1164,-79.5 1170,-73.5 1176,-73.5"/>
+<text text-anchor="middle" x="1193" y="-88.7" font-family="Times New Roman,serif" font-size="11.00">herbivore</text>
+</g>
+<!-- animal&#45;&#45;herbivore -->
+<g id="edge10" class="edge"><title>animal--herbivore</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M1243.25,-139.441C1232.73,-129.618 1220.82,-118.486 1211.23,-109.529"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="1240.91,-142.044 1250.6,-146.313 1245.68,-136.929 1240.91,-142.044"/>
+</g>
+<!-- omnivore -->
+<g id="node14" class="node"><title>omnivore</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M1252.5,-73.5C1252.5,-73.5 1285.5,-73.5 1285.5,-73.5 1291.5,-73.5 1297.5,-79.5 1297.5,-85.5 1297.5,-85.5 1297.5,-97.5 1297.5,-97.5 1297.5,-103.5 1291.5,-109.5 1285.5,-109.5 1285.5,-109.5 1252.5,-109.5 1252.5,-109.5 1246.5,-109.5 1240.5,-103.5 1240.5,-97.5 1240.5,-97.5 1240.5,-85.5 1240.5,-85.5 1240.5,-79.5 1246.5,-73.5 1252.5,-73.5"/>
+<text text-anchor="middle" x="1269" y="-88.7" font-family="Times New Roman,serif" font-size="11.00">omnivore</text>
+</g>
+<!-- animal&#45;&#45;omnivore -->
+<g id="edge11" class="edge"><title>animal--omnivore</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M1269,-136.253C1269,-127.265 1269,-117.529 1269,-109.529"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="1265.5,-136.313 1269,-146.313 1272.5,-136.313 1265.5,-136.313"/>
+</g>
+<!-- carnivore -->
+<g id="node17" class="node"><title>carnivore</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M1328,-73.5C1328,-73.5 1362,-73.5 1362,-73.5 1368,-73.5 1374,-79.5 1374,-85.5 1374,-85.5 1374,-97.5 1374,-97.5 1374,-103.5 1368,-109.5 1362,-109.5 1362,-109.5 1328,-109.5 1328,-109.5 1322,-109.5 1316,-103.5 1316,-97.5 1316,-97.5 1316,-85.5 1316,-85.5 1316,-79.5 1322,-73.5 1328,-73.5"/>
+<text text-anchor="middle" x="1345" y="-88.7" font-family="Times New Roman,serif" font-size="11.00">carnivore</text>
+</g>
+<!-- animal&#45;&#45;carnivore -->
+<g id="edge14" class="edge"><title>animal--carnivore</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M1294.75,-139.441C1305.27,-129.618 1317.18,-118.486 1326.77,-109.529"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="1292.32,-136.929 1287.4,-146.313 1297.09,-142.044 1292.32,-136.929"/>
+</g>
+<!-- impala -->
+<g id="node21" class="node"><title>impala</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M1404,-73.5C1404,-73.5 1434,-73.5 1434,-73.5 1440,-73.5 1446,-79.5 1446,-85.5 1446,-85.5 1446,-97.5 1446,-97.5 1446,-103.5 1440,-109.5 1434,-109.5 1434,-109.5 1404,-109.5 1404,-109.5 1398,-109.5 1392,-103.5 1392,-97.5 1392,-97.5 1392,-85.5 1392,-85.5 1392,-79.5 1398,-73.5 1404,-73.5"/>
+<text text-anchor="middle" x="1419" y="-88.7" font-family="Times New Roman,serif" font-size="11.00">impala</text>
+</g>
+<!-- animal&#45;&#45;impala -->
+<g id="edge18" class="edge"><title>animal--impala</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M1305.38,-146.58C1327.8,-136.117 1357.11,-122.368 1383,-110 1385.88,-108.622 1388.89,-107.174 1391.89,-105.726"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="1303.81,-143.45 1296.23,-150.849 1306.77,-149.794 1303.81,-143.45"/>
+</g>
+<!-- giraffe -->
+<g id="node28" class="node"><title>giraffe</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M1476,-73.5C1476,-73.5 1506,-73.5 1506,-73.5 1512,-73.5 1518,-79.5 1518,-85.5 1518,-85.5 1518,-97.5 1518,-97.5 1518,-103.5 1512,-109.5 1506,-109.5 1506,-109.5 1476,-109.5 1476,-109.5 1470,-109.5 1464,-103.5 1464,-97.5 1464,-97.5 1464,-85.5 1464,-85.5 1464,-79.5 1470,-73.5 1476,-73.5"/>
+<text text-anchor="middle" x="1491" y="-88.7" font-family="Times New Roman,serif" font-size="11.00">giraffe</text>
+</g>
+<!-- animal&#45;&#45;giraffe -->
+<g id="edge25" class="edge"><title>animal--giraffe</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M1306.38,-154.768C1344.38,-145.423 1404.67,-129.304 1455,-110 1457.85,-108.905 1460.79,-107.669 1463.7,-106.374"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="1305.17,-151.46 1296.28,-157.222 1306.82,-158.263 1305.17,-151.46"/>
+</g>
+<!-- twig -->
+<g id="node7" class="node"><title>twig</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M514,-73.5C514,-73.5 544,-73.5 544,-73.5 550,-73.5 556,-79.5 556,-85.5 556,-85.5 556,-97.5 556,-97.5 556,-103.5 550,-109.5 544,-109.5 544,-109.5 514,-109.5 514,-109.5 508,-109.5 502,-103.5 502,-97.5 502,-97.5 502,-85.5 502,-85.5 502,-79.5 508,-73.5 514,-73.5"/>
+<text text-anchor="middle" x="529" y="-88.7" font-family="Times New Roman,serif" font-size="11.00">twig</text>
+</g>
+<!-- plant&#45;part -->
+<g id="node8" class="node"><title>plant-part</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M691.5,-146.5C691.5,-146.5 726.5,-146.5 726.5,-146.5 732.5,-146.5 738.5,-152.5 738.5,-158.5 738.5,-158.5 738.5,-170.5 738.5,-170.5 738.5,-176.5 732.5,-182.5 726.5,-182.5 726.5,-182.5 691.5,-182.5 691.5,-182.5 685.5,-182.5 679.5,-176.5 679.5,-170.5 679.5,-170.5 679.5,-158.5 679.5,-158.5 679.5,-152.5 685.5,-146.5 691.5,-146.5"/>
+<text text-anchor="middle" x="709" y="-161.7" font-family="Times New Roman,serif" font-size="11.00">plant-part</text>
+</g>
+<!-- plant&#45;part&#45;&#45;fruiting&#45;body -->
+<g id="edge7" class="edge"><title>plant-part--fruiting-body</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M669.392,-155.288C625.748,-145.871 553.69,-129.23 493,-110 490.123,-109.088 487.166,-108.087 484.207,-107.04"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="668.809,-158.743 679.32,-157.411 670.273,-151.897 668.809,-158.743"/>
+</g>
+<!-- plant&#45;part&#45;&#45;twig -->
+<g id="edge4" class="edge"><title>plant-part--twig</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M669.622,-150.03C640.449,-139.771 599.877,-124.915 565,-110 562.189,-108.798 559.28,-107.492 556.391,-106.153"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="668.843,-153.465 679.438,-153.459 671.152,-146.856 668.843,-153.465"/>
+</g>
+<!-- stem -->
+<g id="node9" class="node"><title>stem</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M586,-73.5C586,-73.5 616,-73.5 616,-73.5 622,-73.5 628,-79.5 628,-85.5 628,-85.5 628,-97.5 628,-97.5 628,-103.5 622,-109.5 616,-109.5 616,-109.5 586,-109.5 586,-109.5 580,-109.5 574,-103.5 574,-97.5 574,-97.5 574,-85.5 574,-85.5 574,-79.5 580,-73.5 586,-73.5"/>
+<text text-anchor="middle" x="601" y="-88.7" font-family="Times New Roman,serif" font-size="11.00">stem</text>
+</g>
+<!-- plant&#45;part&#45;&#45;stem -->
+<g id="edge5" class="edge"><title>plant-part--stem</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M674.407,-140.758C659.037,-130.654 641.248,-118.96 627.032,-109.614"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="672.853,-143.925 683.131,-146.494 676.698,-138.076 672.853,-143.925"/>
+</g>
+<!-- leaf -->
+<g id="node10" class="node"><title>leaf</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M658,-73.5C658,-73.5 688,-73.5 688,-73.5 694,-73.5 700,-79.5 700,-85.5 700,-85.5 700,-97.5 700,-97.5 700,-103.5 694,-109.5 688,-109.5 688,-109.5 658,-109.5 658,-109.5 652,-109.5 646,-103.5 646,-97.5 646,-97.5 646,-85.5 646,-85.5 646,-79.5 652,-73.5 658,-73.5"/>
+<text text-anchor="middle" x="673" y="-88.7" font-family="Times New Roman,serif" font-size="11.00">leaf</text>
+</g>
+<!-- plant&#45;part&#45;&#45;leaf -->
+<g id="edge6" class="edge"><title>plant-part--leaf</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M695.629,-137.13C690.95,-127.902 685.823,-117.79 681.634,-109.529"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="692.641,-138.977 700.285,-146.313 698.885,-135.811 692.641,-138.977"/>
+</g>
+<!-- phloem -->
+<g id="node16" class="node"><title>phloem</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M730,-73.5C730,-73.5 760,-73.5 760,-73.5 766,-73.5 772,-79.5 772,-85.5 772,-85.5 772,-97.5 772,-97.5 772,-103.5 766,-109.5 760,-109.5 760,-109.5 730,-109.5 730,-109.5 724,-109.5 718,-103.5 718,-97.5 718,-97.5 718,-85.5 718,-85.5 718,-79.5 724,-73.5 730,-73.5"/>
+<text text-anchor="middle" x="745" y="-88.7" font-family="Times New Roman,serif" font-size="11.00">phloem</text>
+</g>
+<!-- plant&#45;part&#45;&#45;phloem -->
+<g id="edge13" class="edge"><title>plant-part--phloem</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M722.371,-137.13C727.05,-127.902 732.177,-117.79 736.366,-109.529"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="719.115,-135.811 717.715,-146.313 725.359,-138.977 719.115,-135.811"/>
+</g>
+<!-- branch -->
+<g id="node18" class="node"><title>branch</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M802,-73.5C802,-73.5 832,-73.5 832,-73.5 838,-73.5 844,-79.5 844,-85.5 844,-85.5 844,-97.5 844,-97.5 844,-103.5 838,-109.5 832,-109.5 832,-109.5 802,-109.5 802,-109.5 796,-109.5 790,-103.5 790,-97.5 790,-97.5 790,-85.5 790,-85.5 790,-79.5 796,-73.5 802,-73.5"/>
+<text text-anchor="middle" x="817" y="-88.7" font-family="Times New Roman,serif" font-size="11.00">branch</text>
+</g>
+<!-- plant&#45;part&#45;&#45;branch -->
+<g id="edge15" class="edge"><title>plant-part--branch</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M743.593,-140.758C758.963,-130.654 776.752,-118.96 790.968,-109.614"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="741.302,-138.076 734.869,-146.494 745.147,-143.925 741.302,-138.076"/>
+</g>
+<!-- root -->
+<g id="node24" class="node"><title>root</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M874,-73.5C874,-73.5 904,-73.5 904,-73.5 910,-73.5 916,-79.5 916,-85.5 916,-85.5 916,-97.5 916,-97.5 916,-103.5 910,-109.5 904,-109.5 904,-109.5 874,-109.5 874,-109.5 868,-109.5 862,-103.5 862,-97.5 862,-97.5 862,-85.5 862,-85.5 862,-79.5 868,-73.5 874,-73.5"/>
+<text text-anchor="middle" x="889" y="-88.7" font-family="Times New Roman,serif" font-size="11.00">root</text>
+</g>
+<!-- plant&#45;part&#45;&#45;root -->
+<g id="edge21" class="edge"><title>plant-part--root</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M748.378,-150.03C777.551,-139.771 818.123,-124.915 853,-110 855.811,-108.798 858.72,-107.492 861.609,-106.153"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="746.848,-146.856 738.562,-153.459 749.157,-153.465 746.848,-146.856"/>
+</g>
+<!-- xylem -->
+<g id="node27" class="node"><title>xylem</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M946,-73.5C946,-73.5 976,-73.5 976,-73.5 982,-73.5 988,-79.5 988,-85.5 988,-85.5 988,-97.5 988,-97.5 988,-103.5 982,-109.5 976,-109.5 976,-109.5 946,-109.5 946,-109.5 940,-109.5 934,-103.5 934,-97.5 934,-97.5 934,-85.5 934,-85.5 934,-79.5 940,-73.5 946,-73.5"/>
+<text text-anchor="middle" x="961" y="-88.7" font-family="Times New Roman,serif" font-size="11.00">xylem</text>
+</g>
+<!-- plant&#45;part&#45;&#45;xylem -->
+<g id="edge24" class="edge"><title>plant-part--xylem</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M748.557,-156.297C792.44,-147.713 864.977,-131.75 925,-110 927.875,-108.958 930.825,-107.758 933.739,-106.484"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="747.734,-152.891 738.576,-158.219 749.057,-159.765 747.734,-152.891"/>
+</g>
+<!-- elephant -->
+<g id="node25" class="node"><title>elephant</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M1178,-0.5C1178,-0.5 1208,-0.5 1208,-0.5 1214,-0.5 1220,-6.5 1220,-12.5 1220,-12.5 1220,-24.5 1220,-24.5 1220,-30.5 1214,-36.5 1208,-36.5 1208,-36.5 1178,-36.5 1178,-36.5 1172,-36.5 1166,-30.5 1166,-24.5 1166,-24.5 1166,-12.5 1166,-12.5 1166,-6.5 1172,-0.5 1178,-0.5"/>
+<text text-anchor="middle" x="1193" y="-15.7" font-family="Times New Roman,serif" font-size="11.00">elephant</text>
+</g>
+<!-- herbivore&#45;&#45;elephant -->
+<g id="edge22" class="edge"><title>herbivore--elephant</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M1193,-63.2534C1193,-54.2651 1193,-44.5295 1193,-36.5288"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="1189.5,-63.3128 1193,-73.3129 1196.5,-63.3129 1189.5,-63.3128"/>
+</g>
+<!-- lion -->
+<g id="node19" class="node"><title>lion</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M1330,-0.5C1330,-0.5 1360,-0.5 1360,-0.5 1366,-0.5 1372,-6.5 1372,-12.5 1372,-12.5 1372,-24.5 1372,-24.5 1372,-30.5 1366,-36.5 1360,-36.5 1360,-36.5 1330,-36.5 1330,-36.5 1324,-36.5 1318,-30.5 1318,-24.5 1318,-24.5 1318,-12.5 1318,-12.5 1318,-6.5 1324,-0.5 1330,-0.5"/>
+<text text-anchor="middle" x="1345" y="-15.7" font-family="Times New Roman,serif" font-size="11.00">lion</text>
+</g>
+<!-- carnivore&#45;&#45;lion -->
+<g id="edge16" class="edge"><title>carnivore--lion</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M1345,-63.2534C1345,-54.2651 1345,-44.5295 1345,-36.5288"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="1341.5,-63.3128 1345,-73.3129 1348.5,-63.3129 1341.5,-63.3128"/>
+</g>
+<!-- parsnip -->
+<g id="node23" class="node"><title>parsnip</title>
+<path fill="aliceblue" stroke="black" stroke-width="0.5" d="M874,-0.5C874,-0.5 904,-0.5 904,-0.5 910,-0.5 916,-6.5 916,-12.5 916,-12.5 916,-24.5 916,-24.5 916,-30.5 910,-36.5 904,-36.5 904,-36.5 874,-36.5 874,-36.5 868,-36.5 862,-30.5 862,-24.5 862,-24.5 862,-12.5 862,-12.5 862,-6.5 868,-0.5 874,-0.5"/>
+<text text-anchor="middle" x="889" y="-15.7" font-family="Times New Roman,serif" font-size="11.00">parsnip</text>
+</g>
+<!-- root&#45;&#45;parsnip -->
+<g id="edge20" class="edge"><title>root--parsnip</title>
+<path fill="none" stroke="black" stroke-width="0.5" d="M889,-63.2534C889,-54.2651 889,-44.5295 889,-36.5288"/>
+<polygon fill="none" stroke="black" stroke-width="0.5" points="885.5,-63.3128 889,-73.3129 892.5,-63.3129 885.5,-63.3128"/>
+</g>
+</g>
+</svg>

@@ -30,13 +30,15 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="API Refrence" href="modules.html" />
+    <link rel="next" title="‘African Wildlife’." href="01_safari_explorer/Safari.html" />
     <link rel="prev" title="Grammar" href="grammar.html" /> 
 </head>
 
@@ -89,7 +91,11 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Project description</a></li>
 <li class="toctree-l1"><a class="reference internal" href="grammar.html">Grammar</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="01_safari_explorer/Safari.html">‘African Wildlife’.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_semantic_search/FoodOntology.html">‘Semantic search’.</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">API Refrence</a></li>
 </ul>
 
@@ -156,8 +162,43 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="examples">
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="examples">
 <h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="01_safari_explorer/Safari.html">‘African Wildlife’.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="01_safari_explorer/Safari.html#Part-1:-‘simple-hierarchy-of-beings’.">Part-1: ‘simple hierarchy of beings’.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_safari_explorer/Safari.html#Part-2:-Disjointness">Part-2: Disjointness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_safari_explorer/Safari.html#Part-3:-Modal-expressions-and-part-whole-relationships.">Part-3: Modal expressions and part-whole relationships.</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="04_semantic_search/FoodOntology.html">‘Semantic search’.</a></li>
+</ul>
+</div>
 </div>
 
 
@@ -168,7 +209,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="modules.html" class="btn btn-neutral float-right" title="API Refrence" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="01_safari_explorer/Safari.html" class="btn btn-neutral float-right" title="‘African Wildlife’." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="grammar.html" class="btn btn-neutral float-left" title="Grammar" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
