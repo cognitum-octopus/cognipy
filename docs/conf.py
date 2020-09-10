@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.abspath('...'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'cognipy'
+project = 'CogniPy'
 copyright = '2020, Cognitum Services S.A.'
 author = 'Cognitum Services S.A.'
 
@@ -48,10 +48,13 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**.ipynb_checkpoints']
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
-html_logo = 'logo.png'
+html_logo = 'figures/logo.png'
 display_version = True
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+html_css_files = [
+    'css/custom.css',
+]

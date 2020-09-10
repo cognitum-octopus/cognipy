@@ -1,17 +1,35 @@
+.. role:: blue
+.. role:: red
+
 Grammar
 ========
 
-Overview
---------
-
-**Semantic Web, Ontologies**
+Semantic Web, Ontologies
+------------------------
 
 The Semantic Web encourages the inclusion of semantic content in web pages, databases and systems. The semantic technologies are standardized by the international standards body, the World Wide Web Consortium [W3C, http://www.w3.org/]. According to the W3C, "The Semantic Web provides a common framework that allows data to be shared and reused across application, enterprise, and community boundaries." Thus the Semantic Web plays an important role with respect to the advancement of information management, collaboration and information sharing [S. Staab, R. Studer, Handbook on Ontologies, 2nd ed., Springer 2009]. Ontologies and also all the aspects of semantic technologies (e.g. OWL, SWRL rules, reasoners) allow to represent static knowledge about given part of the world. Ontologies are used for sharing knowledge and common understanding of a particular domain of interest, which makes communication between various beings possible and unambiguous. The various actors may be human users with different levels of expertise or computer programs (agents). OWL stands for Web Ontology Language [http://www.w3.org/TR/owl2-semantics/]. It is developed by the W3C’s Web Ontology Working Group and intended to be the successor of DAML+OIL. OWL is the most expressive knowledge representation for the Semantic Web so far. It allows us to write explicit, formal conceptualizations of human endeavor. OWL can be used in a spectrum of tasks that appears in the semantic web applications. It allows describing the application domain (where formal semantic plays a crucial role) and application specification, database schema, database constraints as well as database content using common language. On the other hand OWL can be used as a language that allows domain experts (a person with special knowledge or skills in a particular area of endeavor) to express domain-specific knowledge (valid knowledge used to refer to an area of human endeavor). The importance of a well-defined, formal language is clear and known from the area of programming languages; it is a necessary condition for machine-processing of information; it describes the meaning of knowledge precisely; it does not refer to subjective intuitions, nor is it open to different interpretations by different people (or machines). On the other hand, it is questionable whether the XML-based syntax for OWL is very user-friendly.
 
+CogniPy Basic Features
+----------------------
+
+Controlled Natural Language (CNL)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Cognipy provides an alternative that is more suitable for human users. We propose to use Controlled English as a knowledge modeling language. Supported via Predictive Editor, it prohibits one from entering any sentence that is grammatically or morphologically incorrect and actively helps the user during sentence writing. The Controlled English is a subset of Standard English with restricted grammar and vocabulary, in order to reduce the ambiguity and complexity inherent in full English. In the last years, Controlled English established itself in various application fields as a powerful knowledge representation language that is readable by humans and processable by computers. Texts in Controlled English can be automatically translated into and from description logic, concretely SROIQ, the basis of the semantic web language OWL 2.
+
+Ontology Editors
+^^^^^^^^^^^^^^^^
+There are dozens of ontology editors known and their number is increasing every day. The most famous is Protégé which allows editing ontology and inspecting the inferred knowledge [http://protege.stanford.edu/]. Both Protégé and Fluent Editor allow support of knowledge engineering. The main difference between Fluent Editor and Protégé, however, lies in the way how the user interacts with the editor. To understand the meaning of formally ascribed knowledge one is required to have a background in the field of a formal method, especially in logic. It is hard to trace a formal knowledge for any authority that does not have such background. On the other hand, without the support of formal methods it is almost impossible to trace and understand the impact of even small changes in the knowledge. This pragmatic observation of need for a “human-readable language” knowledge modeling language led us to the development of Fluent Editor. When using Fluent Editor, users do not need any training in formal logic formalisms nor the ICT support. They are continuously checked if the entered knowledge fulfills the grammar. Additionally, knowledge engineers are provided with the ability to explore the knowledge, due to embedded reasoner that constantly checks the consistency of the knowledge base.
+
+CogniPy Grammar Intro
+^^^^^^^^^^^^^^^^^^^^^
+The grammar of the suported language deals with concepts, instances, roles(=relations), attributes and rules that can be represented by symbols in a form of words. Concept and role identifiers must start with small letter in opposite to instances and also both of them cannot be any of keywords. The morphology is applied if needed by separated dictionary based module. Additionally, it is required that each sentence starts with capital letter and ends with a ‘full stop’. Groups of sentences that are allowed are as following: concept, instance, role, data attributes and simple rule (corresponding to SWRL rule subset) specifications.
+
+
 Naming Conventions
 ------------------
-**Naming in OWL**
 
+Naming in OWL
+^^^^^^^^^^^^^
 OWL deals with entities that are related to each other. All OWL entities are represented using Internationalized Resource Identifiers (IRIs) [RFC3987]. Here we only assume that IRI has form: namespace#identifier e.g. IRI: ‘http://sample.org/ontologies/human.owl#woman’ is composed from namespace ‘http://sample.org/ontologies/human.owl’ and identifier ‘woman’. We assume that the following OWL naming convention is used for identifiers:
 
 * Each owl class (concept) or named individual (instance) identifier is a noun or a name in singular form that is written using camel case, starting with a capital letter.
@@ -21,9 +39,2288 @@ OWL deals with entities that are related to each other. All OWL entities are rep
 
 This naming convention is not a part of the standard, it is a general naming recommendation, and therefore there exist OWL ontologies that do not fulfill above requirements. We say that OWL identifiers that do not fulfill above recommendation are non-standard in opposite to standard ones.
 
-**Naming in Fluent Editor**
+Naming in CogniPy
+^^^^^^^^^^^^^^^^^
+In CogniPy grammar we use slightly different naming convention, as long as we want to be as close to the natural language as possible. Instead of camel case, we use dash to separate parts of names. However, to make the mapping possible we use the following rules:
 
-In FE grammar we use slightly different naming convention, as long as we want to be as close to the natural language as possible. Instead of camel case, we use dash to separate parts of names. However, to make the mapping possible we use the following rules:
+* All standard owl class identifiers are transformed into small-letter starting buzz-words. e.g. VeryBeautifulGirl → very-beautiful-girl
 
-All standard owl class identifiers are transformed into small-letter starting buzz-words. e.g. VeryBeautifulGirl → very-beautiful-girl
-Example)
+.. list-table::
+    :widths: 25 25
+    :header-rows: 1
+    :align: center
+
+    * - Identifier in OWL
+      - Identifier in CogniPy
+    * - VeryBeautifulGirl
+      - very-beautiful-girl
+
+‎
+
+* All standard owl named individuals are transformed into capital-letter starting buzz-words. e.g. JohnDow → John-Dow
+
+.. list-table::
+    :widths: 25 25
+    :header-rows: 1
+    :align: center
+
+    * - Individual in OWL
+      - Individual in CogniPy
+    * - JohnDow
+      - John-Dow
+
+‎
+
+* All standard owl object and data properties are transformed into small-letter starting buzz-words and it is assumed that first part is in present-perfect and therefore it is changed into present simple, e.g. isPartOf → be-part-of, hasAge → have-age
+
+.. list-table::
+    :widths: 25 25
+    :header-rows: 1
+    :align: center
+
+    * - Individual in OWL
+      - Individual in CogniPy
+    * - isPartOf
+      - be-part-of
+    * - hasAge
+      - have-age
+
+‎
+
+Dealing with Naming Conflicts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+If name-conflict occurs, caused by multiple OWL IRIs with common identifier, there is attached prefix in a form of [in-terms-of ], so e.g.: if two IRIs exist - http://sample.org/ontologies/human.owl#VeryBeautifulGirl and http://other.eu/girls.owl#VeryBeautifulGirl then they are represented as very-beautiful-girl [in-terms-of human] and very-beautiful-girl [in-terms-of girls] .
+
+Non-standard Identifiers
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Non-standard identifiers are transformed as they are surrounded with quotation marks:
+
+* All non-standard owl class, object and data property identifiers are transformed directly.
+
+.. list-table::
+    :widths: 25 25
+    :header-rows: 1
+    :align: center
+
+    * - Individual in OWL
+      - Individual in CogniPy
+    * - HasPartOf
+      - “HasPartOf”
+
+‎
+
+* All non-standard owl named individuals are prefixed with ‘THE’.
+
+.. list-table::
+    :widths: 25 25
+    :header-rows: 1
+    :align: center
+
+    * - Individual in OWL
+      - Individual in CogniPy
+    * - CogniPy
+      - THE-“CogniPy”
+
+‎
+
+Concept Specification
+---------------------
+Concept Subsumption
+^^^^^^^^^^^^^^^^^^^
+
+.. image:: _static/figures/image001.png
+    :width: 300
+    :align: center
+
+A concept subsumption represents all cases where there is a need to specify the fact about a specific concept or instance (or expressions which can be reduced to a concept or instance) in form of a subsumption.
+
+.. parsed-literal::
+    :blue:`Every` cat :blue:`is a` mammal.
+    :blue:`Every` cat :blue:`that is a` brown-one has :blue:`a` red-eye.
+
+.. parsed-literal::
+    Mary :blue:`is married by` John.
+    John knows :blue:`a` programming-language.
+
+The concept subsumption can be seen as a kind of set inclusion. We say that one concept subsumes the other one if the set described by the first concept is a subset of the other one. The most intuitive way to say it in English is when speaking about instances of concepts - members of sets. We say then "Every tree is a plant." and it means that every single tree is also a plant, or - what is equivalent - if something is a tree then it is a plant too, or - all trees are plants.
+
+The following example shows how the mapping between the simplest concept subsumption in FE English and OWL2 is made:
+
+.. parsed-literal::
+    :blue:`Every` tree :blue:`is a` plant.
+
+.. code-block:: xml
+
+    <SubClassOf>
+        <Class IRI="Tree" />
+        <Class IRI="Plant" />
+    </SubClassOf>
+
+A concept can be subsumed by a complex expression that includes roles and attributes. The most common one is existential role restriction.
+
+.. parsed-literal::
+    :blue:`Every` branch :blue:`is-part-of a` tree.
+
+.. code-block:: xml
+
+    <SubClassOf>
+        <Class IRI="Branch" />
+        <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="isPartOf"/>
+            <Class IRI="Tree" />
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+
+It is important to understand that this statement do not force that every branch is only the part of tree. To do this we need universal restriction.
+
+.. parsed-literal::
+    :blue:`Every` lion eats  :blue:`nothing-but` herbivore.
+
+.. code-block:: xml
+
+    <SubClassOf>
+        <Class IRI="Lion" />
+        <ObjectAllValuesFrom>
+                <ObjectProperty IRI="eats"/>
+            <Class IRI="Herbivore" />
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+
+.. note::
+
+    Both (existential and universal) restrictions are complementary to each other. Please remember that one :red:`does not imply` the other. In CogniPy CNL the only difference between them lies in the usage of :blue:`nothing-but` keyword, however this simple keyword makes here a big semantic difference.
+
+Restrictions can be arbitrary complex, if used with :blue:`"that ..."` statement, as in following examples.
+
+Here, the **union** of concepts is used as a range of a restriction.
+
+.. parsed-literal::
+    :blue:`Every` giraffe eats :blue:`nothing-but thing that is a` leaf :blue:`and-or is a` twig.
+
+.. code-block:: xml
+
+    <SubClassOf>
+        <Class IRI="Giraffe" />
+        <ObjectAllValuesFrom>
+                <ObjectProperty IRI="eats"/>
+           <ObjectUnionOf>
+                <Class IRI="Leaf" />
+              <Class IRI="Twig" />
+           </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+
+However it is also possible to use the **intersection.**
+
+.. parsed-literal::
+
+   :blue:`Every` tasty-plant :blue:`is` eaten :blue:`by a` carnivore :blue:`and is` eaten :blue:`by a` herbivore.
+
+.. code-block:: xml
+
+    <SubClassOf>
+        <Class IRI="TastyPlant" />
+        <ObjectIntersectionOf>
+          <ObjectSomeValuesFrom>
+            <ObjectInverseOf>
+                    <ObjectProperty IRI="eats"/>
+            </ObjectInverseOf>
+            <Class IRI="Carnivore" />
+          </ObjectSomeValuesFrom>
+          <ObjectSomeValuesFrom>
+             <ObjectInverseOf>
+               <ObjectProperty IRI="eats"/>
+             </ObjectInverseOf>
+               <Class IRI="Herbivore" />
+          </ObjectSomeValuesFrom>
+         </ObjectIntersectionOf>
+    </SubClassOf>
+
+A **complement** of a concept can also be specified this way.
+
+.. parsed-literal::
+
+   :blue:`Every` palm-tree has-part :blue:`something that is not a` branch.
+
+.. code-block:: xml
+
+      <SubClassOf>
+            <Class **IRI**\ =\ **"PalmTree"** />
+            <ObjectSomeValuesFrom>
+                <ObjectProperty **IRI**\ =\ **"hasPart"**/>
+                <ObjectComplementOf>
+                    <Class **IRI**\ =\ **"Branch"** />
+                </ObjectComplementOf>
+        </ObjectSomeValuesFrom>
+      </SubClassOf>
+
+
+Concept Equivalence
+^^^^^^^^^^^^^^^^^^^
+
+It is important to understand the way how implication states in
+concept subsumption. If we say that *"Every tree is a plant"* it
+**does not** implicate that *"Every plant is a tree"*. It might be
+obvious using this simple example, however it is a common logical
+mistake to use concept subsumption where concept equivalence is
+appropriate. For example, by saying Every boy is a young-male-man,
+you only mean that all boys are young-male-man. However you might
+think that you said also that all young-male-man are boys - but you
+didn't utter it in a logical way.
+If you really want to express such a notion then you need to use
+**concept equivalence**:  Something is a boy if-and-only-if-it is a
+young-male-man".
+
+   It is possible to express arbitrary complex axioms using concept
+   equivalence.
+
+   +-----------------------+-----------------------+-----------------------+
+   | Something is a boy    | |image8|              | Every boy is a        |
+   | if-and-only-if-it is  |                       | young-male-man.       |
+   | a young-male-man.     |                       | Every young-male-man  |
+   |                       |                       | is a boy.             |
+   +=======================+=======================+=======================+
+   | <EquivalentClasses>   |                       | <SubClassOf>          |
+   |   <Class IRI="Boy" /> |                       |    <Class IRI="Boy"   |
+   |   <Class              |                       | />                    |
+   | IRI="YoungMaleMan" /> |                       |    <Class             |
+   | </EquivalentClasses>  |                       | IRI="YoungMaleMan" /> |
+   |                       |                       | </SubClassOf>         |
+   |                       |                       | <SubClassOf>          |
+   |                       |                       |    <Class             |
+   |                       |                       | IRI="YoungMaleMan" /> |
+   |                       |                       |    <Class IRI="Boy"   |
+   |                       |                       | />                    |
+   |                       |                       | </SubClassOf>         |
+   +-----------------------+-----------------------+-----------------------+
+
+   More examples:
+   Example 1)
+
+   .. container:: txt-cnl
+
+      Something is a man if-and-only-if-it is an adult that is a male
+      and is a person.
+
+   .. container:: eq-mark
+
+   .. container:: text-xml
+
+      <EquivalentClasses>
+         <Class **IRI**\ =\ **"Man"** />
+         <ObjectIntersectionOf>
+            <Class **IRI**\ =\ **"Adult"** />
+            <Class **IRI**\ =\ **"Male"** />
+            <Class **IRI**\ =\ **"Person"** />
+         </ObjectIntersectionOf>
+      </EquivalentClasses>
+
+   Example 2)
+
+   .. container:: txt-cnl
+
+      Something is a herbivore if-and-only-if-it eats nothing-but plant
+      and-or eats nothing-but thing that is-part-of a plant.
+
+   .. container:: eq-mark
+
+   .. container:: text-xml
+
+      <EquivalentClasses>
+         <Class **IRI**\ =\ **"Herbivore"** />
+         <ObjectUnionOf>
+            <ObjectAllValuesFrom>
+                <ObjectProperty **IRI**\ =\ **"eats"** />
+                <Class **IRI**\ =\ **"Plant"** />
+            </ObjectAllValuesFrom>
+            <ObjectAllValuesFrom>
+                <ObjectProperty **IRI**\ =\ **"eats"** />
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty **IRI**\ =\ **"isPartOf"** />
+                    <Class **IRI**\ =\ **"Plant"** />
+                </ObjectSomeValuesFrom>
+            </ObjectAllValuesFrom>
+         </ObjectUnionOf>
+      </EquivalentClasses>
+
+   .. rubric:: Disjoint Concepts
+      :name: disjoint-concepts
+
+   | |image9|
+   | Fig 2. Animal
+
+   | The open-world assumption **does not** imply that some things (e.g.
+     concepts, instantions) are disjoint if they are named differently.
+     The disjointness must be here specified explicitly.
+   | Disjoint concepts represents all cases where there is a need to
+     specify that concepts are mutually-exclusive.
+   | E.g.:  \* No man is a woman.
+   |      \* Every herbivore is not a carnivore.
+   |      \* No herbivore is a carnivore.
+
+   To disjoint concepts you can define it in two different ways as
+   follows. Two sentences in this example are sematically equivalent as
+   well as in OWL syntax.   
+
+   +-----------------------+-----------------------+-----------------------+
+   | Every herbivore is    |                       | No herbivore is a     |
+   | not a carnivore.      |                       | carnivore.            |
+   +=======================+=======================+=======================+
+   | <SubClasseOf>         |                       | <SubClasseOf>         |
+   |   <Class              |                       |   <Class              |
+   | IRI="Herbivore" />    |                       | IRI="Herbivore" />    |
+   |                       |                       |                       |
+   | <ObjectComplementOf>  |                       | <ObjectComplementOf>  |
+   |      <Class           |                       |      <Class           |
+   | IRI="Carnivore" />    |                       | IRI="Carnivore" />    |
+   |                       |                       |                       |
+   | </ObjectComplementOf> |                       | </ObjectComplementOf> |
+   | </SubClasseOf>        |                       | </SubClasseOf>        |
+   +-----------------------+-----------------------+-----------------------+
+
+   It is worth to mention that saying, e.g. "Every-single-thing that is
+   not a man is a woman.", we assume that everything in our world is
+   either a man or it is a woman, while "No man is a woman" means that
+   there can exists things that are neither man nor woman in the
+   universe. In other words while in first case we deal with mutually
+   complementary concepts, in the second case we deal with disjoint
+   ones.
+
+   |image10|
+
+   .. rubric:: Value Partition
+      :name: value-partition
+
+   A disjoint union axiom states that a given class is a disjoint union
+   of several class expressions. Moreover, all of which are pairwise
+   disjoint.
+
+   | |image11|
+   | Fig 4. Human
+
+   .. container:: txt-cnl
+
+      Something is a human if-and-only-if-it-either is a child, is an
+      old-man, is a middle-aged-man or is a young-man.
+
+   .. container:: eq-mark
+
+   .. container:: text-xml
+
+      <DisjointUnion>
+         <Class **IRI**\ =\ **"Human"** />
+         <Class **IRI**\ =\ **"Child"** />
+         <Class **IRI**\ =\ **"MiddleAgedMan"** />
+         <Class **IRI**\ =\ **"OldMan"** />
+         <Class **IRI**\ =\ **"YoungMan"** />
+      </DisjointUnion>
+
+   .. rubric:: Cardinality Restriction
+      :name: cardinality-restriction
+
+   | Cardinality restrictions on concepts can be applied by using
+     keywords like at-most or at-least.
+   | If none of them is specified then it is assumed that the meaning of
+     cardinality is **exactly**.
+
+   Example 1)
+
+   .. container:: txt-cnl
+
+      Every person is-a-child-of at-most two parents.
+
+   .. container:: eq-mark
+
+   .. container:: text-xml
+
+      <SubClassOf>
+         <Class **IRI**\ =\ **"Person"** />
+         <ObjectMaxCardinality cardinality="2" >
+             <ObjectProperty **IRI**\ =\ **"isChildOf"**/>
+         <Class **IRI**\ =\ **"Parent"**>
+         </ObjectMaxCardinality>
+      </SubClassOf>
+
+   Example 2)
+
+   .. container:: txt-cnl
+
+      Every person is-a-child-of at-least two parents.
+
+   .. container:: eq-mark
+
+   .. container:: text-xml
+
+      <SubClassOf>
+         <Class **IRI**\ =\ **"Person"** />
+         <ObjectMinCardinality cardinality="2" >
+             <ObjectProperty **IRI**\ =\ **"isChildOf"**/>
+         <Class **IRI**\ =\ **"Parent"**>
+         </ObjectMinCardinality>
+      </SubClassOf>
+
+   Example 3)
+
+   .. container:: txt-cnl
+
+      Every person is-a-child-of two parents.
+
+   .. container:: eq-mark
+
+   .. container:: text-xml
+
+      <SubClassOf>
+         <Class **IRI**\ =\ **"Person"** />
+         <ObjectExactCardinality cardinality="2" >
+             <ObjectProperty **IRI**\ =\ **"isChildOf"**/>
+         <Class **IRI**\ =\ **"Parent"**>
+         </ObjectExactCardinality>
+      </SubClassOf>
+
+   Below is a list of keywords and corresponding restrictions:
+
+   Keywords
+
+Meaning
+
+less-than 
+
+**<**
+
+more-than 
+
+**>**
+
+at-most 
+
+**≤**
+
+at-least 
+
+**≥**
+
+different-than 
+
+**≠**
+
+|
+
+Has-key Expression (Experimental)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+| Keys are a useful way of expressing, by means of a description, that
+  two or more individuals are necessarily identical.
+| By using a keyword is-unique-if, you can express such a meaning : If
+  two individuals X and Y have the same key values, then X = Y.
+
+.. container:: txt-cnl
+
+   Every X that is a man is-unique-if X has-id something and X
+   has-security-number something.
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <HasKey>
+      <Class **IRI**\ =\ **"Man"** />
+      <ObjectProperty **IRI**\ =\ **"hasId"**/>
+      <ObjectProperty **IRI**\ =\ **"hasSecurityNumber"**/>
+   </HasKey>
+
+|
+
+Defining Complex Concepts
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+| By combining above expressions we can define complex concepts.
+| Below line defines a cat is not a bird, if it is an animal and it has
+  more than or equal to 5 legs.  Two expressions are used to describe it
+  : setting object minimum cardinality by 5, and object intersection.
+
+.. container:: txt-cnl
+
+   If a cat is an animal that has at-least five legs then the cat is
+   something that is not a bird.
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <DLSafeRule>
+    <Body>
+      <ClassAtom>
+          <Class **IRI**\ =\ **"Cat"** />
+          <Variable **IRI**\ =\ **"CatX"** />
+      </ClassAtom>
+      <ClassAtom>
+          <ObjectIntersectionOf>
+             <Class **IRI**\ =\ **"Animal"** />
+             <ObjectMinCardinality **cardinality**\ =\ **"5"**>
+                 <ObjectProperty **IRI**\ =\ **"has"** />
+                 <Class **IRI**\ =\ **"Leg"** />
+             </ObjectMinCardinality>
+         </ObjectIntersectionOf>
+         <Variable **IRI**\ =\ **"CatX"** />
+      </ClassAtom>
+     </Body>
+     <Head>
+         <ClassAtom>
+            <ObjectComplementOf>
+              <Class **IRI**\ =\ **"Bird"** />
+            </ObjectComplementOf>
+            <Variable **IRI**\ =\ **"CatX"** />
+         </ClassAtom>
+    </Head>
+   </DLSafeRule>
+
+|
+
+5. Instance Specifications
+--------------------------
+
+To specify the **instance of a concept**, a simple class assertion is
+often enough. 
+
+.. container:: txt-cnl
+
+   Sophie is a giraffe.
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <ClassAssertion>
+      <Class **IRI**\ =\ **"Giraffe"** />
+      <NamedIndividual **IRI**\ =\ **"Sophie"** />
+   </ClassAssertion>
+
+However, it is also possible to make complex specifications about
+instances and their relationships.
+
+|
+
+6. Role Specifications
+----------------------
+
+We can apply axioms to roles. The axioms modify semantic sense of the
+roles. All of them are in fact a kind of semantic sugar and can be
+though as special cases of a general role inclusion and concept
+subsumption axioms.
+
+General Role Inclusion
+^^^^^^^^^^^^^^^^^^^^^^
+
+Role inclusions are represented by if expressions.
+
+.. container:: txt-cnl
+
+   If X is-proper-part-of Y then X is-part-of Y.
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <SubObjectPropertyOf>
+      <ObjectProperty **IRI**\ =\ **"isProperPartOf"** />
+      <ObjectProperty **IRI**\ =\ **"isPartOf"** />
+   </SubObjectPropertyOf>
+
+|
+
+Axioms on Roles
+^^^^^^^^^^^^^^^
+
+| Simple axioms on roles are:
+| - Transitivity, e.g.:
+
+.. container:: txt-cnl
+
+   If X has-part something that has-part Y then X has-part Y.
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <TransitiveObjectProperty>
+       <ObjectProperty **IRI**\ =\ **"hasPart"** />
+   </TransitiveObjectProperty>
+
+|
+
+- Reflexivity, e.g.:
+
+.. container:: txt-cnl
+
+   Every-single-thing is-part-of itself.
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <ReflexiveObjectProperty>
+       <ObjectProperty **IRI**\ =\ **"isPartOf"** />
+   </ReflexiveObjectProperty>
+
+|
+
+- Irreflexivity, e.g.:
+
+.. container:: txt-cnl
+
+   Every-single-thing is not a thing that is-proper-part-of itself.
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <SubClassOf>
+      <Class **abbreviatedIRI**\ =\ **"owl:Thing"** />
+      <ObjectComplementOf>
+          <ObjectHasSelf>
+              <ObjectProperty **IRI**\ =\ **"isProperPartOf"** />
+          </ObjectHasSelf>
+      </ObjectComplementOf>
+   </SubClassOf>
+
+|
+
+- Symmetry, e.g.:
+
+.. container:: txt-cnl
+
+   X is-friend-of Y if-and-only-if Y is-friend-of X.
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <EquivalentObjectProperties>
+      <ObjectProperty **IRI**\ =\ **"isFriendOf"** />
+      <ObjectInverseOf>
+          <ObjectProperty **IRI**\ =\ **"isFriendOf"** />
+      </ObjectInverseOf>
+   </EquivalentObjectProperties>
+
+|
+
+It is possible to enter any complex role expression using something
+that, e.g.:
+
+| |image12|
+| Fig 3. A complex role expression.
+
+Properties and relationships between roles in terms of expressiveness of
+OWL2 can be utter as the following rule: If X has something that has Y
+then X has Y.
+
+.. container:: txt-cnl
+
+   Every-single-thing is eaten by an animal.
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <SubClassOf>
+      <Class **abbreviatedIRI**\ =\ **"owl:Thing"** />
+      <ObjectSomeValuesFrom>
+          <ObjectInverseOf>
+              <ObjectProperty **IRI**\ =\ **"eats"** />
+          </ObjectInverseOf>
+          <Class **IRI**\ =\ **"Animal"** />
+      </ObjectSomeValuesFrom>
+   </SubClassOf>
+
+|
+
+Role Equivalence
+^^^^^^^^^^^^^^^^
+
+Equivalent roles are defined with the use of if-and-only-if keyword.
+
+.. container:: txt-cnl
+
+   X is-close-to Y if-and-only-if X is-near-to Y.
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <EquivalentObjectProperties>
+      <ObjectProperty **IRI**\ =\ **"isCloseTo"** />
+      <ObjectProperty **IRI**\ =\ **"isNearTo"** />
+   </EquivalentObjectProperties>
+
+|
+
+The definition of equivalence is useful. For example, a single sentence
+of role equivalence is semantically identical with two sentences of role
+inversion.
+
+| Example)
+
++-----------------------+-----------------------+-----------------------+
+| Role Equivalence      |                       | Role Inversion        |
++=======================+=======================+=======================+
+| X is-type-of Y        |                       | If X is-type-of Y     |
+| if-and-only-if Y      |                       | then Y                |
+| has-type-that-is X.   |                       | has-type-that-is X.   |
+|                       |                       | If x has-type-that-is |
+|                       |                       | Y then Y is-type-of   |
+|                       |                       | X.                    |
++-----------------------+-----------------------+-----------------------+
+| <Equiva               |                       | <SubObjectPropertyOf> |
+| lentObjectProperties> |                       |   <ObjectProperty     |
+|   <ObjectProperty     |                       | IRI\ =\ "isTypeOf" /> |
+| IRI="isTypeOf" />     |                       |   <ObjectInverseOf>   |
+|   <ObjectInverseOf>   |                       |      <ObjectProperty  |
+|      <ObjectProperty  |                       | IR                    |
+| IRI="hasTypeThatIs"   |                       | I\ =\ "hasTypeThatIs" |
+| />                    |                       | />                    |
+|   </ObjectInverseOf>  |                       |   </ObjectInverseOf>  |
+| </Equiva              |                       | <                     |
+| lentObjectProperties> |                       | /SubObjectPropertyOf> |
+|                       |                       | <SubObjectPropertyOf> |
+|                       |                       |   <ObjectProperty     |
+|                       |                       | IR                    |
+|                       |                       | I\ =\ "hasTypeThatIs" |
+|                       |                       | />                    |
+|                       |                       |   <ObjectInverseOf>   |
+|                       |                       |      <ObjectProperty  |
+|                       |                       | IRI\ =\ "isTypeOf" /> |
+|                       |                       |   </ObjectInverseOf>  |
+|                       |                       | <                     |
+|                       |                       | /SubObjectPropertyOf> |
++-----------------------+-----------------------+-----------------------+
+
+|
+
+Disjoint Roles
+^^^^^^^^^^^^^^
+
+Disjoint roles are opposite to equivalent.
+
+.. container:: txt-cnl
+
+   If X loves Y then X does-not hate Y.
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <DisjointObjectProperties>
+      <ObjectProperty **IRI**\ =\ **"hates"** />
+      <ObjectProperty **IRI**\ =\ **"loves"** />
+   </DisjointObjectProperties>
+
+|
+
+Ranges and Domains
+^^^^^^^^^^^^^^^^^^
+
+It is possible to describe the role range.
+
+.. container:: txt-cnl
+
+   Every-single-thing eats nothing-but thing that is an animal and-or is
+   a plant and-or is-part-of an animal and-or is-part-of a plant.
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <SubClassOf>
+      <Class **abbreviatedIRI**\ =\ **"owl:Thing"** />
+      <ObjectAllValuesFrom>
+          <ObjectProperty **IRI**\ =\ **"eats"** />
+          <ObjectUnionOf>
+              <Class **IRI**\ =\ **"Animal"** />
+              <Class **IRI**\ =\ **"Plant"** />
+              <ObjectSomeValuesFrom>
+                  <ObjectProperty **IRI**\ =\ **"isPartOf"** />
+                  <Class **IRI**\ =\ **"Animal"** />
+              </ObjectSomeValuesFrom>
+              <ObjectSomeValuesFrom>
+                  <ObjectProperty **IRI**\ =\ **"isPartOf"** />
+                  <Class **IRI**\ =\ **"Plant"** />
+              </ObjectSomeValuesFrom>
+           </ObjectUnionOf>
+      </ObjectAllValuesFrom>
+   </SubClassOf>
+
+|
+
+Role domain can be expressed with the use of a reverse role.
+
+.. container:: txt-cnl
+
+   Every-single-thing is eaten by an animal.
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <SubClassOf>
+      <Class **abbreviatedIRI**\ =\ **"owl:Thing"** />
+      <ObjectSomeValuesFrom>
+          <ObjectInverseOf>
+              <ObjectProperty **IRI**\ =\ **"eats"** />
+          </ObjectInverseOf>
+          <Class **IRI**\ =\ **"Animal"** />
+      </ObjectSomeValuesFrom>
+   </SubClassOf>
+
+|
+
+7. Data Attributes (Properties) Specifications
+----------------------------------------------
+
+To specify a **datatype** of data property, you can do it as follows.
+
+Keywords
+
+Meaning
+
+(some value) 
+
+equivalent to rdfs:Literal. This can take any data type but without
+knowing what type this data is.
+
+(some integer value) 
+
+equivalent to xsd:int.
+
+(some real value) 
+
+equivalent to xsd:double.
+
+(some boolean value) 
+
+equivalent to xsd:boolean.
+
+(some string value) 
+
+equivalent to xsd:string.
+
+(some datetime value) 
+
+equivalent to xsd:datetime.
+
+(some duration value) 
+
+equivalent to xsd:duration. (currently only swrlb:dayTimeDuration is
+supported)
+
+|
+| Example 1)
+
+.. container:: txt-cnl
+
+   Every person has-name nothing-but (some string value).
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <SubClassOf>
+      <Class **IRI**\ =\ **"Person"** />
+      <DataAllValuesFrom>
+          <DataProperty **IRI**\ =\ **"hasName"** />
+          <DataType **abbreviatedIRI**\ =\ **"xsd:string"** />
+      </DataAllValuesFrom>
+   </SubClassOf>
+
+|
+| Example 2)
+
+.. container:: txt-cnl
+
+   Every person has-age nothing-but (some integer value).
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <SubClassOf>
+      <Class **IRI**\ =\ **"Person"** />
+      <DataAllValuesFrom>
+          <DataProperty **IRI**\ =\ **"hasAge"** />
+          <DataType **abbreviatedIRI**\ =\ **"xsd:integer"** />
+      </DataAllValuesFrom>
+   </SubClassOf>
+
+|
+| Example 3)
+
+.. container:: txt-cnl
+
+   Every person has-spouse nothing-but (some boolean value).
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <SubClassOf>
+      <Class **IRI**\ =\ **"Person"** />
+      <DataAllValuesFrom>
+          <DataProperty **IRI**\ =\ **"hasSpouse"** />
+          <DataType **abbreviatedIRI**\ =\ **"xsd:boolean"** />
+      </DataAllValuesFrom>
+   </SubClassOf>
+
+|
+| Example 4)
+
+.. container:: txt-cnl
+
+   Every person has-birthday equal-to (some datetime value).
+   John is a person and has-birthday equal-to 2000-01-03.
+   Mary is a person and has-birthday equal-to 2000-03-10T09:32:33.
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <SubClassOf>
+      <Class **IRI**\ =\ **"Person"** />
+      <DataAllValuesFrom>
+          <DataProperty **IRI**\ =\ **"hasBirthday"** />
+          <DataType **abbreviatedIRI**\ =\ **"xsd:dateTime"** />
+      </DataAllValuesFrom>
+   </SubClassOf>
+   <ClassAssertion>
+      <ObjectIntersectionOf>
+         <Class **IRI**\ =\ **"Person"** />
+         <DataSomeValuesFrom>
+               <DataProperty **IRI**\ =\ **"hasBirthday"** />
+               <DataOneOf>
+                   <Literal
+   datatypeIRI="http://www.w3.org/2001/XMLSchema#dateTime">2000-01-03T00:00:00</Literal>
+               </DataOneOf>
+         </DataSomeValuesFrom>
+       </ObjectIntersectionOf>
+       <NamedIndividual **IRI**\ =\ **"John"**/>
+   </ClassAssertion>
+   <ClassAssertion>
+       <ObjectIntersectionOf>
+         <Class **IRI**\ =\ **"Person"** />
+         <DataSomeValuesFrom>
+               <DataProperty **IRI**\ =\ **"hasBirthday"** />
+               <DataOneOf>
+                   <Literal
+   datatypeIRI="http://www.w3.org/2001/XMLSchema#dateTime">2000-03-10T09:32:33</Literal>
+               </DataOneOf>
+         </DataSomeValuesFrom>
+       </ObjectIntersectionOf>
+       <NamedIndividual **IRI**\ =\ **"Mary"** />
+   </ClassAssertion>
+
+|
+
+Example 5) You can read the duration value as following : P  (days)DT 
+(hours)H  (minutes)M (seconds)S.
+
+.. container:: txt-cnl
+
+   Every cat has-age equal-to (some duration value).
+   Tom has-age equal-to P365DT13H4M2.54S.
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <SubClassOf>
+      <Class **IRI**\ =\ **"Person"** />
+      <DataAllValuesFrom>
+          <DataProperty **IRI**\ =\ **"hasAge"** />
+          <DataType **abbreviatedIRI**\ =\ **"rdf:PlainLiteral"** />
+      </DataAllValuesFrom>
+   </SubClassOf>
+   <DataPropertyAssertion>
+       <DataProperty **IRI**\ =\ **"hasAge"** />
+       <NamedIndividual **IRI**\ =\ **"Tom"**/> 
+       <Literal
+   datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">P365DT13H4M2.54S^^http://www.w3.org/2001/XMLSchema#dayTimeDuration</Literal>
+   </DataPropertyAssertion>
+      
+   </ClassAssertion>
+
+ 
+
+To assign a value within a certain ranges of data attributes, you can
+specify it with **data property axioms** as follows.
+
+Example 1)
+
+.. container:: txt-cnl
+
+   John has-name equal-to 'John'.
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <ClassAssertion>
+       <DataSomeValuesFrom>
+          <DataProperty **IRI**\ =\ **"hasName"** />
+          <DataOneOf>
+              <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#string"**>\ **John**\ </Literal>
+          </DataOneOf>
+       </DataSomeValuesFrom>
+       <NamedIndividual **="John"** />
+   </ClassAssertion>
+
+|
+| Example 2)
+
+.. container:: txt-cnl
+
+   John has-age lower-or-equal-to 10.
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <ClassAssertion>
+       <DataSomeValuesFrom>
+          <DataProperty **IRI**\ =\ **"hasAge"** />
+          <DatatypeRestriction>
+              <Datatype **abbreviatedIRI**\ =\ **"xsd:integer"** />
+              <FacetRestriction
+   **facet**\ =\ **"http://www.w3.org/2001/XMLSchema#maxInclusive"**>
+                 <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"**>\ **10**\ </Literal>
+              </FacetRestriction>
+          </DatatypeRestriction>
+       </DataSomeValuesFrom>
+       <NamedIndividual **IRI="John"** />
+   </ClassAssertion>
+
+|
+| Example 3)
+
+.. container:: txt-cnl
+
+   This-Building has-residents greater-than 50.
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <ClassAssertion>
+       <DataSomeValuesFrom>
+          <DataProperty **IRI**\ =\ **"hasResidents"** />
+          <DatatypeRestriction>
+              <Datatype **abbreviatedIRI**\ =\ **"xsd:integer"** />
+              <FacetRestriction
+   **facet**\ =\ **"http://www.w3.org/2001/XMLSchema#minExclusive"**>
+                 <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"**>5\ **0**\ </Literal>
+              </FacetRestriction>
+          </DatatypeRestriction>
+       </DataSomeValuesFrom>
+       <NamedIndividual **IRI="ThisBuilding"** />
+   </ClassAssertion>
+
+|
+| Example 4)
+
+.. container:: txt-cnl
+
+   Mary is-year-old different-from 30.
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <ClassAssertion>
+       <DataSomeValuesFrom>
+          <DataProperty **IRI**\ =\ **"isYearOld"** />
+          <DatatypeRestriction>
+              <Datatype **abbreviatedIRI**\ =\ **"xsd:integer"** />
+              <FacetRestriction
+   **facet**\ =\ **"http://www.w3.org/2001/XMLSchema#minExclusive"**>
+                 <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"**>\ **30**\ </Literal>
+              </FacetRestriction>
+              <FacetRestriction
+   **facet**\ =\ **"http://www.w3.org/2001/XMLSchema#maxExclusive"**>
+                 <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"**>\ **30**\ </Literal>
+              </FacetRestriction>
+          </DatatypeRestriction>
+       </DataSomeValuesFrom>
+       <NamedIndividual **IRI="Mary"** />
+   </ClassAssertion>
+
+|
+
+To restrict the length of the data attribute,  you can use the keyword
+that-has-length . 
+
+.. container:: txt-cnl
+
+   Every cat has-name that-has-length lower-or-equal-to 10.
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <SubClassOf>
+       <Class **IRI**\ =\ **"Cat"** />
+       <DataSomeValuesFrom>
+           <DataProperty **IRI**\ =\ **"hasName"** />
+           <DatatypeRestriction>
+               <Datatype **abbreviatedIRI**\ =\ **"xsd:string"** />
+               <FacetRestriction
+   **facet**\ =\ **"http://www.w3.org/2001/XMLSchema#maxLength"**>
+                  <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"**>\ **10**\ </Literal>
+               </FacetRestriction>
+           </DatatypeRestriction>
+       </DataSomeValuesFrom>
+   </SubClassOf>
+
+|
+
+Keywords
+
+Meaning
+
+greater-than  
+
+**<**
+
+maxExclusive
+
+lower-than 
+
+**>**
+
+minExclusive
+
+greater-or-equal-to 
+
+**≤**
+
+maxInclusive
+
+lower-or-equal-to 
+
+**≥**
+
+minInclusive
+
+different-from 
+
+**≠**
+
+minExclusive & maxExclusive
+
+equal-to 
+
+**=**
+
+.
+
+ 
+
+.. _cardinality-restriction-1:
+
+Cardinality Restriction
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Cardinality restrictions can be applied to the number of data attributes
+that a concept or instance has.
+
+.. container:: txt-cnl
+
+   Every cat has-name at-most one (some string value).
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <SubClassOf>
+      <Class **IRI**\ =\ **"Cat"** />
+      <DataMaxCardinality cardinality="1" >
+          <DataProperty **IRI**\ =\ **"hasName"**/>
+          <Datatype **abbreviatedIRI**\ =\ **"xsd:string"**>
+      </DataMaxCardinality>
+   </SubClassOf>
+
+ 
+
+User-defined Data Type
+^^^^^^^^^^^^^^^^^^^^^^
+
+By combining with data property axioms, you can create **user-defined
+data types** as below. 
+
+Here, lower-than-4-number is a data type that has value lower than 4.
+
+.. container:: txt-cnl
+
+   Every cat has-size (some lower-than-4-number value).
+   Every value-of lower-than-4-number is something lower-than 4.  
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <SubClassOf>
+       <Class **IRI**\ =\ **"Cat"** />
+       <DataSomeValuesFrom>
+           <DataProperty **IRI**\ =\ **"hasSize"** />
+           <Datatype **IRI**\ =\ **"LowerThan4Number"** /> 
+       </DataSomeValuesFrom>
+   </SubClassOf>
+   <DatatypeDefinition>
+       <Datatype **IRI**\ =\ **"LowerThan4Number"** />
+       <DatatypeRestriction>
+           <Datatype **abbreviatedIRI**\ =\ **"xsd:integer"** />
+           <FacetRestriction
+   **facet**\ =\ **"http://www.w3.org/2001/XMLSchema#maxExclusive"**>
+               <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"**>\ **4**\ </Literal>
+           </FacetRestriction>
+       </DatatypeRestriction>
+   </DatatypeDefinition>
+
+ 
+
+In the next example, doktype is a user-defined data type that its value
+is in between 10 and 200 (excluding 200), or if the value is string type
+it should not match the regular expression pattern 'a*'.
+
+.. container:: txt-cnl
+
+   Krok has-value (some doktype value ).
+   Every value-of doktype is something ((lower-than 200 ,
+   greater-or-equal-to 10) or not that-matches-pattern 'a*').
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <ClassAssertion>
+       <DataSomeValuesFrom>
+           <DataProperty **IRI**\ =\ **"hasValue"** />
+           <Datatype **IRI**\ =\ **"Doktype"** /> 
+       </DataSomeValuesFrom>
+       <NamedIndividual **IRI**\ =\ **"Krok"** />  
+   </ClassAssertion>
+   <DatatypeDefinition>
+       <Datatype **IRI**\ =\ **"Doktype"** />
+       <DataUnionOf>
+           <DataComplementOf>
+              <DatatypeRestriction>
+                  <Datatype **abbreviatedIRI**\ =\ **"xsd:string"** />
+                  <FacetRestriction
+   **facet**\ =\ **"http://www.w3.org/2001/XMLSchema#pattern"**>
+                     <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#string"**>\ **a\***\ </Literal>
+                  </FacetRestriction>
+              </DatatypeRestriction>
+           </DataComplementOf>
+           <DatatypeRestriction>
+              <Datatype **abbreviatedIRI**\ =\ **"xsd:integer"** />
+              <FacetRestriction
+   **facet**\ =\ **"http://www.w3.org/2001/XMLSchema#maxExclusive"**>
+                 <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"**>\ **200**\ </Literal> 
+              </FacetRestriction>
+              <FacetRestriction
+   **facet**\ =\ **"http://www.w3.org/2001/XMLSchema#minExclusive"**>
+                 <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"**>\ **10**\ </Literal> 
+              </FacetRestriction> 
+           </DatatypeRestriction>
+       </DataUnionOf>
+   </DatatypeDefinition>
+
+.. container:: hint-box
+
+   .. container:: auto-style6
+
+      **[NOTE]**
+
+   Above example introduces special keywords for data type defiinition
+   only.
+
+   -  comma(,) or as-well-as : means intersection.
+   -  or : means union.
+
+   Note that these keywords are available only for data type definition.
+   E.g. Every man is a human and has-age an age.          (O)
+         Every man is a human as-well-as has-age an age. (X)  ->
+   "as-well-as" means intersection only for data type definition.
+
+|
+
+8. Rule Specifications
+----------------------
+
+Sometimes OWL 2 language is not enough to express the knowledge. One
+known example is that OWL iteself cannot express the relation child of
+married parents, because there is no way in OWL 2 to express the
+relation between individuals with which an individual has relations [
+`OWL 2 and SWRL Tutorial by Martin
+Kuba <http://dior.ics.muni.cz/~makub/owl/#swrl>`__]. The expressivity of
+OWL can be extended by adding SWRL - Semantic Web Rule Language rules to
+an ontology [ `SWRL standard
+specification <http://www.w3.org/Submission/SWRL/>`__].
+
+In Fluent Editor we can define instance assertions, object properties
+between two instances and defining that two individuals are equivalent.
+A conclusion (head) of any rule can define new relations between two or
+more instances.
+
+.. container:: txt-cnl
+
+   If a patient signs a consent and a therapy is-recommended-to the
+   patient then the therapy is-applied-to the patient.  
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <DLSafeRule>
+       <Body>
+           <ClassAtom>
+               <Class **IRI**\ =\ **"Patient"** />
+               <Variable **IRI**\ =\ **"PatientX"** />
+           </ClassAtom>
+           <ClassAtom>
+               <Class **IRI**\ =\ **"Consent"** />
+               <Variable **IRI**\ =\ **"ConsentX"** />
+           </ClassAtom>
+           <ObjectPropertyAtom>
+               <ObjectProperty **IRI**\ =\ **"signs"** />
+               <Variable **IRI**\ =\ **"PatientX"** />
+               <Variable **IRI**\ =\ **"ConsentX"** />
+           </ObjectPropertyAtom>
+           <ClassAtom>
+               <Class **IRI**\ =\ **"Therapy"** />
+               <Variable **IRI**\ =\ **"TherapyX"** />
+           </ClassAtom>
+           <ObjectPropertyAtom>
+               <ObjectProperty **IRI**\ =\ **"isRecommendedTo"** />
+               <Variable **IRI**\ =\ **"TherapyX"** />
+               <Variable **IRI**\ =\ **"PatientX"** />
+           </ObjectPropertyAtom>
+       </Body>
+       <Head>
+           <ObjectPropertyAtom>
+               <ObjectProperty **IRI**\ =\ **"isAppliedTo"** />
+               <Variable **IRI**\ =\ **"TherapyX"** />
+               <Variable **IRI**\ =\ **"PatientX"** />  
+           </ObjectPropertyAtom>
+       </Head>
+   </DLSafeRule>
+
+ 
+
+The example below is used and explained in
+`tutorial. <example_it_infra.html>`__
+
+Example 1)
+
+.. container:: txt-cnl
+
+   If a thing(1) hosts a thing(2) and the thing(2) hosts an application
+   then the thing(1) hosts the application.  
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <DLSafeRule>
+       <Body>  
+           <ObjectPropertyAtom>
+               <ObjectProperty **IRI**\ =\ **"hosts"** />
+               <Variable **IRI**\ =\ **"Thing1"** />
+               <Variable **IRI**\ =\ **"Thing2"** />
+           </ObjectPropertyAtom>
+           <ClassAtom>
+               <Class **IRI**\ =\ **"Application"** />
+               <Variable **IRI**\ =\ **"ApplicationX"** />
+           </ClassAtom>
+           <ObjectPropertyAtom>
+               <ObjectProperty **IRI**\ =\ **"hosts"** />
+               <Variable **IRI**\ =\ **"Thing2"** />
+               <Variable **IRI**\ =\ **"ApplicationX"** />
+           </ObjectPropertyAtom>
+       </Body>
+       <Head>
+           <ObjectPropertyAtom>
+               <ObjectProperty **IRI**\ =\ **"hosts"** />
+               <Variable **IRI**\ =\ **"Thing1"** />
+               <Variable **IRI**\ =\ **"ApplicationX"** />  
+           </ObjectPropertyAtom>
+       </Head>
+   </DLSafeRule>
+
+|
+| Example 2)
+
+.. container:: txt-cnl
+
+   If a thing(1) is-a-friend-of a thing(2) and the thing(2)
+   is-a-friend-of a thing(3) then the thing(1) is-a-friend-of the
+   thing(3).
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <DLSafeRule>
+       <Body>  
+          <ObjectPropertyAtom>
+              <ObjectProperty **IRI**\ =\ **"isAFriendOf"** />
+              <Variable **IRI**\ =\ **"Thing1"** />
+              <Variable **IRI**\ =\ **"Thing2"** />
+          </ObjectPropertyAtom>
+          <ObjectPropertyAtom>
+              <ObjectProperty **IRI**\ =\ **"isAFriendOf"** />
+              <Variable **IRI**\ =\ **"Thing2"** />
+              <Variable **IRI**\ =\ **"Thing3"** />
+          </ObjectPropertyAtom>
+       </Body>
+       <Head>
+          <ObjectPropertyAtom>
+              <ObjectProperty **IRI**\ =\ **"isAFriendOf"** />
+              <Variable **IRI**\ =\ **"Thing1"** />
+              <Variable **IRI**\ =\ **"Thing3"** />  
+           </ObjectPropertyAtom>
+       </Head>
+   </DLSafeRule>
+
+This SWRL rule above (Example 2) can be also written in OWL rule.
+
+.. container:: txt-cnl
+
+   If X is-a-friend-of something that is-a-friend-of Y then X
+   is-a-friend-of Y.
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <TransitiveObjectProperty>
+       <ObjectProperty **IRI**\ =\ **"isAFriendOf"** />
+   </TransitiveObjectProperty>
+
+ 
+
+| We can also use data range restriction as below, by using keyword
+  value(n) in the same manner as writing thing(n).  
+| This data range restriction is satisfied when a person has age value
+  between 0 and 17.
+
+.. container:: txt-cnl
+
+   If a person has-age equal-to the value(1) and the value(1) is
+   greater-or-equal-to 0 and the value(1) is lower-or-equal-to 17 then
+   the person has-before-adult-age equal-to the value(1). 
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <DLSafeRule>
+       <Body>
+           <ClassAtom>
+               <Class **IRI**\ =\ **"Person"** />
+               <Variable **IRI**\ =\ **"PersonX"** />
+           </ClassAtom>
+           <DataPropertyAtom>
+               <DataProperty **IRI**\ =\ **"hasAge"** />
+               <Variable **IRI**\ =\ **"PersonX"** />
+               <Variable **IRI**\ =\ **"Value1"** />
+           </DataPropertyAtom>
+           <DataRangeAtom>
+               <DatatypeRestriction>
+                  <Datatype **abbreviatedIRI**\ =\ **"xsd:integer"** />
+                  <FacetRestriction
+   **facet**\ =\ **"http://www.w3.org/2001/XMLSchema#minInclusive"**>
+                      <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"**>\ **0**\ </Literal>
+                  </FacetRestriction>
+               </DatatypeRestriction>
+               <Variable **IRI**\ =\ **"Value1"** />
+           </DataRangeAtom>
+           <DataRangeAtom>
+               <DatatypeRestriction>
+                  <Datatype **abbreviatedIRI**\ =\ **"xsd:integer"** />
+                  <FacetRestriction
+   **facet**\ =\ **"http://www.w3.org/2001/XMLSchema#maxInclusive"**>
+                     <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"**>\ **17**\ </Literal>
+                  </FacetRestriction>
+               </DatatypeRestriction>
+               <Variable **IRI**\ =\ **"Value1"** />
+           </DataRangeAtom>
+       </Body>
+       <Head>
+          <DataPropertyAtom>
+               <DataProperty **IRI**\ =\ **"hasBeforeAdultAge"** />
+               <Variable **IRI**\ =\ **"PersonX"** />
+               <Variable **IRI**\ =\ **"Value1"** />
+          </DataPropertyAtom>
+       </Head>
+   </DLSafeRule>
+
+9. Core SWRL Built-ins
+----------------------
+
+SWRL provides a very powerful extension mechanism that allows
+user-defined methods to be used in rules. These methods are called
+built-ins and are predicates that accept one or more arguments. A number
+of core built-ins are defined in the SWRL Submission. This core set
+includes basic mathematical operators and built-ins for string and date
+manipulations.
+[`SWRLBuiltInBridge <http://protege.cim3.net/cgi-bin/wiki.pl?SWRLBuiltInBridge#nid8XL>`__]
+
+Fluent Editor supports major core SWRL built-ins defined by the `SWRL
+Submission <http://www.w3.org/Submission/SWRL/>`__, covering built-Ins
+for comparisons, math, strings, date, time and duration. Below shows a
+basic example of applying built-ins for calculating values.
+
+.. container:: txt-cnl
+
+   If a cat has-size equal-to the value (1) and the value (1) \* 2.0 =
+   the value (2) then the cat has-doubled-size equal-to the value(2).
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <DLSafeRule>
+       <Body>
+           <ClassAtom>
+               <Class **IRI**\ =\ **"Cat"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+           </ClassAtom>
+           <DataPropertyAtom>
+               <DataProperty **IRI**\ =\ **"hasSize"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+               <Variable **IRI**\ =\ **"Value1"** />
+           </DataPropertyAtom>
+           <BuiltInAtom
+   **IRI**\ =\ **"http://www.w3.org/2003/11/swrlb#multiply"** /> 
+               <Variable **IRI**\ =\ **"Value2"** />
+               <Variable **IRI**\ =\ **"Value1"** />
+               <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#double"**>
+   2.0 </Literal>
+           </BuiltInAtom>
+       </Body>
+       <Head>
+           <DataPropertyAtom>
+               <DataProperty **IRI**\ =\ **"hasDoubledSize"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+               <Variable **IRI**\ =\ **"Value2"** />  
+           </DataPropertyAtom>
+       </Head>
+   </DLSafeRule>
+
+Here is what happens :
+
+#. In order to user built-ins, first you need to extract the data
+   value(s) as parameter(s).    e.g. '*If a* *cat has-size* *equal-to
+   the value (1*)'.
+   From here, the size of a cat will be stored in the value(1).
+#. Then you can apply built-in to the value(1) and assign it to the new
+   value.           e.g. *'If a cat has-size equal-to the value (1) and
+   the value (1) \* 2.0 = the value(2)'
+   *\ Now the value (2) contains value (1) \* 2.0, which means value
+   assignment is done to the value(2).
+#. At last, you can even apply this value back to the cat in the head of
+   the rule.
+   e.g. *'If a cat has-size equal-to the value (1) and 2.0 \* the value
+   (1) = the value(2) then the cat has-doubled-size equal-to the
+   value(2).'*
+
+ 
+
+Built-ins for Comparisons
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Keywords
+
+Meaning
+
+Note
+
+= 
+
+swrlb:equal
+
+| If two operands have concrete data values, = operates as swrlb:equal.
+| If one of operands has an undefined data value, = operates as value
+  assigning operator.
+
+<> 
+
+swrlb:notEqual
+
+ 
+
+>= 
+
+swrlb:greaterThanOrEqual
+
+ 
+
+> 
+
+swrlb:greaterThan
+
+ 
+
+<= 
+
+swrlb:lessThanOrEqual
+
+ 
+
+< 
+
+swrlb:lessThan
+
+ 
+
+.. container:: txt-cnl
+
+   If a cat has-size equal-to the value (1) and the value (1) = 10 then
+   the cat has-new-size equal-to the value(1).
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <DLSafeRule>
+       <Body>
+           <ClassAtom>
+               <Class **IRI**\ =\ **"Cat"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+           </ClassAtom>
+           <DataPropertyAtom>
+               <DataProperty **IRI**\ =\ **"hasSize"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+               <Variable **IRI**\ =\ **"Value1"** />
+           </DataPropertyAtom>
+           <BuiltInAtom
+   **IRI**\ =\ **"http://www.w3.org/2003/11/swrlb#equal"** /> 
+               <Variable **IRI**\ =\ **"Value1"** />
+               <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"**>
+   10 </Literal>
+           </BuiltInAtom>
+       </Body>
+       <Head>
+           <DataPropertyAtom>
+               <DataProperty **IRI**\ =\ **"hasNewSize"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+               <Variable **IRI**\ =\ **"Value1"** />  
+           </DataPropertyAtom>
+       </Head>
+   </DLSafeRule>
+
+Math Built-ins
+^^^^^^^^^^^^^^
+
+The following built-ins are defined for various numeric types.
+
+Keywords
+
+Opearators
+
+Meaning
+
+plus
+
++
+
+swrlb:add
+
+minus 
+
+-
+
+| swrlb:subtract
+| swrlb:unaryMinus
+
+times 
+
+\*
+
+swrlb:multiply
+
+divided-by 
+
+ 
+
+swrlb:divide
+
+integer-divided-by 
+
+ 
+
+swrlb:integerDivide
+
+modulo 
+
+ 
+
+swrlb:mod
+
+raised-to-the-power-of 
+
+ 
+
+swrlb:pow
+
+ceiling-of 
+
+ 
+
+swrlb:ceiling
+
+floor-of 
+
+ 
+
+swrlb:floor
+
+round-of 
+
+ 
+
+swrlb:round
+
+rounded-with-the-precision-of 
+
+ 
+
+swrlb:roundHalfToEven
+
+sine-of 
+
+ 
+
+swrlb:sin
+
+cosine-of 
+
+ 
+
+swrlb:cos
+
+tangent-of 
+
+ 
+
+swrlb:tan
+
+absolute-value-of 
+
+ 
+
+swrlb:abs
+
+.. container:: txt-cnl
+
+   If a cat has-size equal-to the value (1) and 2 minus the value (1) =
+   the value (2) then the cat has-new-size equal-to the value(2).
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <DLSafeRule>
+       <Body>
+           <ClassAtom>
+               <Class **IRI**\ =\ **"Cat"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+           </ClassAtom>
+           <DataPropertyAtom>
+               <DataProperty **IRI**\ =\ **"hasSize"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+               <Variable **IRI**\ =\ **"Value1"** />
+           </DataPropertyAtom>
+           <BuiltInAtom
+   **IRI**\ =\ **"http://www.w3.org/2003/11/swrlb#subtract"** /> 
+               <Variable **IRI**\ =\ **"Value2"** />
+               <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"**> 2
+   </Literal>
+               <Variable **IRI**\ =\ **"Value1"** />
+           </BuiltInAtom>
+       </Body>
+       <Head>
+           <DataPropertyAtom>
+               <DataProperty **IRI**\ =\ **"hasNewSize"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+               <Variable **IRI**\ =\ **"Value2"** />  
+           </DataPropertyAtom>
+       </Head>
+   </DLSafeRule>
+
+For built-ins such as minus, divided-by, and so forth, mind the order of
+two parameters as in real math. e.g. 10-2 = 8,  2-10 =-8
+
+Additionally, there are corresponding mathmathecal operators to some
+built-ins as a short version of keywords. e.g. plus (+), minus(-), and
+times(*).
+
+.. container:: txt-cnl
+
+   If a cat has-size equal-to the value (1) and the value (1) - 2 = the
+   value (2) then the cat has-new-size equal-to the value(2).
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <DLSafeRule>
+       <Body>
+           <ClassAtom>
+               <Class **IRI**\ =\ **"Cat"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+           </ClassAtom>
+           <DataPropertyAtom>
+               <DataProperty **IRI**\ =\ **"hasSize"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+               <Variable **IRI**\ =\ **"Value1"** />
+           </DataPropertyAtom>
+           <BuiltInAtom
+   **IRI**\ =\ **"http://www.w3.org/2003/11/swrlb#subtract"** /> 
+               <Variable **IRI**\ =\ **"Value2"** />
+               <Variable **IRI**\ =\ **"Value1"** />
+               <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"**> 2
+   </Literal>
+           </BuiltInAtom>
+       </Body>
+       <Head>
+           <DataPropertyAtom>
+               <DataProperty **IRI**\ =\ **"hasNewSize"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+               <Variable **IRI**\ =\ **"Value2"** />  
+           </DataPropertyAtom>
+       </Head>
+   </DLSafeRule>
+
+In case of the keyword minus,it can be also used as unary minus.
+
+.. container:: txt-cnl
+
+   If a cat has-size equal-to the value (1) and minus the value (1) =
+   the value (2) then the cat has-minus-size equal-to the value(2).
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <DLSafeRule>
+       <Body>
+           <ClassAtom>
+               <Class **IRI**\ =\ **"Cat"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+           </ClassAtom>
+           <DataPropertyAtom>
+               <DataProperty **IRI**\ =\ **"hasSize"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+               <Variable **IRI**\ =\ **"Value1"** />
+           </DataPropertyAtom>
+           <BuiltInAtom
+   **IRI**\ =\ **"http://www.w3.org/2003/11/swrlb#unaryMinus"** /> 
+               <Variable **IRI**\ =\ **"Value2"** />
+               <Variable **IRI**\ =\ **"Value1"** />
+           </BuiltInAtom>
+       </Body>
+       <Head>
+           <DataPropertyAtom>
+               <DataProperty **IRI**\ =\ **"hasMinusSize"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+               <Variable **IRI**\ =\ **"Value2"** />  
+           </DataPropertyAtom>
+       </Head>
+   </DLSafeRule>
+
+Currently, Fluent Editor does not support using two different
+keywords/operators in one comparison. For example, to express the rule:
+
+.. container:: txt-cnl
+
+   If a man has-weight equal-to the value (1) and the man has-height
+   equal-to the value (2) and the man has-age equal-to the value (3) and
+   10 \* the value (1) + 6.25 = the value(4) then the man has-bmr
+   equal-to the value(4).
+
+... you should use a longer version of the sentence:
+
+.. container:: txt-cnl
+
+   If a man has-weight equal-to the value (1) and the man has-height
+   equal-to the value (2) and the man has-age equal-to the value (3) and
+   10 \* the value (1) = the value(4) and the value(4) + 6.25 = the
+   value(5) then the man has-bmr equal-to the value(5).
+
+Built-ins for Strings
+^^^^^^^^^^^^^^^^^^^^^
+
+The following built-ins are defined for strings (only).
+
+Keywords
+
+Meaning
+
+case-ignored
+
+swrlb:stringEqualIgnoreCase
+
+followed-by
+
+swrlb:stringConcat
+
+length-of
+
+swrlb:stringLength
+
+space-normalized
+
+swrlb:normalizeSpace
+
+upper-cased
+
+swrlb:upperCase
+
+lower-cased
+
+swrlb:lowerCase
+
+translated
+
+swrlb:translate
+
+contains-string
+
+swrlb:contains
+
+contains-case-ignored-string
+
+swrlb:containsIgnoreCase
+
+starts-with-string
+
+swrlb:startsWith
+
+ends-with-string
+
+swrlb:endsWith
+
+substring ... from
+
+swrlb:substring
+
+substring ... before
+
+swrlb:substringBefore
+
+substring ... after
+
+swrlb:substringAfter
+
+matches-string
+
+swrlb:matches
+
+replaced
+
+swrlb:replace
+
+Example 1)
+
+.. container:: txt-cnl
+
+   If a cat has-name equal-to the value (1) and case-ignored 'TOM' = the
+   value (1) then the cat has-result-value equal-to 'ok'.
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <DLSafeRule>
+       <Body>
+           <ClassAtom>
+               <Class **IRI**\ =\ **"Cat"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+           </ClassAtom>
+           <DataPropertyAtom>
+               <DataProperty **IRI**\ =\ **"hasName"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+               <Variable **IRI**\ =\ **"Value1"** />
+           </DataPropertyAtom>
+           <BuiltInAtom
+   **IRI**\ =\ **"http://www.w3.org/2003/11/swrlb#stringEqualIgnoreCase"**
+   /> 
+               <Variable **IRI**\ =\ **"Value2"** />
+               <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#string"** >
+   TOM <Literal/>
+           </BuiltInAtom>
+       </Body>
+       <Head>
+           <DataPropertyAtom>
+               <DataProperty **IRI**\ =\ **"hasResultValue"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+               <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#string"** >
+   ok <Literal/> 
+           </DataPropertyAtom>
+       </Head>
+   </DLSafeRule>
+
+Example 2)
+
+.. container:: txt-cnl
+
+   If a cat has-name equal-to the value (1) and substring the value (1)
+   from 3 that-has-length 2 = the value (2) then the cat
+   has-result-value equal-to the value (2).
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <DLSafeRule>
+       <Body>
+           <ClassAtom>
+               <Class **IRI**\ =\ **"Cat"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+           </ClassAtom>
+           <DataPropertyAtom>
+               <DataProperty **IRI**\ =\ **"hasName"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+               <Variable **IRI**\ =\ **"Value1"** />
+           </DataPropertyAtom>
+           <BuiltInAtom
+   **IRI**\ =\ **"http://www.w3.org/2003/11/swrlb#substring"** /> 
+               <Variable **IRI**\ =\ **"Value2"** />
+               <Variable **IRI**\ =\ **"Value1"** />
+               <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"** >
+   3 <Literal/>
+               <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"** >
+   2 <Literal/>
+           </BuiltInAtom>
+       </Body>
+       <Head>
+           <DataPropertyAtom>
+               <DataProperty **IRI**\ =\ **"hasResultValue"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+               <Variable **IRI**\ =\ **"Value2"** /> 
+           </DataPropertyAtom>
+       </Head>
+   </DLSafeRule>
+
+Example 3) Replace with the regular expression
+
+.. container:: txt-cnl
+
+   If a cat has-name equal-to the value (1) and replaced 'Le+[a-z]*o+n?'
+   from the value (1) with 'Leon' = the value (2) then the cat
+   has-result-value equal-to the value (2).
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <DLSafeRule>
+       <Body>
+           <ClassAtom>
+               <Class **IRI**\ =\ **"Cat"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+           </ClassAtom>
+           <DataPropertyAtom>
+               <DataProperty **IRI**\ =\ **"hasName"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+               <Variable **IRI**\ =\ **"Value1"** />
+           </DataPropertyAtom>
+           <BuiltInAtom
+   **IRI**\ =\ **"http://www.w3.org/2003/11/swrlb#replace"** /> 
+               <Variable **IRI**\ =\ **"Value2"** />
+               <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#string"** >
+   b+r+a <Literal/>
+               <Variable **IRI**\ =\ **"Value1"** />
+               <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#string"** >
+   \* <Literal/>
+           </BuiltInAtom>
+       </Body>
+       <Head>
+           <DataPropertyAtom>
+               <DataProperty **IRI**\ =\ **"hasResultValue"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+               <Variable **IRI**\ =\ **"Value2"** /> 
+           </DataPropertyAtom>
+       </Head>
+   </DLSafeRule>
+
+Example 4)
+
+.. container:: txt-cnl
+
+   If a cat has-name equal-to the value (1) and translated the value (1)
+   from 'kica' with 'KICA' = the value (2) then the cat has-result-value
+   equal-to the value (2).
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <DLSafeRule>
+       <Body>
+           <ClassAtom>
+               <Class **IRI**\ =\ **"Cat"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+           </ClassAtom>
+           <DataPropertyAtom>
+               <DataProperty **IRI**\ =\ **"hasName"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+               <Variable **IRI**\ =\ **"Value1"** />
+           </DataPropertyAtom>
+           <BuiltInAtom
+   **IRI**\ =\ **"http://www.w3.org/2003/11/swrlb#translate"** /> 
+               <Variable **IRI**\ =\ **"Value2"** />
+               <Variable **IRI**\ =\ **"Value1"** />
+               <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#string"** >
+   kica <Literal/>
+               <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#string"** >
+   KICA <Literal/>
+           </BuiltInAtom>
+       </Body>
+       <Head>
+           <DataPropertyAtom>
+               <DataProperty **IRI**\ =\ **"hasResultValue"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+               <Variable **IRI**\ =\ **"Value2"** /> 
+           </DataPropertyAtom>
+       </Head>
+   </DLSafeRule>
+
+ 
+
+Built-ins for Date, Time and Duration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following
+`built-ins <http://www.daml.org/swrl/proposal/builtins.html#8.5>`__ are
+defined for the XML Schema date, time, and duration datatypes, only, as
+appropriate.
+
+To see the data types for date, time and duration, go
+`here. <#dataAttrs>`__
+
+Keywords
+
+Meaning
+
+..days ..hours ..minutes ..seconds  
+
+swrlb:dayTimeDuration
+
+.. container:: txt-cnl
+
+   If a cat has-name equal-to the value (1) and 365 days 15 hours 52
+   minutes 32 seconds = the value (2) then the cat has-age equal-to the
+   value (2).
+
+.. container:: eq-mark
+
+.. container:: text-xml
+
+   <DLSafeRule>
+       <Body>
+           <ClassAtom>
+               <Class **IRI**\ =\ **"Cat"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+           </ClassAtom>
+           <DataPropertyAtom>
+               <DataProperty **IRI**\ =\ **"hasName"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+               <Variable **IRI**\ =\ **"Value1"** />
+           </DataPropertyAtom>
+           <BuiltInAtom
+   **IRI**\ =\ **"http://www.w3.org/2003/11/swrlb#dayTimeDuration"** /> 
+               <Variable **IRI**\ =\ **"Value2"** />
+               <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#string"** > M
+   <Literal/>
+               <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"** >
+   0 <Literal/>
+               <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"** >
+   0 <Literal/>
+               <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"** >
+   365 <Literal/>
+               <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"** >
+   15 <Literal/>
+               <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"** >
+   52 <Literal/>
+               <Literal
+   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"** >
+   32 <Literal/>
+           </BuiltInAtom>
+       </Body>
+       <Head>
+           <DataPropertyAtom>
+               <DataProperty **IRI**\ =\ **"hasAge"** />
+               <Variable **IRI**\ =\ **"CatX"** />
+               <Variable **IRI**\ =\ **"Value2"** /> 
+           </DataPropertyAtom>
+       </Head>
+   </DLSafeRule>
+
+|
+
+.. container::
+   :name: footer
+
+   © 2010-2016 Cognitum, Poland. All rights reserved.
+
+.. |image1| image:: _static/figures/fe_logo_sm.png
+.. |image2| image:: _static/figures/help_sm.png
+.. |image3| image:: _static/figures/grammar_sm.png
+.. |image4| image:: _static/figures/dictionary_sm.png
+.. |image5| image:: _static/figures/examples_sm.png
+.. |image6| image:: _static/figures/grammar_sm.png
+.. |image7| image:: Grammar_files/image001.png
+   :width: 408px
+   :height: 170px
+.. |image8| image:: _static/figures/eq.png
+.. |image9| image:: Grammar_files/image002.png
+   :width: 307px
+   :height: 205px
+.. |image10| image:: Grammar_files/eg92.png
+   :class: auto-style42
+.. |image11| image:: Grammar_files/image004.png
+   :width: 197px
+   :height: 225px
+.. |image12| image:: Grammar_files/image003.png
+   :width: 248px
+   :height: 90px
