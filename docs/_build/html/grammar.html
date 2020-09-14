@@ -32,6 +32,7 @@
         <script src="_static/doctools.js"></script>
         <script src="_static/language_data.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -56,6 +57,9 @@
             <a href="index.html" class="icon icon-home" alt="Documentation Home"> CogniPy
           
 
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -105,12 +109,15 @@
 <li class="toctree-l2"><a class="reference internal" href="#concept-specification">Concept Specification</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#concept-subsumption">Concept Subsumption</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#concept-equivalence">Concept Equivalence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disjoint-concepts">Disjoint Concepts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#value-partition">Value Partition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cardinality-restriction">Cardinality Restriction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#has-key-expression-experimental">Has-key Expression (Experimental)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#defining-complex-concepts">Defining Complex Concepts</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#instance-specifications">5. Instance Specifications</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#role-specifications">6. Role Specifications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#instance-specifications">Instance Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#role-specifications">Role Specifications</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#general-role-inclusion">General Role Inclusion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#axioms-on-roles">Axioms on Roles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#role-equivalence">Role Equivalence</a></li>
@@ -118,13 +125,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#ranges-and-domains">Ranges and Domains</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#data-attributes-properties-specifications">7. Data Attributes (Properties) Specifications</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#cardinality-restriction-1">Cardinality Restriction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-attributes-properties-specifications">Data Attributes (Properties) Specifications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Cardinality Restriction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#user-defined-data-type">User-defined Data Type</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#rule-specifications">8. Rule Specifications</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#core-swrl-built-ins">9. Core SWRL Built-ins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#rule-specifications">Rule Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#core-swrl-built-ins">Core SWRL Built-ins</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#built-ins-for-comparisons">Built-ins for Comparisons</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#math-built-ins">Math Built-ins</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#built-ins-for-strings">Built-ins for Strings</a></li>
@@ -415,7 +422,7 @@ John knows <span class="blue">a</span> programming-language.</pre>
 </pre></div>
 </div>
 <p>It is important to understand that this statement do not force that every branch is only the part of tree. To do this we need universal restriction.</p>
-<pre class="literal-block"><span class="blue">Every</span> lion eats  <span class="blue">nothing-but</span> herbivore.</pre>
+<pre class="literal-block"><span class="blue">Every</span> lion eats <span class="blue">nothing-but</span> herbivore.</pre>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;SubClassOf&gt;</span>
     <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Lion&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;ObjectAllValuesFrom&gt;</span>
@@ -467,15 +474,15 @@ John knows <span class="blue">a</span> programming-language.</pre>
 </div>
 <p>A <strong>complement</strong> of a concept can also be specified this way.</p>
 <pre class="literal-block"><span class="blue">Every</span> palm-tree has-part <span class="blue">something that is not a</span> branch.</pre>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>&lt;SubClassOf&gt;
-      &lt;Class **IRI**\ =\ **&quot;PalmTree&quot;** /&gt;
-      &lt;ObjectSomeValuesFrom&gt;
-          &lt;ObjectProperty **IRI**\ =\ **&quot;hasPart&quot;**/&gt;
-          &lt;ObjectComplementOf&gt;
-              &lt;Class **IRI**\ =\ **&quot;Branch&quot;** /&gt;
-          &lt;/ObjectComplementOf&gt;
-  &lt;/ObjectSomeValuesFrom&gt;
-&lt;/SubClassOf&gt;
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;SubClassOf&gt;</span>
+    <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;PalmTree&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;ObjectSomeValuesFrom&gt;</span>
+        <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;hasPart&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;ObjectComplementOf&gt;</span>
+            <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Branch&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/ObjectComplementOf&gt;</span>
+        <span class="nt">&lt;/ObjectSomeValuesFrom&gt;</span>
+    <span class="nt">&lt;/SubClassOf&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -483,152 +490,151 @@ John knows <span class="blue">a</span> programming-language.</pre>
 <h3>Concept Equivalence<a class="headerlink" href="#concept-equivalence" title="Permalink to this headline">¶</a></h3>
 <p>It is important to understand the way how implication states in
 concept subsumption. If we say that <em>“Every tree is a plant”</em> it
-<strong>does not</strong> implicate that <em>“Every plant is a tree”</em>. It might be
+<span class="red">does not</span> implicate that <em>“Every plant is a tree”</em>. It might be
 obvious using this simple example, however it is a common logical
 mistake to use concept subsumption where concept equivalence is
-appropriate. For example, by saying Every boy is a young-male-man,
+appropriate. For example, by saying <span class="blue">Every</span> boy <span class="blue">is a</span> young-male-man,
 you only mean that all boys are young-male-man. However you might
 think that you said also that all young-male-man are boys - but you
 didn’t utter it in a logical way.
 If you really want to express such a notion then you need to use
-<strong>concept equivalence</strong>:  Something is a boy if-and-only-if-it is a
+<strong>concept equivalence</strong>: <span class="blue">Something is a</span> boy <span class="blue">if-and-only-if-it is a</span>
 young-male-man”.</p>
 <blockquote>
 <div><p>It is possible to express arbitrary complex axioms using concept
 equivalence.</p>
-<table class="docutils align-default">
+</div></blockquote>
+<table class="colwidths-given docutils align-center">
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Something is a boy
-if-and-only-if-it is
-a young-male-man.</p></th>
-<th class="head"><p><img alt="image8" src="_static/figures/eq.png" /></p></th>
-<th class="head"><p>Every boy is a
-young-male-man.
-Every young-male-man
-is a boy.</p></th>
+<tr class="row-odd"><th class="head"><div class="line-block">
+<div class="line">Something is a boy if-and-only-if-it is a young-male-man.</div>
+<div class="line"><br /></div>
+</div>
+</th>
+<th class="head"></th>
+<th class="head"><div class="line-block">
+<div class="line">Every boy is a young-male-man.</div>
+<div class="line">Every young-male-man is a boy.</div>
+</div>
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>&lt;EquivalentClasses&gt;
-  &lt;Class IRI=”Boy” /&gt;
-  &lt;Class
-IRI=”YoungMaleMan” /&gt;
-&lt;/EquivalentClasses&gt;</p></td>
+<tr class="row-even"><td><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;EquivalentClasses&gt;</span>
+    <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Boy&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;YoungMaleMan&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/EquivalentClasses&gt;</span>
+</pre></div>
+</div>
+</td>
 <td></td>
-<td><p>&lt;SubClassOf&gt;
-   &lt;Class IRI=”Boy”
-/&gt;
-   &lt;Class
-IRI=”YoungMaleMan” /&gt;
-&lt;/SubClassOf&gt;
-&lt;SubClassOf&gt;
-   &lt;Class
-IRI=”YoungMaleMan” /&gt;
-   &lt;Class IRI=”Boy”
-/&gt;
-&lt;/SubClassOf&gt;</p></td>
+<td><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;SubClassOf&gt;</span>
+    <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Boy&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;YoungMaleMan&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/SubClassOf&gt;</span>
+<span class="nt">&lt;SubClassOf&gt;</span>
+    <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;YoungMaleMan&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Boy&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/SubClassOf&gt;</span>
+</pre></div>
+</div>
+</td>
 </tr>
 </tbody>
 </table>
-<p>More examples:
-Example 1)</p>
-<div class="txt-cnl docutils container">
-<p>Something is a man if-and-only-if-it is an adult that is a male
-and is a person.</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;EquivalentClasses&gt;
-   &lt;Class <strong>IRI</strong>=<strong>“Man”</strong> /&gt;
-   &lt;ObjectIntersectionOf&gt;
-      &lt;Class <strong>IRI</strong>=<strong>“Adult”</strong> /&gt;
-      &lt;Class <strong>IRI</strong>=<strong>“Male”</strong> /&gt;
-      &lt;Class <strong>IRI</strong>=<strong>“Person”</strong> /&gt;
-   &lt;/ObjectIntersectionOf&gt;
-&lt;/EquivalentClasses&gt;</p>
+<p>More examples:</p>
+<pre class="literal-block"><span class="blue">Something is a</span> man <span class="blue">if-and-only-if-it is an</span> adult <span class="blue">that is a</span> male <span class="blue">and is a</span> person.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;EquivalentClasses&gt;</span>
+    <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Man&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;ObjectIntersectionOf&gt;</span>
+      <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Adult&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Male&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Person&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/ObjectIntersectionOf&gt;</span>
+<span class="nt">&lt;/EquivalentClasses&gt;</span>
+</pre></div>
 </div>
 <p>Example 2)</p>
-<div class="txt-cnl docutils container">
-<p>Something is a herbivore if-and-only-if-it eats nothing-but plant
-and-or eats nothing-but thing that is-part-of a plant.</p>
+<pre class="literal-block"><span class="blue">Something is a</span> herbivore <span class="blue">if-and-only-if-it</span> eats <span class="blue">nothing-but</span> plant <span class="blue">and-or</span> eats <span class="blue">nothing-but thing that</span> is-part-of <span class="blue">a</span> plant.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;EquivalentClasses&gt;</span>
+    <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Herbivore&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;ObjectUnionOf&gt;</span>
+      <span class="nt">&lt;ObjectAllValuesFrom&gt;</span>
+          <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;eats&quot;</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Plant&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/ObjectAllValuesFrom&gt;</span>
+      <span class="nt">&lt;ObjectAllValuesFrom&gt;</span>
+          <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;eats&quot;</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;ObjectSomeValuesFrom&gt;</span>
+              <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;isPartOf&quot;</span> <span class="nt">/&gt;</span>
+              <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Plant&quot;</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;/ObjectSomeValuesFrom&gt;</span>
+      <span class="nt">&lt;/ObjectAllValuesFrom&gt;</span>
+    <span class="nt">&lt;/ObjectUnionOf&gt;</span>
+<span class="nt">&lt;/EquivalentClasses&gt;</span>
+</pre></div>
 </div>
-<div class="text-xml docutils container">
-<p>&lt;EquivalentClasses&gt;
-   &lt;Class <strong>IRI</strong>=<strong>“Herbivore”</strong> /&gt;
-   &lt;ObjectUnionOf&gt;
-      &lt;ObjectAllValuesFrom&gt;
-          &lt;ObjectProperty <strong>IRI</strong>=<strong>“eats”</strong> /&gt;
-          &lt;Class <strong>IRI</strong>=<strong>“Plant”</strong> /&gt;
-      &lt;/ObjectAllValuesFrom&gt;
-      &lt;ObjectAllValuesFrom&gt;
-          &lt;ObjectProperty <strong>IRI</strong>=<strong>“eats”</strong> /&gt;
-          &lt;ObjectSomeValuesFrom&gt;
-              &lt;ObjectProperty <strong>IRI</strong>=<strong>“isPartOf”</strong> /&gt;
-              &lt;Class <strong>IRI</strong>=<strong>“Plant”</strong> /&gt;
-          &lt;/ObjectSomeValuesFrom&gt;
-      &lt;/ObjectAllValuesFrom&gt;
-   &lt;/ObjectUnionOf&gt;
-&lt;/EquivalentClasses&gt;</p>
 </div>
-<p class="rubric" id="disjoint-concepts">Disjoint Concepts</p>
+<div class="section" id="disjoint-concepts">
+<h3>Disjoint Concepts<a class="headerlink" href="#disjoint-concepts" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="_images/image002.png"><img alt="_images/image002.png" class="align-center" src="_images/image002.png" style="width: 300px;" /></a>
 <div class="line-block">
-<div class="line"><a class="reference internal" href="Grammar_files/image002.png"><img alt="image9" src="Grammar_files/image002.png" style="width: 307px; height: 205px;" /></a></div>
-<div class="line">Fig 2. Animal</div>
-</div>
-<div class="line-block">
-<div class="line">The open-world assumption <strong>does not</strong> imply that some things (e.g.
+<div class="line">The open-world assumption <span class="red">does not</span> imply that some things (e.g.
 concepts, instantions) are disjoint if they are named differently.
 The disjointness must be here specified explicitly.</div>
 <div class="line">Disjoint concepts represents all cases where there is a need to
 specify that concepts are mutually-exclusive.</div>
-<div class="line">E.g.:  * No man is a woman.</div>
-<div class="line">     * Every herbivore is not a carnivore.</div>
-<div class="line">     * No herbivore is a carnivore.</div>
+<div class="line">E.g.: * <span class="blue">No</span> man <span class="blue">is a</span> woman.</div>
+<div class="line-block">
+<div class="line">* <span class="blue">Every</span> herbivore <span class="blue">is not a</span> carnivore.</div>
+<div class="line">* <span class="blue">No</span> herbivore <span class="blue">is a</span> carnivore.</div>
+</div>
 </div>
 <p>To disjoint concepts you can define it in two different ways as
 follows. Two sentences in this example are sematically equivalent as
 well as in OWL syntax.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-center">
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Every herbivore is
-not a carnivore.</p></th>
+<tr class="row-odd"><th class="head"><p>Every herbivore is not a carnivore.</p></th>
 <th class="head"></th>
-<th class="head"><p>No herbivore is a
-carnivore.</p></th>
+<th class="head"><p>No herbivore is a carnivore.</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>&lt;SubClasseOf&gt;
-  &lt;Class
-IRI=”Herbivore” /&gt;</p>
-<p>&lt;ObjectComplementOf&gt;
-     &lt;Class
-IRI=”Carnivore” /&gt;</p>
-<p>&lt;/ObjectComplementOf&gt;
-&lt;/SubClasseOf&gt;</p>
+<tr class="row-even"><td><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;SubClasseOf&gt;</span>
+    <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Herbivore&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;ObjectComplementOf&gt;</span>
+        <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Carnivore&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/ObjectComplementOf&gt;</span>
+<span class="nt">&lt;/SubClasseOf&gt;</span>
+</pre></div>
+</div>
 </td>
 <td></td>
-<td><p>&lt;SubClasseOf&gt;
-  &lt;Class
-IRI=”Herbivore” /&gt;</p>
-<p>&lt;ObjectComplementOf&gt;
-     &lt;Class
-IRI=”Carnivore” /&gt;</p>
-<p>&lt;/ObjectComplementOf&gt;
-&lt;/SubClasseOf&gt;</p>
+<td><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;SubClasseOf&gt;</span>
+    <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Herbivore&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;ObjectComplementOf&gt;</span>
+        <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Carnivore&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/ObjectComplementOf&gt;</span>
+<span class="nt">&lt;/SubClasseOf&gt;</span>
+</pre></div>
+</div>
 </td>
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>It is worth to mention that saying, e.g. “Every-single-thing that is
 not a man is a woman.”, we assume that everything in our world is
 either a man or it is a woman, while “No man is a woman” means that
@@ -636,91 +642,95 @@ there can exists things that are neither man nor woman in the
 universe. In other words while in first case we deal with mutually
 complementary concepts, in the second case we deal with disjoint
 ones.</p>
-<p><img alt="image10" class="auto-style42" src="Grammar_files/eg92.png" /></p>
-<p class="rubric" id="value-partition">Value Partition</p>
+</div>
+<a class="reference internal image-reference" href="_images/fig5.png"><img alt="_images/fig5.png" class="align-center" src="_images/fig5.png" style="width: 600px;" /></a>
+</div>
+<div class="section" id="value-partition">
+<h3>Value Partition<a class="headerlink" href="#value-partition" title="Permalink to this headline">¶</a></h3>
 <p>A disjoint union axiom states that a given class is a disjoint union
 of several class expressions. Moreover, all of which are pairwise
 disjoint.</p>
-<div class="line-block">
-<div class="line"><a class="reference internal" href="Grammar_files/image004.png"><img alt="image11" src="Grammar_files/image004.png" style="width: 197px; height: 225px;" /></a></div>
-<div class="line">Fig 4. Human</div>
+<a class="reference internal image-reference" href="_images/image004.png"><img alt="_images/image004.png" class="align-center" src="_images/image004.png" style="width: 200px;" /></a>
+<pre class="literal-block"><span class="blue">Something is a</span> human <span class="blue">if-and-only-if-it-either is a</span> child, <span class="blue">is an</span> old-man, <span class="blue">is a</span> middle-aged-man <span class="blue">or is a</span> young-man.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;DisjointUnion&gt;</span>
+    <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Human&quot;</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Child&quot;</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;MiddleAgedMan&quot;</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;OldMan&quot;</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;YoungMan&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/DisjointUnion&gt;</span>
+</pre></div>
 </div>
-<div class="txt-cnl docutils container">
-<p>Something is a human if-and-only-if-it-either is a child, is an
-old-man, is a middle-aged-man or is a young-man.</p>
 </div>
-<div class="text-xml docutils container">
-<p>&lt;DisjointUnion&gt;
-   &lt;Class <strong>IRI</strong>=<strong>“Human”</strong> /&gt;
-   &lt;Class <strong>IRI</strong>=<strong>“Child”</strong> /&gt;
-   &lt;Class <strong>IRI</strong>=<strong>“MiddleAgedMan”</strong> /&gt;
-   &lt;Class <strong>IRI</strong>=<strong>“OldMan”</strong> /&gt;
-   &lt;Class <strong>IRI</strong>=<strong>“YoungMan”</strong> /&gt;
-&lt;/DisjointUnion&gt;</p>
-</div>
-<p class="rubric" id="cardinality-restriction">Cardinality Restriction</p>
+<div class="section" id="cardinality-restriction">
+<h3>Cardinality Restriction<a class="headerlink" href="#cardinality-restriction" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
 <div class="line">Cardinality restrictions on concepts can be applied by using
-keywords like at-most or at-least.</div>
+keywords like <span class="blue">at-most</span> or <span class="blue">at-least</span>.</div>
 <div class="line">If none of them is specified then it is assumed that the meaning of
 cardinality is <strong>exactly</strong>.</div>
 </div>
-<p>Example 1)</p>
-<div class="txt-cnl docutils container">
-<p>Every person is-a-child-of at-most two parents.</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;SubClassOf&gt;
-   &lt;Class <strong>IRI</strong>=<strong>“Person”</strong> /&gt;
-   &lt;ObjectMaxCardinality cardinality=”2” &gt;
-       &lt;ObjectProperty <strong>IRI</strong>=<strong>“isChildOf”</strong>/&gt;
-   &lt;Class <strong>IRI</strong>=<strong>“Parent”</strong>&gt;
-   &lt;/ObjectMaxCardinality&gt;
-&lt;/SubClassOf&gt;</p>
+<pre class="literal-block"><span class="blue">Every</span> person is-a-child-of <span class="blue">at-most</span> two parents.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;SubClassOf&gt;</span>
+    <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Person&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;ObjectMaxCardinality</span> <span class="na">cardinality=</span><span class="s">&quot;2&quot;</span> <span class="nt">&gt;</span>
+        <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;isChildOf&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Parent&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/ObjectMaxCardinality&gt;</span>
+<span class="nt">&lt;/SubClassOf&gt;</span>
+</pre></div>
 </div>
 <p>Example 2)</p>
-<div class="txt-cnl docutils container">
-<p>Every person is-a-child-of at-least two parents.</p>
+<pre class="literal-block"><span class="blue">Every</span> person is-a-child-of <span class="blue">at-least</span> two parents.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;SubClassOf&gt;</span>
+    <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Person&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;ObjectMinCardinality</span> <span class="na">cardinality=</span><span class="s">&quot;2&quot;</span> <span class="nt">&gt;</span>
+        <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;isChildOf&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Parent&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/ObjectMinCardinality&gt;</span>
+<span class="nt">&lt;/SubClassOf&gt;</span>
+</pre></div>
 </div>
-<div class="text-xml docutils container">
-<p>&lt;SubClassOf&gt;
-   &lt;Class <strong>IRI</strong>=<strong>“Person”</strong> /&gt;
-   &lt;ObjectMinCardinality cardinality=”2” &gt;
-       &lt;ObjectProperty <strong>IRI</strong>=<strong>“isChildOf”</strong>/&gt;
-   &lt;Class <strong>IRI</strong>=<strong>“Parent”</strong>&gt;
-   &lt;/ObjectMinCardinality&gt;
-&lt;/SubClassOf&gt;</p>
-</div>
-<p>Example 3)</p>
-<div class="txt-cnl docutils container">
-<p>Every person is-a-child-of two parents.</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;SubClassOf&gt;
-   &lt;Class <strong>IRI</strong>=<strong>“Person”</strong> /&gt;
-   &lt;ObjectExactCardinality cardinality=”2” &gt;
-       &lt;ObjectProperty <strong>IRI</strong>=<strong>“isChildOf”</strong>/&gt;
-   &lt;Class <strong>IRI</strong>=<strong>“Parent”</strong>&gt;
-   &lt;/ObjectExactCardinality&gt;
-&lt;/SubClassOf&gt;</p>
+<p>example 3)</p>
+<pre class="literal-block"><span class="blue">Every</span> person is-a-child-of two parents.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;SubClassOf&gt;</span>
+    <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Person&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;ObjectExactCardinality</span> <span class="na">cardinality=</span><span class="s">&quot;2&quot;</span> <span class="nt">&gt;</span>
+            <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;isChildOf&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Parent&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/ObjectExactCardinality&gt;</span>
+<span class="nt">&lt;/SubClassOf&gt;</span>
+</pre></div>
 </div>
 <p>Below is a list of keywords and corresponding restrictions:</p>
-<p>Keywords</p>
-</div></blockquote>
-<p>Meaning</p>
-<p>less-than</p>
-<p><strong>&lt;</strong></p>
-<p>more-than</p>
-<p><strong>&gt;</strong></p>
-<p>at-most</p>
-<p><strong>≤</strong></p>
-<p>at-least</p>
-<p><strong>≥</strong></p>
-<p>different-than</p>
-<p><strong>≠</strong></p>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Keywords</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>less-than</p></td>
+<td><p>&lt;</p></td>
+</tr>
+<tr class="row-odd"><td><p>more-than</p></td>
+<td><p>&gt;</p></td>
+</tr>
+<tr class="row-even"><td><p>at-most</p></td>
+<td><p>≤</p></td>
+</tr>
+<tr class="row-odd"><td><p>at-least</p></td>
+<td><p>≥</p></td>
+</tr>
+<tr class="row-even"><td><p>different-than</p></td>
+<td><p>≠</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="has-key-expression-experimental">
 <h3>Has-key Expression (Experimental)<a class="headerlink" href="#has-key-expression-experimental" title="Permalink to this headline">¶</a></h3>
@@ -730,19 +740,13 @@ two or more individuals are necessarily identical.</div>
 <div class="line">By using a keyword is-unique-if, you can express such a meaning : If
 two individuals X and Y have the same key values, then X = Y.</div>
 </div>
-<div class="txt-cnl docutils container">
-<p>Every X that is a man is-unique-if X has-id something and X
-has-security-number something.</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;HasKey&gt;
-   &lt;Class <strong>IRI</strong>=<strong>“Man”</strong> /&gt;
-   &lt;ObjectProperty <strong>IRI</strong>=<strong>“hasId”</strong>/&gt;
-   &lt;ObjectProperty <strong>IRI</strong>=<strong>“hasSecurityNumber”</strong>/&gt;
-&lt;/HasKey&gt;</p>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
+<pre class="literal-block"><span class="blue">Every X that is a</span> man <span class="blue">is-unique-if X</span> has-id <span class="blue">something and X</span> has-security-number <span class="blue">something</span>.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;HasKey&gt;</span>
+    <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Man&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;hasId&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;hasSecurityNumber&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/HasKey&gt;</span>
+</pre></div>
 </div>
 </div>
 <div class="section" id="defining-complex-concepts">
@@ -753,55 +757,47 @@ has-security-number something.</p>
 more than or equal to 5 legs.  Two expressions are used to describe it
 : setting object minimum cardinality by 5, and object intersection.</div>
 </div>
-<div class="txt-cnl docutils container">
-<p>If a cat is an animal that has at-least five legs then the cat is
-something that is not a bird.</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;DLSafeRule&gt;
- &lt;Body&gt;
-   &lt;ClassAtom&gt;
-       &lt;Class <strong>IRI</strong>=<strong>“Cat”</strong> /&gt;
-       &lt;Variable <strong>IRI</strong>=<strong>“CatX”</strong> /&gt;
-   &lt;/ClassAtom&gt;
-   &lt;ClassAtom&gt;
-       &lt;ObjectIntersectionOf&gt;
-          &lt;Class <strong>IRI</strong>=<strong>“Animal”</strong> /&gt;
-          &lt;ObjectMinCardinality <strong>cardinality</strong>=<strong>“5”</strong>&gt;
-              &lt;ObjectProperty <strong>IRI</strong>=<strong>“has”</strong> /&gt;
-              &lt;Class <strong>IRI</strong>=<strong>“Leg”</strong> /&gt;
-          &lt;/ObjectMinCardinality&gt;
-      &lt;/ObjectIntersectionOf&gt;
-      &lt;Variable <strong>IRI</strong>=<strong>“CatX”</strong> /&gt;
-   &lt;/ClassAtom&gt;
-  &lt;/Body&gt;
-  &lt;Head&gt;
-      &lt;ClassAtom&gt;
-         &lt;ObjectComplementOf&gt;
-           &lt;Class <strong>IRI</strong>=<strong>“Bird”</strong> /&gt;
-         &lt;/ObjectComplementOf&gt;
-         &lt;Variable <strong>IRI</strong>=<strong>“CatX”</strong> /&gt;
-      &lt;/ClassAtom&gt;
- &lt;/Head&gt;
-&lt;/DLSafeRule&gt;</p>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
+<pre class="literal-block"><span class="blue">If a</span> cat  <span class="blue">is an</span> animal  <span class="blue">that</span> has at-least five legs  <span class="blue">then the</span> cat  <span class="blue">is something that is not a</span> bird.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;DLSafeRule&gt;</span>
+ <span class="nt">&lt;Body&gt;</span>
+   <span class="nt">&lt;ClassAtom&gt;</span>
+       <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Cat&quot;</span> <span class="nt">/&gt;</span>
+       <span class="nt">&lt;Variable</span> <span class="na">IRI=</span><span class="s">&quot;CatX&quot;</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;/ClassAtom&gt;</span>
+   <span class="nt">&lt;ClassAtom&gt;</span>
+       <span class="nt">&lt;ObjectIntersectionOf&gt;</span>
+             <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Animal&quot;</span> <span class="nt">/&gt;</span>
+          <span class="nt">&lt;ObjectMinCardinality</span> <span class="na">cardinality=</span><span class="s">&quot;5&quot;</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;has&quot;</span> <span class="nt">/&gt;</span>
+              <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Leg&quot;</span> <span class="nt">/&gt;</span>
+             <span class="nt">&lt;/ObjectMinCardinality&gt;</span>
+      <span class="nt">&lt;/ObjectIntersectionOf&gt;</span>
+      <span class="nt">&lt;Variable</span> <span class="na">IRI=</span><span class="s">&quot;CatX&quot;</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;/ClassAtom&gt;</span>
+  <span class="nt">&lt;/Body&gt;</span>
+  <span class="nt">&lt;Head&gt;</span>
+      <span class="nt">&lt;ClassAtom&gt;</span>
+         <span class="nt">&lt;ObjectComplementOf&gt;</span>
+           <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Bird&quot;</span> <span class="nt">/&gt;</span>
+         <span class="nt">&lt;/ObjectComplementOf&gt;</span>
+         <span class="nt">&lt;Variable</span> <span class="na">IRI=</span><span class="s">&quot;CatX&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/ClassAtom&gt;</span>
+ <span class="nt">&lt;/Head&gt;</span>
+<span class="nt">&lt;/DLSafeRule&gt;</span>
+</pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="instance-specifications">
-<h2>5. Instance Specifications<a class="headerlink" href="#instance-specifications" title="Permalink to this headline">¶</a></h2>
+<h2>Instance Specifications<a class="headerlink" href="#instance-specifications" title="Permalink to this headline">¶</a></h2>
 <p>To specify the <strong>instance of a concept</strong>, a simple class assertion is
 often enough.</p>
-<div class="txt-cnl docutils container">
-<p>Sophie is a giraffe.</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;ClassAssertion&gt;
-   &lt;Class <strong>IRI</strong>=<strong>“Giraffe”</strong> /&gt;
-   &lt;NamedIndividual <strong>IRI</strong>=<strong>“Sophie”</strong> /&gt;
-&lt;/ClassAssertion&gt;</p>
+<pre class="literal-block">Sophie <span class="blue">is a</span> giraffe.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ClassAssertion&gt;</span>
+        <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Giraffe&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;NamedIndividual</span> <span class="na">IRI=</span><span class="s">&quot;Sophie&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/ClassAssertion&gt;</span>
+</pre></div>
 </div>
 <p>However, it is also possible to make complex specifications about
 instances and their relationships.</p>
@@ -810,7 +806,7 @@ instances and their relationships.</p>
 </div>
 </div>
 <div class="section" id="role-specifications">
-<h2>6. Role Specifications<a class="headerlink" href="#role-specifications" title="Permalink to this headline">¶</a></h2>
+<h2>Role Specifications<a class="headerlink" href="#role-specifications" title="Permalink to this headline">¶</a></h2>
 <p>We can apply axioms to roles. The axioms modify semantic sense of the
 roles. All of them are in fact a kind of semantic sugar and can be
 though as special cases of a general role inclusion and concept
@@ -818,32 +814,25 @@ subsumption axioms.</p>
 <div class="section" id="general-role-inclusion">
 <h3>General Role Inclusion<a class="headerlink" href="#general-role-inclusion" title="Permalink to this headline">¶</a></h3>
 <p>Role inclusions are represented by if expressions.</p>
-<div class="txt-cnl docutils container">
-<p>If X is-proper-part-of Y then X is-part-of Y.</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;SubObjectPropertyOf&gt;
-   &lt;ObjectProperty <strong>IRI</strong>=<strong>“isProperPartOf”</strong> /&gt;
-   &lt;ObjectProperty <strong>IRI</strong>=<strong>“isPartOf”</strong> /&gt;
-&lt;/SubObjectPropertyOf&gt;</p>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
+<pre class="literal-block"><span class="blue">If X</span> is-proper-part-of <span class="blue">Y then X</span> is-part-of <span class="blue">Y</span>.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;SubObjectPropertyOf&gt;</span>
+        <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;isProperPartOf&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;isPartOf&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/SubObjectPropertyOf&gt;</span>
+</pre></div>
 </div>
 </div>
 <div class="section" id="axioms-on-roles">
 <h3>Axioms on Roles<a class="headerlink" href="#axioms-on-roles" title="Permalink to this headline">¶</a></h3>
 <div class="line-block">
 <div class="line">Simple axioms on roles are:</div>
-<div class="line">- Transitivity, e.g.:</div>
+<div class="line">Transitivity, e.g.:</div>
 </div>
-<div class="txt-cnl docutils container">
-<p>If X has-part something that has-part Y then X has-part Y.</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;TransitiveObjectProperty&gt;
-    &lt;ObjectProperty <strong>IRI</strong>=<strong>“hasPart”</strong> /&gt;
-&lt;/TransitiveObjectProperty&gt;</p>
+<pre class="literal-block"><span class="blue">If X</span> has-part <span class="blue">something that</span> has-part <span class="blue">Y then X</span> has-part <span class="blue">Y</span>.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;TransitiveObjectProperty&gt;</span>
+        <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;hasPart&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/TransitiveObjectProperty&gt;</span>
+</pre></div>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -851,13 +840,11 @@ subsumption axioms.</p>
 <ul class="simple">
 <li><p>Reflexivity, e.g.:</p></li>
 </ul>
-<div class="txt-cnl docutils container">
-<p>Every-single-thing is-part-of itself.</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;ReflexiveObjectProperty&gt;
-    &lt;ObjectProperty <strong>IRI</strong>=<strong>“isPartOf”</strong> /&gt;
-&lt;/ReflexiveObjectProperty&gt;</p>
+<pre class="literal-block"><span class="blue">Every-single-thing</span> is-part-of <span class="blue">itself</span>.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ReflexiveObjectProperty&gt;</span>
+        <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;isPartOf&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/ReflexiveObjectProperty&gt;</span>
+</pre></div>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -865,18 +852,16 @@ subsumption axioms.</p>
 <ul class="simple">
 <li><p>Irreflexivity, e.g.:</p></li>
 </ul>
-<div class="txt-cnl docutils container">
-<p>Every-single-thing is not a thing that is-proper-part-of itself.</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;SubClassOf&gt;
-   &lt;Class <strong>abbreviatedIRI</strong>=<strong>“owl:Thing”</strong> /&gt;
-   &lt;ObjectComplementOf&gt;
-       &lt;ObjectHasSelf&gt;
-           &lt;ObjectProperty <strong>IRI</strong>=<strong>“isProperPartOf”</strong> /&gt;
-       &lt;/ObjectHasSelf&gt;
-   &lt;/ObjectComplementOf&gt;
-&lt;/SubClassOf&gt;</p>
+<pre class="literal-block"><span class="blue">Every-single-thing is not a thing that</span> is-proper-part-of <span class="blue">itself</span>.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;SubClassOf&gt;</span>
+         <span class="nt">&lt;Class</span> <span class="na">abbreviatedIRI=</span><span class="s">&quot;owl:Thing&quot;</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;ObjectComplementOf&gt;</span>
+       <span class="nt">&lt;ObjectHasSelf&gt;</span>
+                 <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;isProperPartOf&quot;</span> <span class="nt">/&gt;</span>
+       <span class="nt">&lt;/ObjectHasSelf&gt;</span>
+   <span class="nt">&lt;/ObjectComplementOf&gt;</span>
+<span class="nt">&lt;/SubClassOf&gt;</span>
+</pre></div>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -884,42 +869,30 @@ subsumption axioms.</p>
 <ul class="simple">
 <li><p>Symmetry, e.g.:</p></li>
 </ul>
-<div class="txt-cnl docutils container">
-<p>X is-friend-of Y if-and-only-if Y is-friend-of X.</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;EquivalentObjectProperties&gt;
-   &lt;ObjectProperty <strong>IRI</strong>=<strong>“isFriendOf”</strong> /&gt;
-   &lt;ObjectInverseOf&gt;
-       &lt;ObjectProperty <strong>IRI</strong>=<strong>“isFriendOf”</strong> /&gt;
-   &lt;/ObjectInverseOf&gt;
-&lt;/EquivalentObjectProperties&gt;</p>
+<pre class="literal-block"><span class="blue">X</span> is-friend-of <span class="blue">Y if-and-only-if Y</span> is-friend-of <span class="blue">X</span>.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;EquivalentObjectProperties&gt;</span>
+   <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;isFriendOf&quot;</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;ObjectInverseOf&gt;</span>
+             <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;isFriendOf&quot;</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;/ObjectInverseOf&gt;</span>
+<span class="nt">&lt;/EquivalentObjectProperties&gt;</span>
+</pre></div>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>It is possible to enter any complex role expression using something
-that, e.g.:</p>
-<div class="line-block">
-<div class="line"><a class="reference internal" href="Grammar_files/image003.png"><img alt="image12" src="Grammar_files/image003.png" style="width: 248px; height: 90px;" /></a></div>
-<div class="line">Fig 3. A complex role expression.</div>
-</div>
+<p>It is possible to enter any complex role expression using <span class="blue">something
+that</span>, e.g.:</p>
+<a class="reference internal image-reference" href="_images/image003.png"><img alt="Fig 3. A complex role expression." class="align-center" src="_images/image003.png" style="width: 200px;" /></a>
 <p>Properties and relationships between roles in terms of expressiveness of
 OWL2 can be utter as the following rule: If X has something that has Y
 then X has Y.</p>
-<div class="txt-cnl docutils container">
-<p>Every-single-thing is eaten by an animal.</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;SubClassOf&gt;
-   &lt;Class <strong>abbreviatedIRI</strong>=<strong>“owl:Thing”</strong> /&gt;
-   &lt;ObjectSomeValuesFrom&gt;
-       &lt;ObjectInverseOf&gt;
-           &lt;ObjectProperty <strong>IRI</strong>=<strong>“eats”</strong> /&gt;
-       &lt;/ObjectInverseOf&gt;
-       &lt;Class <strong>IRI</strong>=<strong>“Animal”</strong> /&gt;
-   &lt;/ObjectSomeValuesFrom&gt;
-&lt;/SubClassOf&gt;</p>
+<pre class="literal-block"><span class="blue">If X</span> is-proper-part-of <span class="blue">Y then X</span> is-part-of <span class="blue">Y</span>.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;SubObjectPropertyOf&gt;</span>
+        <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;isProperPartOf&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;isPartOf&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/SubObjectPropertyOf&gt;</span>
+</pre></div>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -927,18 +900,13 @@ then X has Y.</p>
 </div>
 <div class="section" id="role-equivalence">
 <h3>Role Equivalence<a class="headerlink" href="#role-equivalence" title="Permalink to this headline">¶</a></h3>
-<p>Equivalent roles are defined with the use of if-and-only-if keyword.</p>
-<div class="txt-cnl docutils container">
-<p>X is-close-to Y if-and-only-if X is-near-to Y.</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;EquivalentObjectProperties&gt;
-   &lt;ObjectProperty <strong>IRI</strong>=<strong>“isCloseTo”</strong> /&gt;
-   &lt;ObjectProperty <strong>IRI</strong>=<strong>“isNearTo”</strong> /&gt;
-&lt;/EquivalentObjectProperties&gt;</p>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
+<p>Equivalent roles are defined with the use of <span class="blue">if-and-only-if</span> keyword.</p>
+<pre class="literal-block"><span class="blue">X</span> is-close-to Y <span class="blue">if-and-only-if X</span> is-near-to <span class="blue">Y</span>.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;EquivalentObjectProperties&gt;</span>
+   <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;isCloseTo&quot;</span> <span class="nt">/&gt;</span>
+         <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;isNearTo&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/EquivalentObjectProperties&gt;</span>
+</pre></div>
 </div>
 <p>The definition of equivalence is useful. For example, a single sentence
 of role equivalence is semantically identical with two sentences of role
@@ -946,7 +914,7 @@ inversion.</p>
 <div class="line-block">
 <div class="line">Example)</div>
 </div>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-center">
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -959,51 +927,39 @@ inversion.</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>X is-type-of Y
-if-and-only-if Y
-has-type-that-is X.</p></td>
+<tr class="row-even"><td><p><span class="blue">X</span> is-type-of <span class="blue">Y if-and-only-if Y</span> has-type-that-is <span class="blue">X</span>.</p></td>
 <td></td>
-<td><p>If X is-type-of Y
-then Y
-has-type-that-is X.
-If x has-type-that-is
-Y then Y is-type-of
-X.</p></td>
+<td><div class="line-block">
+<div class="line"><span class="blue">If X</span> is-type-of <span class="blue">Y then Y</span> has-type-that-is <span class="blue">X</span>.</div>
+<div class="line"><span class="blue">If X</span> has-type-that-is <span class="blue">Y then Y</span> is-type-of <span class="blue">X</span>.</div>
+</div>
+</td>
 </tr>
-<tr class="row-odd"><td><p>&lt;Equiva
-lentObjectProperties&gt;
-  &lt;ObjectProperty
-IRI=”isTypeOf” /&gt;
-  &lt;ObjectInverseOf&gt;
-     &lt;ObjectProperty
-IRI=”hasTypeThatIs”
-/&gt;
-  &lt;/ObjectInverseOf&gt;
-&lt;/Equiva
-lentObjectProperties&gt;</p></td>
+<tr class="row-odd"><td><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;EquivalentObjectProperties&gt;</span>
+    <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;isTypeOf&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;ObjectInverseOf&gt;</span>
+        <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;hasTypeThatIs&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/ObjectInverseOf&gt;</span>
+<span class="nt">&lt;/EquivalentObjectProperties&gt;</span>
+</pre></div>
+</div>
+</td>
 <td></td>
-<td><p>&lt;SubObjectPropertyOf&gt;
-  &lt;ObjectProperty
-IRI=“isTypeOf” /&gt;
-  &lt;ObjectInverseOf&gt;
-     &lt;ObjectProperty
-IR
-I=“hasTypeThatIs”
-/&gt;
-  &lt;/ObjectInverseOf&gt;
-&lt;
-/SubObjectPropertyOf&gt;
-&lt;SubObjectPropertyOf&gt;
-  &lt;ObjectProperty
-IR
-I=“hasTypeThatIs”
-/&gt;
-  &lt;ObjectInverseOf&gt;
-     &lt;ObjectProperty
-IRI=“isTypeOf” /&gt;
-  &lt;/ObjectInverseOf&gt;
-&lt;
-/SubObjectPropertyOf&gt;</p></td>
+<td><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;SubObjectPropertyOf&gt;</span>
+    <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;isTypeOf&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;ObjectInverseOf&gt;</span>
+            <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;hasTypeThatIs&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/ObjectInverseOf&gt;</span>
+<span class="nt">&lt;/SubObjectPropertyOf&gt;</span>
+<span class="nt">&lt;SubObjectPropertyOf&gt;</span>
+    <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;hasTypeThatIs&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;ObjectInverseOf&gt;</span>
+        <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;isTypeOf&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/ObjectInverseOf&gt;</span>
+<span class="nt">&lt;/SubObjectPropertyOf&gt;</span>
+</pre></div>
+</div>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1014,361 +970,349 @@ IRI=“isTypeOf” /&gt;
 <div class="section" id="disjoint-roles">
 <h3>Disjoint Roles<a class="headerlink" href="#disjoint-roles" title="Permalink to this headline">¶</a></h3>
 <p>Disjoint roles are opposite to equivalent.</p>
-<div class="txt-cnl docutils container">
-<p>If X loves Y then X does-not hate Y.</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;DisjointObjectProperties&gt;
-   &lt;ObjectProperty <strong>IRI</strong>=<strong>“hates”</strong> /&gt;
-   &lt;ObjectProperty <strong>IRI</strong>=<strong>“loves”</strong> /&gt;
-&lt;/DisjointObjectProperties&gt;</p>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
+<pre class="literal-block"><span class="blue">If X</span> loves <span class="blue">Y then X does-not</span> hate <span class="blue">Y</span>.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;DisjointObjectProperties&gt;</span>
+   <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;hates&quot;</span> <span class="nt">/&gt;</span>
+         <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;loves&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/DisjointObjectProperties&gt;</span>
+</pre></div>
 </div>
 </div>
 <div class="section" id="ranges-and-domains">
 <h3>Ranges and Domains<a class="headerlink" href="#ranges-and-domains" title="Permalink to this headline">¶</a></h3>
 <p>It is possible to describe the role range.</p>
-<div class="txt-cnl docutils container">
-<p>Every-single-thing eats nothing-but thing that is an animal and-or is
-a plant and-or is-part-of an animal and-or is-part-of a plant.</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;SubClassOf&gt;
-   &lt;Class <strong>abbreviatedIRI</strong>=<strong>“owl:Thing”</strong> /&gt;
-   &lt;ObjectAllValuesFrom&gt;
-       &lt;ObjectProperty <strong>IRI</strong>=<strong>“eats”</strong> /&gt;
-       &lt;ObjectUnionOf&gt;
-           &lt;Class <strong>IRI</strong>=<strong>“Animal”</strong> /&gt;
-           &lt;Class <strong>IRI</strong>=<strong>“Plant”</strong> /&gt;
-           &lt;ObjectSomeValuesFrom&gt;
-               &lt;ObjectProperty <strong>IRI</strong>=<strong>“isPartOf”</strong> /&gt;
-               &lt;Class <strong>IRI</strong>=<strong>“Animal”</strong> /&gt;
-           &lt;/ObjectSomeValuesFrom&gt;
-           &lt;ObjectSomeValuesFrom&gt;
-               &lt;ObjectProperty <strong>IRI</strong>=<strong>“isPartOf”</strong> /&gt;
-               &lt;Class <strong>IRI</strong>=<strong>“Plant”</strong> /&gt;
-           &lt;/ObjectSomeValuesFrom&gt;
-        &lt;/ObjectUnionOf&gt;
-   &lt;/ObjectAllValuesFrom&gt;
-&lt;/SubClassOf&gt;</p>
+<pre class="literal-block"><span class="blue">Every-single-thing</span> eats <span class="blue">nothing-but thing that is an</span> animal <span class="blue">and-or is a</span> plant <span class="blue">and-or</span> is-part-of <span class="blue">an</span> animal <span class="blue">and-or</span> is-part-of <span class="blue">a</span> plant.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;SubClassOf&gt;</span>
+   <span class="nt">&lt;Class</span> <span class="na">abbreviatedIRI=</span><span class="s">&quot;owl:Thing&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;ObjectAllValuesFrom&gt;</span>
+                <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;eats&quot;</span> <span class="nt">/&gt;</span>
+       <span class="nt">&lt;ObjectUnionOf&gt;</span>
+                <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Animal&quot;</span> <span class="nt">/&gt;</span>
+           <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Plant&quot;</span> <span class="nt">/&gt;</span>
+              <span class="nt">&lt;ObjectSomeValuesFrom&gt;</span>
+               <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;isPartOf&quot;</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Animal&quot;</span> <span class="nt">/&gt;</span>
+           <span class="nt">&lt;/ObjectSomeValuesFrom&gt;</span>
+           <span class="nt">&lt;ObjectSomeValuesFrom&gt;</span>
+               <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;isPartOf&quot;</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Plant&quot;</span> <span class="nt">/&gt;</span>
+           <span class="nt">&lt;/ObjectSomeValuesFrom&gt;</span>
+        <span class="nt">&lt;/ObjectUnionOf&gt;</span>
+      <span class="nt">&lt;/ObjectAllValuesFrom&gt;</span>
+<span class="nt">&lt;/SubClassOf&gt;</span>
+</pre></div>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 <p>Role domain can be expressed with the use of a reverse role.</p>
-<div class="txt-cnl docutils container">
-<p>Every-single-thing is eaten by an animal.</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;SubClassOf&gt;
-   &lt;Class <strong>abbreviatedIRI</strong>=<strong>“owl:Thing”</strong> /&gt;
-   &lt;ObjectSomeValuesFrom&gt;
-       &lt;ObjectInverseOf&gt;
-           &lt;ObjectProperty <strong>IRI</strong>=<strong>“eats”</strong> /&gt;
-       &lt;/ObjectInverseOf&gt;
-       &lt;Class <strong>IRI</strong>=<strong>“Animal”</strong> /&gt;
-   &lt;/ObjectSomeValuesFrom&gt;
-&lt;/SubClassOf&gt;</p>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
+<pre class="literal-block"><span class="blue">Every-single-thing is</span> eaten <span class="blue">by an</span> animal.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;SubClassOf&gt;</span>
+   <span class="nt">&lt;Class</span> <span class="na">abbreviatedIRI=</span><span class="s">&quot;owl:Thing&quot;</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;ObjectSomeValuesFrom&gt;</span>
+       <span class="nt">&lt;ObjectInverseOf&gt;</span>
+                 <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;eats&quot;</span> <span class="nt">/&gt;</span>
+       <span class="nt">&lt;/ObjectInverseOf&gt;</span>
+       <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Animal&quot;</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;/ObjectSomeValuesFrom&gt;</span>
+<span class="nt">&lt;/SubClassOf&gt;</span>
+</pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="data-attributes-properties-specifications">
-<h2>7. Data Attributes (Properties) Specifications<a class="headerlink" href="#data-attributes-properties-specifications" title="Permalink to this headline">¶</a></h2>
+<h2>Data Attributes (Properties) Specifications<a class="headerlink" href="#data-attributes-properties-specifications" title="Permalink to this headline">¶</a></h2>
 <p>To specify a <strong>datatype</strong> of data property, you can do it as follows.</p>
-<p>Keywords</p>
-<p>Meaning</p>
-<p>(some value)</p>
-<p>equivalent to rdfs:Literal. This can take any data type but without
-knowing what type this data is.</p>
-<p>(some integer value)</p>
-<p>equivalent to xsd:int.</p>
-<p>(some real value)</p>
-<p>equivalent to xsd:double.</p>
-<p>(some boolean value)</p>
-<p>equivalent to xsd:boolean.</p>
-<p>(some string value)</p>
-<p>equivalent to xsd:string.</p>
-<p>(some datetime value)</p>
-<p>equivalent to xsd:datetime.</p>
-<p>(some duration value)</p>
-<p>equivalent to xsd:duration. (currently only swrlb:dayTimeDuration is
-supported)</p>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Keywords</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="blue">(some value)</span></p></td>
+<td><p>equivalent to rdfs:Literal. This can take any data type but without knowing what type this data is.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="blue">(some integer value)</span></p></td>
+<td><p>equivalent to xsd:int.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="blue">(some real value)</span></p></td>
+<td><p>equivalent to xsd:double.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="blue">(some boolean value)</span></p></td>
+<td><p>equivalent to xsd:boolean.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="blue">(some string value)</span></p></td>
+<td><p>equivalent to xsd:string.</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="blue">(some datetime value)</span></p></td>
+<td><p>equivalent to xsd:datetime.</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="blue">(some duration value)</span></p></td>
+<td><p>equivalent to xsd:duration. (currently only swrlb:dayTimeDuration is supported)</p></td>
+</tr>
+</tbody>
+</table>
 <div class="line-block">
-<div class="line"><br /></div>
 <div class="line">Example 1)</div>
 </div>
-<div class="txt-cnl docutils container">
-<p>Every person has-name nothing-but (some string value).</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;SubClassOf&gt;
-   &lt;Class <strong>IRI</strong>=<strong>“Person”</strong> /&gt;
-   &lt;DataAllValuesFrom&gt;
-       &lt;DataProperty <strong>IRI</strong>=<strong>“hasName”</strong> /&gt;
-       &lt;DataType <strong>abbreviatedIRI</strong>=<strong>“xsd:string”</strong> /&gt;
-   &lt;/DataAllValuesFrom&gt;
-&lt;/SubClassOf&gt;</p>
+<pre class="literal-block"><span class="blue">Every</span> person has-name <span class="blue">nothing-but (some string value)</span>.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;SubClassOf&gt;</span>
+   <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Person&quot;</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;DataAllValuesFrom&gt;</span>
+             <span class="nt">&lt;DataProperty</span> <span class="na">IRI=</span><span class="s">&quot;hasName&quot;</span> <span class="nt">/&gt;</span>
+       <span class="nt">&lt;DataType</span> <span class="na">abbreviatedIRI=</span><span class="s">&quot;xsd:string&quot;</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;/DataAllValuesFrom&gt;</span>
+<span class="nt">&lt;/SubClassOf&gt;</span>
+</pre></div>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line">Example 2)</div>
 </div>
-<div class="txt-cnl docutils container">
-<p>Every person has-age nothing-but (some integer value).</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;SubClassOf&gt;
-   &lt;Class <strong>IRI</strong>=<strong>“Person”</strong> /&gt;
-   &lt;DataAllValuesFrom&gt;
-       &lt;DataProperty <strong>IRI</strong>=<strong>“hasAge”</strong> /&gt;
-       &lt;DataType <strong>abbreviatedIRI</strong>=<strong>“xsd:integer”</strong> /&gt;
-   &lt;/DataAllValuesFrom&gt;
-&lt;/SubClassOf&gt;</p>
+<pre class="literal-block"><span class="blue">Every</span> person has-age <span class="blue">nothing-but (some integer value)</span>.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;SubClassOf&gt;</span>
+   <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Person&quot;</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;DataAllValuesFrom&gt;</span>
+             <span class="nt">&lt;DataProperty</span> <span class="na">IRI=</span><span class="s">&quot;hasAge&quot;</span> <span class="nt">/&gt;</span>
+       <span class="nt">&lt;DataType</span> <span class="na">abbreviatedIRI=</span><span class="s">&quot;xsd:integer&quot;</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;/DataAllValuesFrom&gt;</span>
+<span class="nt">&lt;/SubClassOf&gt;</span>
+</pre></div>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line">Example 3)</div>
 </div>
-<div class="txt-cnl docutils container">
-<p>Every person has-spouse nothing-but (some boolean value).</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;SubClassOf&gt;
-   &lt;Class <strong>IRI</strong>=<strong>“Person”</strong> /&gt;
-   &lt;DataAllValuesFrom&gt;
-       &lt;DataProperty <strong>IRI</strong>=<strong>“hasSpouse”</strong> /&gt;
-       &lt;DataType <strong>abbreviatedIRI</strong>=<strong>“xsd:boolean”</strong> /&gt;
-   &lt;/DataAllValuesFrom&gt;
-&lt;/SubClassOf&gt;</p>
+<pre class="literal-block"><span class="blue">Every</span> person has-spouse <span class="blue">nothing-but (some boolean value)</span>.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;SubClassOf&gt;</span>
+   <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Person&quot;</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;DataAllValuesFrom&gt;</span>
+             <span class="nt">&lt;DataProperty</span> <span class="na">IRI=</span><span class="s">&quot;hasSpouse&quot;</span> <span class="nt">/&gt;</span>
+       <span class="nt">&lt;DataType</span> <span class="na">abbreviatedIRI=</span><span class="s">&quot;xsd:boolean&quot;</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;/DataAllValuesFrom&gt;</span>
+<span class="nt">&lt;/SubClassOf&gt;</span>
+</pre></div>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line">Example 4)</div>
 </div>
-<div class="txt-cnl docutils container">
-<p>Every person has-birthday equal-to (some datetime value).
-John is a person and has-birthday equal-to 2000-01-03.
-Mary is a person and has-birthday equal-to 2000-03-10T09:32:33.</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;SubClassOf&gt;
-   &lt;Class <strong>IRI</strong>=<strong>“Person”</strong> /&gt;
-   &lt;DataAllValuesFrom&gt;
-       &lt;DataProperty <strong>IRI</strong>=<strong>“hasBirthday”</strong> /&gt;
-       &lt;DataType <strong>abbreviatedIRI</strong>=<strong>“xsd:dateTime”</strong> /&gt;
-   &lt;/DataAllValuesFrom&gt;
-&lt;/SubClassOf&gt;
-&lt;ClassAssertion&gt;
-   &lt;ObjectIntersectionOf&gt;
-      &lt;Class <strong>IRI</strong>=<strong>“Person”</strong> /&gt;
-      &lt;DataSomeValuesFrom&gt;
-            &lt;DataProperty <strong>IRI</strong>=<strong>“hasBirthday”</strong> /&gt;
-            &lt;DataOneOf&gt;
-                &lt;Literal
-datatypeIRI=”<a class="reference external" href="http://www.w3.org/2001/XMLSchema#dateTime">http://www.w3.org/2001/XMLSchema#dateTime</a>”&gt;2000-01-03T00:00:00&lt;/Literal&gt;
-            &lt;/DataOneOf&gt;
-      &lt;/DataSomeValuesFrom&gt;
-    &lt;/ObjectIntersectionOf&gt;
-    &lt;NamedIndividual <strong>IRI</strong>=<strong>“John”</strong>/&gt;
-&lt;/ClassAssertion&gt;
-&lt;ClassAssertion&gt;
-    &lt;ObjectIntersectionOf&gt;
-      &lt;Class <strong>IRI</strong>=<strong>“Person”</strong> /&gt;
-      &lt;DataSomeValuesFrom&gt;
-            &lt;DataProperty <strong>IRI</strong>=<strong>“hasBirthday”</strong> /&gt;
-            &lt;DataOneOf&gt;
-                &lt;Literal
-datatypeIRI=”<a class="reference external" href="http://www.w3.org/2001/XMLSchema#dateTime">http://www.w3.org/2001/XMLSchema#dateTime</a>”&gt;2000-03-10T09:32:33&lt;/Literal&gt;
-            &lt;/DataOneOf&gt;
-      &lt;/DataSomeValuesFrom&gt;
-    &lt;/ObjectIntersectionOf&gt;
-    &lt;NamedIndividual <strong>IRI</strong>=<strong>“Mary”</strong> /&gt;
-&lt;/ClassAssertion&gt;</p>
+<pre class="literal-block"><span class="blue">Every</span> person has-birthday <span class="blue">equal-to (some datetime value)</span>.
+John <span class="blue">is a</span> person <span class="blue">and</span> has-birthday <span class="blue">equal-to</span> 2000-01-03.
+Mary <span class="blue">is a</span> person <span class="blue">and</span> has-birthday <span class="blue">equal-to</span> 2000-03-10T09:32:33.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;SubClassOf&gt;</span>
+   <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Person&quot;</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;DataAllValuesFrom&gt;</span>
+             <span class="nt">&lt;DataProperty</span> <span class="na">IRI=</span><span class="s">&quot;hasBirthday&quot;</span> <span class="nt">/&gt;</span>
+       <span class="nt">&lt;DataType</span> <span class="na">abbreviatedIRI=</span><span class="s">&quot;xsd:dateTime&quot;</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;/DataAllValuesFrom&gt;</span>
+<span class="nt">&lt;/SubClassOf&gt;</span>
+
+<span class="nt">&lt;ClassAssertion&gt;</span>
+   <span class="nt">&lt;ObjectIntersectionOf&gt;</span>
+      <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Person&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;DataSomeValuesFrom&gt;</span>
+            <span class="nt">&lt;DataProperty</span> <span class="na">IRI=</span><span class="s">&quot;hasBirthday&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;DataOneOf&gt;</span>
+                <span class="nt">&lt;Literal</span> <span class="na">datatypeIRI=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema#dateTime&quot;</span><span class="nt">&gt;</span>2000-01-03T00:00:00<span class="nt">&lt;/Literal&gt;</span>
+            <span class="nt">&lt;/DataOneOf&gt;</span>
+      <span class="nt">&lt;/DataSomeValuesFrom&gt;</span>
+    <span class="nt">&lt;/ObjectIntersectionOf&gt;</span>
+    <span class="nt">&lt;NamedIndividual</span> <span class="na">IRI=</span><span class="s">&quot;John&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/ClassAssertion&gt;</span>
+
+<span class="nt">&lt;ClassAssertion&gt;</span>
+    <span class="nt">&lt;ObjectIntersectionOf&gt;</span>
+      <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Person&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;DataSomeValuesFrom&gt;</span>
+            <span class="nt">&lt;DataProperty</span> <span class="na">IRI=</span><span class="s">&quot;hasBirthday&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;DataOneOf&gt;</span>
+                <span class="nt">&lt;Literal</span> <span class="na">datatypeIRI=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema#dateTime&quot;</span><span class="nt">&gt;</span>2000-03-10T09:32:33<span class="nt">&lt;/Literal&gt;</span>
+            <span class="nt">&lt;/DataOneOf&gt;</span>
+      <span class="nt">&lt;/DataSomeValuesFrom&gt;</span>
+    <span class="nt">&lt;/ObjectIntersectionOf&gt;</span>
+    <span class="nt">&lt;NamedIndividual</span> <span class="na">IRI=</span><span class="s">&quot;Mary&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/ClassAssertion&gt;</span>
+</pre></div>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>Example 5) You can read the duration value as following : P  (days)DT
-(hours)H  (minutes)M (seconds)S.</p>
-<div class="txt-cnl docutils container">
-<p>Every cat has-age equal-to (some duration value).
-Tom has-age equal-to P365DT13H4M2.54S.</p>
+<div class="line-block">
+<div class="line">Example 5)</div>
+<div class="line">You can read the duration value as following : P (days)DT (hours)H (minutes)M (seconds)S.</div>
 </div>
-<div class="text-xml docutils container">
-<p>&lt;SubClassOf&gt;
-   &lt;Class <strong>IRI</strong>=<strong>“Person”</strong> /&gt;
-   &lt;DataAllValuesFrom&gt;
-       &lt;DataProperty <strong>IRI</strong>=<strong>“hasAge”</strong> /&gt;
-       &lt;DataType <strong>abbreviatedIRI</strong>=<strong>“rdf:PlainLiteral”</strong> /&gt;
-   &lt;/DataAllValuesFrom&gt;
-&lt;/SubClassOf&gt;
-&lt;DataPropertyAssertion&gt;
-    &lt;DataProperty <strong>IRI</strong>=<strong>“hasAge”</strong> /&gt;
-    &lt;NamedIndividual <strong>IRI</strong>=<strong>“Tom”</strong>/&gt;
-    &lt;Literal
-datatypeIRI=”<a class="reference external" href="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</a>”&gt;P365DT13H4M2.54S^^http://www.w3.org/2001/XMLSchema#dayTimeDuration&lt;/Literal&gt;
-&lt;/DataPropertyAssertion&gt;</p>
-<p>&lt;/ClassAssertion&gt;</p>
+<pre class="literal-block"><span class="blue">Every</span> cat has-age <span class="blue">equal-to (some duration value)</span>.
+Tom has-age <span class="blue">equal-to</span> P365DT13H4M2.54S.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;SubClassOf&gt;</span>
+   <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Person&quot;</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;DataAllValuesFrom&gt;</span>
+             <span class="nt">&lt;DataProperty</span> <span class="na">IRI=</span><span class="s">&quot;hasAge&quot;</span> <span class="nt">/&gt;</span>
+       <span class="nt">&lt;DataType</span> <span class="na">abbreviatedIRI=</span><span class="s">&quot;rdf:PlainLiteral&quot;</span> <span class="nt">/&gt;</span>
+   <span class="nt">&lt;/DataAllValuesFrom&gt;</span>
+<span class="nt">&lt;/SubClassOf&gt;</span>
+
+<span class="nt">&lt;DataPropertyAssertion&gt;</span>
+    <span class="nt">&lt;DataProperty</span> <span class="na">IRI=</span><span class="s">&quot;hasAge&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;NamedIndividual</span> <span class="na">IRI=</span><span class="s">&quot;Tom&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;Literal</span> <span class="na">datatypeIRI=</span><span class="s">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral&quot;</span><span class="nt">&gt;</span>P365DT13H4M2.54S^^http://www.w3.org/2001/XMLSchema#dayTimeDuration<span class="nt">&lt;/Literal&gt;</span>
+<span class="nt">&lt;/DataPropertyAssertion&gt;</span>
+
+<span class="nt">&lt;/ClassAssertion&gt;</span>
+</pre></div>
 </div>
 <p>To assign a value within a certain ranges of data attributes, you can
 specify it with <strong>data property axioms</strong> as follows.</p>
 <p>Example 1)</p>
-<div class="txt-cnl docutils container">
-<p>John has-name equal-to ‘John’.</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;ClassAssertion&gt;
-    &lt;DataSomeValuesFrom&gt;
-       &lt;DataProperty <strong>IRI</strong>=<strong>“hasName”</strong> /&gt;
-       &lt;DataOneOf&gt;
-           &lt;Literal
-<strong>datatypeIRI</strong>=<strong>“http://www.w3.org/2001/XMLSchema#string”</strong>&gt;<strong>John</strong>&lt;/Literal&gt;
-       &lt;/DataOneOf&gt;
-    &lt;/DataSomeValuesFrom&gt;
-    &lt;NamedIndividual <strong>=”John”</strong> /&gt;
-&lt;/ClassAssertion&gt;</p>
+<pre class="literal-block">John has-name <span class="blue">equal-to</span> 'John'.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ClassAssertion&gt;</span>
+     <span class="nt">&lt;DataSomeValuesFrom&gt;</span>
+        <span class="nt">&lt;DataProperty</span> <span class="na">IRI=</span><span class="s">&quot;hasName&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;DataOneOf&gt;</span>
+            <span class="nt">&lt;Literal</span> <span class="na">datatypeIRI=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema#string&quot;</span><span class="nt">&gt;</span>John<span class="nt">&lt;/Literal&gt;</span>
+        <span class="nt">&lt;/DataOneOf&gt;</span>
+     <span class="nt">&lt;/DataSomeValuesFrom&gt;</span>
+    <span class="nt">&lt;NamedIndividual</span> <span class="na">IRI=</span><span class="s">&quot;John&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/ClassAssertion&gt;</span>
+</pre></div>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line">Example 2)</div>
 </div>
-<div class="txt-cnl docutils container">
-<p>John has-age lower-or-equal-to 10.</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;ClassAssertion&gt;
-    &lt;DataSomeValuesFrom&gt;
-       &lt;DataProperty <strong>IRI</strong>=<strong>“hasAge”</strong> /&gt;
-       &lt;DatatypeRestriction&gt;
-           &lt;Datatype <strong>abbreviatedIRI</strong>=<strong>“xsd:integer”</strong> /&gt;
-           &lt;FacetRestriction
-<strong>facet</strong>=<strong>“http://www.w3.org/2001/XMLSchema#maxInclusive”</strong>&gt;
-              &lt;Literal
-<strong>datatypeIRI</strong>=<strong>“http://www.w3.org/2001/XMLSchema#integer”</strong>&gt;<strong>10</strong>&lt;/Literal&gt;
-           &lt;/FacetRestriction&gt;
-       &lt;/DatatypeRestriction&gt;
-    &lt;/DataSomeValuesFrom&gt;
-    &lt;NamedIndividual <strong>IRI=”John”</strong> /&gt;
-&lt;/ClassAssertion&gt;</p>
+<pre class="literal-block">John has-age <span class="blue">lower-or-equal-to</span> 10.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ClassAssertion&gt;</span>
+    <span class="nt">&lt;DataSomeValuesFrom&gt;</span>
+             <span class="nt">&lt;DataProperty</span> <span class="na">IRI=</span><span class="s">&quot;hasAge&quot;</span> <span class="nt">/&gt;</span>
+             <span class="nt">&lt;DatatypeRestriction&gt;</span>
+                    <span class="nt">&lt;Datatype</span> <span class="na">abbreviatedIRI=</span><span class="s">&quot;xsd:integer&quot;</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;FacetRestriction</span> <span class="na">facet=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema#maxInclusive&quot;</span><span class="nt">&gt;</span>
+                         <span class="nt">&lt;Literal</span> <span class="na">datatypeIRI=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema#integer&quot;</span><span class="nt">&gt;</span>10<span class="nt">&lt;/Literal&gt;</span>
+                    <span class="nt">&lt;/FacetRestriction&gt;</span>
+                <span class="nt">&lt;/DatatypeRestriction&gt;</span>
+       <span class="nt">&lt;/DataSomeValuesFrom&gt;</span>
+    <span class="nt">&lt;NamedIndividual</span> <span class="na">IRI=</span><span class="s">&quot;John&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/ClassAssertion&gt;</span>
+</pre></div>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line">Example 3)</div>
 </div>
-<div class="txt-cnl docutils container">
-<p>This-Building has-residents greater-than 50.</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;ClassAssertion&gt;
-    &lt;DataSomeValuesFrom&gt;
-       &lt;DataProperty <strong>IRI</strong>=<strong>“hasResidents”</strong> /&gt;
-       &lt;DatatypeRestriction&gt;
-           &lt;Datatype <strong>abbreviatedIRI</strong>=<strong>“xsd:integer”</strong> /&gt;
-           &lt;FacetRestriction
-<strong>facet</strong>=<strong>“http://www.w3.org/2001/XMLSchema#minExclusive”</strong>&gt;
-              &lt;Literal
-<strong>datatypeIRI</strong>=<strong>“http://www.w3.org/2001/XMLSchema#integer”</strong>&gt;5<strong>0</strong>&lt;/Literal&gt;
-           &lt;/FacetRestriction&gt;
-       &lt;/DatatypeRestriction&gt;
-    &lt;/DataSomeValuesFrom&gt;
-    &lt;NamedIndividual <strong>IRI=”ThisBuilding”</strong> /&gt;
-&lt;/ClassAssertion&gt;</p>
+<pre class="literal-block">This-Building has-residents <span class="blue">greater-than</span> 50.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ClassAssertion&gt;</span>
+    <span class="nt">&lt;DataSomeValuesFrom&gt;</span>
+             <span class="nt">&lt;DataProperty</span> <span class="na">IRI=</span><span class="s">&quot;hasResidents&quot;</span> <span class="nt">/&gt;</span>
+             <span class="nt">&lt;DatatypeRestriction&gt;</span>
+                    <span class="nt">&lt;Datatype</span> <span class="na">abbreviatedIRI=</span><span class="s">&quot;xsd:integer&quot;</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;FacetRestriction</span> <span class="na">facet=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema#minExclusive&quot;</span><span class="nt">&gt;</span>
+                         <span class="nt">&lt;Literal</span> <span class="na">datatypeIRI=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema#integer&quot;</span><span class="nt">&gt;</span>50<span class="nt">&lt;/Literal&gt;</span>
+                    <span class="nt">&lt;/FacetRestriction&gt;</span>
+                <span class="nt">&lt;/DatatypeRestriction&gt;</span>
+       <span class="nt">&lt;/DataSomeValuesFrom&gt;</span>
+    <span class="nt">&lt;NamedIndividual</span> <span class="na">IRI=</span><span class="s">&quot;ThisBuilding&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/ClassAssertion&gt;</span>
+</pre></div>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line">Example 4)</div>
 </div>
-<div class="txt-cnl docutils container">
-<p>Mary is-year-old different-from 30.</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;ClassAssertion&gt;
-    &lt;DataSomeValuesFrom&gt;
-       &lt;DataProperty <strong>IRI</strong>=<strong>“isYearOld”</strong> /&gt;
-       &lt;DatatypeRestriction&gt;
-           &lt;Datatype <strong>abbreviatedIRI</strong>=<strong>“xsd:integer”</strong> /&gt;
-           &lt;FacetRestriction
-<strong>facet</strong>=<strong>“http://www.w3.org/2001/XMLSchema#minExclusive”</strong>&gt;
-              &lt;Literal
-<strong>datatypeIRI</strong>=<strong>“http://www.w3.org/2001/XMLSchema#integer”</strong>&gt;<strong>30</strong>&lt;/Literal&gt;
-           &lt;/FacetRestriction&gt;
-           &lt;FacetRestriction
-<strong>facet</strong>=<strong>“http://www.w3.org/2001/XMLSchema#maxExclusive”</strong>&gt;
-              &lt;Literal
-<strong>datatypeIRI</strong>=<strong>“http://www.w3.org/2001/XMLSchema#integer”</strong>&gt;<strong>30</strong>&lt;/Literal&gt;
-           &lt;/FacetRestriction&gt;
-       &lt;/DatatypeRestriction&gt;
-    &lt;/DataSomeValuesFrom&gt;
-    &lt;NamedIndividual <strong>IRI=”Mary”</strong> /&gt;
-&lt;/ClassAssertion&gt;</p>
+<pre class="literal-block">Mary is-year-old <span class="blue">different-from</span> 30.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ClassAssertion&gt;</span>
+    <span class="nt">&lt;DataSomeValuesFrom&gt;</span>
+             <span class="nt">&lt;DataProperty</span> <span class="na">IRI=</span><span class="s">&quot;isYearOld&quot;</span> <span class="nt">/&gt;</span>
+             <span class="nt">&lt;DatatypeRestriction&gt;</span>
+                    <span class="nt">&lt;Datatype</span> <span class="na">abbreviatedIRI=</span><span class="s">&quot;xsd:integer&quot;</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;FacetRestriction</span> <span class="na">facet=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema#minExclusive&quot;</span><span class="nt">&gt;</span>
+                         <span class="nt">&lt;Literal</span> <span class="na">datatypeIRI=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema#integer&quot;</span><span class="nt">&gt;</span>30<span class="nt">&lt;/Literal&gt;</span>
+                    <span class="nt">&lt;/FacetRestriction&gt;</span>
+           <span class="nt">&lt;FacetRestriction</span> <span class="na">facet=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema#maxExclusive&quot;</span><span class="nt">&gt;</span>
+                         <span class="nt">&lt;Literal</span> <span class="na">datatypeIRI=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema#integer&quot;</span><span class="nt">&gt;</span>30<span class="nt">&lt;/Literal&gt;</span>
+                    <span class="nt">&lt;/FacetRestriction&gt;</span>
+                <span class="nt">&lt;/DatatypeRestriction&gt;</span>
+       <span class="nt">&lt;/DataSomeValuesFrom&gt;</span>
+    <span class="nt">&lt;NamedIndividual</span> <span class="na">IRI=</span><span class="s">&quot;Mary&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/ClassAssertion&gt;</span>
+</pre></div>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>To restrict the length of the data attribute,  you can use the keyword
-that-has-length .</p>
-<div class="txt-cnl docutils container">
-<p>Every cat has-name that-has-length lower-or-equal-to 10.</p>
+<p>To restrict the length of the data attribute, you can use the keyword
+<span class="blue">that-has-length</span>.</p>
+<pre class="literal-block"><span class="blue">Every</span> cat has-name <span class="blue">that-has-length lower-or-equal-to</span> 10.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;SubClassOf&gt;</span>
+    <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Cat&quot;</span> <span class="nt">/&gt;</span>
+       <span class="nt">&lt;DataSomeValuesFrom&gt;</span>
+        <span class="nt">&lt;DataProperty</span> <span class="na">IRI=</span><span class="s">&quot;hasName&quot;</span> <span class="nt">/&gt;</span>
+              <span class="nt">&lt;DatatypeRestriction&gt;</span>
+                     <span class="nt">&lt;Datatype</span> <span class="na">abbreviatedIRI=</span><span class="s">&quot;xsd:string&quot;</span> <span class="nt">/&gt;</span>
+                     <span class="nt">&lt;FacetRestriction</span> <span class="na">facet=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema#maxLength&quot;</span><span class="nt">&gt;</span>
+                          <span class="nt">&lt;Literal</span> <span class="na">datatypeIRI=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema#integer&quot;</span><span class="nt">&gt;</span>10<span class="nt">&lt;/Literal&gt;</span>
+                     <span class="nt">&lt;/FacetRestriction&gt;</span>
+                 <span class="nt">&lt;/DatatypeRestriction&gt;</span>
+    <span class="nt">&lt;/DataSomeValuesFrom&gt;</span>
+<span class="nt">&lt;/SubClassOf&gt;</span>
+</pre></div>
 </div>
-<div class="text-xml docutils container">
-<p>&lt;SubClassOf&gt;
-    &lt;Class <strong>IRI</strong>=<strong>“Cat”</strong> /&gt;
-    &lt;DataSomeValuesFrom&gt;
-        &lt;DataProperty <strong>IRI</strong>=<strong>“hasName”</strong> /&gt;
-        &lt;DatatypeRestriction&gt;
-            &lt;Datatype <strong>abbreviatedIRI</strong>=<strong>“xsd:string”</strong> /&gt;
-            &lt;FacetRestriction
-<strong>facet</strong>=<strong>“http://www.w3.org/2001/XMLSchema#maxLength”</strong>&gt;
-               &lt;Literal
-<strong>datatypeIRI</strong>=<strong>“http://www.w3.org/2001/XMLSchema#integer”</strong>&gt;<strong>10</strong>&lt;/Literal&gt;
-            &lt;/FacetRestriction&gt;
-        &lt;/DatatypeRestriction&gt;
-    &lt;/DataSomeValuesFrom&gt;
-&lt;/SubClassOf&gt;</p>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<p>Keywords</p>
-<p>Meaning</p>
-<p>greater-than</p>
-<p><strong>&lt;</strong></p>
-<p>maxExclusive</p>
-<p>lower-than</p>
-<p><strong>&gt;</strong></p>
-<p>minExclusive</p>
-<p>greater-or-equal-to</p>
-<p><strong>≤</strong></p>
-<p>maxInclusive</p>
-<p>lower-or-equal-to</p>
-<p><strong>≥</strong></p>
-<p>minInclusive</p>
-<p>different-from</p>
-<p><strong>≠</strong></p>
-<p>minExclusive &amp; maxExclusive</p>
-<p>equal-to</p>
-<p><strong>=</strong></p>
-<p>.</p>
-<div class="section" id="cardinality-restriction-1">
-<span id="id1"></span><h3>Cardinality Restriction<a class="headerlink" href="#cardinality-restriction-1" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given docutils align-center">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Keywords</p></th>
+<th class="head"><p>Meaning</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="blue">greater-than</span></p></td>
+<td><p>&lt;</p></td>
+<td><p>maxExclusive</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="blue">lower-than</span></p></td>
+<td><p>&gt;</p></td>
+<td><p>minExclusive</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="blue">greater-or-equal-to</span></p></td>
+<td><p>≤</p></td>
+<td><p>maxInclusive</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="blue">lower-or-equal-to</span></p></td>
+<td><p>≥</p></td>
+<td><p>minInclusive</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="blue">different-from</span></p></td>
+<td><p>≠</p></td>
+<td><p>minExclusive &amp; maxExclusive</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="blue">equal-to</span></p></td>
+<td><p>=</p></td>
+<td><p>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id1">
+<h3>Cardinality Restriction<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Cardinality restrictions can be applied to the number of data attributes
 that a concept or instance has.</p>
-<div class="txt-cnl docutils container">
-<p>Every cat has-name at-most one (some string value).</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;SubClassOf&gt;
-   &lt;Class <strong>IRI</strong>=<strong>“Cat”</strong> /&gt;
-   &lt;DataMaxCardinality cardinality=”1” &gt;
-       &lt;DataProperty <strong>IRI</strong>=<strong>“hasName”</strong>/&gt;
-       &lt;Datatype <strong>abbreviatedIRI</strong>=<strong>“xsd:string”</strong>&gt;
-   &lt;/DataMaxCardinality&gt;
-&lt;/SubClassOf&gt;</p>
+<pre class="literal-block"><span class="blue">Every</span> cat has-name <span class="blue">at-most</span> one <span class="blue">(some string value)</span>.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;SubClassOf&gt;</span>
+         <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Cat&quot;</span> <span class="nt">/&gt;</span>
+         <span class="nt">&lt;DataMaxCardinality</span> <span class="na">cardinality=</span><span class="s">&quot;1&quot;</span> <span class="nt">&gt;</span>
+                     <span class="nt">&lt;DataProperty</span> <span class="na">IRI=</span><span class="s">&quot;hasName&quot;</span><span class="nt">/&gt;</span>
+             <span class="nt">&lt;Datatype</span> <span class="na">abbreviatedIRI=</span><span class="s">&quot;xsd:string&quot;</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;/DataMaxCardinality&gt;</span>
+<span class="nt">&lt;/SubClassOf&gt;</span>
+</pre></div>
 </div>
 </div>
 <div class="section" id="user-defined-data-type">
@@ -1376,89 +1320,78 @@ that a concept or instance has.</p>
 <p>By combining with data property axioms, you can create <strong>user-defined
 data types</strong> as below.</p>
 <p>Here, lower-than-4-number is a data type that has value lower than 4.</p>
-<div class="txt-cnl docutils container">
-<p>Every cat has-size (some lower-than-4-number value).
-Every value-of lower-than-4-number is something lower-than 4.</p>
-</div>
-<div class="text-xml docutils container">
-<p>&lt;SubClassOf&gt;
-    &lt;Class <strong>IRI</strong>=<strong>“Cat”</strong> /&gt;
-    &lt;DataSomeValuesFrom&gt;
-        &lt;DataProperty <strong>IRI</strong>=<strong>“hasSize”</strong> /&gt;
-        &lt;Datatype <strong>IRI</strong>=<strong>“LowerThan4Number”</strong> /&gt;
-    &lt;/DataSomeValuesFrom&gt;
-&lt;/SubClassOf&gt;
-&lt;DatatypeDefinition&gt;
-    &lt;Datatype <strong>IRI</strong>=<strong>“LowerThan4Number”</strong> /&gt;
-    &lt;DatatypeRestriction&gt;
-        &lt;Datatype <strong>abbreviatedIRI</strong>=<strong>“xsd:integer”</strong> /&gt;
-        &lt;FacetRestriction
-<strong>facet</strong>=<strong>“http://www.w3.org/2001/XMLSchema#maxExclusive”</strong>&gt;
-            &lt;Literal
-<strong>datatypeIRI</strong>=<strong>“http://www.w3.org/2001/XMLSchema#integer”</strong>&gt;<strong>4</strong>&lt;/Literal&gt;
-        &lt;/FacetRestriction&gt;
-    &lt;/DatatypeRestriction&gt;
-&lt;/DatatypeDefinition&gt;</p>
+<pre class="literal-block"><span class="blue">Every</span> cat has-size (<span class="blue">some</span> lower-than-4-number <span class="blue">value</span>).
+ <span class="blue">Every value-of</span> lower-than-4-number <span class="blue">is something lower-than</span> 4.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;SubClassOf&gt;</span>
+    <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Cat&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;DataSomeValuesFrom&gt;</span>
+                 <span class="nt">&lt;DataProperty</span> <span class="na">IRI=</span><span class="s">&quot;hasSize&quot;</span> <span class="nt">/&gt;</span>
+             <span class="nt">&lt;Datatype</span> <span class="na">IRI=</span><span class="s">&quot;LowerThan4Number&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/DataSomeValuesFrom&gt;</span>
+<span class="nt">&lt;/SubClassOf&gt;</span>
+<span class="nt">&lt;DatatypeDefinition&gt;</span>
+    <span class="nt">&lt;Datatype</span> <span class="na">IRI=</span><span class="s">&quot;LowerThan4Number&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;DatatypeRestriction&gt;</span>
+                       <span class="nt">&lt;Datatype</span> <span class="na">abbreviatedIRI=</span><span class="s">&quot;xsd:integer&quot;</span> <span class="nt">/&gt;</span>
+                       <span class="nt">&lt;FacetRestriction</span> <span class="na">facet=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema#maxExclusive&quot;</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;Literal</span> <span class="na">datatypeIRI=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema#integer&quot;</span><span class="nt">&gt;</span>4<span class="nt">&lt;/Literal&gt;</span>
+                      <span class="nt">&lt;/FacetRestriction&gt;</span>
+                <span class="nt">&lt;/DatatypeRestriction&gt;</span>
+<span class="nt">&lt;/DatatypeDefinition&gt;</span>
+</pre></div>
 </div>
 <p>In the next example, doktype is a user-defined data type that its value
 is in between 10 and 200 (excluding 200), or if the value is string type
 it should not match the regular expression pattern ‘a*’.</p>
-<div class="txt-cnl docutils container">
-<p>Krok has-value (some doktype value ).
-Every value-of doktype is something ((lower-than 200 ,
-greater-or-equal-to 10) or not that-matches-pattern ‘a*’).</p>
+<pre class="literal-block">Krok has-value (<span class="blue">some</span> doktype <span class="blue">value</span>).
+<span class="blue">Every value-of</span> doktype <span class="blue">is something ((lower-than</span> 200 , <span class="blue">greater-or-equal-to</span> 10) <span class="blue">or not that-matches-pattern</span> 'a*').</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ClassAssertion&gt;</span>
+    <span class="nt">&lt;DataSomeValuesFrom&gt;</span>
+                 <span class="nt">&lt;DataProperty</span> <span class="na">IRI=</span><span class="s">&quot;hasValue&quot;</span> <span class="nt">/&gt;</span>
+             <span class="nt">&lt;Datatype</span> <span class="na">IRI=</span><span class="s">&quot;Doktype&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/DataSomeValuesFrom&gt;</span>
+       <span class="nt">&lt;NamedIndividual</span> <span class="na">IRI=</span><span class="s">&quot;Krok&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/ClassAssertion&gt;</span>
+<span class="nt">&lt;DatatypeDefinition&gt;</span>
+    <span class="nt">&lt;Datatype</span> <span class="na">IRI=</span><span class="s">&quot;Doktype&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;DataUnionOf&gt;</span>
+                 <span class="nt">&lt;DataComplementOf&gt;</span>
+                      <span class="nt">&lt;DatatypeRestriction&gt;</span>
+                                 <span class="nt">&lt;Datatype</span> <span class="na">abbreviatedIRI=</span><span class="s">&quot;xsd:string&quot;</span> <span class="nt">/&gt;</span>
+                                 <span class="nt">&lt;FacetRestriction</span> <span class="na">facet=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema#pattern&quot;</span><span class="nt">&gt;</span>
+                                         <span class="nt">&lt;Literal</span> <span class="na">datatypeIRI=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema#string&quot;</span><span class="nt">&gt;</span>a*<span class="nt">&lt;/Literal&gt;</span>
+                                 <span class="nt">&lt;/FacetRestriction&gt;</span>
+                        <span class="nt">&lt;/DatatypeRestriction&gt;</span>
+                 <span class="nt">&lt;/DataComplementOf&gt;</span>
+                     <span class="nt">&lt;DatatypeRestriction&gt;</span>
+                                 <span class="nt">&lt;Datatype</span> <span class="na">abbreviatedIRI=</span><span class="s">&quot;xsd:integer&quot;</span> <span class="nt">/&gt;</span>
+                                 <span class="nt">&lt;FacetRestriction</span> <span class="na">facet=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema#maxExclusive&quot;</span><span class="nt">&gt;</span>
+                                         <span class="nt">&lt;Literal</span> <span class="na">datatypeIRI=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema#integer&quot;</span><span class="nt">&gt;</span>200<span class="nt">&lt;/Literal&gt;</span>
+                                 <span class="nt">&lt;/FacetRestriction&gt;</span>
+                                 <span class="nt">&lt;FacetRestriction</span> <span class="na">facet=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema#minExclusive&quot;</span><span class="nt">&gt;</span>
+                                     <span class="nt">&lt;Literal</span> <span class="na">datatypeIRI=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema#integer&quot;</span><span class="nt">&gt;</span>10<span class="nt">&lt;/Literal&gt;</span>
+                                 <span class="nt">&lt;/FacetRestriction&gt;</span>
+                 <span class="nt">&lt;/DatatypeRestriction&gt;</span>
+    <span class="nt">&lt;/DataUnionOf&gt;</span>
+<span class="nt">&lt;/DatatypeDefinition&gt;</span>
+</pre></div>
 </div>
-<div class="text-xml docutils container">
-<p>&lt;ClassAssertion&gt;
-    &lt;DataSomeValuesFrom&gt;
-        &lt;DataProperty <strong>IRI</strong>=<strong>“hasValue”</strong> /&gt;
-        &lt;Datatype <strong>IRI</strong>=<strong>“Doktype”</strong> /&gt;
-    &lt;/DataSomeValuesFrom&gt;
-    &lt;NamedIndividual <strong>IRI</strong>=<strong>“Krok”</strong> /&gt;
-&lt;/ClassAssertion&gt;
-&lt;DatatypeDefinition&gt;
-    &lt;Datatype <strong>IRI</strong>=<strong>“Doktype”</strong> /&gt;
-    &lt;DataUnionOf&gt;
-        &lt;DataComplementOf&gt;
-           &lt;DatatypeRestriction&gt;
-               &lt;Datatype <strong>abbreviatedIRI</strong>=<strong>“xsd:string”</strong> /&gt;
-               &lt;FacetRestriction
-<strong>facet</strong>=<strong>“http://www.w3.org/2001/XMLSchema#pattern”</strong>&gt;
-                  &lt;Literal
-<strong>datatypeIRI</strong>=<strong>“http://www.w3.org/2001/XMLSchema#string”</strong>&gt;<strong>a*</strong>&lt;/Literal&gt;
-               &lt;/FacetRestriction&gt;
-           &lt;/DatatypeRestriction&gt;
-        &lt;/DataComplementOf&gt;
-        &lt;DatatypeRestriction&gt;
-           &lt;Datatype <strong>abbreviatedIRI</strong>=<strong>“xsd:integer”</strong> /&gt;
-           &lt;FacetRestriction
-<strong>facet</strong>=<strong>“http://www.w3.org/2001/XMLSchema#maxExclusive”</strong>&gt;
-              &lt;Literal
-<strong>datatypeIRI</strong>=<strong>“http://www.w3.org/2001/XMLSchema#integer”</strong>&gt;<strong>200</strong>&lt;/Literal&gt;
-           &lt;/FacetRestriction&gt;
-           &lt;FacetRestriction
-<strong>facet</strong>=<strong>“http://www.w3.org/2001/XMLSchema#minExclusive”</strong>&gt;
-              &lt;Literal
-<strong>datatypeIRI</strong>=<strong>“http://www.w3.org/2001/XMLSchema#integer”</strong>&gt;<strong>10</strong>&lt;/Literal&gt;
-           &lt;/FacetRestriction&gt;
-        &lt;/DatatypeRestriction&gt;
-    &lt;/DataUnionOf&gt;
-&lt;/DatatypeDefinition&gt;</p>
-</div>
-<div class="hint-box docutils container">
-<div class="auto-style6 docutils container">
-<p><strong>[NOTE]</strong></p>
-</div>
-<p>Above example introduces special keywords for data type defiinition
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<blockquote>
+<div><p>Above example introduces special keywords for data type defiinition
 only.</p>
 <ul class="simple">
 <li><p>comma(,) or as-well-as : means intersection.</p></li>
 <li><p>or : means union.</p></li>
 </ul>
 <p>Note that these keywords are available only for data type definition.
-E.g. Every man is a human and has-age an age.          (O)
-      Every man is a human as-well-as has-age an age. (X)  -&gt;
-“as-well-as” means intersection only for data type definition.</p>
+E.g. Every man is a human and has-age an age.( O)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Every man is a human as-well-as has-age an age. (X) -&gt;</dt><dd><p>“as-well-as” means intersection only for data type definition.</p>
+</dd>
+</dl>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -1466,7 +1399,7 @@ E.g. Every man is a human and has-age an age.          (O)
 </div>
 </div>
 <div class="section" id="rule-specifications">
-<h2>8. Rule Specifications<a class="headerlink" href="#rule-specifications" title="Permalink to this headline">¶</a></h2>
+<h2>Rule Specifications<a class="headerlink" href="#rule-specifications" title="Permalink to this headline">¶</a></h2>
 <p>Sometimes OWL 2 language is not enough to express the knowledge. One
 known example is that OWL iteself cannot express the relation child of
 married parents, because there is no way in OWL 2 to express the
@@ -1480,47 +1413,43 @@ specification</a>].</p>
 between two instances and defining that two individuals are equivalent.
 A conclusion (head) of any rule can define new relations between two or
 more instances.</p>
-<div class="txt-cnl docutils container">
-<p>If a patient signs a consent and a therapy is-recommended-to the
-patient then the therapy is-applied-to the patient.</p>
+<pre class="literal-block"><span class="blue">If a</span> patient signs <span class="blue">a</span> consent <span class="blue">and a</span> therapy is-recommended-to <span class="blue">the</span> patient <span class="blue">then the</span> therapy is-applied-to <span class="blue">the</span> patient.</pre>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;DLSafeRule&gt;</span>
+    <span class="nt">&lt;Body&gt;</span>
+        <span class="nt">&lt;ClassAtom&gt;</span>
+                <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Patient&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;Variable</span> <span class="na">IRI=</span><span class="s">&quot;PatientX&quot;</span> <span class="nt">/&gt;</span>
+              <span class="nt">&lt;/ClassAtom&gt;</span>
+        <span class="nt">&lt;ClassAtom&gt;</span>
+                        <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Consent&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;Variable</span> <span class="na">IRI=</span><span class="s">&quot;ConsentX&quot;</span> <span class="nt">/&gt;</span>
+              <span class="nt">&lt;/ClassAtom&gt;</span>
+        <span class="nt">&lt;ObjectPropertyAtom&gt;</span>
+    <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;signs&quot;</span> <span class="nt">/&gt;</span>
+              <span class="nt">&lt;Variable</span> <span class="na">IRI=</span><span class="s">&quot;PatientX&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;Variable</span> <span class="na">IRI=</span><span class="s">&quot;ConsentX&quot;</span> <span class="nt">/&gt;</span>
+              <span class="nt">&lt;/ObjectPropertyAtom&gt;</span>
+        <span class="nt">&lt;ClassAtom&gt;</span>
+                        <span class="nt">&lt;Class</span> <span class="na">IRI=</span><span class="s">&quot;Therapy&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;Variable</span> <span class="na">IRI=</span><span class="s">&quot;TherapyX&quot;</span> <span class="nt">/&gt;</span>
+              <span class="nt">&lt;/ClassAtom&gt;</span>
+        <span class="nt">&lt;ObjectPropertyAtom&gt;</span>
+               <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;isRecommendedTo&quot;</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;Variable</span> <span class="na">IRI=</span><span class="s">&quot;TherapyX&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;Variable</span> <span class="na">IRI=</span><span class="s">&quot;PatientX&quot;</span> <span class="nt">/&gt;</span>
+              <span class="nt">&lt;/ObjectPropertyAtom&gt;</span>
+    <span class="nt">&lt;/Body&gt;</span>
+    <span class="nt">&lt;Head&gt;</span>
+        <span class="nt">&lt;ObjectPropertyAtom&gt;</span>
+                     <span class="nt">&lt;ObjectProperty</span> <span class="na">IRI=</span><span class="s">&quot;isAppliedTo&quot;</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;Variable</span> <span class="na">IRI=</span><span class="s">&quot;TherapyX&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;Variable</span> <span class="na">IRI=</span><span class="s">&quot;PatientX&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/ObjectPropertyAtom&gt;</span>
+    <span class="nt">&lt;/Head&gt;</span>
+<span class="nt">&lt;/DLSafeRule&gt;</span>
+</pre></div>
 </div>
-<div class="text-xml docutils container">
-<p>&lt;DLSafeRule&gt;
-    &lt;Body&gt;
-        &lt;ClassAtom&gt;
-            &lt;Class <strong>IRI</strong>=<strong>“Patient”</strong> /&gt;
-            &lt;Variable <strong>IRI</strong>=<strong>“PatientX”</strong> /&gt;
-        &lt;/ClassAtom&gt;
-        &lt;ClassAtom&gt;
-            &lt;Class <strong>IRI</strong>=<strong>“Consent”</strong> /&gt;
-            &lt;Variable <strong>IRI</strong>=<strong>“ConsentX”</strong> /&gt;
-        &lt;/ClassAtom&gt;
-        &lt;ObjectPropertyAtom&gt;
-            &lt;ObjectProperty <strong>IRI</strong>=<strong>“signs”</strong> /&gt;
-            &lt;Variable <strong>IRI</strong>=<strong>“PatientX”</strong> /&gt;
-            &lt;Variable <strong>IRI</strong>=<strong>“ConsentX”</strong> /&gt;
-        &lt;/ObjectPropertyAtom&gt;
-        &lt;ClassAtom&gt;
-            &lt;Class <strong>IRI</strong>=<strong>“Therapy”</strong> /&gt;
-            &lt;Variable <strong>IRI</strong>=<strong>“TherapyX”</strong> /&gt;
-        &lt;/ClassAtom&gt;
-        &lt;ObjectPropertyAtom&gt;
-            &lt;ObjectProperty <strong>IRI</strong>=<strong>“isRecommendedTo”</strong> /&gt;
-            &lt;Variable <strong>IRI</strong>=<strong>“TherapyX”</strong> /&gt;
-            &lt;Variable <strong>IRI</strong>=<strong>“PatientX”</strong> /&gt;
-        &lt;/ObjectPropertyAtom&gt;
-    &lt;/Body&gt;
-    &lt;Head&gt;
-        &lt;ObjectPropertyAtom&gt;
-            &lt;ObjectProperty <strong>IRI</strong>=<strong>“isAppliedTo”</strong> /&gt;
-            &lt;Variable <strong>IRI</strong>=<strong>“TherapyX”</strong> /&gt;
-            &lt;Variable <strong>IRI</strong>=<strong>“PatientX”</strong> /&gt;
-        &lt;/ObjectPropertyAtom&gt;
-    &lt;/Head&gt;
-&lt;/DLSafeRule&gt;</p>
-</div>
-<p>The example below is used and explained in
-<a class="reference external" href="example_it_infra.html">tutorial.</a></p>
+<p>The example below is used and explained in tutorial. &lt;example_it_infra.html&gt;`__</p>
 <p>Example 1)</p>
 <div class="txt-cnl docutils container">
 <p>If a thing(1) hosts a thing(2) and the thing(2) hosts an application
@@ -1652,7 +1581,7 @@ the person has-before-adult-age equal-to the value(1).</p>
 </div>
 </div>
 <div class="section" id="core-swrl-built-ins">
-<h2>9. Core SWRL Built-ins<a class="headerlink" href="#core-swrl-built-ins" title="Permalink to this headline">¶</a></h2>
+<h2>Core SWRL Built-ins<a class="headerlink" href="#core-swrl-built-ins" title="Permalink to this headline">¶</a></h2>
 <p>SWRL provides a very powerful extension mechanism that allows
 user-defined methods to be used in rules. These methods are called
 built-ins and are predicates that accept one or more arguments. A number

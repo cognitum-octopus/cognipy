@@ -48,7 +48,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**.ipynb_checkpoints']
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
-html_logo = 'figures/logo.png'
+html_logo = '_static/figures/logo.png'
 display_version = True
 
 # Add any paths that contain custom static files (such as style sheets) here,
