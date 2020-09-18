@@ -14,11 +14,11 @@ CogniPy Basic Features
 
 Controlled Natural Language (CNL)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Cognipy provides an alternative that is more suitable for human users. We propose to use Controlled English as a knowledge modeling language. Supported via Predictive Editor, it prohibits one from entering any sentence that is grammatically or morphologically incorrect and actively helps the user during sentence writing. The Controlled English is a subset of Standard English with restricted grammar and vocabulary, in order to reduce the ambiguity and complexity inherent in full English. In the last years, Controlled English established itself in various application fields as a powerful knowledge representation language that is readable by humans and processable by computers. Texts in Controlled English can be automatically translated into and from description logic, concretely SROIQ, the basis of the semantic web language OWL 2.
+CogniPy provides an alternative that is more suitable for human users. We propose to use Controlled English as a knowledge modeling language. Supported via Predictive Editor, it prohibits one from entering any sentence that is grammatically or morphologically incorrect and actively helps the user during sentence writing. The Controlled English is a subset of Standard English with restricted grammar and vocabulary, in order to reduce the ambiguity and complexity inherent in full English. In the last years, Controlled English established itself in various application fields as a powerful knowledge representation language that is readable by humans and processable by computers. Texts in Controlled English can be automatically translated into and from description logic, concretely SROIQ, the basis of the semantic web language OWL 2.
 
 Ontology Editors
 ^^^^^^^^^^^^^^^^
-There are dozens of ontology editors known and their number is increasing every day. The most famous is Protégé which allows editing ontology and inspecting the inferred knowledge [http://protege.stanford.edu/]. Both Protégé and Fluent Editor allow support of knowledge engineering. The main difference between Fluent Editor and Protégé, however, lies in the way how the user interacts with the editor. To understand the meaning of formally ascribed knowledge one is required to have a background in the field of a formal method, especially in logic. It is hard to trace a formal knowledge for any authority that does not have such background. On the other hand, without the support of formal methods it is almost impossible to trace and understand the impact of even small changes in the knowledge. This pragmatic observation of need for a “human-readable language” knowledge modeling language led us to the development of Fluent Editor. When using Fluent Editor, users do not need any training in formal logic formalisms nor the ICT support. They are continuously checked if the entered knowledge fulfills the grammar. Additionally, knowledge engineers are provided with the ability to explore the knowledge, due to embedded reasoner that constantly checks the consistency of the knowledge base.
+There are dozens of ontology editors known and their number is increasing every day. The most famous is Protégé which allows editing ontology and inspecting the inferred knowledge [http://protege.stanford.edu/]. Both Protégé and CogniPy allow support of knowledge engineering. The main difference between CogniPy and Protégé, however, lies in the way how the user interacts with the editor. To understand the meaning of formally ascribed knowledge one is required to have a background in the field of a formal method, especially in logic. It is hard to trace a formal knowledge for any authority that does not have such background. On the other hand, without the support of formal methods it is almost impossible to trace and understand the impact of even small changes in the knowledge. This pragmatic observation of need for a “human-readable language” knowledge modeling language led us to the development of CogniPy. When using CogniPy, users do not need any training in formal logic formalisms nor the ICT support. They are continuously checked if the entered knowledge fulfills the grammar. Additionally, knowledge engineers are provided with the ability to explore the knowledge, due to embedded reasoner that constantly checks the consistency of the knowledge base.
 
 CogniPy Grammar Intro
 ^^^^^^^^^^^^^^^^^^^^^
@@ -145,7 +145,7 @@ A concept subsumption represents all cases where there is a need to specify the 
 
 The concept subsumption can be seen as a kind of set inclusion. We say that one concept subsumes the other one if the set described by the first concept is a subset of the other one. The most intuitive way to say it in English is when speaking about instances of concepts - members of sets. We say then "Every tree is a plant." and it means that every single tree is also a plant, or - what is equivalent - if something is a tree then it is a plant too, or - all trees are plants.
 
-The following example shows how the mapping between the simplest concept subsumption in FE English and OWL2 is made:
+The following example shows how the mapping between the simplest concept subsumption in CogniPy English and OWL2 is made:
 
 .. parsed-literal::
     :blue:`Every` tree :blue:`is a` plant.
@@ -485,7 +485,7 @@ example 3)
     <SubClassOf>
         <Class IRI="Person" />
         <ObjectExactCardinality cardinality="2" >
-                <ObjectProperty IRI="isChildOf"/>
+            <ObjectProperty IRI="isChildOf"/>
         <Class IRI="Parent">
         </ObjectExactCardinality>
     </SubClassOf>
@@ -551,11 +551,11 @@ Defining Complex Concepts
        </ClassAtom>
        <ClassAtom>
            <ObjectIntersectionOf>
-                 <Class IRI="Animal" />
-              <ObjectMinCardinality cardinality="5">
-                  <ObjectProperty IRI="has" />
-                  <Class IRI="Leg" />
-                 </ObjectMinCardinality>
+                <Class IRI="Animal" />
+                <ObjectMinCardinality cardinality="5">
+                    <ObjectProperty IRI="has" />
+                    <Class IRI="Leg" />
+                </ObjectMinCardinality>
           </ObjectIntersectionOf>
           <Variable IRI="CatX" />
        </ClassAtom>
@@ -583,8 +583,8 @@ often enough.
 .. code-block:: xml
 
     <ClassAssertion>
-            <Class IRI="Giraffe" />
-            <NamedIndividual IRI="Sophie" />
+        <Class IRI="Giraffe" />
+        <NamedIndividual IRI="Sophie" />
     </ClassAssertion>
 
 However, it is also possible to make complex specifications about
@@ -612,8 +612,8 @@ Role inclusions are represented by if expressions.
 .. code-block:: xml
 
     <SubObjectPropertyOf>
-            <ObjectProperty IRI="isProperPartOf" />
-            <ObjectProperty IRI="isPartOf" />
+        <ObjectProperty IRI="isProperPartOf" />
+        <ObjectProperty IRI="isPartOf" />
     </SubObjectPropertyOf>
 
 Axioms on Roles
@@ -629,7 +629,7 @@ Axioms on Roles
 .. code-block:: xml
 
     <TransitiveObjectProperty>
-            <ObjectProperty IRI="hasPart" />
+        <ObjectProperty IRI="hasPart" />
     </TransitiveObjectProperty>
 
 |
@@ -643,7 +643,7 @@ Axioms on Roles
 .. code-block:: xml
 
     <ReflexiveObjectProperty>
-            <ObjectProperty IRI="isPartOf" />
+        <ObjectProperty IRI="isPartOf" />
     </ReflexiveObjectProperty>
 
 |
@@ -657,10 +657,10 @@ Axioms on Roles
 .. code-block:: xml
 
     <SubClassOf>
-             <Class abbreviatedIRI="owl:Thing" />
-       <ObjectComplementOf>
+        <Class abbreviatedIRI="owl:Thing" />
+        <ObjectComplementOf>
            <ObjectHasSelf>
-                     <ObjectProperty IRI="isProperPartOf" />
+                <ObjectProperty IRI="isProperPartOf" />
            </ObjectHasSelf>
        </ObjectComplementOf>
     </SubClassOf>
@@ -678,7 +678,7 @@ Axioms on Roles
     <EquivalentObjectProperties>
        <ObjectProperty IRI="isFriendOf" />
        <ObjectInverseOf>
-                 <ObjectProperty IRI="isFriendOf" />
+            <ObjectProperty IRI="isFriendOf" />
        </ObjectInverseOf>
     </EquivalentObjectProperties>
 
@@ -705,8 +705,8 @@ then X has Y.
 .. code-block:: xml
 
     <SubObjectPropertyOf>
-            <ObjectProperty IRI="isProperPartOf" />
-            <ObjectProperty IRI="isPartOf" />
+        <ObjectProperty IRI="isProperPartOf" />
+        <ObjectProperty IRI="isPartOf" />
     </SubObjectPropertyOf>
 
 |
@@ -724,7 +724,7 @@ Equivalent roles are defined with the use of :blue:`if-and-only-if` keyword.
 
     <EquivalentObjectProperties>
        <ObjectProperty IRI="isCloseTo" />
-             <ObjectProperty IRI="isNearTo" />
+        <ObjectProperty IRI="isNearTo" />
     </EquivalentObjectProperties>
 
 
@@ -761,7 +761,7 @@ inversion.
             <SubObjectPropertyOf>
                 <ObjectProperty IRI="isTypeOf" />
                 <ObjectInverseOf>
-                        <ObjectProperty IRI="hasTypeThatIs" />
+                    <ObjectProperty IRI="hasTypeThatIs" />
                 </ObjectInverseOf>
             </SubObjectPropertyOf>
             <SubObjectPropertyOf>
@@ -785,8 +785,8 @@ Disjoint roles are opposite to equivalent.
 .. code-block:: xml
 
     <DisjointObjectProperties>
-       <ObjectProperty IRI="hates" />
-             <ObjectProperty IRI="loves" />
+        <ObjectProperty IRI="hates" />
+        <ObjectProperty IRI="loves" />
     </DisjointObjectProperties>
 
 
@@ -804,9 +804,9 @@ It is possible to describe the role range.
     <SubClassOf>
        <Class abbreviatedIRI="owl:Thing" />
           <ObjectAllValuesFrom>
-                    <ObjectProperty IRI="eats" />
+                <ObjectProperty IRI="eats" />
            <ObjectUnionOf>
-                    <Class IRI="Animal" />
+                <Class IRI="Animal" />
                <Class IRI="Plant" />
                   <ObjectSomeValuesFrom>
                    <ObjectProperty IRI="isPartOf" />
@@ -834,7 +834,7 @@ Role domain can be expressed with the use of a reverse role.
        <Class abbreviatedIRI="owl:Thing" />
        <ObjectSomeValuesFrom>
            <ObjectInverseOf>
-                     <ObjectProperty IRI="eats" />
+                <ObjectProperty IRI="eats" />
            </ObjectInverseOf>
            <Class IRI="Animal" />
        </ObjectSomeValuesFrom>
@@ -879,7 +879,7 @@ To specify a **datatype** of data property, you can do it as follows.
     <SubClassOf>
        <Class IRI="Person" />
        <DataAllValuesFrom>
-                 <DataProperty IRI="hasName" />
+            <DataProperty IRI="hasName" />
            <DataType abbreviatedIRI="xsd:string" />
        </DataAllValuesFrom>
     </SubClassOf>
@@ -896,7 +896,7 @@ To specify a **datatype** of data property, you can do it as follows.
     <SubClassOf>
        <Class IRI="Person" />
        <DataAllValuesFrom>
-                 <DataProperty IRI="hasAge" />
+            <DataProperty IRI="hasAge" />
            <DataType abbreviatedIRI="xsd:integer" />
        </DataAllValuesFrom>
     </SubClassOf>
@@ -913,7 +913,7 @@ To specify a **datatype** of data property, you can do it as follows.
     <SubClassOf>
        <Class IRI="Person" />
        <DataAllValuesFrom>
-                 <DataProperty IRI="hasSpouse" />
+            <DataProperty IRI="hasSpouse" />
            <DataType abbreviatedIRI="xsd:boolean" />
        </DataAllValuesFrom>
     </SubClassOf>
@@ -932,7 +932,7 @@ To specify a **datatype** of data property, you can do it as follows.
     <SubClassOf>
        <Class IRI="Person" />
        <DataAllValuesFrom>
-                 <DataProperty IRI="hasBirthday" />
+            <DataProperty IRI="hasBirthday" />
            <DataType abbreviatedIRI="xsd:dateTime" />
        </DataAllValuesFrom>
     </SubClassOf>
@@ -1024,13 +1024,13 @@ Example 1)
 
     <ClassAssertion>
         <DataSomeValuesFrom>
-                 <DataProperty IRI="hasAge" />
-                 <DatatypeRestriction>
-                        <Datatype abbreviatedIRI="xsd:integer" />
-                        <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
-                             <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10</Literal>
-                        </FacetRestriction>
-                    </DatatypeRestriction>
+            <DataProperty IRI="hasAge" />
+            <DatatypeRestriction>
+                <Datatype abbreviatedIRI="xsd:integer" />
+                <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10</Literal>
+                </FacetRestriction>
+            </DatatypeRestriction>
            </DataSomeValuesFrom>
         <NamedIndividual IRI="John" />
     </ClassAssertion>
@@ -1046,13 +1046,13 @@ Example 1)
 
     <ClassAssertion>
         <DataSomeValuesFrom>
-                 <DataProperty IRI="hasResidents" />
-                 <DatatypeRestriction>
-                        <Datatype abbreviatedIRI="xsd:integer" />
-                        <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minExclusive">
-                             <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">50</Literal>
-                        </FacetRestriction>
-                    </DatatypeRestriction>
+            <DataProperty IRI="hasResidents" />
+            <DatatypeRestriction>
+                <Datatype abbreviatedIRI="xsd:integer" />
+                <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minExclusive">
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">50</Literal>
+                </FacetRestriction>
+            </DatatypeRestriction>
            </DataSomeValuesFrom>
         <NamedIndividual IRI="ThisBuilding" />
     </ClassAssertion>
@@ -1097,12 +1097,12 @@ To restrict the length of the data attribute, you can use the keyword
         <Class IRI="Cat" />
            <DataSomeValuesFrom>
             <DataProperty IRI="hasName" />
-                  <DatatypeRestriction>
-                         <Datatype abbreviatedIRI="xsd:string" />
-                         <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxLength">
-                              <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10</Literal>
-                         </FacetRestriction>
-                     </DatatypeRestriction>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:string" />
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxLength">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
         </DataSomeValuesFrom>
     </SubClassOf>
 
@@ -1148,11 +1148,11 @@ that a concept or instance has.
 .. code-block:: xml
 
     <SubClassOf>
-             <Class IRI="Cat" />
-             <DataMaxCardinality cardinality="1" >
-                         <DataProperty IRI="hasName"/>
-                 <Datatype abbreviatedIRI="xsd:string">
-             </DataMaxCardinality>
+        <Class IRI="Cat" />
+            <DataMaxCardinality cardinality="1" >
+                <DataProperty IRI="hasName"/>
+                <Datatype abbreviatedIRI="xsd:string">
+            </DataMaxCardinality>
     </SubClassOf>
 
 User-defined Data Type
@@ -1173,18 +1173,18 @@ Here, lower-than-4-number is a data type that has value lower than 4.
     <SubClassOf>
         <Class IRI="Cat" />
         <DataSomeValuesFrom>
-                     <DataProperty IRI="hasSize" />
-                 <Datatype IRI="LowerThan4Number" />
+            <DataProperty IRI="hasSize" />
+            <Datatype IRI="LowerThan4Number" />
         </DataSomeValuesFrom>
     </SubClassOf>
     <DatatypeDefinition>
         <Datatype IRI="LowerThan4Number" />
-                    <DatatypeRestriction>
-                           <Datatype abbreviatedIRI="xsd:integer" />
-                           <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxExclusive">
-                                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">4</Literal>
-                          </FacetRestriction>
-                    </DatatypeRestriction>
+            <DatatypeRestriction>
+                <Datatype abbreviatedIRI="xsd:integer" />
+                <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxExclusive">
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">4</Literal>
+                </FacetRestriction>
+            </DatatypeRestriction>
     </DatatypeDefinition>
 
 In the next example, doktype is a user-defined data type that its value
@@ -1200,31 +1200,31 @@ it should not match the regular expression pattern 'a*'.
 
     <ClassAssertion>
         <DataSomeValuesFrom>
-                     <DataProperty IRI="hasValue" />
-                 <Datatype IRI="Doktype" />
+            <DataProperty IRI="hasValue" />
+            <Datatype IRI="Doktype" />
         </DataSomeValuesFrom>
-           <NamedIndividual IRI="Krok" />
+        <NamedIndividual IRI="Krok" />
     </ClassAssertion>
     <DatatypeDefinition>
         <Datatype IRI="Doktype" />
         <DataUnionOf>
-                     <DataComplementOf>
-                          <DatatypeRestriction>
-                                     <Datatype abbreviatedIRI="xsd:string" />
-                                     <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#pattern">
-                                             <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">a*</Literal>
-                                     </FacetRestriction>
-                            </DatatypeRestriction>
-                     </DataComplementOf>
-                         <DatatypeRestriction>
-                                     <Datatype abbreviatedIRI="xsd:integer" />
-                                     <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxExclusive">
-                                             <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">200</Literal>
-                                     </FacetRestriction>
-                                     <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minExclusive">
-                                         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10</Literal>
-                                     </FacetRestriction>
-                     </DatatypeRestriction>
+            <DataComplementOf>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:string" />
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#pattern">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">a*</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+            </DataComplementOf>
+            <DatatypeRestriction>
+                <Datatype abbreviatedIRI="xsd:integer" />
+                <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxExclusive">
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">200</Literal>
+                </FacetRestriction>
+                <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minExclusive">
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10</Literal>
+                </FacetRestriction>
+            </DatatypeRestriction>
         </DataUnionOf>
     </DatatypeDefinition>
 
@@ -1238,7 +1238,7 @@ it should not match the regular expression pattern 'a*'.
 
    Note that these keywords are available only for data type definition.
    E.g. Every man is a human and has-age an age.( O)
-  Every man is a human as-well-as has-age an age. (X) ->
+   Every man is a human as-well-as has-age an age. (X) ->
    "as-well-as" means intersection only for data type definition.
 
 |
@@ -1256,7 +1256,7 @@ OWL can be extended by adding SWRL - Semantic Web Rule Language rules to
 an ontology [ `SWRL standard
 specification <http://www.w3.org/Submission/SWRL/>`__].
 
-In Fluent Editor we can define instance assertions, object properties
+In CogniPy we can define instance assertions, object properties
 between two instances and defining that two individuals are equivalent.
 A conclusion (head) of any rule can define new relations between two or
 more instances.
@@ -1307,150 +1307,133 @@ The example below is used and explained in tutorial. <example_it_infra.html>`__
 
 Example 1)
 
-.. container:: txt-cnl
+.. parsed-literal::
 
-   If a thing(1) hosts a thing(2) and the thing(2) hosts an application
-   then the thing(1) hosts the application.  
+   :blue:`If a thing` (1) hosts  :blue:`a thing` (2)  :blue:`and the thing` (2) hosts an application  :blue:`then the thing` (1) hosts the application.
 
-.. container:: eq-mark
+.. code-block:: xml
 
-.. container:: text-xml
-
-   <DLSafeRule>
-       <Body>  
-           <ObjectPropertyAtom>
-               <ObjectProperty **IRI**\ =\ **"hosts"** />
-               <Variable **IRI**\ =\ **"Thing1"** />
-               <Variable **IRI**\ =\ **"Thing2"** />
-           </ObjectPropertyAtom>
-           <ClassAtom>
-               <Class **IRI**\ =\ **"Application"** />
-               <Variable **IRI**\ =\ **"ApplicationX"** />
-           </ClassAtom>
-           <ObjectPropertyAtom>
-               <ObjectProperty **IRI**\ =\ **"hosts"** />
-               <Variable **IRI**\ =\ **"Thing2"** />
-               <Variable **IRI**\ =\ **"ApplicationX"** />
-           </ObjectPropertyAtom>
-       </Body>
-       <Head>
-           <ObjectPropertyAtom>
-               <ObjectProperty **IRI**\ =\ **"hosts"** />
-               <Variable **IRI**\ =\ **"Thing1"** />
-               <Variable **IRI**\ =\ **"ApplicationX"** />  
-           </ObjectPropertyAtom>
-       </Head>
-   </DLSafeRule>
+    <DLSafeRule>
+        <Body>
+            <ObjectPropertyAtom>
+                     <ObjectProperty IRI="hosts" />
+                  <Variable IRI="Thing1" />
+                <Variable IRI="Thing2" />
+               </ObjectPropertyAtom>
+               <ClassAtom>
+                    <Class IRI="Application" />
+                <Variable IRI="ApplicationX" />
+              </ClassAtom>
+            <ObjectPropertyAtom>
+                   <ObjectProperty IRI="hosts" />
+                  <Variable IRI="Thing2" />
+                <Variable IRI="ApplicationX" />
+              </ObjectPropertyAtom>
+        </Body>
+        <Head>
+               <ObjectPropertyAtom>
+                     <ObjectProperty IRI="hosts" />
+                   <Variable IRI="Thing1" />
+                <Variable IRI="ApplicationX" />
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
 
 |
 | Example 2)
 
-.. container:: txt-cnl
+.. parsed-literal::
 
-   If a thing(1) is-a-friend-of a thing(2) and the thing(2)
-   is-a-friend-of a thing(3) then the thing(1) is-a-friend-of the
-   thing(3).
+   :blue:`If a thing` (1) is-a-friend-of :blue:`a thing` (2) :blue:`and the thing` (2) is-a-friend-of :blue:`a thing` (3) :blue:`then the thing` (1) is-a-friend-of :blue:`the thing` (3).
 
-.. container:: eq-mark
+.. code-block:: xml
 
-.. container:: text-xml
+    <DLSafeRule>
+        <Body>
+           <ObjectPropertyAtom>
+               <ObjectProperty IRI="isAFriendOf" />
+                 <Variable IRI="Thing1" />
+               <Variable IRI="Thing2" />
+           </ObjectPropertyAtom>
+           <ObjectPropertyAtom>
+                  <ObjectProperty IRI="isAFriendOf" />
+                 <Variable IRI="Thing2" />
+               <Variable IRI="Thing3" />
+             </ObjectPropertyAtom>
+        </Body>
+        <Head>
+           <ObjectPropertyAtom>
+                    <ObjectProperty IRI="isAFriendOf" />
+                  <Variable IRI="Thing1" />
+               <Variable IRI="Thing3" />
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
 
-   <DLSafeRule>
-       <Body>  
-          <ObjectPropertyAtom>
-              <ObjectProperty **IRI**\ =\ **"isAFriendOf"** />
-              <Variable **IRI**\ =\ **"Thing1"** />
-              <Variable **IRI**\ =\ **"Thing2"** />
-          </ObjectPropertyAtom>
-          <ObjectPropertyAtom>
-              <ObjectProperty **IRI**\ =\ **"isAFriendOf"** />
-              <Variable **IRI**\ =\ **"Thing2"** />
-              <Variable **IRI**\ =\ **"Thing3"** />
-          </ObjectPropertyAtom>
-       </Body>
-       <Head>
-          <ObjectPropertyAtom>
-              <ObjectProperty **IRI**\ =\ **"isAFriendOf"** />
-              <Variable **IRI**\ =\ **"Thing1"** />
-              <Variable **IRI**\ =\ **"Thing3"** />  
-           </ObjectPropertyAtom>
-       </Head>
-   </DLSafeRule>
 
 This SWRL rule above (Example 2) can be also written in OWL rule.
 
-.. container:: txt-cnl
+.. parsed-literal::
 
-   If X is-a-friend-of something that is-a-friend-of Y then X
-   is-a-friend-of Y.
+   :blue:`If X` is-a-friend-of :blue:`something that` is-a-friend-of :blue:`Y then X` is-a-friend-of :blue:`Y`.
 
-.. container:: eq-mark
 
-.. container:: text-xml
+.. code-block:: xml
 
-   <TransitiveObjectProperty>
-       <ObjectProperty **IRI**\ =\ **"isAFriendOf"** />
-   </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="isAFriendOf" />
+    </TransitiveObjectProperty>
 
- 
 
 | We can also use data range restriction as below, by using keyword
   value(n) in the same manner as writing thing(n).  
 | This data range restriction is satisfied when a person has age value
   between 0 and 17.
 
-.. container:: txt-cnl
+.. parsed-literal::
 
-   If a person has-age equal-to the value(1) and the value(1) is
-   greater-or-equal-to 0 and the value(1) is lower-or-equal-to 17 then
-   the person has-before-adult-age equal-to the value(1). 
+    :blue:`If a` person has-age  :blue:`equal-to the value` (1)  :blue:`and the value` (1)  :blue:`is greater-or-equal-to` 0  :blue:`and the value` (1)  :blue:`is lower-or-equal-to` 17  :blue:`then the` person has-before-adult-age  :blue:`equal-to the value` (1).
 
-.. container:: eq-mark
+.. code-block:: xml
 
-.. container:: text-xml
-
-   <DLSafeRule>
-       <Body>
-           <ClassAtom>
-               <Class **IRI**\ =\ **"Person"** />
-               <Variable **IRI**\ =\ **"PersonX"** />
-           </ClassAtom>
-           <DataPropertyAtom>
-               <DataProperty **IRI**\ =\ **"hasAge"** />
-               <Variable **IRI**\ =\ **"PersonX"** />
-               <Variable **IRI**\ =\ **"Value1"** />
-           </DataPropertyAtom>
-           <DataRangeAtom>
-               <DatatypeRestriction>
-                  <Datatype **abbreviatedIRI**\ =\ **"xsd:integer"** />
-                  <FacetRestriction
-   **facet**\ =\ **"http://www.w3.org/2001/XMLSchema#minInclusive"**>
-                      <Literal
-   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"**>\ **0**\ </Literal>
-                  </FacetRestriction>
-               </DatatypeRestriction>
-               <Variable **IRI**\ =\ **"Value1"** />
-           </DataRangeAtom>
-           <DataRangeAtom>
-               <DatatypeRestriction>
-                  <Datatype **abbreviatedIRI**\ =\ **"xsd:integer"** />
-                  <FacetRestriction
-   **facet**\ =\ **"http://www.w3.org/2001/XMLSchema#maxInclusive"**>
-                     <Literal
-   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"**>\ **17**\ </Literal>
-                  </FacetRestriction>
-               </DatatypeRestriction>
-               <Variable **IRI**\ =\ **"Value1"** />
-           </DataRangeAtom>
-       </Body>
-       <Head>
-          <DataPropertyAtom>
-               <DataProperty **IRI**\ =\ **"hasBeforeAdultAge"** />
-               <Variable **IRI**\ =\ **"PersonX"** />
-               <Variable **IRI**\ =\ **"Value1"** />
-          </DataPropertyAtom>
-       </Head>
-   </DLSafeRule>
+    <DLSafeRule>
+        <Body>
+            <ClassAtom>
+                   <Class IRI="Person" />
+                 <Variable IRI="PersonX" />
+            </ClassAtom>
+            <DataPropertyAtom>
+                    <DataProperty IRI="hasAge" />
+                <Variable IRI="PersonX" />
+                <Variable IRI="Value1" />
+            </DataPropertyAtom>
+            <DataRangeAtom>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:integer" />
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+                <Variable IRI="Value1" />
+            </DataRangeAtom>
+            <DataRangeAtom>
+                <DatatypeRestriction>
+                    <Datatype abbreviatedIRI="xsd:integer" />
+                    <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
+                        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">17</Literal>
+                    </FacetRestriction>
+                </DatatypeRestriction>
+                <Variable IRI="Value1" />
+            </DataRangeAtom>
+        </Body>
+        <Head>
+           <DataPropertyAtom>
+                <DataProperty IRI="hasBeforeAdultAge" />
+                <Variable IRI="PersonX" />
+                <Variable IRI="Value1" />
+           </DataPropertyAtom>
+        </Head>
+    </DLSafeRule>
 
 Core SWRL Built-ins
 -------------------
@@ -1463,641 +1446,493 @@ includes basic mathematical operators and built-ins for string and date
 manipulations.
 [`SWRLBuiltInBridge <http://protege.cim3.net/cgi-bin/wiki.pl?SWRLBuiltInBridge#nid8XL>`__]
 
-Fluent Editor supports major core SWRL built-ins defined by the `SWRL
+CogniPy supports major core SWRL built-ins defined by the `SWRL
 Submission <http://www.w3.org/Submission/SWRL/>`__, covering built-Ins
 for comparisons, math, strings, date, time and duration. Below shows a
 basic example of applying built-ins for calculating values.
 
-.. container:: txt-cnl
+.. parsed-literal::
 
-   If a cat has-size equal-to the value (1) and the value (1) \* 2.0 =
-   the value (2) then the cat has-doubled-size equal-to the value(2).
+   :blue:`If a` cat has-size :blue:`equal-to the value` (1) :blue:`and the value` (1) * 2.0 = :blue:`the value` (2) :blue:`then the` cat has-doubled-size :blue:`equal-to the value` (2).
 
-.. container:: eq-mark
+.. code-block:: xml
 
-.. container:: text-xml
-
-   <DLSafeRule>
-       <Body>
-           <ClassAtom>
-               <Class **IRI**\ =\ **"Cat"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-           </ClassAtom>
-           <DataPropertyAtom>
-               <DataProperty **IRI**\ =\ **"hasSize"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-               <Variable **IRI**\ =\ **"Value1"** />
-           </DataPropertyAtom>
-           <BuiltInAtom
-   **IRI**\ =\ **"http://www.w3.org/2003/11/swrlb#multiply"** /> 
-               <Variable **IRI**\ =\ **"Value2"** />
-               <Variable **IRI**\ =\ **"Value1"** />
-               <Literal
-   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#double"**>
-   2.0 </Literal>
-           </BuiltInAtom>
-       </Body>
-       <Head>
-           <DataPropertyAtom>
-               <DataProperty **IRI**\ =\ **"hasDoubledSize"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-               <Variable **IRI**\ =\ **"Value2"** />  
-           </DataPropertyAtom>
-       </Head>
-   </DLSafeRule>
+    <DLSafeRule>
+        <Body>
+            <ClassAtom>
+                    <Class IRI="Cat" />
+                <Variable IRI="CatX" />
+              </ClassAtom>
+            <DataPropertyAtom>
+                   <DataProperty IRI="hasSize" />
+                  <Variable IRI="CatX" />
+                <Variable IRI="Value1" />
+              </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#multiply" />
+                  <Variable IRI="Value2" />
+                <Variable IRI="Value1" />
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#double"> 2.0 </Literal>
+              </BuiltInAtom>
+        </Body>
+        <Head>
+            <DataPropertyAtom>
+                <DataProperty IRI="hasDoubledSize" />
+                <Variable IRI="CatX" />
+                <Variable IRI="Value2" />
+            </DataPropertyAtom>
+        </Head>
+    </DLSafeRule>
 
 Here is what happens :
 
 #. In order to user built-ins, first you need to extract the data
-   value(s) as parameter(s).    e.g. '*If a* *cat has-size* *equal-to
+   value(s) as parameter(s). e.g. '*If a* *cat has-size* *equal-to
    the value (1*)'.
    From here, the size of a cat will be stored in the value(1).
-#. Then you can apply built-in to the value(1) and assign it to the new
-   value.           e.g. *'If a cat has-size equal-to the value (1) and
-   the value (1) \* 2.0 = the value(2)'
-   *\ Now the value (2) contains value (1) \* 2.0, which means value
-   assignment is done to the value(2).
+#. | Then you can apply built-in to the value(1) and assign it to the new
+    value. e.g. 'If a cat has-size equal-to the value (1) and
+    the value (1) \* 2.0 = the value(2)'
+   | Now the value (2) contains value (1) \* 2.0, which means value
+    assignment is done to the value(2).
 #. At last, you can even apply this value back to the cat in the head of
    the rule.
    e.g. *'If a cat has-size equal-to the value (1) and 2.0 \* the value
    (1) = the value(2) then the cat has-doubled-size equal-to the
    value(2).'*
 
- 
+
 
 Built-ins for Comparisons
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Keywords
+.. list-table::
+    :widths: 25 25 25
+    :header-rows: 1
+    :align: center
 
-Meaning
+    * - Keywords
+      - Operators
+      - Note
+    * - :blue:`=`
+      - swrlb:equal
+      - | If two operands have concrete data values, = operates as swrlb:equal.
+        | If one of operands has an undefined data value, = operates as value assigning operator.
+    * - :blue:`<>`
+      - swrlb:notEqual
+      -
+    * - :blue:`>=`
+      - swrlb:greaterThanOrEqual
+      -
+    * - :blue:`>`
+      - swrlb:greaterThan
+      -
+    * - :blue:`<=`
+      - swrlb:lessThanOrEqual
+      -
+    * - :blue:`<`
+      - swrlb:lessThan
+      -
 
-Note
+.. parsed-literal::
 
-= 
+   :blue:`If a` cat has-size :blue:`equal-to the value` (1) :blue:`and the value` (1) = 10 :blue:`then the` cat has-new-size :blue:`equal-to the value` (1).
 
-swrlb:equal
+.. code-block:: xml
 
-| If two operands have concrete data values, = operates as swrlb:equal.
-| If one of operands has an undefined data value, = operates as value
-  assigning operator.
-
-<> 
-
-swrlb:notEqual
-
- 
-
->= 
-
-swrlb:greaterThanOrEqual
-
- 
-
-> 
-
-swrlb:greaterThan
-
- 
-
-<= 
-
-swrlb:lessThanOrEqual
-
- 
-
-< 
-
-swrlb:lessThan
-
- 
-
-.. container:: txt-cnl
-
-   If a cat has-size equal-to the value (1) and the value (1) = 10 then
-   the cat has-new-size equal-to the value(1).
-
-.. container:: eq-mark
-
-.. container:: text-xml
-
-   <DLSafeRule>
-       <Body>
-           <ClassAtom>
-               <Class **IRI**\ =\ **"Cat"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-           </ClassAtom>
-           <DataPropertyAtom>
-               <DataProperty **IRI**\ =\ **"hasSize"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-               <Variable **IRI**\ =\ **"Value1"** />
-           </DataPropertyAtom>
-           <BuiltInAtom
-   **IRI**\ =\ **"http://www.w3.org/2003/11/swrlb#equal"** /> 
-               <Variable **IRI**\ =\ **"Value1"** />
-               <Literal
-   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"**>
-   10 </Literal>
-           </BuiltInAtom>
-       </Body>
-       <Head>
-           <DataPropertyAtom>
-               <DataProperty **IRI**\ =\ **"hasNewSize"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-               <Variable **IRI**\ =\ **"Value1"** />  
-           </DataPropertyAtom>
-       </Head>
-   </DLSafeRule>
+    <DLSafeRule>
+        <Body>
+            <ClassAtom>
+                <Class IRI="Cat" />
+                <Variable IRI="CatX" />
+              </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="hasSize" />
+                <Variable IRI="CatX" />
+                <Variable IRI="Value1" />
+              </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#equal">
+                <Variable IRI="Value1" />
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer"> 10 </Literal>
+            </BuiltInAtom>
+        </Body>
+        <Head>
+            <DataPropertyAtom>
+                <DataProperty IRI="hasNewSize" />
+                <Variable IRI="CatX" />
+                <Variable IRI="Value1" />
+            </DataPropertyAtom>
+        </Head>
+    </DLSafeRule>
 
 Math Built-ins
 ^^^^^^^^^^^^^^
 
 The following built-ins are defined for various numeric types.
 
-Keywords
+.. list-table::
+    :widths: 25 25 25
+    :header-rows: 1
+    :align: center
 
-Opearators
+    * - Keywords
+      - Operators
+      - Meaning
+    * - :blue:`plus`
+      - \+
+      - swrlb:add
+    * - :blue:`minus`
+      - \-
+      - | swrlb:subtract
+        | swrlb:unaryMinus
+    * - :blue:`times`
+      - \*
+      - swrlb:multiply
+    * - :blue:`divided-by`
+      -
+      - swrlb:divide
+    * - :blue:`integer-divided-by`
+      -
+      - swrlb:integerDivide
+    * - :blue:`modulo`
+      -
+      - swrlb:mod
+    * - :blue:`raised-to-the-power-of`
+      -
+      - swrlb:pow
+    * - :blue:`ceiling-of`
+      -
+      - swrlb:ceiling
+    * - :blue:`floor-of`
+      -
+      - swrlb:floor
+    * - :blue:`round-of`
+      -
+      - swrlb:round
+    * - :blue:`rounded-with-the-precision-of`
+      -
+      - swrlb:roundHalfToEven
+    * - :blue:`sine-of`
+      -
+      - swrlb:sin
+    * - :blue:`cosine-of`
+      -
+      - swrlb:cos
+    * - :blue:`tangent-of`
+      -
+      - swrlb:tan
+    * - :blue:`absolute-value-of`
+      -
+      - swrlb:abs
 
-Meaning
 
-plus
+.. parsed-literal::
 
-+
+  U+00A0 :blue:`If a` cat has-size :blue:`equal-to the value` (1) :blue:`and` 2 :blue:`minus the value` (1) = :blue:`the value` (2) :blue:`then the:blue:` cat has-new-size :blue:`equal-to the value` (2).
 
-swrlb:add
 
-minus 
+.. code-block:: xml
 
--
+    <DLSafeRule>
+        <Body>
+            <ClassAtom>
+                <Class IRI="Cat" />
+                <Variable IRI="CatX" />
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="hasSize" />
+                <Variable IRI="CatX" />
+                <Variable IRI="Value1" />
+              </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#subtract">
+                <Variable IRI="Value2" />
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer"> 2 </Literal>
+                <Variable IRI="Value1" />
+            </BuiltInAtom>
+        </Body>
+        <Head>
+            <DataPropertyAtom>
+                <DataProperty IRI="hasNewSize" />
+                <Variable IRI="CatX" />
+                <Variable IRI="Value2" />
+            </DataPropertyAtom>
+        </Head>
+    </DLSafeRule>
 
-| swrlb:subtract
-| swrlb:unaryMinus
-
-times 
-
-\*
-
-swrlb:multiply
-
-divided-by 
-
- 
-
-swrlb:divide
-
-integer-divided-by 
-
- 
-
-swrlb:integerDivide
-
-modulo 
-
- 
-
-swrlb:mod
-
-raised-to-the-power-of 
-
- 
-
-swrlb:pow
-
-ceiling-of 
-
- 
-
-swrlb:ceiling
-
-floor-of 
-
- 
-
-swrlb:floor
-
-round-of 
-
- 
-
-swrlb:round
-
-rounded-with-the-precision-of 
-
- 
-
-swrlb:roundHalfToEven
-
-sine-of 
-
- 
-
-swrlb:sin
-
-cosine-of 
-
- 
-
-swrlb:cos
-
-tangent-of 
-
- 
-
-swrlb:tan
-
-absolute-value-of 
-
- 
-
-swrlb:abs
-
-.. container:: txt-cnl
-
-   If a cat has-size equal-to the value (1) and 2 minus the value (1) =
-   the value (2) then the cat has-new-size equal-to the value(2).
-
-.. container:: eq-mark
-
-.. container:: text-xml
-
-   <DLSafeRule>
-       <Body>
-           <ClassAtom>
-               <Class **IRI**\ =\ **"Cat"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-           </ClassAtom>
-           <DataPropertyAtom>
-               <DataProperty **IRI**\ =\ **"hasSize"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-               <Variable **IRI**\ =\ **"Value1"** />
-           </DataPropertyAtom>
-           <BuiltInAtom
-   **IRI**\ =\ **"http://www.w3.org/2003/11/swrlb#subtract"** /> 
-               <Variable **IRI**\ =\ **"Value2"** />
-               <Literal
-   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"**> 2
-   </Literal>
-               <Variable **IRI**\ =\ **"Value1"** />
-           </BuiltInAtom>
-       </Body>
-       <Head>
-           <DataPropertyAtom>
-               <DataProperty **IRI**\ =\ **"hasNewSize"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-               <Variable **IRI**\ =\ **"Value2"** />  
-           </DataPropertyAtom>
-       </Head>
-   </DLSafeRule>
-
-For built-ins such as minus, divided-by, and so forth, mind the order of
+For built-ins such as :blue:`minus`, :blue:`divided-by`,and so forth, mind the order of
 two parameters as in real math. e.g. 10-2 = 8,  2-10 =-8
 
 Additionally, there are corresponding mathmathecal operators to some
 built-ins as a short version of keywords. e.g. plus (+), minus(-), and
 times(*).
 
-.. container:: txt-cnl
+.. parsed-literal::
 
-   If a cat has-size equal-to the value (1) and the value (1) - 2 = the
-   value (2) then the cat has-new-size equal-to the value(2).
+   :blue:`If a` cat has-size :blue:`equal-to the value` (1) :blue:`and the value` (1) - 2 = :blue:`the value` (2) :blue:`then the` cat has-new-size :blue:`equal-to the value` (2).
 
-.. container:: eq-mark
 
-.. container:: text-xml
+.. code-block:: xml
 
-   <DLSafeRule>
-       <Body>
-           <ClassAtom>
-               <Class **IRI**\ =\ **"Cat"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-           </ClassAtom>
-           <DataPropertyAtom>
-               <DataProperty **IRI**\ =\ **"hasSize"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-               <Variable **IRI**\ =\ **"Value1"** />
-           </DataPropertyAtom>
-           <BuiltInAtom
-   **IRI**\ =\ **"http://www.w3.org/2003/11/swrlb#subtract"** /> 
-               <Variable **IRI**\ =\ **"Value2"** />
-               <Variable **IRI**\ =\ **"Value1"** />
-               <Literal
-   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"**> 2
-   </Literal>
-           </BuiltInAtom>
-       </Body>
-       <Head>
-           <DataPropertyAtom>
-               <DataProperty **IRI**\ =\ **"hasNewSize"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-               <Variable **IRI**\ =\ **"Value2"** />  
-           </DataPropertyAtom>
-       </Head>
-   </DLSafeRule>
+    <DLSafeRule>
+        <Body>
+            <ClassAtom>
+                <Class IRI="Cat" />
+                <Variable IRI="CatX" />
+              </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="hasSize" />
+                  <Variable IRI="CatX" />
+                <Variable IRI="Value1" />
+              </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#subtract" />
+                <Variable IRI="Value2" />
+                <Variable IRI="Value1" />
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer"> 2 </Literal>
+              </BuiltInAtom>
+        </Body>
+        <Head>
+            <DataPropertyAtom>
+                <DataProperty IRI="hasNewSize" />
+                <Variable IRI="CatX" />
+                <Variable IRI="Value2" />
+            </DataPropertyAtom>
+        </Head>
+    </DLSafeRule>
 
-In case of the keyword minus,it can be also used as unary minus.
+In case of the keyword :blue:`minus`,it can be also used as unary minus.
 
-.. container:: txt-cnl
+.. parsed-literal::
 
-   If a cat has-size equal-to the value (1) and minus the value (1) =
-   the value (2) then the cat has-minus-size equal-to the value(2).
+   :blue:`If a` cat has-size :blue:`equal-to the value` (1) :blue:`and minus the value` (1) =
+   :blue:`the value` (2) :blue:`then the` cat has-minus-size :blue:`equal-to the value` (2).
 
-.. container:: eq-mark
 
-.. container:: text-xml
+.. code-block:: xml
 
-   <DLSafeRule>
-       <Body>
-           <ClassAtom>
-               <Class **IRI**\ =\ **"Cat"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-           </ClassAtom>
-           <DataPropertyAtom>
-               <DataProperty **IRI**\ =\ **"hasSize"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-               <Variable **IRI**\ =\ **"Value1"** />
-           </DataPropertyAtom>
-           <BuiltInAtom
-   **IRI**\ =\ **"http://www.w3.org/2003/11/swrlb#unaryMinus"** /> 
-               <Variable **IRI**\ =\ **"Value2"** />
-               <Variable **IRI**\ =\ **"Value1"** />
-           </BuiltInAtom>
-       </Body>
-       <Head>
-           <DataPropertyAtom>
-               <DataProperty **IRI**\ =\ **"hasMinusSize"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-               <Variable **IRI**\ =\ **"Value2"** />  
-           </DataPropertyAtom>
-       </Head>
-   </DLSafeRule>
+    <DLSafeRule>
+        <Body>
+            <ClassAtom>
+                <Class IRI="Cat" />
+                <Variable IRI="CatX" />
+              </ClassAtom>
+            <DataPropertyAtom>
+               <DataProperty IRI="hasSize" />
+                  <Variable IRI="CatX" />
+                <Variable IRI="Value1" />
+              </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#unaryMinus" />
+                  <Variable IRI="Value2" />
+                <Variable IRI="Value1" />
+              </BuiltInAtom>
+        </Body>
+        <Head>
+            <DataPropertyAtom>
+                <DataProperty IRI="hasMinusSize" />
+                <Variable IRI="CatX" />
+                <Variable IRI="Value2" />
+            </DataPropertyAtom>
+        </Head>
+    </DLSafeRule>
 
-Currently, Fluent Editor does not support using two different
+Currently, CogniPy does not support using two different
 keywords/operators in one comparison. For example, to express the rule:
 
-.. container:: txt-cnl
+.. parsed-literal::
 
-   If a man has-weight equal-to the value (1) and the man has-height
-   equal-to the value (2) and the man has-age equal-to the value (3) and
-   10 \* the value (1) + 6.25 = the value(4) then the man has-bmr
-   equal-to the value(4).
+   :blue:`If a` man has-weight :blue:`equal-to the value` (1) :blue:`and the` man has-height :blue:`equal-to the value` (2) :blue:`and the` man has-age :blue:`equal-to the value` (3) :blue:`and` 10 * :blue:`the value` (1) + 6.25 = :blue:`the value` (4) :blue:`then the` man has-bmr :blue:`equal-to the value` (4).
 
-... you should use a longer version of the sentence:
+.. parsed-literal::
 
-.. container:: txt-cnl
+   :blue:`If a` man has-weight :blue:`equal-to the value` (1) :blue:`and the` man has-height :blue:`equal-to the value` (2) :blue:`and the` man has-age :blue:`equal-to the value` (3) :blue:`and` 10 * :blue:`the value` (1) = :blue:`the value` (4) :blue:`and the value` (4) + 6.25 = :blue:`the value` (5) :blue:`then the` man has-bmr :blue:`equal-to the value` (5).
 
-   If a man has-weight equal-to the value (1) and the man has-height
-   equal-to the value (2) and the man has-age equal-to the value (3) and
-   10 \* the value (1) = the value(4) and the value(4) + 6.25 = the
-   value(5) then the man has-bmr equal-to the value(5).
 
 Built-ins for Strings
 ^^^^^^^^^^^^^^^^^^^^^
 
 The following built-ins are defined for strings (only).
 
-Keywords
+.. list-table::
+    :widths: 25 25
+    :header-rows: 1
+    :align: center
 
-Meaning
+    * - Keywords
+      - Meaning
+    * - :blue:`case-ignored`
+      - swrlb:stringEqualIgnoreCase
+    * - :blue:`followed-by`
+      - swrlb:stringConcat
+    * - :blue:`length-of`
+      - swrlb:stringLength
+    * - :blue:`space-normalized`
+      - swrlb:normalizeSpace
+    * - :blue:`upper-cased`
+      - swrlb:upperCase
+    * - :blue:`lower-cased`
+      - swrlb:lowerCase
+    * - :blue:`translated`
+      - swrlb:translate
+    * - :blue:`contains-string`
+      - swrlb:contains
+    * - :blue:`contains-case-ignored-string`
+      - swrlb:containsIgnoreCase
+    * - :blue:`starts-with-string`
+      - swrlb:startsWith
+    * - :blue:`ends-with-string`
+      - swrlb:endsWith
+    * - :blue:`substring ... from`
+      - swrlb:substring
+    * - :blue:`substring ... before`
+      - swrlb:substringBefore
+    * - :blue:`substring ... after`
+      - swrlb:substringAfter
+    * - :blue:`matches-string`
+      - swrlb:matches
+    * - :blue:`replaced`
+      - swrlb:replace
 
-case-ignored
 
-swrlb:stringEqualIgnoreCase
 
-followed-by
-
-swrlb:stringConcat
-
-length-of
-
-swrlb:stringLength
-
-space-normalized
-
-swrlb:normalizeSpace
-
-upper-cased
-
-swrlb:upperCase
-
-lower-cased
-
-swrlb:lowerCase
-
-translated
-
-swrlb:translate
-
-contains-string
-
-swrlb:contains
-
-contains-case-ignored-string
-
-swrlb:containsIgnoreCase
-
-starts-with-string
-
-swrlb:startsWith
-
-ends-with-string
-
-swrlb:endsWith
-
-substring ... from
-
-swrlb:substring
-
-substring ... before
-
-swrlb:substringBefore
-
-substring ... after
-
-swrlb:substringAfter
-
-matches-string
-
-swrlb:matches
-
-replaced
-
-swrlb:replace
 
 Example 1)
 
-.. container:: txt-cnl
+.. parsed-literal::
 
-   If a cat has-name equal-to the value (1) and case-ignored 'TOM' = the
-   value (1) then the cat has-result-value equal-to 'ok'.
+   :blue:`If a` cat has-name :blue:`equal-to the value` (1) and :blue:`case-ignored 'TOM' = the value` (1) :blue:`then the` cat has-result-value :blue:`equal-to` 'ok'.
 
-.. container:: eq-mark
 
-.. container:: text-xml
+.. code-block:: xml
 
-   <DLSafeRule>
-       <Body>
-           <ClassAtom>
-               <Class **IRI**\ =\ **"Cat"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-           </ClassAtom>
-           <DataPropertyAtom>
-               <DataProperty **IRI**\ =\ **"hasName"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-               <Variable **IRI**\ =\ **"Value1"** />
-           </DataPropertyAtom>
-           <BuiltInAtom
-   **IRI**\ =\ **"http://www.w3.org/2003/11/swrlb#stringEqualIgnoreCase"**
-   /> 
-               <Variable **IRI**\ =\ **"Value2"** />
-               <Literal
-   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#string"** >
-   TOM <Literal/>
-           </BuiltInAtom>
-       </Body>
-       <Head>
-           <DataPropertyAtom>
-               <DataProperty **IRI**\ =\ **"hasResultValue"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-               <Literal
-   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#string"** >
-   ok <Literal/> 
-           </DataPropertyAtom>
-       </Head>
-   </DLSafeRule>
+    <DLSafeRule>
+        <Body>
+            <ClassAtom>
+                <Class IRI="Cat" />
+                <Variable IRI="CatX" />
+              </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="hasName" />
+                <Variable IRI="CatX" />
+                <Variable IRI="Value1" />
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#stringEqualIgnoreCase" />
+                <Variable IRI="Value2" />
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string" > TOM <Literal/>
+              </BuiltInAtom>
+        </Body>
+        <Head>
+            <DataPropertyAtom>
+                <DataProperty IRI="hasResultValue" />
+                <Variable IRI="CatX" />
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string" > ok <Literal/>
+            </DataPropertyAtom>
+        </Head>
+    </DLSafeRule>
 
 Example 2)
 
-.. container:: txt-cnl
+.. parsed-literal::
 
-   If a cat has-name equal-to the value (1) and substring the value (1)
-   from 3 that-has-length 2 = the value (2) then the cat
-   has-result-value equal-to the value (2).
+   :blue:`If a` cat has-name :blue:`equal-to the value` (1) and :blue:`substring the value` (1) :blue:`from` 3 :blue:`that-has-length 2 = the value` (2) :blue:`then the` cat has-result-value :blue:`equal-to the value` (2).
 
-.. container:: eq-mark
+.. code-block:: xml
 
-.. container:: text-xml
-
-   <DLSafeRule>
-       <Body>
-           <ClassAtom>
-               <Class **IRI**\ =\ **"Cat"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-           </ClassAtom>
-           <DataPropertyAtom>
-               <DataProperty **IRI**\ =\ **"hasName"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-               <Variable **IRI**\ =\ **"Value1"** />
-           </DataPropertyAtom>
-           <BuiltInAtom
-   **IRI**\ =\ **"http://www.w3.org/2003/11/swrlb#substring"** /> 
-               <Variable **IRI**\ =\ **"Value2"** />
-               <Variable **IRI**\ =\ **"Value1"** />
-               <Literal
-   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"** >
-   3 <Literal/>
-               <Literal
-   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"** >
-   2 <Literal/>
-           </BuiltInAtom>
-       </Body>
-       <Head>
-           <DataPropertyAtom>
-               <DataProperty **IRI**\ =\ **"hasResultValue"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-               <Variable **IRI**\ =\ **"Value2"** /> 
-           </DataPropertyAtom>
-       </Head>
-   </DLSafeRule>
+    <DLSafeRule>
+        <Body>
+            <ClassAtom>
+                <Class IRI="Cat" />
+                <Variable IRI="CatX" />
+              </ClassAtom>
+            <DataPropertyAtom>
+               <DataProperty IRI="hasName" />
+                  <Variable IRI="CatX" />
+                <Variable IRI="Value1" />
+              </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#substring" />
+                <Variable IRI="Value2" />
+                <Variable IRI="Value1" />
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer" > 3 <Literal/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer" > 2 <Literal/>
+            </BuiltInAtom>
+        </Body>
+        <Head>
+            <DataPropertyAtom>
+                <DataProperty IRI="hasResultValue" />
+                <Variable IRI="CatX" />
+                <Variable IRI="Value2" />
+            </DataPropertyAtom>
+        </Head>
+    </DLSafeRule>
 
 Example 3) Replace with the regular expression
 
-.. container:: txt-cnl
+.. parsed-literal::
 
-   If a cat has-name equal-to the value (1) and replaced 'Le+[a-z]*o+n?'
-   from the value (1) with 'Leon' = the value (2) then the cat
-   has-result-value equal-to the value (2).
+   :blue:`If a` cat has-name  :blue:`equal-to the value` (1)  :blue:`and replaced 'Le+[a-z]*o+n?' from the value` (1) :blue:`with 'Leon' = the value` (2) :blue:`then the` cat has-result-value :blue:`equal-to the value` (2).
 
-.. container:: eq-mark
 
-.. container:: text-xml
+.. code-block:: xml
 
-   <DLSafeRule>
-       <Body>
-           <ClassAtom>
-               <Class **IRI**\ =\ **"Cat"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-           </ClassAtom>
-           <DataPropertyAtom>
-               <DataProperty **IRI**\ =\ **"hasName"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-               <Variable **IRI**\ =\ **"Value1"** />
-           </DataPropertyAtom>
-           <BuiltInAtom
-   **IRI**\ =\ **"http://www.w3.org/2003/11/swrlb#replace"** /> 
-               <Variable **IRI**\ =\ **"Value2"** />
-               <Literal
-   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#string"** >
-   b+r+a <Literal/>
-               <Variable **IRI**\ =\ **"Value1"** />
-               <Literal
-   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#string"** >
-   \* <Literal/>
-           </BuiltInAtom>
-       </Body>
-       <Head>
-           <DataPropertyAtom>
-               <DataProperty **IRI**\ =\ **"hasResultValue"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-               <Variable **IRI**\ =\ **"Value2"** /> 
-           </DataPropertyAtom>
-       </Head>
-   </DLSafeRule>
+    <DLSafeRule>
+        <Body>
+            <ClassAtom>
+                <Class IRI="Cat" />
+                <Variable IRI="CatX" />
+            </ClassAtom>
+            <DataPropertyAtom>
+               <DataProperty IRI="hasName" />
+                  <Variable IRI="CatX" />
+                <Variable IRI="Value1" />
+              </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#replace" />
+                <Variable IRI="Value2" />
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string" > b+r+a <Literal/>
+                <Variable IRI="Value1" />
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string" > * <Literal/>
+            </BuiltInAtom>
+        </Body>
+        <Head>
+            <DataPropertyAtom>
+                <DataProperty IRI="hasResultValue" />
+                <Variable IRI="CatX" />
+                <Variable IRI="Value2" />
+            </DataPropertyAtom>
+        </Head>
+    </DLSafeRule>
 
 Example 4)
 
-.. container:: txt-cnl
+.. parsed-literal::
 
-   If a cat has-name equal-to the value (1) and translated the value (1)
-   from 'kica' with 'KICA' = the value (2) then the cat has-result-value
-   equal-to the value (2).
+   :blue:`If a` cat has-name  :blue:`equal-to the value` (1)  :blue:`and translated the value` (1)  :blue:`from 'kica' with 'KICA' = the value` (2)  :blue:`then the` cat has-result-value  :blue:`equal-to the value` (2).
 
-.. container:: eq-mark
 
-.. container:: text-xml
+.. code-block:: xml
 
-   <DLSafeRule>
-       <Body>
-           <ClassAtom>
-               <Class **IRI**\ =\ **"Cat"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-           </ClassAtom>
-           <DataPropertyAtom>
-               <DataProperty **IRI**\ =\ **"hasName"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-               <Variable **IRI**\ =\ **"Value1"** />
-           </DataPropertyAtom>
-           <BuiltInAtom
-   **IRI**\ =\ **"http://www.w3.org/2003/11/swrlb#translate"** /> 
-               <Variable **IRI**\ =\ **"Value2"** />
-               <Variable **IRI**\ =\ **"Value1"** />
-               <Literal
-   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#string"** >
-   kica <Literal/>
-               <Literal
-   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#string"** >
-   KICA <Literal/>
-           </BuiltInAtom>
-       </Body>
-       <Head>
-           <DataPropertyAtom>
-               <DataProperty **IRI**\ =\ **"hasResultValue"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-               <Variable **IRI**\ =\ **"Value2"** /> 
-           </DataPropertyAtom>
-       </Head>
-   </DLSafeRule>
-
- 
+    <DLSafeRule>
+        <Body>
+            <ClassAtom>
+                <Class IRI="Cat" />
+                <Variable IRI="CatX" />
+            </ClassAtom>
+            <DataPropertyAtom>
+               <DataProperty IRI="hasName" />
+                  <Variable IRI="CatX" />
+                <Variable IRI="Value1" />
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#translate" />
+                <Variable IRI="Value2" />
+                <Variable IRI="Value1" />
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string" > kica <Literal/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string" > KICA <Literal/>
+            </BuiltInAtom>
+        </Body>
+        <Head>
+            <DataPropertyAtom>
+                <DataProperty IRI="hasResultValue" />
+                <Variable IRI="CatX" />
+                <Variable IRI="Value2" />
+            </DataPropertyAtom>
+        </Head>
+    </DLSafeRule>
 
 Built-ins for Date, Time and Duration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2110,95 +1945,52 @@ appropriate.
 To see the data types for date, time and duration, go
 `here. <#dataAttrs>`__
 
-Keywords
+.. list-table::
+    :widths: 25 25
+    :header-rows: 1
+    :align: center
 
-Meaning
+    * - Keywords
+      - Meaning
+    * - :blue:`..days ..hours ..minutes ..seconds`
+      - swrlb:dayTimeDuration
 
-..days ..hours ..minutes ..seconds  
 
-swrlb:dayTimeDuration
+| Example 1)
 
-.. container:: txt-cnl
+.. parsed-literal::
 
-   If a cat has-name equal-to the value (1) and 365 days 15 hours 52
-   minutes 32 seconds = the value (2) then the cat has-age equal-to the
-   value (2).
+   :blue:`If a` cat has-name :blue:`equal-to the value` (1) :blue:`and` 365 :blue:`days` 15 :blue:`hours` 52 :blue:`minutes` 32 :blue:`seconds` = :blue:`the value` (2) :blue:`then the` cat has-age :blue:`equal-to the value` (2).
 
-.. container:: eq-mark
+.. code-block:: xml
 
-.. container:: text-xml
-
-   <DLSafeRule>
-       <Body>
-           <ClassAtom>
-               <Class **IRI**\ =\ **"Cat"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-           </ClassAtom>
-           <DataPropertyAtom>
-               <DataProperty **IRI**\ =\ **"hasName"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-               <Variable **IRI**\ =\ **"Value1"** />
-           </DataPropertyAtom>
-           <BuiltInAtom
-   **IRI**\ =\ **"http://www.w3.org/2003/11/swrlb#dayTimeDuration"** /> 
-               <Variable **IRI**\ =\ **"Value2"** />
-               <Literal
-   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#string"** > M
-   <Literal/>
-               <Literal
-   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"** >
-   0 <Literal/>
-               <Literal
-   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"** >
-   0 <Literal/>
-               <Literal
-   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"** >
-   365 <Literal/>
-               <Literal
-   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"** >
-   15 <Literal/>
-               <Literal
-   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"** >
-   52 <Literal/>
-               <Literal
-   **datatypeIRI**\ =\ **"http://www.w3.org/2001/XMLSchema#integer"** >
-   32 <Literal/>
-           </BuiltInAtom>
-       </Body>
-       <Head>
-           <DataPropertyAtom>
-               <DataProperty **IRI**\ =\ **"hasAge"** />
-               <Variable **IRI**\ =\ **"CatX"** />
-               <Variable **IRI**\ =\ **"Value2"** /> 
-           </DataPropertyAtom>
-       </Head>
-   </DLSafeRule>
-
-|
-
-.. container::
-   :name: footer
-
-   © 2010-2016 Cognitum, Poland. All rights reserved.
-
-.. |image1| image:: _static/figures/fe_logo_sm.png
-.. |image2| image:: _static/figures/help_sm.png
-.. |image3| image:: _static/figures/grammar_sm.png
-.. |image4| image:: _static/figures/dictionary_sm.png
-.. |image5| image:: _static/figures/examples_sm.png
-.. |image6| image:: _static/figures/grammar_sm.png
-.. |image7| image:: Grammar_files/image001.png
-   :width: 408px
-   :height: 170px
-.. |image8| image:: _static/figures/eq.png
-.. |image9| image:: Grammar_files/image002.png
-   :width: 307px
-   :height: 205px
-.. |image10| image:: Grammar_files/eg92.png
-   :class: auto-style42
-.. |image11| image:: Grammar_files/image004.png
-   :width: 197px
-   :height: 225px
-.. |image12| image:: Grammar_files/image003.png
-   :width: 248px
-   :height: 90px
+    <DLSafeRule>
+        <Body>
+            <ClassAtom>
+                <Class IRI="Cat" />
+                <Variable IRI="CatX" />
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="hasName" />
+                <Variable IRI="CatX" />
+                <Variable IRI="Value1" />
+            </DataPropertyAtom>
+            <BuiltInAtom IRI="http://www.w3.org/2003/11/swrlb#dayTimeDuration" />
+                <Variable IRI="Value2" />
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string" > M <Literal/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer" > 0 <Literal/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer" > 0 <Literal/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer" > 365 <Literal/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer" > 15 <Literal/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer" > 52 <Literal/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer" > 32 <Literal/>
+            </BuiltInAtom>
+        </Body>
+        <Head>
+            <DataPropertyAtom>
+                <DataProperty IRI="hasAge" />
+                <Variable IRI="CatX" />
+                <Variable IRI="Value2" />
+            </DataPropertyAtom>
+        </Head>
+    </DLSafeRule>

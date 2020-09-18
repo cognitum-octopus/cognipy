@@ -1,0 +1,190 @@
+
+Dictonary
+=========
+
+.. list-table::
+    :widths: 25 25
+    :header-rows: 1
+    :align: center
+
+    * - Keyword
+      - Description
+    * - a
+      - Indicates some unspecified individual of a given concept.
+    * - an
+      - Indicates some unspecified individual of a given concept.
+    * - and
+      - Connects two clauses or phrases (intersection).
+    * - and-or
+      - Connects two clauses or phrases (union).
+    * - anything
+      - Refers to the pairwise disjoint concepts.
+    * - are
+      - Used for concept inclusion, concept equivalence or role inversion.
+    * - are not
+      - Negates a concept or gives a complement concept.
+    * - as-well-as
+      - Enumerates data types.
+    * - at-least
+      - Introduces property cardinality restriction.
+    * - at-most
+      - Introduces property cardinality restriction.
+    * - be
+      - Used for concept inclusion, concept equivalence or role inversion.
+    * - be not
+      - Negates a concept or gives a complement concept.
+    * - by
+      - Used for role inversion.
+    * - can
+      - States a restriction on the knowledge.
+    * - can-not
+      - States a restriction on the knowledge.
+    * - different-from
+      - Assigns range to a data attribute.
+    * - different-than
+      - Introduces property cardinality restriction.
+    * - do-not
+      - Negates a role or data property.
+    * - does-not
+      - Negates a role or data property.
+    * - eight
+      - Introduces property cardinality restriction.
+    * - either
+      - Used for disjoint unions and enumeration of individuals.
+    * - equal-to
+      - Assigns a data attribute of a given value.
+    * - every
+      - Refers to all individuals of a given concept.
+    * - every-single-thing
+      - Indicates all individuals in the open-world assumption .
+    * - execute
+      - Allows to specify active rule action.
+    * - exists
+      - Is equivalent to is something.
+    * - false
+      - Is a boolean data value.
+    * - five
+      - Introduces property cardinality restriction.
+    * - for
+      - Allows to specify active rule arguments.
+    * - four
+      - Introduces property cardinality restriction.
+    * - greater-or-equal-to
+      - Assigns range to a data attribute.
+    * - greater-than
+      - Assigns range to a data attribute.
+    * - if
+      - Is a part of a sentence with an implication (semantic rule).
+    * - if-and-only-if
+      - Logically connects two statements with X/Y variables.
+    * - if-and-only-if-it
+      - Introduces equivalent concepts.
+    * - if-and-only-if-it-either
+      - Introduces a concept equivalent to a disjoint union.
+    * - it
+      -  Is a variable for 'something' in semantic rules.
+    * - itself
+      - Is used when the subject and the object of a role are the same.
+    * - is
+      - Used for concept inclusion, concept equivalence or role inversion.
+    * - is not
+      - Negates a concept or gives a complement concept.
+    * - is-not-the-same-as
+      - Expresses that two individuals are the same.
+    * - is-the-same-as
+      - Expresses that two individuals are not the same.
+    * - is-unique-if
+      - Defines a key for a class.
+    * - less-than
+      - Introduces property cardinality restriction.
+    * - lower-or-equal-to
+      - Assigns range to a data attribute.
+    * - lower-than
+      - Assigns range to a data attribute.
+    * - more-than
+      - Introduces property cardinality restriction.
+    * - must
+      - States a restriction on the knowledge.
+    * - must-not
+      - States a restriction on the knowledge.
+    * - nine
+      - Introduces property cardinality restriction.
+    * - no
+      - Negates a concept.
+    * - none
+      - is a short version of 'nothing-but things that are nothing'
+    * - not
+      - Negates the verb to be.
+    * - nothing
+      - Refers to the bottom concept (empty set).
+    * - nothing-but
+      - Gives restriction on range of property (role) or data type of data property.
+    * - one
+      - Introduces property cardinality restriction
+    * - or
+      - Used for disjoint unions and enumeration of individuals.
+    * - or-something-else
+      - Is the complement concept.
+    * - seven
+      - Introduces property cardinality restriction.
+    * - should
+      - States a restriction on the knowledge.
+    * - should-not
+      - States a restriction on the knowledge.
+    * - six
+      - Introduces property cardinality restriction.
+    * - (some boolean value)
+      - Specifies data type boolean.
+    * - (some datetime value)
+      - Specifies data type datetime.
+    * - (some integer value)
+      - Specifies data type integer.
+    * - (some string value)
+      - Specifies data type string.
+    * - (some real value)
+      - Specifies data type double.
+    * - (some value)
+      - Gives an unspecified data type.
+    * - (some [datatype] value)
+      - Refers to a value of a given (user defined) data type.
+    * - something
+      - Represents all individuals (top concept).
+    * - Represents any data value of any data type.
+      - Starts a general rule about all things.
+    * - ten
+      - Introduces property cardinality restriction.
+    * - that
+      - Starts further specification (restriction) of a concept.
+    * - that-has-length
+      - Restricts length of a data attribute.
+    * - that-matches-pattern
+      - Defines string attributes as regular expression patterns.
+    * - the
+      - | Indicates some specified individual of a given concept.
+        | Adds an instance with custom identifier.
+    * - then
+      - Is a part of a sentence with an implication (semantic rule).
+    * - the-one-and-only
+      - Is used to define a class which has only one instance
+    * - thing
+      - | Represents an instance of the top concept and thus any variable.
+        | Is a variable in semantic rules.
+    * - things
+      - | Represents an instance of the top concept and thus any variable.
+        | Is a variable in semantic rules.
+    * - three
+      - Introduces property cardinality restriction.
+    * - true
+      - Is a boolean data value.
+    * - two
+      - Introduces property cardinality restriction.
+    * - value
+      - Refers to a value of data property in a semantic rule.
+    * - value-of [datatype]
+      - Refers to a value of a given (user defined) data type.
+    * - X
+      - Is a variable used for writing axioms about roles.
+    * - Y
+      - Is a variable used for writing axioms about roles.
+    * - zero
+      - Introduces property cardinality restriction.

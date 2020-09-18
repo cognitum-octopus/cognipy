@@ -1,8 +1,5 @@
 
 
-Welcome to cognipy's documentation!
-===================================
-
 .. toctree::
    :maxdepth: 5
    :glob:
@@ -10,6 +7,7 @@ Welcome to cognipy's documentation!
 
    installation
    grammar
+   dictonary
    examples
    modules
 
