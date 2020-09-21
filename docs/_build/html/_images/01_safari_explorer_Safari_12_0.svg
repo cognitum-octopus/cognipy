@@ -103,7 +103,7 @@
 <text text-anchor="middle" x="1119" y="-88.7" font-family="Times New Roman,serif" font-size="11.00">warthog</text>
 </g>
 <!-- animal&#45;&#45;warthog -->
-<g id="edge8" class="edge"><title>animal--warthog</title>
+<g id="edge7" class="edge"><title>animal--warthog</title>
 <path fill="none" stroke="black" stroke-width="0.5" d="M1232.62,-146.58C1210.2,-136.117 1180.89,-122.368 1155,-110 1152.12,-108.622 1149.11,-107.174 1146.11,-105.726"/>
 <polygon fill="none" stroke="black" stroke-width="0.5" points="1231.23,-149.794 1241.77,-150.849 1234.19,-143.45 1231.23,-149.794"/>
 </g>
@@ -168,7 +168,7 @@
 <text text-anchor="middle" x="709" y="-161.7" font-family="Times New Roman,serif" font-size="11.00">plant-part</text>
 </g>
 <!-- plant&#45;part&#45;&#45;fruiting&#45;body -->
-<g id="edge7" class="edge"><title>plant-part--fruiting-body</title>
+<g id="edge8" class="edge"><title>plant-part--fruiting-body</title>
 <path fill="none" stroke="black" stroke-width="0.5" d="M669.392,-155.288C625.748,-145.871 553.69,-129.23 493,-110 490.123,-109.088 487.166,-108.087 484.207,-107.04"/>
 <polygon fill="none" stroke="black" stroke-width="0.5" points="668.809,-158.743 679.32,-157.411 670.273,-151.897 668.809,-158.743"/>
 </g>

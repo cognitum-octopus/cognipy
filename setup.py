@@ -14,7 +14,7 @@ setup(
     url="https://github.com/cognitum-octopus/cognipy",
     packages=['cognipy'],
     include_package_data = True,
-    install_requires = ['pandas','pydot','ipywidgets','graphviz'],
+    install_requires = ['pandas','pydot','ipywidgets','graphviz', 'fuzzy', 'flask_table'],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",

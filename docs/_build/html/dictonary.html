@@ -32,15 +32,13 @@
         <script src="_static/doctools.js"></script>
         <script src="_static/language_data.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Examples" href="examples.html" />
-    <link rel="prev" title="Grammar" href="grammar.html" /> 
+    <link rel="prev" title="cognipy.edit" href="cognipy.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,12 +87,16 @@
             
             
               <p class="caption"><span class="caption-text">CogniPy Documentation:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Project description</a></li>
 <li class="toctree-l1"><a class="reference internal" href="grammar.html">Grammar</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Dictonary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">API Refrence</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Dictonary</a><ul class="simple">
+</ul>
+</li>
 </ul>
 
             
@@ -185,296 +187,1123 @@
 }
 </style>
 <div class="section" id="dictonary">
-<h1>Dictonary<a class="headerlink" href="#dictonary" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id6">Dictonary</a><a class="headerlink" href="#dictonary" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#dictonary" id="id6">Dictonary</a></p>
+<ul>
+<li><p><a class="reference internal" href="#a-an" id="id7">A / an</a></p></li>
+<li><p><a class="reference internal" href="#and" id="id8">And</a></p></li>
+<li><p><a class="reference internal" href="#and-or" id="id9">And-or</a></p></li>
+<li><p><a class="reference internal" href="#anything" id="id10">Anything</a></p></li>
+<li><p><a class="reference internal" href="#as-well-as" id="id11">As-well-as</a></p></li>
+<li><p><a class="reference internal" href="#be-is-are" id="id12">Be (is/are)</a></p></li>
+<li><p><a class="reference internal" href="#be-not-is-not-are-not" id="id13">Be not (is not /are not)</a></p></li>
+<li><p><a class="reference internal" href="#by" id="id14">By</a></p></li>
+<li><p><a class="reference internal" href="#less-than-more-than-at-least-at-most-differet-than-zero-one-two" id="id15">Less-than/more-than/at-least/at-most/differet-than/zero/one/two…</a></p></li>
+<li><p><a class="reference internal" href="#greater-than-lower-than-greater-or-equal-to-lower-or-equal-to-different-from" id="id16">Greater-than/lower-than/greater-or-equal-to/lower-or-equal-to/different-from</a></p></li>
+<li><p><a class="reference internal" href="#do-not-does-not" id="id17">Do-not/does-not</a></p></li>
+<li><p><a class="reference internal" href="#either-or" id="id18">Either … or …</a></p></li>
+<li><p><a class="reference internal" href="#equal-to" id="id19">Equal-to</a></p></li>
+<li><p><a class="reference internal" href="#be-isare-1" id="id20">Be (is/are)</a></p></li>
+<li><p><a class="reference internal" href="#every-single-thing" id="id21">Every-single-thing</a></p></li>
+<li><p><a class="reference internal" href="#for-execute" id="id22">… for … execute &lt;? … ?&gt;</a></p></li>
+<li><p><a class="reference internal" href="#exists" id="id23">Exists</a></p></li>
+<li><p><a class="reference internal" href="#if-and-only-if" id="id24">If-and-only-if</a></p></li>
+<li><p><a class="reference internal" href="#if-and-only-if-it" id="id25">If-and-only-if-it</a></p></li>
+<li><p><a class="reference internal" href="#if-and-only-if-it-either" id="id26">If-and-only-if-it-either</a></p></li>
+<li><p><a class="reference internal" href="#if-then" id="id27">If … then …</a></p></li>
+<li><p><a class="reference internal" href="#is-not-the-same-as" id="id28">Is-(not-)the-same-as</a></p></li>
+<li><p><a class="reference internal" href="#is-unique-if" id="id29">Is-unique-if</a></p></li>
+<li><p><a class="reference internal" href="#it" id="id30">It</a></p></li>
+<li><p><a class="reference internal" href="#itself" id="id31">Itself</a></p></li>
+<li><p><a class="reference internal" href="#can-can-not-must-must-not-should-should-not" id="id32">Can/can-not/must/must-not/should/should-not</a></p></li>
+<li><p><a class="reference internal" href="#no" id="id33">No</a></p></li>
+<li><p><a class="reference internal" href="#none" id="id34">None</a></p></li>
+<li><p><a class="reference internal" href="#nothing" id="id35">Nothing</a></p></li>
+<li><p><a class="reference internal" href="#nothing-but" id="id36">Nothing-but</a></p></li>
+<li><p><a class="reference internal" href="#or-something-else" id="id37">Or-something-else</a></p></li>
+<li><p><a class="reference internal" href="#something" id="id38">Something</a></p></li>
+<li><p><a class="reference internal" href="#some-boolean-datetime-integer-string-value" id="id39">(some boolean/datetime/integer/string value)</a></p></li>
+<li><p><a class="reference internal" href="#that" id="id40">That</a></p></li>
+<li><p><a class="reference internal" href="#that-has-length" id="id41">that-has-length</a></p></li>
+<li><p><a class="reference internal" href="#that-matches-pattern" id="id42">That-matches-pattern</a></p></li>
+<li><p><a class="reference internal" href="#the" id="id43">The</a></p></li>
+<li><p><a class="reference internal" href="#the-one-and-the-only" id="id44">The-one-and-the-only</a></p></li>
+<li><p><a class="reference internal" href="#thing-things" id="id45">Thing/things</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="a-an">
+<span id="an"></span><h2><a class="toc-backref" href="#id7">A / an</a><a class="headerlink" href="#a-an" title="Permalink to this headline">¶</a></h2>
+<p>English indefinite article a/an indicates some unspecified individual of
+a given concept. Individuals start with capital letter and are never
+preceeded by a/an. Concepts start with small letter and can be preceeded
+by a/an. Variables appear in semantic rules. When a variable occurs for
+the first time it is preceeded by a/an and later by the.</p>
+<p>Different use cases of variables in semantic rules are summed up in the
+table below.</p>
 <table class="colwidths-given docutils align-center">
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Keyword</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="head"><p>Variable pattern</p></th>
+<th class="head"><p>Use case</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>a</p></td>
-<td><p>Indicates some unspecified individual of a given concept.</p></td>
+<tr class="row-even"><td><p>a/the class-name</p></td>
+<td><p>denotes variables assigned to a class/concept</p></td>
 </tr>
-<tr class="row-odd"><td><p>an</p></td>
-<td><p>Indicates some unspecified individual of a given concept.</p></td>
+<tr class="row-odd"><td><p>a/the thing</p></td>
+<td><p>represents an instance of the top concept “owl:Thing” and thus any variable in the SR-CE sentence.</p></td>
 </tr>
-<tr class="row-even"><td><p>and</p></td>
-<td><p>Connects two clauses or phrases (intersection).</p></td>
-</tr>
-<tr class="row-odd"><td><p>and-or</p></td>
-<td><p>Connects two clauses or phrases (union).</p></td>
-</tr>
-<tr class="row-even"><td><p>anything</p></td>
-<td><p>Refers to the pairwise disjoint concepts.</p></td>
-</tr>
-<tr class="row-odd"><td><p>are</p></td>
-<td><p>Used for concept inclusion, concept equivalence or role inversion.</p></td>
-</tr>
-<tr class="row-even"><td><p>are not</p></td>
-<td><p>Negates a concept or gives a complement concept.</p></td>
-</tr>
-<tr class="row-odd"><td><p>as-well-as</p></td>
-<td><p>Enumerates data types.</p></td>
-</tr>
-<tr class="row-even"><td><p>at-least</p></td>
-<td><p>Introduces property cardinality restriction.</p></td>
-</tr>
-<tr class="row-odd"><td><p>at-most</p></td>
-<td><p>Introduces property cardinality restriction.</p></td>
-</tr>
-<tr class="row-even"><td><p>be</p></td>
-<td><p>Used for concept inclusion, concept equivalence or role inversion.</p></td>
-</tr>
-<tr class="row-odd"><td><p>be not</p></td>
-<td><p>Negates a concept or gives a complement concept.</p></td>
-</tr>
-<tr class="row-even"><td><p>by</p></td>
-<td><p>Used for role inversion.</p></td>
-</tr>
-<tr class="row-odd"><td><p>can</p></td>
-<td><p>States a restriction on the knowledge.</p></td>
-</tr>
-<tr class="row-even"><td><p>can-not</p></td>
-<td><p>States a restriction on the knowledge.</p></td>
-</tr>
-<tr class="row-odd"><td><p>different-from</p></td>
-<td><p>Assigns range to a data attribute.</p></td>
-</tr>
-<tr class="row-even"><td><p>different-than</p></td>
-<td><p>Introduces property cardinality restriction.</p></td>
-</tr>
-<tr class="row-odd"><td><p>do-not</p></td>
-<td><p>Negates a role or data property.</p></td>
-</tr>
-<tr class="row-even"><td><p>does-not</p></td>
-<td><p>Negates a role or data property.</p></td>
-</tr>
-<tr class="row-odd"><td><p>eight</p></td>
-<td><p>Introduces property cardinality restriction.</p></td>
-</tr>
-<tr class="row-even"><td><p>either</p></td>
-<td><p>Used for disjoint unions and enumeration of individuals.</p></td>
-</tr>
-<tr class="row-odd"><td><p>equal-to</p></td>
-<td><p>Assigns a data attribute of a given value.</p></td>
-</tr>
-<tr class="row-even"><td><p>every</p></td>
-<td><p>Refers to all individuals of a given concept.</p></td>
-</tr>
-<tr class="row-odd"><td><p>every-single-thing</p></td>
-<td><p>Indicates all individuals in the open-world assumption .</p></td>
-</tr>
-<tr class="row-even"><td><p>execute</p></td>
-<td><p>Allows to specify active rule action.</p></td>
-</tr>
-<tr class="row-odd"><td><p>exists</p></td>
-<td><p>Is equivalent to is something.</p></td>
-</tr>
-<tr class="row-even"><td><p>false</p></td>
-<td><p>Is a boolean data value.</p></td>
-</tr>
-<tr class="row-odd"><td><p>five</p></td>
-<td><p>Introduces property cardinality restriction.</p></td>
-</tr>
-<tr class="row-even"><td><p>for</p></td>
-<td><p>Allows to specify active rule arguments.</p></td>
-</tr>
-<tr class="row-odd"><td><p>four</p></td>
-<td><p>Introduces property cardinality restriction.</p></td>
-</tr>
-<tr class="row-even"><td><p>greater-or-equal-to</p></td>
-<td><p>Assigns range to a data attribute.</p></td>
-</tr>
-<tr class="row-odd"><td><p>greater-than</p></td>
-<td><p>Assigns range to a data attribute.</p></td>
-</tr>
-<tr class="row-even"><td><p>if</p></td>
-<td><p>Is a part of a sentence with an implication (semantic rule).</p></td>
-</tr>
-<tr class="row-odd"><td><p>if-and-only-if</p></td>
-<td><p>Logically connects two statements with X/Y variables.</p></td>
-</tr>
-<tr class="row-even"><td><p>if-and-only-if-it</p></td>
-<td><p>Introduces equivalent concepts.</p></td>
-</tr>
-<tr class="row-odd"><td><p>if-and-only-if-it-either</p></td>
-<td><p>Introduces a concept equivalent to a disjoint union.</p></td>
-</tr>
-<tr class="row-even"><td><p>it</p></td>
-<td><p>Is a variable for ‘something’ in semantic rules.</p></td>
-</tr>
-<tr class="row-odd"><td><p>itself</p></td>
-<td><p>Is used when the subject and the object of a role are the same.</p></td>
-</tr>
-<tr class="row-even"><td><p>is</p></td>
-<td><p>Used for concept inclusion, concept equivalence or role inversion.</p></td>
-</tr>
-<tr class="row-odd"><td><p>is not</p></td>
-<td><p>Negates a concept or gives a complement concept.</p></td>
-</tr>
-<tr class="row-even"><td><p>is-not-the-same-as</p></td>
-<td><p>Expresses that two individuals are the same.</p></td>
-</tr>
-<tr class="row-odd"><td><p>is-the-same-as</p></td>
-<td><p>Expresses that two individuals are not the same.</p></td>
-</tr>
-<tr class="row-even"><td><p>is-unique-if</p></td>
-<td><p>Defines a key for a class.</p></td>
-</tr>
-<tr class="row-odd"><td><p>less-than</p></td>
-<td><p>Introduces property cardinality restriction.</p></td>
-</tr>
-<tr class="row-even"><td><p>lower-or-equal-to</p></td>
-<td><p>Assigns range to a data attribute.</p></td>
-</tr>
-<tr class="row-odd"><td><p>lower-than</p></td>
-<td><p>Assigns range to a data attribute.</p></td>
-</tr>
-<tr class="row-even"><td><p>more-than</p></td>
-<td><p>Introduces property cardinality restriction.</p></td>
-</tr>
-<tr class="row-odd"><td><p>must</p></td>
-<td><p>States a restriction on the knowledge.</p></td>
-</tr>
-<tr class="row-even"><td><p>must-not</p></td>
-<td><p>States a restriction on the knowledge.</p></td>
-</tr>
-<tr class="row-odd"><td><p>nine</p></td>
-<td><p>Introduces property cardinality restriction.</p></td>
-</tr>
-<tr class="row-even"><td><p>no</p></td>
-<td><p>Negates a concept.</p></td>
-</tr>
-<tr class="row-odd"><td><p>none</p></td>
-<td><p>is a short version of ‘nothing-but things that are nothing’</p></td>
-</tr>
-<tr class="row-even"><td><p>not</p></td>
-<td><p>Negates the verb to be.</p></td>
-</tr>
-<tr class="row-odd"><td><p>nothing</p></td>
-<td><p>Refers to the bottom concept (empty set).</p></td>
-</tr>
-<tr class="row-even"><td><p>nothing-but</p></td>
-<td><p>Gives restriction on range of property (role) or data type of data property.</p></td>
-</tr>
-<tr class="row-odd"><td><p>one</p></td>
-<td><p>Introduces property cardinality restriction</p></td>
-</tr>
-<tr class="row-even"><td><p>or</p></td>
-<td><p>Used for disjoint unions and enumeration of individuals.</p></td>
-</tr>
-<tr class="row-odd"><td><p>or-something-else</p></td>
-<td><p>Is the complement concept.</p></td>
-</tr>
-<tr class="row-even"><td><p>seven</p></td>
-<td><p>Introduces property cardinality restriction.</p></td>
-</tr>
-<tr class="row-odd"><td><p>should</p></td>
-<td><p>States a restriction on the knowledge.</p></td>
-</tr>
-<tr class="row-even"><td><p>should-not</p></td>
-<td><p>States a restriction on the knowledge.</p></td>
-</tr>
-<tr class="row-odd"><td><p>six</p></td>
-<td><p>Introduces property cardinality restriction.</p></td>
-</tr>
-<tr class="row-even"><td><p>(some boolean value)</p></td>
-<td><p>Specifies data type boolean.</p></td>
-</tr>
-<tr class="row-odd"><td><p>(some datetime value)</p></td>
-<td><p>Specifies data type datetime.</p></td>
-</tr>
-<tr class="row-even"><td><p>(some integer value)</p></td>
-<td><p>Specifies data type integer.</p></td>
-</tr>
-<tr class="row-odd"><td><p>(some string value)</p></td>
-<td><p>Specifies data type string.</p></td>
-</tr>
-<tr class="row-even"><td><p>(some real value)</p></td>
-<td><p>Specifies data type double.</p></td>
-</tr>
-<tr class="row-odd"><td><p>(some value)</p></td>
-<td><p>Gives an unspecified data type.</p></td>
-</tr>
-<tr class="row-even"><td><p>(some [datatype] value)</p></td>
-<td><p>Refers to a value of a given (user defined) data type.</p></td>
-</tr>
-<tr class="row-odd"><td><p>something</p></td>
-<td><p>Represents all individuals (top concept).</p></td>
-</tr>
-<tr class="row-even"><td><p>Represents any data value of any data type.</p></td>
-<td><p>Starts a general rule about all things.</p></td>
-</tr>
-<tr class="row-odd"><td><p>ten</p></td>
-<td><p>Introduces property cardinality restriction.</p></td>
-</tr>
-<tr class="row-even"><td><p>that</p></td>
-<td><p>Starts further specification (restriction) of a concept.</p></td>
-</tr>
-<tr class="row-odd"><td><p>that-has-length</p></td>
-<td><p>Restricts length of a data attribute.</p></td>
-</tr>
-<tr class="row-even"><td><p>that-matches-pattern</p></td>
-<td><p>Defines string attributes as regular expression patterns.</p></td>
-</tr>
-<tr class="row-odd"><td><p>the</p></td>
-<td><div class="line-block">
-<div class="line">Indicates some specified individual of a given concept.</div>
-<div class="line">Adds an instance with custom identifier.</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>then</p></td>
-<td><p>Is a part of a sentence with an implication (semantic rule).</p></td>
-</tr>
-<tr class="row-odd"><td><p>the-one-and-only</p></td>
-<td><p>Is used to define a class which has only one instance</p></td>
-</tr>
-<tr class="row-even"><td><p>thing</p></td>
-<td><div class="line-block">
-<div class="line">Represents an instance of the top concept and thus any variable.</div>
-<div class="line">Is a variable in semantic rules.</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>things</p></td>
-<td><div class="line-block">
-<div class="line">Represents an instance of the top concept and thus any variable.</div>
-<div class="line">Is a variable in semantic rules.</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>three</p></td>
-<td><p>Introduces property cardinality restriction.</p></td>
-</tr>
-<tr class="row-odd"><td><p>true</p></td>
-<td><p>Is a boolean data value.</p></td>
-</tr>
-<tr class="row-even"><td><p>two</p></td>
-<td><p>Introduces property cardinality restriction.</p></td>
-</tr>
-<tr class="row-odd"><td><p>value</p></td>
-<td><p>Refers to a value of data property in a semantic rule.</p></td>
-</tr>
-<tr class="row-even"><td><p>value-of [datatype]</p></td>
-<td><p>Refers to a value of a given (user defined) data type.</p></td>
-</tr>
-<tr class="row-odd"><td><p>X</p></td>
-<td><p>Is a variable used for writing axioms about roles.</p></td>
-</tr>
-<tr class="row-even"><td><p>Y</p></td>
-<td><p>Is a variable used for writing axioms about roles.</p></td>
-</tr>
-<tr class="row-odd"><td><p>zero</p></td>
-<td><p>Introduces property cardinality restriction.</p></td>
+<tr class="row-even"><td><p>a/the class-name(n)/thing(n)</p></td>
+<td><p>different numbers in parenthesis mark more variables of the same type.</p></td>
 </tr>
 </tbody>
 </table>
+<div class="comment docutils container">
+<p>Example: Here concepts are preceeded by ‘a’, referring to an
+unspecified earlier individual of a given concept.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sophie</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">giraffe</span><span class="o">.</span>
+<span class="n">Leo</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">lion</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: Word ‘every’ is used to refer to all individuals of given
+concept, word ‘a’ refers to some unspecified individual of given
+concept.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span> <span class="n">giraffe</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="and">
+<span id="id1"></span><h2><a class="toc-backref" href="#id8">And</a><a class="headerlink" href="#and" title="Permalink to this headline">¶</a></h2>
+<p>Conjunction and connects two phrases into complex phrase. It can be used
+to make an intersection of concepts or to introduce intersection complex
+conditions into semantic rules.</p>
+<p>The examples show how to use conjuction and.</p>
+<p>The concept of a young male man is an intersection of concepts of a young thing, a male thing and a person.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Something</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">young</span><span class="o">-</span><span class="n">male</span><span class="o">-</span><span class="n">man</span> <span class="k">if</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">only</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="n">it</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">young</span><span class="o">-</span><span class="n">thing</span>
+<span class="n">that</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">male</span><span class="o">-</span><span class="n">thing</span> <span class="ow">and</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">person</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>In the ‘if’ statement below the antecedent clause is
+complex. It could also be the case for the consequent clause.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">If</span> <span class="n">a</span> <span class="n">person</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">has</span><span class="o">-</span><span class="n">parent</span> <span class="n">a</span> <span class="n">person</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">person</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="ow">is</span> <span class="n">a</span>
+<span class="n">female</span><span class="o">-</span><span class="n">person</span> <span class="n">then</span> <span class="n">the</span> <span class="n">person</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">has</span><span class="o">-</span><span class="n">mother</span> <span class="n">the</span> <span class="n">person</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="and-or">
+<span id="id2"></span><h2><a class="toc-backref" href="#id9">And-or</a><a class="headerlink" href="#and-or" title="Permalink to this headline">¶</a></h2>
+<p>Conjunction and-or connects two phrases into complex phrase. It can be
+used to make a union of concepts or to introduce complex conditions into
+semantic rules. The complex condition is satisfied if at least one of
+its conditions is fulfilled.</p>
+<p>The examples show how to use conjuction and-or.</p>
+<div class="comment docutils container">
+<p>The concept of a child is an intersection of concepts of boy
+and girl.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Something</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">child</span> <span class="k">if</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">only</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="n">it</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">boy</span> <span class="ow">and</span><span class="o">-</span><span class="ow">or</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">girl</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="anything">
+<span id="id3"></span><h2><a class="toc-backref" href="#id10">Anything</a><a class="headerlink" href="#anything" title="Permalink to this headline">¶</a></h2>
+<p>Anything refers to the pairwise disjoint concept set. if is usedc in
+pair with <strong>or-something-else.</strong></p>
+<p>The example shows how to use the keyword.</p>
+<div class="comment docutils container">
+<p>Example: The concepts of cat, dog and human are pairwise disjoint.
+However, there may exist individuals that are none of them.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Anything</span> <span class="n">either</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">cat</span> <span class="ow">or</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">dog</span> <span class="ow">or</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">human</span>
+<span class="ow">or</span><span class="o">-</span><span class="n">something</span><span class="o">-</span><span class="k">else</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Above sentence is equivalent to the following set of sentences:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">No</span> <span class="n">cat</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">dog</span><span class="o">.</span>
+<span class="n">No</span> <span class="n">cat</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">human</span><span class="o">.</span>
+<span class="n">No</span> <span class="n">dog</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">human</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="as-well-as">
+<span id="as-well-ass"></span><h2><a class="toc-backref" href="#id11">As-well-as</a><a class="headerlink" href="#as-well-as" title="Permalink to this headline">¶</a></h2>
+<p>As-well-as allows to define complext data types facets.</p>
+<p>The example shows how to use the keyword.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span> <span class="n">top</span><span class="o">-</span><span class="n">model</span> <span class="n">has</span><span class="o">-</span><span class="n">name</span> <span class="p">(</span><span class="n">some</span> <span class="n">string</span> <span class="n">value</span><span class="p">)</span> <span class="k">as</span><span class="o">-</span><span class="n">well</span><span class="o">-</span><span class="k">as</span> <span class="p">(</span><span class="n">some</span>
+<span class="n">integer</span> <span class="n">value</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="be-is-are">
+<span id="be"></span><h2><a class="toc-backref" href="#id12">Be (is/are)</a><a class="headerlink" href="#be-is-are" title="Permalink to this headline">¶</a></h2>
+<p>The negated verb to be and its conjugated forms are used for concept
+inclusion or concept equivalence. With that verb a hierarchy of concepts
+is constructed or an individual is placed in the hierarchy of concept
+(by saying what concepts the individual actually is). Concepts and
+individuals are defined when their names are used in at least one
+sentence.</p>
+<p>The verb to be combined with the word by is used to create a role
+inversion. It is conceptually equivalent to passive voice.</p>
+<p>Those examples show how to use the verb to be to create a hierarchy of
+concepts and individuals and make role inversion.</p>
+<div class="comment docutils container">
+<p>Example: Individuals are named and placed in the hierarchy of concepts.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sophie</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">giraffe</span><span class="o">.</span>
+<span class="n">Leo</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">lion</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: A simple hierarchy of concepts. Lion and giraffe are inclusive of the concept of an animal.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span> <span class="n">giraffe</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">lion</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: A simple hierarchy of concepts. Concepts of a young male man and a boy are equivalent.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Something</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">boy</span> <span class="k">if</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">only</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="n">it</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">young</span><span class="o">-</span><span class="n">male</span><span class="o">-</span><span class="n">man</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: A more complex hierarchy of concepts. The concept of a young
+male man is an intersection of concepts of a young thing, a male
+thing and a person.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Something</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">young</span><span class="o">-</span><span class="n">male</span><span class="o">-</span><span class="n">man</span> <span class="k">if</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">only</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="n">it</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">young</span><span class="o">-</span><span class="n">thing</span>
+<span class="n">that</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">male</span><span class="o">-</span><span class="n">thing</span> <span class="ow">and</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">person</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: Role inversion. The last two sentences are equivalent.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span> <span class="n">child</span> <span class="ow">is</span> <span class="n">loved</span> <span class="n">by</span> <span class="n">parent</span><span class="o">.</span>
+<span class="n">Mary</span> <span class="ow">is</span> <span class="n">loved</span> <span class="n">by</span> <span class="n">Tom</span><span class="o">.</span>
+<span class="n">Tom</span> <span class="n">loves</span> <span class="n">Mary</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="be-not-is-not-are-not">
+<h2><a class="toc-backref" href="#id13">Be not (is not /are not)</a><a class="headerlink" href="#be-not-is-not-are-not" title="Permalink to this headline">¶</a></h2>
+<p>The negated verb not to be and its conjugated forms are used for
+negating a concept or giving a complement concept.</p>
+<p>Those examples show how to use the negated verb not to be to negate a
+concept or to give a concept complement to it.</p>
+<div class="comment docutils container">
+<p>Example: Everything in the world is an adult-thing or a young-thing.
+The concepts are complement.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Something</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">young</span><span class="o">-</span><span class="n">thing</span> <span class="k">if</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">only</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="n">it</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">an</span>
+<span class="n">adult</span><span class="o">-</span><span class="n">thing</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: The classes of young-thing and adult-thing are disjoint.
+However, there might exist a thing that is neither of them.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span><span class="o">-</span><span class="n">single</span><span class="o">-</span><span class="n">thing</span> <span class="n">that</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">young</span><span class="o">-</span><span class="n">thing</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">an</span> <span class="n">adult</span><span class="o">-</span><span class="n">thing</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">young</span><span class="o">-</span><span class="n">thing</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">an</span> <span class="n">adult</span><span class="o">-</span><span class="n">thing</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="by">
+<span id="id4"></span><h2><a class="toc-backref" href="#id14">By</a><a class="headerlink" href="#by" title="Permalink to this headline">¶</a></h2>
+<p>The verb to be and word by is used to create a role inversion. It is
+conceptually equivalent to passive voice.</p>
+<p>The example below shows how to use role inversion.</p>
+<div class="comment docutils container">
+<p>Example: Role inversion. Last two sentences are equivalent.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span> <span class="n">child</span> <span class="ow">is</span> <span class="n">loved</span> <span class="n">by</span> <span class="n">a</span> <span class="n">parent</span><span class="o">.</span>
+<span class="n">Mary</span> <span class="ow">is</span> <span class="n">loved</span> <span class="n">by</span> <span class="n">Tom</span><span class="o">.</span>
+<span class="n">Tom</span> <span class="n">loves</span> <span class="n">Mary</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="less-than-more-than-at-least-at-most-differet-than-zero-one-two">
+<h2><a class="toc-backref" href="#id15">Less-than/more-than/at-least/at-most/differet-than/zero/one/two…</a><a class="headerlink" href="#less-than-more-than-at-least-at-most-differet-than-zero-one-two" title="Permalink to this headline">¶</a></h2>
+<p>Keywords for indicating property cardinality restriction. They deal with
+allowed and defined number of listed properties (roles). They can be
+used to specify the number of individuals involved in the restriction.
+Indeed, classes can be defined depending on the number of listed
+properties. It is possible to declare a maximum, minimum or exact number
+of listed properties in domain. Cardinality restrictions can also be
+applied to the number of data attributes that a concept or instance has.</p>
+<p>Keywords</p>
+<p>Meaning</p>
+<p>less-than</p>
+<p><strong>&lt;</strong></p>
+<p>more-than</p>
+<p><strong>&gt;</strong></p>
+<p>at-most</p>
+<p><strong>≤</strong></p>
+<p>at-least</p>
+<p><strong>≥</strong></p>
+<p>different-than</p>
+<p><strong>≠</strong></p>
+<p id="examples-9">Examples</p>
+<p>These examples show how to put restrictions on properties cardinality
+numbers - maximum, minimum or exact.</p>
+<div class="comment docutils container">
+<p>Example: The sentence defines the maximum number of allowed parents.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span> <span class="n">person</span> <span class="ow">is</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n">child</span><span class="o">-</span><span class="n">of</span> <span class="n">at</span><span class="o">-</span><span class="n">most</span> <span class="n">two</span> <span class="n">parents</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: Defines the minimum number of allowed parents.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span> <span class="n">person</span> <span class="ow">is</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n">child</span><span class="o">-</span><span class="n">of</span> <span class="n">at</span><span class="o">-</span><span class="n">least</span> <span class="n">two</span> <span class="n">parents</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: Defines the exact number of allowed parents.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span> <span class="n">person</span> <span class="ow">is</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n">child</span><span class="o">-</span><span class="n">of</span> <span class="n">two</span> <span class="n">parents</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: Cardinality restriction about data attribute.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span> <span class="n">cat</span> <span class="n">has</span><span class="o">-</span><span class="n">name</span> <span class="n">at</span><span class="o">-</span><span class="n">most</span> <span class="n">one</span> <span class="p">(</span><span class="n">some</span> <span class="n">string</span> <span class="n">value</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="greater-than-lower-than-greater-or-equal-to-lower-or-equal-to-different-from">
+<h2><a class="toc-backref" href="#id16">Greater-than/lower-than/greater-or-equal-to/lower-or-equal-to/different-from</a><a class="headerlink" href="#greater-than-lower-than-greater-or-equal-to-lower-or-equal-to-different-from" title="Permalink to this headline">¶</a></h2>
+<p>The construction greater-than … assigns a range to a data attribute.
+The names of the keywords are summmed up in the table below.</p>
+<p>Keywords</p>
+<p>Meaning</p>
+<p>greater-than</p>
+<p><strong>&lt;</strong></p>
+<p>maxExclusive</p>
+<p>lower-than</p>
+<p><strong>&gt;</strong></p>
+<p>minExclusive</p>
+<p>greater-or-equal-to</p>
+<p><strong>≤</strong></p>
+<p>maxInclusive</p>
+<p>lower-or-equal-to</p>
+<p><strong>≥</strong></p>
+<p>minInclusive</p>
+<p>different-from</p>
+<p><strong>≠</strong></p>
+<p>minExclusive &amp; maxExclusive</p>
+<p>equal-to</p>
+<p><strong>=</strong></p>
+<p>.</p>
+<p id="examples-10">Examples</p>
+<p>Those examples show how to assign data attributes.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span> <span class="n">adult</span><span class="o">-</span><span class="n">person</span> <span class="n">has</span><span class="o">-</span><span class="n">age</span> <span class="n">greater</span><span class="o">-</span><span class="ow">or</span><span class="o">-</span><span class="n">equal</span><span class="o">-</span><span class="n">to</span> <span class="mf">18.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="do-not-does-not">
+<h2><a class="toc-backref" href="#id17">Do-not/does-not</a><a class="headerlink" href="#do-not-does-not" title="Permalink to this headline">¶</a></h2>
+<p>The auxiliary verb do-not or does-not negates a role or data property.</p>
+<p id="examples-11">Examples</p>
+<p>Those examples show how to negate roles and data properties.</p>
+<div class="comment docutils container">
+<p>Example: Mary loves nobody.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mary</span> <span class="n">does</span><span class="o">-</span><span class="ow">not</span> <span class="n">love</span> <span class="n">a</span> <span class="n">thing</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="either-or">
+<h2><a class="toc-backref" href="#id18">Either … or …</a><a class="headerlink" href="#either-or" title="Permalink to this headline">¶</a></h2>
+<p>The construction either … or … is used to express a disjoint union
+or enumerate individuals of a given concept.</p>
+<p id="examples-12">Examples</p>
+<p>Those examples show how to the either … or … construction.</p>
+<div class="comment docutils container">
+<blockquote>
+<div><p>Example: The concepts of child, young thing, middle age thing and old</p>
+</div></blockquote>
+<p>thing are all pairwise disjoint. Their union is a person.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Something</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">person</span> <span class="k">if</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">only</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="n">it</span><span class="o">-</span><span class="n">f</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">child</span><span class="p">,</span> <span class="ow">is</span> <span class="n">a</span>
+<span class="n">young</span><span class="o">-</span><span class="n">thing</span><span class="p">,</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">middle</span><span class="o">-</span><span class="n">age</span><span class="o">-</span><span class="n">thing</span> <span class="ow">or</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">old</span><span class="o">-</span><span class="n">thing</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: Enumerates individuals of a concept.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Something</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">my</span><span class="o">-</span><span class="n">birthday</span><span class="o">-</span><span class="n">guests</span> <span class="k">if</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">only</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="n">it</span> <span class="ow">is</span> <span class="n">either</span>
+<span class="n">John</span><span class="p">,</span> <span class="n">Mary</span> <span class="ow">or</span> <span class="n">Bill</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="equal-to">
+<h2><a class="toc-backref" href="#id19">Equal-to</a><a class="headerlink" href="#equal-to" title="Permalink to this headline">¶</a></h2>
+<p>The construction equal-to assigns a data attribute. FluentEditor
+currently supports the following data types: integer, real, boolean,
+string and date-time.</p>
+<p id="examples-13">Examples</p>
+<p>Those examples show how to assign data attributes.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">John</span> <span class="n">has</span><span class="o">-</span><span class="n">name</span> <span class="n">equal</span><span class="o">-</span><span class="n">to</span> <span class="s1">&#39;John&#39;</span><span class="o">.</span>
+<span class="n">Lenka</span> <span class="n">borns</span><span class="o">-</span><span class="n">on</span><span class="o">-</span><span class="n">date</span> <span class="n">equal</span><span class="o">-</span><span class="n">to</span> <span class="mi">1975</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mf">11.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="be-isare-1">
+<span id="id5"></span><h2><a class="toc-backref" href="#id20">Be (is/are)</a><a class="headerlink" href="#be-isare-1" title="Permalink to this headline">¶</a></h2>
+<p>The word every refers to all individuals of a given concept. Concepts
+and individuals are defined when their names are used in at least one
+sentence.</p>
+<p id="examples-14">Examples</p>
+<p>Those examples show how to use the word every.</p>
+<div class="comment docutils container">
+<blockquote>
+<div><p>Example: A simple hierarchy of concepts. Lion and giraffe are</p>
+</div></blockquote>
+<p>inclusive of the concept of an animal.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span> <span class="n">giraffe</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">lion</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: A simple relation rule.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span> <span class="n">giraffe</span> <span class="n">eats</span> <span class="n">a</span> <span class="n">plant</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="every-single-thing">
+<span id="every-single-thing-1"></span><h2><a class="toc-backref" href="#id21">Every-single-thing</a><a class="headerlink" href="#every-single-thing" title="Permalink to this headline">¶</a></h2>
+<p>Every-single-thing indicates all individuals in the open-world
+assumption. Individuals may be already defined in the ontology or not
+defined but possibly existing. It is often used for writing axioms about
+roles.</p>
+<p id="examples-15">Examples</p>
+<p>Those examples show how to use every-single-thing declaration to
+indicate all existing individuals and specify more information about
+them. Combined with that keyword, it can be used for writing more
+complex rules.</p>
+<div class="comment docutils container">
+<blockquote>
+<div><p>Example: All the individuals in the world are specified with the role</p>
+</div></blockquote>
+<p>‘is-married-to’ something.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span><span class="o">-</span><span class="n">single</span><span class="o">-</span><span class="n">thing</span> <span class="ow">is</span><span class="o">-</span><span class="n">married</span><span class="o">-</span><span class="n">to</span> <span class="n">something</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<blockquote>
+<div><p>Example: If something has a wife, then it must be a person. Range of</p>
+</div></blockquote>
+<p>is-a-wife-of property is a person class</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span><span class="o">-</span><span class="n">single</span><span class="o">-</span><span class="n">thing</span> <span class="ow">is</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n">wife</span><span class="o">-</span><span class="n">of</span> <span class="n">nothing</span><span class="o">-</span><span class="n">but</span> <span class="n">persons</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<blockquote>
+<div><p>Example: Being someone’s wife indicates being a woman. Domain of</p>
+</div></blockquote>
+<p>is-a-wife-of property is a woman class.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span><span class="o">-</span><span class="n">single</span><span class="o">-</span><span class="n">thing</span> <span class="n">that</span> <span class="ow">is</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n">wife</span><span class="o">-</span><span class="n">of</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">woman</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<blockquote>
+<div><p>Example: Only people have names. If something has a data property</p>
+</div></blockquote>
+<p>value called name, then it is a person.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span><span class="o">-</span><span class="n">single</span><span class="o">-</span><span class="n">thing</span> <span class="n">that</span> <span class="n">has</span><span class="o">-</span><span class="n">name</span> <span class="p">(</span><span class="n">some</span> <span class="n">value</span><span class="p">)</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">person</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: Axiom on a role. ‘to be part of’ is reflexive.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span><span class="o">-</span><span class="n">single</span><span class="o">-</span><span class="n">thing</span> <span class="ow">is</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">itself</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="for-execute">
+<h2><a class="toc-backref" href="#id22">… for … execute &lt;? … ?&gt;</a><a class="headerlink" href="#for-execute" title="Permalink to this headline">¶</a></h2>
+<p>The construction … for … execute &lt;? … ?&gt; is used to express
+<a class="reference external" href="..Index.html#activeRules">active rules</a>, which are a special case
+of <a class="reference external" href="..Grammar.html#swrl">SWRL rules</a>. If an active rule is
+fulfilled, some code/simple program can be executed. The concepts listed
+after for are used as variables, while execute &lt;? … ?&gt; is followed be
+the code to be performed.</p>
+<p>Different use cases of variables in semantic rules are summed up in the
+table below.</p>
+<p>Example</p>
+<p>Those examples show how to write active rules with the construction …
+for … execute &lt;? … ?&gt;.</p>
+<div class="comment docutils container">
+<blockquote>
+<div><p>Example: Active rule for an ontology monitoring the state of IT</p>
+</div></blockquote>
+<p>infrastructure.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>If a server is connected by a thing and the thing has-status
+Inoperable then for the server and the thing execute
+&lt;?
+KnowledgeInsert(string.Format(&quot;{0} is connected by {1} and
+has-status Inoperable.&quot;, server, thing)); WriteMessage(&quot;[&quot; +
+DateTime.Now + &quot;] &quot; + server + &quot; is inoperable due to &quot; + thing +
+&quot;.&quot;);
+?&gt;.
+</pre></div>
+</div>
+</div>
+<div class="section" id="exists">
+<h2><a class="toc-backref" href="#id23">Exists</a><a class="headerlink" href="#exists" title="Permalink to this headline">¶</a></h2>
+<p>Exists is equivalent to is something or is a thing. However, the first
+may sound more natural sometimes. This is redundant in CNL, where a
+concept is defined simply by using it. However, it might be usable in
+translations from OWL to FE CNL.</p>
+<p id="examples-16">Examples</p>
+<p>Those examples show how to use the keyword exists.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">If</span> <span class="n">John</span> <span class="n">exists</span> <span class="n">then</span> <span class="n">John</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">living</span><span class="o">-</span><span class="n">thing</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="if-and-only-if">
+<h2><a class="toc-backref" href="#id24">If-and-only-if</a><a class="headerlink" href="#if-and-only-if" title="Permalink to this headline">¶</a></h2>
+<p>If-and-only-if expresses biconditional logical connective between two
+statements. The statements should contain X/Y variables. It is used for
+making axioms on properties/roles (such as <strong>have-child</strong> or
+<strong>have-sibling</strong>).</p>
+<p id="examples-17">Examples</p>
+<p>Those examples show how make axioms on properties</p>
+<div class="comment docutils container">
+<p>Example: has-child is reverse of has-parent.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="n">has</span><span class="o">-</span><span class="n">child</span> <span class="n">Y</span> <span class="k">if</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">only</span><span class="o">-</span><span class="k">if</span> <span class="n">Y</span> <span class="n">has</span><span class="o">-</span><span class="n">parent</span> <span class="n">X</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: has-sibling is symmetric.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="n">has</span><span class="o">-</span><span class="n">sibling</span> <span class="n">Y</span> <span class="k">if</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">only</span><span class="o">-</span><span class="k">if</span> <span class="n">Y</span> <span class="n">has</span><span class="o">-</span><span class="n">sibling</span> <span class="n">X</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="if-and-only-if-it">
+<h2><a class="toc-backref" href="#id25">If-and-only-if-it</a><a class="headerlink" href="#if-and-only-if-it" title="Permalink to this headline">¶</a></h2>
+<p>If-and-only-if-it expresses biconditional logical connective between two
+statements. In the construction Something is … if-and-only-if-it …
+equivalent concepts are introduced. The concequent concept can be a
+complex concept. It allows to define new concept as intersection, union
+etc. of old ones. The construction can me modified to give complement
+concept.</p>
+<p id="examples-18">Examples</p>
+<p>Those examples show how to define concepts.</p>
+<div class="comment docutils container">
+<p>Example: Equivalent concepts.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Something</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">boy</span> <span class="k">if</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">only</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="n">it</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">young</span><span class="o">-</span><span class="n">male</span><span class="o">-</span><span class="n">man</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: Concept intersection.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Something</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">young</span><span class="o">-</span><span class="n">male</span><span class="o">-</span><span class="n">man</span> <span class="k">if</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">only</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="n">it</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">young</span><span class="o">-</span><span class="n">thing</span>
+<span class="ow">and</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">male</span><span class="o">-</span><span class="n">thing</span> <span class="ow">and</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">person</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<blockquote>
+<div><p>Example: Everything in the world is an adult-thing or a young-thing.</p>
+</div></blockquote>
+<p>The concepts are complement.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Something</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">young</span><span class="o">-</span><span class="n">thing</span> <span class="k">if</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">only</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="n">it</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">an</span>
+<span class="n">adult</span><span class="o">-</span><span class="n">thing</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="if-and-only-if-it-either">
+<h2><a class="toc-backref" href="#id26">If-and-only-if-it-either</a><a class="headerlink" href="#if-and-only-if-it-either" title="Permalink to this headline">¶</a></h2>
+<p>If-and-only-if-it-either expresses biconditional logical connective
+between two statements. In the construction Something is …
+if-and-only-if-it-either … a concept is defined as a disjoint union of
+other concepts/individuals. It refers to OWL DisjointUnion.</p>
+<p id="examples-19">Examples</p>
+<p>The example shows how to define concepts as disjoint unions.</p>
+<div class="comment docutils container">
+<blockquote>
+<div><p>Example: The classes: child, young, middle-age and old are disjoint</p>
+</div></blockquote>
+<p>and their sum creates a class person.</p>
+</div>
+<pre class="literal-block">   Something is a person <strong>if-and-only-if-it-either</strong> is a child, is
+   a young-thing, is a middle-age-thing or is an old-thing.
+
+This is equivalen to the following set of sentences:</pre>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Somethingis</span> <span class="n">a</span> <span class="n">person</span> <span class="k">if</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">only</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="n">it</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">child</span> <span class="ow">and</span><span class="o">-</span><span class="ow">or</span> <span class="ow">is</span> <span class="n">a</span>
+<span class="n">young</span><span class="o">-</span><span class="n">thing</span> <span class="ow">and</span><span class="o">-</span><span class="ow">or</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">middle</span><span class="o">-</span><span class="n">age</span><span class="o">-</span><span class="n">thing</span> <span class="ow">and</span><span class="o">-</span><span class="ow">or</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">old</span><span class="o">-</span><span class="n">thing</span><span class="o">.</span>
+<span class="n">No</span> <span class="n">child</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">young</span><span class="o">-</span><span class="n">thing</span><span class="o">.</span>
+<span class="n">No</span> <span class="n">child</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">middle</span><span class="o">-</span><span class="n">age</span><span class="o">-</span><span class="n">thing</span><span class="o">.</span>
+<span class="n">No</span> <span class="n">child</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">old</span><span class="o">-</span><span class="n">thing</span><span class="o">.</span>
+<span class="n">No</span> <span class="n">young</span><span class="o">-</span><span class="n">thing</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">middle</span><span class="o">-</span><span class="n">age</span><span class="o">-</span><span class="n">thing</span><span class="o">.</span>
+<span class="n">No</span> <span class="n">young</span><span class="o">-</span><span class="n">thing</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">old</span><span class="o">-</span><span class="n">thing</span><span class="o">.</span>
+<span class="n">No</span> <span class="n">middle</span><span class="o">-</span><span class="n">age</span><span class="o">-</span><span class="n">thing</span> <span class="ow">is</span> <span class="n">anold</span><span class="o">-</span><span class="n">thing</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<blockquote>
+<div><p>Example: We enumerate all individuals of a given concept. All</p>
+</div></blockquote>
+<p>individuals are disjoint.t.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Something</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">my</span><span class="o">-</span><span class="n">birthday</span><span class="o">-</span><span class="n">guest</span> <span class="k">if</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">only</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="n">it</span><span class="o">-</span><span class="n">either</span> <span class="ow">is</span>
+<span class="n">Monica</span><span class="p">,</span> <span class="ow">is</span> <span class="n">Emilia</span><span class="p">,</span> <span class="ow">is</span> <span class="n">Julia</span> <span class="ow">or</span> <span class="ow">is</span> <span class="n">Anna</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<blockquote>
+<div><p>Example: A similar construction can be used for enumerating the</p>
+</div></blockquote>
+<p>individuals of a given concept. However, it does not imply that the
+individuals are disjoint. Concept cannot be enumerated in such way.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Something</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">my</span><span class="o">-</span><span class="n">birthday</span><span class="o">-</span><span class="n">guest</span> <span class="k">if</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">only</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="n">it</span> <span class="ow">is</span> <span class="n">either</span>
+<span class="n">Monica</span><span class="p">,</span> <span class="n">Emilia</span><span class="p">,</span> <span class="n">Julia</span> <span class="ow">or</span> <span class="n">Anna</span><span class="o">.</span>
+<span class="n">Emilia</span> <span class="ow">is</span> <span class="n">Julia</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="if-then">
+<h2><a class="toc-backref" href="#id27">If … then …</a><a class="headerlink" href="#if-then" title="Permalink to this headline">¶</a></h2>
+<p>The construction If … then … is used for making an implication
+(semantic rule). The construction can be used for two purposes: <a class="reference external" href="..Grammar.html#swrl">SWRL
+rules</a> and axioms about properties/roles. In
+SWRL rules about concept and roles variables appear with a/the prefix.
+There is a special class of semantic rules - axioms about roles in which
+X/Y variables are used. Both antecedent and consequent clauses in the
+implication can be complex sentences.</p>
+<p>Different use cases of variables in semantic rules are summed up in the
+table below.</p>
+<p>Variable pattern</p>
+<p>Use case</p>
+<p>a/the class-name</p>
+<p>denotes variables assigned to a class/concept</p>
+<p>a/the thing</p>
+<p>represents an instance of the top concept “owl:Thing” and thus any
+variable in the SR-CE sentence.</p>
+<p>a/the class-name(n)/thing(n)</p>
+<p>different number in parenthesis marks more variables of the same type.</p>
+<p id="examples-20">Examples</p>
+<p>Those examples show how to write semantic rules with the construction If
+… then ….</p>
+<div class="comment docutils container">
+<p>Example: Axiom about role. Semantic rule for general role inclusion.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">If</span> <span class="n">X</span> <span class="ow">is</span><span class="o">-</span><span class="n">proper</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">Y</span> <span class="n">then</span> <span class="n">X</span> <span class="ow">is</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">Y</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: In the semantic rule below, there is one variable ‘person’.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">If</span> <span class="n">a</span> <span class="n">person</span> <span class="ow">is</span><span class="o">-</span><span class="n">year</span><span class="o">-</span><span class="n">old</span> <span class="n">greater</span><span class="o">-</span><span class="ow">or</span><span class="o">-</span><span class="n">equal</span><span class="o">-</span><span class="n">to</span> <span class="mi">18</span> <span class="n">then</span> <span class="n">the</span> <span class="n">person</span> <span class="ow">is</span>
+<span class="n">an</span> <span class="n">adult</span><span class="o">-</span><span class="n">person</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<blockquote>
+<div><p>Example: In the semantic rule below, there is one variable which</p>
+</div></blockquote>
+<p>could be anything.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">If</span> <span class="n">a</span> <span class="n">thing</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">person</span> <span class="n">then</span> <span class="n">the</span> <span class="n">thing</span> <span class="n">has</span><span class="o">-</span><span class="n">name</span> <span class="p">(</span><span class="n">some</span> <span class="n">string</span>
+<span class="n">value</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="is-not-the-same-as">
+<h2><a class="toc-backref" href="#id28">Is-(not-)the-same-as</a><a class="headerlink" href="#is-not-the-same-as" title="Permalink to this headline">¶</a></h2>
+<p>Is-the-same-as expresses that two individuals are the same.
+Is-not-the-same-as expresses that two individuals are different. It
+refers to OWL sameAs axiom. It should not be replaced with expressions
+is or is not.</p>
+<p id="examples-21">Examples</p>
+<p>Those examples show how to use the keywords and why they should not be
+replaced with is or is not.</p>
+<div class="comment docutils container">
+<p>Example: A cat and its owner are different.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">If</span> <span class="n">a</span> <span class="n">man</span> <span class="n">has</span><span class="o">-</span><span class="n">pet</span> <span class="n">a</span> <span class="n">cat</span> <span class="n">then</span> <span class="n">the</span> <span class="n">man</span> <span class="ow">is</span><span class="o">-</span><span class="ow">not</span><span class="o">-</span><span class="n">the</span><span class="o">-</span><span class="n">same</span><span class="o">-</span><span class="k">as</span> <span class="n">the</span> <span class="n">cat</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<blockquote>
+<div><p>Example: Here, the person is the same individual as the human</p>
+</div></blockquote>
+<p>mentioned in the antecedent part of the rule.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">If</span> <span class="n">a</span> <span class="n">person</span> <span class="n">has</span><span class="o">-</span><span class="n">synonym</span> <span class="n">a</span> <span class="n">human</span> <span class="n">then</span> <span class="n">the</span> <span class="n">person</span> <span class="ow">is</span><span class="o">-</span><span class="n">the</span><span class="o">-</span><span class="n">same</span><span class="o">-</span><span class="k">as</span> <span class="n">the</span>
+<span class="n">human</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<blockquote>
+<div><p>Example: Here, the consequent clause the person is the human means</p>
+</div></blockquote>
+<p>that there exists (somewhere) some unspecified individual of human
+class which is the same individual as the person mentioned.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">If</span> <span class="n">a</span> <span class="n">person</span> <span class="n">has</span><span class="o">-</span><span class="n">synonym</span> <span class="n">a</span> <span class="n">human</span> <span class="n">then</span> <span class="n">the</span> <span class="n">person</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">human</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="is-unique-if">
+<h2><a class="toc-backref" href="#id29">Is-unique-if</a><a class="headerlink" href="#is-unique-if" title="Permalink to this headline">¶</a></h2>
+<p>Is-unique-if defines a key for a class. Keys are for uniquely
+identifying an individual. The open-world assumption does not imply that
+some things (e.g. concepts, instances) are disjoint if they are named
+differently. The uniqueness of two individuals can be inferred from
+rules. If two named instances of the class coincide on values for each
+of key properties, then these two individuals are the same. With more
+complex construction, two individuals can be reasoned to be different
+from each other.</p>
+<p>OWL 1 does not provide a means to define keys. The OWL 2 construct
+HasKey allows keys to be defined for a given class.</p>
+<p id="examples-22">Examples</p>
+<p>Those examples show how to define and use keys in CNL.</p>
+<div class="comment docutils container">
+<p>Example: Tom and Mark can be theoretically the same individual.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Tom</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">man</span><span class="o">.</span>
+<span class="n">Mark</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">man</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: Tom and Mark are reasoned to be different individuals.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span> <span class="n">X</span> <span class="n">that</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">man</span> <span class="ow">is</span><span class="o">-</span><span class="n">unique</span><span class="o">-</span><span class="k">if</span> <span class="n">X</span> <span class="n">has</span><span class="o">-</span><span class="nb">id</span> <span class="n">equal</span><span class="o">-</span><span class="n">to</span> <span class="n">something</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">man</span> <span class="n">has</span><span class="o">-</span><span class="nb">id</span> <span class="n">one</span> <span class="p">(</span><span class="n">some</span> <span class="n">integer</span> <span class="n">value</span><span class="p">)</span><span class="o">.</span>
+<span class="n">Mark</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">man</span> <span class="ow">and</span> <span class="n">has</span><span class="o">-</span><span class="nb">id</span> <span class="n">equal</span><span class="o">-</span><span class="n">to</span> <span class="mf">11.</span>
+<span class="n">Tom</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">man</span> <span class="ow">and</span> <span class="n">has</span><span class="o">-</span><span class="nb">id</span> <span class="n">equal</span><span class="o">-</span><span class="n">to</span> <span class="mf">12.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: Tom and Mark are reasoned to be the same individuals.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span> <span class="n">X</span> <span class="n">that</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">man</span> <span class="ow">is</span><span class="o">-</span><span class="n">unique</span><span class="o">-</span><span class="k">if</span> <span class="n">X</span> <span class="n">has</span><span class="o">-</span><span class="nb">id</span> <span class="n">equal</span><span class="o">-</span><span class="n">to</span> <span class="n">something</span><span class="o">.</span>
+<span class="n">Mark</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">man</span> <span class="ow">and</span> <span class="n">has</span><span class="o">-</span><span class="nb">id</span> <span class="n">equal</span><span class="o">-</span><span class="n">to</span> <span class="mf">11.</span>
+<span class="n">Tom</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">man</span> <span class="ow">and</span> <span class="n">has</span><span class="o">-</span><span class="nb">id</span> <span class="n">equal</span><span class="o">-</span><span class="n">to</span> <span class="mf">11.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="it">
+<h2><a class="toc-backref" href="#id30">It</a><a class="headerlink" href="#it" title="Permalink to this headline">¶</a></h2>
+<p>It Is a variable for something in semantic rules.</p>
+<p id="examples-23">Examples</p>
+<p>The example shows how to use the keyword.</p>
+<div class="comment docutils container">
+<p>Example: Two sentences below are equivalent.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span> <span class="n">cat</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+<span class="n">If</span> <span class="n">something</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">cat</span> <span class="n">then</span> <span class="n">it</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="itself">
+<h2><a class="toc-backref" href="#id31">Itself</a><a class="headerlink" href="#itself" title="Permalink to this headline">¶</a></h2>
+<p>Itself is used when the subject and the object of the role are the same.
+If every subject of a concept acts with a role on itself, then the role
+is reflexive for the concept.</p>
+<p id="examples-24">Examples</p>
+<p>Those examples show how to use and how not to use the keyword itself.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Leo</span> <span class="n">likes</span> <span class="n">itself</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: The role ‘to like’ is reflexive for men.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span> <span class="n">man</span> <span class="n">likes</span> <span class="n">itself</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: The role of parent is irreflexive.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Nothing</span> <span class="ow">is</span><span class="o">-</span><span class="n">parent</span><span class="o">-</span><span class="n">of</span> <span class="n">itself</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="can-can-not-must-must-not-should-should-not">
+<h2><a class="toc-backref" href="#id32">Can/can-not/must/must-not/should/should-not</a><a class="headerlink" href="#can-can-not-must-must-not-should-should-not" title="Permalink to this headline">¶</a></h2>
+<p>Modal expressions are used for stating restrictions on the knowledge. In
+open world assumption the validity of the statement should not change
+after introducing additional knowledge. Therefore the validity of some
+statements is unknown. However, additional requirements for the ontology
+are stated with modal expressions. This allows user to express knowledge
+about knowledge. Modal expressions do not have a direct representation
+with OWL. They are an advanced feature supported by FluentEditor. FE now
+supports only simple requirements, i.e. Every (class-name) (modality)
+(role/date-property) (value). The reasoner checks if all modal
+expressions are fulfilled. Results of validation shall be highlighted in
+different colors. Green means all requirements are fulfilled. Red means
+an error, that some requirements are not fulfilled. It appears when
+requirements with must or can-not expression is not fulfilled. Yellow
+means a warning. It appears when requirements with should, should-not,
+can, or must-not expression is not fulfilled.</p>
+<p id="examples-25">Examples</p>
+<p>The examples below show how to use modal expressions to specify
+knowledge about knowledge.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span> <span class="n">patient</span> <span class="n">must</span> <span class="n">have</span><span class="o">-</span><span class="n">age</span> <span class="p">(</span><span class="n">some</span> <span class="n">integer</span> <span class="n">value</span><span class="p">)</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">patient</span> <span class="n">can</span> <span class="n">have</span><span class="o">-</span><span class="n">medical</span><span class="o">-</span><span class="n">history</span> <span class="p">(</span><span class="n">some</span> <span class="n">string</span> <span class="n">value</span><span class="p">)</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">application</span> <span class="n">must</span> <span class="n">have</span><span class="o">-</span><span class="n">status</span> <span class="n">a</span> <span class="n">thing</span> <span class="n">that</span> <span class="ow">is</span> <span class="n">either</span> <span class="n">Operable</span>
+<span class="ow">or</span> <span class="n">Inoperable</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">patient</span> <span class="n">can</span><span class="o">-</span><span class="ow">not</span> <span class="n">have</span><span class="o">-</span><span class="n">age</span> <span class="n">greater</span><span class="o">-</span><span class="n">than</span> <span class="mf">200.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="no">
+<h2><a class="toc-backref" href="#id33">No</a><a class="headerlink" href="#no" title="Permalink to this headline">¶</a></h2>
+<p>The word no is used for negating a concept.</p>
+<p id="examples-26">Examples</p>
+<p>Those examples show how to use no to negate a concept.</p>
+<div class="comment docutils container">
+<blockquote>
+<div><p>Example: The classes of young-thing and adult-thing are disjoint.</p>
+</div></blockquote>
+<p>However, there might exist a thing that is neither of them.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">No</span> <span class="n">young</span><span class="o">-</span><span class="n">thing</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">adult</span><span class="o">-</span><span class="n">thing</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="none">
+<h2><a class="toc-backref" href="#id34">None</a><a class="headerlink" href="#none" title="Permalink to this headline">¶</a></h2>
+<p>None is a short version of nothing-but things that are nothing.</p>
+<p id="examples-27">Examples</p>
+<p>The example shows how to use the keyword.</p>
+<div class="comment docutils container">
+<p>Example: Two sentences below are equivalent.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span> <span class="n">root</span><span class="o">-</span><span class="n">folder</span> <span class="n">has</span><span class="o">-</span><span class="n">parent</span> <span class="n">none</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">root</span><span class="o">-</span><span class="n">folder</span> <span class="n">has</span><span class="o">-</span><span class="n">parent</span> <span class="n">nothing</span><span class="o">-</span><span class="n">but</span> <span class="n">things</span> <span class="n">that</span> <span class="n">are</span> <span class="n">nothing</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="nothing">
+<h2><a class="toc-backref" href="#id35">Nothing</a><a class="headerlink" href="#nothing" title="Permalink to this headline">¶</a></h2>
+<p>Nothing refers to the bottom concept (empty set). It describes concepts
+that cannot have any individuals. It is used for specifying restrictions
+on the roles.</p>
+<p id="examples-28">Examples</p>
+<p>Those examples show how to use the keyword nothing.</p>
+<div class="comment docutils container">
+<p>Example: The role of parent is irreflexive.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Nothing</span> <span class="ow">is</span><span class="o">-</span><span class="n">parent</span><span class="o">-</span><span class="n">of</span> <span class="n">itself</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: Two sentences below are equivalent.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Nothing</span> <span class="ow">is</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">at</span><span class="o">-</span><span class="n">least</span> <span class="n">two</span> <span class="n">things</span><span class="o">.</span>
+<span class="n">Every</span><span class="o">-</span><span class="n">single</span><span class="o">-</span><span class="n">thing</span> <span class="ow">is</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">at</span><span class="o">-</span><span class="n">most</span> <span class="n">one</span> <span class="n">thing</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: A more complex restriction on roles.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Nothing</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">dead</span><span class="o">-</span><span class="n">body</span> <span class="n">that</span> <span class="n">has</span><span class="o">-</span><span class="n">inside</span> <span class="n">a</span> <span class="n">living</span><span class="o">-</span><span class="n">thing</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="nothing-but">
+<h2><a class="toc-backref" href="#id36">Nothing-but</a><a class="headerlink" href="#nothing-but" title="Permalink to this headline">¶</a></h2>
+<p>Nothing-but gives restriction on range of a property (role) or data type
+of a data property. It is so called universal role restriction.</p>
+<p id="examples-29">Examples</p>
+<p>Those examples show how to restrict range of a role or data type of a
+data property.</p>
+<div class="comment docutils container">
+<blockquote>
+<div><p>Example: If something has a wife, then it must be a person. Range of</p>
+</div></blockquote>
+<p>is-a-wife-of property is a person class</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span><span class="o">-</span><span class="n">single</span><span class="o">-</span><span class="n">thing</span> <span class="ow">is</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n">wife</span><span class="o">-</span><span class="n">of</span> <span class="n">nothing</span><span class="o">-</span><span class="n">but</span> <span class="n">persons</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<blockquote>
+<div><p>Example: Names are words. The name property can be only of type</p>
+</div></blockquote>
+<p>string.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span><span class="o">-</span><span class="n">single</span><span class="o">-</span><span class="n">thing</span> <span class="n">has</span><span class="o">-</span><span class="n">name</span> <span class="n">nothing</span><span class="o">-</span><span class="n">but</span> <span class="p">(</span><span class="n">some</span> <span class="n">string</span> <span class="n">value</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="or-something-else">
+<h2><a class="toc-backref" href="#id37">Or-something-else</a><a class="headerlink" href="#or-something-else" title="Permalink to this headline">¶</a></h2>
+<p>Or-something-else refers to the disjoint concept statement that starts
+with Anything keyword. This statement allows to enumerate pairwise
+disjoint concepts.</p>
+<p id="examples-30">Examples</p>
+<p>The example shows how to use the keyword.</p>
+<div class="comment docutils container">
+<blockquote>
+<div><p>Example: The concepts of cat, dog and human are pairwise disjoint.</p>
+</div></blockquote>
+<p>However, there may exist individuals that are none of them.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Anything</span> <span class="n">either</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">cat</span> <span class="ow">or</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">dog</span> <span class="ow">or</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">human</span>
+<span class="ow">or</span><span class="o">-</span><span class="n">something</span><span class="o">-</span><span class="k">else</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="something">
+<h2><a class="toc-backref" href="#id38">Something</a><a class="headerlink" href="#something" title="Permalink to this headline">¶</a></h2>
+<p>The word something has different meanings depending on the context. It
+represents all individuals (top concept). It represents any data value
+of any data type. It starts a general rule about all things. It can be
+used for defining a new concept as an intersection or union of other
+concepts or for stating that two concepts are equivalent.</p>
+<p id="examples-31">Examples</p>
+<p>This example shows how to use the keyword something in different ways.</p>
+<div class="comment docutils container">
+<p>Example: Top concept, equivalent to a thing.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">John</span> <span class="ow">is</span> <span class="n">something</span><span class="o">.</span>
+<span class="n">John</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">thing</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: Any data value of any data type.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span> <span class="n">X</span> <span class="n">that</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">man</span> <span class="ow">is</span><span class="o">-</span><span class="n">unique</span><span class="o">-</span><span class="k">if</span> <span class="n">X</span> <span class="n">has</span><span class="o">-</span><span class="nb">id</span> <span class="n">equal</span><span class="o">-</span><span class="n">to</span> <span class="n">something</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: Concept equivalence.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Something</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">boy</span> <span class="k">if</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">only</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="n">it</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">young</span><span class="o">-</span><span class="n">male</span><span class="o">-</span><span class="n">man</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: Concept intersection.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Something</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">young</span><span class="o">-</span><span class="n">male</span><span class="o">-</span><span class="n">man</span> <span class="k">if</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">only</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="n">it</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">young</span><span class="o">-</span><span class="n">thing</span>
+<span class="ow">and</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">male</span><span class="o">-</span><span class="n">thing</span> <span class="ow">and</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">person</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: Concept union.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Something</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">child</span> <span class="k">if</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">only</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="n">it</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">boy</span> <span class="ow">and</span><span class="o">-</span><span class="ow">or</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">girl</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="some-boolean-datetime-integer-string-value">
+<h2><a class="toc-backref" href="#id39">(some boolean/datetime/integer/string value)</a><a class="headerlink" href="#some-boolean-datetime-integer-string-value" title="Permalink to this headline">¶</a></h2>
+<p>These keywords refer to a data property of a specified type (see table).</p>
+<p>Keywords</p>
+<p>Meaning</p>
+<p>(some value)</p>
+<p>equivalent to rdfs:Literal. This can take any data type but without
+knowing what type this data is.</p>
+<p>(some integer value)</p>
+<p>equivalent to xsd:int.</p>
+<p>(some real value)</p>
+<p>equivalent to xsd:double.</p>
+<p>(some boolean value)</p>
+<p>equivalent to xsd:boolean.</p>
+<p>(some string value)</p>
+<p>equivalent to xsd:string.</p>
+<p>(some datetime value)</p>
+<p>equivalent to xsd:datetime.</p>
+<p id="examples-32">Examples</p>
+<p>The example shows how to specify data type of a data property.</p>
+<div class="comment docutils container">
+<blockquote>
+<div><p>Example: We specify the data type of name to be string and the data</p>
+</div></blockquote>
+<p>type of age to be integer.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span> <span class="n">person</span> <span class="n">has</span><span class="o">-</span><span class="n">name</span> <span class="n">nothing</span><span class="o">-</span><span class="n">but</span> <span class="p">(</span><span class="n">some</span> <span class="n">string</span> <span class="n">value</span><span class="p">)</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">person</span> <span class="n">has</span><span class="o">-</span><span class="n">age</span> <span class="n">nothing</span><span class="o">-</span><span class="n">but</span> <span class="p">(</span><span class="n">some</span> <span class="n">integer</span> <span class="n">value</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="that">
+<h2><a class="toc-backref" href="#id40">That</a><a class="headerlink" href="#that" title="Permalink to this headline">¶</a></h2>
+<p>The word that starts further specification (restriction) of a concept.
+Restriction can be arbitrary complex.Every-single-thing that …
+construction is used frequently and means the whole class of things
+satisfying the restriction.</p>
+<p id="examples-33">Examples</p>
+<p>This example shows how to use the construction that … in CNL
+sentences.</p>
+<div class="comment docutils container">
+<p>Example: Restrictions on the concept of application.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span> <span class="n">application</span> <span class="n">must</span> <span class="n">have</span><span class="o">-</span><span class="n">status</span> <span class="n">a</span> <span class="n">thing</span> <span class="n">that</span> <span class="ow">is</span> <span class="n">either</span> <span class="n">Operable</span>
+<span class="ow">or</span> <span class="n">Inoperable</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<blockquote>
+<div><p>Example: Every-single-thing that … construction occurs quite often</p>
+</div></blockquote>
+<p>in CNL. Here, it refers to the whole class of young things.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span><span class="o">-</span><span class="n">single</span><span class="o">-</span><span class="n">thing</span> <span class="n">that</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">young</span><span class="o">-</span><span class="n">thing</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">an</span> <span class="n">adult</span><span class="o">-</span><span class="n">thing</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="that-has-length">
+<h2><a class="toc-backref" href="#id41">that-has-length</a><a class="headerlink" href="#that-has-length" title="Permalink to this headline">¶</a></h2>
+<p>The construction that-has-length restricts length of a data attribute.</p>
+<p id="examples-34">Examples</p>
+<p>The example below shows how to restrict length of a data attribute.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span> <span class="n">cat</span> <span class="n">has</span><span class="o">-</span><span class="n">name</span> <span class="n">that</span><span class="o">-</span><span class="n">has</span><span class="o">-</span><span class="n">length</span> <span class="n">lower</span><span class="o">-</span><span class="ow">or</span><span class="o">-</span><span class="n">equal</span><span class="o">-</span><span class="n">to</span> <span class="mf">10.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="that-matches-pattern">
+<h2><a class="toc-backref" href="#id42">That-matches-pattern</a><a class="headerlink" href="#that-matches-pattern" title="Permalink to this headline">¶</a></h2>
+<p>The construction that-matches-pattern defines string attributes as
+regular expression patterns, both in ontology and questions. It is a new
+feature in FluentEditor 2014. This functionality allows to specify not
+only one particular string as attribute, but also a whole set (or class)
+of strings defined by regular expression. This keyword may appear insted
+of equal-to or (some value) keyword. It can be used in questions.</p>
+<p id="examples-35">Examples</p>
+<p>The example below shows how to use regular expressions in CNL.</p>
+<div class="comment docutils container">
+<blockquote>
+<div><p>Example: Rule for female names in Polish language - it must end with</p>
+</div></blockquote>
+<p>‘a’ sound.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Every</span><span class="o">-</span><span class="n">single</span><span class="o">-</span><span class="n">thing</span> <span class="n">that</span> <span class="n">has</span><span class="o">-</span><span class="n">name</span> <span class="n">that</span><span class="o">-</span><span class="n">matches</span><span class="o">-</span><span class="n">pattern</span> <span class="s1">&#39;.*a&#39;</span> <span class="ow">is</span> <span class="n">a</span>
+<span class="n">female</span><span class="o">-</span><span class="n">person</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the">
+<h2><a class="toc-backref" href="#id43">The</a><a class="headerlink" href="#the" title="Permalink to this headline">¶</a></h2>
+<p>English definite article the indicates some specified individual of a
+given concept. An individual of a given concept is specified by
+mentioning it earlier in the sentence. Variables appear in semantic
+rules. When a variable occurs for the first time it is preceeded by a/an
+and later by the.</p>
+<p>Different use cases of variables in semantic rules are summed up in the
+table below.</p>
+<p>THE-” ” is used to define an instance with a custom identifier, other
+that combination of words starting with capital letter and numbers
+separated by dashes.</p>
+<p>Variable pattern</p>
+<p>Use case</p>
+<p>a/the class-name</p>
+<p>denotes variables assigned to a class/concept</p>
+<p>a/the thing</p>
+<p>represents an instance of the top concept “owl:Thing” and thus any
+variable in the SR-CE sentence.</p>
+<p>a/the class-name(n)/thing(n)</p>
+<p>different number in parenthesis marks more variables of the same type.</p>
+<p id="examples-36">Examples</p>
+<p>This example shows how to use definite article the while introducing
+variables into semantic rules.</p>
+<div class="comment docutils container">
+<p>Example: In the semantic rule below, there is one variable ‘person’.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">If</span> <span class="n">a</span> <span class="n">person</span> <span class="ow">is</span><span class="o">-</span><span class="n">year</span><span class="o">-</span><span class="n">old</span> <span class="n">greater</span><span class="o">-</span><span class="ow">or</span><span class="o">-</span><span class="n">equal</span><span class="o">-</span><span class="n">to</span> <span class="mi">18</span> <span class="n">then</span> <span class="n">the</span> <span class="n">person</span> <span class="ow">is</span>
+<span class="n">an</span> <span class="n">adult</span><span class="o">-</span><span class="n">person</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<blockquote>
+<div><p>Example: In the semantic rule below, there is one variable which</p>
+</div></blockquote>
+<p>could be anything.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">If</span> <span class="n">a</span> <span class="n">thing</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">person</span> <span class="n">then</span> <span class="n">the</span> <span class="n">thing</span> <span class="n">has</span><span class="o">-</span><span class="n">name</span> <span class="p">(</span><span class="n">some</span> <span class="n">string</span>
+<span class="n">value</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<blockquote>
+<div><p>Example: In the semantic rule below, there are two variables</p>
+</div></blockquote>
+<p>‘person’.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">If</span> <span class="n">a</span> <span class="n">person</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">has</span><span class="o">-</span><span class="n">parent</span> <span class="n">a</span> <span class="n">person</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">person</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="ow">is</span> <span class="n">a</span>
+<span class="n">female</span><span class="o">-</span><span class="n">person</span> <span class="n">then</span> <span class="n">the</span> <span class="n">person</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">has</span><span class="o">-</span><span class="n">mother</span> <span class="n">the</span> <span class="n">person</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: Custom instance identifier.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">THE</span><span class="o">-</span><span class="s2">&quot;K22 P2&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-one-and-the-only">
+<h2><a class="toc-backref" href="#id44">The-one-and-the-only</a><a class="headerlink" href="#the-one-and-the-only" title="Permalink to this headline">¶</a></h2>
+<p>The-one-and-the-only is used to define a class which has only one
+instance. It refers to an instance of an concept that defines the
+concept and is the only instance of the concept.</p>
+<p id="examples-37">Examples</p>
+<p>The example shows how to use the keyword.</p>
+<div class="comment docutils container">
+<blockquote>
+<div><p>Example: The first sentence is equivalent to the combination of the</p>
+</div></blockquote>
+<p>second and the third sentence.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span><span class="o">-</span><span class="n">one</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">only</span> <span class="n">singlethon</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">cat</span><span class="o">.</span>
+<span class="n">The</span> <span class="n">singlethon</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">cat</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">singlethon</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">singlethon</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="thing-things">
+<h2><a class="toc-backref" href="#id45">Thing/things</a><a class="headerlink" href="#thing-things" title="Permalink to this headline">¶</a></h2>
+<p>The word thing represents an instance of the top concept “owl:Thing” and
+thus any variable in the SR-CE sentence. Used as a variable in semantic
+rules. If more variables of type thing appear, they can be enumerated by
+thing(n).</p>
+<p>Those examples show how to use the word thing in semantic rules.</p>
+<div class="comment docutils container">
+<p>Example: In the semantic rule below, there is one variable which
+could be anything.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">If</span> <span class="n">a</span> <span class="n">thing</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">person</span> <span class="n">then</span> <span class="n">the</span> <span class="n">thing</span> <span class="n">has</span><span class="o">-</span><span class="n">name</span> <span class="p">(</span><span class="n">some</span> <span class="n">string</span>
+<span class="n">value</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="comment docutils container">
+<p>Example: In the semantic rule below, there are two variables ‘thing’.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">If</span> <span class="n">a</span> <span class="n">thing</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">hosts</span> <span class="n">a</span> <span class="n">thing</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">thing</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="n">hosts</span> <span class="n">an</span>
+<span class="n">application</span> <span class="n">then</span> <span class="n">the</span> <span class="n">thing</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">hosts</span> <span class="n">the</span> <span class="n">application</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -485,10 +1314,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="grammar.html" class="btn btn-neutral float-left" title="Grammar" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="cognipy.html" class="btn btn-neutral float-left" title="cognipy.edit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

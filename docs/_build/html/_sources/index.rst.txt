@@ -2,15 +2,19 @@
 
 .. toctree::
    :maxdepth: 5
-   :glob:
    :caption: CogniPy Documentation:
 
    installation
    grammar
-   dictonary
    examples
    modules
 
+.. toctree::
+    :hidden:
+    :maxdepth: 0
+    :titlesonly:
+
+    dictonary
 
 
 Indices and tables

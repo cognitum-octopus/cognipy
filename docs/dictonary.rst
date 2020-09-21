@@ -2,189 +2,1397 @@
 Dictonary
 =========
 
+.. toctree::
+    :hidden:
+
+.. contents::
+
+
+A / an
+------
+English indefinite article a/an indicates some unspecified individual of
+a given concept. Individuals start with capital letter and are never
+preceeded by a/an. Concepts start with small letter and can be preceeded
+by a/an. Variables appear in semantic rules. When a variable occurs for
+the first time it is preceeded by a/an and later by the.
+
+Different use cases of variables in semantic rules are summed up in the
+table below.
+
 .. list-table::
     :widths: 25 25
     :header-rows: 1
     :align: center
 
-    * - Keyword
-      - Description
-    * - a
-      - Indicates some unspecified individual of a given concept.
-    * - an
-      - Indicates some unspecified individual of a given concept.
-    * - and
-      - Connects two clauses or phrases (intersection).
-    * - and-or
-      - Connects two clauses or phrases (union).
-    * - anything
-      - Refers to the pairwise disjoint concepts.
-    * - are
-      - Used for concept inclusion, concept equivalence or role inversion.
-    * - are not
-      - Negates a concept or gives a complement concept.
-    * - as-well-as
-      - Enumerates data types.
-    * - at-least
-      - Introduces property cardinality restriction.
-    * - at-most
-      - Introduces property cardinality restriction.
-    * - be
-      - Used for concept inclusion, concept equivalence or role inversion.
-    * - be not
-      - Negates a concept or gives a complement concept.
-    * - by
-      - Used for role inversion.
-    * - can
-      - States a restriction on the knowledge.
-    * - can-not
-      - States a restriction on the knowledge.
-    * - different-from
-      - Assigns range to a data attribute.
-    * - different-than
-      - Introduces property cardinality restriction.
-    * - do-not
-      - Negates a role or data property.
-    * - does-not
-      - Negates a role or data property.
-    * - eight
-      - Introduces property cardinality restriction.
-    * - either
-      - Used for disjoint unions and enumeration of individuals.
-    * - equal-to
-      - Assigns a data attribute of a given value.
-    * - every
-      - Refers to all individuals of a given concept.
-    * - every-single-thing
-      - Indicates all individuals in the open-world assumption .
-    * - execute
-      - Allows to specify active rule action.
-    * - exists
-      - Is equivalent to is something.
-    * - false
-      - Is a boolean data value.
-    * - five
-      - Introduces property cardinality restriction.
-    * - for
-      - Allows to specify active rule arguments.
-    * - four
-      - Introduces property cardinality restriction.
-    * - greater-or-equal-to
-      - Assigns range to a data attribute.
-    * - greater-than
-      - Assigns range to a data attribute.
-    * - if
-      - Is a part of a sentence with an implication (semantic rule).
-    * - if-and-only-if
-      - Logically connects two statements with X/Y variables.
-    * - if-and-only-if-it
-      - Introduces equivalent concepts.
-    * - if-and-only-if-it-either
-      - Introduces a concept equivalent to a disjoint union.
-    * - it
-      -  Is a variable for 'something' in semantic rules.
-    * - itself
-      - Is used when the subject and the object of a role are the same.
-    * - is
-      - Used for concept inclusion, concept equivalence or role inversion.
-    * - is not
-      - Negates a concept or gives a complement concept.
-    * - is-not-the-same-as
-      - Expresses that two individuals are the same.
-    * - is-the-same-as
-      - Expresses that two individuals are not the same.
-    * - is-unique-if
-      - Defines a key for a class.
+    * - Variable pattern
+      - Use case
+    * - a/the class-name 
+      - denotes variables assigned to a class/concept
+    * - a/the thing 
+      - represents an instance of the top concept "owl:Thing" and thus any variable in the SR-CE sentence.
+    * - a/the class-name(n)/thing(n) 
+      - different numbers in parenthesis mark more variables of the same type.
+
+.. container:: comment
+
+    Example: Here concepts are preceeded by 'a', referring to an
+    unspecified earlier individual of a given concept.
+
+.. parsed-literal::
+
+    Sophie is a giraffe.
+    Leo is a lion.
+
+.. container:: comment
+
+    Example: Word 'every' is used to refer to all individuals of given
+    concept, word 'a' refers to some unspecified individual of given
+    concept.
+
+.. parsed-literal::
+
+      Every giraffe is an animal.
+
+And
+---
+Conjunction and connects two phrases into complex phrase. It can be used
+to make an intersection of concepts or to introduce intersection complex
+conditions into semantic rules.
+
+The examples show how to use conjuction and.
+
+.. container:: comment
+
+The concept of a young male man is an intersection of concepts of a young thing, a male thing and a person.
+
+.. parsed-literal::
+
+      Something is a young-male-man if-and-only-if-it is a young-thing
+      that is a male-thing and is a person.
+
+.. container:: comment
+
+    In the 'if' statement below the antecedent clause is
+    complex. It could also be the case for the consequent clause.
+
+.. parsed-literal::
+
+      If a person (1) has-parent a person (2) and the person (2) is a
+      female-person then the person (1) has-mother the person (2) .
+
+And-or
+------
+
+Conjunction and-or connects two phrases into complex phrase. It can be
+used to make a union of concepts or to introduce complex conditions into
+semantic rules. The complex condition is satisfied if at least one of
+its conditions is fulfilled.
+
+The examples show how to use conjuction and-or.
+
+.. container:: comment
+
+    The concept of a child is an intersection of concepts of boy
+    and girl.
+
+.. parsed-literal::
+
+      Something is a child if-and-only-if-it is a boy and-or is a girl.
+
+
+Anything
+--------
+
+Anything refers to the pairwise disjoint concept set. if is usedc in
+pair with **or-something-else.**
+
+The example shows how to use the keyword.
+
+.. container:: comment
+
+    Example: The concepts of cat, dog and human are pairwise disjoint.
+    However, there may exist individuals that are none of them.
+
+.. parsed-literal::
+
+    Anything either is a cat or is a dog or is a human
+    or-something-else.
+
+Above sentence is equivalent to the following set of sentences:
+
+.. parsed-literal::
+
+      No cat is a dog.
+      No cat is a human.
+      No dog is a human.
+
+As-well-as
+----------
+
+As-well-as allows to define complext data types facets.
+
+The example shows how to use the keyword.
+
+.. parsed-literal::
+
+      Every top-model has-name (some string value) as-well-as (some
+      integer value).
+
+Be (is/are)
+-----------
+
+The negated verb to be and its conjugated forms are used for concept
+inclusion or concept equivalence. With that verb a hierarchy of concepts
+is constructed or an individual is placed in the hierarchy of concept
+(by saying what concepts the individual actually is). Concepts and
+individuals are defined when their names are used in at least one
+sentence.
+
+The verb to be combined with the word by is used to create a role
+inversion. It is conceptually equivalent to passive voice.
+
+Those examples show how to use the verb to be to create a hierarchy of
+concepts and individuals and make role inversion.
+
+.. container:: comment
+
+    Example: Individuals are named and placed in the hierarchy of concepts.
+
+.. parsed-literal::
+
+      Sophie is a giraffe.
+      Leo is a lion.
+
+.. container:: comment
+
+    Example: A simple hierarchy of concepts. Lion and giraffe are inclusive of the concept of an animal.
+
+.. parsed-literal::
+
+      Every giraffe is an animal.
+      Every lion is an animal.
+
+.. container:: comment
+
+    Example: A simple hierarchy of concepts. Concepts of a young male man and a boy are equivalent.
+
+.. parsed-literal::
+
+      Something is a boy if-and-only-if-it is a young-male-man.
+
+.. container:: comment
+
+    Example: A more complex hierarchy of concepts. The concept of a young
+    male man is an intersection of concepts of a young thing, a male
+    thing and a person.
+
+.. parsed-literal::
+
+      Something is a young-male-man if-and-only-if-it is a young-thing
+      that is a male-thing and is a person.
+
+.. container:: comment
+
+    Example: Role inversion. The last two sentences are equivalent.
+
+.. parsed-literal::
+
+      Every child is loved by parent.
+      Mary is loved by Tom.
+      Tom loves Mary.
+
+
+Be not (is not /are not)
+------------------------
+
+The negated verb not to be and its conjugated forms are used for
+negating a concept or giving a complement concept.
+
+Those examples show how to use the negated verb not to be to negate a
+concept or to give a concept complement to it.
+
+.. container:: comment
+
+    Example: Everything in the world is an adult-thing or a young-thing.
+    The concepts are complement.
+
+.. parsed-literal::
+
+      Something is a young-thing if-and-only-if-it is not an
+      adult-thing.
+
+.. container:: comment
+
+    Example: The classes of young-thing and adult-thing are disjoint.
+    However, there might exist a thing that is neither of them.
+
+.. parsed-literal::
+
+      Every-single-thing that is a young-thing is not an adult-thing.
+      Every young-thing is not an adult-thing.
+
+.. _by:
+
+By
+--
+
+The verb to be and word by is used to create a role inversion. It is
+conceptually equivalent to passive voice.
+
+The example below shows how to use role inversion.
+
+.. container:: comment
+
+    Example: Role inversion. Last two sentences are equivalent.
+
+.. parsed-literal::
+
+      Every child is loved by a parent.
+      Mary is loved by Tom.
+      Tom loves Mary.
+
+Less-than/more-than/at-least/at-most/differet-than/zero/one/two...
+------------------------------------------------------------------
+
+Keywords for indicating property cardinality restriction. They deal with
+allowed and defined number of listed properties (roles). They can be
+used to specify the number of individuals involved in the restriction.
+Indeed, classes can be defined depending on the number of listed
+properties. It is possible to declare a maximum, minimum or exact number
+of listed properties in domain. Cardinality restrictions can also be
+applied to the number of data attributes that a concept or instance has.
+
+.. list-table::
+    :widths: 25 25
+    :header-rows: 1
+    :align: center
+
+    * - Keywords
+      - Meaning
     * - less-than
-      - Introduces property cardinality restriction.
-    * - lower-or-equal-to
-      - Assigns range to a data attribute.
-    * - lower-than
-      - Assigns range to a data attribute.
+      - **<**
     * - more-than
-      - Introduces property cardinality restriction.
-    * - must
-      - States a restriction on the knowledge.
-    * - must-not
-      - States a restriction on the knowledge.
-    * - nine
-      - Introduces property cardinality restriction.
-    * - no
-      - Negates a concept.
-    * - none
-      - is a short version of 'nothing-but things that are nothing'
-    * - not
-      - Negates the verb to be.
-    * - nothing
-      - Refers to the bottom concept (empty set).
-    * - nothing-but
-      - Gives restriction on range of property (role) or data type of data property.
-    * - one
-      - Introduces property cardinality restriction
-    * - or
-      - Used for disjoint unions and enumeration of individuals.
-    * - or-something-else
-      - Is the complement concept.
-    * - seven
-      - Introduces property cardinality restriction.
-    * - should
-      - States a restriction on the knowledge.
-    * - should-not
-      - States a restriction on the knowledge.
-    * - six
-      - Introduces property cardinality restriction.
-    * - (some boolean value)
-      - Specifies data type boolean.
-    * - (some datetime value)
-      - Specifies data type datetime.
-    * - (some integer value)
-      - Specifies data type integer.
-    * - (some string value)
-      - Specifies data type string.
-    * - (some real value)
-      - Specifies data type double.
-    * - (some value)
-      - Gives an unspecified data type.
-    * - (some [datatype] value)
-      - Refers to a value of a given (user defined) data type.
-    * - something
-      - Represents all individuals (top concept).
-    * - Represents any data value of any data type.
-      - Starts a general rule about all things.
-    * - ten
-      - Introduces property cardinality restriction.
-    * - that
-      - Starts further specification (restriction) of a concept.
-    * - that-has-length
-      - Restricts length of a data attribute.
-    * - that-matches-pattern
-      - Defines string attributes as regular expression patterns.
-    * - the
-      - | Indicates some specified individual of a given concept.
-        | Adds an instance with custom identifier.
-    * - then
-      - Is a part of a sentence with an implication (semantic rule).
-    * - the-one-and-only
-      - Is used to define a class which has only one instance
-    * - thing
-      - | Represents an instance of the top concept and thus any variable.
-        | Is a variable in semantic rules.
-    * - things
-      - | Represents an instance of the top concept and thus any variable.
-        | Is a variable in semantic rules.
-    * - three
-      - Introduces property cardinality restriction.
-    * - true
-      - Is a boolean data value.
-    * - two
-      - Introduces property cardinality restriction.
-    * - value
-      - Refers to a value of data property in a semantic rule.
-    * - value-of [datatype]
-      - Refers to a value of a given (user defined) data type.
-    * - X
-      - Is a variable used for writing axioms about roles.
-    * - Y
-      - Is a variable used for writing axioms about roles.
-    * - zero
-      - Introduces property cardinality restriction.
+      - **>**
+    * - at-most
+      - **≤**
+    * - at-least
+      - **≥**
+    * - different-than
+      - **≠**
+
+These examples show how to put restrictions on properties cardinality
+numbers - maximum, minimum or exact.
+
+.. container:: comment
+
+    Example: The sentence defines the maximum number of allowed parents.
+
+.. parsed-literal::
+
+      Every person is-a-child-of at-most two parents.
+
+.. container:: comment
+
+    Example: Defines the minimum number of allowed parents.
+
+.. parsed-literal::
+
+      Every person is-a-child-of at-least two parents.
+
+.. container:: comment
+
+    Example: Defines the exact number of allowed parents.
+
+.. parsed-literal::
+
+      Every person is-a-child-of two parents.
+
+.. container:: comment
+
+    Example: Cardinality restriction about data attribute.
+
+.. parsed-literal::
+
+      Every cat has-name at-most one (some string value).
+
+Greater-than/lower-than/greater-or-equal-to/lower-or-equal-to/different-from
+----------------------------------------------------------------------------
+
+The construction greater-than ... assigns a range to a data attribute.
+The names of the keywords are summmed up in the table below.
+
+.. list-table::
+    :widths: 25 25 25
+    :header-rows: 1
+    :align: center
+
+    * - Keywords
+      - Meaning
+      -
+    * - greater-than
+      - **<**
+      - maxExclusive
+    * - lower-than
+      - **>**
+      - minExclusive
+    * - greater-or-equal-to
+      - **≤**
+      - maxInclusive
+    * - lower-or-equal-to
+      - **≥**
+      - minInclusive
+    * - different-from
+      - **≠**
+      - minExclusive & maxExclusive
+    * - equal-to
+      - **=**
+      - .
+
+Those examples show how to assign data attributes.
+
+.. parsed-literal::
+
+      Every adult-person has-age greater-or-equal-to 18.
+
+Do-not/does-not
+---------------
+
+The auxiliary verb do-not or does-not negates a role or data property.
+
+
+Those examples show how to negate roles and data properties.
+
+.. container:: comment
+
+    Example: Mary loves nobody.
+
+.. parsed-literal::
+
+      Mary does-not love a thing.
+
+Either ... or ...
+-----------------
+
+The construction either ... or ... is used to express a disjoint union
+or enumerate individuals of a given concept.
+
+Those examples show how to the either ... or ... construction.
+
+.. container:: comment
+
+    Example: The concepts of child, young thing, middle age thing and old
+   thing are all pairwise disjoint. Their union is a person.
+
+.. parsed-literal::
+
+      Something is a person if-and-only-if-it-f is a child, is a
+      young-thing, is a middle-age-thing or is an old-thing.
+
+.. container:: comment
+
+    Example: Enumerates individuals of a concept.
+
+.. parsed-literal::
+
+      Something is a my-birthday-guests if-and-only-if-it is either
+      John, Mary or Bill.
+
+Equal-to
+--------
+
+The construction equal-to assigns a data attribute. FluentEditor
+currently supports the following data types: integer, real, boolean,
+string and date-time.
+
+Those examples show how to assign data attributes.
+
+.. parsed-literal::
+
+      John has-name equal-to 'John'.
+      Lenka borns-on-date equal-to 1975-10-11.
+
+Be (is/are)
+-----------
+
+The word every refers to all individuals of a given concept. Concepts
+and individuals are defined when their names are used in at least one
+sentence.
+
+Those examples show how to use the word every.
+
+.. container:: comment
+
+    Example: A simple hierarchy of concepts. Lion and giraffe are
+   inclusive of the concept of an animal.
+
+.. parsed-literal::
+
+      Every giraffe is an animal.
+      Every lion is an animal.
+
+.. container:: comment
+
+    Example: A simple relation rule.
+
+.. parsed-literal::
+
+      Every giraffe eats a plant.
+
+
+Every-single-thing
+------------------
+
+Every-single-thing indicates all individuals in the open-world
+assumption. Individuals may be already defined in the ontology or not
+defined but possibly existing. It is often used for writing axioms about
+roles.
+
+.. _examples-15:
+
+Examples
+
+
+Those examples show how to use every-single-thing declaration to
+indicate all existing individuals and specify more information about
+them. Combined with that keyword, it can be used for writing more
+complex rules.
+
+.. container:: comment
+
+    Example: All the individuals in the world are specified with the role
+   'is-married-to' something.
+
+.. parsed-literal::
+
+      Every-single-thing is-married-to something.
+
+.. container:: comment
+
+    Example: If something has a wife, then it must be a person. Range of
+   is-a-wife-of property is a person class
+
+.. parsed-literal::
+
+      Every-single-thing is-a-wife-of nothing-but persons.
+
+.. container:: comment
+
+    Example: Being someone's wife indicates being a woman. Domain of
+   is-a-wife-of property is a woman class.
+
+.. parsed-literal::
+
+      Every-single-thing that is-a-wife-of is a woman.
+
+.. container:: comment
+
+    Example: Only people have names. If something has a data property
+   value called name, then it is a person.
+
+.. parsed-literal::
+
+      Every-single-thing that has-name (some value) is a person.
+
+.. container:: comment
+
+    Example: Axiom on a role. 'to be part of' is reflexive.
+
+.. parsed-literal::
+
+      Every-single-thing is-part-of itself.
+
+... for ... execute <? ... ?>
+------------------------------
+
+The construction ... for ... execute <? ... ?> is used to express
+`active rules <..\Index.html#activeRules>`__, which are a special case
+of `SWRL rules <..\Grammar.html#swrl>`__. If an active rule is
+fulfilled, some code/simple program can be executed. The concepts listed
+after for are used as variables, while execute <? ... ?> is followed be
+the code to be performed.
+
+Different use cases of variables in semantic rules are summed up in the
+table below.
+
+Example
+
+
+Those examples show how to write active rules with the construction ...
+for ... execute <? ... ?>.
+
+.. container:: comment
+
+    Example: Active rule for an ontology monitoring the state of IT
+   infrastructure.
+
+.. parsed-literal::
+
+      If a server is connected by a thing and the thing has-status
+      Inoperable then for the server and the thing execute
+      <?
+      KnowledgeInsert(string.Format("{0} is connected by {1} and
+      has-status Inoperable.", server, thing)); WriteMessage("[" +
+      DateTime.Now + "] " + server + " is inoperable due to " + thing +
+      ".");
+      ?>.
+
+Exists
+------
+
+Exists is equivalent to is something or is a thing. However, the first
+may sound more natural sometimes. This is redundant in CNL, where a
+concept is defined simply by using it. However, it might be usable in
+translations from OWL to FE CNL.
+
+.. _examples-16:
+
+Examples
+
+
+Those examples show how to use the keyword exists.
+
+.. parsed-literal::
+
+      If John exists then John is a living-thing.
+
+If-and-only-if
+--------------
+
+If-and-only-if expresses biconditional logical connective between two
+statements. The statements should contain X/Y variables. It is used for
+making axioms on properties/roles (such as **have-child** or
+**have-sibling**).
+
+.. _examples-17:
+
+Examples
+
+
+Those examples show how make axioms on properties
+
+.. container:: comment
+
+    Example: has-child is reverse of has-parent.
+
+.. parsed-literal::
+
+      X has-child Y if-and-only-if Y has-parent X.
+
+.. container:: comment
+
+    Example: has-sibling is symmetric.
+
+.. parsed-literal::
+
+      X has-sibling Y if-and-only-if Y has-sibling X.
+
+If-and-only-if-it
+-----------------
+
+If-and-only-if-it expresses biconditional logical connective between two
+statements. In the construction Something is ... if-and-only-if-it ...
+equivalent concepts are introduced. The concequent concept can be a
+complex concept. It allows to define new concept as intersection, union
+etc. of old ones. The construction can me modified to give complement
+concept.
+
+.. _examples-18:
+
+Examples
+
+
+Those examples show how to define concepts.
+
+.. container:: comment
+
+    Example: Equivalent concepts.
+
+.. parsed-literal::
+
+      Something is a boy if-and-only-if-it is a young-male-man.
+
+.. container:: comment
+
+    Example: Concept intersection.
+
+.. parsed-literal::
+
+      Something is a young-male-man if-and-only-if-it is a young-thing
+      and is a male-thing and is a person.
+
+.. container:: comment
+
+    Example: Everything in the world is an adult-thing or a young-thing.
+   The concepts are complement.
+
+.. parsed-literal::
+
+      Something is a young-thing if-and-only-if-it is not an
+      adult-thing.
+
+If-and-only-if-it-either
+------------------------
+
+If-and-only-if-it-either expresses biconditional logical connective
+between two statements. In the construction Something is ...
+if-and-only-if-it-either ... a concept is defined as a disjoint union of
+other concepts/individuals. It refers to OWL DisjointUnion.
+
+.. _examples-19:
+
+Examples
+
+
+The example shows how to define concepts as disjoint unions.
+
+.. container:: comment
+
+    Example: The classes: child, young, middle-age and old are disjoint
+   and their sum creates a class person.
+
+.. parsed-literal::
+
+      Something is a person **if-and-only-if-it-either** is a child, is
+      a young-thing, is a middle-age-thing or is an old-thing.
+
+   This is equivalen to the following set of sentences:
+
+.. parsed-literal::
+
+      Somethingis a person if-and-only-if-it is a child and-or is a
+      young-thing and-or is a middle-age-thing and-or is an old-thing.
+      No child is a young-thing.
+      No child is a middle-age-thing.
+      No child is an old-thing.
+      No young-thing is a middle-age-thing.
+      No young-thing is an old-thing.
+      No middle-age-thing is anold-thing.
+
+.. container:: comment
+
+    Example: We enumerate all individuals of a given concept. All
+   individuals are disjoint.t.
+
+.. parsed-literal::
+
+      Something is a my-birthday-guest if-and-only-if-it-either is
+      Monica, is Emilia, is Julia or is Anna.
+
+.. container:: comment
+
+    Example: A similar construction can be used for enumerating the
+   individuals of a given concept. However, it does not imply that the
+   individuals are disjoint. Concept cannot be enumerated in such way.
+
+.. parsed-literal::
+
+      Something is a my-birthday-guest if-and-only-if-it is either
+      Monica, Emilia, Julia or Anna.
+      Emilia is Julia.
+
+If ... then ...
+---------------
+
+The construction If ... then ... is used for making an implication
+(semantic rule). The construction can be used for two purposes: `SWRL
+rules <..\Grammar.html#swrl>`__ and axioms about properties/roles. In
+SWRL rules about concept and roles variables appear with a/the prefix.
+There is a special class of semantic rules - axioms about roles in which
+X/Y variables are used. Both antecedent and consequent clauses in the
+implication can be complex sentences.
+
+Different use cases of variables in semantic rules are summed up in the
+table below.
+
+Variable pattern
+
+Use case
+
+a/the class-name 
+
+denotes variables assigned to a class/concept
+
+a/the thing 
+
+represents an instance of the top concept "owl:Thing" and thus any
+variable in the SR-CE sentence.
+
+a/the class-name(n)/thing(n) 
+
+different number in parenthesis marks more variables of the same type.
+
+.. _examples-20:
+
+Examples
+
+
+Those examples show how to write semantic rules with the construction If
+... then ....
+
+.. container:: comment
+
+    Example: Axiom about role. Semantic rule for general role inclusion.
+
+.. parsed-literal::
+
+      If X is-proper-part-of Y then X is-part-of Y.
+
+.. container:: comment
+
+    Example: In the semantic rule below, there is one variable 'person'.
+
+.. parsed-literal::
+
+      If a person is-year-old greater-or-equal-to 18 then the person is
+      an adult-person.
+
+.. container:: comment
+
+    Example: In the semantic rule below, there is one variable which
+   could be anything.
+
+.. parsed-literal::
+
+      If a thing is a person then the thing has-name (some string
+      value).
+
+Is-(not-)the-same-as
+--------------------
+
+Is-the-same-as expresses that two individuals are the same.
+Is-not-the-same-as expresses that two individuals are different. It
+refers to OWL sameAs axiom. It should not be replaced with expressions
+is or is not.
+
+.. _examples-21:
+
+Examples
+
+
+Those examples show how to use the keywords and why they should not be
+replaced with is or is not.
+
+.. container:: comment
+
+    Example: A cat and its owner are different.
+
+.. parsed-literal::
+
+      If a man has-pet a cat then the man is-not-the-same-as the cat.
+
+.. container:: comment
+
+    Example: Here, the person is the same individual as the human
+   mentioned in the antecedent part of the rule.
+
+.. parsed-literal::
+
+      If a person has-synonym a human then the person is-the-same-as the
+      human.
+
+.. container:: comment
+
+    Example: Here, the consequent clause the person is the human means
+   that there exists (somewhere) some unspecified individual of human
+   class which is the same individual as the person mentioned.
+
+.. parsed-literal::
+
+      If a person has-synonym a human then the person is the human.
+
+Is-unique-if
+------------
+
+Is-unique-if defines a key for a class. Keys are for uniquely
+identifying an individual. The open-world assumption does not imply that
+some things (e.g. concepts, instances) are disjoint if they are named
+differently. The uniqueness of two individuals can be inferred from
+rules. If two named instances of the class coincide on values for each
+of key properties, then these two individuals are the same. With more
+complex construction, two individuals can be reasoned to be different
+from each other.
+
+OWL 1 does not provide a means to define keys. The OWL 2 construct
+HasKey allows keys to be defined for a given class.
+
+.. _examples-22:
+
+Examples
+
+
+Those examples show how to define and use keys in CNL.
+
+.. container:: comment
+
+    Example: Tom and Mark can be theoretically the same individual.
+
+.. parsed-literal::
+
+      Tom is a man.
+      Mark is a man.
+
+.. container:: comment
+
+    Example: Tom and Mark are reasoned to be different individuals.
+
+.. parsed-literal::
+
+      Every X that is a man is-unique-if X has-id equal-to something.
+      Every man has-id one (some integer value).
+      Mark is a man and has-id equal-to 11.
+      Tom is a man and has-id equal-to 12.
+
+.. container:: comment
+
+    Example: Tom and Mark are reasoned to be the same individuals.
+
+.. parsed-literal::
+
+      Every X that is a man is-unique-if X has-id equal-to something.
+      Mark is a man and has-id equal-to 11.
+      Tom is a man and has-id equal-to 11.
+
+It
+--
+
+It Is a variable for something in semantic rules.
+
+.. _examples-23:
+
+Examples
+
+
+The example shows how to use the keyword.
+
+.. container:: comment
+
+    Example: Two sentences below are equivalent.
+
+.. parsed-literal::
+
+      Every cat is an animal.
+      If something is a cat then it is an animal.
+
+Itself
+------
+
+Itself is used when the subject and the object of the role are the same.
+If every subject of a concept acts with a role on itself, then the role
+is reflexive for the concept.
+
+.. _examples-24:
+
+Examples
+
+
+Those examples show how to use and how not to use the keyword itself.
+
+.. parsed-literal::
+
+      Leo likes itself.
+
+.. container:: comment
+
+    Example: The role 'to like' is reflexive for men.
+
+.. parsed-literal::
+
+      Every man likes itself.
+
+.. container:: comment
+
+    Example: The role of parent is irreflexive.
+
+.. parsed-literal::
+
+      Nothing is-parent-of itself.
+
+Can/can-not/must/must-not/should/should-not
+-------------------------------------------
+
+Modal expressions are used for stating restrictions on the knowledge. In
+open world assumption the validity of the statement should not change
+after introducing additional knowledge. Therefore the validity of some
+statements is unknown. However, additional requirements for the ontology
+are stated with modal expressions. This allows user to express knowledge
+about knowledge. Modal expressions do not have a direct representation
+with OWL. They are an advanced feature supported by FluentEditor. FE now
+supports only simple requirements, i.e. Every (class-name) (modality)
+(role/date-property) (value). The reasoner checks if all modal
+expressions are fulfilled. Results of validation shall be highlighted in
+different colors. Green means all requirements are fulfilled. Red means
+an error, that some requirements are not fulfilled. It appears when
+requirements with must or can-not expression is not fulfilled. Yellow
+means a warning. It appears when requirements with should, should-not,
+can, or must-not expression is not fulfilled.
+
+.. _examples-25:
+
+Examples
+
+
+The examples below show how to use modal expressions to specify
+knowledge about knowledge.
+
+.. parsed-literal::
+
+      Every patient must have-age (some integer value).
+      Every patient can have-medical-history (some string value).
+      Every application must have-status a thing that is either Operable
+      or Inoperable.
+      Every patient can-not have-age greater-than 200.
+
+No
+--
+
+The word no is used for negating a concept.
+
+.. _examples-26:
+
+Examples
+
+
+Those examples show how to use no to negate a concept.
+
+.. container:: comment
+
+    Example: The classes of young-thing and adult-thing are disjoint.
+   However, there might exist a thing that is neither of them.
+
+.. parsed-literal::
+
+      No young-thing is an adult-thing.
+
+None
+----
+
+None is a short version of nothing-but things that are nothing.
+
+.. _examples-27:
+
+Examples
+
+
+The example shows how to use the keyword.
+
+.. container:: comment
+
+    Example: Two sentences below are equivalent.
+
+.. parsed-literal::
+
+      Every root-folder has-parent none.
+      Every root-folder has-parent nothing-but things that are nothing.
+
+Nothing
+-------
+
+Nothing refers to the bottom concept (empty set). It describes concepts
+that cannot have any individuals. It is used for specifying restrictions
+on the roles.
+
+.. _examples-28:
+
+Examples
+
+
+Those examples show how to use the keyword nothing.
+
+.. container:: comment
+
+    Example: The role of parent is irreflexive.
+
+.. parsed-literal::
+
+      Nothing is-parent-of itself.
+
+.. container:: comment
+
+    Example: Two sentences below are equivalent.
+
+.. parsed-literal::
+
+      Nothing is-part-of at-least two things.
+      Every-single-thing is-part-of at-most one thing.
+
+.. container:: comment
+
+    Example: A more complex restriction on roles.
+
+.. parsed-literal::
+
+      Nothing is a dead-body that has-inside a living-thing.
+
+Nothing-but
+-----------
+
+Nothing-but gives restriction on range of a property (role) or data type
+of a data property. It is so called universal role restriction.
+
+.. _examples-29:
+
+Examples
+
+
+Those examples show how to restrict range of a role or data type of a
+data property.
+
+.. container:: comment
+
+    Example: If something has a wife, then it must be a person. Range of
+   is-a-wife-of property is a person class
+
+.. parsed-literal::
+
+      Every-single-thing is-a-wife-of nothing-but persons.
+
+.. container:: comment
+
+    Example: Names are words. The name property can be only of type
+   string.
+
+.. parsed-literal::
+
+      Every-single-thing has-name nothing-but (some string value).
+
+Or-something-else
+-----------------
+
+Or-something-else refers to the disjoint concept statement that starts
+with Anything keyword. This statement allows to enumerate pairwise
+disjoint concepts.
+
+.. _examples-30:
+
+Examples
+
+
+The example shows how to use the keyword.
+
+.. container:: comment
+
+    Example: The concepts of cat, dog and human are pairwise disjoint.
+   However, there may exist individuals that are none of them.
+
+.. parsed-literal::
+
+      Anything either is a cat or is a dog or is a human
+      or-something-else.
+
+Something
+---------
+
+The word something has different meanings depending on the context. It
+represents all individuals (top concept). It represents any data value
+of any data type. It starts a general rule about all things. It can be
+used for defining a new concept as an intersection or union of other
+concepts or for stating that two concepts are equivalent.
+
+.. _examples-31:
+
+Examples
+
+
+This example shows how to use the keyword something in different ways.
+
+.. container:: comment
+
+    Example: Top concept, equivalent to a thing.
+
+.. parsed-literal::
+
+      John is something.
+      John is a thing.
+
+.. container:: comment
+
+    Example: Any data value of any data type.
+
+.. parsed-literal::
+
+      Every X that is a man is-unique-if X has-id equal-to something.
+
+.. container:: comment
+
+    Example: Concept equivalence.
+
+.. parsed-literal::
+
+      Something is a boy if-and-only-if-it is a young-male-man.
+
+.. container:: comment
+
+    Example: Concept intersection.
+
+.. parsed-literal::
+
+      Something is a young-male-man if-and-only-if-it is a young-thing
+      and is a male-thing and is a person.
+
+.. container:: comment
+
+    Example: Concept union.
+
+.. parsed-literal::
+
+      Something is a child if-and-only-if-it is a boy and-or is a girl.
+
+(some boolean/datetime/integer/string value)
+--------------------------------------------
+
+These keywords refer to a data property of a specified type (see table).
+
+Keywords
+
+Meaning
+
+(some value) 
+
+equivalent to rdfs:Literal. This can take any data type but without
+knowing what type this data is.
+
+(some integer value) 
+
+equivalent to xsd:int.
+
+(some real value) 
+
+equivalent to xsd:double.
+
+(some boolean value) 
+
+equivalent to xsd:boolean.
+
+(some string value) 
+
+equivalent to xsd:string.
+
+(some datetime value) 
+
+equivalent to xsd:datetime.
+
+.. _examples-32:
+
+Examples
+
+
+The example shows how to specify data type of a data property.
+
+.. container:: comment
+
+    Example: We specify the data type of name to be string and the data
+   type of age to be integer.
+
+.. parsed-literal::
+
+      Every person has-name nothing-but (some string value).
+      Every person has-age nothing-but (some integer value).
+
+That
+----
+
+The word that starts further specification (restriction) of a concept.
+Restriction can be arbitrary complex.Every-single-thing that ...
+construction is used frequently and means the whole class of things
+satisfying the restriction.
+
+.. _examples-33:
+
+Examples
+
+
+This example shows how to use the construction that ... in CNL
+sentences.
+
+.. container:: comment
+
+    Example: Restrictions on the concept of application.
+
+.. parsed-literal::
+
+      Every application must have-status a thing that is either Operable
+      or Inoperable.
+
+.. container:: comment
+
+    Example: Every-single-thing that ... construction occurs quite often
+   in CNL. Here, it refers to the whole class of young things.
+
+.. parsed-literal::
+
+      Every-single-thing that is a young-thing is not an adult-thing.
+
+that-has-length
+---------------
+
+The construction that-has-length restricts length of a data attribute.
+
+.. _examples-34:
+
+Examples
+
+
+The example below shows how to restrict length of a data attribute.
+
+.. parsed-literal::
+
+      Every cat has-name that-has-length lower-or-equal-to 10.
+
+That-matches-pattern
+--------------------
+
+The construction that-matches-pattern defines string attributes as
+regular expression patterns, both in ontology and questions. It is a new
+feature in FluentEditor 2014. This functionality allows to specify not
+only one particular string as attribute, but also a whole set (or class)
+of strings defined by regular expression. This keyword may appear insted
+of equal-to or (some value) keyword. It can be used in questions.
+
+.. _examples-35:
+
+Examples
+
+
+The example below shows how to use regular expressions in CNL.
+
+.. container:: comment
+
+    Example: Rule for female names in Polish language - it must end with
+   'a' sound.
+
+.. parsed-literal::
+
+      Every-single-thing that has-name that-matches-pattern '.*a' is a
+      female-person.
+
+The
+---
+
+English definite article the indicates some specified individual of a
+given concept. An individual of a given concept is specified by
+mentioning it earlier in the sentence. Variables appear in semantic
+rules. When a variable occurs for the first time it is preceeded by a/an
+and later by the.
+
+Different use cases of variables in semantic rules are summed up in the
+table below.
+
+THE-" " is used to define an instance with a custom identifier, other
+that combination of words starting with capital letter and numbers
+separated by dashes.
+
+Variable pattern
+
+Use case
+
+a/the class-name 
+
+denotes variables assigned to a class/concept
+
+a/the thing 
+
+represents an instance of the top concept "owl:Thing" and thus any
+variable in the SR-CE sentence.
+
+a/the class-name(n)/thing(n) 
+
+different number in parenthesis marks more variables of the same type.
+
+.. _examples-36:
+
+Examples
+
+
+This example shows how to use definite article the while introducing
+variables into semantic rules.
+
+.. container:: comment
+
+    Example: In the semantic rule below, there is one variable 'person'.
+
+.. parsed-literal::
+
+      If a person is-year-old greater-or-equal-to 18 then the person is
+      an adult-person.
+
+.. container:: comment
+
+    Example: In the semantic rule below, there is one variable which
+   could be anything.
+
+.. parsed-literal::
+
+      If a thing is a person then the thing has-name (some string
+      value).
+
+.. container:: comment
+
+    Example: In the semantic rule below, there are two variables
+   'person'.
+
+.. parsed-literal::
+
+      If a person(1) has-parent a person(2) and the person(2) is a
+      female-person then the person(1) has-mother the person(2).
+
+.. container:: comment
+
+    Example: Custom instance identifier.
+
+.. parsed-literal::
+
+      THE-"K22 P2"
+
+The-one-and-the-only
+--------------------
+
+The-one-and-the-only is used to define a class which has only one
+instance. It refers to an instance of an concept that defines the
+concept and is the only instance of the concept.
+
+.. _examples-37:
+
+Examples
+
+
+The example shows how to use the keyword.
+
+.. container:: comment
+
+    Example: The first sentence is equivalent to the combination of the
+   second and the third sentence.
+
+.. parsed-literal::
+
+      The-one-and-only singlethon is a cat.
+      The singlethon is a cat.
+      Every singlethon is the singlethon.
+
+Thing/things
+------------
+
+The word thing represents an instance of the top concept "owl:Thing" and
+thus any variable in the SR-CE sentence. Used as a variable in semantic
+rules. If more variables of type thing appear, they can be enumerated by
+thing(n).
+
+Those examples show how to use the word thing in semantic rules.
+
+.. container:: comment
+
+    Example: In the semantic rule below, there is one variable which
+    could be anything.
+
+.. parsed-literal::
+
+      If a thing is a person then the thing has-name (some string
+      value).
+
+.. container:: comment
+
+    Example: In the semantic rule below, there are two variables 'thing'.
+
+.. parsed-literal::
+
+      If a thing(1) hosts a thing(2) and the thing(2) hosts an
+      application then the thing(1) hosts the application.
