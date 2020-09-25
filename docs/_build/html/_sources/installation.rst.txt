@@ -1,9 +1,6 @@
 .. meta::
    :description:
-      Free command line tool to download photos from Instagram.
-      Scrapes public and private profiles, hashtags, stories, feeds,
-      saved media, and their metadata, comments and captions.
-      Written in Python.
+      Free command line tool which alows to Reasoning, exploration of RDF/OWL, CogniPy CNL files, performs reasoning with OWL/RL Reasoner (Jena) as well as allows using SPARQL Graph queries (Jena)
 
 .. title:: CogniPy — Easy Semantic Technology for Python
 
@@ -16,7 +13,7 @@ Project description
 
 Originally released and maintained by Cognitum Services S.A. - the creator of FluentEditor allowing use Controlled Natural Language for Ontology development.
 
-The package allows for Reasoning, exploration of RDF/OWL, Fluent Editor CNL files, performs reasoning with OWL/RL Reasoner (Jena) as well as allows using SPARQL Graph queries (Jena)
+The package allows for Reasoning, exploration of RDF/OWL, CogniPy CNL files, performs reasoning with OWL/RL Reasoner (Jena) as well as allows using SPARQL Graph queries (Jena)
 
 
 
