@@ -1,12 +1,13 @@
+Every state is-part-of a country.
+
 Poland is a country.
 Germany is a country.
-Berlin is a state in Germany.
-Bavaria is a state in Germany;
+Berlin is-state-of Germany.
 Sweden is a country.
 England is a country.
 Australia is a country.
-Victoria is a state in Australia.
+Victoria is-state-of Australia.
 USA is a country.
-California is a state in USA.
-New-York is a state in USA.
+California is-state-of USA.
+New-York is-state-of USA.
 Switzerland is a country.
