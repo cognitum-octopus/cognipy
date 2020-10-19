@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>‘African Wildlife’. &mdash; CogniPy 0.1.6 documentation</title>
+  <title>African Wildlife. &mdash; CogniPy 0.1.6 documentation</title>
   
 
   
@@ -39,7 +39,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="‘Semantic search’." href="../04_semantic_search/FoodOntology.html" />
+    <link rel="next" title="Covid restrictions." href="../Covid/Virus.html" />
     <link rel="prev" title="Examples" href="../examples.html" /> 
 </head>
 
@@ -93,13 +93,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Project description</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../grammar.html">Grammar</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../examples.html">Examples</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">‘African Wildlife’.</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">African Wildlife.</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Part-1:-‘simple-hierarchy-of-beings’.">Part-1: ‘simple hierarchy of beings’.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Part-2:-Disjointness">Part-2: Disjointness</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Part-3:-Modal-expressions-and-part-whole-relationships.">Part-3: Modal expressions and part-whole relationships.</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../04_semantic_search/FoodOntology.html">‘Semantic search’.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Covid/Virus.html">Covid restrictions.</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../modules.html">API Refrence</a></li>
@@ -154,7 +154,7 @@
         
           <li><a href="../examples.html">Examples</a> &raquo;</li>
         
-      <li>‘African Wildlife’.</li>
+      <li>African Wildlife.</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -452,8 +452,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="section" id="‘African-Wildlife’.">
-<h1>‘African Wildlife’.<a class="headerlink" href="#‘African-Wildlife’." title="Permalink to this headline">¶</a></h1>
+<div class="section" id="African-Wildlife.">
+<h1>African Wildlife.<a class="headerlink" href="#African-Wildlife." title="Permalink to this headline">¶</a></h1>
 <p>Loading the editor for the basic “safari” ontology. The Ontology is inspired by ‘A Semantic Web Primer.’ by ‘Antoniou, G, van Harmelen, F.’ ‘MIT Press, 2003.’ ‘<a class="reference external" href="http://www.csd.uoc.gr/~hy566/SWbook.pdf">http://www.csd.uoc.gr/~hy566/SWbook.pdf</a>’, tuned to OWL/RL+SWRL profile.</p>
 <div class="section" id="Part-1:-‘simple-hierarchy-of-beings’.">
 <h2>Part-1: ‘simple hierarchy of beings’.<a class="headerlink" href="#Part-1:-‘simple-hierarchy-of-beings’." title="Permalink to this headline">¶</a></h2>
@@ -850,170 +850,6 @@ Welcome to CogniPy</div>
 <img alt="../_images/01_safari_explorer_Safari_12_0.svg" src="../_images/01_safari_explorer_Safari_12_0.svg" /></div>
 </div>
 <p>It is fully compatible with OWL/RDF format (via OWLAPI). We can always export it as it is.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">onto</span><span class="o">.</span><span class="n">as_rdf</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;?xml version = &#39;1.0&#39; encoding = &#39;UTF-8&#39;?&gt;
-&lt;rdf:RDF xmlns=&#34;http://cognitum.eu/african_wildlife#&#34; xml:base=&#34;http://cognitum.eu/african_wildlife&#34; xmlns:owl=&#34;http://www.w3.org/2002/07/owl#&#34; xmlns:rdfs=&#34;http://www.w3.org/2000/01/rdf-schema#&#34; xmlns:rdf=&#34;http://www.w3.org/1999/02/22-rdf-syntax-ns#&#34; xmlns:xsd=&#34;http://www.w3.org/2001/XMLSchema#&#34;&gt;
-  &lt;owl:Ontology rdf:about=&#34;http://cognitum.eu/african_wildlife#&#34; /&gt;
-  &lt;!--
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Object Properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     --&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#has --&gt;
-  &lt;owl:ObjectProperty rdf:about=&#34;http://cognitum.eu/african_wildlife#has&#34; /&gt;
-  &lt;!--
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     --&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#animal --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#animal&#34;&gt;
-    &lt;rdfs:subClassOf&gt;
-      &lt;owl:Restriction&gt;
-        &lt;owl:onProperty rdf:resource=&#34;http://cognitum.eu/african_wildlife#has&#34; /&gt;
-        &lt;owl:someValuesFrom rdf:resource=&#34;http://cognitum.eu/african_wildlife#face&#34; /&gt;
-      &lt;/owl:Restriction&gt;
-    &lt;/rdfs:subClassOf&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#apple --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#apple&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#fruitingBody&#34; /&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#berry --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#berry&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#fruitingBody&#34; /&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#branch --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#branch&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plantPart&#34; /&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#carnivore --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#carnivore&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#animal&#34; /&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#carnivorousPlant --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#carnivorousPlant&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plant&#34; /&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#elephant --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#elephant&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#herbivore&#34; /&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#face --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#face&#34; /&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#fruitingBody --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#fruitingBody&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plantPart&#34; /&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#giraffe --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#giraffe&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#animal&#34; /&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#grass --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#grass&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plant&#34; /&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#herbivore --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#herbivore&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#animal&#34; /&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#impala --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#impala&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#animal&#34; /&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#leaf --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#leaf&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plantPart&#34; /&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#lion --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#lion&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#animal&#34; /&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#carnivore&#34; /&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#man --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#man&#34;&gt;
-    &lt;rdfs:subClassOf&gt;
-      &lt;owl:Restriction&gt;
-        &lt;owl:onProperty rdf:resource=&#34;http://cognitum.eu/african_wildlife#has&#34; /&gt;
-        &lt;owl:someValuesFrom rdf:resource=&#34;http://cognitum.eu/african_wildlife#train&#34; /&gt;
-      &lt;/owl:Restriction&gt;
-    &lt;/rdfs:subClassOf&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#omnivore --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#omnivore&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#animal&#34; /&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#palmTree --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#palmTree&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plant&#34; /&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#parsnip --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#parsnip&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#root&#34; /&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#phloem --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#phloem&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plantPart&#34; /&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#plant --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#plant&#34; /&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#plantPart --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#plantPart&#34; /&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#rockDassie --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#rockDassie&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#animal&#34; /&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#root --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#root&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plantPart&#34; /&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#stem --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#stem&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plantPart&#34; /&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#tastyPlant --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#tastyPlant&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plant&#34; /&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#train --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#train&#34; /&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#tree --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#tree&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plant&#34; /&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#twig --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#twig&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plantPart&#34; /&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#warthog --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#warthog&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#animal&#34; /&gt;
-  &lt;/owl:Class&gt;
-  &lt;!-- http://cognitum.eu/african_wildlife#xylem --&gt;
-  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#xylem&#34;&gt;
-    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plantPart&#34; /&gt;
-  &lt;/owl:Class&gt;
-&lt;/rdf:RDF&gt;
-&lt;!-- Generated by the OWL API (version 3.5.1.c) http://owlapi.sourceforge.net --&gt;
-</pre></div></div>
-</div>
 </div>
 <div class="section" id="Part-2:-Disjointness">
 <h2>Part-2: Disjointness<a class="headerlink" href="#Part-2:-Disjointness" title="Permalink to this headline">¶</a></h2>
@@ -1126,7 +962,7 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/01_safari_explorer_Safari_26_0.svg" src="../_images/01_safari_explorer_Safari_26_0.svg" /></div>
+<img alt="../_images/01_safari_explorer_Safari_25_0.svg" src="../_images/01_safari_explorer_Safari_25_0.svg" /></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
@@ -1267,7 +1103,7 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/01_safari_explorer_Safari_33_0.svg" src="../_images/01_safari_explorer_Safari_33_0.svg" /></div>
+<img alt="../_images/01_safari_explorer_Safari_32_0.svg" src="../_images/01_safari_explorer_Safari_32_0.svg" /></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
@@ -1414,25 +1250,7 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">onto</span><span class="o">.</span><span class="n">as_rdf</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1449,7 +1267,7 @@ Welcome to CogniPy</div>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../04_semantic_search/FoodOntology.html" class="btn btn-neutral float-right" title="‘Semantic search’." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../Covid/Virus.html" class="btn btn-neutral float-right" title="Covid restrictions." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../examples.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
