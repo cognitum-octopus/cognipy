@@ -1,0 +1,74 @@
+%parser cs0.lexer cs0syntax // for C# subset for class definitions
+%namespace YYClass
+%symbol GStuff:TOKEN;
+%symbol Stuff:TOKEN;
+%symbol Item:TOKEN;
+%symbol ClassBody:TOKEN;
+%symbol Cons:TOKEN;
+%symbol Call:TOKEN;
+%symbol BaseCall:TOKEN;
+%symbol Name:TOKEN;
+%declare{
+	public string Out;
+	public string Cls;
+	public string Par;
+	public string Ctx;
+	public bool defconseen = false;
+}
+
+ClassBody : LBRACE GStuff:a RBRACE { yytext=a.yytext; }
+	;
+GStuff :					{ yytext=""; }
+	| GStuff:a Cons:b	{ yytext=a.yytext+b.yytext; }
+	| GStuff:a Item:b	{ yytext=a.yytext+b.yytext; }
+	;
+Stuff :					{ yytext=""; }
+	| Stuff:a Item:b	{ yytext=a.yytext+b.yytext; }
+	;
+Cons: 	Name:a LPAREN Stuff:b RPAREN BaseCall:c { 
+			cs0syntax yy = (cs0syntax)yyq;
+			if (a.yytext.Trim()!=yy.Cls)
+					yytext=a.yytext+"("+b.yytext+")";
+			else {
+				if (b.yytext.Length==0) {
+					yytext=a.yytext+"("+yy.Ctx+")"; yy.defconseen=true;
+				} else
+					yytext=a.yytext+"("+yy.Ctx+","+b.yytext+")"; 
+				if (c.yytext.Length==0)
+					yytext+=":base("+yy.Par+")";
+				else
+					yytext+=":"+c.yytext.Substring(0,4)+"("+yy.Par+","+c.yytext.Substring(4)+")";
+				}
+			}
+	;
+Call: 	Name:a LPAREN Stuff:b RPAREN  { 
+			if (a.yytext.Trim()!=((cs0syntax)yyq).Cls)
+					yytext=a.yytext+"("+b.yytext+")";
+			else {
+				if (b.yytext.Length==0)
+					yytext=a.yytext+"("+((cs0syntax)yyq).Par+")";
+				else
+					yytext=a.yytext+"("+((cs0syntax)yyq).Par+","+b.yytext+")"; 
+				}
+			}
+	;
+BaseCall: { yytext=""; }
+	| COLON BASE LPAREN Stuff:a RPAREN { yytext="base"+a.yytext; }
+	| COLON THIS LPAREN Stuff:a RPAREN { yytext="this"+a.yytext; }
+	;
+Name:	ID:a	{ yytext=" "+a.yytext+" "; }
+	|	ID:a LBRACK Stuff:b RBRACK { yytext=a.yytext+"["+b.yytext+"]"; }
+	;
+Item :	ANY:a { yytext=a.yytext; }
+	|	Name:a { yytext=a.yytext; }
+	|	SEMICOLON { yytext=";\n"; }
+	|	BASE	{ yytext=" base "; }
+	|	THIS	{ yytext=" this "; }
+	|	THIS LBRACK Stuff:a RBRACK { yytext=" this["+a.yytext+"]"; }
+	|	COLON { yytext=":"; }
+	|	NEW Call:a { yytext=" new "+a.yytext; }
+	|	NEW Name:a { yytext=" new "+a.yytext; }
+	|	LPAREN Stuff:b RPAREN { yytext="("+b.yytext+")"; }
+	|	LBRACE Stuff:b RBRACE { yytext="{"+b.yytext+"}\n"; }	
+	|	LBRACK Stuff:a RBRACK { yytext="[" + a.yytext + "]"; }
+	;

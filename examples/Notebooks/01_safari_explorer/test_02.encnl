@@ -1,9 +1,0 @@
-Leo-01 is a lion.
-Leo-01 eats Sophie-01.
-Sophie-01 is a giraffe.
-Sophie-01 eats Leaf-01.
-Mary-01 is a tree.
-Leaf-01 is a leaf and is-part-of Branch-02.
-Branch-02 is a branch and is-part-of Branch-01.
-Branch-01 is a branch and is-part-of Mary-01.
-Branch-03 is a branch.
