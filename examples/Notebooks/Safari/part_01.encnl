@@ -1,12 +1,11 @@
 Namespace: 'http://cognitum.eu/african_wildlife'.
 
-Comment: 'Lets name our instances'.
-Comment: 'Lets specify the hierarchy of beings'. 
+Comment: 'Let's name our instances'.
+Comment: 'Let's specify the hierarchy of beings'. 
 Comment: 'What is what?'.
 Every man has a train.
 Every lion is an animal.
 Every giraffe is an animal.
-
 
 Every animal has a face. 
 
