@@ -16,7 +16,7 @@ import sphinx_rtd_theme
 sys.path.insert(0, os.path.abspath('...'))
 from subprocess import STDOUT, check_call
 import os
-check_call(['apt-get', 'install', '-y', 'mono-runtime'])
+check_call(['apt-get', 'install', '-y', 'mono-complete'])
 
 # -- Project information -----------------------------------------------------
 
