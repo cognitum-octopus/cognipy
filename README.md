@@ -9,6 +9,7 @@ The package allows for Reasoning, exploration of RDF/OWL, Fluent Editor CNL file
 
 + If you are on Mac or Linux You MUST have [mono installed](https://www.mono-project.com/) on your system.
 + Assuming Python is installed on your system.
++ Graph drawing based on [pydot](https://pypi.org/project/pydot/) that is dependent on GraphViz - you should try to download it and instally manually. Or just `conda install pydot graphviz`
 + Tested with Anaconda
 + Tested on MacOS, Winows and Linux (UBuntu)
 
