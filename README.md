@@ -4,6 +4,8 @@ Originally released and maintained by [Cognitum Services S.A.](https://www.cogni
 
 The package allows for Reasoning, exploration of RDF/OWL, Fluent Editor CNL files, performs reasoning with OWL/RL Reasoner (Jena) as well as allows using SPARQL Graph queries (Jena)
 
+### Documentation
+[Cognipy Documentation]https://github.com/cognitum-octopus/cognipy
 
 ### Assumptions:
 

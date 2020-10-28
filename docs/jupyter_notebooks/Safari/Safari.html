@@ -1,0 +1,1659 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Creating and exploring the OWL/RL + SWRL Ontologies using CogniPy by Cognitum Services S.A. &mdash; CogniPy 0.1.6 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.14.0/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Covid restrictions." href="../Covid/Virus.html" />
+    <link rel="prev" title="Examples" href="../../examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> CogniPy
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">CogniPy Documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Project description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../grammar.html">Grammar</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../examples.html">Examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Creating and exploring the OWL/RL + SWRL Ontologies using CogniPy by Cognitum Services S.A.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#African-Wildlife.">African Wildlife.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Part-1:-'simple-hierarchy-of-beings'.">Part-1: ‘simple hierarchy of beings’.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Part-2:-Disjointness">Part-2: Disjointness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Part-3:-Modal-expressions-and-part-whole-relationships.">Part-3: Modal expressions and part-whole relationships.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Covid/Virus.html">Covid restrictions.</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">API Refrence</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dictonary.html">Dictonary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">CogniPy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../examples.html">Examples</a> &raquo;</li>
+        
+      <li>Creating and exploring the OWL/RL + SWRL Ontologies using CogniPy by Cognitum Services S.A.</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/jupyter_notebooks/Safari/Safari.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Creating-and-exploring-the-OWL/RL-+-SWRL-Ontologies-using-CogniPy-by-Cognitum-Services-S.A.">
+<h1>Creating and exploring the OWL/RL + SWRL Ontologies using CogniPy by Cognitum Services S.A.<a class="headerlink" href="#Creating-and-exploring-the-OWL/RL-+-SWRL-Ontologies-using-CogniPy-by-Cognitum-Services-S.A." title="Permalink to this headline">¶</a></h1>
+<p><strong>Setting up the environment</strong> Initialization of the Ontology editor in Jupyter Notebook</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="k">import</span> <span class="n">Ontology</span> <span class="c1">#the ontology processing class</span>
+<span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="k">import</span> <span class="n">CQL</span> <span class="c1">#SPARQL format tailored for Contolled Natural Language</span>
+<span class="kn">from</span> <span class="nn">cognipy.edit</span> <span class="k">import</span> <span class="n">CnlEditBox</span> <span class="c1">#The pywidget based ontology editor (offspirng of the Fluent Editor)</span>
+<span class="kn">from</span> <span class="nn">cognipy.edit</span> <span class="k">import</span> <span class="n">CnlQueryForConcept</span> <span class="c1">#The pywidget based ontology quaty widget</span>
+<span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="k">import</span> <span class="n">encode_string_for_graph_label</span> <span class="c1">#complex datatypes encoder for the graph labels in graph visualisation</span>
+<span class="kn">import</span> <span class="nn">textwrap</span>
+
+<span class="k">def</span> <span class="nf">graph_attribute_formatter</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="nb">list</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="nb">set</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot; | &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span><span class="n">encode_string_for_graph_label</span><span class="p">(</span><span class="n">graph_attribute_formatter</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span><span class="n">val</span><span class="p">)))</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="nb">dict</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot; | &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot; : &quot;</span><span class="o">+</span><span class="n">encode_string_for_graph_label</span><span class="p">(</span><span class="n">graph_attribute_formatter</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">])),</span><span class="n">val</span><span class="o">.</span><span class="n">items</span><span class="p">())))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">encode_string_for_graph_label</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">),</span><span class="mi">40</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="African-Wildlife.">
+<h1>African Wildlife.<a class="headerlink" href="#African-Wildlife." title="Permalink to this headline">¶</a></h1>
+<p>Loading the editor for the basic “safari” ontology. The Ontology is inspired by ‘A Semantic Web Primer.’ by ‘Antoniou, G, van Harmelen, F.’ ‘MIT Press, 2003.’ ‘<a class="reference external" href="http://www.csd.uoc.gr/~hy566/SWbook.pdf">http://www.csd.uoc.gr/~hy566/SWbook.pdf</a>’, tuned to OWL/RL+SWRL profile.</p>
+<div class="section" id="Part-1:-'simple-hierarchy-of-beings'.">
+<h2>Part-1: ‘simple hierarchy of beings’.<a class="headerlink" href="#Part-1:-'simple-hierarchy-of-beings'." title="Permalink to this headline">¶</a></h2>
+<p>We will have many editors here and we will store all of them in the dict</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">parts_editors</span><span class="o">=</span><span class="p">{}</span>
+</pre></div>
+</div>
+</div>
+<p>Lets setup the fist ontology editor for the general knowledge. The editor allows you to enter the knowledge in text format, and support you with the prdictive editor.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">parts_editors</span><span class="p">[</span><span class="s1">&#39;01&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">CnlEditBox</span><span class="p">(</span><span class="s1">&#39;part_01.encnl&#39;</span><span class="p">)</span>
+<span class="n">parts_editors</span><span class="p">[</span><span class="s1">&#39;01&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="output_javascript"></div>
+<script type="text/javascript">
+var element = document.currentScript.previousSibling.previousSibling;
+/* jshint browser: true */
+
+(function () {
+
+// We'll copy the properties below into the mirror div.
+// Note that some browsers, such as Firefox, do not concatenate properties
+// into their shorthand (e.g. padding-top, padding-bottom etc. -> padding),
+// so we have to list every single property explicitly.
+var properties = [
+  'direction',  // RTL support
+  'boxSizing',
+  'width',  // on Chrome and IE, exclude the scrollbar, so the mirror div wraps exactly as the textarea does
+  'height',
+  'overflowX',
+  'overflowY',  // copy the scrollbar for IE
+
+  'borderTopWidth',
+  'borderRightWidth',
+  'borderBottomWidth',
+  'borderLeftWidth',
+  'borderStyle',
+
+  'paddingTop',
+  'paddingRight',
+  'paddingBottom',
+  'paddingLeft',
+
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/font
+  'fontStyle',
+  'fontVariant',
+  'fontWeight',
+  'fontStretch',
+  'fontSize',
+  'fontSizeAdjust',
+  'lineHeight',
+  'fontFamily',
+
+  'textAlign',
+  'textTransform',
+  'textIndent',
+  'textDecoration',  // might not make a difference, but better be safe
+
+  'letterSpacing',
+  'wordSpacing',
+
+  'tabSize',
+  'MozTabSize'
+
+];
+
+var isBrowser = (typeof window !== 'undefined');
+var isFirefox = (isBrowser && window.mozInnerScreenX != null);
+
+function getCaretCoordinates(element, position, options) {
+  if (!isBrowser) {
+    throw new Error('textarea-caret-position#getCaretCoordinates should only be called in a browser');
+  }
+
+  var debug = options && options.debug || false;
+  if (debug) {
+    var el = document.querySelector('#input-textarea-caret-position-mirror-div');
+    if (el) el.parentNode.removeChild(el);
+  }
+
+  // The mirror div will replicate the textarea's style
+  var div = document.createElement('div');
+  div.id = 'input-textarea-caret-position-mirror-div';
+  document.body.appendChild(div);
+
+  var style = div.style;
+  var computed = window.getComputedStyle ? window.getComputedStyle(element) : element.currentStyle;  // currentStyle for IE < 9
+  var isInput = element.nodeName === 'INPUT';
+
+  // Default textarea styles
+  style.whiteSpace = 'pre-wrap';
+  if (!isInput)
+    style.wordWrap = 'break-word';  // only for textarea-s
+
+  // Position off-screen
+  style.position = 'absolute';  // required to return coordinates properly
+  if (!debug)
+    style.visibility = 'hidden';  // not 'display: none' because we want rendering
+
+  // Transfer the element's properties to the div
+  properties.forEach(function (prop) {
+    if (isInput && prop === 'lineHeight') {
+      // Special case for <input>s because text is rendered centered and line height may be != height
+      if (computed.boxSizing === "border-box") {
+        var height = parseInt(computed.height);
+        var outerHeight =
+          parseInt(computed.paddingTop) +
+          parseInt(computed.paddingBottom) +
+          parseInt(computed.borderTopWidth) +
+          parseInt(computed.borderBottomWidth);
+        var targetHeight = outerHeight + parseInt(computed.lineHeight);
+        if (height > targetHeight) {
+          style.lineHeight = height - outerHeight + "px";
+        } else if (height === targetHeight) {
+          style.lineHeight = computed.lineHeight;
+        } else {
+          style.lineHeight = 0;
+        }
+      } else {
+        style.lineHeight = computed.height;
+      }
+    } else {
+      style[prop] = computed[prop];
+    }
+  });
+
+  if (isFirefox) {
+    // Firefox lies about the overflow property for textareas: https://bugzilla.mozilla.org/show_bug.cgi?id=984275
+    if (element.scrollHeight > parseInt(computed.height))
+      style.overflowY = 'scroll';
+  } else {
+    style.overflow = 'hidden';  // for Chrome to not render a scrollbar; IE keeps overflowY = 'scroll'
+  }
+
+  div.textContent = element.value.substring(0, position);
+  // The second special handling for input type="text" vs textarea:
+  // spaces need to be replaced with non-breaking spaces - http://stackoverflow.com/a/13402035/1269037
+  if (isInput)
+    div.textContent = div.textContent.replace(/\s/g, '\u00a0');
+
+  var span = document.createElement('span');
+  // Wrapping must be replicated *exactly*, including when a long word gets
+  // onto the next line, with whitespace at the end of the line before (#7).
+  // The  *only* reliable way to do that is to copy the *entire* rest of the
+  // textarea's content into the <span> created at the caret position.
+  // For inputs, just '.' would be enough, but no need to bother.
+  span.textContent = element.value.substring(position) || '.';  // || because a completely empty faux span doesn't render at all
+  div.appendChild(span);
+
+  var coordinates = {
+    top: span.offsetTop + parseInt(computed['borderTopWidth']),
+    left: span.offsetLeft + parseInt(computed['borderLeftWidth']),
+    height: parseInt(computed['lineHeight'])
+  };
+
+  if (debug) {
+    span.style.backgroundColor = '#aaa';
+  } else {
+    document.body.removeChild(div);
+  }
+
+  return coordinates;
+}
+
+if (typeof module != 'undefined' && typeof module.exports != 'undefined') {
+  module.exports = getCaretCoordinates;
+} else if(isBrowser) {
+  window.getCaretCoordinates = getCaretCoordinates;
+}
+
+}());
+
+require.undef('ontoedit');
+
+define('ontoedit', ["@jupyter-widgets/base"], function(widgets) {
+
+    var OntoeditModel = widgets.TextareaModel.extend({
+
+        defaults: $.extend(widgets.TextareaModel.prototype.defaults(), {
+            _model_name: "OntoeditModel",
+            _view_name: "OntoeditView",
+            _model_module: "ontoedit",
+            _view_module: "ontoedit",
+            rows: null,
+            continuous_update: true,
+            cursor: 0,
+            dot:0,
+            hints:'',
+            hintsX:0,
+            hintT:''
+        })
+    });
+
+    var OntoeditView = widgets.TextareaView.extend({
+
+        render: function() {
+            OntoeditView.__super__.render.apply(this, arguments);
+            this.model.on('change:hints', this.hints_changed, this);
+            this.model.on('change:hintsX', this.hintsX_changed, this);
+
+            var model = this.model;
+            var that = this;
+
+            var last_position = 0;
+
+            function cursor_changed(element) {
+                var new_position = getCursorPosition(element);
+                if (new_position !== last_position) {
+                    last_position = new_position;
+                    return true;
+                }
+                return false;
+            }
+
+            function getCursorPosition(element) {
+                var el = $(element).get(0);
+                var pos = 0;
+                if ('selectionStart' in el) {
+                    pos = el.selectionStart;
+                } else if ('selection' in document) {
+                    el.focus();
+                    var Sel = document.selection.createRange();
+                    var SelLength = document.selection.createRange().text.length;
+                    Sel.moveStart('character', -el.value.length);
+                    pos = Sel.text.length - SelLength;
+                }
+                return pos;
+            }
+
+            var oldVal = "";
+
+            this.dd=$('<div style="-moz-appearance: textfield-multiline;-webkit-appearance: textarea;font: medium -moz-fixed; font: -webkit-small-control; position: absolute;z-index: 1; background-color:navy;color:white;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4); "/>')
+
+            $(this.el).bind("click keyup focus",function(e){
+                if (that.dd.get(0).style.visibility!="visible")
+                    return;
+
+                var ele=$($(that.el).children("textarea")[0])
+
+                if(cursor_changed(ele)){
+                   var  cursor = getCursorPosition(ele);
+//                    console.log(cursor);
+//                    console.log('(top, left, height) = (%s, %s, %s)', caret.top, caret.left, caret.height);
+                    model.set('cursor',cursor);
+//                    console.log(cursor)
+                    that.touch();
+                }
+            });
+
+            $($(this.el).children("textarea")[0]).bind("blur",function(e){
+//                console.log("blur")
+                  model.set('dot',model.get('dot')+1);
+                  that.touch();
+                that.dd.get(0).style.visibility="hidden";
+            });
+
+            $($(this.el).children("textarea")[0]).bind("keydown",function(e){
+                  if (String.fromCharCode(event.which)=='\t')
+                  {
+                        if (that.dd.get(0).style.visibility!="visible")
+                        {
+                            var ele=$($(that.el).children("textarea")[0])
+
+                            if(cursor_changed(ele)){
+                               var  cursor = getCursorPosition(ele);
+            //                    console.log(cursor);
+            //                    console.log('(top, left, height) = (%s, %s, %s)', caret.top, caret.left, caret.height);
+                                model.set('cursor',cursor);
+            //                    console.log(cursor)
+                                that.touch();
+                                that.dd.get(0).style.visibility="visible";
+                            }
+                        }
+//                      console.log(model.get('hintT'));
+                      var target=$($(that.el).children("textarea")[0])
+                      var curpos = getCursorPosition(target)
+                      var off=curpos-model.get('hintsX')
+                      var data = model.get('hintT').slice(off)
+//                      console.log(off)
+
+                      if (target.setRangeText) {
+                         //if setRangeText function is supported by current browser
+                         target.setRangeText(data)
+                      } else {
+                        target.focus()
+                        document.execCommand('insertText', false /*no UI*/, data);
+                      }
+                      e.preventDefault();
+                      return;
+                  }
+                  else if (event.key=='.')
+                  {
+                      model.set('dot',model.get('dot')+1);
+                      that.touch();
+                  }
+                  else if(event.key== "Escape")
+                  {
+                    that.dd.get(0).style.visibility="hidden";
+                  }
+            });
+
+            // this.el represents the widget's DOM
+            $(this.el)
+            .append(this.dd)
+        },
+
+        hints_changed: function() {
+            var that = this;
+            var model = this.model;
+            that.dd.get(0).innerHTML=model.get('hints')
+//            console.log(model.get('hints'))
+        },
+        hintsX_changed: function() {
+            var that = this;
+            var model = this.model;
+            var ele=$($(that.el).children("textarea")[0]);
+            element=ele.get(0);
+            var caret = getCaretCoordinates(ele.get(0), model.get('hintsX'));
+            that.dd.get(0).style.top = element.offsetTop - element.scrollTop + caret.top+ caret.height-5 + 'px';
+            that.dd.get(0).style.left = element.offsetLeft - element.scrollLeft + caret.left + 'px';
+//            that.dd.get(0).style.width = '20%';
+//            that.dd.get(0).style.height = '50%';
+            that.dd.get(0).style.fontFamily=element.style.fontFamily;
+            that.dd.get(0).style.fontSize=element.style.fontSize;
+//                        console.log(model.get('hintsX'))
+        },
+    });
+
+    return {
+        OntoeditModel : OntoeditModel,
+        OntoeditView : OntoeditView
+    };
+});
+
+</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+Welcome to CogniPy</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8dfaa6dbd47648078d867f1dacb0acdf", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<p>Lets define the function that will build the ontology based on the dict of ontology editors and the optional additional editor for testing purposes. All it is doing it is concatenaiting the values of all the editors and puts them into the newly created ontology object.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">buildOntology</span><span class="p">(</span><span class="n">parts_editors</span><span class="p">,</span><span class="n">test_editor</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">Ontology</span><span class="p">(</span><span class="s2">&quot;cnl/string&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">parts_editors</span><span class="o">.</span><span class="n">values</span><span class="p">())</span><span class="o">+</span><span class="p">(</span><span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">test_editor</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">test_editor</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()),</span>
+                    <span class="n">evaluator</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">e</span><span class="p">:</span><span class="nb">eval</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="nb">globals</span><span class="p">(),</span><span class="nb">locals</span><span class="p">()),</span>
+                    <span class="n">graph_attribute_formatter</span> <span class="o">=</span> <span class="n">graph_attribute_formatter</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The ontology object alows you to draw the materialised graph using several layout algorythms. Lets draw our base ontology.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">onto</span><span class="o">=</span><span class="n">buildOntology</span><span class="p">(</span><span class="n">parts_editors</span><span class="p">)</span>
+<span class="n">onto</span><span class="o">.</span><span class="n">draw_graph</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="s1">&#39;hierarchical&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/jupyter_notebooks_Safari_Safari_12_0.svg" src="../../_images/jupyter_notebooks_Safari_Safari_12_0.svg" /></div>
+</div>
+<p>It is fully compatible with OWL/RDF format (via OWLAPI). We can always export it as it is.</p>
+</div>
+<div class="section" id="Part-2:-Disjointness">
+<h2>Part-2: Disjointness<a class="headerlink" href="#Part-2:-Disjointness" title="Permalink to this headline">¶</a></h2>
+<p>In OWL/RL+SWRL profile we deal with Open World Assumption. It means that we need to explicitly specify all the objects that are different from each other. We cannot assume (like e.g. object oriented programming language do) that the different names mean the different things, therefore we need to specify explicitly if two things are different.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">parts_editors</span><span class="p">[</span><span class="s1">&#39;02&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">CnlEditBox</span><span class="p">(</span><span class="s1">&#39;part_02.encnl&#39;</span><span class="p">,</span><span class="n">onto</span><span class="p">)</span>
+<span class="n">parts_editors</span><span class="p">[</span><span class="s1">&#39;02&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c14623cce57c458983554140eb63dac5", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<p>Lets test how it works on the example. The example will be defining several instances, that aim to break the consistency of the ontology in som not obvious way.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">test_01_edit</span> <span class="o">=</span> <span class="n">CnlEditBox</span><span class="p">(</span><span class="s1">&#39;test_01.encnl&#39;</span><span class="p">,</span><span class="n">onto</span><span class="p">)</span>
+<span class="n">test_01_edit</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "92f434003f2d46f0bc944c7ccf59a5d3", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<p>Lets load all the parts ontology ontology togheter with the testing part into the newly created obeject.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">onto</span><span class="o">=</span><span class="n">buildOntology</span><span class="p">(</span><span class="n">parts_editors</span><span class="p">,</span><span class="n">test_01_edit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We will need also some way to describe what is wrong <code class="docutils literal notranslate"><span class="pre">printReasoningInfo</span></code> and why <code class="docutils literal notranslate"><span class="pre">printWhy</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">def</span> <span class="nf">printReasoningInfo</span><span class="p">(</span><span class="n">onto</span><span class="p">):</span>
+    <span class="n">info</span><span class="o">=</span><span class="n">onto</span><span class="o">.</span><span class="n">reasoningInfo</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">info</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;all good!&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">info</span><span class="p">),</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">printWhy</span><span class="p">(</span><span class="n">onto</span><span class="p">,</span><span class="n">fact</span><span class="p">):</span>
+    <span class="n">info</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">onto</span><span class="o">.</span><span class="n">why</span><span class="p">(</span><span class="n">fact</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<p>So what is wrong here?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">printReasoningInfo</span><span class="p">(</span><span class="n">onto</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{
+  &#34;errors&#34;: [
+    {
+      &#34;content&#34;: &#34;Complement classes&#34;,
+      &#34;title&#34;: &#34;inconsistency&#34;,
+      &#34;vals&#34;: {
+        &#34;concept&#34;: &#34;animal&#34;,
+        &#34;instance&#34;: &#34;Mary-01&#34;
+      }
+    }
+  ]
+}
+</pre></div></div>
+</div>
+<p>Lets draw it on a diagram, this time using force directed layout.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">onto</span><span class="o">.</span><span class="n">draw_graph</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="s1">&#39;force directed&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/jupyter_notebooks_Safari_Safari_25_0.svg" src="../../_images/jupyter_notebooks_Safari_Safari_25_0.svg" /></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">printWhy</span><span class="p">(</span><span class="n">onto</span><span class="p">,</span><span class="s2">&quot;Mary-01 is a animal?&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{
+  &#34;by&#34;: [
+    {
+      &#34;expr&#34;: &#34;Every carnivore eats nothing-but animals.&#34;
+    },
+    {
+      &#34;expr&#34;: &#34;Every carnivore eats nothing-but animals.&#34;
+    },
+    {
+      &#34;expr&#34;: &#34;Leo-01 eats Mary-01.&#34;
+    },
+    {
+      &#34;by&#34;: [
+        {
+          &#34;by&#34;: [
+            {
+              &#34;expr&#34;: &#34;Every lion is a carnivore.&#34;
+            },
+            {
+              &#34;expr&#34;: &#34;Every carnivore eats nothing-but animals.&#34;
+            }
+          ]
+        },
+        {
+          &#34;expr&#34;: &#34;Leo-01 is a lion.&#34;
+        }
+      ]
+    }
+  ],
+  &#34;concluded&#34;: &#34;Mary-01 is an animal.&#34;
+}
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Part-3:-Modal-expressions-and-part-whole-relationships.">
+<h2>Part-3: Modal expressions and part-whole relationships.<a class="headerlink" href="#Part-3:-Modal-expressions-and-part-whole-relationships." title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">parts_editors</span><span class="p">[</span><span class="s1">&#39;03&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">CnlEditBox</span><span class="p">(</span><span class="s1">&#39;part_03.encnl&#39;</span><span class="p">,</span><span class="n">onto</span><span class="p">)</span>
+<span class="n">parts_editors</span><span class="p">[</span><span class="s1">&#39;03&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7ea46d48926e4774a442af88766560b7", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">test_02_edit</span> <span class="o">=</span> <span class="n">CnlEditBox</span><span class="p">(</span><span class="s1">&#39;test_02.encnl&#39;</span><span class="p">,</span><span class="n">onto</span><span class="p">)</span>
+<span class="n">test_02_edit</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3d91d5400bc84b30bee73f2b1beb0c54", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">onto</span><span class="o">=</span><span class="n">buildOntology</span><span class="p">(</span><span class="n">parts_editors</span><span class="p">,</span><span class="n">test_02_edit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">printReasoningInfo</span><span class="p">(</span><span class="n">onto</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{
+  &#34;modals&#34;: {
+    &#34;Every branch must be-part-of a tree.\r\n&#34;: [
+      {
+        &#34;?x0&#34;: {
+          &#34;instance&#34;: &#34;Branch-03&#34;
+        }
+      }
+    ],
+    &#34;Every plant-part must be-part-of a plant.\r\n&#34;: [
+      {
+        &#34;?x0&#34;: {
+          &#34;instance&#34;: &#34;Branch-03&#34;
+        }
+      }
+    ]
+  }
+}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">onto</span><span class="o">.</span><span class="n">draw_graph</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="s2">&quot;force directed&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/jupyter_notebooks_Safari_Safari_32_0.svg" src="../../_images/jupyter_notebooks_Safari_Safari_32_0.svg" /></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">q1_edit</span> <span class="o">=</span> <span class="n">CnlQueryForConcept</span><span class="p">(</span><span class="s1">&#39;query_01.encnl&#39;</span><span class="p">,</span><span class="n">onto</span><span class="o">=</span><span class="n">onto</span><span class="p">)</span>
+<span class="n">q1_edit</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b4b43a2382ae41eabc778f52b97125c2", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">onto</span><span class="o">.</span><span class="n">select_instances_of</span><span class="p">(</span><span class="n">q1_edit</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Instance</th>
+      <th>is-eaten-by</th>
+      <th>eats</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Sophie-01</td>
+      <td>Leo-01</td>
+      <td>Leaf-01</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">onto</span><span class="o">.</span><span class="n">why</span><span class="p">(</span><span class="s2">&quot;Leo-01 is an animal?&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#34;concluded&#34;:&#34;Leo-01 is an animal.&#34;,&#34;by&#34;:[
+    {&#34;expr&#34;:&#34;Every lion is an animal.&#34;},
+    {&#34;expr&#34;:&#34;Leo-01 is a lion.&#34;}]}
+
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">onto</span><span class="o">.</span><span class="n">sparql_query</span><span class="p">(</span><span class="n">CQL</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;select ?a1 ?a2 {</span>
+<span class="s2">                            ?a1 rdf:type &lt;animal&gt;.</span>
+<span class="s2">                            ?a2 rdf:type &lt;animal&gt;.</span>
+<span class="s2">                            ?a1 &lt;eats&gt; ?a2.</span>
+<span class="s2">                        }&quot;&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;http://cognitum.eu/african_wildlife#&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a1</th>
+      <th>a2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Leo-01</td>
+      <td>Sophie-01</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">onto</span><span class="o">.</span><span class="n">as_rdf</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;?xml version = &#39;1.0&#39; encoding = &#39;UTF-8&#39;?&gt;
+&lt;rdf:RDF xmlns=&#34;http://cognitum.eu/african_wildlife#&#34; xml:base=&#34;http://cognitum.eu/african_wildlife&#34; xmlns:owl=&#34;http://www.w3.org/2002/07/owl#&#34; xmlns:rdfs=&#34;http://www.w3.org/2000/01/rdf-schema#&#34; xmlns:rdf=&#34;http://www.w3.org/1999/02/22-rdf-syntax-ns#&#34; xmlns:xsd=&#34;http://www.w3.org/2001/XMLSchema#&#34;&gt;
+  &lt;owl:Ontology rdf:about=&#34;http://cognitum.eu/african_wildlife#&#34; /&gt;
+  &lt;!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     --&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#eats --&gt;
+  &lt;owl:ObjectProperty rdf:about=&#34;http://cognitum.eu/african_wildlife#eats&#34;&gt;
+    &lt;owl:equivalentProperty&gt;
+      &lt;rdf:Description&gt;
+        &lt;owl:inverseOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#isEatenBy&#34; /&gt;
+      &lt;/rdf:Description&gt;
+    &lt;/owl:equivalentProperty&gt;
+  &lt;/owl:ObjectProperty&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#has --&gt;
+  &lt;owl:ObjectProperty rdf:about=&#34;http://cognitum.eu/african_wildlife#has&#34; /&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#hasPart --&gt;
+  &lt;owl:ObjectProperty rdf:about=&#34;http://cognitum.eu/african_wildlife#hasPart&#34;&gt;
+    &lt;rdf:type rdf:resource=&#34;http://www.w3.org/2002/07/owl#TransitiveProperty&#34; /&gt;
+    &lt;owl:equivalentProperty&gt;
+      &lt;rdf:Description&gt;
+        &lt;owl:inverseOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#isPartOf&#34; /&gt;
+      &lt;/rdf:Description&gt;
+    &lt;/owl:equivalentProperty&gt;
+  &lt;/owl:ObjectProperty&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#isEatenBy --&gt;
+  &lt;owl:ObjectProperty rdf:about=&#34;http://cognitum.eu/african_wildlife#isEatenBy&#34; /&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#isPartOf --&gt;
+  &lt;owl:ObjectProperty rdf:about=&#34;http://cognitum.eu/african_wildlife#isPartOf&#34;&gt;
+    &lt;rdf:type rdf:resource=&#34;http://www.w3.org/2002/07/owl#TransitiveProperty&#34; /&gt;
+    &lt;rdfs:subPropertyOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#isPartOf&#34; /&gt;
+  &lt;/owl:ObjectProperty&gt;
+  &lt;!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     --&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#animal --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#animal&#34;&gt;
+    &lt;rdfs:subClassOf&gt;
+      &lt;owl:Restriction&gt;
+        &lt;owl:onProperty rdf:resource=&#34;http://cognitum.eu/african_wildlife#has&#34; /&gt;
+        &lt;owl:someValuesFrom rdf:resource=&#34;http://cognitum.eu/african_wildlife#face&#34; /&gt;
+      &lt;/owl:Restriction&gt;
+    &lt;/rdfs:subClassOf&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#apple --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#apple&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#fruitingBody&#34; /&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#berry --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#berry&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#fruitingBody&#34; /&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#branch --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#branch&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plantPart&#34; /&gt;
+    &lt;rdfs:subClassOf&gt;
+      &lt;owl:Restriction&gt;
+        &lt;owl:onProperty rdf:resource=&#34;http://cognitum.eu/african_wildlife#isPartOf&#34; /&gt;
+        &lt;owl:someValuesFrom rdf:resource=&#34;http://cognitum.eu/african_wildlife#tree&#34; /&gt;
+      &lt;/owl:Restriction&gt;
+    &lt;/rdfs:subClassOf&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#carnivor --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#carnivor&#34;&gt;
+    &lt;rdfs:subClassOf&gt;
+      &lt;owl:Restriction&gt;
+        &lt;owl:onProperty rdf:resource=&#34;http://cognitum.eu/african_wildlife#eats&#34; /&gt;
+        &lt;owl:someValuesFrom rdf:resource=&#34;http://cognitum.eu/african_wildlife#animal&#34; /&gt;
+      &lt;/owl:Restriction&gt;
+    &lt;/rdfs:subClassOf&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#carnivore --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#carnivore&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#animal&#34; /&gt;
+    &lt;rdfs:subClassOf&gt;
+      &lt;owl:Restriction&gt;
+        &lt;owl:onProperty rdf:resource=&#34;http://cognitum.eu/african_wildlife#eats&#34; /&gt;
+        &lt;owl:allValuesFrom rdf:resource=&#34;http://cognitum.eu/african_wildlife#animal&#34; /&gt;
+      &lt;/owl:Restriction&gt;
+    &lt;/rdfs:subClassOf&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#carnivorousPlant --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#carnivorousPlant&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plant&#34; /&gt;
+    &lt;rdfs:subClassOf&gt;
+      &lt;owl:Restriction&gt;
+        &lt;owl:onProperty rdf:resource=&#34;http://cognitum.eu/african_wildlife#eats&#34; /&gt;
+        &lt;owl:someValuesFrom rdf:resource=&#34;http://cognitum.eu/african_wildlife#animal&#34; /&gt;
+      &lt;/owl:Restriction&gt;
+    &lt;/rdfs:subClassOf&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#elephant --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#elephant&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#herbivore&#34; /&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#face --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#face&#34; /&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#fruitingBody --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#fruitingBody&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plantPart&#34; /&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#giraffe --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#giraffe&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#animal&#34; /&gt;
+    &lt;rdfs:subClassOf&gt;
+      &lt;owl:Class&gt;
+        &lt;owl:complementOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#lion&#34; /&gt;
+      &lt;/owl:Class&gt;
+    &lt;/rdfs:subClassOf&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#grass --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#grass&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plant&#34; /&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#herb --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#herb&#34;&gt;
+    &lt;rdfs:subClassOf&gt;
+      &lt;owl:Class&gt;
+        &lt;owl:complementOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#animal&#34; /&gt;
+      &lt;/owl:Class&gt;
+    &lt;/rdfs:subClassOf&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#herbivore --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#herbivore&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#animal&#34; /&gt;
+    &lt;rdfs:subClassOf&gt;
+      &lt;owl:Restriction&gt;
+        &lt;owl:onProperty rdf:resource=&#34;http://cognitum.eu/african_wildlife#eats&#34; /&gt;
+        &lt;owl:allValuesFrom rdf:resource=&#34;http://cognitum.eu/african_wildlife#herb&#34; /&gt;
+      &lt;/owl:Restriction&gt;
+    &lt;/rdfs:subClassOf&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#impala --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#impala&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#animal&#34; /&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#leaf --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#leaf&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plantPart&#34; /&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#lion --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#lion&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#animal&#34; /&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#carnivore&#34; /&gt;
+    &lt;rdfs:subClassOf&gt;
+      &lt;owl:Restriction&gt;
+        &lt;owl:onProperty rdf:resource=&#34;http://cognitum.eu/african_wildlife#eats&#34; /&gt;
+        &lt;owl:allValuesFrom rdf:resource=&#34;http://cognitum.eu/african_wildlife#herbivore&#34; /&gt;
+      &lt;/owl:Restriction&gt;
+    &lt;/rdfs:subClassOf&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#man --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#man&#34;&gt;
+    &lt;rdfs:subClassOf&gt;
+      &lt;owl:Restriction&gt;
+        &lt;owl:onProperty rdf:resource=&#34;http://cognitum.eu/african_wildlife#has&#34; /&gt;
+        &lt;owl:someValuesFrom rdf:resource=&#34;http://cognitum.eu/african_wildlife#train&#34; /&gt;
+      &lt;/owl:Restriction&gt;
+    &lt;/rdfs:subClassOf&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#omnivore --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#omnivore&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#animal&#34; /&gt;
+    &lt;rdfs:subClassOf&gt;
+      &lt;owl:Restriction&gt;
+        &lt;owl:onProperty rdf:resource=&#34;http://cognitum.eu/african_wildlife#eats&#34; /&gt;
+        &lt;owl:someValuesFrom rdf:resource=&#34;http://cognitum.eu/african_wildlife#plant&#34; /&gt;
+      &lt;/owl:Restriction&gt;
+    &lt;/rdfs:subClassOf&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#palmTree --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#palmTree&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plant&#34; /&gt;
+    &lt;rdfs:subClassOf&gt;
+      &lt;owl:Class&gt;
+        &lt;owl:complementOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#tree&#34; /&gt;
+      &lt;/owl:Class&gt;
+    &lt;/rdfs:subClassOf&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#parsnip --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#parsnip&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#root&#34; /&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#phloem --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#phloem&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plantPart&#34; /&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#plant --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#plant&#34; /&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#plantPart --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#plantPart&#34;&gt;
+    &lt;rdfs:subClassOf&gt;
+      &lt;owl:Restriction&gt;
+        &lt;owl:onProperty rdf:resource=&#34;http://cognitum.eu/african_wildlife#isPartOf&#34; /&gt;
+        &lt;owl:someValuesFrom rdf:resource=&#34;http://cognitum.eu/african_wildlife#plant&#34; /&gt;
+      &lt;/owl:Restriction&gt;
+    &lt;/rdfs:subClassOf&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#rockDassie --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#rockDassie&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#animal&#34; /&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#root --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#root&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plantPart&#34; /&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#stem --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#stem&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plantPart&#34; /&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#tastyPlant --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#tastyPlant&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plant&#34; /&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#train --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#train&#34; /&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#tree --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#tree&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plant&#34; /&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#twig --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#twig&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plantPart&#34; /&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#warthog --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#warthog&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#animal&#34; /&gt;
+  &lt;/owl:Class&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#xylem --&gt;
+  &lt;owl:Class rdf:about=&#34;http://cognitum.eu/african_wildlife#xylem&#34;&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#plantPart&#34; /&gt;
+  &lt;/owl:Class&gt;
+  &lt;!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     --&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#Branch01 --&gt;
+  &lt;owl:NamedIndividual rdf:about=&#34;http://cognitum.eu/african_wildlife#Branch01&#34;&gt;
+    &lt;rdf:type rdf:resource=&#34;http://cognitum.eu/african_wildlife#branch&#34; /&gt;
+    &lt;isPartOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#Mary01&#34; /&gt;
+  &lt;/owl:NamedIndividual&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#Branch02 --&gt;
+  &lt;owl:NamedIndividual rdf:about=&#34;http://cognitum.eu/african_wildlife#Branch02&#34;&gt;
+    &lt;rdf:type rdf:resource=&#34;http://cognitum.eu/african_wildlife#branch&#34; /&gt;
+    &lt;isPartOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#Branch01&#34; /&gt;
+  &lt;/owl:NamedIndividual&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#Branch03 --&gt;
+  &lt;owl:NamedIndividual rdf:about=&#34;http://cognitum.eu/african_wildlife#Branch03&#34;&gt;
+    &lt;rdf:type rdf:resource=&#34;http://cognitum.eu/african_wildlife#branch&#34; /&gt;
+  &lt;/owl:NamedIndividual&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#Leaf01 --&gt;
+  &lt;owl:NamedIndividual rdf:about=&#34;http://cognitum.eu/african_wildlife#Leaf01&#34;&gt;
+    &lt;rdf:type rdf:resource=&#34;http://cognitum.eu/african_wildlife#leaf&#34; /&gt;
+    &lt;isPartOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#Branch02&#34; /&gt;
+  &lt;/owl:NamedIndividual&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#Leo01 --&gt;
+  &lt;owl:NamedIndividual rdf:about=&#34;http://cognitum.eu/african_wildlife#Leo01&#34;&gt;
+    &lt;rdf:type rdf:resource=&#34;http://cognitum.eu/african_wildlife#lion&#34; /&gt;
+    &lt;eats rdf:resource=&#34;http://cognitum.eu/african_wildlife#Sophie01&#34; /&gt;
+  &lt;/owl:NamedIndividual&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#Mary01 --&gt;
+  &lt;owl:NamedIndividual rdf:about=&#34;http://cognitum.eu/african_wildlife#Mary01&#34;&gt;
+    &lt;rdf:type rdf:resource=&#34;http://cognitum.eu/african_wildlife#tree&#34; /&gt;
+  &lt;/owl:NamedIndividual&gt;
+  &lt;!-- http://cognitum.eu/african_wildlife#Sophie01 --&gt;
+  &lt;owl:NamedIndividual rdf:about=&#34;http://cognitum.eu/african_wildlife#Sophie01&#34;&gt;
+    &lt;rdf:type rdf:resource=&#34;http://cognitum.eu/african_wildlife#giraffe&#34; /&gt;
+    &lt;eats rdf:resource=&#34;http://cognitum.eu/african_wildlife#Leaf01&#34; /&gt;
+  &lt;/owl:NamedIndividual&gt;
+  &lt;!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     --&gt;
+  &lt;owl:Class&gt;
+    &lt;rdfs:subClassOf rdf:resource=&#34;http://cognitum.eu/african_wildlife#herb&#34; /&gt;
+    &lt;owl:unionOf rdf:parseType=&#34;Collection&#34;&gt;
+      &lt;rdf:Description rdf:about=&#34;http://cognitum.eu/african_wildlife#plant&#34; /&gt;
+      &lt;rdf:Description rdf:about=&#34;http://cognitum.eu/african_wildlife#plantPart&#34; /&gt;
+    &lt;/owl:unionOf&gt;
+  &lt;/owl:Class&gt;
+  &lt;rdf:Description&gt;
+    &lt;rdf:type rdf:resource=&#34;http://www.w3.org/2002/07/owl#AllDisjointClasses&#34; /&gt;
+    &lt;owl:members rdf:parseType=&#34;Collection&#34;&gt;
+      &lt;rdf:Description rdf:about=&#34;http://cognitum.eu/african_wildlife#carnivore&#34; /&gt;
+      &lt;rdf:Description rdf:about=&#34;http://cognitum.eu/african_wildlife#herbivore&#34; /&gt;
+      &lt;rdf:Description rdf:about=&#34;http://cognitum.eu/african_wildlife#omnivore&#34; /&gt;
+    &lt;/owl:members&gt;
+  &lt;/rdf:Description&gt;
+  &lt;rdf:Description&gt;
+    &lt;rdf:type rdf:resource=&#34;http://www.w3.org/2002/07/owl#AllDisjointClasses&#34; /&gt;
+    &lt;owl:members rdf:parseType=&#34;Collection&#34;&gt;
+      &lt;rdf:Description rdf:about=&#34;http://cognitum.eu/african_wildlife#branch&#34; /&gt;
+      &lt;rdf:Description rdf:about=&#34;http://cognitum.eu/african_wildlife#leaf&#34; /&gt;
+      &lt;rdf:Description rdf:about=&#34;http://cognitum.eu/african_wildlife#twig&#34; /&gt;
+    &lt;/owl:members&gt;
+  &lt;/rdf:Description&gt;
+&lt;/rdf:RDF&gt;
+&lt;!-- Generated by the OWL API (version 3.5.1.c) http://owlapi.sourceforge.net --&gt;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"01732923acd64d0b80804b86a06086a6": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_5143fe6b6b2e4bdbb95db4836c07f69f", "IPY_MODEL_c7c7716cd5034ec7a3235e29964fa9d9"], "layout": "IPY_MODEL_48a844c1f16d4e0f89888a38f9f871b1"}}, "0287b64412d1476fac61df9b498195e0": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "037f1754f4dd4ad58c88763c16de89de": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "03b3c5826e9e462fa8102da3a1b543ee": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_0e81ba53de50448cba0d67cc1b204ea3", "IPY_MODEL_edfd7c1406474ef8b6008fa01533a9f1"], "layout": "IPY_MODEL_0c03d2ee143c402dbf620710558f3c20"}}, "0529b65148e34a3f84378822394dbb23": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_e87806312d1343ce83bb2bb743ba1b80"}}, "075ca95d3ff64fdf8542061a5f907fdc": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_ac2b910f6f714657b031543b3c3820f6", "value": "Namespace: 'http://cognitum.eu/african_wildlife'.\n\nComment: 'Lets name our instances'.\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\nEvery ma\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal. \nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\nEvery lion is carnivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nEvery branch is a plant-part.\nEvery leaf is a plant-part.\nEvery twig is a plant-part.\n\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery xylem is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nComment: 'We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words'.\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n"}}, "08826d1d1e2d4efa9364b5d2bafa3c93": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "08a658b923de47b7add2517b8353da1a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "08c30bf83c284e6ebe21cc3249cd99ba": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 191, "hints": "Every<br/>Every-single-thing<br/>If<br/>Leo-01<br/>Mary-01<br/>No<br/>Nothing<br/>Something<br/>Sophie-01<br/>The<br/>X", "hintsX": 191, "layout": "IPY_MODEL_951c1fa30fea488a8ae1578cede4b5fe", "value": "Every carnivorous-plant must eat an animal.\nEvery carnivor must eat an animal.\nEvery omnivore must eat a plant.\nEvery branch must be-part-of a tree.\nEvery plant-part must be-part-of a plant.\n\nComment: 'Role equivalence and inverted roles'.\nX has-part Y if-and-only-if Y is-part-of X.\nX eats Y if-and-only-if Y is-eaten-by X.\n\nComment: 'Role subsumptions'.\nIf X is-part-of Y then X is-part-of Y.\nIf X has-part something that has-part Y then X has-part Y.\n\nComment: 'Complex role subsumptions'.\nIf X is-part-of something that is-part-of Y then X is-part-of Y.\n"}}, "0c03d2ee143c402dbf620710558f3c20": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100px"}}, "0cfbf011af6241ebbcc675d701aac5be": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_99075eefb8ad4a5087de5fbfbb2e2a8c", "IPY_MODEL_26cf7a97df4f42b6af33ce787196e2da"], "layout": "IPY_MODEL_4aafc9319e7743f8985cdc669f22cab5"}}, "0e81ba53de50448cba0d67cc1b204ea3": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_a270637c9421471a86a1a5fb0c90358f", "value": "eaten by Leo-01"}}, "0ee45e2151a74dfeb632f8622dfa620d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "0ee4e8ad62ab43f4b5b438a66a7f42b5": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "156d68322d1e4dd3a0fbfab1be1688bf": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_585c9fe15e494126a1116a5e5f8e87e4"}}, "1786ad24fa9d463aa9ad86dcacd6b971": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "17f3ad9162db4104a65795f20d5f0075": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "194e683e49954beab66c82f87eec0560": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 15, "hints": "&lt;natural number&gt;", "hintsX": 9, "layout": "IPY_MODEL_54500e1db47043b29c2725eaf17f81f6", "value": "eaten by Leo-01"}}, "197ff87aa0754c10a5bf9d6054ec2664": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_416b7202da814b9095cb90fed53606c3", "IPY_MODEL_dd75b77ca52a43a9868c62b289a4e4e1"], "layout": "IPY_MODEL_c7fe458b7f814978a92e90b0b53c295c"}}, "1a817713ce83451c8259b7b8600da6fb": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "1d27dea574734e228e02e981579f0e48": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_037f1754f4dd4ad58c88763c16de89de", "value": "Sophie loves Leo.\nLeo loves Sophie."}}, "22275249b4964692bbda1b6c7faf7f47": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_670789803c044d699064f4d8d85c169a", "IPY_MODEL_b3aca64dc8c740feae0ac17d0679814c"], "layout": "IPY_MODEL_9b0f9a23e3574472b084a63a42c18088"}}, "2401f4a10a284f68920b1eb13a0ef3f1": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_d810833472c54ff1a38f821261445bdb"}}, "260916fd573c4e118c8d6fdeed6c1d4d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "26cf7a97df4f42b6af33ce787196e2da": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_c370339aafb24857915cb2b2d2ab7980"}}, "27ad5c8d383e457a9920d5cb29f64853": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_df59fa382ea5464699bf03b221ac05e1"}}, "27cf37417f84476da68ac933a85143a5": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_6834615b88754ba992949979ad4896da", "value": "eaten by Leo-01"}}, "282ed86a1e9f475ab92778daa6256ae2": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "2a02773588a34d31a60ab56ea873ef24": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "2a57077dcfc6408f910fcdd1069fb533": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100px"}}, "2b1178c8982c4d7f8bd00f05c2a0ab9f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "2ee595c943434b3288bd80d13a391707": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_6b665fd9cf6b45d0ade1db84533996f4"}}, "30b370db0cbd4590a28eeacadd095188": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_540624d791b04c72a5f6de35ef203a09", "IPY_MODEL_5b7a7dc340b8488b8d7616e1a0e4e954"], "layout": "IPY_MODEL_6b3a1654ff064f0aaf274b3478288a8f"}}, "31401dde148b42c6b6dee0ee84db65b2": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "31f03381b8af43c8b7b31448e2494891": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_830d5ee0e72742cbb9c50e698f8db857", "IPY_MODEL_87dbf123720c4818bdda118bfdbb7cda"], "layout": "IPY_MODEL_798ac8c8baa148b68188dc60d84de5fe"}}, "34a127ddc9f3425d855562e734e8582e": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "355b5ed96daf48f38e261d20f99eb26b": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_8b7f1503cd5d4af7bedb96db2bc9826b", "IPY_MODEL_3d934eb24f9b4005b831504a0e4baa3e"], "layout": "IPY_MODEL_0ee4e8ad62ab43f4b5b438a66a7f42b5"}}, "379b403b772848b184590efb077753db": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "38238e85b5bb4623a8ef8b3af0729a67": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "3d934eb24f9b4005b831504a0e4baa3e": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_f2dac51fb55347f2bf9f5f781b9e4558"}}, "3e2147d0702741bbb1963715683ba2ff": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_55f4f87242224575b52e41afa40e5e2d"}}, "4039c44a6b81427881c64dbe368c3771": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_7ffcc5da836a4772ad6190ded79997f7", "IPY_MODEL_156d68322d1e4dd3a0fbfab1be1688bf"], "layout": "IPY_MODEL_282ed86a1e9f475ab92778daa6256ae2"}}, "416b7202da814b9095cb90fed53606c3": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_bfdcdc39eeb04946a97cd9562372bc04", "value": "Sophie loves Leo.\nLeo loves Sophie."}}, "42805aa70f7945db96a25007c189bac0": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_d8f23781ffc74fb797fe78016d7b58e4", "value": "Every-single-thing that is a plant and-or is a plant-part is a herb.\nNo herb is an animal.\n\nEvery carnivore eats nothing-but animals.\nEvery lion eats nothing-but herbivores.\n\nEvery herbivore eats nothing-but herb.\n\nAnything either is a carnivore, is a herbivore or is an omnivore or-something-else.\nAnything either is a branch, is a leaf or is a twig or-something-else.\n\nNo giraffe is a lion.\nEvery palm-tree is not a tree.\n"}}, "43ef90ea44f7483cae76acd6a8bf06db": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100px"}}, "44f37380178d4fa0a074af10221c17fa": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "4636ed4b6a9b4aa29f2b8c9efe57f732": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 199, "hints": "Branch-01<br/>Every<br/>Every-single-thing<br/>If<br/>Leo-01<br/>Mary-01<br/>No<br/>Nothing<br/>Something<br/>Sophie-01<br/>The<br/>X", "hintsX": 199, "layout": "IPY_MODEL_6bc39517a9044c0d95ed9158711c5ff5", "value": "Leo-01 is a lion.\nLeo-01 eats Sophie-01.\nSophie-01 is a giraffe.\nSophie-01 eats Leaf-01.\nMary-01 is a tree.\nLeaf-01 is a leaf and is-part-of Branch-02.\nBranch-02 is a branch and is-part-of Branch-01.\nBranch-01 is a branch and is-part-of Mary-01.\nBranch-03 is a branch."}}, "46b6bc391f7d47cb95796e1c5effa3cb": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "48a844c1f16d4e0f89888a38f9f871b1": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "490fd126b35c4016a45f2265268f5ef0": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_2a02773588a34d31a60ab56ea873ef24", "value": "Every carnivorous-plant must eat an animal.\nEvery carnivor must eat an animal.\nEvery omnivore must eat a plant.\nEvery branch must be-part-of a tree.\nEvery plant-part must be-part-of a plant.\n\nComment: 'Role equivalence and inverted roles'.\nX has-part Y if-and-only-if Y is-part-of X.\nX eats Y if-and-only-if Y is-eaten-by X.\n\nComment: 'Role subsumptions'.\nIf X is-part-of Y then X is-part-of Y.\nIf X has-part something that has-part Y then X has-part Y.\n\nComment: 'Complex role subsumptions'.\nIf X is-part-of something that is-part-of Y then X is-part-of Y.\n"}}, "4974f63235624cb0950d09b959338aac": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_4636ed4b6a9b4aa29f2b8c9efe57f732", "IPY_MODEL_8f2ee93c18ed4583894db21311e14ed9"], "layout": "IPY_MODEL_df45bd0d614e4f8dbc1d38058dc993e7"}}, "4a322469244d444ca5d1bcb372403f27": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "4a569f7988e8471dafe05c22d22bd4ea": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 173, "hints": "&lt;Proper-Name&gt;<br/>Every<br/>Every-single-thing<br/>If<br/>No<br/>Nothing<br/>Something<br/>The<br/>X", "hintsX": 173, "layout": "IPY_MODEL_4a322469244d444ca5d1bcb372403f27", "value": "Every-single-thing that is a plant and-or is a plant-part is a herb.\nNo herb is an animal.\n\nEvery carnivore eats nothing-but animals.\nEvery lion eats nothing-but herbivores.\n\nEvery herbivore eats nothing-but herb.\n\nAnything either is a carnivore, is a herbivore or is an omnivore or-something-else.\nAnything either is a branch, is a leaf or is a twig or-something-else.\n\nNo giraffe is a lion.\nEvery palm-tree is not a tree.\n"}}, "4aafc9319e7743f8985cdc669f22cab5": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "4d3213ec0b2c4ad69c1a66a3369ab474": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_e736dda042e74aac96c321bed782241e", "IPY_MODEL_7cb5ce8716bf4a209b03b4910d97a0e2"], "layout": "IPY_MODEL_6dfbc4a9245c453fb126ea93c284477f"}}, "4f0a97990f8943818fc14ed4fd385830": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_ea50e21fc54b4d97b922faa6337bdfe7"}}, "50e4b95344d64a99b4f7543b017bf5a4": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "50f1befbf50548f9869037abe911c6c2": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_d9c2b88b505b48a4b6c2c57cd93f7776"}}, "5143fe6b6b2e4bdbb95db4836c07f69f": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_31401dde148b42c6b6dee0ee84db65b2", "value": "Leo-01 is a lion.\nLeo-01 eats Sophie-01.\nSophie-01 is a giraffe.\nLeo-01 eats Mary-01.\nMary-01 is a palm-tree.\n"}}, "540624d791b04c72a5f6de35ef203a09": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 171, "hintT": "!!!SYNTAX ERROR!!!", "hints": "!!!SYNTAX ERROR!!!", "hintsX": 169, "layout": "IPY_MODEL_0ee45e2151a74dfeb632f8622dfa620d", "value": "Namespace: 'http://cognitum.eu/african_wildlife'.\n\nComment: 'Lets name our instances'.\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\nEvery ma\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal. \nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\nEvery lion is carnivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nEvery branch is a plant-part.\nEvery leaf is a plant-part.\nEvery twig is a plant-part.\n\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery xylem is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nComment: 'We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words'.\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n"}}, "54500e1db47043b29c2725eaf17f81f6": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "54e213dd70db416783e9f4dd9eb8473a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_68ff3e69ff0948c7b1d6ea2e0727d6f1", "IPY_MODEL_cdb640c492eb40d986642b7b0cf89db1"], "layout": "IPY_MODEL_43ef90ea44f7483cae76acd6a8bf06db"}}, "55bb21d754f845a0b76771e91480da21": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_08c30bf83c284e6ebe21cc3249cd99ba", "IPY_MODEL_8e63218be8c84392b59914249922d662"], "layout": "IPY_MODEL_e278e56780d1428c826f7d861d407183"}}, "55f4f87242224575b52e41afa40e5e2d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "56a2eb99cf15417e8568cc49848857f1": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_7e5fec00c2ad42f1b02a76e0e2b34c6d", "value": "Every carnivorous-plant must eat an animal.\nEvery carnivor must eat an animal.\nEvery omnivore must eat a plant.\nEvery branch must be-part-of a tree.\nEvery plant-part must be-part-of a plant.\n\nComment: 'Role equivalence and inverted roles'.\nX has-part Y if-and-only-if Y is-part-of X.\nX eats Y if-and-only-if Y is-eaten-by X.\n\nComment: 'Role subsumptions'.\nIf X is-part-of Y then X is-part-of Y.\nIf X has-part something that has-part Y then X has-part Y.\n\nComment: 'Complex role subsumptions'.\nIf X is-part-of something that is-part-of Y then X is-part-of Y.\n"}}, "585c9fe15e494126a1116a5e5f8e87e4": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "5aea4cc758c6473193e64e8a9da92f28": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "5b7a7dc340b8488b8d7616e1a0e4e954": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_72f03a0887ce493bb7e9983353e95041"}}, "5ca39e2e45c9445eb22413a85950317f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "5f92d7eda9e4489591fce827af8d659b": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "6140f382320b46d8bf1bbe77cd6ff9d2": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_63c4a550777447f1896522d0db7ab5f5", "IPY_MODEL_50f1befbf50548f9869037abe911c6c2"], "layout": "IPY_MODEL_50e4b95344d64a99b4f7543b017bf5a4"}}, "637bf119d26145cd9b1c74a314f17fb0": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "63c4a550777447f1896522d0db7ab5f5": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 1198, "hints": "Every<br/>Every-single-thing<br/>If<br/>Leo<br/>No<br/>Nothing<br/>Something<br/>Sophie<br/>The<br/>X", "hintsX": 1198, "layout": "IPY_MODEL_f4ea8cdd8b5c4157a727af4af9d67cb3", "value": "Title: 'African Wildlife'.\nAuthor: 'Pawe\u0139\u201a Kap\u0139\u201aa\u0139\u201eski'.\nBased-On: \n 'A Semantic Web Primer.'\n 'Antoniou, G, van Harmelen, F.'\n 'MIT Press, 2003.'\n 'http://www.csd.uoc.gr/~hy566/SWbook.pdf'\n.\n\nComment:\n////// Examples of Possible Questions  /////////////////////////////   \n//Who-Or-What:\n// * is a carnivore ?                                      \n// * is an herbivore ?                                         \n// * is an animal that eats grass ?                            \n// * is-part-of a tree ?  \n// * is eaten by lion?           \n////////////////////////////////////////////////////////////////////.\n\n\n\nPart-1: 'simple hierarchy of beings'.\n\nComment: 'Lets name our instances'.\nSophie is a giraffe.\nLeo is a lion.\n\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal.\nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nPart-2: adjectives and specifications.\n\nComment: 'We cannot use adjectives directly'.\nComment: 'To specify adjectives we need to transform them into sets that have form of buzzy-words'.\n\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n\nComment: 'Similarly we can do to make something more and more specific'.\nEvery branch is a plant-part.\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery twig is a plant-part.\nEvery xylem is a plant-part.\nEvery leaf is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nPart-3: Disjointness.\n\nComment: 'We deal with Open World Assumption, therefore we need to specify explicitly if two things are different'.\nComment: 'E.g.: We need to specify explicitly that animal is not a plant'.\nEvery animal is not a plant.\nEvery giraffe is not a lion.\nEvery palm-tree is not a tree.\n\nComment: 'Or we can use it - it means the same'.\nNo animal is a plant.\n\nPart-4: Simple relations.\n\nComment: To specify relation beetween beings.\nEvery lion eats an impala.\nEvery carnivorous-plant eats an animal.\n\nComment: 'I.e. be part of is a part-whole relation'.\nEvery branch is-part-of a tree.\nEvery plant-part is-proper-part-of a plant.\nEvery xylem is-proper-part-of a stem.\nEvery phloem is-proper-part-of a stem.\n\nComment:  'Specifying the range of relation. The difference? One is that lion eats impala. Second that it eats only herbivore' -> impala must be herbivore.\nEvery lion eats nothing-but herbivores.\n\nPart-5: 'Complex relations'.\n\nEvery palm-tree has-part that is not a branch.\nEvery warthog eats an animal and eats a fruiting-body and eats a grass and eats a root.\nEvery giraffe eats nothing-but things that are leaves and-or are twigs.\nEvery leaf is-part-of something that is a branch and-or is a twig.\nEvery tasty-plant is-eaten-by a carnivore and is-eaten-by a herbivore.\nEvery-single-thing eats nothing-but things that are animals and-or are plants and-or are-part-of animals and-or are-part-of plants.\n\nPart-6: 'Reflexion'.\n\nNothing is-proper-part-of itself.\n\nPart-7: Equivalence.\n\nComment: 'What it means to be a carnivore, omnivore or herbivore? We specify exact definitions here.'.\nEvery-single-thing that eats nothing-but animals and-or eats nothing-but things that are-part-of animals is a carnivore.\nSomething is an omnivore if-and-only-if-it eats an animal and eats a plant and eats something that is-part-of an animal and-or is-part-of a plant.\nSomething is a herbivore if-and-only-if-it eats nothing-but plants and-or eats nothing-but things that are-part-of plants.\n\nPart-8: 'Disjointness'.\n\nAnything either is a carnivore, is a herbivore or is an omnivore or-something-else.\nAnything either is a branch, is a leaf or is a twig or-something-else.\n\nPart-9: 'Relations between roles'.\n\nComment: 'Role equivalence and inverted roles'.\nX has-part Y if-and-only-if Y is-part-of X.\nX eats Y if-and-only-if Y is-eaten-by X.\n\nComment: 'Role subsumptions'.\nIf X is-proper-part-of Y then X is-part-of Y.\nIf X has-part something that has-part Y then X has-part Y.\n\nComment: 'Complex role subsumptions'.\nIf X is-part-of something that is-part-of Y then X is-part-of Y."}}, "66578ffca1f043118425062dc0b6f067": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_27cf37417f84476da68ac933a85143a5", "IPY_MODEL_f81355e7f2a34681bf8ca14e71dbf938"], "layout": "IPY_MODEL_f79246661c1941fb8047812a618edbea"}}, "66cefaa10ba1472a846b969c45384ec0": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_6c33a33ec84a476ea62d3b987b12a532", "IPY_MODEL_85f2cc17df4e4e429f3682d5f1a9d2a5"], "layout": "IPY_MODEL_637bf119d26145cd9b1c74a314f17fb0"}}, "670789803c044d699064f4d8d85c169a": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_8e2009ebcf134448a2ad52b7cc6c4b26", "value": "Every-single-thing that is a plant and-or is a plant-part is a herb.\nNo herb is an animal.\n\nEvery carnivore eats nothing-but animals.\nEvery lion eats nothing-but herbivores.\n\nEvery herbivore eats nothing-but herb.\n\nAnything either is a carnivore, is a herbivore or is an omnivore or-something-else.\nAnything either is a branch, is a leaf or is a twig or-something-else.\n\nNo giraffe is a lion.\nEvery palm-tree is not a tree.\n"}}, "6834615b88754ba992949979ad4896da": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "687f88667abb40929c0d1ac2acbc9281": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_df07f4cbd3574e08868b7543bb5cb15a", "value": "Leo-01 is a lion.\nLeo-01 eats Sophie-01.\nSophie-01 is a giraffe.\nLeo-01 eats Mary-01.\nMary-01 is a palm-tree.\n"}}, "68ff3e69ff0948c7b1d6ea2e0727d6f1": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_2b1178c8982c4d7f8bd00f05c2a0ab9f", "value": "an animal that loves "}}, "69339d07f80c4b42a0ca64e1e93f2940": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_db4059a12cb34224934499d5b329f6c6"}}, "6b3a1654ff064f0aaf274b3478288a8f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "6b665fd9cf6b45d0ade1db84533996f4": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "6bc39517a9044c0d95ed9158711c5ff5": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "6c33a33ec84a476ea62d3b987b12a532": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_5ca39e2e45c9445eb22413a85950317f", "value": "Leo-01 is a lion.\nLeo-01 eats Sophie-01.\nSophie-01 is a giraffe.\nLeo-01 eats Mary-01.\nMary-01 is a palm-tree.\n"}}, "6dfbc4a9245c453fb126ea93c284477f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "6fa9e122a4ca4267832285e9f3983bba": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "704fa12b89334f67b30097d1c39534c9": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "727588c8af22452182710e9c54750d83": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_c4809ee837e84bbba2bd1dc44a5cdc69"}}, "72b37b61f1ba4540bd4dafa460795b8e": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "72f03a0887ce493bb7e9983353e95041": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "7358c3b0bfc140b7ad1d635020c852a5": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_791a2bc1ba2c4ed98805765076095f71", "IPY_MODEL_a551c169f0f44b0d8ed33f34d5a4ea9d"], "layout": "IPY_MODEL_2a57077dcfc6408f910fcdd1069fb533"}}, "791a2bc1ba2c4ed98805765076095f71": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_99f9f6e0b26a4e73858dfbb6017ccbb8", "value": "an animal that loves "}}, "798ac8c8baa148b68188dc60d84de5fe": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "7cb5ce8716bf4a209b03b4910d97a0e2": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_72b37b61f1ba4540bd4dafa460795b8e"}}, "7e5fec00c2ad42f1b02a76e0e2b34c6d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "7ffcc5da836a4772ad6190ded79997f7": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 162, "hints": "&lt;Proper-Name&gt;<br/>Every<br/>Every-single-thing<br/>If<br/>No<br/>Nothing<br/>Something<br/>The<br/>X", "hintsX": 162, "layout": "IPY_MODEL_cb714303465343599e7daddd09b77893", "value": "Namespace: 'http://cognitum.eu/african_wildlife'.\n\nComment: 'Lets name our instances'.\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\nEvery man has a train.\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal. \nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\nEvery lion is carnivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nEvery branch is a plant-part.\nEvery leaf is a plant-part.\nEvery twig is a plant-part.\n\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery xylem is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nComment: 'We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words'.\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n"}}, "8299fafb9989402e9259aa0b848881e2": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_17f3ad9162db4104a65795f20d5f0075", "value": "Leo-01 is a lion.\nLeo-01 eats Sophie-01.\nSophie-01 is a giraffe.\nSophie-01 eats Leaf-01.\nMary-01 is a tree.\nLeaf-01 is a leaf and is-part-of Branch-02.\nBranch-02 is a branch and is-part-of Branch-01.\nBranch-01 is a branch and is-part-of Mary-01.\nBranch-03 is a branch."}}, "830d5ee0e72742cbb9c50e698f8db857": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 186, "hintT": "!!!SYNTAX ERROR!!!\r\n\r\nEvery ma\r\nEvery lion is an animal.", "hints": "!!!SYNTAX ERROR!!!\r\n\r\nEvery ma\r\nEvery lion is an animal.", "hintsX": 186, "layout": "IPY_MODEL_f7410d5947704d05b636e488c607ec0e", "value": "Namespace: 'http://cognitum.eu/african_wildlife'.\n\nComment: 'Lets name our instances'.\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\nEvery man has a train.\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal. \nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\nEvery lion is carnivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nEvery branch is a plant-part.\nEvery leaf is a plant-part.\nEvery twig is a plant-part.\n\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery xylem is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nComment: 'We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words'.\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n"}}, "85f2cc17df4e4e429f3682d5f1a9d2a5": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_379b403b772848b184590efb077753db"}}, "865ed95805f44073ac10f4b4757bd1a0": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "87dbf123720c4818bdda118bfdbb7cda": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_daee7295113f4ab588ec50dacbc01003"}}, "88e3f3eb628649cbaa595601364bada4": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "89b1bde40ddb4abf9ac1d1cd90dd345a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100px"}}, "8b344392a0d344158becbf95c37546c6": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_56a2eb99cf15417e8568cc49848857f1", "IPY_MODEL_f81dc3d2747142f9ac59bd2ccb85dc67"], "layout": "IPY_MODEL_f7e95e3d43544ddfb6c69338a006cace"}}, "8b52933a93d84df1bc039f960cacf560": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_b0bf749d3aa54cb5876f768752e013e2"}}, "8b7f1503cd5d4af7bedb96db2bc9826b": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_b18557280c0d4e1b827179460da45136", "value": "Leo-01 is a lion.\nLeo-01 eats Sophie-01.\nSophie-01 is a giraffe.\nSophie-01 eats Leaf-01.\nMary-01 is a tree.\nLeaf-01 is a leaf and is-part-of Branch-02.\nBranch-02 is a branch and is-part-of Branch-01.\nBranch-01 is a branch and is-part-of Mary-01.\nBranch-03 is a branch."}}, "8e2009ebcf134448a2ad52b7cc6c4b26": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "8e63218be8c84392b59914249922d662": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_5aea4cc758c6473193e64e8a9da92f28"}}, "8f2ee93c18ed4583894db21311e14ed9": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_38238e85b5bb4623a8ef8b3af0729a67"}}, "91212d33087f4872ab96d1d2adac582a": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_6fa9e122a4ca4267832285e9f3983bba"}}, "951c1fa30fea488a8ae1578cede4b5fe": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "9536c1856e8a487d8c68984e25b441ce": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "9767af0ad60a4f4f84f6fffb5b1addb8": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "99075eefb8ad4a5087de5fbfbb2e2a8c": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_9febe76887f34e8e9ea439b3d6a469bc", "value": "Comment: 'Lets name our instances'.\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\n\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal.\nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\nEvery lion is carnivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nEvery branch is a plant-part.\nEvery leaf is a plant-part.\nEvery twig is a plant-part.\n\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery xylem is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nComment: 'We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words'.\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n"}}, "99f9f6e0b26a4e73858dfbb6017ccbb8": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "9b0f9a23e3574472b084a63a42c18088": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "9d7f76b3359049b99071eba73b8dc427": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_4a569f7988e8471dafe05c22d22bd4ea", "IPY_MODEL_727588c8af22452182710e9c54750d83"], "layout": "IPY_MODEL_9536c1856e8a487d8c68984e25b441ce"}}, "9febe76887f34e8e9ea439b3d6a469bc": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "a1d343a6e9ab47b999491d584f4d747b": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_42805aa70f7945db96a25007c189bac0", "IPY_MODEL_4f0a97990f8943818fc14ed4fd385830"], "layout": "IPY_MODEL_c1e34aeacb524c99a1c32e8cc8c9413a"}}, "a23f3db72e844fd38d5d05b950980e06": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "a270637c9421471a86a1a5fb0c90358f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "a2c7154564514724af74f1f72cd039df": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_194e683e49954beab66c82f87eec0560", "IPY_MODEL_e26922aed1324c3cb824535d8f1eba7a"], "layout": "IPY_MODEL_89b1bde40ddb4abf9ac1d1cd90dd345a"}}, "a551c169f0f44b0d8ed33f34d5a4ea9d": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_9767af0ad60a4f4f84f6fffb5b1addb8"}}, "a83fc2b5087147fda70ef91ec71c9636": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_44f37380178d4fa0a074af10221c17fa", "value": "Namespace: 'http://cognitum.eu/african_wildlife'.\n\nComment: 'Lets name our instances'.\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\nEvery ma\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal. \nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\nEvery lion is carnivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nEvery branch is a plant-part.\nEvery leaf is a plant-part.\nEvery twig is a plant-part.\n\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery xylem is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nComment: 'We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words'.\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n"}}, "ac2b910f6f714657b031543b3c3820f6": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "acf1c5a99f7843fd8fe8da70d0aac47f": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 1198, "hints": "Every<br/>Every-single-thing<br/>If<br/>Leo<br/>No<br/>Nothing<br/>Something<br/>Sophie<br/>The<br/>X", "hintsX": 1198, "layout": "IPY_MODEL_1a817713ce83451c8259b7b8600da6fb", "value": "Title: 'African Wildlife'.\nAuthor: 'Pawe\u0139\u201a Kap\u0139\u201aa\u0139\u201eski'.\nBased-On: \n 'A Semantic Web Primer.'\n 'Antoniou, G, van Harmelen, F.'\n 'MIT Press, 2003.'\n 'http://www.csd.uoc.gr/~hy566/SWbook.pdf'\n.\n\nComment:\n////// Examples of Possible Questions  /////////////////////////////   \n//Who-Or-What:\n// * is a carnivore ?                                      \n// * is an herbivore ?                                         \n// * is an animal that eats grass ?                            \n// * is-part-of a tree ?  \n// * is eaten by lion?           \n////////////////////////////////////////////////////////////////////.\n\n\n\nPart-1: 'simple hierarchy of beings'.\n\nComment: 'Lets name our instances'.\nSophie is a giraffe.\nLeo is a lion.\n\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal.\nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nPart-2: adjectives and specifications.\n\nComment: 'We cannot use adjectives directly'.\nComment: 'To specify adjectives we need to transform them into sets that have form of buzzy-words'.\n\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n\nComment: 'Similarly we can do to make something more and more specific'.\nEvery branch is a plant-part.\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery twig is a plant-part.\nEvery xylem is a plant-part.\nEvery leaf is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nPart-3: Disjointness.\n\nComment: 'We deal with Open World Assumption, therefore we need to specify explicitly if two things are different'.\nComment: 'E.g.: We need to specify explicitly that animal is not a plant'.\nEvery animal is not a plant.\nEvery giraffe is not a lion.\nEvery palm-tree is not a tree.\n\nComment: 'Or we can use it - it means the same'.\nNo animal is a plant.\n\nPart-4: Simple relations.\n\nComment: To specify relation beetween beings.\nEvery lion eats an impala.\nEvery carnivorous-plant eats an animal.\n\nComment: 'I.e. be part of is a part-whole relation'.\nEvery branch is-part-of a tree.\nEvery plant-part is-proper-part-of a plant.\nEvery xylem is-proper-part-of a stem.\nEvery phloem is-proper-part-of a stem.\n\nComment:  'Specifying the range of relation. The difference? One is that lion eats impala. Second that it eats only herbivore' -> impala must be herbivore.\nEvery lion eats nothing-but herbivores.\n\nPart-5: 'Complex relations'.\n\nEvery palm-tree has-part that is not a branch.\nEvery warthog eats an animal and eats a fruiting-body and eats a grass and eats a root.\nEvery giraffe eats nothing-but things that are leaves and-or are twigs.\nEvery leaf is-part-of something that is a branch and-or is a twig.\nEvery tasty-plant is-eaten-by a carnivore and is-eaten-by a herbivore.\nEvery-single-thing eats nothing-but things that are animals and-or are plants and-or are-part-of animals and-or are-part-of plants.\n\nPart-6: 'Reflexion'.\n\nNothing is-proper-part-of itself.\n\nPart-7: Equivalence.\n\nComment: 'What it means to be a carnivore, omnivore or herbivore? We specify exact definitions here.'.\nEvery-single-thing that eats nothing-but animals and-or eats nothing-but things that are-part-of animals is a carnivore.\nSomething is an omnivore if-and-only-if-it eats an animal and eats a plant and eats something that is-part-of an animal and-or is-part-of a plant.\nSomething is a herbivore if-and-only-if-it eats nothing-but plants and-or eats nothing-but things that are-part-of plants.\n\nPart-8: 'Disjointness'.\n\nAnything either is a carnivore, is a herbivore or is an omnivore or-something-else.\nAnything either is a branch, is a leaf or is a twig or-something-else.\n\nPart-9: 'Relations between roles'.\n\nComment: 'Role equivalence and inverted roles'.\nX has-part Y if-and-only-if Y is-part-of X.\nX eats Y if-and-only-if Y is-eaten-by X.\n\nComment: 'Role subsumptions'.\nIf X is-proper-part-of Y then X is-part-of Y.\nIf X has-part something that has-part Y then X has-part Y.\n\nComment: 'Complex role subsumptions'.\nIf X is-part-of something that is-part-of Y then X is-part-of Y."}}, "b0bf749d3aa54cb5876f768752e013e2": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "b18557280c0d4e1b827179460da45136": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "b3aca64dc8c740feae0ac17d0679814c": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_0287b64412d1476fac61df9b498195e0"}}, "b6c1708eb8ab423fbc381678654dde18": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 166, "hints": "&lt;Proper-Name&gt;<br/>Every<br/>Every-single-thing<br/>If<br/>No<br/>Nothing<br/>Something<br/>The<br/>X", "hintsX": 166, "layout": "IPY_MODEL_865ed95805f44073ac10f4b4757bd1a0", "value": "Comment: 'Lets name our instances'.\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\n\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal.\nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\nEvery lion is carnivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nEvery branch is a plant-part.\nEvery leaf is a plant-part.\nEvery twig is a plant-part.\n\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery xylem is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nComment: 'We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words'.\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n"}}, "ba703b23f64a4ac9bc68ac9552802303": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "bb14a3aef3864813a7002faff9fc6b16": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 89, "hints": "&lt;natural number&gt;", "hintsX": 80, "layout": "IPY_MODEL_c17c106402064e86b728cf51a20e3f93", "value": "Leo-01 is a lion.\nLeo-01 eats Sophie-01.\nSophie-01 is a giraffe.\nSophie-01 eats Branch-01.\nMary-01 is a tree.\nBranch-01 is a branch and is-proper-part-of Mary-01.\n"}}, "bfdcdc39eeb04946a97cd9562372bc04": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "c17c106402064e86b728cf51a20e3f93": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "c1e34aeacb524c99a1c32e8cc8c9413a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "c370339aafb24857915cb2b2d2ab7980": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "c3b494913b23455082fcb63616b57646": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_075ca95d3ff64fdf8542061a5f907fdc", "IPY_MODEL_69339d07f80c4b42a0ca64e1e93f2940"], "layout": "IPY_MODEL_ce2e3b8fdc324d989c349ad9a641ca61"}}, "c4809ee837e84bbba2bd1dc44a5cdc69": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "c7c7716cd5034ec7a3235e29964fa9d9": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_ec97c88651864e3ca37f08c0e7906155"}}, "c7fe458b7f814978a92e90b0b53c295c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "cb714303465343599e7daddd09b77893": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "cbb49564f07a44bdb9bdcc6dc6b14644": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "cdb640c492eb40d986642b7b0cf89db1": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_cbb49564f07a44bdb9bdcc6dc6b14644"}}, "ce2e3b8fdc324d989c349ad9a641ca61": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "d66764a2add44d99aa42b9900ec34efa": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_8299fafb9989402e9259aa0b848881e2", "IPY_MODEL_2ee595c943434b3288bd80d13a391707"], "layout": "IPY_MODEL_260916fd573c4e118c8d6fdeed6c1d4d"}}, "d6c24200739c486fa395a2d6f15f4c29": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_b6c1708eb8ab423fbc381678654dde18", "IPY_MODEL_91212d33087f4872ab96d1d2adac582a"], "layout": "IPY_MODEL_d786ada62a30448b8081a35a036fbf3d"}}, "d786ada62a30448b8081a35a036fbf3d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "d810833472c54ff1a38f821261445bdb": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "d8f23781ffc74fb797fe78016d7b58e4": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "d9c2b88b505b48a4b6c2c57cd93f7776": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "d9cb1abd82e245e987efdff390856b01": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "daee7295113f4ab588ec50dacbc01003": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "db4059a12cb34224934499d5b329f6c6": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "db6bc8d6d0d54e2484718dee857e30e1": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "dc33986a1b82473796f0e43e7b8960d2": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_490fd126b35c4016a45f2265268f5ef0", "IPY_MODEL_27ad5c8d383e457a9920d5cb29f64853"], "layout": "IPY_MODEL_f2d6e500963644e1ace9c82d3d895f68"}}, "dd75b77ca52a43a9868c62b289a4e4e1": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_db6bc8d6d0d54e2484718dee857e30e1"}}, "df07f4cbd3574e08868b7543bb5cb15a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "df45bd0d614e4f8dbc1d38058dc993e7": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "df59fa382ea5464699bf03b221ac05e1": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "e18af0cea30b4af3a6cf1099f055219c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_e1d32be0fd784adb901538ecaea234af", "IPY_MODEL_e5a39ffce83d482a9bb07ef05f75f0c2"], "layout": "IPY_MODEL_ba703b23f64a4ac9bc68ac9552802303"}}, "e1d32be0fd784adb901538ecaea234af": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_a23f3db72e844fd38d5d05b950980e06", "value": "Every-single-thing that is a plant and-or is a plant-part is a herb.\nNo herb is an animal.\n\nEvery carnivore eats nothing-but animals.\nEvery lion eats nothing-but herbivores.\n\nEvery herbivore eats nothing-but herb.\n\nAnything either is a carnivore, is a herbivore or is an omnivore or-something-else.\nAnything either is a branch, is a leaf or is a twig or-something-else.\n\nNo giraffe is a lion.\nEvery palm-tree is not a tree.\n"}}, "e26922aed1324c3cb824535d8f1eba7a": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_08a658b923de47b7add2517b8353da1a"}}, "e278e56780d1428c826f7d861d407183": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "e445e8ca520940b8aa5759ab19428243": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "e47665c42c1e462aa1fcecac0816fa09": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_1d27dea574734e228e02e981579f0e48", "IPY_MODEL_3e2147d0702741bbb1963715683ba2ff"], "layout": "IPY_MODEL_704fa12b89334f67b30097d1c39534c9"}}, "e4e340eba47048e182a7727741432dc5": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_a83fc2b5087147fda70ef91ec71c9636", "IPY_MODEL_0529b65148e34a3f84378822394dbb23"], "layout": "IPY_MODEL_46b6bc391f7d47cb95796e1c5effa3cb"}}, "e5a39ffce83d482a9bb07ef05f75f0c2": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_efae18bdcab04718b11c37b244e41d0f"}}, "e736dda042e74aac96c321bed782241e": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_34a127ddc9f3425d855562e734e8582e"}}, "e87806312d1343ce83bb2bb743ba1b80": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "ea50e21fc54b4d97b922faa6337bdfe7": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "ec97c88651864e3ca37f08c0e7906155": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "edb2db2d34c248249a938a00c0f98a07": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "edfd7c1406474ef8b6008fa01533a9f1": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_d9cb1abd82e245e987efdff390856b01"}}, "ee2dd188cbe048cd98f09aa693d4aae4": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_bb14a3aef3864813a7002faff9fc6b16", "IPY_MODEL_ef6cc581fc9c483fa9f40c0299bb4106"], "layout": "IPY_MODEL_88e3f3eb628649cbaa595601364bada4"}}, "ef6cc581fc9c483fa9f40c0299bb4106": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_1786ad24fa9d463aa9ad86dcacd6b971"}}, "efae18bdcab04718b11c37b244e41d0f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "f0f6655efb3d4a67824e88522b093252": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_687f88667abb40929c0d1ac2acbc9281", "IPY_MODEL_2401f4a10a284f68920b1eb13a0ef3f1"], "layout": "IPY_MODEL_08826d1d1e2d4efa9364b5d2bafa3c93"}}, "f1b9951724734f07987cdd4aef154383": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_acf1c5a99f7843fd8fe8da70d0aac47f", "IPY_MODEL_8b52933a93d84df1bc039f960cacf560"], "layout": "IPY_MODEL_e445e8ca520940b8aa5759ab19428243"}}, "f2d6e500963644e1ace9c82d3d895f68": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "f2dac51fb55347f2bf9f5f781b9e4558": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "f4ea8cdd8b5c4157a727af4af9d67cb3": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "f7410d5947704d05b636e488c607ec0e": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "f79246661c1941fb8047812a618edbea": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100px"}}, "f7e95e3d43544ddfb6c69338a006cace": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "f81355e7f2a34681bf8ca14e71dbf938": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_edb2db2d34c248249a938a00c0f98a07"}}, "f81dc3d2747142f9ac59bd2ccb85dc67": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_5f92d7eda9e4489591fce827af8d659b"}}}, "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Covid/Virus.html" class="btn btn-neutral float-right" title="Covid restrictions." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../examples.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cognitum Services S.A.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
