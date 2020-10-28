@@ -6,6 +6,7 @@
 
    installation
    grammar
+   dictonary
    examples
    modules
 
@@ -13,8 +14,6 @@
     :hidden:
     :maxdepth: 0
     :titlesonly:
-
-    dictonary
 
 
 Indices and tables
