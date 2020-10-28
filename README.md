@@ -5,7 +5,7 @@ Originally released and maintained by [Cognitum Services S.A.](https://www.cogni
 The package allows for Reasoning, exploration of RDF/OWL, Fluent Editor CNL files, performs reasoning with OWL/RL Reasoner (Jena) as well as allows using SPARQL Graph queries (Jena)
 
 ### Documentation
-[Cognipy Documentation]https://github.com/cognitum-octopus/cognipy
+[Cognipy Documentation](https://cognitum-octopus.github.io/cognipy/)
 
 ### Assumptions:
 
@@ -30,7 +30,7 @@ python setup.py bdist_wheel
 python -m twine upload dist/* --verbose
 ```
 
-### Open Source Libraties this project is build on
+### Open Source Libraries this project is build on
 1. IKVM
 2. CommandLineParser
 3. Newtonsoft.JSon
@@ -41,4 +41,4 @@ supports all OWL2 DL constructs and the datatypes required by the OWL 2 specific
 7. OWLAPI
 
 ## Why it is done this way?
-1. The sorfware emerged as an offspring of FluentEditor and therefore it has some common parts. One of them is the .net. Anyway, with your help we are going to move to java :). The `convert_to_java` branch already contains the project files converted automatically from .net to java. Anyway, manual crafting is now required to make it all work.
+1. The software emerged as an offspring of FluentEditor and therefore it has some common parts. One of them is the .net. We are planning to move these parts to java so whole stack will be more technology consistent. The `convert_to_java` branch already contains the project files converted automatically from .net to java. Anyway, manual crafting is now required to make it all work.

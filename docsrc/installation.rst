@@ -17,7 +17,7 @@ The package allows for Reasoning, exploration of RDF/OWL, CogniPy CNL files, per
 
 
 
-**Open Source Libraties this project is build on:**
+**Open Source Libraries this project is build on:**
 
 1. IKVM
 
@@ -37,7 +37,9 @@ The package allows for Reasoning, exploration of RDF/OWL, CogniPy CNL files, per
 
 **Why it is done this way?**
 
-The sorfware emerged as an offspring of FluentEditor and therefore it has some common parts. One of them is the .net. Anyway, with your help we are going to move to java :). The convert_to_java branch already contains the project files converted automatically from .net to java. Anyway, manual crafting is now required to make it all work.
+The software emerged as an offspring of FluentEditor and therefore it has some common parts. One of them is the .net. 
+We are planning to move these parts to java so whole stack will be more technology consistent.
+The convert_to_java branch already contains the project files converted automatically from .net to java. Anyway, manual crafting is now required to make it all work.
 
 
 
