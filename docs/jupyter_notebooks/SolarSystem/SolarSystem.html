@@ -95,8 +95,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../dictonary.html">Dictonary</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../examples.html">Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../Safari/Safari.html">Safari</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Solar System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Solar System</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Solar System</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Scraping-data-and-building-CNL">Scraping data and building CNL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Loading-the-ontology">Loading the ontology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Exploring-the-ontology">Exploring the ontology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Draw-the-ontology">Draw the ontology</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../Covid/Virus.html">Covid Restrictions.</a></li>
 </ul>
 </li>
@@ -463,9 +468,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="id1">
-<h1>Solar System<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Scraping-data-and-building-CNL">
+<h2>Scraping data and building CNL<a class="headerlink" href="#Scraping-data-and-building-CNL" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -726,7 +730,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">orbit_cnl</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">line</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">raw_orbit_data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">orbits_to_cnl</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">line</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">orbit_cnl</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">orbit_cnl</span><span class="p">[:</span><span class="mi">1000</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;...&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -763,562 +767,7 @@ Jupiter has-eccentricity equal-to 0.05.
 Saturn orbits Sun.
 Saturn has-index equal-to &#39;VI&#39;.
 Saturn has-semimajor-axis-1000-km equal-to 1429400.
-Saturn has-period equal-to 10759.5.
-Saturn has-eccentricity equal-to 0.06.
-Uranus orbits Sun.
-Uranus has-index equal-to &#39;VII&#39;.
-Uranus has-semimajor-axis-1000-km equal-to 2870990.
-Uranus has-period equal-to 30685.
-Uranus has-eccentricity equal-to 0.05.
-Uranus has-discoverer equal-to &#39;Herschel&#39;.
-Uranus has-discovery-year equal-to 1781.
-Neptune orbits Sun.
-Neptune has-index equal-to &#39;VIII&#39;.
-Neptune has-semimajor-axis-1000-km equal-to 4504300.
-Neptune has-period equal-to 60190.
-Neptune has-eccentricity equal-to 0.01.
-Neptune has-discoverer equal-to &#39;Adams&#39;.
-Neptune has-discovery-year equal-to 1846.
-Pluto orbits Sun.
-Pluto has-index equal-to &#39;IX&#39;.
-Pluto has-semimajor-axis-1000-km equal-to 5913520.
-Pluto has-period equal-to 90550.
-Pluto has-eccentricity equal-to 0.25.
-Pluto has-discoverer equal-to &#39;Tombaugh&#39;.
-Pluto has-discovery-year equal-to 1930.
-Moon orbits Earth.
-Moon has-index equal-to &#39;I&#39;.
-Moon has-semimajor-axis-1000-km equal-to 384.
-Moon has-period equal-to 27.32.
-Moon has-eccentricity equal-to 0.05.
-Phobos orbits Mars.
-Phobos has-index equal-to &#39;I&#39;.
-Phobos has-semimajor-axis-1000-km equal-to 9.
-Phobos has-period equal-to 0.32.
-Phobos has-eccentricity equal-to 0.02.
-Phobos has-discoverer equal-to &#39;Hall&#39;.
-Phobos has-discovery-year equal-to 1877.
-Deimos orbits Mars.
-Deimos has-index equal-to &#39;II&#39;.
-Deimos has-semimajor-axis-1000-km equal-to 23.
-Deimos has-period equal-to 1.26.
-Deimos has-eccentricity equal-to 0.
-Deimos has-discoverer equal-to &#39;Hall&#39;.
-Deimos has-discovery-year equal-to 1877.
-Metis orbits Jupiter.
-Metis has-index equal-to &#39;XVI&#39;.
-Metis has-semimajor-axis-1000-km equal-to 128.
-Metis has-period equal-to 0.29.
-Metis has-eccentricity equal-to 0.
-Metis has-discoverer equal-to &#39;Synnott&#39;.
-Metis has-discovery-year equal-to 1979.
-Adrastea orbits Jupiter.
-Adrastea has-index equal-to &#39;XV&#39;.
-Adrastea has-semimajor-axis-1000-km equal-to 129.
-Adrastea has-period equal-to 0.3.
-Adrastea has-eccentricity equal-to 0.
-Adrastea has-discoverer equal-to &#39;Jewitt&#39;.
-Adrastea has-discovery-year equal-to 1979.
-Amalthea orbits Jupiter.
-Amalthea has-index equal-to &#39;V&#39;.
-Amalthea has-semimajor-axis-1000-km equal-to 181.
-Amalthea has-period equal-to 0.5.
-Amalthea has-eccentricity equal-to 0.
-Amalthea has-discoverer equal-to &#39;Barnard&#39;.
-Amalthea has-discovery-year equal-to 1892.
-Thebe orbits Jupiter.
-Thebe has-index equal-to &#39;XIV&#39;.
-Thebe has-semimajor-axis-1000-km equal-to 222.
-Thebe has-period equal-to 0.67.
-Thebe has-eccentricity equal-to 0.02.
-Thebe has-discoverer equal-to &#39;Synnott&#39;.
-Thebe has-discovery-year equal-to 1979.
-Io orbits Jupiter.
-Io has-index equal-to &#39;I&#39;.
-Io has-semimajor-axis-1000-km equal-to 422.
-Io has-period equal-to 1.77.
-Io has-eccentricity equal-to 0.
-Io has-discoverer equal-to &#39;Galileo&#39;.
-Io has-discovery-year equal-to 1610.
-Europa orbits Jupiter.
-Europa has-index equal-to &#39;II&#39;.
-Europa has-semimajor-axis-1000-km equal-to 671.
-Europa has-period equal-to 3.55.
-Europa has-eccentricity equal-to 0.01.
-Europa has-discoverer equal-to &#39;Galileo&#39;.
-Europa has-discovery-year equal-to 1610.
-Ganymede orbits Jupiter.
-Ganymede has-index equal-to &#39;III&#39;.
-Ganymede has-semimajor-axis-1000-km equal-to 1070.
-Ganymede has-period equal-to 7.15.
-Ganymede has-eccentricity equal-to 0.
-Ganymede has-discoverer equal-to &#39;Galileo&#39;.
-Ganymede has-discovery-year equal-to 1610.
-Callisto orbits Jupiter.
-Callisto has-index equal-to &#39;IV&#39;.
-Callisto has-semimajor-axis-1000-km equal-to 1883.
-Callisto has-period equal-to 16.69.
-Callisto has-eccentricity equal-to 0.01.
-Callisto has-discoverer equal-to &#39;Galileo&#39;.
-Callisto has-discovery-year equal-to 1610.
-Themisto orbits Jupiter.
-Themisto has-index equal-to &#39;XVIII&#39;.
-Themisto has-semimajor-axis-1000-km equal-to 7507.
-Themisto has-discoverer equal-to &#39;Sheppard&#39;.
-Themisto has-discovery-year equal-to 2000.
-Leda orbits Jupiter.
-Leda has-index equal-to &#39;XIII&#39;.
-Leda has-semimajor-axis-1000-km equal-to 11094.
-Leda has-period equal-to 238.72.
-Leda has-eccentricity equal-to 0.15.
-Leda has-discoverer equal-to &#39;Kowal&#39;.
-Leda has-discovery-year equal-to 1974.
-Himalia orbits Jupiter.
-Himalia has-index equal-to &#39;VI&#39;.
-Himalia has-semimajor-axis-1000-km equal-to 11480.
-Himalia has-period equal-to 250.57.
-Himalia has-eccentricity equal-to 0.16.
-Himalia has-discoverer equal-to &#39;Perrine&#39;.
-Himalia has-discovery-year equal-to 1904.
-Lysithea orbits Jupiter.
-Lysithea has-index equal-to &#39;X&#39;.
-Lysithea has-semimajor-axis-1000-km equal-to 11720.
-Lysithea has-period equal-to 259.22.
-Lysithea has-eccentricity equal-to 0.11.
-Lysithea has-discoverer equal-to &#39;Nicholson&#39;.
-Lysithea has-discovery-year equal-to 1938.
-Elara orbits Jupiter.
-Elara has-index equal-to &#39;VII&#39;.
-Elara has-semimajor-axis-1000-km equal-to 11737.
-Elara has-period equal-to 259.65.
-Elara has-eccentricity equal-to 0.21.
-Elara has-discoverer equal-to &#39;Perrine&#39;.
-Elara has-discovery-year equal-to 1905.
-Ananke orbits Jupiter.
-Ananke has-index equal-to &#39;XII&#39;.
-Ananke has-semimajor-axis-1000-km equal-to 21200.
-Ananke has-period equal-to -631.
-Ananke has-eccentricity equal-to 0.17.
-Ananke has-discoverer equal-to &#39;Nicholson&#39;.
-Ananke has-discovery-year equal-to 1951.
-Carme orbits Jupiter.
-Carme has-index equal-to &#39;XI&#39;.
-Carme has-semimajor-axis-1000-km equal-to 22600.
-Carme has-period equal-to -692.
-Carme has-eccentricity equal-to 0.21.
-Carme has-discoverer equal-to &#39;Nicholson&#39;.
-Carme has-discovery-year equal-to 1938.
-Pasiphae orbits Jupiter.
-Pasiphae has-index equal-to &#39;VIII&#39;.
-Pasiphae has-semimajor-axis-1000-km equal-to 23500.
-Pasiphae has-period equal-to -735.
-Pasiphae has-eccentricity equal-to 0.38.
-Pasiphae has-discoverer equal-to &#39;Melotte&#39;.
-Pasiphae has-discovery-year equal-to 1908.
-Sinope orbits Jupiter.
-Sinope has-index equal-to &#39;IX&#39;.
-Sinope has-semimajor-axis-1000-km equal-to 23700.
-Sinope has-period equal-to -758.
-Sinope has-eccentricity equal-to 0.28.
-Sinope has-discoverer equal-to &#39;Nicholson&#39;.
-Sinope has-discovery-year equal-to 1914.
-Iocaste orbits Jupiter.
-Iocaste has-index equal-to &#39;XXIV&#39;.
-Iocaste has-semimajor-axis-1000-km equal-to 20216.
-Iocaste has-discoverer equal-to &#39;Sheppard&#39;.
-Iocaste has-discovery-year equal-to 2000.
-Harpalyke orbits Jupiter.
-Harpalyke has-index equal-to &#39;XXII&#39;.
-Harpalyke has-semimajor-axis-1000-km equal-to 21132.
-Harpalyke has-discoverer equal-to &#39;Sheppard&#39;.
-Harpalyke has-discovery-year equal-to 2000.
-Praxidike orbits jupiter.
-Praxidike has-index equal-to &#39;XXVII&#39;.
-Praxidike has-semimajor-axis-1000-km equal-to 20964.
-Praxidike has-discoverer equal-to &#39;Sheppard&#39;.
-Praxidike has-discovery-year equal-to 2000.
-Taygete orbits Jupiter.
-Taygete has-index equal-to &#39;XX&#39;.
-Taygete has-semimajor-axis-1000-km equal-to 23312.
-Taygete has-discoverer equal-to &#39;Sheppard&#39;.
-Taygete has-discovery-year equal-to 2000.
-Chaldene orbits Jupiter.
-Chaldene has-index equal-to &#39;XXI&#39;.
-Chaldene has-semimajor-axis-1000-km equal-to 23387.
-Chaldene has-discoverer equal-to &#39;Sheppard&#39;.
-Chaldene has-discovery-year equal-to 2000.
-Kalyke orbits jupiter.
-Kalyke has-index equal-to &#39;XXIII&#39;.
-Kalyke has-semimajor-axis-1000-km equal-to 23745.
-Kalyke has-discoverer equal-to &#39;Sheppard&#39;.
-Kalyke has-discovery-year equal-to 2000.
-Callirrhoe orbits Jupiter.
-Callirrhoe has-index equal-to &#39;XVII&#39;.
-Callirrhoe has-semimajor-axis-1000-km equal-to 24100.
-Callirrhoe has-discoverer equal-to &#39;Sheppard&#39;.
-Callirrhoe has-discovery-year equal-to 2000.
-Megaclite orbits Jupiter.
-Megaclite has-index equal-to &#39;XIX&#39;.
-Megaclite has-semimajor-axis-1000-km equal-to 23911.
-Megaclite has-discoverer equal-to &#39;Sheppard&#39;.
-Megaclite has-discovery-year equal-to 2000.
-Isonoe orbits Jupiter.
-Isonoe has-index equal-to &#39;XXVI&#39;.
-Isonoe has-semimajor-axis-1000-km equal-to 23078.
-Isonoe has-discoverer equal-to &#39;Sheppard&#39;.
-Isonoe has-discovery-year equal-to 2000.
-Erinome orbits Jupiter.
-Erinome has-index equal-to &#39;XXV&#39;.
-Erinome has-semimajor-axis-1000-km equal-to 23168.
-Erinome has-discoverer equal-to &#39;Sheppard&#39;.
-Erinome has-discovery-year equal-to 2000.
-Pan orbits Saturn.
-Pan has-index equal-to &#39;XVIII&#39;.
-Pan has-semimajor-axis-1000-km equal-to 134.
-Pan has-period equal-to 0.58.
-Pan has-eccentricity equal-to 0.
-Pan has-discoverer equal-to &#39;Showalter&#39;.
-Pan has-discovery-year equal-to 1990.
-Atlas orbits Saturn.
-Atlas has-index equal-to &#39;XV&#39;.
-Atlas has-semimajor-axis-1000-km equal-to 138.
-Atlas has-period equal-to 0.6.
-Atlas has-eccentricity equal-to 0.
-Atlas has-discoverer equal-to &#39;Terrile&#39;.
-Atlas has-discovery-year equal-to 1980.
-Prometheus orbits Saturn.
-Prometheus has-index equal-to &#39;XVI&#39;.
-Prometheus has-semimajor-axis-1000-km equal-to 139.
-Prometheus has-period equal-to 0.61.
-Prometheus has-eccentricity equal-to 0.
-Prometheus has-discoverer equal-to &#39;Collins&#39;.
-Prometheus has-discovery-year equal-to 1980.
-Pandora orbits Saturn.
-Pandora has-index equal-to &#39;XVII&#39;.
-Pandora has-semimajor-axis-1000-km equal-to 142.
-Pandora has-period equal-to 0.63.
-Pandora has-eccentricity equal-to 0.
-Pandora has-discoverer equal-to &#39;Collins&#39;.
-Pandora has-discovery-year equal-to 1980.
-Epimetheus orbits Saturn.
-Epimetheus has-index equal-to &#39;XI&#39;.
-Epimetheus has-semimajor-axis-1000-km equal-to 151.
-Epimetheus has-period equal-to 0.69.
-Epimetheus has-eccentricity equal-to 0.01.
-Epimetheus has-discoverer equal-to &#39;Walker&#39;.
-Epimetheus has-discovery-year equal-to 1980.
-Janus orbits Saturn.
-Janus has-index equal-to &#39;X&#39;.
-Janus has-semimajor-axis-1000-km equal-to 151.
-Janus has-period equal-to 0.69.
-Janus has-eccentricity equal-to 0.01.
-Janus has-discoverer equal-to &#39;Dollfus&#39;.
-Janus has-discovery-year equal-to 1966.
-Mimas orbits Saturn.
-Mimas has-index equal-to &#39;I&#39;.
-Mimas has-semimajor-axis-1000-km equal-to 186.
-Mimas has-period equal-to 0.94.
-Mimas has-eccentricity equal-to 0.02.
-Mimas has-discoverer equal-to &#39;Herschel&#39;.
-Mimas has-discovery-year equal-to 1789.
-Enceladus orbits Saturn.
-Enceladus has-index equal-to &#39;II&#39;.
-Enceladus has-semimajor-axis-1000-km equal-to 238.
-Enceladus has-period equal-to 1.37.
-Enceladus has-eccentricity equal-to 0.
-Enceladus has-discoverer equal-to &#39;Herschel&#39;.
-Enceladus has-discovery-year equal-to 1789.
-Tethys orbits Saturn.
-Tethys has-index equal-to &#39;III&#39;.
-Tethys has-semimajor-axis-1000-km equal-to 295.
-Tethys has-period equal-to 1.89.
-Tethys has-eccentricity equal-to 0.
-Tethys has-discoverer equal-to &#39;Cassini&#39;.
-Tethys has-discovery-year equal-to 1684.
-Telesto orbits Saturn.
-Telesto has-index equal-to &#39;XIII&#39;.
-Telesto has-semimajor-axis-1000-km equal-to 295.
-Telesto has-period equal-to 1.89.
-Telesto has-eccentricity equal-to 0.
-Telesto has-discoverer equal-to &#39;Smith&#39;.
-Telesto has-discovery-year equal-to 1980.
-Calypso orbits Saturn.
-Calypso has-index equal-to &#39;XIV&#39;.
-Calypso has-semimajor-axis-1000-km equal-to 295.
-Calypso has-period equal-to 1.89.
-Calypso has-eccentricity equal-to 0.
-Calypso has-discoverer equal-to &#39;Pascu&#39;.
-Calypso has-discovery-year equal-to 1980.
-Dione orbits Saturn.
-Dione has-index equal-to &#39;IV&#39;.
-Dione has-semimajor-axis-1000-km equal-to 377.
-Dione has-period equal-to 2.74.
-Dione has-eccentricity equal-to 0.
-Dione has-discoverer equal-to &#39;Cassini&#39;.
-Dione has-discovery-year equal-to 1684.
-Helene orbits Saturn.
-Helene has-index equal-to &#39;XII&#39;.
-Helene has-semimajor-axis-1000-km equal-to 377.
-Helene has-period equal-to 2.74.
-Helene has-eccentricity equal-to 0.01.
-Helene has-discoverer equal-to &#39;Laques&#39;.
-Helene has-discovery-year equal-to 1980.
-Rhea orbits Saturn.
-Rhea has-index equal-to &#39;V&#39;.
-Rhea has-semimajor-axis-1000-km equal-to 527.
-Rhea has-period equal-to 4.52.
-Rhea has-eccentricity equal-to 0.
-Rhea has-discoverer equal-to &#39;Cassini&#39;.
-Rhea has-discovery-year equal-to 1672.
-Titan orbits Saturn.
-Titan has-index equal-to &#39;VI&#39;.
-Titan has-semimajor-axis-1000-km equal-to 1222.
-Titan has-period equal-to 15.95.
-Titan has-eccentricity equal-to 0.03.
-Titan has-discoverer equal-to &#39;Huygens&#39;.
-Titan has-discovery-year equal-to 1655.
-Hyperion orbits Saturn.
-Hyperion has-index equal-to &#39;VII&#39;.
-Hyperion has-semimajor-axis-1000-km equal-to 1481.
-Hyperion has-period equal-to 21.28.
-Hyperion has-eccentricity equal-to 0.1.
-Hyperion has-discoverer equal-to &#39;Bond&#39;.
-Hyperion has-discovery-year equal-to 1848.
-Iapetus orbits Saturn.
-Iapetus has-index equal-to &#39;VIII&#39;.
-Iapetus has-semimajor-axis-1000-km equal-to 3561.
-Iapetus has-period equal-to 79.33.
-Iapetus has-eccentricity equal-to 0.03.
-Iapetus has-discoverer equal-to &#39;Cassini&#39;.
-Iapetus has-discovery-year equal-to 1671.
-Phoebe orbits Saturn.
-Phoebe has-index equal-to &#39;IX&#39;.
-Phoebe has-semimajor-axis-1000-km equal-to 12952.
-Phoebe has-period equal-to -550.48.
-Phoebe has-eccentricity equal-to 0.16.
-Phoebe has-discoverer equal-to &#39;Pickering&#39;.
-Phoebe has-discovery-year equal-to 1898.
-Cordelia orbits Uranus.
-Cordelia has-index equal-to &#39;VI&#39;.
-Cordelia has-semimajor-axis-1000-km equal-to 50.
-Cordelia has-period equal-to 0.34.
-Cordelia has-eccentricity equal-to 0.
-Cordelia has-discoverer equal-to &#39;Voyager 2&#39;.
-Cordelia has-discovery-year equal-to 1986.
-Ophelia orbits Uranus.
-Ophelia has-index equal-to &#39;VII&#39;.
-Ophelia has-semimajor-axis-1000-km equal-to 54.
-Ophelia has-period equal-to 0.38.
-Ophelia has-eccentricity equal-to 0.
-Ophelia has-discoverer equal-to &#39;Voyager 2&#39;.
-Ophelia has-discovery-year equal-to 1986.
-Bianca orbits Uranus.
-Bianca has-index equal-to &#39;VIII&#39;.
-Bianca has-semimajor-axis-1000-km equal-to 59.
-Bianca has-period equal-to 0.43.
-Bianca has-eccentricity equal-to 0.
-Bianca has-discoverer equal-to &#39;Voyager 2&#39;.
-Bianca has-discovery-year equal-to 1986.
-Cressida orbits Uranus.
-Cressida has-index equal-to &#39;IX&#39;.
-Cressida has-semimajor-axis-1000-km equal-to 62.
-Cressida has-period equal-to 0.46.
-Cressida has-eccentricity equal-to 0.
-Cressida has-discoverer equal-to &#39;Voyager 2&#39;.
-Cressida has-discovery-year equal-to 1986.
-Desdemona orbits Uranus.
-Desdemona has-index equal-to &#39;X&#39;.
-Desdemona has-semimajor-axis-1000-km equal-to 63.
-Desdemona has-period equal-to 0.47.
-Desdemona has-eccentricity equal-to 0.
-Desdemona has-discoverer equal-to &#39;Voyager 2&#39;.
-Desdemona has-discovery-year equal-to 1986.
-Juliet orbits Uranus.
-Juliet has-index equal-to &#39;XI&#39;.
-Juliet has-semimajor-axis-1000-km equal-to 64.
-Juliet has-period equal-to 0.49.
-Juliet has-eccentricity equal-to 0.
-Juliet has-discoverer equal-to &#39;Voyager 2&#39;.
-Juliet has-discovery-year equal-to 1986.
-Portia orbits Uranus.
-Portia has-index equal-to &#39;XII&#39;.
-Portia has-semimajor-axis-1000-km equal-to 66.
-Portia has-period equal-to 0.51.
-Portia has-eccentricity equal-to 0.
-Portia has-discoverer equal-to &#39;Voyager 2&#39;.
-Portia has-discovery-year equal-to 1986.
-Rosalind orbits Uranus.
-Rosalind has-index equal-to &#39;XIII&#39;.
-Rosalind has-semimajor-axis-1000-km equal-to 70.
-Rosalind has-period equal-to 0.56.
-Rosalind has-eccentricity equal-to 0.
-Rosalind has-discoverer equal-to &#39;Voyager 2&#39;.
-Rosalind has-discovery-year equal-to 1986.
-Belinda orbits Uranus.
-Belinda has-index equal-to &#39;XIV&#39;.
-Belinda has-semimajor-axis-1000-km equal-to 75.
-Belinda has-period equal-to 0.62.
-Belinda has-eccentricity equal-to 0.
-Belinda has-discoverer equal-to &#39;Voyager 2&#39;.
-Belinda has-discovery-year equal-to 1986.
-Puck orbits Uranus.
-Puck has-index equal-to &#39;XV&#39;.
-Puck has-semimajor-axis-1000-km equal-to 86.
-Puck has-period equal-to 0.76.
-Puck has-eccentricity equal-to 0.
-Puck has-discoverer equal-to &#39;Voyager 2&#39;.
-Puck has-discovery-year equal-to 1985.
-Miranda orbits Uranus.
-Miranda has-index equal-to &#39;V&#39;.
-Miranda has-semimajor-axis-1000-km equal-to 130.
-Miranda has-period equal-to 1.41.
-Miranda has-eccentricity equal-to 0.
-Miranda has-discoverer equal-to &#39;Kuiper&#39;.
-Miranda has-discovery-year equal-to 1948.
-Ariel orbits Uranus.
-Ariel has-index equal-to &#39;I&#39;.
-Ariel has-semimajor-axis-1000-km equal-to 191.
-Ariel has-period equal-to 2.52.
-Ariel has-eccentricity equal-to 0.
-Ariel has-discoverer equal-to &#39;Lassell&#39;.
-Ariel has-discovery-year equal-to 1851.
-Umbriel orbits Uranus.
-Umbriel has-index equal-to &#39;II&#39;.
-Umbriel has-semimajor-axis-1000-km equal-to 266.
-Umbriel has-period equal-to 4.14.
-Umbriel has-eccentricity equal-to 0.
-Umbriel has-discoverer equal-to &#39;Lassell&#39;.
-Umbriel has-discovery-year equal-to 1851.
-Titania orbits Uranus.
-Titania has-index equal-to &#39;III&#39;.
-Titania has-semimajor-axis-1000-km equal-to 436.
-Titania has-period equal-to 8.71.
-Titania has-eccentricity equal-to 0.
-Titania has-discoverer equal-to &#39;Herschel&#39;.
-Titania has-discovery-year equal-to 1787.
-Oberon orbits Uranus.
-Oberon has-index equal-to &#39;IV&#39;.
-Oberon has-semimajor-axis-1000-km equal-to 583.
-Oberon has-period equal-to 13.46.
-Oberon has-eccentricity equal-to 0.
-Oberon has-discoverer equal-to &#39;Herschel&#39;.
-Oberon has-discovery-year equal-to 1787.
-Caliban orbits Uranus.
-Caliban has-index equal-to &#39;XVI&#39;.
-Caliban has-semimajor-axis-1000-km equal-to 7169.
-Caliban has-period equal-to -580.
-Caliban has-eccentricity equal-to 0.08.
-Caliban has-discoverer equal-to &#39;Gladman &#39;.
-Caliban has-discovery-year equal-to 1997.
-Stephano orbits Uranus.
-Stephano has-index equal-to &#39;XX&#39;.
-Stephano has-semimajor-axis-1000-km equal-to 7948.
-Stephano has-period equal-to -674.
-Stephano has-eccentricity equal-to 0.24.
-Stephano has-discoverer equal-to &#39;Gladman &#39;.
-Stephano has-discovery-year equal-to 1999.
-Sycorax orbits Uranus.
-Sycorax has-index equal-to &#39;XVII&#39;.
-Sycorax has-semimajor-axis-1000-km equal-to 12213.
-Sycorax has-period equal-to -1289.
-Sycorax has-eccentricity equal-to 0.51.
-Sycorax has-discoverer equal-to &#39;Nicholson &#39;.
-Sycorax has-discovery-year equal-to 1997.
-Prospero orbits Uranus.
-Prospero has-index equal-to &#39;XVIII&#39;.
-Prospero has-semimajor-axis-1000-km equal-to 16568.
-Prospero has-period equal-to -2019.
-Prospero has-eccentricity equal-to 0.44.
-Prospero has-discoverer equal-to &#39;Holman &#39;.
-Prospero has-discovery-year equal-to 1999.
-Setebos orbits Uranus.
-Setebos has-index equal-to &#39;XIX&#39;.
-Setebos has-semimajor-axis-1000-km equal-to 17681.
-Setebos has-period equal-to -2239.
-Setebos has-eccentricity equal-to 0.57.
-Setebos has-discoverer equal-to &#39;Kavelaars&#39;.
-Setebos has-discovery-year equal-to 1999.
-Trinculo orbits Uranus.
-Trinculo has-index equal-to &#39;XXI&#39;.
-Trinculo has-discoverer equal-to &#39;Gladman &#39;.
-Trinculo has-discovery-year equal-to 2001.
-Naiad orbits Neptune.
-Naiad has-index equal-to &#39;III&#39;.
-Naiad has-semimajor-axis-1000-km equal-to 48.
-Naiad has-period equal-to 0.29.
-Naiad has-eccentricity equal-to 0.
-Naiad has-discoverer equal-to &#39;Voyager 2&#39;.
-Naiad has-discovery-year equal-to 1989.
-Thalassa orbits Neptune.
-Thalassa has-index equal-to &#39;IV&#39;.
-Thalassa has-semimajor-axis-1000-km equal-to 50.
-Thalassa has-period equal-to 0.31.
-Thalassa has-eccentricity equal-to 0.
-Thalassa has-discoverer equal-to &#39;Voyager 2&#39;.
-Thalassa has-discovery-year equal-to 1989.
-Despina orbits Neptune.
-Despina has-index equal-to &#39;V&#39;.
-Despina has-semimajor-axis-1000-km equal-to 53.
-Despina has-period equal-to 0.33.
-Despina has-eccentricity equal-to 0.
-Despina has-discoverer equal-to &#39;Voyager 2&#39;.
-Despina has-discovery-year equal-to 1989.
-Galatea orbits Neptune.
-Galatea has-index equal-to &#39;VI&#39;.
-Galatea has-semimajor-axis-1000-km equal-to 62.
-Galatea has-period equal-to 0.43.
-Galatea has-eccentricity equal-to 0.
-Galatea has-discoverer equal-to &#39;Voyager 2&#39;.
-Galatea has-discovery-year equal-to 1989.
-Larissa orbits Neptune.
-Larissa has-index equal-to &#39;VII&#39;.
-Larissa has-semimajor-axis-1000-km equal-to 74.
-Larissa has-period equal-to 0.55.
-Larissa has-eccentricity equal-to 0.
-Larissa has-discoverer equal-to &#39;Reitsema&#39;.
-Larissa has-discovery-year equal-to 1989.
-Proteus orbits Neptune.
-Proteus has-index equal-to &#39;VIII&#39;.
-Proteus has-semimajor-axis-1000-km equal-to 118.
-Proteus has-period equal-to 1.12.
-Proteus has-eccentricity equal-to 0.
-Proteus has-discoverer equal-to &#39;Voyager 2&#39;.
-Proteus has-discovery-year equal-to 2.
-Triton orbits Neptune.
-Triton has-index equal-to &#39;I&#39;.
-Triton has-semimajor-axis-1000-km equal-to 355.
-Triton has-period equal-to -5.88.
-Triton has-eccentricity equal-to 0.
-Triton has-discoverer equal-to &#39;Lassell&#39;.
-Triton has-discovery-year equal-to 1846.
-Nereid orbits Neptune.
-Nereid has-index equal-to &#39;II&#39;.
-Nereid has-semimajor-axis-1000-km equal-to 5513.
-Nereid has-period equal-to 360.13.
-Nereid has-eccentricity equal-to 0.75.
-Nereid has-discoverer equal-to &#39;Kuiper&#39;.
-Nereid has-discovery-year equal-to 1949.
-Charon orbits Pluto.
-Charon has-index equal-to &#39;I&#39;.
-Charon has-semimajor-axis-1000-km equal-to 20.
-Charon has-period equal-to 6.39.
-Charon has-eccentricity equal-to 0.
-Charon has-discoverer equal-to &#39;Christy&#39;.
-Charon has-discovery-year equal-to 1978.
-Nix orbits Pluto.
-Nix has-index equal-to &#39;II&#39;.
-Nix has-semimajor-axis-1000-km equal-to 49.
-Nix has-period equal-to 24.86.
-Nix has-eccentricity equal-to 0.
-Nix has-discoverer equal-to &#39;Stern&#39;.
-Nix has-discovery-year equal-to 2005.
-Hydra orbits Pluto.
-Hydra has-index equal-to &#39;III&#39;.
-Hydra has-semimajor-axis-1000-km equal-to 65.
-Hydra has-period equal-to 38.21.
-Hydra has-eccentricity equal-to 0.
-Hydra has-discoverer equal-to &#39;Stern&#39;.
-Hydra has-discovery-year equal-to 2005.
+Saturn has-period equal-to 107...
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -1541,7 +990,7 @@ Hydra has-discovery-year equal-to 2005.
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">physics_cnl</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">line</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">raw_physical_data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">physics_to_cnl</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">line</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">physics_cnl</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">physics_cnl</span><span class="p">[:</span><span class="mi">1000</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;...&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1580,335 +1029,7 @@ Mars has-vo equal-to -2.0.
 Mars has-rotate equal-to 1.03.
 Jupiter has-radius equal-to 71492.0.
 Jupiter has-mass-kg equal-to 1.90e27.
-Jupiter has-density equal-to 1.33.
-Jupiter has-abo equal-to 0.52.
-Jupiter has-vo equal-to -2.7.
-Jupiter has-rotate equal-to 0.41.
-Saturn has-radius equal-to 60268.0.
-Saturn has-mass-kg equal-to 5.68e26.
-Saturn has-density equal-to 0.69.
-Saturn has-abo equal-to 0.47.
-Saturn has-vo equal-to 0.7.
-Saturn has-rotate equal-to 0.45.
-Uranus has-radius equal-to 25559.0.
-Uranus has-mass-kg equal-to 8.68e25.
-Uranus has-density equal-to 1.32.
-Uranus has-abo equal-to 0.51.
-Uranus has-vo equal-to 5.5.
-Uranus has-rotate equal-to -0.72.
-Neptune has-radius equal-to 24766.0.
-Neptune has-mass-kg equal-to 1.02e26.
-Neptune has-density equal-to 1.64.
-Neptune has-abo equal-to 0.41.
-Neptune has-vo equal-to 7.8.
-Neptune has-rotate equal-to 0.67.
-Pluto has-radius equal-to 1150.0.
-Pluto has-mass-kg equal-to 1.27e22.
-Pluto has-density equal-to 2.06.
-Pluto has-abo equal-to 0.55.
-Pluto has-vo equal-to 13.6.
-Pluto has-rotate equal-to -6.39.
-Moon has-radius equal-to 1738.0.
-Moon has-mass-kg equal-to 7.35e22.
-Moon has-density equal-to 3.34.
-Moon has-abo equal-to 0.12.
-Moon has-vo equal-to -12.7.
-Moon has-rotate equal-to &#39;Stable&#39;.
-Phobos has-radius equal-to 11.0.
-Phobos has-mass-kg equal-to 1.08e16.
-Phobos has-density equal-to 1.9.
-Phobos has-abo equal-to 0.06.
-Phobos has-vo equal-to 11.3.
-Phobos has-rotate equal-to &#39;Stable&#39;.
-Deimos has-radius equal-to 6.0.
-Deimos has-mass-kg equal-to 1.80e15.
-Deimos has-density equal-to 1.8.
-Deimos has-abo equal-to 0.07.
-Deimos has-vo equal-to 12.3.
-Deimos has-rotate equal-to &#39;Stable&#39;.
-Metis has-radius equal-to 20.0.
-Metis has-mass-kg equal-to 9.56e16.
-Metis has-density equal-to 2.8.
-Metis has-abo equal-to 0.05.
-Metis has-vo equal-to 17.5.
-Adrastea has-radius equal-to 10.0.
-Adrastea has-mass-kg equal-to 1.91e16.
-Adrastea has-density equal-to 4.5.
-Adrastea has-abo equal-to 0.05.
-Adrastea has-vo equal-to 18.7.
-Amalthea has-radius equal-to 94.0.
-Amalthea has-mass-kg equal-to 3.5e18.
-Amalthea has-density equal-to 1.0.
-Amalthea has-abo equal-to 0.05.
-Amalthea has-vo equal-to 14.1.
-Amalthea has-rotate equal-to &#39;Stable&#39;.
-Thebe has-radius equal-to 50.0.
-Thebe has-mass-kg equal-to 7.77e17.
-Thebe has-density equal-to 1.5.
-Thebe has-abo equal-to 0.05.
-Thebe has-vo equal-to 16.0.
-Thebe has-rotate equal-to &#39;Stable&#39;.
-Io has-radius equal-to 1821.0.
-Io has-mass-kg equal-to 8.93e22.
-Io has-density equal-to 3.53.
-Io has-abo equal-to 0.61.
-Io has-vo equal-to 5.0.
-Io has-rotate equal-to &#39;Stable&#39;.
-Europa has-radius equal-to 1565.0.
-Europa has-mass-kg equal-to 4.80e22.
-Europa has-density equal-to 2.99.
-Europa has-abo equal-to 0.64.
-Europa has-vo equal-to 5.3.
-Europa has-rotate equal-to &#39;Stable&#39;.
-Ganymede has-radius equal-to 2634.0.
-Ganymede has-mass-kg equal-to 1.48e23.
-Ganymede has-density equal-to 1.94.
-Ganymede has-abo equal-to 0.42.
-Ganymede has-vo equal-to 4.6.
-Ganymede has-rotate equal-to &#39;Stable&#39;.
-Callisto has-radius equal-to 2403.0.
-Callisto has-mass-kg equal-to 1.08e23.
-Callisto has-density equal-to 1.85.
-Callisto has-abo equal-to 0.20.
-Callisto has-vo equal-to 5.6.
-Callisto has-rotate equal-to &#39;Stable&#39;.
-Leda has-radius equal-to 8.0.
-Leda has-mass-kg equal-to 5.68e15.
-Leda has-density equal-to 2.7.
-Leda has-vo equal-to 20.2.
-Himalia has-radius equal-to 93.0.
-Himalia has-mass-kg equal-to 9.56e18.
-Himalia has-density equal-to 2.8.
-Himalia has-vo equal-to 15.0.
-Himalia has-rotate equal-to 0.4.
-Lysithea has-radius equal-to 18.0.
-Lysithea has-mass-kg equal-to 7.77e16.
-Lysithea has-density equal-to 3.1.
-Lysithea has-vo equal-to 18.2.
-Elara has-radius equal-to 38.0.
-Elara has-mass-kg equal-to 7.77e17.
-Elara has-density equal-to 3.3.
-Elara has-vo equal-to 16.6.
-Elara has-rotate equal-to 0.5.
-Ananke has-radius equal-to 15.0.
-Ananke has-mass-kg equal-to 3.82e16.
-Ananke has-density equal-to 2.7.
-Ananke has-vo equal-to 18.9.
-Carme has-radius equal-to 20.0.
-Carme has-mass-kg equal-to 9.56e16.
-Carme has-density equal-to 2.8.
-Carme has-vo equal-to 17.9.
-Pasiphae has-radius equal-to 25.0.
-Pasiphae has-mass-kg equal-to 1.91e17.
-Pasiphae has-density equal-to 2.9.
-Pasiphae has-vo equal-to 16.9.
-Sinope has-radius equal-to 18.0.
-Sinope has-mass-kg equal-to 7.77e16.
-Sinope has-density equal-to 3.1.
-Sinope has-vo equal-to 18.0.
-Pan has-radius equal-to 10.0.
-Pan has-abo equal-to 0.5.
-Atlas has-radius equal-to 15.0.
-Atlas has-abo equal-to 0.9.
-Atlas has-vo equal-to 18.0.
-Prometheus has-radius equal-to 46.0.
-Prometheus has-mass-kg equal-to 2.70e17.
-Prometheus has-density equal-to 0.7.
-Prometheus has-abo equal-to 0.6.
-Prometheus has-vo equal-to 15.8.
-Pandora has-radius equal-to 42.0.
-Pandora has-mass-kg equal-to 2.20e17.
-Pandora has-density equal-to 0.7.
-Pandora has-abo equal-to 0.9.
-Pandora has-vo equal-to 16.5.
-Epimetheus has-radius equal-to 57.0.
-Epimetheus has-mass-kg equal-to 5.59e17.
-Epimetheus has-density equal-to 0.6.
-Epimetheus has-abo equal-to 0.8.
-Epimetheus has-vo equal-to 15.7.
-Epimetheus has-rotate equal-to &#39;Stable&#39;.
-Janus has-radius equal-to 89.0.
-Janus has-mass-kg equal-to 1.98e18.
-Janus has-density equal-to 0.65.
-Janus has-abo equal-to 0.8.
-Janus has-vo equal-to 14.5.
-Janus has-rotate equal-to &#39;Stable&#39;.
-Mimas has-radius equal-to 199.0.
-Mimas has-mass-kg equal-to 3.75e19.
-Mimas has-density equal-to 1.14.
-Mimas has-abo equal-to 0.5.
-Mimas has-vo equal-to 12.9.
-Mimas has-rotate equal-to &#39;Stable&#39;.
-Enceladus has-radius equal-to 249.0.
-Enceladus has-mass-kg equal-to 7.30e19.
-Enceladus has-density equal-to 1.12.
-Enceladus has-abo equal-to 0.99.
-Enceladus has-vo equal-to 11.7.
-Enceladus has-rotate equal-to &#39;Stable&#39;.
-Tethys has-radius equal-to 530.0.
-Tethys has-mass-kg equal-to 6.22e20.
-Tethys has-density equal-to 1.00.
-Tethys has-abo equal-to 0.9.
-Tethys has-vo equal-to 10.2.
-Tethys has-rotate equal-to &#39;Stable&#39;.
-Telesto has-radius equal-to 15.0.
-Telesto has-abo equal-to 0.5.
-Telesto has-vo equal-to 18.7.
-Calypso has-radius equal-to 13.0.
-Calypso has-abo equal-to 0.6.
-Calypso has-vo equal-to 19.0.
-Dione has-radius equal-to 560.0.
-Dione has-mass-kg equal-to 1.05e21.
-Dione has-density equal-to 1.44.
-Dione has-abo equal-to 0.7.
-Dione has-vo equal-to 10.4.
-Dione has-rotate equal-to &#39;Stable&#39;.
-Helene has-radius equal-to 16.0.
-Helene has-abo equal-to 0.7.
-Helene has-vo equal-to 18.4.
-Rhea has-radius equal-to 764.0.
-Rhea has-mass-kg equal-to 2.31e21.
-Rhea has-density equal-to 1.24.
-Rhea has-abo equal-to 0.7.
-Rhea has-vo equal-to 9.7.
-Rhea has-rotate equal-to &#39;Stable&#39;.
-Titan has-radius equal-to 2575.0.
-Titan has-mass-kg equal-to 1.35e23.
-Titan has-density equal-to 1.88.
-Titan has-abo equal-to 0.21.
-Titan has-vo equal-to 8.3.
-Titan has-rotate equal-to &#39;Stable&#39;.
-Hyperion has-radius equal-to 143.0.
-Hyperion has-mass-kg equal-to 1.77e19.
-Hyperion has-density equal-to 1.4.
-Hyperion has-abo equal-to 0.3.
-Hyperion has-vo equal-to 14.2.
-Hyperion has-rotate equal-to &#39;Chaotic&#39;.
-Iapetus has-radius equal-to 718.0.
-Iapetus has-mass-kg equal-to 1.59e21.
-Iapetus has-density equal-to 1.02.
-Iapetus has-abo equal-to 0.21.
-Iapetus has-vo equal-to 11.1.
-Iapetus has-rotate equal-to &#39;Stable&#39;.
-Phoebe has-radius equal-to 110.0.
-Phoebe has-density equal-to 1.6.
-Phoebe has-abo equal-to 0.06.
-Phoebe has-vo equal-to 16.5.
-Phoebe has-rotate equal-to 0.4.
-Cordelia has-radius equal-to 13.0.
-Cordelia has-abo equal-to 0.07.
-Cordelia has-vo equal-to 24.0.
-Ophelia has-radius equal-to 16.0.
-Ophelia has-abo equal-to 0.07.
-Ophelia has-vo equal-to 24.0.
-Bianca has-radius equal-to 22.0.
-Bianca has-abo equal-to 0.07.
-Bianca has-vo equal-to 23.0.
-Cressida has-radius equal-to 33.0.
-Cressida has-abo equal-to 0.07.
-Cressida has-vo equal-to 22.0.
-Desdemona has-radius equal-to 29.0.
-Desdemona has-abo equal-to 0.07.
-Desdemona has-vo equal-to 22.0.
-Juliet has-radius equal-to 42.0.
-Juliet has-abo equal-to 0.07.
-Juliet has-vo equal-to 22.0.
-Portia has-radius equal-to 55.0.
-Portia has-abo equal-to 0.07.
-Portia has-vo equal-to 21.0.
-Rosalind has-radius equal-to 27.0.
-Rosalind has-abo equal-to 0.07.
-Rosalind has-vo equal-to 22.0.
-Belinda has-radius equal-to 34.0.
-Belinda has-abo equal-to 0.07.
-Belinda has-vo equal-to 22.0.
-Puck has-radius equal-to 77.0.
-Puck has-abo equal-to 0.07.
-Puck has-vo equal-to 20.0.
-Miranda has-radius equal-to 236.0.
-Miranda has-mass-kg equal-to 6.59e19.
-Miranda has-density equal-to 1.20.
-Miranda has-abo equal-to 0.27.
-Miranda has-vo equal-to 16.5.
-Miranda has-rotate equal-to &#39;Stable&#39;.
-Ariel has-radius equal-to 581.0.
-Ariel has-mass-kg equal-to 1.35e21.
-Ariel has-density equal-to 1.67.
-Ariel has-abo equal-to 0.34.
-Ariel has-vo equal-to 14.4.
-Ariel has-rotate equal-to &#39;Stable&#39;.
-Umbriel has-radius equal-to 585.0.
-Umbriel has-mass-kg equal-to 1.17e21.
-Umbriel has-density equal-to 1.40.
-Umbriel has-abo equal-to 0.18.
-Umbriel has-vo equal-to 15.3.
-Umbriel has-rotate equal-to &#39;Stable&#39;.
-Titania has-radius equal-to 789.0.
-Titania has-mass-kg equal-to 3.53e21.
-Titania has-density equal-to 1.71.
-Titania has-abo equal-to 0.27.
-Titania has-vo equal-to 14.0.
-Titania has-rotate equal-to &#39;Stable&#39;.
-Oberon has-radius equal-to 761.0.
-Oberon has-mass-kg equal-to 3.01e21.
-Oberon has-density equal-to 1.63.
-Oberon has-abo equal-to 0.24.
-Oberon has-vo equal-to 14.2.
-Oberon has-rotate equal-to &#39;Stable&#39;.
-Caliban has-radius equal-to 40.0.
-Caliban has-abo equal-to 0.07.
-Caliban has-vo equal-to 21.9.
-Stephano has-radius equal-to 15.0.
-Stephano has-abo equal-to 0.07.
-Stephano has-vo equal-to 24.3.
-Sycorax has-radius equal-to 80.0.
-Sycorax has-abo equal-to 0.07.
-Sycorax has-vo equal-to 20.4.
-Prospero has-radius equal-to 20.0.
-Prospero has-abo equal-to 0.07.
-Prospero has-vo equal-to 23.2.
-Setebos has-radius equal-to 20.0.
-Setebos has-abo equal-to 0.07.
-Setebos has-vo equal-to 23.3.
-Naiad has-radius equal-to 29.0.
-Naiad has-abo equal-to 0.06.
-Naiad has-vo equal-to 25.0.
-Thalassa has-radius equal-to 40.0.
-Thalassa has-abo equal-to 0.06.
-Thalassa has-vo equal-to 24.0.
-Despina has-radius equal-to 74.0.
-Despina has-abo equal-to 0.06.
-Despina has-vo equal-to 23.0.
-Galatea has-radius equal-to 79.0.
-Galatea has-abo equal-to 0.06.
-Galatea has-vo equal-to 23.0.
-Larissa has-radius equal-to 96.0.
-Larissa has-abo equal-to 0.06.
-Larissa has-vo equal-to 21.0.
-Proteus has-radius equal-to 209.0.
-Proteus has-abo equal-to 0.06.
-Proteus has-vo equal-to 20.0.
-Triton has-radius equal-to 1353.0.
-Triton has-mass-kg equal-to 2.15e22.
-Triton has-density equal-to 2.05.
-Triton has-abo equal-to 0.7.
-Triton has-vo equal-to 13.6.
-Triton has-rotate equal-to &#39;Stable&#39;.
-Nereid has-radius equal-to 170.0.
-Nereid has-abo equal-to 0.2.
-Nereid has-vo equal-to 18.7.
-Charon has-radius equal-to 603.0.
-Charon has-mass-kg equal-to 1.52e21.
-Charon has-density equal-to 1.72.
-Charon has-abo equal-to 0.32.
-Charon has-vo equal-to 15.5.
-Charon has-rotate equal-to &#39;Stable&#39;.
-Nix has-radius equal-to 23.0.
-Nix has-mass-kg lower-than 2e18.
-Nix has-vo equal-to 22.9.
-Hydra has-radius equal-to 30.0.
-Hydra has-mass-kg lower-than 2e18.
-Hydra has-vo equal-to 23.4.
+Jupiter has-density equal-...
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -2269,9 +1390,11 @@ Welcome to CogniPy</div>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "730125ea80eb4a8c8dd6d861d80bc754", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "065c67b9d41a44d593cd1f132ac59d3e", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-<p>Lets define the function that will build the ontology based on the dict of ontology editors and the optional additional editor for testing purposes. All it is doing it is concatenaiting the values of all the editors and puts them into the newly created ontology object.</p>
+</div>
+<div class="section" id="Loading-the-ontology">
+<h2>Loading the ontology<a class="headerlink" href="#Loading-the-ontology" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
@@ -2283,7 +1406,9 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 </div>
-<p>The ontology object alows you to draw the materialised graph using several layout algorythms. Lets draw our base ontology.</p>
+</div>
+<div class="section" id="Exploring-the-ontology">
+<h2>Exploring the ontology<a class="headerlink" href="#Exploring-the-ontology" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
@@ -2598,7 +1723,7 @@ Welcome to CogniPy</div>
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2607,7 +1732,7 @@ Welcome to CogniPy</div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -3075,8 +2200,11 @@ Welcome to CogniPy</div>
 </table>
 </div></div>
 </div>
+</div>
+<div class="section" id="Draw-the-ontology">
+<h2>Draw the ontology<a class="headerlink" href="#Draw-the-ontology" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3085,11 +2213,11 @@ Welcome to CogniPy</div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/jupyter_notebooks_SolarSystem_SolarSystem_23_0.svg" src="../../_images/jupyter_notebooks_SolarSystem_SolarSystem_23_0.svg" /></div>
+<img alt="../../_images/jupyter_notebooks_SolarSystem_SolarSystem_24_0.svg" src="../../_images/jupyter_notebooks_SolarSystem_SolarSystem_24_0.svg" /></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -3101,8 +2229,9 @@ Welcome to CogniPy</div>
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {"01732923acd64d0b80804b86a06086a6": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_5143fe6b6b2e4bdbb95db4836c07f69f", "IPY_MODEL_c7c7716cd5034ec7a3235e29964fa9d9"], "layout": "IPY_MODEL_48a844c1f16d4e0f89888a38f9f871b1"}}, "0287b64412d1476fac61df9b498195e0": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "037f1754f4dd4ad58c88763c16de89de": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "03b3c5826e9e462fa8102da3a1b543ee": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_0e81ba53de50448cba0d67cc1b204ea3", "IPY_MODEL_edfd7c1406474ef8b6008fa01533a9f1"], "layout": "IPY_MODEL_0c03d2ee143c402dbf620710558f3c20"}}, "0529b65148e34a3f84378822394dbb23": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_e87806312d1343ce83bb2bb743ba1b80"}}, "075ca95d3ff64fdf8542061a5f907fdc": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_ac2b910f6f714657b031543b3c3820f6", "value": "Namespace: 'http://cognitum.eu/african_wildlife'.\n\nComment: 'Lets name our instances'.\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\nEvery ma\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal. \nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\nEvery lion is carnivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nEvery branch is a plant-part.\nEvery leaf is a plant-part.\nEvery twig is a plant-part.\n\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery xylem is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nComment: 'We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words'.\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n"}}, "08826d1d1e2d4efa9364b5d2bafa3c93": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "08a658b923de47b7add2517b8353da1a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "08c30bf83c284e6ebe21cc3249cd99ba": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 191, "hints": "Every<br/>Every-single-thing<br/>If<br/>Leo-01<br/>Mary-01<br/>No<br/>Nothing<br/>Something<br/>Sophie-01<br/>The<br/>X", "hintsX": 191, "layout": "IPY_MODEL_951c1fa30fea488a8ae1578cede4b5fe", "value": "Every carnivorous-plant must eat an animal.\nEvery carnivor must eat an animal.\nEvery omnivore must eat a plant.\nEvery branch must be-part-of a tree.\nEvery plant-part must be-part-of a plant.\n\nComment: 'Role equivalence and inverted roles'.\nX has-part Y if-and-only-if Y is-part-of X.\nX eats Y if-and-only-if Y is-eaten-by X.\n\nComment: 'Role subsumptions'.\nIf X is-part-of Y then X is-part-of Y.\nIf X has-part something that has-part Y then X has-part Y.\n\nComment: 'Complex role subsumptions'.\nIf X is-part-of something that is-part-of Y then X is-part-of Y.\n"}}, "0c03d2ee143c402dbf620710558f3c20": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100px"}}, "0cfbf011af6241ebbcc675d701aac5be": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_99075eefb8ad4a5087de5fbfbb2e2a8c", "IPY_MODEL_26cf7a97df4f42b6af33ce787196e2da"], "layout": "IPY_MODEL_4aafc9319e7743f8985cdc669f22cab5"}}, "0e81ba53de50448cba0d67cc1b204ea3": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_a270637c9421471a86a1a5fb0c90358f", "value": "eaten by Leo-01"}}, "0ee45e2151a74dfeb632f8622dfa620d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "0ee4e8ad62ab43f4b5b438a66a7f42b5": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "156d68322d1e4dd3a0fbfab1be1688bf": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_585c9fe15e494126a1116a5e5f8e87e4"}}, "1786ad24fa9d463aa9ad86dcacd6b971": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "17f3ad9162db4104a65795f20d5f0075": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "194e683e49954beab66c82f87eec0560": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 15, "hints": "&lt;natural number&gt;", "hintsX": 9, "layout": "IPY_MODEL_54500e1db47043b29c2725eaf17f81f6", "value": "eaten by Leo-01"}}, "197ff87aa0754c10a5bf9d6054ec2664": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_416b7202da814b9095cb90fed53606c3", "IPY_MODEL_dd75b77ca52a43a9868c62b289a4e4e1"], "layout": "IPY_MODEL_c7fe458b7f814978a92e90b0b53c295c"}}, "1a817713ce83451c8259b7b8600da6fb": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "1d27dea574734e228e02e981579f0e48": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_037f1754f4dd4ad58c88763c16de89de", "value": "Sophie loves Leo.\nLeo loves Sophie."}}, "22275249b4964692bbda1b6c7faf7f47": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_670789803c044d699064f4d8d85c169a", "IPY_MODEL_b3aca64dc8c740feae0ac17d0679814c"], "layout": "IPY_MODEL_9b0f9a23e3574472b084a63a42c18088"}}, "2401f4a10a284f68920b1eb13a0ef3f1": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_d810833472c54ff1a38f821261445bdb"}}, "260916fd573c4e118c8d6fdeed6c1d4d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "26cf7a97df4f42b6af33ce787196e2da": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_c370339aafb24857915cb2b2d2ab7980"}}, "27ad5c8d383e457a9920d5cb29f64853": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_df59fa382ea5464699bf03b221ac05e1"}}, "27cf37417f84476da68ac933a85143a5": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_6834615b88754ba992949979ad4896da", "value": "eaten by Leo-01"}}, "282ed86a1e9f475ab92778daa6256ae2": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "2a02773588a34d31a60ab56ea873ef24": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "2a57077dcfc6408f910fcdd1069fb533": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100px"}}, "2b1178c8982c4d7f8bd00f05c2a0ab9f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "2ee595c943434b3288bd80d13a391707": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_6b665fd9cf6b45d0ade1db84533996f4"}}, "30b370db0cbd4590a28eeacadd095188": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_540624d791b04c72a5f6de35ef203a09", "IPY_MODEL_5b7a7dc340b8488b8d7616e1a0e4e954"], "layout": "IPY_MODEL_6b3a1654ff064f0aaf274b3478288a8f"}}, "31401dde148b42c6b6dee0ee84db65b2": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "31f03381b8af43c8b7b31448e2494891": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_830d5ee0e72742cbb9c50e698f8db857", "IPY_MODEL_87dbf123720c4818bdda118bfdbb7cda"], "layout": "IPY_MODEL_798ac8c8baa148b68188dc60d84de5fe"}}, "34a127ddc9f3425d855562e734e8582e": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "355b5ed96daf48f38e261d20f99eb26b": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_8b7f1503cd5d4af7bedb96db2bc9826b", "IPY_MODEL_3d934eb24f9b4005b831504a0e4baa3e"], "layout": "IPY_MODEL_0ee4e8ad62ab43f4b5b438a66a7f42b5"}}, "379b403b772848b184590efb077753db": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "38238e85b5bb4623a8ef8b3af0729a67": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "3d934eb24f9b4005b831504a0e4baa3e": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_f2dac51fb55347f2bf9f5f781b9e4558"}}, "3e2147d0702741bbb1963715683ba2ff": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_55f4f87242224575b52e41afa40e5e2d"}}, "4039c44a6b81427881c64dbe368c3771": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_7ffcc5da836a4772ad6190ded79997f7", "IPY_MODEL_156d68322d1e4dd3a0fbfab1be1688bf"], "layout": "IPY_MODEL_282ed86a1e9f475ab92778daa6256ae2"}}, "416b7202da814b9095cb90fed53606c3": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_bfdcdc39eeb04946a97cd9562372bc04", "value": "Sophie loves Leo.\nLeo loves Sophie."}}, "42805aa70f7945db96a25007c189bac0": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_d8f23781ffc74fb797fe78016d7b58e4", "value": "Every-single-thing that is a plant and-or is a plant-part is a herb.\nNo herb is an animal.\n\nEvery carnivore eats nothing-but animals.\nEvery lion eats nothing-but herbivores.\n\nEvery herbivore eats nothing-but herb.\n\nAnything either is a carnivore, is a herbivore or is an omnivore or-something-else.\nAnything either is a branch, is a leaf or is a twig or-something-else.\n\nNo giraffe is a lion.\nEvery palm-tree is not a tree.\n"}}, "43ef90ea44f7483cae76acd6a8bf06db": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100px"}}, "44f37380178d4fa0a074af10221c17fa": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "4636ed4b6a9b4aa29f2b8c9efe57f732": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 199, "hints": "Branch-01<br/>Every<br/>Every-single-thing<br/>If<br/>Leo-01<br/>Mary-01<br/>No<br/>Nothing<br/>Something<br/>Sophie-01<br/>The<br/>X", "hintsX": 199, "layout": "IPY_MODEL_6bc39517a9044c0d95ed9158711c5ff5", "value": "Leo-01 is a lion.\nLeo-01 eats Sophie-01.\nSophie-01 is a giraffe.\nSophie-01 eats Leaf-01.\nMary-01 is a tree.\nLeaf-01 is a leaf and is-part-of Branch-02.\nBranch-02 is a branch and is-part-of Branch-01.\nBranch-01 is a branch and is-part-of Mary-01.\nBranch-03 is a branch."}}, "46b6bc391f7d47cb95796e1c5effa3cb": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "48a844c1f16d4e0f89888a38f9f871b1": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "490fd126b35c4016a45f2265268f5ef0": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_2a02773588a34d31a60ab56ea873ef24", "value": "Every carnivorous-plant must eat an animal.\nEvery carnivor must eat an animal.\nEvery omnivore must eat a plant.\nEvery branch must be-part-of a tree.\nEvery plant-part must be-part-of a plant.\n\nComment: 'Role equivalence and inverted roles'.\nX has-part Y if-and-only-if Y is-part-of X.\nX eats Y if-and-only-if Y is-eaten-by X.\n\nComment: 'Role subsumptions'.\nIf X is-part-of Y then X is-part-of Y.\nIf X has-part something that has-part Y then X has-part Y.\n\nComment: 'Complex role subsumptions'.\nIf X is-part-of something that is-part-of Y then X is-part-of Y.\n"}}, "4974f63235624cb0950d09b959338aac": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_4636ed4b6a9b4aa29f2b8c9efe57f732", "IPY_MODEL_8f2ee93c18ed4583894db21311e14ed9"], "layout": "IPY_MODEL_df45bd0d614e4f8dbc1d38058dc993e7"}}, "4a322469244d444ca5d1bcb372403f27": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "4a569f7988e8471dafe05c22d22bd4ea": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 173, "hints": "&lt;Proper-Name&gt;<br/>Every<br/>Every-single-thing<br/>If<br/>No<br/>Nothing<br/>Something<br/>The<br/>X", "hintsX": 173, "layout": "IPY_MODEL_4a322469244d444ca5d1bcb372403f27", "value": "Every-single-thing that is a plant and-or is a plant-part is a herb.\nNo herb is an animal.\n\nEvery carnivore eats nothing-but animals.\nEvery lion eats nothing-but herbivores.\n\nEvery herbivore eats nothing-but herb.\n\nAnything either is a carnivore, is a herbivore or is an omnivore or-something-else.\nAnything either is a branch, is a leaf or is a twig or-something-else.\n\nNo giraffe is a lion.\nEvery palm-tree is not a tree.\n"}}, "4aafc9319e7743f8985cdc669f22cab5": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "4d3213ec0b2c4ad69c1a66a3369ab474": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_e736dda042e74aac96c321bed782241e", "IPY_MODEL_7cb5ce8716bf4a209b03b4910d97a0e2"], "layout": "IPY_MODEL_6dfbc4a9245c453fb126ea93c284477f"}}, "4f0a97990f8943818fc14ed4fd385830": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_ea50e21fc54b4d97b922faa6337bdfe7"}}, "50e4b95344d64a99b4f7543b017bf5a4": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "50f1befbf50548f9869037abe911c6c2": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_d9c2b88b505b48a4b6c2c57cd93f7776"}}, "5143fe6b6b2e4bdbb95db4836c07f69f": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_31401dde148b42c6b6dee0ee84db65b2", "value": "Leo-01 is a lion.\nLeo-01 eats Sophie-01.\nSophie-01 is a giraffe.\nLeo-01 eats Mary-01.\nMary-01 is a palm-tree.\n"}}, "540624d791b04c72a5f6de35ef203a09": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 171, "hintT": "!!!SYNTAX ERROR!!!", "hints": "!!!SYNTAX ERROR!!!", "hintsX": 169, "layout": "IPY_MODEL_0ee45e2151a74dfeb632f8622dfa620d", "value": "Namespace: 'http://cognitum.eu/african_wildlife'.\n\nComment: 'Lets name our instances'.\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\nEvery ma\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal. \nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\nEvery lion is carnivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nEvery branch is a plant-part.\nEvery leaf is a plant-part.\nEvery twig is a plant-part.\n\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery xylem is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nComment: 'We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words'.\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n"}}, "54500e1db47043b29c2725eaf17f81f6": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "54e213dd70db416783e9f4dd9eb8473a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_68ff3e69ff0948c7b1d6ea2e0727d6f1", "IPY_MODEL_cdb640c492eb40d986642b7b0cf89db1"], "layout": "IPY_MODEL_43ef90ea44f7483cae76acd6a8bf06db"}}, "55bb21d754f845a0b76771e91480da21": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_08c30bf83c284e6ebe21cc3249cd99ba", "IPY_MODEL_8e63218be8c84392b59914249922d662"], "layout": "IPY_MODEL_e278e56780d1428c826f7d861d407183"}}, "55f4f87242224575b52e41afa40e5e2d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "56a2eb99cf15417e8568cc49848857f1": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_7e5fec00c2ad42f1b02a76e0e2b34c6d", "value": "Every carnivorous-plant must eat an animal.\nEvery carnivor must eat an animal.\nEvery omnivore must eat a plant.\nEvery branch must be-part-of a tree.\nEvery plant-part must be-part-of a plant.\n\nComment: 'Role equivalence and inverted roles'.\nX has-part Y if-and-only-if Y is-part-of X.\nX eats Y if-and-only-if Y is-eaten-by X.\n\nComment: 'Role subsumptions'.\nIf X is-part-of Y then X is-part-of Y.\nIf X has-part something that has-part Y then X has-part Y.\n\nComment: 'Complex role subsumptions'.\nIf X is-part-of something that is-part-of Y then X is-part-of Y.\n"}}, "585c9fe15e494126a1116a5e5f8e87e4": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "5aea4cc758c6473193e64e8a9da92f28": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "5b7a7dc340b8488b8d7616e1a0e4e954": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_72f03a0887ce493bb7e9983353e95041"}}, "5ca39e2e45c9445eb22413a85950317f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "5f92d7eda9e4489591fce827af8d659b": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "6140f382320b46d8bf1bbe77cd6ff9d2": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_63c4a550777447f1896522d0db7ab5f5", "IPY_MODEL_50f1befbf50548f9869037abe911c6c2"], "layout": "IPY_MODEL_50e4b95344d64a99b4f7543b017bf5a4"}}, "637bf119d26145cd9b1c74a314f17fb0": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "63c4a550777447f1896522d0db7ab5f5": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 1198, "hints": "Every<br/>Every-single-thing<br/>If<br/>Leo<br/>No<br/>Nothing<br/>Something<br/>Sophie<br/>The<br/>X", "hintsX": 1198, "layout": "IPY_MODEL_f4ea8cdd8b5c4157a727af4af9d67cb3", "value": "Title: 'African Wildlife'.\nAuthor: 'Pawe\u0139\u201a Kap\u0139\u201aa\u0139\u201eski'.\nBased-On: \n 'A Semantic Web Primer.'\n 'Antoniou, G, van Harmelen, F.'\n 'MIT Press, 2003.'\n 'http://www.csd.uoc.gr/~hy566/SWbook.pdf'\n.\n\nComment:\n////// Examples of Possible Questions  /////////////////////////////   \n//Who-Or-What:\n// * is a carnivore ?                                      \n// * is an herbivore ?                                         \n// * is an animal that eats grass ?                            \n// * is-part-of a tree ?  \n// * is eaten by lion?           \n////////////////////////////////////////////////////////////////////.\n\n\n\nPart-1: 'simple hierarchy of beings'.\n\nComment: 'Lets name our instances'.\nSophie is a giraffe.\nLeo is a lion.\n\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal.\nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nPart-2: adjectives and specifications.\n\nComment: 'We cannot use adjectives directly'.\nComment: 'To specify adjectives we need to transform them into sets that have form of buzzy-words'.\n\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n\nComment: 'Similarly we can do to make something more and more specific'.\nEvery branch is a plant-part.\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery twig is a plant-part.\nEvery xylem is a plant-part.\nEvery leaf is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nPart-3: Disjointness.\n\nComment: 'We deal with Open World Assumption, therefore we need to specify explicitly if two things are different'.\nComment: 'E.g.: We need to specify explicitly that animal is not a plant'.\nEvery animal is not a plant.\nEvery giraffe is not a lion.\nEvery palm-tree is not a tree.\n\nComment: 'Or we can use it - it means the same'.\nNo animal is a plant.\n\nPart-4: Simple relations.\n\nComment: To specify relation beetween beings.\nEvery lion eats an impala.\nEvery carnivorous-plant eats an animal.\n\nComment: 'I.e. be part of is a part-whole relation'.\nEvery branch is-part-of a tree.\nEvery plant-part is-proper-part-of a plant.\nEvery xylem is-proper-part-of a stem.\nEvery phloem is-proper-part-of a stem.\n\nComment:  'Specifying the range of relation. The difference? One is that lion eats impala. Second that it eats only herbivore' -> impala must be herbivore.\nEvery lion eats nothing-but herbivores.\n\nPart-5: 'Complex relations'.\n\nEvery palm-tree has-part that is not a branch.\nEvery warthog eats an animal and eats a fruiting-body and eats a grass and eats a root.\nEvery giraffe eats nothing-but things that are leaves and-or are twigs.\nEvery leaf is-part-of something that is a branch and-or is a twig.\nEvery tasty-plant is-eaten-by a carnivore and is-eaten-by a herbivore.\nEvery-single-thing eats nothing-but things that are animals and-or are plants and-or are-part-of animals and-or are-part-of plants.\n\nPart-6: 'Reflexion'.\n\nNothing is-proper-part-of itself.\n\nPart-7: Equivalence.\n\nComment: 'What it means to be a carnivore, omnivore or herbivore? We specify exact definitions here.'.\nEvery-single-thing that eats nothing-but animals and-or eats nothing-but things that are-part-of animals is a carnivore.\nSomething is an omnivore if-and-only-if-it eats an animal and eats a plant and eats something that is-part-of an animal and-or is-part-of a plant.\nSomething is a herbivore if-and-only-if-it eats nothing-but plants and-or eats nothing-but things that are-part-of plants.\n\nPart-8: 'Disjointness'.\n\nAnything either is a carnivore, is a herbivore or is an omnivore or-something-else.\nAnything either is a branch, is a leaf or is a twig or-something-else.\n\nPart-9: 'Relations between roles'.\n\nComment: 'Role equivalence and inverted roles'.\nX has-part Y if-and-only-if Y is-part-of X.\nX eats Y if-and-only-if Y is-eaten-by X.\n\nComment: 'Role subsumptions'.\nIf X is-proper-part-of Y then X is-part-of Y.\nIf X has-part something that has-part Y then X has-part Y.\n\nComment: 'Complex role subsumptions'.\nIf X is-part-of something that is-part-of Y then X is-part-of Y."}}, "66578ffca1f043118425062dc0b6f067": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_27cf37417f84476da68ac933a85143a5", "IPY_MODEL_f81355e7f2a34681bf8ca14e71dbf938"], "layout": "IPY_MODEL_f79246661c1941fb8047812a618edbea"}}, "66cefaa10ba1472a846b969c45384ec0": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_6c33a33ec84a476ea62d3b987b12a532", "IPY_MODEL_85f2cc17df4e4e429f3682d5f1a9d2a5"], "layout": "IPY_MODEL_637bf119d26145cd9b1c74a314f17fb0"}}, "670789803c044d699064f4d8d85c169a": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_8e2009ebcf134448a2ad52b7cc6c4b26", "value": "Every-single-thing that is a plant and-or is a plant-part is a herb.\nNo herb is an animal.\n\nEvery carnivore eats nothing-but animals.\nEvery lion eats nothing-but herbivores.\n\nEvery herbivore eats nothing-but herb.\n\nAnything either is a carnivore, is a herbivore or is an omnivore or-something-else.\nAnything either is a branch, is a leaf or is a twig or-something-else.\n\nNo giraffe is a lion.\nEvery palm-tree is not a tree.\n"}}, "6834615b88754ba992949979ad4896da": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "687f88667abb40929c0d1ac2acbc9281": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_df07f4cbd3574e08868b7543bb5cb15a", "value": "Leo-01 is a lion.\nLeo-01 eats Sophie-01.\nSophie-01 is a giraffe.\nLeo-01 eats Mary-01.\nMary-01 is a palm-tree.\n"}}, "68ff3e69ff0948c7b1d6ea2e0727d6f1": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_2b1178c8982c4d7f8bd00f05c2a0ab9f", "value": "an animal that loves "}}, "69339d07f80c4b42a0ca64e1e93f2940": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_db4059a12cb34224934499d5b329f6c6"}}, "6b3a1654ff064f0aaf274b3478288a8f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "6b665fd9cf6b45d0ade1db84533996f4": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "6bc39517a9044c0d95ed9158711c5ff5": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "6c33a33ec84a476ea62d3b987b12a532": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_5ca39e2e45c9445eb22413a85950317f", "value": "Leo-01 is a lion.\nLeo-01 eats Sophie-01.\nSophie-01 is a giraffe.\nLeo-01 eats Mary-01.\nMary-01 is a palm-tree.\n"}}, "6dfbc4a9245c453fb126ea93c284477f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "6fa9e122a4ca4267832285e9f3983bba": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "704fa12b89334f67b30097d1c39534c9": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "727588c8af22452182710e9c54750d83": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_c4809ee837e84bbba2bd1dc44a5cdc69"}}, "72b37b61f1ba4540bd4dafa460795b8e": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "72f03a0887ce493bb7e9983353e95041": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "7358c3b0bfc140b7ad1d635020c852a5": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_791a2bc1ba2c4ed98805765076095f71", "IPY_MODEL_a551c169f0f44b0d8ed33f34d5a4ea9d"], "layout": "IPY_MODEL_2a57077dcfc6408f910fcdd1069fb533"}}, "791a2bc1ba2c4ed98805765076095f71": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_99f9f6e0b26a4e73858dfbb6017ccbb8", "value": "an animal that loves "}}, "798ac8c8baa148b68188dc60d84de5fe": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "7cb5ce8716bf4a209b03b4910d97a0e2": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_72b37b61f1ba4540bd4dafa460795b8e"}}, "7e5fec00c2ad42f1b02a76e0e2b34c6d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "7ffcc5da836a4772ad6190ded79997f7": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 162, "hints": "&lt;Proper-Name&gt;<br/>Every<br/>Every-single-thing<br/>If<br/>No<br/>Nothing<br/>Something<br/>The<br/>X", "hintsX": 162, "layout": "IPY_MODEL_cb714303465343599e7daddd09b77893", "value": "Namespace: 'http://cognitum.eu/african_wildlife'.\n\nComment: 'Lets name our instances'.\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\nEvery man has a train.\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal. \nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\nEvery lion is carnivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nEvery branch is a plant-part.\nEvery leaf is a plant-part.\nEvery twig is a plant-part.\n\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery xylem is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nComment: 'We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words'.\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n"}}, "8299fafb9989402e9259aa0b848881e2": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_17f3ad9162db4104a65795f20d5f0075", "value": "Leo-01 is a lion.\nLeo-01 eats Sophie-01.\nSophie-01 is a giraffe.\nSophie-01 eats Leaf-01.\nMary-01 is a tree.\nLeaf-01 is a leaf and is-part-of Branch-02.\nBranch-02 is a branch and is-part-of Branch-01.\nBranch-01 is a branch and is-part-of Mary-01.\nBranch-03 is a branch."}}, "830d5ee0e72742cbb9c50e698f8db857": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 186, "hintT": "!!!SYNTAX ERROR!!!\r\n\r\nEvery ma\r\nEvery lion is an animal.", "hints": "!!!SYNTAX ERROR!!!\r\n\r\nEvery ma\r\nEvery lion is an animal.", "hintsX": 186, "layout": "IPY_MODEL_f7410d5947704d05b636e488c607ec0e", "value": "Namespace: 'http://cognitum.eu/african_wildlife'.\n\nComment: 'Lets name our instances'.\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\nEvery man has a train.\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal. \nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\nEvery lion is carnivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nEvery branch is a plant-part.\nEvery leaf is a plant-part.\nEvery twig is a plant-part.\n\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery xylem is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nComment: 'We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words'.\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n"}}, "85f2cc17df4e4e429f3682d5f1a9d2a5": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_379b403b772848b184590efb077753db"}}, "865ed95805f44073ac10f4b4757bd1a0": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "87dbf123720c4818bdda118bfdbb7cda": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_daee7295113f4ab588ec50dacbc01003"}}, "88e3f3eb628649cbaa595601364bada4": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "89b1bde40ddb4abf9ac1d1cd90dd345a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100px"}}, "8b344392a0d344158becbf95c37546c6": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_56a2eb99cf15417e8568cc49848857f1", "IPY_MODEL_f81dc3d2747142f9ac59bd2ccb85dc67"], "layout": "IPY_MODEL_f7e95e3d43544ddfb6c69338a006cace"}}, "8b52933a93d84df1bc039f960cacf560": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_b0bf749d3aa54cb5876f768752e013e2"}}, "8b7f1503cd5d4af7bedb96db2bc9826b": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_b18557280c0d4e1b827179460da45136", "value": "Leo-01 is a lion.\nLeo-01 eats Sophie-01.\nSophie-01 is a giraffe.\nSophie-01 eats Leaf-01.\nMary-01 is a tree.\nLeaf-01 is a leaf and is-part-of Branch-02.\nBranch-02 is a branch and is-part-of Branch-01.\nBranch-01 is a branch and is-part-of Mary-01.\nBranch-03 is a branch."}}, "8e2009ebcf134448a2ad52b7cc6c4b26": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "8e63218be8c84392b59914249922d662": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_5aea4cc758c6473193e64e8a9da92f28"}}, "8f2ee93c18ed4583894db21311e14ed9": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_38238e85b5bb4623a8ef8b3af0729a67"}}, "91212d33087f4872ab96d1d2adac582a": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_6fa9e122a4ca4267832285e9f3983bba"}}, "951c1fa30fea488a8ae1578cede4b5fe": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "9536c1856e8a487d8c68984e25b441ce": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "9767af0ad60a4f4f84f6fffb5b1addb8": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "99075eefb8ad4a5087de5fbfbb2e2a8c": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_9febe76887f34e8e9ea439b3d6a469bc", "value": "Comment: 'Lets name our instances'.\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\n\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal.\nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\nEvery lion is carnivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nEvery branch is a plant-part.\nEvery leaf is a plant-part.\nEvery twig is a plant-part.\n\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery xylem is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nComment: 'We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words'.\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n"}}, "99f9f6e0b26a4e73858dfbb6017ccbb8": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "9b0f9a23e3574472b084a63a42c18088": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "9d7f76b3359049b99071eba73b8dc427": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_4a569f7988e8471dafe05c22d22bd4ea", "IPY_MODEL_727588c8af22452182710e9c54750d83"], "layout": "IPY_MODEL_9536c1856e8a487d8c68984e25b441ce"}}, "9febe76887f34e8e9ea439b3d6a469bc": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "a1d343a6e9ab47b999491d584f4d747b": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_42805aa70f7945db96a25007c189bac0", "IPY_MODEL_4f0a97990f8943818fc14ed4fd385830"], "layout": "IPY_MODEL_c1e34aeacb524c99a1c32e8cc8c9413a"}}, "a23f3db72e844fd38d5d05b950980e06": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "a270637c9421471a86a1a5fb0c90358f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "a2c7154564514724af74f1f72cd039df": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_194e683e49954beab66c82f87eec0560", "IPY_MODEL_e26922aed1324c3cb824535d8f1eba7a"], "layout": "IPY_MODEL_89b1bde40ddb4abf9ac1d1cd90dd345a"}}, "a551c169f0f44b0d8ed33f34d5a4ea9d": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_9767af0ad60a4f4f84f6fffb5b1addb8"}}, "a83fc2b5087147fda70ef91ec71c9636": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_44f37380178d4fa0a074af10221c17fa", "value": "Namespace: 'http://cognitum.eu/african_wildlife'.\n\nComment: 'Lets name our instances'.\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\nEvery ma\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal. \nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\nEvery lion is carnivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nEvery branch is a plant-part.\nEvery leaf is a plant-part.\nEvery twig is a plant-part.\n\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery xylem is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nComment: 'We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words'.\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n"}}, "ac2b910f6f714657b031543b3c3820f6": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "acf1c5a99f7843fd8fe8da70d0aac47f": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 1198, "hints": "Every<br/>Every-single-thing<br/>If<br/>Leo<br/>No<br/>Nothing<br/>Something<br/>Sophie<br/>The<br/>X", "hintsX": 1198, "layout": "IPY_MODEL_1a817713ce83451c8259b7b8600da6fb", "value": "Title: 'African Wildlife'.\nAuthor: 'Pawe\u0139\u201a Kap\u0139\u201aa\u0139\u201eski'.\nBased-On: \n 'A Semantic Web Primer.'\n 'Antoniou, G, van Harmelen, F.'\n 'MIT Press, 2003.'\n 'http://www.csd.uoc.gr/~hy566/SWbook.pdf'\n.\n\nComment:\n////// Examples of Possible Questions  /////////////////////////////   \n//Who-Or-What:\n// * is a carnivore ?                                      \n// * is an herbivore ?                                         \n// * is an animal that eats grass ?                            \n// * is-part-of a tree ?  \n// * is eaten by lion?           \n////////////////////////////////////////////////////////////////////.\n\n\n\nPart-1: 'simple hierarchy of beings'.\n\nComment: 'Lets name our instances'.\nSophie is a giraffe.\nLeo is a lion.\n\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal.\nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nPart-2: adjectives and specifications.\n\nComment: 'We cannot use adjectives directly'.\nComment: 'To specify adjectives we need to transform them into sets that have form of buzzy-words'.\n\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n\nComment: 'Similarly we can do to make something more and more specific'.\nEvery branch is a plant-part.\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery twig is a plant-part.\nEvery xylem is a plant-part.\nEvery leaf is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nPart-3: Disjointness.\n\nComment: 'We deal with Open World Assumption, therefore we need to specify explicitly if two things are different'.\nComment: 'E.g.: We need to specify explicitly that animal is not a plant'.\nEvery animal is not a plant.\nEvery giraffe is not a lion.\nEvery palm-tree is not a tree.\n\nComment: 'Or we can use it - it means the same'.\nNo animal is a plant.\n\nPart-4: Simple relations.\n\nComment: To specify relation beetween beings.\nEvery lion eats an impala.\nEvery carnivorous-plant eats an animal.\n\nComment: 'I.e. be part of is a part-whole relation'.\nEvery branch is-part-of a tree.\nEvery plant-part is-proper-part-of a plant.\nEvery xylem is-proper-part-of a stem.\nEvery phloem is-proper-part-of a stem.\n\nComment:  'Specifying the range of relation. The difference? One is that lion eats impala. Second that it eats only herbivore' -> impala must be herbivore.\nEvery lion eats nothing-but herbivores.\n\nPart-5: 'Complex relations'.\n\nEvery palm-tree has-part that is not a branch.\nEvery warthog eats an animal and eats a fruiting-body and eats a grass and eats a root.\nEvery giraffe eats nothing-but things that are leaves and-or are twigs.\nEvery leaf is-part-of something that is a branch and-or is a twig.\nEvery tasty-plant is-eaten-by a carnivore and is-eaten-by a herbivore.\nEvery-single-thing eats nothing-but things that are animals and-or are plants and-or are-part-of animals and-or are-part-of plants.\n\nPart-6: 'Reflexion'.\n\nNothing is-proper-part-of itself.\n\nPart-7: Equivalence.\n\nComment: 'What it means to be a carnivore, omnivore or herbivore? We specify exact definitions here.'.\nEvery-single-thing that eats nothing-but animals and-or eats nothing-but things that are-part-of animals is a carnivore.\nSomething is an omnivore if-and-only-if-it eats an animal and eats a plant and eats something that is-part-of an animal and-or is-part-of a plant.\nSomething is a herbivore if-and-only-if-it eats nothing-but plants and-or eats nothing-but things that are-part-of plants.\n\nPart-8: 'Disjointness'.\n\nAnything either is a carnivore, is a herbivore or is an omnivore or-something-else.\nAnything either is a branch, is a leaf or is a twig or-something-else.\n\nPart-9: 'Relations between roles'.\n\nComment: 'Role equivalence and inverted roles'.\nX has-part Y if-and-only-if Y is-part-of X.\nX eats Y if-and-only-if Y is-eaten-by X.\n\nComment: 'Role subsumptions'.\nIf X is-proper-part-of Y then X is-part-of Y.\nIf X has-part something that has-part Y then X has-part Y.\n\nComment: 'Complex role subsumptions'.\nIf X is-part-of something that is-part-of Y then X is-part-of Y."}}, "b0bf749d3aa54cb5876f768752e013e2": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "b18557280c0d4e1b827179460da45136": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "b3aca64dc8c740feae0ac17d0679814c": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_0287b64412d1476fac61df9b498195e0"}}, "b6c1708eb8ab423fbc381678654dde18": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 166, "hints": "&lt;Proper-Name&gt;<br/>Every<br/>Every-single-thing<br/>If<br/>No<br/>Nothing<br/>Something<br/>The<br/>X", "hintsX": 166, "layout": "IPY_MODEL_865ed95805f44073ac10f4b4757bd1a0", "value": "Comment: 'Lets name our instances'.\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\n\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal.\nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\nEvery lion is carnivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nEvery branch is a plant-part.\nEvery leaf is a plant-part.\nEvery twig is a plant-part.\n\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery xylem is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nComment: 'We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words'.\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n"}}, "ba703b23f64a4ac9bc68ac9552802303": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "bb14a3aef3864813a7002faff9fc6b16": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 89, "hints": "&lt;natural number&gt;", "hintsX": 80, "layout": "IPY_MODEL_c17c106402064e86b728cf51a20e3f93", "value": "Leo-01 is a lion.\nLeo-01 eats Sophie-01.\nSophie-01 is a giraffe.\nSophie-01 eats Branch-01.\nMary-01 is a tree.\nBranch-01 is a branch and is-proper-part-of Mary-01.\n"}}, "bfdcdc39eeb04946a97cd9562372bc04": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "c17c106402064e86b728cf51a20e3f93": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "c1e34aeacb524c99a1c32e8cc8c9413a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "c370339aafb24857915cb2b2d2ab7980": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "c3b494913b23455082fcb63616b57646": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_075ca95d3ff64fdf8542061a5f907fdc", "IPY_MODEL_69339d07f80c4b42a0ca64e1e93f2940"], "layout": "IPY_MODEL_ce2e3b8fdc324d989c349ad9a641ca61"}}, "c4809ee837e84bbba2bd1dc44a5cdc69": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "c7c7716cd5034ec7a3235e29964fa9d9": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_ec97c88651864e3ca37f08c0e7906155"}}, "c7fe458b7f814978a92e90b0b53c295c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "cb714303465343599e7daddd09b77893": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "cbb49564f07a44bdb9bdcc6dc6b14644": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "cdb640c492eb40d986642b7b0cf89db1": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_cbb49564f07a44bdb9bdcc6dc6b14644"}}, "ce2e3b8fdc324d989c349ad9a641ca61": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "d66764a2add44d99aa42b9900ec34efa": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_8299fafb9989402e9259aa0b848881e2", "IPY_MODEL_2ee595c943434b3288bd80d13a391707"], "layout": "IPY_MODEL_260916fd573c4e118c8d6fdeed6c1d4d"}}, "d6c24200739c486fa395a2d6f15f4c29": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_b6c1708eb8ab423fbc381678654dde18", "IPY_MODEL_91212d33087f4872ab96d1d2adac582a"], "layout": "IPY_MODEL_d786ada62a30448b8081a35a036fbf3d"}}, "d786ada62a30448b8081a35a036fbf3d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "d810833472c54ff1a38f821261445bdb": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "d8f23781ffc74fb797fe78016d7b58e4": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "d9c2b88b505b48a4b6c2c57cd93f7776": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "d9cb1abd82e245e987efdff390856b01": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "daee7295113f4ab588ec50dacbc01003": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "db4059a12cb34224934499d5b329f6c6": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "db6bc8d6d0d54e2484718dee857e30e1": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "dc33986a1b82473796f0e43e7b8960d2": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_490fd126b35c4016a45f2265268f5ef0", "IPY_MODEL_27ad5c8d383e457a9920d5cb29f64853"], "layout": "IPY_MODEL_f2d6e500963644e1ace9c82d3d895f68"}}, "dd75b77ca52a43a9868c62b289a4e4e1": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_db6bc8d6d0d54e2484718dee857e30e1"}}, "df07f4cbd3574e08868b7543bb5cb15a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "df45bd0d614e4f8dbc1d38058dc993e7": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "df59fa382ea5464699bf03b221ac05e1": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "e18af0cea30b4af3a6cf1099f055219c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_e1d32be0fd784adb901538ecaea234af", "IPY_MODEL_e5a39ffce83d482a9bb07ef05f75f0c2"], "layout": "IPY_MODEL_ba703b23f64a4ac9bc68ac9552802303"}}, "e1d32be0fd784adb901538ecaea234af": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_a23f3db72e844fd38d5d05b950980e06", "value": "Every-single-thing that is a plant and-or is a plant-part is a herb.\nNo herb is an animal.\n\nEvery carnivore eats nothing-but animals.\nEvery lion eats nothing-but herbivores.\n\nEvery herbivore eats nothing-but herb.\n\nAnything either is a carnivore, is a herbivore or is an omnivore or-something-else.\nAnything either is a branch, is a leaf or is a twig or-something-else.\n\nNo giraffe is a lion.\nEvery palm-tree is not a tree.\n"}}, "e26922aed1324c3cb824535d8f1eba7a": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_08a658b923de47b7add2517b8353da1a"}}, "e278e56780d1428c826f7d861d407183": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "e445e8ca520940b8aa5759ab19428243": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "e47665c42c1e462aa1fcecac0816fa09": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_1d27dea574734e228e02e981579f0e48", "IPY_MODEL_3e2147d0702741bbb1963715683ba2ff"], "layout": "IPY_MODEL_704fa12b89334f67b30097d1c39534c9"}}, "e4e340eba47048e182a7727741432dc5": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_a83fc2b5087147fda70ef91ec71c9636", "IPY_MODEL_0529b65148e34a3f84378822394dbb23"], "layout": "IPY_MODEL_46b6bc391f7d47cb95796e1c5effa3cb"}}, "e5a39ffce83d482a9bb07ef05f75f0c2": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_efae18bdcab04718b11c37b244e41d0f"}}, "e736dda042e74aac96c321bed782241e": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_34a127ddc9f3425d855562e734e8582e"}}, "e87806312d1343ce83bb2bb743ba1b80": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "ea50e21fc54b4d97b922faa6337bdfe7": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "ec97c88651864e3ca37f08c0e7906155": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "edb2db2d34c248249a938a00c0f98a07": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "edfd7c1406474ef8b6008fa01533a9f1": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_d9cb1abd82e245e987efdff390856b01"}}, "ee2dd188cbe048cd98f09aa693d4aae4": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_bb14a3aef3864813a7002faff9fc6b16", "IPY_MODEL_ef6cc581fc9c483fa9f40c0299bb4106"], "layout": "IPY_MODEL_88e3f3eb628649cbaa595601364bada4"}}, "ef6cc581fc9c483fa9f40c0299bb4106": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_1786ad24fa9d463aa9ad86dcacd6b971"}}, "efae18bdcab04718b11c37b244e41d0f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "f0f6655efb3d4a67824e88522b093252": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_687f88667abb40929c0d1ac2acbc9281", "IPY_MODEL_2401f4a10a284f68920b1eb13a0ef3f1"], "layout": "IPY_MODEL_08826d1d1e2d4efa9364b5d2bafa3c93"}}, "f1b9951724734f07987cdd4aef154383": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_acf1c5a99f7843fd8fe8da70d0aac47f", "IPY_MODEL_8b52933a93d84df1bc039f960cacf560"], "layout": "IPY_MODEL_e445e8ca520940b8aa5759ab19428243"}}, "f2d6e500963644e1ace9c82d3d895f68": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "f2dac51fb55347f2bf9f5f781b9e4558": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "f4ea8cdd8b5c4157a727af4af9d67cb3": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "f7410d5947704d05b636e488c607ec0e": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "f79246661c1941fb8047812a618edbea": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100px"}}, "f7e95e3d43544ddfb6c69338a006cace": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "f81355e7f2a34681bf8ca14e71dbf938": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_edb2db2d34c248249a938a00c0f98a07"}}, "f81dc3d2747142f9ac59bd2ccb85dc67": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_5f92d7eda9e4489591fce827af8d659b"}}}, "version_major": 2, "version_minor": 0}
+{"state": {"01732923acd64d0b80804b86a06086a6": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_5143fe6b6b2e4bdbb95db4836c07f69f", "IPY_MODEL_c7c7716cd5034ec7a3235e29964fa9d9"], "layout": "IPY_MODEL_48a844c1f16d4e0f89888a38f9f871b1"}}, "0287b64412d1476fac61df9b498195e0": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "037f1754f4dd4ad58c88763c16de89de": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "03b3c5826e9e462fa8102da3a1b543ee": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_0e81ba53de50448cba0d67cc1b204ea3", "IPY_MODEL_edfd7c1406474ef8b6008fa01533a9f1"], "layout": "IPY_MODEL_0c03d2ee143c402dbf620710558f3c20"}}, "0529b65148e34a3f84378822394dbb23": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_e87806312d1343ce83bb2bb743ba1b80"}}, "065c67b9d41a44d593cd1f132ac59d3e": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_4ef44bf7e0834466afe8a4e55bdad86a", "IPY_MODEL_3c045f84e3c44e629eac7daea93af6e5", "IPY_MODEL_73d24769813d452e91ba6e87c263096d"], "layout": "IPY_MODEL_957d4aeb826049c7aa130633415c42d7"}}, "075ca95d3ff64fdf8542061a5f907fdc": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_ac2b910f6f714657b031543b3c3820f6", "value": "Namespace: 'http://cognitum.eu/african_wildlife'.\n\nComment: 'Lets name our instances'.\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\nEvery ma\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal. \nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\nEvery lion is carnivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nEvery branch is a plant-part.\nEvery leaf is a plant-part.\nEvery twig is a plant-part.\n\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery xylem is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nComment: 'We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words'.\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n"}}, "08826d1d1e2d4efa9364b5d2bafa3c93": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "08a658b923de47b7add2517b8353da1a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "08c30bf83c284e6ebe21cc3249cd99ba": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 191, "hints": "Every<br/>Every-single-thing<br/>If<br/>Leo-01<br/>Mary-01<br/>No<br/>Nothing<br/>Something<br/>Sophie-01<br/>The<br/>X", "hintsX": 191, "layout": "IPY_MODEL_951c1fa30fea488a8ae1578cede4b5fe", "value": "Every carnivorous-plant must eat an animal.\nEvery carnivor must eat an animal.\nEvery omnivore must eat a plant.\nEvery branch must be-part-of a tree.\nEvery plant-part must be-part-of a plant.\n\nComment: 'Role equivalence and inverted roles'.\nX has-part Y if-and-only-if Y is-part-of X.\nX eats Y if-and-only-if Y is-eaten-by X.\n\nComment: 'Role subsumptions'.\nIf X is-part-of Y then X is-part-of Y.\nIf X has-part something that has-part Y then X has-part Y.\n\nComment: 'Complex role subsumptions'.\nIf X is-part-of something that is-part-of Y then X is-part-of Y.\n"}}, "0c03d2ee143c402dbf620710558f3c20": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100px"}}, "0cfbf011af6241ebbcc675d701aac5be": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_99075eefb8ad4a5087de5fbfbb2e2a8c", "IPY_MODEL_26cf7a97df4f42b6af33ce787196e2da"], "layout": "IPY_MODEL_4aafc9319e7743f8985cdc669f22cab5"}}, "0e81ba53de50448cba0d67cc1b204ea3": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_a270637c9421471a86a1a5fb0c90358f", "value": "eaten by Leo-01"}}, "0ee45e2151a74dfeb632f8622dfa620d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "0ee4e8ad62ab43f4b5b438a66a7f42b5": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "156d68322d1e4dd3a0fbfab1be1688bf": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_585c9fe15e494126a1116a5e5f8e87e4"}}, "1786ad24fa9d463aa9ad86dcacd6b971": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "17f3ad9162db4104a65795f20d5f0075": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "194e683e49954beab66c82f87eec0560": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 15, "hints": "&lt;natural number&gt;", "hintsX": 9, "layout": "IPY_MODEL_54500e1db47043b29c2725eaf17f81f6", "value": "eaten by Leo-01"}}, "197ff87aa0754c10a5bf9d6054ec2664": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_416b7202da814b9095cb90fed53606c3", "IPY_MODEL_dd75b77ca52a43a9868c62b289a4e4e1"], "layout": "IPY_MODEL_c7fe458b7f814978a92e90b0b53c295c"}}, "19ddc5e82f17415483d83af9cd039dbd": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "1a512292dafe41c4885554cf49296c78": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "1a817713ce83451c8259b7b8600da6fb": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "1beeafa5ecdf401cabc646f26e6c149e": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "1d27dea574734e228e02e981579f0e48": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_037f1754f4dd4ad58c88763c16de89de", "value": "Sophie loves Leo.\nLeo loves Sophie."}}, "22275249b4964692bbda1b6c7faf7f47": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_670789803c044d699064f4d8d85c169a", "IPY_MODEL_b3aca64dc8c740feae0ac17d0679814c"], "layout": "IPY_MODEL_9b0f9a23e3574472b084a63a42c18088"}}, "2401f4a10a284f68920b1eb13a0ef3f1": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_d810833472c54ff1a38f821261445bdb"}}, "260916fd573c4e118c8d6fdeed6c1d4d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "26cf7a97df4f42b6af33ce787196e2da": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_c370339aafb24857915cb2b2d2ab7980"}}, "27ad5c8d383e457a9920d5cb29f64853": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_df59fa382ea5464699bf03b221ac05e1"}}, "27cf37417f84476da68ac933a85143a5": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_6834615b88754ba992949979ad4896da", "value": "eaten by Leo-01"}}, "282ed86a1e9f475ab92778daa6256ae2": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "2a02773588a34d31a60ab56ea873ef24": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "2a57077dcfc6408f910fcdd1069fb533": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100px"}}, "2b1178c8982c4d7f8bd00f05c2a0ab9f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "2ee595c943434b3288bd80d13a391707": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_6b665fd9cf6b45d0ade1db84533996f4"}}, "306788baeef8414d9b32cae354a90d93": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_83203b61038f4ab2b3ba7f253cbbe26a"}}, "30b370db0cbd4590a28eeacadd095188": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_540624d791b04c72a5f6de35ef203a09", "IPY_MODEL_5b7a7dc340b8488b8d7616e1a0e4e954"], "layout": "IPY_MODEL_6b3a1654ff064f0aaf274b3478288a8f"}}, "31401dde148b42c6b6dee0ee84db65b2": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "31f03381b8af43c8b7b31448e2494891": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_830d5ee0e72742cbb9c50e698f8db857", "IPY_MODEL_87dbf123720c4818bdda118bfdbb7cda"], "layout": "IPY_MODEL_798ac8c8baa148b68188dc60d84de5fe"}}, "336db835ccea46398d38ec7301c8d8bc": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "34a127ddc9f3425d855562e734e8582e": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "355b5ed96daf48f38e261d20f99eb26b": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_8b7f1503cd5d4af7bedb96db2bc9826b", "IPY_MODEL_3d934eb24f9b4005b831504a0e4baa3e"], "layout": "IPY_MODEL_0ee4e8ad62ab43f4b5b438a66a7f42b5"}}, "379b403b772848b184590efb077753db": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "38238e85b5bb4623a8ef8b3af0729a67": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "3c045f84e3c44e629eac7daea93af6e5": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_7ca7210a92be4d44930684c9149b389f", "value": "Sun is a star.\nIf a thing orbits a star and the thing has-mass-kg greater-than 1.0e21 and the thing has-mass-kg lower-than 1.0e23 then the thing is a dwarf-planet.\nIf a thing orbits a star and the thing has-mass-kg greater-than 1.0e23 then the thing is a planet.\nIf a thing(1) orbits a thing(2) and the thing(2) orbits a star then the thing(1) is a moon."}}, "3d934eb24f9b4005b831504a0e4baa3e": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_f2dac51fb55347f2bf9f5f781b9e4558"}}, "3e2147d0702741bbb1963715683ba2ff": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_55f4f87242224575b52e41afa40e5e2d"}}, "4039c44a6b81427881c64dbe368c3771": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_7ffcc5da836a4772ad6190ded79997f7", "IPY_MODEL_156d68322d1e4dd3a0fbfab1be1688bf"], "layout": "IPY_MODEL_282ed86a1e9f475ab92778daa6256ae2"}}, "40602977eafc4fb8a5da1a8b6e160761": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "416b7202da814b9095cb90fed53606c3": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_bfdcdc39eeb04946a97cd9562372bc04", "value": "Sophie loves Leo.\nLeo loves Sophie."}}, "42805aa70f7945db96a25007c189bac0": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_d8f23781ffc74fb797fe78016d7b58e4", "value": "Every-single-thing that is a plant and-or is a plant-part is a herb.\nNo herb is an animal.\n\nEvery carnivore eats nothing-but animals.\nEvery lion eats nothing-but herbivores.\n\nEvery herbivore eats nothing-but herb.\n\nAnything either is a carnivore, is a herbivore or is an omnivore or-something-else.\nAnything either is a branch, is a leaf or is a twig or-something-else.\n\nNo giraffe is a lion.\nEvery palm-tree is not a tree.\n"}}, "43ef90ea44f7483cae76acd6a8bf06db": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100px"}}, "44f37380178d4fa0a074af10221c17fa": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "4636ed4b6a9b4aa29f2b8c9efe57f732": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 199, "hints": "Branch-01<br/>Every<br/>Every-single-thing<br/>If<br/>Leo-01<br/>Mary-01<br/>No<br/>Nothing<br/>Something<br/>Sophie-01<br/>The<br/>X", "hintsX": 199, "layout": "IPY_MODEL_6bc39517a9044c0d95ed9158711c5ff5", "value": "Leo-01 is a lion.\nLeo-01 eats Sophie-01.\nSophie-01 is a giraffe.\nSophie-01 eats Leaf-01.\nMary-01 is a tree.\nLeaf-01 is a leaf and is-part-of Branch-02.\nBranch-02 is a branch and is-part-of Branch-01.\nBranch-01 is a branch and is-part-of Mary-01.\nBranch-03 is a branch."}}, "46b6bc391f7d47cb95796e1c5effa3cb": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "48a844c1f16d4e0f89888a38f9f871b1": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "490fd126b35c4016a45f2265268f5ef0": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_2a02773588a34d31a60ab56ea873ef24", "value": "Every carnivorous-plant must eat an animal.\nEvery carnivor must eat an animal.\nEvery omnivore must eat a plant.\nEvery branch must be-part-of a tree.\nEvery plant-part must be-part-of a plant.\n\nComment: 'Role equivalence and inverted roles'.\nX has-part Y if-and-only-if Y is-part-of X.\nX eats Y if-and-only-if Y is-eaten-by X.\n\nComment: 'Role subsumptions'.\nIf X is-part-of Y then X is-part-of Y.\nIf X has-part something that has-part Y then X has-part Y.\n\nComment: 'Complex role subsumptions'.\nIf X is-part-of something that is-part-of Y then X is-part-of Y.\n"}}, "4974f63235624cb0950d09b959338aac": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_4636ed4b6a9b4aa29f2b8c9efe57f732", "IPY_MODEL_8f2ee93c18ed4583894db21311e14ed9"], "layout": "IPY_MODEL_df45bd0d614e4f8dbc1d38058dc993e7"}}, "4a322469244d444ca5d1bcb372403f27": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "4a569f7988e8471dafe05c22d22bd4ea": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 173, "hints": "&lt;Proper-Name&gt;<br/>Every<br/>Every-single-thing<br/>If<br/>No<br/>Nothing<br/>Something<br/>The<br/>X", "hintsX": 173, "layout": "IPY_MODEL_4a322469244d444ca5d1bcb372403f27", "value": "Every-single-thing that is a plant and-or is a plant-part is a herb.\nNo herb is an animal.\n\nEvery carnivore eats nothing-but animals.\nEvery lion eats nothing-but herbivores.\n\nEvery herbivore eats nothing-but herb.\n\nAnything either is a carnivore, is a herbivore or is an omnivore or-something-else.\nAnything either is a branch, is a leaf or is a twig or-something-else.\n\nNo giraffe is a lion.\nEvery palm-tree is not a tree.\n"}}, "4aafc9319e7743f8985cdc669f22cab5": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "4d3213ec0b2c4ad69c1a66a3369ab474": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_e736dda042e74aac96c321bed782241e", "IPY_MODEL_7cb5ce8716bf4a209b03b4910d97a0e2"], "layout": "IPY_MODEL_6dfbc4a9245c453fb126ea93c284477f"}}, "4ef44bf7e0834466afe8a4e55bdad86a": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_eb9f057816f4489aa2d75b1a69a3b282"}}, "4f0a97990f8943818fc14ed4fd385830": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_ea50e21fc54b4d97b922faa6337bdfe7"}}, "50e4b95344d64a99b4f7543b017bf5a4": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "50f1befbf50548f9869037abe911c6c2": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_d9c2b88b505b48a4b6c2c57cd93f7776"}}, "5143fe6b6b2e4bdbb95db4836c07f69f": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_31401dde148b42c6b6dee0ee84db65b2", "value": "Leo-01 is a lion.\nLeo-01 eats Sophie-01.\nSophie-01 is a giraffe.\nLeo-01 eats Mary-01.\nMary-01 is a palm-tree.\n"}}, "540624d791b04c72a5f6de35ef203a09": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 171, "hintT": "!!!SYNTAX ERROR!!!", "hints": "!!!SYNTAX ERROR!!!", "hintsX": 169, "layout": "IPY_MODEL_0ee45e2151a74dfeb632f8622dfa620d", "value": "Namespace: 'http://cognitum.eu/african_wildlife'.\n\nComment: 'Lets name our instances'.\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\nEvery ma\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal. \nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\nEvery lion is carnivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nEvery branch is a plant-part.\nEvery leaf is a plant-part.\nEvery twig is a plant-part.\n\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery xylem is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nComment: 'We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words'.\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n"}}, "54500e1db47043b29c2725eaf17f81f6": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "54e213dd70db416783e9f4dd9eb8473a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_68ff3e69ff0948c7b1d6ea2e0727d6f1", "IPY_MODEL_cdb640c492eb40d986642b7b0cf89db1"], "layout": "IPY_MODEL_43ef90ea44f7483cae76acd6a8bf06db"}}, "55bb21d754f845a0b76771e91480da21": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_08c30bf83c284e6ebe21cc3249cd99ba", "IPY_MODEL_8e63218be8c84392b59914249922d662"], "layout": "IPY_MODEL_e278e56780d1428c826f7d861d407183"}}, "55f4f87242224575b52e41afa40e5e2d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "56a2eb99cf15417e8568cc49848857f1": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_7e5fec00c2ad42f1b02a76e0e2b34c6d", "value": "Every carnivorous-plant must eat an animal.\nEvery carnivor must eat an animal.\nEvery omnivore must eat a plant.\nEvery branch must be-part-of a tree.\nEvery plant-part must be-part-of a plant.\n\nComment: 'Role equivalence and inverted roles'.\nX has-part Y if-and-only-if Y is-part-of X.\nX eats Y if-and-only-if Y is-eaten-by X.\n\nComment: 'Role subsumptions'.\nIf X is-part-of Y then X is-part-of Y.\nIf X has-part something that has-part Y then X has-part Y.\n\nComment: 'Complex role subsumptions'.\nIf X is-part-of something that is-part-of Y then X is-part-of Y.\n"}}, "585c9fe15e494126a1116a5e5f8e87e4": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "5aea4cc758c6473193e64e8a9da92f28": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "5b7a7dc340b8488b8d7616e1a0e4e954": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_72f03a0887ce493bb7e9983353e95041"}}, "5ca39e2e45c9445eb22413a85950317f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "5f92d7eda9e4489591fce827af8d659b": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "6140f382320b46d8bf1bbe77cd6ff9d2": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_63c4a550777447f1896522d0db7ab5f5", "IPY_MODEL_50f1befbf50548f9869037abe911c6c2"], "layout": "IPY_MODEL_50e4b95344d64a99b4f7543b017bf5a4"}}, "626fba381655484ba3aef4356a7281b0": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_19ddc5e82f17415483d83af9cd039dbd"}}, "637bf119d26145cd9b1c74a314f17fb0": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "63c4a550777447f1896522d0db7ab5f5": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 1198, "hints": "Every<br/>Every-single-thing<br/>If<br/>Leo<br/>No<br/>Nothing<br/>Something<br/>Sophie<br/>The<br/>X", "hintsX": 1198, "layout": "IPY_MODEL_f4ea8cdd8b5c4157a727af4af9d67cb3", "value": "Title: 'African Wildlife'.\nAuthor: 'Pawe\u0139\u201a Kap\u0139\u201aa\u0139\u201eski'.\nBased-On: \n 'A Semantic Web Primer.'\n 'Antoniou, G, van Harmelen, F.'\n 'MIT Press, 2003.'\n 'http://www.csd.uoc.gr/~hy566/SWbook.pdf'\n.\n\nComment:\n////// Examples of Possible Questions  /////////////////////////////   \n//Who-Or-What:\n// * is a carnivore ?                                      \n// * is an herbivore ?                                         \n// * is an animal that eats grass ?                            \n// * is-part-of a tree ?  \n// * is eaten by lion?           \n////////////////////////////////////////////////////////////////////.\n\n\n\nPart-1: 'simple hierarchy of beings'.\n\nComment: 'Lets name our instances'.\nSophie is a giraffe.\nLeo is a lion.\n\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal.\nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nPart-2: adjectives and specifications.\n\nComment: 'We cannot use adjectives directly'.\nComment: 'To specify adjectives we need to transform them into sets that have form of buzzy-words'.\n\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n\nComment: 'Similarly we can do to make something more and more specific'.\nEvery branch is a plant-part.\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery twig is a plant-part.\nEvery xylem is a plant-part.\nEvery leaf is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nPart-3: Disjointness.\n\nComment: 'We deal with Open World Assumption, therefore we need to specify explicitly if two things are different'.\nComment: 'E.g.: We need to specify explicitly that animal is not a plant'.\nEvery animal is not a plant.\nEvery giraffe is not a lion.\nEvery palm-tree is not a tree.\n\nComment: 'Or we can use it - it means the same'.\nNo animal is a plant.\n\nPart-4: Simple relations.\n\nComment: To specify relation beetween beings.\nEvery lion eats an impala.\nEvery carnivorous-plant eats an animal.\n\nComment: 'I.e. be part of is a part-whole relation'.\nEvery branch is-part-of a tree.\nEvery plant-part is-proper-part-of a plant.\nEvery xylem is-proper-part-of a stem.\nEvery phloem is-proper-part-of a stem.\n\nComment:  'Specifying the range of relation. The difference? One is that lion eats impala. Second that it eats only herbivore' -> impala must be herbivore.\nEvery lion eats nothing-but herbivores.\n\nPart-5: 'Complex relations'.\n\nEvery palm-tree has-part that is not a branch.\nEvery warthog eats an animal and eats a fruiting-body and eats a grass and eats a root.\nEvery giraffe eats nothing-but things that are leaves and-or are twigs.\nEvery leaf is-part-of something that is a branch and-or is a twig.\nEvery tasty-plant is-eaten-by a carnivore and is-eaten-by a herbivore.\nEvery-single-thing eats nothing-but things that are animals and-or are plants and-or are-part-of animals and-or are-part-of plants.\n\nPart-6: 'Reflexion'.\n\nNothing is-proper-part-of itself.\n\nPart-7: Equivalence.\n\nComment: 'What it means to be a carnivore, omnivore or herbivore? We specify exact definitions here.'.\nEvery-single-thing that eats nothing-but animals and-or eats nothing-but things that are-part-of animals is a carnivore.\nSomething is an omnivore if-and-only-if-it eats an animal and eats a plant and eats something that is-part-of an animal and-or is-part-of a plant.\nSomething is a herbivore if-and-only-if-it eats nothing-but plants and-or eats nothing-but things that are-part-of plants.\n\nPart-8: 'Disjointness'.\n\nAnything either is a carnivore, is a herbivore or is an omnivore or-something-else.\nAnything either is a branch, is a leaf or is a twig or-something-else.\n\nPart-9: 'Relations between roles'.\n\nComment: 'Role equivalence and inverted roles'.\nX has-part Y if-and-only-if Y is-part-of X.\nX eats Y if-and-only-if Y is-eaten-by X.\n\nComment: 'Role subsumptions'.\nIf X is-proper-part-of Y then X is-part-of Y.\nIf X has-part something that has-part Y then X has-part Y.\n\nComment: 'Complex role subsumptions'.\nIf X is-part-of something that is-part-of Y then X is-part-of Y."}}, "66578ffca1f043118425062dc0b6f067": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_27cf37417f84476da68ac933a85143a5", "IPY_MODEL_f81355e7f2a34681bf8ca14e71dbf938"], "layout": "IPY_MODEL_f79246661c1941fb8047812a618edbea"}}, "66cefaa10ba1472a846b969c45384ec0": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_6c33a33ec84a476ea62d3b987b12a532", "IPY_MODEL_85f2cc17df4e4e429f3682d5f1a9d2a5"], "layout": "IPY_MODEL_637bf119d26145cd9b1c74a314f17fb0"}}, "670789803c044d699064f4d8d85c169a": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_8e2009ebcf134448a2ad52b7cc6c4b26", "value": "Every-single-thing that is a plant and-or is a plant-part is a herb.\nNo herb is an animal.\n\nEvery carnivore eats nothing-but animals.\nEvery lion eats nothing-but herbivores.\n\nEvery herbivore eats nothing-but herb.\n\nAnything either is a carnivore, is a herbivore or is an omnivore or-something-else.\nAnything either is a branch, is a leaf or is a twig or-something-else.\n\nNo giraffe is a lion.\nEvery palm-tree is not a tree.\n"}}, "6834615b88754ba992949979ad4896da": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "687f88667abb40929c0d1ac2acbc9281": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_df07f4cbd3574e08868b7543bb5cb15a", "value": "Leo-01 is a lion.\nLeo-01 eats Sophie-01.\nSophie-01 is a giraffe.\nLeo-01 eats Mary-01.\nMary-01 is a palm-tree.\n"}}, "68ff3e69ff0948c7b1d6ea2e0727d6f1": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_2b1178c8982c4d7f8bd00f05c2a0ab9f", "value": "an animal that loves "}}, "69339d07f80c4b42a0ca64e1e93f2940": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_db4059a12cb34224934499d5b329f6c6"}}, "6b3a1654ff064f0aaf274b3478288a8f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "6b665fd9cf6b45d0ade1db84533996f4": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "6bc39517a9044c0d95ed9158711c5ff5": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "6c33a33ec84a476ea62d3b987b12a532": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_5ca39e2e45c9445eb22413a85950317f", "value": "Leo-01 is a lion.\nLeo-01 eats Sophie-01.\nSophie-01 is a giraffe.\nLeo-01 eats Mary-01.\nMary-01 is a palm-tree.\n"}}, "6dfbc4a9245c453fb126ea93c284477f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "6fa9e122a4ca4267832285e9f3983bba": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "704fa12b89334f67b30097d1c39534c9": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "727588c8af22452182710e9c54750d83": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_c4809ee837e84bbba2bd1dc44a5cdc69"}}, "72b37b61f1ba4540bd4dafa460795b8e": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "72f03a0887ce493bb7e9983353e95041": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "730125ea80eb4a8c8dd6d861d80bc754": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_626fba381655484ba3aef4356a7281b0", "IPY_MODEL_ec7243a30e514b089cab70a8902d854b", "IPY_MODEL_306788baeef8414d9b32cae354a90d93"], "layout": "IPY_MODEL_1a512292dafe41c4885554cf49296c78"}}, "7358c3b0bfc140b7ad1d635020c852a5": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_791a2bc1ba2c4ed98805765076095f71", "IPY_MODEL_a551c169f0f44b0d8ed33f34d5a4ea9d"], "layout": "IPY_MODEL_2a57077dcfc6408f910fcdd1069fb533"}}, "73d24769813d452e91ba6e87c263096d": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_1beeafa5ecdf401cabc646f26e6c149e"}}, "791a2bc1ba2c4ed98805765076095f71": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_99f9f6e0b26a4e73858dfbb6017ccbb8", "value": "an animal that loves "}}, "798ac8c8baa148b68188dc60d84de5fe": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "7ca7210a92be4d44930684c9149b389f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "7cb5ce8716bf4a209b03b4910d97a0e2": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_72b37b61f1ba4540bd4dafa460795b8e"}}, "7e5fec00c2ad42f1b02a76e0e2b34c6d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "7ffcc5da836a4772ad6190ded79997f7": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 162, "hints": "&lt;Proper-Name&gt;<br/>Every<br/>Every-single-thing<br/>If<br/>No<br/>Nothing<br/>Something<br/>The<br/>X", "hintsX": 162, "layout": "IPY_MODEL_cb714303465343599e7daddd09b77893", "value": "Namespace: 'http://cognitum.eu/african_wildlife'.\n\nComment: 'Lets name our instances'.\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\nEvery man has a train.\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal. \nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\nEvery lion is carnivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nEvery branch is a plant-part.\nEvery leaf is a plant-part.\nEvery twig is a plant-part.\n\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery xylem is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nComment: 'We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words'.\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n"}}, "8299fafb9989402e9259aa0b848881e2": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_17f3ad9162db4104a65795f20d5f0075", "value": "Leo-01 is a lion.\nLeo-01 eats Sophie-01.\nSophie-01 is a giraffe.\nSophie-01 eats Leaf-01.\nMary-01 is a tree.\nLeaf-01 is a leaf and is-part-of Branch-02.\nBranch-02 is a branch and is-part-of Branch-01.\nBranch-01 is a branch and is-part-of Mary-01.\nBranch-03 is a branch."}}, "830d5ee0e72742cbb9c50e698f8db857": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 186, "hintT": "!!!SYNTAX ERROR!!!\r\n\r\nEvery ma\r\nEvery lion is an animal.", "hints": "!!!SYNTAX ERROR!!!\r\n\r\nEvery ma\r\nEvery lion is an animal.", "hintsX": 186, "layout": "IPY_MODEL_f7410d5947704d05b636e488c607ec0e", "value": "Namespace: 'http://cognitum.eu/african_wildlife'.\n\nComment: 'Lets name our instances'.\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\nEvery man has a train.\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal. \nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\nEvery lion is carnivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nEvery branch is a plant-part.\nEvery leaf is a plant-part.\nEvery twig is a plant-part.\n\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery xylem is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nComment: 'We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words'.\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n"}}, "83203b61038f4ab2b3ba7f253cbbe26a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "855217b3e1bb42259eb7050ebb8fe5c6": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "85f2cc17df4e4e429f3682d5f1a9d2a5": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_379b403b772848b184590efb077753db"}}, "865ed95805f44073ac10f4b4757bd1a0": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "87dbf123720c4818bdda118bfdbb7cda": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_daee7295113f4ab588ec50dacbc01003"}}, "88e3f3eb628649cbaa595601364bada4": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "89b1bde40ddb4abf9ac1d1cd90dd345a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100px"}}, "8b344392a0d344158becbf95c37546c6": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_56a2eb99cf15417e8568cc49848857f1", "IPY_MODEL_f81dc3d2747142f9ac59bd2ccb85dc67"], "layout": "IPY_MODEL_f7e95e3d43544ddfb6c69338a006cace"}}, "8b52933a93d84df1bc039f960cacf560": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_b0bf749d3aa54cb5876f768752e013e2"}}, "8b7f1503cd5d4af7bedb96db2bc9826b": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_b18557280c0d4e1b827179460da45136", "value": "Leo-01 is a lion.\nLeo-01 eats Sophie-01.\nSophie-01 is a giraffe.\nSophie-01 eats Leaf-01.\nMary-01 is a tree.\nLeaf-01 is a leaf and is-part-of Branch-02.\nBranch-02 is a branch and is-part-of Branch-01.\nBranch-01 is a branch and is-part-of Mary-01.\nBranch-03 is a branch."}}, "8e2009ebcf134448a2ad52b7cc6c4b26": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "8e63218be8c84392b59914249922d662": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_5aea4cc758c6473193e64e8a9da92f28"}}, "8f2ee93c18ed4583894db21311e14ed9": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_38238e85b5bb4623a8ef8b3af0729a67"}}, "91212d33087f4872ab96d1d2adac582a": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_6fa9e122a4ca4267832285e9f3983bba"}}, "91317d55b28b4abaa3dd6c28ea4148ce": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "951c1fa30fea488a8ae1578cede4b5fe": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "9536c1856e8a487d8c68984e25b441ce": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "957d4aeb826049c7aa130633415c42d7": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "9767af0ad60a4f4f84f6fffb5b1addb8": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "99075eefb8ad4a5087de5fbfbb2e2a8c": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_9febe76887f34e8e9ea439b3d6a469bc", "value": "Comment: 'Lets name our instances'.\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\n\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal.\nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\nEvery lion is carnivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nEvery branch is a plant-part.\nEvery leaf is a plant-part.\nEvery twig is a plant-part.\n\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery xylem is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nComment: 'We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words'.\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n"}}, "99f9f6e0b26a4e73858dfbb6017ccbb8": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "9b0f9a23e3574472b084a63a42c18088": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "9d07215be67a427b88b43b564d36beb6": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_855217b3e1bb42259eb7050ebb8fe5c6", "value": "Sun is a star.\nIf a thing orbits a star and the thing has-mass-kg greater-than 1.0e21 and the thing has-mass-kg lower-than 1.0e23 then the thing is a dwarf-planet.\nIf a thing orbits a star and the thing has-mass-kg greater-than 1.0e23 then the thing is a planet.\nIf a thing(1) orbits a thing(2) and the thing(2) orbits a star then the thing(1) is a moon."}}, "9d7f76b3359049b99071eba73b8dc427": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_4a569f7988e8471dafe05c22d22bd4ea", "IPY_MODEL_727588c8af22452182710e9c54750d83"], "layout": "IPY_MODEL_9536c1856e8a487d8c68984e25b441ce"}}, "9febe76887f34e8e9ea439b3d6a469bc": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "a1d343a6e9ab47b999491d584f4d747b": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_42805aa70f7945db96a25007c189bac0", "IPY_MODEL_4f0a97990f8943818fc14ed4fd385830"], "layout": "IPY_MODEL_c1e34aeacb524c99a1c32e8cc8c9413a"}}, "a23f3db72e844fd38d5d05b950980e06": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "a270637c9421471a86a1a5fb0c90358f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "a2c7154564514724af74f1f72cd039df": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_194e683e49954beab66c82f87eec0560", "IPY_MODEL_e26922aed1324c3cb824535d8f1eba7a"], "layout": "IPY_MODEL_89b1bde40ddb4abf9ac1d1cd90dd345a"}}, "a551c169f0f44b0d8ed33f34d5a4ea9d": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_9767af0ad60a4f4f84f6fffb5b1addb8"}}, "a72c477271da47ed89511b6a29edfeda": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_e2a71f5154014000b1f73094373d8ad5"}}, "a83fc2b5087147fda70ef91ec71c9636": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_44f37380178d4fa0a074af10221c17fa", "value": "Namespace: 'http://cognitum.eu/african_wildlife'.\n\nComment: 'Lets name our instances'.\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\nEvery ma\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal. \nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\nEvery lion is carnivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nEvery branch is a plant-part.\nEvery leaf is a plant-part.\nEvery twig is a plant-part.\n\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery xylem is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nComment: 'We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words'.\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n"}}, "ac2b910f6f714657b031543b3c3820f6": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "acf1c5a99f7843fd8fe8da70d0aac47f": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 1198, "hints": "Every<br/>Every-single-thing<br/>If<br/>Leo<br/>No<br/>Nothing<br/>Something<br/>Sophie<br/>The<br/>X", "hintsX": 1198, "layout": "IPY_MODEL_1a817713ce83451c8259b7b8600da6fb", "value": "Title: 'African Wildlife'.\nAuthor: 'Pawe\u0139\u201a Kap\u0139\u201aa\u0139\u201eski'.\nBased-On: \n 'A Semantic Web Primer.'\n 'Antoniou, G, van Harmelen, F.'\n 'MIT Press, 2003.'\n 'http://www.csd.uoc.gr/~hy566/SWbook.pdf'\n.\n\nComment:\n////// Examples of Possible Questions  /////////////////////////////   \n//Who-Or-What:\n// * is a carnivore ?                                      \n// * is an herbivore ?                                         \n// * is an animal that eats grass ?                            \n// * is-part-of a tree ?  \n// * is eaten by lion?           \n////////////////////////////////////////////////////////////////////.\n\n\n\nPart-1: 'simple hierarchy of beings'.\n\nComment: 'Lets name our instances'.\nSophie is a giraffe.\nLeo is a lion.\n\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal.\nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nPart-2: adjectives and specifications.\n\nComment: 'We cannot use adjectives directly'.\nComment: 'To specify adjectives we need to transform them into sets that have form of buzzy-words'.\n\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n\nComment: 'Similarly we can do to make something more and more specific'.\nEvery branch is a plant-part.\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery twig is a plant-part.\nEvery xylem is a plant-part.\nEvery leaf is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nPart-3: Disjointness.\n\nComment: 'We deal with Open World Assumption, therefore we need to specify explicitly if two things are different'.\nComment: 'E.g.: We need to specify explicitly that animal is not a plant'.\nEvery animal is not a plant.\nEvery giraffe is not a lion.\nEvery palm-tree is not a tree.\n\nComment: 'Or we can use it - it means the same'.\nNo animal is a plant.\n\nPart-4: Simple relations.\n\nComment: To specify relation beetween beings.\nEvery lion eats an impala.\nEvery carnivorous-plant eats an animal.\n\nComment: 'I.e. be part of is a part-whole relation'.\nEvery branch is-part-of a tree.\nEvery plant-part is-proper-part-of a plant.\nEvery xylem is-proper-part-of a stem.\nEvery phloem is-proper-part-of a stem.\n\nComment:  'Specifying the range of relation. The difference? One is that lion eats impala. Second that it eats only herbivore' -> impala must be herbivore.\nEvery lion eats nothing-but herbivores.\n\nPart-5: 'Complex relations'.\n\nEvery palm-tree has-part that is not a branch.\nEvery warthog eats an animal and eats a fruiting-body and eats a grass and eats a root.\nEvery giraffe eats nothing-but things that are leaves and-or are twigs.\nEvery leaf is-part-of something that is a branch and-or is a twig.\nEvery tasty-plant is-eaten-by a carnivore and is-eaten-by a herbivore.\nEvery-single-thing eats nothing-but things that are animals and-or are plants and-or are-part-of animals and-or are-part-of plants.\n\nPart-6: 'Reflexion'.\n\nNothing is-proper-part-of itself.\n\nPart-7: Equivalence.\n\nComment: 'What it means to be a carnivore, omnivore or herbivore? We specify exact definitions here.'.\nEvery-single-thing that eats nothing-but animals and-or eats nothing-but things that are-part-of animals is a carnivore.\nSomething is an omnivore if-and-only-if-it eats an animal and eats a plant and eats something that is-part-of an animal and-or is-part-of a plant.\nSomething is a herbivore if-and-only-if-it eats nothing-but plants and-or eats nothing-but things that are-part-of plants.\n\nPart-8: 'Disjointness'.\n\nAnything either is a carnivore, is a herbivore or is an omnivore or-something-else.\nAnything either is a branch, is a leaf or is a twig or-something-else.\n\nPart-9: 'Relations between roles'.\n\nComment: 'Role equivalence and inverted roles'.\nX has-part Y if-and-only-if Y is-part-of X.\nX eats Y if-and-only-if Y is-eaten-by X.\n\nComment: 'Role subsumptions'.\nIf X is-proper-part-of Y then X is-part-of Y.\nIf X has-part something that has-part Y then X has-part Y.\n\nComment: 'Complex role subsumptions'.\nIf X is-part-of something that is-part-of Y then X is-part-of Y."}}, "b0bf749d3aa54cb5876f768752e013e2": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "b18557280c0d4e1b827179460da45136": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "b3aca64dc8c740feae0ac17d0679814c": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_0287b64412d1476fac61df9b498195e0"}}, "b6c1708eb8ab423fbc381678654dde18": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 166, "hints": "&lt;Proper-Name&gt;<br/>Every<br/>Every-single-thing<br/>If<br/>No<br/>Nothing<br/>Something<br/>The<br/>X", "hintsX": 166, "layout": "IPY_MODEL_865ed95805f44073ac10f4b4757bd1a0", "value": "Comment: 'Lets name our instances'.\nComment: 'Lets specify the hierarchy of beings'. \nComment: 'What is what?'.\n\nEvery lion is an animal.\nEvery giraffe is an animal.\n\nComment: 'Moreover'.\nEvery impala is an animal.\nEvery omnivore is an animal.\nEvery rock-dassie is an animal.\nEvery warthog is an animal.\nEvery carnivore is an animal.\nEvery herbivore is an animal.\nEvery elephant is a herbivore.\nEvery lion is carnivore.\n\nComment: 'There are also plants there:'.\nEvery tree is a plant.\nEvery grass is a plant.\nEvery palm-tree is a plant.\n\nEvery branch is a plant-part.\nEvery leaf is a plant-part.\nEvery twig is a plant-part.\n\nEvery phloem is a plant-part.\nEvery root is a plant-part.\nEvery parsnip is a root.\nEvery stem is a plant-part.\nEvery xylem is a plant-part.\nEvery fruiting-body is a plant-part.\nEvery berry is a fruiting-body.\nEvery apple is a fruiting-body.\n\nComment: 'We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words'.\nEvery tasty-plant is a plant.\nEvery carnivorous-plant is a plant.\n"}}, "ba703b23f64a4ac9bc68ac9552802303": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "bb14a3aef3864813a7002faff9fc6b16": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "cursor": 89, "hints": "&lt;natural number&gt;", "hintsX": 80, "layout": "IPY_MODEL_c17c106402064e86b728cf51a20e3f93", "value": "Leo-01 is a lion.\nLeo-01 eats Sophie-01.\nSophie-01 is a giraffe.\nSophie-01 eats Branch-01.\nMary-01 is a tree.\nBranch-01 is a branch and is-proper-part-of Mary-01.\n"}}, "bfdcdc39eeb04946a97cd9562372bc04": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "c17c106402064e86b728cf51a20e3f93": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "c1e34aeacb524c99a1c32e8cc8c9413a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "c270818a31444c1291fb66ccf47ab781": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_ca27fc1924f84efc810abac514e95fb3", "IPY_MODEL_9d07215be67a427b88b43b564d36beb6", "IPY_MODEL_a72c477271da47ed89511b6a29edfeda"], "layout": "IPY_MODEL_40602977eafc4fb8a5da1a8b6e160761"}}, "c370339aafb24857915cb2b2d2ab7980": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "c3b494913b23455082fcb63616b57646": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_075ca95d3ff64fdf8542061a5f907fdc", "IPY_MODEL_69339d07f80c4b42a0ca64e1e93f2940"], "layout": "IPY_MODEL_ce2e3b8fdc324d989c349ad9a641ca61"}}, "c4809ee837e84bbba2bd1dc44a5cdc69": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "c7c7716cd5034ec7a3235e29964fa9d9": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_ec97c88651864e3ca37f08c0e7906155"}}, "c7fe458b7f814978a92e90b0b53c295c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "ca27fc1924f84efc810abac514e95fb3": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_91317d55b28b4abaa3dd6c28ea4148ce"}}, "cb714303465343599e7daddd09b77893": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "cbb49564f07a44bdb9bdcc6dc6b14644": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "cdb640c492eb40d986642b7b0cf89db1": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_cbb49564f07a44bdb9bdcc6dc6b14644"}}, "ce2e3b8fdc324d989c349ad9a641ca61": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "d66764a2add44d99aa42b9900ec34efa": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_8299fafb9989402e9259aa0b848881e2", "IPY_MODEL_2ee595c943434b3288bd80d13a391707"], "layout": "IPY_MODEL_260916fd573c4e118c8d6fdeed6c1d4d"}}, "d6c24200739c486fa395a2d6f15f4c29": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_b6c1708eb8ab423fbc381678654dde18", "IPY_MODEL_91212d33087f4872ab96d1d2adac582a"], "layout": "IPY_MODEL_d786ada62a30448b8081a35a036fbf3d"}}, "d786ada62a30448b8081a35a036fbf3d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "d810833472c54ff1a38f821261445bdb": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "d8f23781ffc74fb797fe78016d7b58e4": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "d9c2b88b505b48a4b6c2c57cd93f7776": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "d9cb1abd82e245e987efdff390856b01": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "daee7295113f4ab588ec50dacbc01003": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "db4059a12cb34224934499d5b329f6c6": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "db6bc8d6d0d54e2484718dee857e30e1": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "dc33986a1b82473796f0e43e7b8960d2": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_490fd126b35c4016a45f2265268f5ef0", "IPY_MODEL_27ad5c8d383e457a9920d5cb29f64853"], "layout": "IPY_MODEL_f2d6e500963644e1ace9c82d3d895f68"}}, "dd75b77ca52a43a9868c62b289a4e4e1": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_db6bc8d6d0d54e2484718dee857e30e1"}}, "df07f4cbd3574e08868b7543bb5cb15a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "df45bd0d614e4f8dbc1d38058dc993e7": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "df59fa382ea5464699bf03b221ac05e1": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "e18af0cea30b4af3a6cf1099f055219c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_e1d32be0fd784adb901538ecaea234af", "IPY_MODEL_e5a39ffce83d482a9bb07ef05f75f0c2"], "layout": "IPY_MODEL_ba703b23f64a4ac9bc68ac9552802303"}}, "e1d32be0fd784adb901538ecaea234af": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_a23f3db72e844fd38d5d05b950980e06", "value": "Every-single-thing that is a plant and-or is a plant-part is a herb.\nNo herb is an animal.\n\nEvery carnivore eats nothing-but animals.\nEvery lion eats nothing-but herbivores.\n\nEvery herbivore eats nothing-but herb.\n\nAnything either is a carnivore, is a herbivore or is an omnivore or-something-else.\nAnything either is a branch, is a leaf or is a twig or-something-else.\n\nNo giraffe is a lion.\nEvery palm-tree is not a tree.\n"}}, "e26922aed1324c3cb824535d8f1eba7a": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_08a658b923de47b7add2517b8353da1a"}}, "e278e56780d1428c826f7d861d407183": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "e2a71f5154014000b1f73094373d8ad5": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "e445e8ca520940b8aa5759ab19428243": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "e47665c42c1e462aa1fcecac0816fa09": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_1d27dea574734e228e02e981579f0e48", "IPY_MODEL_3e2147d0702741bbb1963715683ba2ff"], "layout": "IPY_MODEL_704fa12b89334f67b30097d1c39534c9"}}, "e4e340eba47048e182a7727741432dc5": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_a83fc2b5087147fda70ef91ec71c9636", "IPY_MODEL_0529b65148e34a3f84378822394dbb23"], "layout": "IPY_MODEL_46b6bc391f7d47cb95796e1c5effa3cb"}}, "e5a39ffce83d482a9bb07ef05f75f0c2": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_efae18bdcab04718b11c37b244e41d0f"}}, "e736dda042e74aac96c321bed782241e": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "layout": "IPY_MODEL_34a127ddc9f3425d855562e734e8582e"}}, "e87806312d1343ce83bb2bb743ba1b80": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "ea50e21fc54b4d97b922faa6337bdfe7": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "eb9f057816f4489aa2d75b1a69a3b282": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "ec7243a30e514b089cab70a8902d854b": {"model_module": "ontoedit", "model_module_version": "1.1.0", "model_name": "OntoeditModel", "state": {"_model_module_version": "1.1.0", "_view_module_version": "", "dot": 1, "layout": "IPY_MODEL_336db835ccea46398d38ec7301c8d8bc", "value": "If a thing orbits a star and the thing has-mass-kg greater-than 1.0e21 and the thing has-mass-kg lower-than 1.0e23 then the thing is a dwarf-planet.\nIf a thing orbits a star and the thing has-mass-kg greater-than 1.0e23 then the thing is a planet.\nIf a thing(1) orbits a thing(2) and the thing(2) orbits a star then the thing(1) is a moon.\n\n\nSun is a star.\n"}}, "ec97c88651864e3ca37f08c0e7906155": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "edb2db2d34c248249a938a00c0f98a07": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "edfd7c1406474ef8b6008fa01533a9f1": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_d9cb1abd82e245e987efdff390856b01"}}, "ee2dd188cbe048cd98f09aa693d4aae4": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_bb14a3aef3864813a7002faff9fc6b16", "IPY_MODEL_ef6cc581fc9c483fa9f40c0299bb4106"], "layout": "IPY_MODEL_88e3f3eb628649cbaa595601364bada4"}}, "ef6cc581fc9c483fa9f40c0299bb4106": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_1786ad24fa9d463aa9ad86dcacd6b971"}}, "efae18bdcab04718b11c37b244e41d0f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "f0f6655efb3d4a67824e88522b093252": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_687f88667abb40929c0d1ac2acbc9281", "IPY_MODEL_2401f4a10a284f68920b1eb13a0ef3f1"], "layout": "IPY_MODEL_08826d1d1e2d4efa9364b5d2bafa3c93"}}, "f1b9951724734f07987cdd4aef154383": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.4.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_acf1c5a99f7843fd8fe8da70d0aac47f", "IPY_MODEL_8b52933a93d84df1bc039f960cacf560"], "layout": "IPY_MODEL_e445e8ca520940b8aa5759ab19428243"}}, "f2d6e500963644e1ace9c82d3d895f68": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "f2dac51fb55347f2bf9f5f781b9e4558": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {}}, "f4ea8cdd8b5c4157a727af4af9d67cb3": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "f7410d5947704d05b636e488c607ec0e": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100%", "width": "90%"}}, "f79246661c1941fb8047812a618edbea": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "100px"}}, "f7e95e3d43544ddfb6c69338a006cace": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.1.0", "model_name": "LayoutModel", "state": {"height": "300px"}}, "f81355e7f2a34681bf8ca14e71dbf938": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_edb2db2d34c248249a938a00c0f98a07"}}, "f81dc3d2747142f9ac59bd2ccb85dc67": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "model_name": "OutputModel", "state": {"layout": "IPY_MODEL_5f92d7eda9e4489591fce827af8d659b"}}}, "version_major": 2, "version_minor": 0}
 </script></div>
+</div>
 
 
            </div>
