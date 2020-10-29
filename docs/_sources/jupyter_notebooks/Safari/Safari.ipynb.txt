@@ -4,7 +4,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# Creating and exploring the OWL/RL + SWRL Ontologies using CogniPy by Cognitum Services S.A."
+    "# Safari"
    ]
   },
   {
@@ -41,7 +41,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# African Wildlife.\n",
+    "### African Wildlife.\n",
     "Loading the editor for the basic \"safari\" ontology. The Ontology is inspired by 'A Semantic Web Primer.' by 'Antoniou, G, van Harmelen, F.' 'MIT Press, 2003.' 'http://www.csd.uoc.gr/~hy566/SWbook.pdf', tuned to OWL/RL+SWRL profile."
    ]
   },
