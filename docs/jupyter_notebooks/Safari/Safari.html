@@ -453,8 +453,6 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="k">import</span> <span class="n">Ontology</span> <span class="c1">#the ontology processing class</span>
 <span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="k">import</span> <span class="n">CQL</span> <span class="c1">#SPARQL format tailored for Contolled Natural Language</span>
-<span class="kn">from</span> <span class="nn">cognipy.edit</span> <span class="k">import</span> <span class="n">CnlEditBox</span> <span class="c1">#The pywidget based ontology editor (offspirng of the Fluent Editor)</span>
-<span class="kn">from</span> <span class="nn">cognipy.edit</span> <span class="k">import</span> <span class="n">CnlQueryForConcept</span> <span class="c1">#The pywidget based ontology quaty widget</span>
 <span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="k">import</span> <span class="n">encode_string_for_graph_label</span> <span class="c1">#complex datatypes encoder for the graph labels in graph visualisation</span>
 <span class="kn">import</span> <span class="nn">textwrap</span>
 
@@ -474,397 +472,88 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Part-1:-'simple-hierarchy-of-beings'.">
 <h2>Part-1: ‘simple hierarchy of beings’.<a class="headerlink" href="#Part-1:-'simple-hierarchy-of-beings'." title="Permalink to this headline">¶</a></h2>
-<p>We will have many editors here and we will store all of them in the dict</p>
-<div class="nbinput nblast docutils container">
+<p>Lets setup the fist ontology editor for the general knowledge.</p>
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">parts_editors</span><span class="o">=</span><span class="p">{}</span>
+<span></span><span class="o">%%writefile</span> part_01.encnl
+
+<span class="n">Namespace</span><span class="p">:</span> <span class="s1">&#39;http://cognitum.eu/african_wildlife&#39;</span><span class="o">.</span>
+
+<span class="n">Comment</span><span class="p">:</span> <span class="s1">&#39;Let&#39;</span><span class="n">s</span> <span class="n">name</span> <span class="n">our</span> <span class="n">instances</span><span class="s1">&#39;.</span>
+<span class="n">Comment</span><span class="p">:</span> <span class="s1">&#39;Let&#39;</span><span class="n">s</span> <span class="n">specify</span> <span class="n">the</span> <span class="n">hierarchy</span> <span class="n">of</span> <span class="n">beings</span><span class="s1">&#39;.</span>
+<span class="n">Comment</span><span class="p">:</span> <span class="s1">&#39;What is what?&#39;</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">man</span> <span class="n">has</span> <span class="n">a</span> <span class="n">train</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">lion</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">giraffe</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+
+<span class="n">Every</span> <span class="n">animal</span> <span class="n">has</span> <span class="n">a</span> <span class="n">face</span><span class="o">.</span>
+
+<span class="n">Comment</span><span class="p">:</span> <span class="s1">&#39;Moreover&#39;</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">impala</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">omnivore</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">rock</span><span class="o">-</span><span class="n">dassie</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">warthog</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">carnivore</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">herbivore</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">elephant</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">herbivore</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">lion</span> <span class="ow">is</span> <span class="n">carnivore</span><span class="o">.</span>
+
+<span class="n">Comment</span><span class="p">:</span> <span class="s1">&#39;There are also plants there:&#39;</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">tree</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">grass</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">palm</span><span class="o">-</span><span class="n">tree</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">.</span>
+
+<span class="n">Every</span> <span class="n">branch</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">-</span><span class="n">part</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">leaf</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">-</span><span class="n">part</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">twig</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">-</span><span class="n">part</span><span class="o">.</span>
+
+<span class="n">Every</span> <span class="n">phloem</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">-</span><span class="n">part</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">root</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">-</span><span class="n">part</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">parsnip</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">root</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">stem</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">-</span><span class="n">part</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">xylem</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">-</span><span class="n">part</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">fruiting</span><span class="o">-</span><span class="n">body</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">-</span><span class="n">part</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">berry</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">fruiting</span><span class="o">-</span><span class="n">body</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">apple</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">fruiting</span><span class="o">-</span><span class="n">body</span><span class="o">.</span>
+
+<span class="n">Comment</span><span class="p">:</span> <span class="s1">&#39;We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words&#39;</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">tasty</span><span class="o">-</span><span class="n">plant</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">carnivorous</span><span class="o">-</span><span class="n">plant</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">.</span>
+
 </pre></div>
 </div>
 </div>
-<p>Lets setup the fist ontology editor for the general knowledge. The editor allows you to enter the knowledge in text format, and support you with the prdictive editor.</p>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Overwriting part_01.encnl
+</pre></div></div>
+</div>
+<p>The ontology object alows you to draw the materialised graph using several layout algorythms. Lets draw our base ontology.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">parts_editors</span><span class="p">[</span><span class="s1">&#39;01&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">CnlEditBox</span><span class="p">(</span><span class="s1">&#39;part_01.encnl&#39;</span><span class="p">)</span>
-<span class="n">parts_editors</span><span class="p">[</span><span class="s1">&#39;01&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="output_javascript"></div>
-<script type="text/javascript">
-var element = document.currentScript.previousSibling.previousSibling;
-/* jshint browser: true */
-
-(function () {
-
-// We'll copy the properties below into the mirror div.
-// Note that some browsers, such as Firefox, do not concatenate properties
-// into their shorthand (e.g. padding-top, padding-bottom etc. -> padding),
-// so we have to list every single property explicitly.
-var properties = [
-  'direction',  // RTL support
-  'boxSizing',
-  'width',  // on Chrome and IE, exclude the scrollbar, so the mirror div wraps exactly as the textarea does
-  'height',
-  'overflowX',
-  'overflowY',  // copy the scrollbar for IE
-
-  'borderTopWidth',
-  'borderRightWidth',
-  'borderBottomWidth',
-  'borderLeftWidth',
-  'borderStyle',
-
-  'paddingTop',
-  'paddingRight',
-  'paddingBottom',
-  'paddingLeft',
-
-  // https://developer.mozilla.org/en-US/docs/Web/CSS/font
-  'fontStyle',
-  'fontVariant',
-  'fontWeight',
-  'fontStretch',
-  'fontSize',
-  'fontSizeAdjust',
-  'lineHeight',
-  'fontFamily',
-
-  'textAlign',
-  'textTransform',
-  'textIndent',
-  'textDecoration',  // might not make a difference, but better be safe
-
-  'letterSpacing',
-  'wordSpacing',
-
-  'tabSize',
-  'MozTabSize'
-
-];
-
-var isBrowser = (typeof window !== 'undefined');
-var isFirefox = (isBrowser && window.mozInnerScreenX != null);
-
-function getCaretCoordinates(element, position, options) {
-  if (!isBrowser) {
-    throw new Error('textarea-caret-position#getCaretCoordinates should only be called in a browser');
-  }
-
-  var debug = options && options.debug || false;
-  if (debug) {
-    var el = document.querySelector('#input-textarea-caret-position-mirror-div');
-    if (el) el.parentNode.removeChild(el);
-  }
-
-  // The mirror div will replicate the textarea's style
-  var div = document.createElement('div');
-  div.id = 'input-textarea-caret-position-mirror-div';
-  document.body.appendChild(div);
-
-  var style = div.style;
-  var computed = window.getComputedStyle ? window.getComputedStyle(element) : element.currentStyle;  // currentStyle for IE < 9
-  var isInput = element.nodeName === 'INPUT';
-
-  // Default textarea styles
-  style.whiteSpace = 'pre-wrap';
-  if (!isInput)
-    style.wordWrap = 'break-word';  // only for textarea-s
-
-  // Position off-screen
-  style.position = 'absolute';  // required to return coordinates properly
-  if (!debug)
-    style.visibility = 'hidden';  // not 'display: none' because we want rendering
-
-  // Transfer the element's properties to the div
-  properties.forEach(function (prop) {
-    if (isInput && prop === 'lineHeight') {
-      // Special case for <input>s because text is rendered centered and line height may be != height
-      if (computed.boxSizing === "border-box") {
-        var height = parseInt(computed.height);
-        var outerHeight =
-          parseInt(computed.paddingTop) +
-          parseInt(computed.paddingBottom) +
-          parseInt(computed.borderTopWidth) +
-          parseInt(computed.borderBottomWidth);
-        var targetHeight = outerHeight + parseInt(computed.lineHeight);
-        if (height > targetHeight) {
-          style.lineHeight = height - outerHeight + "px";
-        } else if (height === targetHeight) {
-          style.lineHeight = computed.lineHeight;
-        } else {
-          style.lineHeight = 0;
-        }
-      } else {
-        style.lineHeight = computed.height;
-      }
-    } else {
-      style[prop] = computed[prop];
-    }
-  });
-
-  if (isFirefox) {
-    // Firefox lies about the overflow property for textareas: https://bugzilla.mozilla.org/show_bug.cgi?id=984275
-    if (element.scrollHeight > parseInt(computed.height))
-      style.overflowY = 'scroll';
-  } else {
-    style.overflow = 'hidden';  // for Chrome to not render a scrollbar; IE keeps overflowY = 'scroll'
-  }
-
-  div.textContent = element.value.substring(0, position);
-  // The second special handling for input type="text" vs textarea:
-  // spaces need to be replaced with non-breaking spaces - http://stackoverflow.com/a/13402035/1269037
-  if (isInput)
-    div.textContent = div.textContent.replace(/\s/g, '\u00a0');
-
-  var span = document.createElement('span');
-  // Wrapping must be replicated *exactly*, including when a long word gets
-  // onto the next line, with whitespace at the end of the line before (#7).
-  // The  *only* reliable way to do that is to copy the *entire* rest of the
-  // textarea's content into the <span> created at the caret position.
-  // For inputs, just '.' would be enough, but no need to bother.
-  span.textContent = element.value.substring(position) || '.';  // || because a completely empty faux span doesn't render at all
-  div.appendChild(span);
-
-  var coordinates = {
-    top: span.offsetTop + parseInt(computed['borderTopWidth']),
-    left: span.offsetLeft + parseInt(computed['borderLeftWidth']),
-    height: parseInt(computed['lineHeight'])
-  };
-
-  if (debug) {
-    span.style.backgroundColor = '#aaa';
-  } else {
-    document.body.removeChild(div);
-  }
-
-  return coordinates;
-}
-
-if (typeof module != 'undefined' && typeof module.exports != 'undefined') {
-  module.exports = getCaretCoordinates;
-} else if(isBrowser) {
-  window.getCaretCoordinates = getCaretCoordinates;
-}
-
-}());
-
-require.undef('ontoedit');
-
-define('ontoedit', ["@jupyter-widgets/base"], function(widgets) {
-
-    var OntoeditModel = widgets.TextareaModel.extend({
-
-        defaults: $.extend(widgets.TextareaModel.prototype.defaults(), {
-            _model_name: "OntoeditModel",
-            _view_name: "OntoeditView",
-            _model_module: "ontoedit",
-            _view_module: "ontoedit",
-            rows: null,
-            continuous_update: true,
-            cursor: 0,
-            dot:0,
-            hints:'',
-            hintsX:0,
-            hintT:''
-        })
-    });
-
-    var OntoeditView = widgets.TextareaView.extend({
-
-        render: function() {
-            OntoeditView.__super__.render.apply(this, arguments);
-            this.model.on('change:hints', this.hints_changed, this);
-            this.model.on('change:hintsX', this.hintsX_changed, this);
-
-            var model = this.model;
-            var that = this;
-
-            var last_position = 0;
-
-            function cursor_changed(element) {
-                var new_position = getCursorPosition(element);
-                if (new_position !== last_position) {
-                    last_position = new_position;
-                    return true;
-                }
-                return false;
-            }
-
-            function getCursorPosition(element) {
-                var el = $(element).get(0);
-                var pos = 0;
-                if ('selectionStart' in el) {
-                    pos = el.selectionStart;
-                } else if ('selection' in document) {
-                    el.focus();
-                    var Sel = document.selection.createRange();
-                    var SelLength = document.selection.createRange().text.length;
-                    Sel.moveStart('character', -el.value.length);
-                    pos = Sel.text.length - SelLength;
-                }
-                return pos;
-            }
-
-            var oldVal = "";
-
-            this.dd=$('<div style="-moz-appearance: textfield-multiline;-webkit-appearance: textarea;font: medium -moz-fixed; font: -webkit-small-control; position: absolute;z-index: 1; background-color:navy;color:white;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4); "/>')
-
-            $(this.el).bind("click keyup focus",function(e){
-                if (that.dd.get(0).style.visibility!="visible")
-                    return;
-
-                var ele=$($(that.el).children("textarea")[0])
-
-                if(cursor_changed(ele)){
-                   var  cursor = getCursorPosition(ele);
-//                    console.log(cursor);
-//                    console.log('(top, left, height) = (%s, %s, %s)', caret.top, caret.left, caret.height);
-                    model.set('cursor',cursor);
-//                    console.log(cursor)
-                    that.touch();
-                }
-            });
-
-            $($(this.el).children("textarea")[0]).bind("blur",function(e){
-//                console.log("blur")
-                  model.set('dot',model.get('dot')+1);
-                  that.touch();
-                that.dd.get(0).style.visibility="hidden";
-            });
-
-            $($(this.el).children("textarea")[0]).bind("keydown",function(e){
-                  if (String.fromCharCode(event.which)=='\t')
-                  {
-                        if (that.dd.get(0).style.visibility!="visible")
-                        {
-                            var ele=$($(that.el).children("textarea")[0])
-
-                            if(cursor_changed(ele)){
-                               var  cursor = getCursorPosition(ele);
-            //                    console.log(cursor);
-            //                    console.log('(top, left, height) = (%s, %s, %s)', caret.top, caret.left, caret.height);
-                                model.set('cursor',cursor);
-            //                    console.log(cursor)
-                                that.touch();
-                                that.dd.get(0).style.visibility="visible";
-                            }
-                        }
-//                      console.log(model.get('hintT'));
-                      var target=$($(that.el).children("textarea")[0])
-                      var curpos = getCursorPosition(target)
-                      var off=curpos-model.get('hintsX')
-                      var data = model.get('hintT').slice(off)
-//                      console.log(off)
-
-                      if (target.setRangeText) {
-                         //if setRangeText function is supported by current browser
-                         target.setRangeText(data)
-                      } else {
-                        target.focus()
-                        document.execCommand('insertText', false /*no UI*/, data);
-                      }
-                      e.preventDefault();
-                      return;
-                  }
-                  else if (event.key=='.')
-                  {
-                      model.set('dot',model.get('dot')+1);
-                      that.touch();
-                  }
-                  else if(event.key== "Escape")
-                  {
-                    that.dd.get(0).style.visibility="hidden";
-                  }
-            });
-
-            // this.el represents the widget's DOM
-            $(this.el)
-            .append(this.dd)
-        },
-
-        hints_changed: function() {
-            var that = this;
-            var model = this.model;
-            that.dd.get(0).innerHTML=model.get('hints')
-//            console.log(model.get('hints'))
-        },
-        hintsX_changed: function() {
-            var that = this;
-            var model = this.model;
-            var ele=$($(that.el).children("textarea")[0]);
-            element=ele.get(0);
-            var caret = getCaretCoordinates(ele.get(0), model.get('hintsX'));
-            that.dd.get(0).style.top = element.offsetTop - element.scrollTop + caret.top+ caret.height-5 + 'px';
-            that.dd.get(0).style.left = element.offsetLeft - element.scrollLeft + caret.left + 'px';
-//            that.dd.get(0).style.width = '20%';
-//            that.dd.get(0).style.height = '50%';
-            that.dd.get(0).style.fontFamily=element.style.fontFamily;
-            that.dd.get(0).style.fontSize=element.style.fontSize;
-//                        console.log(model.get('hintsX'))
-        },
-    });
-
-    return {
-        OntoeditModel : OntoeditModel,
-        OntoeditView : OntoeditView
-    };
-});
-
-</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area rendered_html docutils container">
-Welcome to CogniPy</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d57f6e38f7004528888075094f48a5c5", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<p>Lets define the function that will build the ontology based on the dict of ontology editors and the optional additional editor for testing purposes. All it is doing it is concatenaiting the values of all the editors and puts them into the newly created ontology object.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">buildOntology</span><span class="p">(</span><span class="n">parts_editors</span><span class="p">,</span><span class="n">test_editor</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">Ontology</span><span class="p">(</span><span class="s2">&quot;cnl/string&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">parts_editors</span><span class="o">.</span><span class="n">values</span><span class="p">())</span><span class="o">+</span><span class="p">(</span><span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">test_editor</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">test_editor</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()),</span>
+<span></span><span class="n">onto</span><span class="o">=</span><span class="n">Ontology</span><span class="p">(</span><span class="s2">&quot;cnl/file&quot;</span><span class="p">,</span><span class="s2">&quot;part_01.encnl&quot;</span><span class="p">,</span>
                     <span class="n">evaluator</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">e</span><span class="p">:</span><span class="nb">eval</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="nb">globals</span><span class="p">(),</span><span class="nb">locals</span><span class="p">()),</span>
                     <span class="n">graph_attribute_formatter</span> <span class="o">=</span> <span class="n">graph_attribute_formatter</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<p>The ontology object alows you to draw the materialised graph using several layout algorythms. Lets draw our base ontology.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">onto</span><span class="o">=</span><span class="n">buildOntology</span><span class="p">(</span><span class="n">parts_editors</span><span class="p">)</span>
+
 <span class="n">onto</span><span class="o">.</span><span class="n">draw_graph</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="s1">&#39;hierarchical&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/jupyter_notebooks_Safari_Safari_12_0.svg" src="../../_images/jupyter_notebooks_Safari_Safari_12_0.svg" /></div>
+<img alt="../../_images/jupyter_notebooks_Safari_Safari_8_0.svg" src="../../_images/jupyter_notebooks_Safari_Safari_8_0.svg" /></div>
 </div>
 <p>It is fully compatible with OWL/RDF format (via OWLAPI). We can always export it as it is.</p>
 </div>
@@ -872,51 +561,75 @@ Welcome to CogniPy</div>
 <h2>Part-2: Disjointness<a class="headerlink" href="#Part-2:-Disjointness" title="Permalink to this headline">¶</a></h2>
 <p>In OWL/RL+SWRL profile we deal with Open World Assumption. It means that we need to explicitly specify all the objects that are different from each other. We cannot assume (like e.g. object oriented programming language do) that the different names mean the different things, therefore we need to specify explicitly if two things are different.</p>
 <div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%%writefile</span> part_02.encnl
+
+<span class="n">Every</span><span class="o">-</span><span class="n">single</span><span class="o">-</span><span class="n">thing</span> <span class="n">that</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span> <span class="ow">and</span><span class="o">-</span><span class="ow">or</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">-</span><span class="n">part</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">herb</span><span class="o">.</span>
+<span class="n">No</span> <span class="n">herb</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+
+<span class="n">Every</span> <span class="n">carnivore</span> <span class="n">eats</span> <span class="n">nothing</span><span class="o">-</span><span class="n">but</span> <span class="n">animals</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">lion</span> <span class="n">eats</span> <span class="n">nothing</span><span class="o">-</span><span class="n">but</span> <span class="n">herbivores</span><span class="o">.</span>
+
+<span class="n">Every</span> <span class="n">herbivore</span> <span class="n">eats</span> <span class="n">nothing</span><span class="o">-</span><span class="n">but</span> <span class="n">herb</span><span class="o">.</span>
+
+<span class="n">Anything</span> <span class="n">either</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">carnivore</span><span class="p">,</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">herbivore</span> <span class="ow">or</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">omnivore</span> <span class="ow">or</span><span class="o">-</span><span class="n">something</span><span class="o">-</span><span class="k">else</span><span class="o">.</span>
+<span class="n">Anything</span> <span class="n">either</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">branch</span><span class="p">,</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">leaf</span> <span class="ow">or</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">twig</span> <span class="ow">or</span><span class="o">-</span><span class="n">something</span><span class="o">-</span><span class="k">else</span><span class="o">.</span>
+
+<span class="n">No</span> <span class="n">giraffe</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">lion</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">palm</span><span class="o">-</span><span class="n">tree</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">a</span> <span class="n">tree</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Overwriting part_02.encnl
+</pre></div></div>
+</div>
+<p>Lets test how it works on the example. The example will be defining several instances, that aim to break the consistency of the ontology in som not obvious way.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%%writefile</span> test_01.encnl
+
+<span class="n">Leo</span><span class="o">-</span><span class="mi">01</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">lion</span><span class="o">.</span>
+<span class="n">Leo</span><span class="o">-</span><span class="mi">01</span> <span class="n">eats</span> <span class="n">Sophie</span><span class="o">-</span><span class="mf">01.</span>
+<span class="n">Sophie</span><span class="o">-</span><span class="mi">01</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">giraffe</span><span class="o">.</span>
+<span class="n">Leo</span><span class="o">-</span><span class="mi">01</span> <span class="n">eats</span> <span class="n">Mary</span><span class="o">-</span><span class="mf">01.</span>
+<span class="n">Mary</span><span class="o">-</span><span class="mi">01</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">palm</span><span class="o">-</span><span class="n">tree</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Overwriting test_01.encnl
+</pre></div></div>
+</div>
+<p>Lets load all the parts ontology ontology togheter with the testing part into the newly created obeject.</p>
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">parts_editors</span><span class="p">[</span><span class="s1">&#39;02&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">CnlEditBox</span><span class="p">(</span><span class="s1">&#39;part_02.encnl&#39;</span><span class="p">,</span><span class="n">onto</span><span class="p">)</span>
-<span class="n">parts_editors</span><span class="p">[</span><span class="s1">&#39;02&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "6aa31e6afab149709b6959eea67ee56c", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<p>Lets test how it works on the example. The example will be defining several instances, that aim to break the consistency of the ontology in som not obvious way.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">test_01_edit</span> <span class="o">=</span> <span class="n">CnlEditBox</span><span class="p">(</span><span class="s1">&#39;test_01.encnl&#39;</span><span class="p">,</span><span class="n">onto</span><span class="p">)</span>
-<span class="n">test_01_edit</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "aca02ad5a33a4786af036a02601ea45d", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<p>Lets load all the parts ontology ontology togheter with the testing part into the newly created obeject.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">onto</span><span class="o">=</span><span class="n">buildOntology</span><span class="p">(</span><span class="n">parts_editors</span><span class="p">,</span><span class="n">test_01_edit</span><span class="p">)</span>
+<span></span><span class="n">onto</span><span class="o">=</span><span class="n">Ontology</span><span class="p">(</span><span class="s2">&quot;cnl/string&quot;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span><span class="s2">&quot;rt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="k">for</span> <span class="n">fn</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;part_01.encnl&quot;</span><span class="p">,</span><span class="s2">&quot;part_02.encnl&quot;</span><span class="p">,</span><span class="s2">&quot;test_01.encnl&quot;</span><span class="p">]),</span>
+                    <span class="n">evaluator</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">e</span><span class="p">:</span><span class="nb">eval</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="nb">globals</span><span class="p">(),</span><span class="nb">locals</span><span class="p">()),</span>
+                    <span class="n">graph_attribute_formatter</span> <span class="o">=</span> <span class="n">graph_attribute_formatter</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <p>We will need also some way to describe what is wrong <code class="docutils literal notranslate"><span class="pre">printReasoningInfo</span></code> and why <code class="docutils literal notranslate"><span class="pre">printWhy</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -937,7 +650,7 @@ Welcome to CogniPy</div>
 </div>
 <p>So what is wrong here?</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -966,7 +679,7 @@ Welcome to CogniPy</div>
 </div>
 <p>Lets draw it on a diagram, this time using force directed layout.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -975,14 +688,14 @@ Welcome to CogniPy</div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/jupyter_notebooks_Safari_Safari_25_0.svg" src="../../_images/jupyter_notebooks_Safari_Safari_25_0.svg" /></div>
+<img alt="../../_images/jupyter_notebooks_Safari_Safari_21_0.svg" src="../../_images/jupyter_notebooks_Safari_Safari_21_0.svg" /></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1032,48 +745,79 @@ Welcome to CogniPy</div>
 <div class="section" id="Part-3:-Modal-expressions-and-part-whole-relationships.">
 <h2>Part-3: Modal expressions and part-whole relationships.<a class="headerlink" href="#Part-3:-Modal-expressions-and-part-whole-relationships." title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%%writefile</span> part_03.encnl
+
+<span class="n">Every</span> <span class="n">carnivorous</span><span class="o">-</span><span class="n">plant</span> <span class="n">must</span> <span class="n">eat</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">carnivor</span> <span class="n">must</span> <span class="n">eat</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">omnivore</span> <span class="n">must</span> <span class="n">eat</span> <span class="n">a</span> <span class="n">plant</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">branch</span> <span class="n">must</span> <span class="n">be</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">a</span> <span class="n">tree</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">plant</span><span class="o">-</span><span class="n">part</span> <span class="n">must</span> <span class="n">be</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">a</span> <span class="n">plant</span><span class="o">.</span>
+
+<span class="n">Comment</span><span class="p">:</span> <span class="s1">&#39;Role equivalence and inverted roles&#39;</span><span class="o">.</span>
+<span class="n">X</span> <span class="n">has</span><span class="o">-</span><span class="n">part</span> <span class="n">Y</span> <span class="k">if</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">only</span><span class="o">-</span><span class="k">if</span> <span class="n">Y</span> <span class="ow">is</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">X</span><span class="o">.</span>
+<span class="n">X</span> <span class="n">eats</span> <span class="n">Y</span> <span class="k">if</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">only</span><span class="o">-</span><span class="k">if</span> <span class="n">Y</span> <span class="ow">is</span><span class="o">-</span><span class="n">eaten</span><span class="o">-</span><span class="n">by</span> <span class="n">X</span><span class="o">.</span>
+
+<span class="n">Comment</span><span class="p">:</span> <span class="s1">&#39;Role subsumptions&#39;</span><span class="o">.</span>
+<span class="n">If</span> <span class="n">X</span> <span class="ow">is</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">Y</span> <span class="n">then</span> <span class="n">X</span> <span class="ow">is</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">Y</span><span class="o">.</span>
+<span class="n">If</span> <span class="n">X</span> <span class="n">has</span><span class="o">-</span><span class="n">part</span> <span class="n">something</span> <span class="n">that</span> <span class="n">has</span><span class="o">-</span><span class="n">part</span> <span class="n">Y</span> <span class="n">then</span> <span class="n">X</span> <span class="n">has</span><span class="o">-</span><span class="n">part</span> <span class="n">Y</span><span class="o">.</span>
+
+<span class="n">Comment</span><span class="p">:</span> <span class="s1">&#39;Complex role subsumptions&#39;</span><span class="o">.</span>
+<span class="n">If</span> <span class="n">X</span> <span class="ow">is</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">something</span> <span class="n">that</span> <span class="ow">is</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">Y</span> <span class="n">then</span> <span class="n">X</span> <span class="ow">is</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">Y</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Overwriting part_03.encnl
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%%writefile</span> test_02.encnl
+
+<span class="n">Leo</span><span class="o">-</span><span class="mi">01</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">lion</span><span class="o">.</span>
+<span class="n">Leo</span><span class="o">-</span><span class="mi">01</span> <span class="n">eats</span> <span class="n">Sophie</span><span class="o">-</span><span class="mf">01.</span>
+<span class="n">Sophie</span><span class="o">-</span><span class="mi">01</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">giraffe</span><span class="o">.</span>
+<span class="n">Sophie</span><span class="o">-</span><span class="mi">01</span> <span class="n">eats</span> <span class="n">Leaf</span><span class="o">-</span><span class="mf">01.</span>
+<span class="n">Mary</span><span class="o">-</span><span class="mi">01</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">tree</span><span class="o">.</span>
+<span class="n">Leaf</span><span class="o">-</span><span class="mi">01</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">leaf</span> <span class="ow">and</span> <span class="ow">is</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">Branch</span><span class="o">-</span><span class="mf">02.</span>
+<span class="n">Branch</span><span class="o">-</span><span class="mi">02</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">branch</span> <span class="ow">and</span> <span class="ow">is</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">Branch</span><span class="o">-</span><span class="mf">01.</span>
+<span class="n">Branch</span><span class="o">-</span><span class="mi">01</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">branch</span> <span class="ow">and</span> <span class="ow">is</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">Mary</span><span class="o">-</span><span class="mf">01.</span>
+<span class="n">Branch</span><span class="o">-</span><span class="mi">03</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">branch</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Overwriting test_02.encnl
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">parts_editors</span><span class="p">[</span><span class="s1">&#39;03&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">CnlEditBox</span><span class="p">(</span><span class="s1">&#39;part_03.encnl&#39;</span><span class="p">,</span><span class="n">onto</span><span class="p">)</span>
-<span class="n">parts_editors</span><span class="p">[</span><span class="s1">&#39;03&#39;</span><span class="p">]</span>
+<span></span><span class="n">onto</span><span class="o">=</span><span class="n">Ontology</span><span class="p">(</span><span class="s2">&quot;cnl/string&quot;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span><span class="s2">&quot;rt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="k">for</span> <span class="n">fn</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;part_01.encnl&quot;</span><span class="p">,</span><span class="s2">&quot;part_02.encnl&quot;</span><span class="p">,</span><span class="s2">&quot;part_03.encnl&quot;</span><span class="p">,</span><span class="s2">&quot;test_02.encnl&quot;</span><span class="p">]),</span>
+                    <span class="n">evaluator</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">e</span><span class="p">:</span><span class="nb">eval</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="nb">globals</span><span class="p">(),</span><span class="nb">locals</span><span class="p">()),</span>
+                    <span class="n">graph_attribute_formatter</span> <span class="o">=</span> <span class="n">graph_attribute_formatter</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "767e327a5f9545d2b9ccc3f617e61e50", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">test_02_edit</span> <span class="o">=</span> <span class="n">CnlEditBox</span><span class="p">(</span><span class="s1">&#39;test_02.encnl&#39;</span><span class="p">,</span><span class="n">onto</span><span class="p">)</span>
-<span class="n">test_02_edit</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3b1a40f830074716a6e231843f57b70b", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">onto</span><span class="o">=</span><span class="n">buildOntology</span><span class="p">(</span><span class="n">parts_editors</span><span class="p">,</span><span class="n">test_02_edit</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1107,7 +851,7 @@ Welcome to CogniPy</div>
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1116,39 +860,23 @@ Welcome to CogniPy</div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/jupyter_notebooks_Safari_Safari_32_0.svg" src="../../_images/jupyter_notebooks_Safari_Safari_32_0.svg" /></div>
+<img alt="../../_images/jupyter_notebooks_Safari_Safari_28_0.svg" src="../../_images/jupyter_notebooks_Safari_Safari_28_0.svg" /></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">q1_edit</span> <span class="o">=</span> <span class="n">CnlQueryForConcept</span><span class="p">(</span><span class="s1">&#39;query_01.encnl&#39;</span><span class="p">,</span><span class="n">onto</span><span class="o">=</span><span class="n">onto</span><span class="p">)</span>
-<span class="n">q1_edit</span>
+<span></span><span class="n">onto</span><span class="o">.</span><span class="n">select_instances_of</span><span class="p">(</span><span class="s2">&quot;eaten by Leo-01&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "0d966987252949d4be7543c6fca54e91", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">onto</span><span class="o">.</span><span class="n">select_instances_of</span><span class="p">(</span><span class="n">q1_edit</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1187,7 +915,7 @@ Welcome to CogniPy</div>
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1208,7 +936,7 @@ Welcome to CogniPy</div>
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1221,7 +949,7 @@ Welcome to CogniPy</div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1258,7 +986,7 @@ Welcome to CogniPy</div>
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
