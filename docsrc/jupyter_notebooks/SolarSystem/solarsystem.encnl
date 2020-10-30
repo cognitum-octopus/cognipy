@@ -1,4 +1,12 @@
-Sun is a star.
-If a thing orbits a star and the thing has-mass-kg greater-than 1.0e21 and the thing has-mass-kg lower-than 1.0e23 then the thing is a dwarf-planet.
+
+Comment: 'Definition of a planet'.
 If a thing orbits a star and the thing has-mass-kg greater-than 1.0e23 then the thing is a planet.
+
+Comment: 'Definition of a dwarf-planet'.
+If a thing orbits a star and the thing has-mass-kg greater-than 1.0e21 and the thing has-mass-kg lower-than 1.0e23 then the thing is a dwarf-planet.
+
+Comment: 'Definition of the moon'.
 If a thing(1) orbits a thing(2) and the thing(2) orbits a star then the thing(1) is a moon.
+
+Comment: 'All starts with the Sun'.
+Sun is a star.
