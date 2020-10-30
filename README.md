@@ -4,11 +4,8 @@ Originally released and maintained by [Cognitum Services S.A.](https://www.cogni
 
 The package allows for Reasoning, exploration of RDF/OWL, Fluent Editor CNL files, performs reasoning with OWL/RL Reasoner (Jena) as well as allows using SPARQL Graph queries (Jena)
 
-### Documentation
-[Cognipy Documentation](https://cognitum-octopus.github.io/cognipy/)
-
-### Assumptions:
-
+### Installation:
+Prerequisites:
 + If you are on Mac or Linux You MUST have [mono installed](https://www.mono-project.com/) on your system.
 + Assuming Python is installed on your system.
 + Graph drawing based on [pydot](https://pypi.org/project/pydot/) that is dependent on GraphViz - you should try to download it and instally manually. Or just `conda install pydot graphviz`
@@ -16,13 +13,31 @@ The package allows for Reasoning, exploration of RDF/OWL, Fluent Editor CNL file
 + Tested on MacOS, Winows and Linux (UBuntu)
 
 Install `cognipy` on your system using :
-
 ```
 pip install cognipy
 ```
 
-### Building new version
+### Hello world:
+```
+from cognipy.ontology import Ontology #the ontology processing class
+```
+```
+%%writefile hello.encnl
 
+Ada is a woman that likes Bob.
+Bob is a man.
+
+If a woman likes a man then the man is an interesting-man.
+```
+```
+onto = Ontology("cnl/file","hello.encnl")
+onto.select_instances_of("an interesting-man")
+```
+
+### Documentation
+Compiled documentation is stored on github pages here: [Cognipy Documentation](https://cognitum-octopus.github.io/cognipy/)
+
+### Building new version
 ```
 nuget restore cognipy\CogniPy.sln
 msbuild cognipy\CogniPy.sln /t:Rebuild /p:Configuration=Release /p:Platform="any cpu"
