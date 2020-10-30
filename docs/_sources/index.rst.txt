@@ -5,9 +5,9 @@
    :caption: CogniPy Documentation:
 
    installation
+   examples
    grammar
    dictonary
-   examples
    modules
 
 .. toctree::

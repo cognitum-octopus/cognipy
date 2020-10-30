@@ -24,14 +24,17 @@ from cognipy.ontology import Ontology #the ontology processing class
 ```
 %%writefile hello.encnl
 
-Ada is a woman that likes Bob.
-Bob is a man.
-
-If a woman likes a man then the man is an interesting-man.
+World says Hello.
+Hello is a word.
 ```
 ```
 onto = Ontology("cnl/file","hello.encnl")
-onto.select_instances_of("an interesting-man")
+print(onto.select_instances_of("a thing that says a word")[["says","Instance"]])
+
+  | says  | Instance
+-------------------
+0 | Hello | World
+
 ```
 
 ### Documentation
