@@ -716,12 +716,13 @@ namespace CogniPy
 
                         DefaultNamespace = cnlDefaultNamespace;
                     }
-                    if (dlast == null || dlast.Statements.Count == 0)
-                        throw new Exception("File is empty or all cnl sentences are incorrect.");
                     if (SyntaxErrors.Count == 1)
                         throw SyntaxErrors[0];
                     else if (SyntaxErrors.Count > 0)
                         throw new AggregateParseException(SyntaxErrors);
+
+                    if (dlast == null || dlast.Statements.Count == 0)
+                        throw new Exception("File is empty or all cnl sentences are incorrect.");
 
                     if (String.IsNullOrEmpty(DefaultNamespace)) DefaultNamespace = "http://www.ontorion.com/ontologies/Ontology" + Guid.NewGuid().ToString("N");
 
