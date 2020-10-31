@@ -61,7 +61,7 @@ We would be grateful if scientific publications resulting from projects that mak
 
 ### Contributors
 * Maintained by [Cognitum Services S.A.](https://www.cognitum.eu) 
-* Contact us: <office@cignitum.eu>
+* Contact us: <office@cognitum.eu>
 * CogniPy heavily depends on the contributions from its community. See  for how you may help CogniPy to become an even greater tool.
 
 ### Open Source Libraries this project is build on
