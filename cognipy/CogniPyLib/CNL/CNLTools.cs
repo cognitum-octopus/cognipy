@@ -84,6 +84,17 @@ namespace CogniPy.CNL
 
         public string Context { get; private set; }
 
+        public ParseException(string message, int pos, string context)
+        {
+            string subString = context.Substring(0, pos);
+            this.Line = subString.Count(c => c == '\n'); 
+            this.Column = subString.Length - subString.LastIndexOf('\n') - 1;
+            this.Pos = pos;
+            this.Context = context;
+            if (this.Pos < 0) this.Pos = 0;
+            if (this.Pos > context.Length - 1) this.Pos = context.Length - 1;
+        }
+
         public ParseException(string message, int line, int column, int pos, string context)
             : base(message)
         {
@@ -119,6 +130,12 @@ namespace CogniPy.CNL
             }
         }
     }
+    public class AggregateParseException : AggregateException
+    {
+        public AggregateParseException(IEnumerable<ParseException> inners) : base(inners)
+        { }
+    }
+
 
     public class CNLTools
     {

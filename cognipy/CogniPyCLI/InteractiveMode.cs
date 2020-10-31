@@ -89,10 +89,13 @@ namespace CogniPyCLI
                     }
                     catch (Exception ex)
                     {
+                        if (ex is TargetInvocationException)
+                            ex = ex.InnerException;
+
                         writer.WriteLine("@exception");
                         var w = new JsonTextWriter(writer);
                         JsonSerializer serializer = new JsonSerializer();
-                        serializer.Serialize(w, ex);
+                        serializer.Serialize(w,new object[] { ex.GetType().Name, ex });
                     }
                 }
                 writer.WriteLine();

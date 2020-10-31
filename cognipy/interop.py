@@ -36,7 +36,23 @@ def cognipy_close():
     cognipy_p.stdin.write(("@exit\r\n").encode())
     cognipy_p.stdin.flush()
 
+class ParseException(Exception):
+    pass
+
 def cognipy_call(uid,cmd,*args):
+
+    def translate_exception(edet):
+        def filter_dic(dic):
+            return { k:v for (k,v) in dic.items() if k in ['Line','Column','Pos','Context','Hint']}
+            
+        if edet[0]=='ParseException':
+            return ParseException({"Errors":[filter_dic(edet[1])]})
+        elif edet[0]=='AggregateParseException':
+            return ParseException({"Errors":[
+                    filter_dic(inner) for inner in edet[1]["InnerExceptions"]
+                ]})
+        return Exception(js)
+
     global cognipy_p
     txt= cmd+"\r\n"+uid+"\r\n"+json.dumps(args)+"\r\n\0\r\n"
     cognipy_p.stdin.write((txt).encode())
@@ -50,5 +66,6 @@ def cognipy_call(uid,cmd,*args):
         ja.append(l)
     js="\r\n".join(ja)
     if fl.strip()=='@exception':
-        raise Exception(js)
+        raise translate_exception(json.loads(js))
     return json.loads(js)
+

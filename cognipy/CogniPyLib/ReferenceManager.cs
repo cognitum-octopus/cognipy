@@ -704,7 +704,7 @@ namespace CogniPy
                                 }
                                 catch (ParseException ex)
                                 {
-                                    SyntaxErrors.Add(ex);
+                                    SyntaxErrors.Add(new ParseException(ex.Message,ex.Pos+sentence.start-1, txtToParse));
                                     continue;
                                 }
                             }
@@ -721,7 +721,7 @@ namespace CogniPy
                     if (SyntaxErrors.Count == 1)
                         throw SyntaxErrors[0];
                     else if (SyntaxErrors.Count > 0)
-                        throw new AggregateException(SyntaxErrors);
+                        throw new AggregateParseException(SyntaxErrors);
 
                     if (String.IsNullOrEmpty(DefaultNamespace)) DefaultNamespace = "http://www.ontorion.com/ontologies/Ontology" + Guid.NewGuid().ToString("N");
 
