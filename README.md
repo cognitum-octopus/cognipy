@@ -57,10 +57,10 @@ Compiled documentation is stored on github pages here: [Cognipy Documentation](h
 5. [Ontology of the Design Pattern Language for Smart Cities Systems](https://link.springer.com/chapter/10.1007/978-3-662-53580-6_6)
 
 ### How to cite CogniPy
-We would be grateful if scientific publications resulting from projects that make use of CogniPy would include the following sentence in the acknowledgments section: "This work was conducted using the CogniPy package, which is an open-source project maintained by [Cognitum Services S.A.](https://www.cognitum.eu)"
+We would be grateful if scientific publications resulting from projects that make use of CogniPy would include the following sentence in the acknowledgments section: "This work was conducted using the CogniPy package, which is an open-source project maintained by [Cognitum Services S.A.](https://www.cognitum.eu) <https://www.cognitum.eu>"
 
 ### Contributors
-* Maintained by [Cognitum Services S.A.](https://www.cognitum.eu) 
+* Maintained by [Cognitum Services S.A.](https://www.cognitum.eu) <https://www.cognitum.eu>
 * Contact us: <office@cognitum.eu>
 * CogniPy heavily depends on the contributions from its community. See  for how you may help CogniPy to become an even greater tool.
 
