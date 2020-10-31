@@ -71,10 +71,10 @@ Related research papers
 -----------------------
 
 1. [Semantic rules representation in controlled natural language in FluentEditor](https://ieeexplore.ieee.org/document/6577807)
-2. [Collaborative Editing of Ontologies Using Fluent Editor and Ontorion] (https://link.springer.com/chapter/10.1007/978-3-319-33245-1_5)
-3. [Semantic OLAP with FluentEditor and Ontorion Semantic Excel Toolchain] (http://www.thinkmind.org/index.php?view=article&articleid=semapro_2015_3_30_30051)
-4. [Ontology-aided software engineering] (https://www.semanticscholar.org/paper/Ontology-aided-software-engineering-Kaplanski/24100da2431d6f8a3cd9114c7d4a9050fb421d22?p2df)
-5. [Ontology of the Design Pattern Language for Smart Cities Systems] (https://link.springer.com/chapter/10.1007/978-3-662-53580-6_6)
+2. [Collaborative Editing of Ontologies Using Fluent Editor and Ontorion](https://link.springer.com/chapter/10.1007/978-3-319-33245-1_5)
+3. [Semantic OLAP with FluentEditor and Ontorion Semantic Excel Toolchain](http://www.thinkmind.org/index.php?view=article&articleid=semapro_2015_3_30_30051)
+4. [Ontology-aided software engineering](https://www.semanticscholar.org/paper/Ontology-aided-software-engineering-Kaplanski/24100da2431d6f8a3cd9114c7d4a9050fb421d22?p2df)
+5. [Ontology of the Design Pattern Language for Smart Cities Systems](https://link.springer.com/chapter/10.1007/978-3-662-53580-6_6)
 
 How to cite CogniPy
 -------------------
