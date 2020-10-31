@@ -27,3 +27,4 @@ CommandLineParser.*/
 Newtonsoft.Json.*/
 cognipy.egg-info/
 _build
+.vscode

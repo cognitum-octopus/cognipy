@@ -17,7 +17,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": 2,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -59,7 +59,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": 3,
    "metadata": {},
    "outputs": [
     {
@@ -78,7 +78,7 @@
     "Comment: 'Let's name our instances'.\n",
     "Comment: 'Let's specify the hierarchy of beings'. \n",
     "Comment: 'What is what?'.\n",
-    "Every man has a train.\n",
+    "\n",
     "Every lion is an animal.\n",
     "Every giraffe is an animal.\n",
     "\n",
@@ -126,7 +126,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 4,
    "metadata": {},
    "outputs": [
     {
@@ -408,7 +408,7 @@
        "<IPython.core.display.SVG object>"
       ]
      },
-     "execution_count": 3,
+     "execution_count": 4,
      "metadata": {},
      "output_type": "execute_result"
     }
