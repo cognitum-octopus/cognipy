@@ -2,15 +2,15 @@
 
 ### Whats in the box
 
-Reasoning, exploration of RDF/OWL, [FluentEditor](https://www.cognitum.eu/Semantics/FluentEditor/) CNL files, with OWL/RL Reasoner (Jena) as well as SPARQL Graph queries (Jena) and visualization
+Reasoning, exploration of RDF/OWL, [FluentEditor](https://www.cognitum.eu/Semantics/FluentEditor/) CNL files, with OWL/RL Reasoner (Jena) as well as SPARQL Graph queries (Jena) and visualization.
 
+What you can do with this:
 1. Write your graph/ontology in Controlled Natural Language or import it from RDF/OWL
 2. Add reasoning rules/T-Box in Controlled Natural Language
-3. Import data using Pandas/scrap them from the internet
-3. Draw the resulting, materialized graph
-4. Use SPARQL to execute graph query
-5. Use output Dataframe for further processing with Pandas
-
+3. Import data using Pandas or scrap them from the Internet
+4. Draw the resulting, materialized graph
+5. Use SPARQL to execute graph query
+6. Use output Dataframe for further processing with Pandas
 
 ### Installation
 Prerequisites:
