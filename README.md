@@ -12,7 +12,9 @@ What you can do with this:
 5. Use SPARQL to execute graph query
 6. Use output Dataframe for further processing with Pandas
 
-### Installation
+### Getting started
+
+#### Installation
 Prerequisites:
 + If you are on Mac or Linux You MUST have [mono installed](https://www.mono-project.com/) on your system.
 + Graph drawing based on [pydot](https://pypi.org/project/pydot/) that is dependent on GraphViz - you should try to download it and instally manually. Or just `conda install pydot graphviz`
@@ -24,7 +26,7 @@ Install `cognipy` on your system using :
 pip install cognipy
 ```
 
-### Hello world program
+#### Hello world program
 In Jupyter you write:
 ```
 from cognipy.ontology import Ontology #the ontology processing class
@@ -44,6 +46,9 @@ Output (Pandas DataFrame):
 >|0 | Hello | World   |
 
 
+#### Examples
+
+Example Jupyter notebooks that use CogniPy in several scenarios can be found in the [Examples section](https://github.com/cognitum-octopus/cognipy/tree/master/docsrc/jupyter_notebooks)
 
 ### Cognipy documentation
 Compiled documentation is stored on github pages here: [Cognipy Documentation](https://cognitum-octopus.github.io/cognipy/)
