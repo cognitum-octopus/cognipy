@@ -1,4 +1,4 @@
-# CogniPy - In-memory Graph Database and Knowledge Graph with Natural Language Interface, compatible with Pandas
+# CogniPy for Pandas - In-memory Graph Database and Knowledge Graph with Natural Language Interface
 
 ### Whats in the box
 
