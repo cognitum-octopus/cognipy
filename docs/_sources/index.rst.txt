@@ -4,9 +4,6 @@
 
 .. title:: CogniPy for Pandas - In-memory Graph Database and Knowledge Graph with Natural Language Interface
 
-Project description
-===================
-
 **CogniPy for Pandas**
 ======================
 
@@ -85,7 +82,7 @@ We would be grateful if scientific publications resulting from projects that mak
 
 .. toctree::
    :maxdepth: 5
-   :caption: CogniPy Documentation:
+   :caption: CogniPy:
 
    examples
    grammar
