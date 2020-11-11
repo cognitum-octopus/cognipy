@@ -32,7 +32,6 @@
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/language_data.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.14.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -88,8 +87,6 @@
             
               <p class="caption"><span class="caption-text">CogniPy Documentation:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Project description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../installation.html#cognipy"><strong>CogniPy</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../grammar.html">Grammar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../dictonary.html">Dictonary</a></li>
@@ -434,12 +431,12 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="k">import</span> <span class="n">Ontology</span>
-<span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="k">import</span> <span class="n">CQL</span>
-<span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="k">import</span> <span class="n">ABoxBatch</span>
-<span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="k">import</span> <span class="n">encode_string_for_graph_label</span>
-<span class="kn">from</span> <span class="nn">cognipy.edit</span> <span class="k">import</span> <span class="n">CnlEditBox</span>
-<span class="kn">from</span> <span class="nn">cognipy.edit</span> <span class="k">import</span> <span class="n">CnlQueryForConcept</span>
+<span></span><span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="kn">import</span> <span class="n">Ontology</span>
+<span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="kn">import</span> <span class="n">CQL</span>
+<span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="kn">import</span> <span class="n">ABoxBatch</span>
+<span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="kn">import</span> <span class="n">encode_string_for_graph_label</span>
+<span class="kn">from</span> <span class="nn">cognipy.edit</span> <span class="kn">import</span> <span class="n">CnlEditBox</span>
+<span class="kn">from</span> <span class="nn">cognipy.edit</span> <span class="kn">import</span> <span class="n">CnlQueryForConcept</span>
 
 <span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">import</span> <span class="nn">textwrap</span>
@@ -456,7 +453,7 @@ div.rendered_html tbody tr:hover {
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">encode_string_for_graph_label</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">),</span><span class="mi">40</span><span class="p">))</span>
 
-<span class="kn">from</span> <span class="nn">pint</span> <span class="k">import</span> <span class="n">UnitRegistry</span>
+<span class="kn">from</span> <span class="nn">pint</span> <span class="kn">import</span> <span class="n">UnitRegistry</span>
 <span class="n">ureg</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">()</span>
 <span class="n">Q</span> <span class="o">=</span> <span class="n">ureg</span><span class="o">.</span><span class="n">Quantity</span>
 
@@ -813,7 +810,7 @@ Welcome to CogniPy</div>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "c734733f8f37455fa5be369ddeab9d6a", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "d83d72a7ee254442bd8268c686c59561", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -825,12 +822,30 @@ Welcome to CogniPy</div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;cognipy.ontology.Ontology at 0x27e064a9988&gt;
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">ParseException</span>                            Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-4-c21e9f877456&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>Ontology<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-blue-intense-fg ansi-bold">&#34;cnl/file&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-blue-intense-fg ansi-bold">&#39;test.encnl&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-green-intense-fg ansi-bold">c:\users\pkapl\anaconda3\envs\makler\lib\site-packages\cognipy\ontology.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-intense-fg ansi-bold">(self, source, arg, verbose, evaluator, graph_attribute_formatter, stop_on_error)</span>
+<span class="ansi-green-fg">     58</span>         self<span class="ansi-yellow-intense-fg ansi-bold">.</span>_uid <span class="ansi-yellow-intense-fg ansi-bold">=</span> cognipy_create<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">     59</span>         <span class="ansi-green-intense-fg ansi-bold">if</span> source <span class="ansi-yellow-intense-fg ansi-bold">==</span> <span class="ansi-blue-intense-fg ansi-bold">&#34;cnl/file&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">---&gt; 60</span><span class="ansi-yellow-intense-fg ansi-bold">             </span>cognipy_call<span class="ansi-yellow-intense-fg ansi-bold">(</span>self<span class="ansi-yellow-intense-fg ansi-bold">.</span>_uid<span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-blue-intense-fg ansi-bold">&#34;LoadCnl&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span>arg<span class="ansi-yellow-intense-fg ansi-bold">,</span>loadAnnotations<span class="ansi-yellow-intense-fg ansi-bold">,</span>modalCheck<span class="ansi-yellow-intense-fg ansi-bold">,</span>passParamsAsCnl<span class="ansi-yellow-intense-fg ansi-bold">,</span>stop_on_error<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">     61</span>         <span class="ansi-green-intense-fg ansi-bold">elif</span> source <span class="ansi-yellow-intense-fg ansi-bold">==</span> <span class="ansi-blue-intense-fg ansi-bold">&#34;cnl/string&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-fg">     62</span>             cognipy_call<span class="ansi-yellow-intense-fg ansi-bold">(</span>self<span class="ansi-yellow-intense-fg ansi-bold">.</span>_uid<span class="ansi-yellow-intense-fg ansi-bold">,</span><span class="ansi-blue-intense-fg ansi-bold">&#34;LoadCnlFromString&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span>arg<span class="ansi-yellow-intense-fg ansi-bold">,</span>loadAnnotations<span class="ansi-yellow-intense-fg ansi-bold">,</span>modalCheck<span class="ansi-yellow-intense-fg ansi-bold">,</span>passParamsAsCnl<span class="ansi-yellow-intense-fg ansi-bold">,</span>stop_on_error<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-green-intense-fg ansi-bold">c:\users\pkapl\anaconda3\envs\makler\lib\site-packages\cognipy\interop.py</span> in <span class="ansi-cyan-fg">cognipy_call</span><span class="ansi-blue-intense-fg ansi-bold">(uid, cmd, *args)</span>
+<span class="ansi-green-fg">     67</span>     js<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-blue-intense-fg ansi-bold">&#34;\r\n&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">.</span>join<span class="ansi-yellow-intense-fg ansi-bold">(</span>ja<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">     68</span>     <span class="ansi-green-intense-fg ansi-bold">if</span> fl<span class="ansi-yellow-intense-fg ansi-bold">.</span>strip<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">==</span><span class="ansi-blue-intense-fg ansi-bold">&#39;@exception&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">---&gt; 69</span><span class="ansi-yellow-intense-fg ansi-bold">         </span><span class="ansi-green-intense-fg ansi-bold">raise</span> translate_exception<span class="ansi-yellow-intense-fg ansi-bold">(</span>json<span class="ansi-yellow-intense-fg ansi-bold">.</span>loads<span class="ansi-yellow-intense-fg ansi-bold">(</span>js<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">     70</span>     <span class="ansi-green-intense-fg ansi-bold">return</span> json<span class="ansi-yellow-intense-fg ansi-bold">.</span>loads<span class="ansi-yellow-intense-fg ansi-bold">(</span>js<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">     71</span>
+
+<span class="ansi-red-intense-fg ansi-bold">ParseException</span>: {&#39;Errors&#39;: [{&#39;Line&#39;: 0, &#39;Column&#39;: 18, &#39;Pos&#39;: 18, &#39;Context&#39;: &#39;Every man is a cat. \r\n\r\nBobo has-size equal-to 10......\r\nEvery cat is a mouse.\r\n&#39;, &#39;Hint&#39;: &#39;Every man is a cat.^ \r\n\r\nBobo has-size equal-to 10......\r\nEvery cat is a mouse.\r&#39;}, {&#39;Line&#39;: 2, &#39;Column&#39;: 25, &#39;Pos&#39;: 49, &#39;Context&#39;: &#39;Every man is a cat. \r\n\r\nBobo has-size equal-to 10......\r\nEvery cat is a mouse.\r\n&#39;, &#39;Hint&#39;: &#39;Every man is a cat. \r\n\r\nBobo has-size equal-to 10.^.....\r\nEvery cat is a mouse.\r&#39;}, {&#39;Line&#39;: 2, &#39;Column&#39;: 26, &#39;Pos&#39;: 50, &#39;Context&#39;: &#39;Every man is a cat. \r\n\r\nBobo has-size equal-to 10......\r\nEvery cat is a mouse.\r\n&#39;, &#39;Hint&#39;: &#39;Every man is a cat. \r\n\r\nBobo has-size equal-to 10..^....\r\nEvery cat is a mouse.\r&#39;}, {&#39;Line&#39;: 2, &#39;Column&#39;: 27, &#39;Pos&#39;: 51, &#39;Context&#39;: &#39;Every man is a cat. \r\n\r\nBobo has-size equal-to 10......\r\nEvery cat is a mouse.\r\n&#39;, &#39;Hint&#39;: &#39;Every man is a cat. \r\n\r\nBobo has-size equal-to 10...^...\r\nEvery cat is a mouse.\r&#39;}, {&#39;Line&#39;: 2, &#39;Column&#39;: 28, &#39;Pos&#39;: 52, &#39;Context&#39;: &#39;Every man is a cat. \r\n\r\nBobo has-size equal-to 10......\r\nEvery cat is a mouse.\r\n&#39;, &#39;Hint&#39;: &#39;Every man is a cat. \r\n\r\nBobo has-size equal-to 10....^..\r\nEvery cat is a mouse.\r&#39;}, {&#39;Line&#39;: 2, &#39;Column&#39;: 29, &#39;Pos&#39;: 53, &#39;Context&#39;: &#39;Every man is a cat. \r\n\r\nBobo has-size equal-to 10......\r\nEvery cat is a mouse.\r\n&#39;, &#39;Hint&#39;: &#39;Every man is a cat. \r\n\r\nBobo has-size equal-to 10.....^.\r\nEvery cat is a mouse.\r&#39;}, {&#39;Line&#39;: 2, &#39;Column&#39;: 30, &#39;Pos&#39;: 54, &#39;Context&#39;: &#39;Every man is a cat. \r\n\r\nBobo has-size equal-to 10......\r\nEvery cat is a mouse.\r\n&#39;, &#39;Hint&#39;: &#39;Every man is a cat. \r\n\r\nBobo has-size equal-to 10......^\r\nEvery cat is a mouse.\r&#39;}]}
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">

@@ -1,0 +1,359 @@
+<svg height="820pt" viewBox="0.00 0.00 826.00 820.00" width="826pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g class="graph" id="graph0" transform="scale(1 1) rotate(0) translate(4 816)">
+<title>G</title>
+<polygon fill="white" points="-4,4 -4,-816 822,-816 822,4 -4,4" stroke="transparent"/>
+<!-- multilayer&#45;neural&#45;net&#45;fragment -->
+<g class="node" id="node1">
+<title>multilayer-neural-net-fragment</title>
+<path d="M462,-591.5C462,-591.5 589,-591.5 589,-591.5 595,-591.5 601,-597.5 601,-603.5 601,-603.5 601,-615.5 601,-615.5 601,-621.5 595,-627.5 589,-627.5 589,-627.5 462,-627.5 462,-627.5 456,-627.5 450,-621.5 450,-615.5 450,-615.5 450,-603.5 450,-603.5 450,-597.5 456,-591.5 462,-591.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="525.5" y="-606.7">multilayer-neural-net-fragment</text>
+</g>
+<!-- Ann&#45;1&#45;F&#45;2 -->
+<g class="node" id="node15">
+<title>Ann-1-F-2</title>
+<path d="M476,-437.5C476,-437.5 575,-437.5 575,-437.5 581,-437.5 587,-443.5 587,-449.5 587,-449.5 587,-505.5 587,-505.5 587,-511.5 581,-517.5 575,-517.5 575,-517.5 476,-517.5 476,-517.5 470,-517.5 464,-511.5 464,-505.5 464,-505.5 464,-449.5 464,-449.5 464,-443.5 470,-437.5 476,-437.5" fill="whitesmoke" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="525.5" y="-504.7">Ann-1-F-2</text>
+<polyline fill="none" points="464,-497.5 587,-497.5 " stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="502.5" y="-484.7">has-activation</text>
+<polyline fill="none" points="541,-477.5 541,-497.5 " stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="564" y="-484.7">RELU</text>
+<polyline fill="none" points="464,-477.5 587,-477.5 " stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="503" y="-464.7">has-shape</text>
+<polyline fill="none" points="542,-457.5 542,-477.5 " stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="564.5" y="-464.7">12</text>
+<polyline fill="none" points="464,-457.5 587,-457.5 " stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="504" y="-444.7">has-index</text>
+<polyline fill="none" points="544,-437.5 544,-457.5 " stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="565.5" y="-444.7">2</text>
+</g>
+<!-- multilayer&#45;neural&#45;net&#45;fragment&#45;&#45;Ann&#45;1&#45;F&#45;2 -->
+<g class="edge" id="edge13">
+<title>multilayer-neural-net-fragment--Ann-1-F-2</title>
+<path d="M525.5,-581.19C525.5,-562.79 525.5,-538.24 525.5,-517.75" fill="none" stroke="black" stroke-dasharray="5,2" stroke-width="0.5"/>
+<polygon fill="none" points="522,-581.24 525.5,-591.24 529,-581.24 522,-581.24" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- Ann&#45;1&#45;F&#45;1 -->
+<g class="node" id="node16">
+<title>Ann-1-F-1</title>
+<path d="M457,-0.5C457,-0.5 556,-0.5 556,-0.5 562,-0.5 568,-6.5 568,-12.5 568,-12.5 568,-68.5 568,-68.5 568,-74.5 562,-80.5 556,-80.5 556,-80.5 457,-80.5 457,-80.5 451,-80.5 445,-74.5 445,-68.5 445,-68.5 445,-12.5 445,-12.5 445,-6.5 451,-0.5 457,-0.5" fill="whitesmoke" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="506.5" y="-67.7">Ann-1-F-1</text>
+<polyline fill="none" points="445,-60.5 568,-60.5 " stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="483.5" y="-47.7">has-activation</text>
+<polyline fill="none" points="522,-40.5 522,-60.5 " stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="545" y="-47.7">RELU</text>
+<polyline fill="none" points="445,-40.5 568,-40.5 " stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="484" y="-27.7">has-shape</text>
+<polyline fill="none" points="523,-20.5 523,-40.5 " stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="545.5" y="-27.7">25</text>
+<polyline fill="none" points="445,-20.5 568,-20.5 " stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="485" y="-7.7">has-index</text>
+<polyline fill="none" points="525,-0.5 525,-20.5 " stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="546.5" y="-7.7">1</text>
+</g>
+<!-- multilayer&#45;neural&#45;net&#45;fragment&#45;&#45;Ann&#45;1&#45;F&#45;1 -->
+<g class="edge" id="edge14">
+<title>multilayer-neural-net-fragment--Ann-1-F-1</title>
+<path d="M575.31,-586.92C615.54,-565.74 665.5,-529.23 665.5,-478.5 665.5,-478.5 665.5,-478.5 665.5,-148.5 665.5,-99.59 613.07,-71.57 568.43,-56.57" fill="none" stroke="black" stroke-dasharray="5,2" stroke-width="0.5"/>
+<polygon fill="none" points="573.7,-583.81 566.37,-591.46 576.87,-590.05 573.7,-583.81" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- neural&#45;net&#45;fragment -->
+<g class="node" id="node2">
+<title>neural-net-fragment</title>
+<path d="M399.5,-701.5C399.5,-701.5 479.5,-701.5 479.5,-701.5 485.5,-701.5 491.5,-707.5 491.5,-713.5 491.5,-713.5 491.5,-725.5 491.5,-725.5 491.5,-731.5 485.5,-737.5 479.5,-737.5 479.5,-737.5 399.5,-737.5 399.5,-737.5 393.5,-737.5 387.5,-731.5 387.5,-725.5 387.5,-725.5 387.5,-713.5 387.5,-713.5 387.5,-707.5 393.5,-701.5 399.5,-701.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="439.5" y="-716.7">neural-net-fragment</text>
+</g>
+<!-- neural&#45;net&#45;fragment&#45;&#45;multilayer&#45;neural&#45;net&#45;fragment -->
+<g class="edge" id="edge1">
+<title>neural-net-fragment--multilayer-neural-net-fragment</title>
+<path d="M459.56,-693.3C475.59,-673.18 497.62,-645.51 511.72,-627.81" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="none" points="456.81,-691.14 453.32,-701.15 462.28,-695.51 456.81,-691.14" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- basic&#45;neural&#45;net&#45;output&#45;layer -->
+<g class="node" id="node3">
+<title>basic-neural-net-output-layer</title>
+<path d="M226,-536.5C226,-536.5 345,-536.5 345,-536.5 351,-536.5 357,-542.5 357,-548.5 357,-548.5 357,-560.5 357,-560.5 357,-566.5 351,-572.5 345,-572.5 345,-572.5 226,-572.5 226,-572.5 220,-572.5 214,-566.5 214,-560.5 214,-560.5 214,-548.5 214,-548.5 214,-542.5 220,-536.5 226,-536.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="285.5" y="-551.7">basic-neural-net-output-layer</text>
+</g>
+<!-- L&#45;Out -->
+<g class="node" id="node14">
+<title>L-Out</title>
+<path d="M377.5,-303.5C377.5,-303.5 491.5,-303.5 491.5,-303.5 497.5,-303.5 503.5,-309.5 503.5,-315.5 503.5,-315.5 503.5,-351.5 503.5,-351.5 503.5,-357.5 497.5,-363.5 491.5,-363.5 491.5,-363.5 377.5,-363.5 377.5,-363.5 371.5,-363.5 365.5,-357.5 365.5,-351.5 365.5,-351.5 365.5,-315.5 365.5,-315.5 365.5,-309.5 371.5,-303.5 377.5,-303.5" fill="whitesmoke" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="434.5" y="-350.7">L-Out</text>
+<polyline fill="none" points="365.5,-343.5 503.5,-343.5 " stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="423.5" y="-330.7">has-number-of-classes</text>
+<polyline fill="none" points="481.5,-323.5 481.5,-343.5 " stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="492.5" y="-330.7">6</text>
+<polyline fill="none" points="365.5,-323.5 503.5,-323.5 " stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="409" y="-310.7">has-index</text>
+<polyline fill="none" points="452.5,-303.5 452.5,-323.5 " stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="478" y="-310.7">3</text>
+</g>
+<!-- basic&#45;neural&#45;net&#45;output&#45;layer&#45;&#45;L&#45;Out -->
+<g class="edge" id="edge12">
+<title>basic-neural-net-output-layer--L-Out</title>
+<path d="M302.87,-527.97C330.7,-487.07 385.14,-407.06 414.53,-363.85" fill="none" stroke="black" stroke-dasharray="5,2" stroke-width="0.5"/>
+<polygon fill="none" points="299.92,-526.08 297.19,-536.32 305.71,-530.02 299.92,-526.08" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- neural&#45;net&#45;output&#45;layer -->
+<g class="node" id="node4">
+<title>neural-net-output-layer</title>
+<path d="M239,-701.5C239,-701.5 332,-701.5 332,-701.5 338,-701.5 344,-707.5 344,-713.5 344,-713.5 344,-725.5 344,-725.5 344,-731.5 338,-737.5 332,-737.5 332,-737.5 239,-737.5 239,-737.5 233,-737.5 227,-731.5 227,-725.5 227,-725.5 227,-713.5 227,-713.5 227,-707.5 233,-701.5 239,-701.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="285.5" y="-716.7">neural-net-output-layer</text>
+</g>
+<!-- neural&#45;net&#45;output&#45;layer&#45;&#45;basic&#45;neural&#45;net&#45;output&#45;layer -->
+<g class="edge" id="edge2">
+<title>neural-net-output-layer--basic-neural-net-output-layer</title>
+<path d="M285.5,-691.29C285.5,-657.61 285.5,-601.24 285.5,-572.9" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="none" points="282,-691.36 285.5,-701.36 289,-691.36 282,-691.36" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- basic&#45;neural&#45;net&#45;input&#45;layer -->
+<g class="node" id="node5">
+<title>basic-neural-net-input-layer</title>
+<path d="M693,-382.5C693,-382.5 806,-382.5 806,-382.5 812,-382.5 818,-388.5 818,-394.5 818,-394.5 818,-406.5 818,-406.5 818,-412.5 812,-418.5 806,-418.5 806,-418.5 693,-418.5 693,-418.5 687,-418.5 681,-412.5 681,-406.5 681,-406.5 681,-394.5 681,-394.5 681,-388.5 687,-382.5 693,-382.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="749.5" y="-397.7">basic-neural-net-input-layer</text>
+</g>
+<!-- L&#45;In -->
+<g class="node" id="node17">
+<title>L-In</title>
+<path d="M467.5,-129.5C467.5,-129.5 545.5,-129.5 545.5,-129.5 551.5,-129.5 557.5,-135.5 557.5,-141.5 557.5,-141.5 557.5,-157.5 557.5,-157.5 557.5,-163.5 551.5,-169.5 545.5,-169.5 545.5,-169.5 467.5,-169.5 467.5,-169.5 461.5,-169.5 455.5,-163.5 455.5,-157.5 455.5,-157.5 455.5,-141.5 455.5,-141.5 455.5,-135.5 461.5,-129.5 467.5,-129.5" fill="whitesmoke" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="506.5" y="-156.7">L-In</text>
+<polyline fill="none" points="455.5,-149.5 557.5,-149.5 " stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="485" y="-136.7">has-width</text>
+<polyline fill="none" points="514.5,-129.5 514.5,-149.5 " stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="536" y="-136.7">12288</text>
+</g>
+<!-- basic&#45;neural&#45;net&#45;input&#45;layer&#45;&#45;L&#45;In -->
+<g class="edge" id="edge15">
+<title>basic-neural-net-input-layer--L-In</title>
+<path d="M739.87,-372.7C724.63,-333.73 691.45,-261.36 641.5,-218 616.96,-196.7 584.52,-180.2 557.59,-168.84" fill="none" stroke="black" stroke-dasharray="5,2" stroke-width="0.5"/>
+<polygon fill="none" points="736.7,-374.2 743.53,-382.3 743.24,-371.71 736.7,-374.2" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- neural&#45;net&#45;input&#45;layer -->
+<g class="node" id="node6">
+<title>neural-net-input-layer</title>
+<path d="M607,-701.5C607,-701.5 694,-701.5 694,-701.5 700,-701.5 706,-707.5 706,-713.5 706,-713.5 706,-725.5 706,-725.5 706,-731.5 700,-737.5 694,-737.5 694,-737.5 607,-737.5 607,-737.5 601,-737.5 595,-731.5 595,-725.5 595,-725.5 595,-713.5 595,-713.5 595,-707.5 601,-701.5 607,-701.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="650.5" y="-716.7">neural-net-input-layer</text>
+</g>
+<!-- neural&#45;net&#45;input&#45;layer&#45;&#45;basic&#45;neural&#45;net&#45;input&#45;layer -->
+<g class="edge" id="edge3">
+<title>neural-net-input-layer--basic-neural-net-input-layer</title>
+<path d="M658.84,-691.8C678.6,-628.54 727.83,-470.88 744.15,-418.63" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="none" points="655.46,-690.87 655.82,-701.46 662.14,-692.95 655.46,-690.87" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- initializer -->
+<g class="node" id="node7">
+<title>initializer</title>
+<path d="M71,-646.5C71,-646.5 102,-646.5 102,-646.5 108,-646.5 114,-652.5 114,-658.5 114,-658.5 114,-670.5 114,-670.5 114,-676.5 108,-682.5 102,-682.5 102,-682.5 71,-682.5 71,-682.5 65,-682.5 59,-676.5 59,-670.5 59,-670.5 59,-658.5 59,-658.5 59,-652.5 65,-646.5 71,-646.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="86.5" y="-661.7">initializer</text>
+</g>
+<!-- Initializer&#45;1 -->
+<g class="node" id="node13">
+<title>Initializer-1</title>
+<path d="M12,-129.5C12,-129.5 111,-129.5 111,-129.5 117,-129.5 123,-135.5 123,-141.5 123,-141.5 123,-157.5 123,-157.5 123,-163.5 117,-169.5 111,-169.5 111,-169.5 12,-169.5 12,-169.5 6,-169.5 0,-163.5 0,-157.5 0,-157.5 0,-141.5 0,-141.5 0,-135.5 6,-129.5 12,-129.5" fill="whitesmoke" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="61.5" y="-156.7">Initializer-1</text>
+<polyline fill="none" points="0,-149.5 123,-149.5 " stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="38.5" y="-136.7">has-character</text>
+<polyline fill="none" points="77,-129.5 77,-149.5 " stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="100" y="-136.7">Xavier</text>
+</g>
+<!-- initializer&#45;&#45;Initializer&#45;1 -->
+<g class="edge" id="edge11">
+<title>initializer--Initializer-1</title>
+<path d="M63.84,-638.36C47.57,-617.66 28.5,-586.74 28.5,-555.5 28.5,-555.5 28.5,-555.5 28.5,-235.5 28.5,-211.6 39.98,-186.32 49.4,-169.6" fill="none" stroke="black" stroke-dasharray="5,2" stroke-width="0.5"/>
+<polygon fill="none" points="61.3,-640.78 70.34,-646.3 66.72,-636.35 61.3,-640.78" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- neural&#45;net&#45;part -->
+<g class="node" id="node8">
+<title>neural-net-part</title>
+<path d="M256.5,-775.5C256.5,-775.5 314.5,-775.5 314.5,-775.5 320.5,-775.5 326.5,-781.5 326.5,-787.5 326.5,-787.5 326.5,-799.5 326.5,-799.5 326.5,-805.5 320.5,-811.5 314.5,-811.5 314.5,-811.5 256.5,-811.5 256.5,-811.5 250.5,-811.5 244.5,-805.5 244.5,-799.5 244.5,-799.5 244.5,-787.5 244.5,-787.5 244.5,-781.5 250.5,-775.5 256.5,-775.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="285.5" y="-790.7">neural-net-part</text>
+</g>
+<!-- neural&#45;net&#45;part&#45;&#45;neural&#45;net&#45;fragment -->
+<g class="edge" id="edge6">
+<title>neural-net-part--neural-net-fragment</title>
+<path d="M331.19,-771.14C354.11,-760.42 381.5,-747.62 403,-737.57" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="none" points="329.57,-768.03 322,-775.44 332.54,-774.37 329.57,-768.03" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- neural&#45;net&#45;part&#45;&#45;neural&#45;net&#45;output&#45;layer -->
+<g class="edge" id="edge7">
+<title>neural-net-part--neural-net-output-layer</title>
+<path d="M285.5,-765.22C285.5,-756.07 285.5,-746.13 285.5,-737.94" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="none" points="282,-765.44 285.5,-775.44 289,-765.44 282,-765.44" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- neural&#45;net&#45;part&#45;&#45;neural&#45;net&#45;input&#45;layer -->
+<g class="edge" id="edge8">
+<title>neural-net-part--neural-net-input-layer</title>
+<path d="M336.72,-782.4C404.82,-768.96 524.71,-745.31 594.93,-731.46" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="none" points="335.79,-779.01 326.66,-784.38 337.15,-785.88 335.79,-779.01" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- neural&#45;net&#45;part&#45;&#45;initializer -->
+<g class="edge" id="edge4">
+<title>neural-net-part--initializer</title>
+<path d="M234.38,-781.58C215.01,-776.05 193.36,-768.09 175.5,-757 143.5,-737.13 114.75,-703.3 99.05,-682.81" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="none" points="233.69,-785.02 244.26,-784.25 235.52,-778.26 233.69,-785.02" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- optimizer -->
+<g class="node" id="node9">
+<title>optimizer</title>
+<path d="M153.5,-536.5C153.5,-536.5 185.5,-536.5 185.5,-536.5 191.5,-536.5 197.5,-542.5 197.5,-548.5 197.5,-548.5 197.5,-560.5 197.5,-560.5 197.5,-566.5 191.5,-572.5 185.5,-572.5 185.5,-572.5 153.5,-572.5 153.5,-572.5 147.5,-572.5 141.5,-566.5 141.5,-560.5 141.5,-560.5 141.5,-548.5 141.5,-548.5 141.5,-542.5 147.5,-536.5 153.5,-536.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="169.5" y="-551.7">optimizer</text>
+</g>
+<!-- neural&#45;net&#45;part&#45;&#45;optimizer -->
+<g class="edge" id="edge5">
+<title>neural-net-part--optimizer</title>
+<path d="M248.2,-769.45C236.9,-760.83 225.39,-750.15 217.5,-738 182.69,-684.43 173.06,-606.58 170.45,-572.52" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="none" points="246.2,-772.32 256.35,-775.35 250.3,-766.65 246.2,-772.32" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- Optimizer&#45;1 -->
+<g class="node" id="node12">
+<title>Optimizer-1</title>
+<path d="M321.5,-129.5C321.5,-129.5 425.5,-129.5 425.5,-129.5 431.5,-129.5 437.5,-135.5 437.5,-141.5 437.5,-141.5 437.5,-157.5 437.5,-157.5 437.5,-163.5 431.5,-169.5 425.5,-169.5 425.5,-169.5 321.5,-169.5 321.5,-169.5 315.5,-169.5 309.5,-163.5 309.5,-157.5 309.5,-157.5 309.5,-141.5 309.5,-141.5 309.5,-135.5 315.5,-129.5 321.5,-129.5" fill="whitesmoke" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="373.5" y="-156.7">Optimizer-1</text>
+<polyline fill="none" points="309.5,-149.5 437.5,-149.5 " stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="348" y="-136.7">has-character</text>
+<polyline fill="none" points="386.5,-129.5 386.5,-149.5 " stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="412" y="-136.7">ADAM</text>
+</g>
+<!-- optimizer&#45;&#45;Optimizer&#45;1 -->
+<g class="edge" id="edge10">
+<title>optimizer--Optimizer-1</title>
+<path d="M163.85,-526.52C155.24,-478.88 143.22,-377.84 177.5,-303 207.3,-237.93 280.87,-193.13 328.91,-169.67" fill="none" stroke="black" stroke-dasharray="5,2" stroke-width="0.5"/>
+<polygon fill="none" points="160.41,-527.2 165.72,-536.37 167.29,-525.9 160.41,-527.2" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- basic&#45;neural&#45;net -->
+<g class="node" id="node10">
+<title>basic-neural-net</title>
+<path d="M199,-315.5C199,-315.5 262,-315.5 262,-315.5 268,-315.5 274,-321.5 274,-327.5 274,-327.5 274,-339.5 274,-339.5 274,-345.5 268,-351.5 262,-351.5 262,-351.5 199,-351.5 199,-351.5 193,-351.5 187,-345.5 187,-339.5 187,-339.5 187,-327.5 187,-327.5 187,-321.5 193,-315.5 199,-315.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="230.5" y="-330.7">basic-neural-net</text>
+</g>
+<!-- Net&#45;1 -->
+<g class="node" id="node18">
+<title>Net-1</title>
+<path d="M298.5,-218.5C298.5,-218.5 328.5,-218.5 328.5,-218.5 334.5,-218.5 340.5,-224.5 340.5,-230.5 340.5,-230.5 340.5,-242.5 340.5,-242.5 340.5,-248.5 334.5,-254.5 328.5,-254.5 328.5,-254.5 298.5,-254.5 298.5,-254.5 292.5,-254.5 286.5,-248.5 286.5,-242.5 286.5,-242.5 286.5,-230.5 286.5,-230.5 286.5,-224.5 292.5,-218.5 298.5,-218.5" fill="whitesmoke" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="313.5" y="-233.7">Net-1</text>
+</g>
+<!-- basic&#45;neural&#45;net&#45;&#45;Net&#45;1 -->
+<g class="edge" id="edge16">
+<title>basic-neural-net--Net-1</title>
+<path d="M252.46,-307.37C266.94,-290.79 285.53,-269.51 298.37,-254.81" fill="none" stroke="black" stroke-dasharray="5,2" stroke-width="0.5"/>
+<polygon fill="none" points="249.67,-305.24 245.72,-315.08 254.94,-309.85 249.67,-305.24" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- neural&#45;net -->
+<g class="node" id="node11">
+<title>neural-net</title>
+<path d="M208,-459.5C208,-459.5 245,-459.5 245,-459.5 251,-459.5 257,-465.5 257,-471.5 257,-471.5 257,-483.5 257,-483.5 257,-489.5 251,-495.5 245,-495.5 245,-495.5 208,-495.5 208,-495.5 202,-495.5 196,-489.5 196,-483.5 196,-483.5 196,-471.5 196,-471.5 196,-465.5 202,-459.5 208,-459.5" fill="aliceblue" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="226.5" y="-474.7">neural-net</text>
+</g>
+<!-- neural&#45;net&#45;&#45;basic&#45;neural&#45;net -->
+<g class="edge" id="edge9">
+<title>neural-net--basic-neural-net</title>
+<path d="M227.27,-449.18C228.08,-420.39 229.33,-375.92 230.02,-351.69" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="none" points="223.77,-449.28 226.98,-459.37 230.76,-449.47 223.77,-449.28" stroke="black" stroke-width="0.5"/>
+</g>
+<!-- Optimizer&#45;1&#45;&#45;Net&#45;1 -->
+<g class="edge" id="edge17">
+<title>Optimizer-1--Net-1</title>
+<path d="M367.01,-169.78C363.29,-179.36 358.05,-190.81 351.5,-200 348.7,-203.93 345.42,-207.77 341.97,-211.38" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="black" points="334.77,-218.43 338.76,-208.22 338.34,-214.93 341.91,-211.43 341.91,-211.43 341.91,-211.43 338.34,-214.93 345.06,-214.65 334.77,-218.43 334.77,-218.43" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="378" y="-191.2">is-part-of</text>
+</g>
+<!-- Initializer&#45;1&#45;&#45;Net&#45;1 -->
+<g class="edge" id="edge18">
+<title>Initializer-1--Net-1</title>
+<path d="M79.85,-169.51C91.16,-180.11 106.53,-192.62 122.5,-200 172.53,-223.11 236.51,-231.18 276.24,-234" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="black" points="286.29,-234.63 276.03,-238.49 281.3,-234.32 276.31,-234 276.31,-234 276.31,-234 281.3,-234.32 276.59,-229.51 286.29,-234.63 286.29,-234.63" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="143" y="-191.2">is-part-of</text>
+</g>
+<!-- L&#45;Out&#45;&#45;Net&#45;1 -->
+<g class="edge" id="edge19">
+<title>L-Out--Net-1</title>
+<path d="M418.4,-303.33C411.48,-292.75 402.65,-281.36 392.5,-273 380.15,-262.82 364.41,-254.97 350.24,-249.27" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="black" points="340.74,-245.67 351.68,-245.01 345.41,-247.44 350.09,-249.21 350.09,-249.21 350.09,-249.21 345.41,-247.44 348.49,-253.42 340.74,-245.67 340.74,-245.67" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="424" y="-276.2">is-part-of</text>
+</g>
+<!-- Ann&#45;1&#45;F&#45;2&#45;&#45;L&#45;Out -->
+<g class="edge" id="edge20">
+<title>Ann-1-F-2--L-Out</title>
+<path d="M487.22,-437.24C482.31,-431.35 477.58,-425.18 473.5,-419 464.15,-404.84 455.91,-388.09 449.44,-373.24" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="black" points="445.45,-363.81 453.49,-371.27 447.4,-368.41 449.35,-373.02 449.35,-373.02 449.35,-373.02 447.4,-368.41 445.2,-374.77 445.45,-363.81 445.45,-363.81" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="499.5" y="-397.7">connects-to</text>
+</g>
+<!-- Ann&#45;1&#45;F&#45;2&#45;&#45;Net&#45;1 -->
+<g class="edge" id="edge21">
+<title>Ann-1-F-2--Net-1</title>
+<path d="M533.8,-437.14C539.48,-398.95 541.48,-341.3 512.5,-303 474.63,-252.95 397.4,-240.61 351.07,-237.89" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="black" points="340.84,-237.41 351.04,-233.38 345.84,-237.65 350.83,-237.88 350.83,-237.88 350.83,-237.88 345.84,-237.65 350.62,-242.37 340.84,-237.41 340.84,-237.41" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="555" y="-330.7">is-part-of</text>
+</g>
+<!-- Ann&#45;1&#45;F&#45;1&#45;&#45;Ann&#45;1&#45;F&#45;2 -->
+<g class="edge" id="edge22">
+<title>Ann-1-F-1--Ann-1-F-2</title>
+<path d="M550.74,-80.77C555.3,-86.48 559.39,-92.61 562.5,-99 588.29,-152.07 592.59,-306.46 579.5,-364 574.44,-386.25 564.4,-409.23 554.34,-428.58" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="black" points="549.58,-437.48 550.33,-426.54 551.93,-433.07 554.29,-428.66 554.29,-428.66 554.29,-428.66 551.93,-433.07 558.26,-430.79 549.58,-437.48 549.58,-437.48" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="611.5" y="-233.7">connects-to</text>
+</g>
+<!-- Ann&#45;1&#45;F&#45;1&#45;&#45;Net&#45;1 -->
+<g class="edge" id="edge23">
+<title>Ann-1-F-1--Net-1</title>
+<path d="M444.97,-44.22C386.42,-50.48 301.24,-69.93 259.5,-129 240.91,-155.31 264.8,-188.93 286.44,-211.29" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="black" points="293.62,-218.41 283.35,-214.57 290.07,-214.89 286.52,-211.37 286.52,-211.37 286.52,-211.37 290.07,-214.89 289.69,-208.18 293.62,-218.41 293.62,-218.41" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="280" y="-146.7">is-part-of</text>
+</g>
+<!-- L&#45;In&#45;&#45;Ann&#45;1&#45;F&#45;1 -->
+<g class="edge" id="edge24">
+<title>L-In--Ann-1-F-1</title>
+<path d="M506.5,-129.37C506.5,-118.64 506.5,-104.71 506.5,-91.12" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="black" points="506.5,-80.85 511,-90.85 506.5,-85.85 506.5,-90.85 506.5,-90.85 506.5,-90.85 506.5,-85.85 502,-90.85 506.5,-80.85 506.5,-80.85" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="532.5" y="-102.2">connects-to</text>
+</g>
+<!-- L&#45;In&#45;&#45;Net&#45;1 -->
+<g class="edge" id="edge25">
+<title>L-In--Net-1</title>
+<path d="M467.76,-169.67C448.31,-179.11 424.31,-190.47 402.5,-200 385.46,-207.45 366.33,-215.16 350.18,-221.48" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="black" points="340.56,-225.23 348.25,-217.41 345.22,-223.42 349.88,-221.6 349.88,-221.6 349.88,-221.6 345.22,-223.42 351.51,-225.8 340.56,-225.23 340.56,-225.23" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="448" y="-191.2">is-part-of</text>
+</g>
+<!-- Net&#45;1&#45;&#45;Optimizer&#45;1 -->
+<g class="edge" id="edge26">
+<title>Net-1--Optimizer-1</title>
+<path d="M307.98,-218.2C306,-208.7 305.35,-197.05 310.5,-188 313.07,-183.48 316.42,-179.45 320.24,-175.87" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="black" points="328.08,-169.52 323.14,-179.31 324.19,-172.66 320.31,-175.81 320.31,-175.81 320.31,-175.81 324.19,-172.66 317.48,-172.31 328.08,-169.52 328.08,-169.52" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="329" y="-191.2">has-part</text>
+</g>
+<!-- Net&#45;1&#45;&#45;Initializer&#45;1 -->
+<g class="edge" id="edge27">
+<title>Net-1--Initializer-1</title>
+<path d="M286.19,-235.82C227.59,-235.86 92.75,-232.36 63.5,-200 58.56,-194.54 56.7,-187.19 56.42,-179.83" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="black" points="56.9,-169.61 60.92,-179.81 56.66,-174.61 56.43,-179.6 56.43,-179.6 56.43,-179.6 56.66,-174.61 51.93,-179.39 56.9,-169.61 56.9,-169.61" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="82" y="-191.2">has-part</text>
+</g>
+<!-- Net&#45;1&#45;&#45;L&#45;Out -->
+<g class="edge" id="edge28">
+<title>Net-1--L-Out</title>
+<path d="M324.8,-254.66C331.73,-264.33 341.23,-276.21 351.5,-285 356.67,-289.42 362.31,-293.65 368.14,-297.63" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="black" points="376.78,-303.27 365.95,-301.57 372.6,-300.54 368.41,-297.8 368.41,-297.8 368.41,-297.8 372.6,-300.54 370.87,-294.03 376.78,-303.27 376.78,-303.27" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="370" y="-276.2">has-part</text>
+</g>
+<!-- Net&#45;1&#45;&#45;Ann&#45;1&#45;F&#45;2 -->
+<g class="edge" id="edge29">
+<title>Net-1--Ann-1-F-2</title>
+<path d="M309.39,-254.6C304.2,-280.45 298.27,-330.08 319.5,-364 349.43,-411.83 407.25,-440.83 454.03,-457.38" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="black" points="463.53,-460.62 452.61,-461.65 458.79,-459.01 454.06,-457.39 454.06,-457.39 454.06,-457.39 458.79,-459.01 455.52,-453.13 463.53,-460.62 463.53,-460.62" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="338" y="-330.7">has-part</text>
+</g>
+<!-- Net&#45;1&#45;&#45;Ann&#45;1&#45;F&#45;1 -->
+<g class="edge" id="edge30">
+<title>Net-1--Ann-1-F-1</title>
+<path d="M286.43,-226.44C262.17,-216.7 228.07,-198.65 212.5,-170 203.8,-153.99 202.87,-144.47 212.5,-129 236.19,-90.96 355.8,-65.12 434.97,-51.88" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="black" points="444.9,-50.25 435.76,-56.31 439.96,-51.06 435.03,-51.87 435.03,-51.87 435.03,-51.87 439.96,-51.06 434.3,-47.43 444.9,-50.25 444.9,-50.25" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="231" y="-146.7">has-part</text>
+</g>
+<!-- Net&#45;1&#45;&#45;L&#45;In -->
+<g class="edge" id="edge31">
+<title>Net-1--L-In</title>
+<path d="M340.6,-235.34C374.27,-233.9 432.19,-227.24 472.5,-200 480.62,-194.51 487.36,-186.38 492.64,-178.29" fill="none" stroke="black" stroke-width="0.5"/>
+<polygon fill="black" points="497.79,-169.65 496.54,-180.54 495.23,-173.94 492.67,-178.24 492.67,-178.24 492.67,-178.24 495.23,-173.94 488.81,-175.93 497.79,-169.65 497.79,-169.65" stroke="black" stroke-width="0.5"/>
+<text font-family="Times New Roman,serif" font-size="11.00" text-anchor="middle" x="503" y="-191.2">has-part</text>
+</g>
+</g>
+</svg>

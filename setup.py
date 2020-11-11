@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='cognipy',
-    version='0.1.9',
+    version='0.1.10',
     author="Cognitum Services S.A.",
     author_email="support@cognitum.eu",
     description="Semantic Tech Reasoner and Editor",
@@ -14,7 +14,7 @@ setup(
     url="https://github.com/cognitum-octopus/cognipy",
     packages=['cognipy'],
     include_package_data = True,
-    install_requires = ['pandas','pydot','ipywidgets','graphviz', 'fuzzy', 'flask_table'],
+    install_requires = ['pandas','pydot','ipywidgets','graphviz'],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",

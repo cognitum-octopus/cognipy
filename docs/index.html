@@ -4,10 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta content="CogniPy for Pandas - In-memory Graph Database and Knowledge Graph with Natural Language Interface, Reasoning, exploration of RDF/OWL, FluentEditor CNL files, with OWL/RL Reasoner (Jena) as well as SPARQL Graph queries (Jena) and visualization." name="description" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Indices and tables &mdash; CogniPy 0.1.6 documentation</title>
+  <title>CogniPy for Pandas - In-memory Graph Database and Knowledge Graph with Natural Language Interface &mdash; CogniPy 0.1.6 documentation</title>
   
 
   
@@ -38,7 +39,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Project description" href="installation.html" /> 
+    <link rel="next" title="Examples" href="examples.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,8 +89,6 @@
             
               <p class="caption"><span class="caption-text">CogniPy Documentation:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Project description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html#cognipy"><strong>CogniPy</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="grammar.html">Grammar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dictonary.html">Dictonary</a></li>
@@ -140,7 +139,7 @@
     
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Indices and tables</li>
+      <li>CogniPy for Pandas - In-memory Graph Database and Knowledge Graph with Natural Language Interface</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -183,18 +182,71 @@
     text-align: unset;
 }
 </style>
+<div class="section" id="project-description">
+<h1>Project description<a class="headerlink" href="#project-description" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="cognipy-for-pandas">
+<h1><strong>CogniPy for Pandas</strong><a class="headerlink" href="#cognipy-for-pandas" title="Permalink to this headline">¶</a></h1>
+<p>In-memory Graph Database and Knowledge Graph with Natural Language Interface</p>
+<p><strong>Whats in the box</strong></p>
+<p>Reasoning, exploration of RDF/OWL, [FluentEditor](<a class="reference external" href="https://www.cognitum.eu/Semantics/FluentEditor/">https://www.cognitum.eu/Semantics/FluentEditor/</a>) CNL files, with OWL/RL Reasoner (Jena) as well as SPARQL Graph queries (Jena) and visualization</p>
+<ol class="arabic simple">
+<li><p>Write your graph/ontology in Controlled Natural Language or import it from RDF/OWL</p></li>
+<li><p>Add reasoning rules/T-Box in Controlled Natural Language</p></li>
+<li><p>Import data using Pandas/scrap them from the internet</p></li>
+<li><p>Draw the resulting, materialized graph</p></li>
+<li><p>Use SPARQL to execute graph query</p></li>
+<li><p>Use output Dataframe for further processing with Pandas</p></li>
+</ol>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Prerequisites:</p>
+<ul class="simple">
+<li><p>If you are on Mac or Linux You MUST have mono installed on your system.</p></li>
+<li><p>Tested with Anaconda</p></li>
+<li><p>Tested on MacOS, Winows and Linux (UBuntu)</p></li>
+</ul>
+<p>Install cognipy on your system using</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install cognipy
+</pre></div>
+</div>
+</div>
+<div class="section" id="open-source-repository">
+<h2>Open Source repository<a class="headerlink" href="#open-source-repository" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/cognitum-octopus/cognipy">Git Repository (on GitHub)</a></p></li>
+</ul>
+</div>
+<div class="section" id="hello-world-program">
+<h2>Hello world program<a class="headerlink" href="#hello-world-program" title="Permalink to this headline">¶</a></h2>
+<p>In Jupyter you write</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="kn">import</span> <span class="n">Ontology</span> <span class="c1">#the ontology processing class</span>
+
+<span class="o">%%</span><span class="n">writefile</span> <span class="n">hello</span><span class="o">.</span><span class="n">encnl</span>
+<span class="n">World</span> <span class="n">says</span> <span class="n">Hello</span><span class="o">.</span>
+<span class="n">Hello</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">word</span><span class="o">.</span>
+
+<span class="n">onto</span> <span class="o">=</span> <span class="n">Ontology</span><span class="p">(</span><span class="s2">&quot;cnl/file&quot;</span><span class="p">,</span><span class="s2">&quot;hello.encnl&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">onto</span><span class="o">.</span><span class="n">select_instances_of</span><span class="p">(</span><span class="s2">&quot;a thing that says a word&quot;</span><span class="p">)[[</span><span class="s2">&quot;says&quot;</span><span class="p">,</span><span class="s2">&quot;Instance&quot;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="related-research-papers">
+<h2>Related research papers<a class="headerlink" href="#related-research-papers" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>[Semantic rules representation in controlled natural language in FluentEditor](<a class="reference external" href="https://ieeexplore.ieee.org/document/6577807">https://ieeexplore.ieee.org/document/6577807</a>)</p></li>
+<li><p>[Collaborative Editing of Ontologies Using Fluent Editor and Ontorion](<a class="reference external" href="https://link.springer.com/chapter/10.1007/978-3-319-33245-1_5">https://link.springer.com/chapter/10.1007/978-3-319-33245-1_5</a>)</p></li>
+<li><p>[Semantic OLAP with FluentEditor and Ontorion Semantic Excel Toolchain](<a class="reference external" href="http://www.thinkmind.org/index.php?view=article&amp;articleid=semapro_2015_3_30_30051">http://www.thinkmind.org/index.php?view=article&amp;articleid=semapro_2015_3_30_30051</a>)</p></li>
+<li><p>[Ontology-aided software engineering](<a class="reference external" href="https://www.semanticscholar.org/paper/Ontology-aided-software-engineering-Kaplanski/24100da2431d6f8a3cd9114c7d4a9050fb421d22?p2df">https://www.semanticscholar.org/paper/Ontology-aided-software-engineering-Kaplanski/24100da2431d6f8a3cd9114c7d4a9050fb421d22?p2df</a>)</p></li>
+<li><p>[Ontology of the Design Pattern Language for Smart Cities Systems](<a class="reference external" href="https://link.springer.com/chapter/10.1007/978-3-662-53580-6_6">https://link.springer.com/chapter/10.1007/978-3-662-53580-6_6</a>)</p></li>
+</ol>
+</div>
+<div class="section" id="how-to-cite-cognipy">
+<h2>How to cite CogniPy<a class="headerlink" href="#how-to-cite-cognipy" title="Permalink to this headline">¶</a></h2>
+<p>We would be grateful if scientific publications resulting from projects that make use of CogniPy would include the following sentence in the acknowledgments section: “This work was conducted using the CogniPy package, which is an open-source project maintained by [Cognitum Services S.A.](<a class="reference external" href="https://www.cognitum.eu">https://www.cognitum.eu</a>)”</p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">CogniPy Documentation:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Project description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html#cognipy"><strong>CogniPy</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#open-source-repository">Open Source repository</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#hello-world-program">Hello world program</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#related-research-papers">Related research papers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#how-to-cite-cognipy">How to cite CogniPy</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="jupyter_notebooks/Safari/Safari.html">Safari</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="jupyter_notebooks/Safari/Safari.html#African-Wildlife.">African Wildlife.</a></li>
@@ -306,14 +358,14 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">API Refrence</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cognipy.html">cognipy.edit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cognipy.html#cognipy-interop">cognipy.interop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cognipy.html#cognipy-ontology">cognipy.ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cognipy.html">cognipy.ontology</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
+</div>
+</div>
 </div>
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
@@ -332,7 +384,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="installation.html" class="btn btn-neutral float-right" title="Project description" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>

@@ -1,0 +1,1954 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The basic, ontology based ANN configurator with TensorFlow &mdash; CogniPy 0.1.6 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> CogniPy
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">CogniPy Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../grammar.html">Grammar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dictonary.html">Dictonary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">API Refrence</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">CogniPy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>The basic, ontology based ANN configurator with TensorFlow</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/jupyter_notebooks/NeuraNet/NeuralNet.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="The-basic,-ontology-based-ANN-configurator-with-TensorFlow">
+<h1>The basic, ontology based ANN configurator with TensorFlow<a class="headerlink" href="#The-basic,-ontology-based-ANN-configurator-with-TensorFlow" title="Permalink to this headline">¶</a></h1>
+<p>This is the example of ANN ontology which support TensorFlow</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="kn">import</span> <span class="n">Ontology</span><span class="p">,</span><span class="n">CQL</span>
+<span class="kn">from</span> <span class="nn">cognipy.edit</span> <span class="kn">import</span> <span class="n">CnlEditBox</span><span class="p">,</span> <span class="n">CnlQueryForConcept</span>
+</pre></div>
+</div>
+</div>
+<p>We need some functionalites that will allow us to manipulate/print the dataframes</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+<p>Now we are ready to load the core ontology. It just contains the basic ANN concepts. We will define the net a little bit later.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ed2</span><span class="o">=</span><span class="n">CnlEditBox</span><span class="p">(</span><span class="s1">&#39;./ann2.encnl&#39;</span><span class="p">)</span>
+<span class="n">ed2</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="output_javascript"></div>
+<script type="text/javascript">
+var element = document.currentScript.previousSibling.previousSibling;
+/* jshint browser: true */
+
+(function () {
+
+// We'll copy the properties below into the mirror div.
+// Note that some browsers, such as Firefox, do not concatenate properties
+// into their shorthand (e.g. padding-top, padding-bottom etc. -> padding),
+// so we have to list every single property explicitly.
+var properties = [
+  'direction',  // RTL support
+  'boxSizing',
+  'width',  // on Chrome and IE, exclude the scrollbar, so the mirror div wraps exactly as the textarea does
+  'height',
+  'overflowX',
+  'overflowY',  // copy the scrollbar for IE
+
+  'borderTopWidth',
+  'borderRightWidth',
+  'borderBottomWidth',
+  'borderLeftWidth',
+  'borderStyle',
+
+  'paddingTop',
+  'paddingRight',
+  'paddingBottom',
+  'paddingLeft',
+
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/font
+  'fontStyle',
+  'fontVariant',
+  'fontWeight',
+  'fontStretch',
+  'fontSize',
+  'fontSizeAdjust',
+  'lineHeight',
+  'fontFamily',
+
+  'textAlign',
+  'textTransform',
+  'textIndent',
+  'textDecoration',  // might not make a difference, but better be safe
+
+  'letterSpacing',
+  'wordSpacing',
+
+  'tabSize',
+  'MozTabSize'
+
+];
+
+var isBrowser = (typeof window !== 'undefined');
+var isFirefox = (isBrowser && window.mozInnerScreenX != null);
+
+function getCaretCoordinates(element, position, options) {
+  if (!isBrowser) {
+    throw new Error('textarea-caret-position#getCaretCoordinates should only be called in a browser');
+  }
+
+  var debug = options && options.debug || false;
+  if (debug) {
+    var el = document.querySelector('#input-textarea-caret-position-mirror-div');
+    if (el) el.parentNode.removeChild(el);
+  }
+
+  // The mirror div will replicate the textarea's style
+  var div = document.createElement('div');
+  div.id = 'input-textarea-caret-position-mirror-div';
+  document.body.appendChild(div);
+
+  var style = div.style;
+  var computed = window.getComputedStyle ? window.getComputedStyle(element) : element.currentStyle;  // currentStyle for IE < 9
+  var isInput = element.nodeName === 'INPUT';
+
+  // Default textarea styles
+  style.whiteSpace = 'pre-wrap';
+  if (!isInput)
+    style.wordWrap = 'break-word';  // only for textarea-s
+
+  // Position off-screen
+  style.position = 'absolute';  // required to return coordinates properly
+  if (!debug)
+    style.visibility = 'hidden';  // not 'display: none' because we want rendering
+
+  // Transfer the element's properties to the div
+  properties.forEach(function (prop) {
+    if (isInput && prop === 'lineHeight') {
+      // Special case for <input>s because text is rendered centered and line height may be != height
+      if (computed.boxSizing === "border-box") {
+        var height = parseInt(computed.height);
+        var outerHeight =
+          parseInt(computed.paddingTop) +
+          parseInt(computed.paddingBottom) +
+          parseInt(computed.borderTopWidth) +
+          parseInt(computed.borderBottomWidth);
+        var targetHeight = outerHeight + parseInt(computed.lineHeight);
+        if (height > targetHeight) {
+          style.lineHeight = height - outerHeight + "px";
+        } else if (height === targetHeight) {
+          style.lineHeight = computed.lineHeight;
+        } else {
+          style.lineHeight = 0;
+        }
+      } else {
+        style.lineHeight = computed.height;
+      }
+    } else {
+      style[prop] = computed[prop];
+    }
+  });
+
+  if (isFirefox) {
+    // Firefox lies about the overflow property for textareas: https://bugzilla.mozilla.org/show_bug.cgi?id=984275
+    if (element.scrollHeight > parseInt(computed.height))
+      style.overflowY = 'scroll';
+  } else {
+    style.overflow = 'hidden';  // for Chrome to not render a scrollbar; IE keeps overflowY = 'scroll'
+  }
+
+  div.textContent = element.value.substring(0, position);
+  // The second special handling for input type="text" vs textarea:
+  // spaces need to be replaced with non-breaking spaces - http://stackoverflow.com/a/13402035/1269037
+  if (isInput)
+    div.textContent = div.textContent.replace(/\s/g, '\u00a0');
+
+  var span = document.createElement('span');
+  // Wrapping must be replicated *exactly*, including when a long word gets
+  // onto the next line, with whitespace at the end of the line before (#7).
+  // The  *only* reliable way to do that is to copy the *entire* rest of the
+  // textarea's content into the <span> created at the caret position.
+  // For inputs, just '.' would be enough, but no need to bother.
+  span.textContent = element.value.substring(position) || '.';  // || because a completely empty faux span doesn't render at all
+  div.appendChild(span);
+
+  var coordinates = {
+    top: span.offsetTop + parseInt(computed['borderTopWidth']),
+    left: span.offsetLeft + parseInt(computed['borderLeftWidth']),
+    height: parseInt(computed['lineHeight'])
+  };
+
+  if (debug) {
+    span.style.backgroundColor = '#aaa';
+  } else {
+    document.body.removeChild(div);
+  }
+
+  return coordinates;
+}
+
+if (typeof module != 'undefined' && typeof module.exports != 'undefined') {
+  module.exports = getCaretCoordinates;
+} else if(isBrowser) {
+  window.getCaretCoordinates = getCaretCoordinates;
+}
+
+}());
+
+require.undef('ontoedit');
+
+define('ontoedit', ["@jupyter-widgets/base"], function(widgets) {
+
+    var OntoeditModel = widgets.TextareaModel.extend({
+
+        defaults: $.extend(widgets.TextareaModel.prototype.defaults(), {
+            _model_name: "OntoeditModel",
+            _view_name: "OntoeditView",
+            _model_module: "ontoedit",
+            _view_module: "ontoedit",
+            rows: null,
+            continuous_update: true,
+            cursor: 0,
+            dot:0,
+            hints:'',
+            hintsX:0,
+            hintT:''
+        })
+    });
+
+    var OntoeditView = widgets.TextareaView.extend({
+
+        render: function() {
+            OntoeditView.__super__.render.apply(this, arguments);
+            this.model.on('change:hints', this.hints_changed, this);
+            this.model.on('change:hintsX', this.hintsX_changed, this);
+
+            var model = this.model;
+            var that = this;
+
+            var last_position = 0;
+
+            function cursor_changed(element) {
+                var new_position = getCursorPosition(element);
+                if (new_position !== last_position) {
+                    last_position = new_position;
+                    return true;
+                }
+                return false;
+            }
+
+            function getCursorPosition(element) {
+                var el = $(element).get(0);
+                var pos = 0;
+                if ('selectionStart' in el) {
+                    pos = el.selectionStart;
+                } else if ('selection' in document) {
+                    el.focus();
+                    var Sel = document.selection.createRange();
+                    var SelLength = document.selection.createRange().text.length;
+                    Sel.moveStart('character', -el.value.length);
+                    pos = Sel.text.length - SelLength;
+                }
+                return pos;
+            }
+
+            var oldVal = "";
+
+            this.dd=$('<div style="-moz-appearance: textfield-multiline;-webkit-appearance: textarea;font: medium -moz-fixed; font: -webkit-small-control; position: absolute;z-index: 1; background-color:navy;color:white;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4); "/>')
+
+            $(this.el).bind("click keyup focus",function(e){
+                if (that.dd.get(0).style.visibility!="visible")
+                    return;
+
+                var ele=$($(that.el).children("textarea")[0])
+
+                if(cursor_changed(ele)){
+                   var  cursor = getCursorPosition(ele);
+//                    console.log(cursor);
+//                    console.log('(top, left, height) = (%s, %s, %s)', caret.top, caret.left, caret.height);
+                    model.set('cursor',cursor);
+//                    console.log(cursor)
+                    that.touch();
+                }
+            });
+
+            $($(this.el).children("textarea")[0]).bind("blur",function(e){
+//                console.log("blur")
+                  model.set('dot',model.get('dot')+1);
+                  that.touch();
+                that.dd.get(0).style.visibility="hidden";
+            });
+
+            $($(this.el).children("textarea")[0]).bind("keydown",function(e){
+                  if (String.fromCharCode(event.which)=='\t')
+                  {
+                        if (that.dd.get(0).style.visibility!="visible")
+                        {
+                            var ele=$($(that.el).children("textarea")[0])
+
+                            if(cursor_changed(ele)){
+                               var  cursor = getCursorPosition(ele);
+            //                    console.log(cursor);
+            //                    console.log('(top, left, height) = (%s, %s, %s)', caret.top, caret.left, caret.height);
+                                model.set('cursor',cursor);
+            //                    console.log(cursor)
+                                that.touch();
+                                that.dd.get(0).style.visibility="visible";
+                            }
+                        }
+//                      console.log(model.get('hintT'));
+                      var target=$($(that.el).children("textarea")[0])
+                      var curpos = getCursorPosition(target)
+                      var off=curpos-model.get('hintsX')
+                      var data = model.get('hintT').slice(off)
+//                      console.log(off)
+
+                      if (target.setRangeText) {
+                         //if setRangeText function is supported by current browser
+                         target.setRangeText(data)
+                      } else {
+                        target.focus()
+                        document.execCommand('insertText', false /*no UI*/, data);
+                      }
+                      e.preventDefault();
+                      return;
+                  }
+                  else if (event.key=='.')
+                  {
+                      model.set('dot',model.get('dot')+1);
+                      that.touch();
+                  }
+                  else if(event.key== "Escape")
+                  {
+                    that.dd.get(0).style.visibility="hidden";
+                  }
+            });
+
+            // this.el represents the widget's DOM
+            $(this.el)
+            .append(this.dd)
+        },
+
+        hints_changed: function() {
+            var that = this;
+            var model = this.model;
+            that.dd.get(0).innerHTML=model.get('hints')
+//            console.log(model.get('hints'))
+        },
+        hintsX_changed: function() {
+            var that = this;
+            var model = this.model;
+            var ele=$($(that.el).children("textarea")[0]);
+            element=ele.get(0);
+            var caret = getCaretCoordinates(ele.get(0), model.get('hintsX'));
+            that.dd.get(0).style.top = element.offsetTop - element.scrollTop + caret.top+ caret.height-5 + 'px';
+            that.dd.get(0).style.left = element.offsetLeft - element.scrollLeft + caret.left + 'px';
+//            that.dd.get(0).style.width = '20%';
+//            that.dd.get(0).style.height = '50%';
+            that.dd.get(0).style.fontFamily=element.style.fontFamily;
+            that.dd.get(0).style.fontSize=element.style.fontSize;
+//                        console.log(model.get('hintsX'))
+        },
+    });
+
+    return {
+        OntoeditModel : OntoeditModel,
+        OntoeditView : OntoeditView
+    };
+});
+
+</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+Welcome to CogniPy</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "60257b1247204b0f837150b8f2fe30dd", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">onto</span><span class="o">=</span><span class="n">Ontology</span><span class="p">(</span><span class="s2">&quot;cnl/file&quot;</span><span class="p">,</span><span class="s2">&quot;./ann2.encnl&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We define now the internat structure of the network with few simple sentences:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">netName</span><span class="o">=</span><span class="s2">&quot;Net-1&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">onto</span><span class="o">.</span><span class="n">insert_cnl</span><span class="p">(</span><span class="n">netName</span><span class="o">+</span><span class="s2">&quot; is a basic-neural-net that has-part L-In. </span><span class="se">\</span>
+<span class="s2">L-In is an basic-neural-net-input-layer that connects-to Ann-1-F-1 and has-width equal-to 12288.</span><span class="se">\</span>
+<span class="s2">Ann-1-F-1 is a multilayer-neural-net-fragment that connects-to Ann-1-F-2 and has-shape equal-to &#39;25&#39; and has-activation equal-to &#39;RELU&#39;.</span><span class="se">\</span>
+<span class="s2">Ann-1-F-2 is a multilayer-neural-net-fragment that connects-to L-Out and has-shape equal-to &#39;12&#39; and has-activation equal-to &#39;RELU&#39;.</span><span class="se">\</span>
+<span class="s2">L-Out is an basic-neural-net-output-layer that has-number-of-classes equal-to 6.</span><span class="se">\</span>
+<span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Lets setup the initializer and optimiser for our ANN.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">onto</span><span class="o">.</span><span class="n">insert_cnl</span><span class="p">(</span><span class="n">netName</span><span class="o">+</span><span class="s2">&quot; has-part Initializer-1. Initializer-1 is an initializer that has-character equal-to &#39;Xavier&#39;.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">onto</span><span class="o">.</span><span class="n">insert_cnl</span><span class="p">(</span><span class="n">netName</span><span class="o">+</span><span class="s2">&quot; has-part Optimizer-1. Optimizer-1 is an optimizer that has-character equal-to &#39;ADAM&#39;.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">parts</span> <span class="o">=</span> <span class="n">onto</span><span class="o">.</span><span class="n">instances_of</span><span class="p">(</span><span class="s2">&quot;a thing&quot;</span><span class="p">)</span>
+<span class="n">parts</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;Optimizer-1&#39;,
+ &#39;Initializer-1&#39;,
+ &#39;L-Out&#39;,
+ &#39;Ann-1-F-2&#39;,
+ &#39;Ann-1-F-1&#39;,
+ &#39;L-In&#39;,
+ &#39;Net-1&#39;]
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">inp</span>   <span class="o">=</span> <span class="n">onto</span><span class="o">.</span><span class="n">select_instances_of</span><span class="p">(</span><span class="s2">&quot;a neural-net-input-layer that is-part-of &quot;</span><span class="o">+</span><span class="n">netName</span><span class="p">)</span>
+<span class="n">outp</span>  <span class="o">=</span> <span class="n">onto</span><span class="o">.</span><span class="n">select_instances_of</span><span class="p">(</span><span class="s2">&quot;a neural-net-output-layer that is-part-of &quot;</span><span class="o">+</span><span class="n">netName</span><span class="p">)</span>
+<span class="n">frags</span> <span class="o">=</span> <span class="n">onto</span><span class="o">.</span><span class="n">select_instances_of</span><span class="p">(</span><span class="s2">&quot;a neural-net-fragment that is-part-of &quot;</span><span class="o">+</span><span class="n">netName</span><span class="p">)</span>
+<span class="n">init</span>  <span class="o">=</span> <span class="n">onto</span><span class="o">.</span><span class="n">select_instances_of</span><span class="p">(</span><span class="s2">&quot;a initializer that is-part-of &quot;</span><span class="o">+</span><span class="n">netName</span><span class="p">)</span>
+<span class="n">opti</span>  <span class="o">=</span> <span class="n">onto</span><span class="o">.</span><span class="n">select_instances_of</span><span class="p">(</span><span class="s2">&quot;a optimizer that is-part-of &quot;</span><span class="o">+</span><span class="n">netName</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x_n</span><span class="o">=</span><span class="n">inp</span><span class="p">[</span><span class="s1">&#39;has-width&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">y_n</span><span class="o">=</span><span class="n">outp</span><span class="p">[</span><span class="s1">&#39;has-number-of-classes&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x_n</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+12288
+6
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">frags</span><span class="o">=</span><span class="n">frags</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;has-index&#39;</span><span class="p">)</span>
+<span class="n">frags</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Instance</th>
+      <th>connects-to</th>
+      <th>is-part-of</th>
+      <th>has-activation</th>
+      <th>has-shape</th>
+      <th>has-index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Ann-1-F-1</td>
+      <td>Ann-1-F-2</td>
+      <td>Net-1</td>
+      <td>RELU</td>
+      <td>25</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Ann-1-F-2</td>
+      <td>L-Out</td>
+      <td>Net-1</td>
+      <td>RELU</td>
+      <td>12</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">frags</span><span class="p">[</span><span class="s1">&#39;has-shape&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;:&quot;</span><span class="p">)]</span>
+<span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[12]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">activations</span> <span class="o">=</span> <span class="n">frags</span><span class="p">[</span><span class="s1">&#39;has-activation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">activations</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;RELU&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">init</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Instance</th>
+      <th>is-part-of</th>
+      <th>has-character</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Initializer-1</td>
+      <td>Net-1</td>
+      <td>Xavier</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">opti</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Instance</th>
+      <th>is-part-of</th>
+      <th>has-character</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Optimizer-1</td>
+      <td>Net-1</td>
+      <td>ADAM</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="TEST">
+<h1>TEST<a class="headerlink" href="#TEST" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">!</span>pip install tensorflow
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Collecting tensorflow
+  Downloading tensorflow-2.3.1-cp37-cp37m-win_amd64.whl (342.5 MB)
+Requirement already satisfied: termcolor&gt;=1.1.0 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from tensorflow) (1.1.0)
+Requirement already satisfied: h5py&lt;2.11.0,&gt;=2.10.0 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from tensorflow) (2.10.0)
+Requirement already satisfied: tensorboard&lt;3,&gt;=2.3.0 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from tensorflow) (2.3.0)
+Requirement already satisfied: opt-einsum&gt;=2.3.2 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from tensorflow) (3.3.0)
+Requirement already satisfied: wrapt&gt;=1.11.1 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from tensorflow) (1.12.1)
+Requirement already satisfied: six&gt;=1.12.0 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from tensorflow) (1.15.0)
+Requirement already satisfied: absl-py&gt;=0.7.0 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from tensorflow) (0.7.0)
+Requirement already satisfied: protobuf&gt;=3.9.2 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from tensorflow) (3.13.0)
+Requirement already satisfied: keras-preprocessing&lt;1.2,&gt;=1.1.1 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from tensorflow) (1.1.2)
+Requirement already satisfied: numpy&lt;1.19.0,&gt;=1.16.0 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from tensorflow) (1.17.4)
+Requirement already satisfied: wheel&gt;=0.26 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from tensorflow) (0.35.1)
+Requirement already satisfied: astunparse==1.6.3 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from tensorflow) (1.6.3)
+Requirement already satisfied: google-pasta&gt;=0.1.8 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from tensorflow) (0.2.0)
+Requirement already satisfied: grpcio&gt;=1.8.6 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from tensorflow) (1.33.2)
+Collecting tensorflow-estimator&lt;2.4.0,&gt;=2.3.0
+  Downloading tensorflow_estimator-2.3.0-py2.py3-none-any.whl (459 kB)
+Requirement already satisfied: gast==0.3.3 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from tensorflow) (0.3.3)
+Requirement already satisfied: google-auth-oauthlib&lt;0.5,&gt;=0.4.1 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from tensorboard&lt;3,&gt;=2.3.0-&gt;tensorflow) (0.4.2)
+Requirement already satisfied: tensorboard-plugin-wit&gt;=1.6.0 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from tensorboard&lt;3,&gt;=2.3.0-&gt;tensorflow) (1.7.0)
+Requirement already satisfied: markdown&gt;=2.6.8 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from tensorboard&lt;3,&gt;=2.3.0-&gt;tensorflow) (3.3.3)
+Requirement already satisfied: setuptools&gt;=41.0.0 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from tensorboard&lt;3,&gt;=2.3.0-&gt;tensorflow) (50.3.0.post20201006)
+Requirement already satisfied: requests&lt;3,&gt;=2.21.0 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from tensorboard&lt;3,&gt;=2.3.0-&gt;tensorflow) (2.23.0)
+Requirement already satisfied: werkzeug&gt;=0.11.15 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from tensorboard&lt;3,&gt;=2.3.0-&gt;tensorflow) (1.0.1)
+Requirement already satisfied: google-auth&lt;2,&gt;=1.6.3 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from tensorboard&lt;3,&gt;=2.3.0-&gt;tensorflow) (1.23.0)
+Requirement already satisfied: requests-oauthlib&gt;=0.7.0 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from google-auth-oauthlib&lt;0.5,&gt;=0.4.1-&gt;tensorboard&lt;3,&gt;=2.3.0-&gt;tensorflow) (1.3.0)
+Requirement already satisfied: importlib-metadata; python_version &lt; &#34;3.8&#34; in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from markdown&gt;=2.6.8-&gt;tensorboard&lt;3,&gt;=2.3.0-&gt;tensorflow) (1.5.0)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from requests&lt;3,&gt;=2.21.0-&gt;tensorboard&lt;3,&gt;=2.3.0-&gt;tensorflow) (2.8)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from requests&lt;3,&gt;=2.21.0-&gt;tensorboard&lt;3,&gt;=2.3.0-&gt;tensorflow) (1.24.1)
+Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from requests&lt;3,&gt;=2.21.0-&gt;tensorboard&lt;3,&gt;=2.3.0-&gt;tensorflow) (3.0.4)
+Requirement already satisfied: certifi&gt;=2017.4.17 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from requests&lt;3,&gt;=2.21.0-&gt;tensorboard&lt;3,&gt;=2.3.0-&gt;tensorflow) (2020.6.20)
+Requirement already satisfied: cachetools&lt;5.0,&gt;=2.0.0 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from google-auth&lt;2,&gt;=1.6.3-&gt;tensorboard&lt;3,&gt;=2.3.0-&gt;tensorflow) (4.1.1)
+Requirement already satisfied: pyasn1-modules&gt;=0.2.1 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from google-auth&lt;2,&gt;=1.6.3-&gt;tensorboard&lt;3,&gt;=2.3.0-&gt;tensorflow) (0.2.8)
+Requirement already satisfied: rsa&lt;5,&gt;=3.1.4; python_version &gt;= &#34;3.5&#34; in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from google-auth&lt;2,&gt;=1.6.3-&gt;tensorboard&lt;3,&gt;=2.3.0-&gt;tensorflow) (4.6)
+Requirement already satisfied: oauthlib&gt;=3.0.0 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from requests-oauthlib&gt;=0.7.0-&gt;google-auth-oauthlib&lt;0.5,&gt;=0.4.1-&gt;tensorboard&lt;3,&gt;=2.3.0-&gt;tensorflow) (3.1.0)
+Requirement already satisfied: zipp&gt;=0.5 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from importlib-metadata; python_version &lt; &#34;3.8&#34;-&gt;markdown&gt;=2.6.8-&gt;tensorboard&lt;3,&gt;=2.3.0-&gt;tensorflow) (3.0.0)
+Requirement already satisfied: pyasn1&lt;0.5.0,&gt;=0.4.6 in c:\users\pkapl\anaconda3\envs\newds\lib\site-packages (from pyasn1-modules&gt;=0.2.1-&gt;google-auth&lt;2,&gt;=1.6.3-&gt;tensorboard&lt;3,&gt;=2.3.0-&gt;tensorflow) (0.4.8)
+Installing collected packages: tensorflow-estimator, tensorflow
+Successfully installed tensorflow-2.3.1 tensorflow-estimator-2.3.0
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.python.framework</span> <span class="kn">import</span> <span class="n">ops</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">ModuleNotFoundError</span>                       Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-28-c9c7a7e21e88&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">      2</span> <span class="ansi-green-intense-fg ansi-bold">import</span> numpy <span class="ansi-green-intense-fg ansi-bold">as</span> np
+<span class="ansi-green-fg">      3</span> <span class="ansi-green-intense-fg ansi-bold">import</span> matplotlib<span class="ansi-yellow-intense-fg ansi-bold">.</span>pyplot <span class="ansi-green-intense-fg ansi-bold">as</span> plt
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 4</span><span class="ansi-yellow-intense-fg ansi-bold"> </span><span class="ansi-green-intense-fg ansi-bold">import</span> tensorflow <span class="ansi-green-intense-fg ansi-bold">as</span> tf
+<span class="ansi-green-fg">      5</span> <span class="ansi-green-intense-fg ansi-bold">from</span> tensorflow<span class="ansi-yellow-intense-fg ansi-bold">.</span>python<span class="ansi-yellow-intense-fg ansi-bold">.</span>framework <span class="ansi-green-intense-fg ansi-bold">import</span> ops
+<span class="ansi-green-fg">      6</span>
+
+<span class="ansi-red-intense-fg ansi-bold">ModuleNotFoundError</span>: No module named &#39;tensorflow&#39;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">inp</span>   <span class="o">=</span> <span class="n">onto</span><span class="o">.</span><span class="n">select_instances_of</span><span class="p">(</span><span class="s2">&quot;a neural-net-input-layer that is-part-of &quot;</span><span class="o">+</span><span class="n">netName</span><span class="p">)</span>
+<span class="n">outp</span>  <span class="o">=</span> <span class="n">onto</span><span class="o">.</span><span class="n">select_instances_of</span><span class="p">(</span><span class="s2">&quot;a neural-net-output-layer that is-part-of &quot;</span><span class="o">+</span><span class="n">netName</span><span class="p">)</span>
+<span class="n">frags</span> <span class="o">=</span> <span class="n">onto</span><span class="o">.</span><span class="n">select_instances_of</span><span class="p">(</span><span class="s2">&quot;a neural-net-fragment that is-part-of &quot;</span><span class="o">+</span><span class="n">netName</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;has-index&#39;</span><span class="p">)</span>
+<span class="n">init</span>  <span class="o">=</span> <span class="n">onto</span><span class="o">.</span><span class="n">select_instances_of</span><span class="p">(</span><span class="s2">&quot;a initializer that is-part-of &quot;</span><span class="o">+</span><span class="n">netName</span><span class="p">)</span>
+<span class="n">opti</span>  <span class="o">=</span> <span class="n">onto</span><span class="o">.</span><span class="n">select_instances_of</span><span class="p">(</span><span class="s2">&quot;a optimizer that is-part-of &quot;</span><span class="o">+</span><span class="n">netName</span><span class="p">)</span>
+<span class="n">n_x</span><span class="o">=</span><span class="n">inp</span><span class="p">[</span><span class="s1">&#39;has-width&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">n_y</span><span class="o">=</span><span class="n">outp</span><span class="p">[</span><span class="s1">&#39;has-number-of-classes&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">onto</span><span class="o">.</span><span class="n">draw_graph</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/jupyter_notebooks_NeuraNet_NeuralNet_25_0.svg" src="../../_images/jupyter_notebooks_NeuraNet_NeuralNet_25_0.svg" /></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">create_placeholders</span><span class="p">():</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">n_x</span><span class="p">,</span><span class="kc">None</span><span class="p">))</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">n_y</span><span class="p">,</span><span class="kc">None</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">create_placeholders</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;X = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Y = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+X = Tensor(&#34;Placeholder:0&#34;, shape=(12288, ?), dtype=float32)
+Y = Tensor(&#34;Placeholder_1:0&#34;, shape=(6, ?), dtype=float32)
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">get_initializer</span><span class="p">(</span><span class="n">character</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">character</span><span class="o">==</span><span class="s2">&quot;Xavier&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">xavier_initializer</span>
+    <span class="k">elif</span> <span class="n">character</span><span class="o">==</span><span class="s2">&quot;Zero&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">zeros_initializer</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">get_activation</span><span class="p">(</span><span class="n">activation</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">activation</span><span class="o">==</span><span class="s2">&quot;RELU&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span>
+    <span class="k">elif</span> <span class="n">activation</span><span class="o">==</span><span class="s2">&quot;Sigmoid&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">sigmoid</span>
+    <span class="k">elif</span> <span class="n">activation</span><span class="o">==</span><span class="s2">&quot;Tanh&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">tanh</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">get_optimizer</span><span class="p">(</span><span class="n">optimizer</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">optimizer</span><span class="o">==</span><span class="s2">&quot;ADAM&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">AdamOptimizer</span>
+    <span class="k">elif</span> <span class="n">optimizer</span><span class="o">==</span><span class="s2">&quot;GradientDescent&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">GradientDescentOptimizer</span>
+    <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">initialize_parameters</span><span class="p">():</span>
+    <span class="n">parameters</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">activations</span><span class="o">=</span><span class="p">[]</span>
+
+    <span class="n">W_init</span> <span class="o">=</span> <span class="n">get_initializer</span><span class="p">(</span><span class="n">init</span><span class="p">[</span><span class="s1">&#39;has-character&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">b_init</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">zeros_initializer</span>
+    <span class="n">w</span><span class="o">=</span><span class="n">n_x</span>
+    <span class="n">nfragrows</span><span class="o">=</span><span class="n">frags</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">idx</span><span class="o">=</span><span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nfragrows</span><span class="p">):</span>
+        <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">frags</span><span class="p">[</span><span class="s1">&#39;has-shape&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s2">&quot;:&quot;</span><span class="p">)]</span>
+        <span class="n">activation</span> <span class="o">=</span> <span class="n">get_activation</span><span class="p">(</span><span class="n">frags</span><span class="p">[</span><span class="s1">&#39;has-activation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="k">for</span> <span class="n">lw</span> <span class="ow">in</span> <span class="n">shape</span><span class="p">:</span>
+            <span class="n">W1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">idx</span><span class="p">),</span> <span class="p">[</span><span class="n">lw</span><span class="p">,</span><span class="n">w</span><span class="p">],</span> <span class="n">initializer</span> <span class="o">=</span> <span class="n">W_init</span><span class="p">(</span><span class="n">seed</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>
+            <span class="n">b1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">idx</span><span class="p">),</span> <span class="p">[</span><span class="n">lw</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">initializer</span> <span class="o">=</span> <span class="n">b_init</span><span class="p">())</span>
+            <span class="n">parameters</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;W&quot;</span><span class="p">:</span><span class="n">W1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span><span class="n">b1</span><span class="p">})</span>
+            <span class="n">activations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">activation</span><span class="p">)</span>
+            <span class="n">idx</span><span class="o">=</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span>
+            <span class="n">w</span><span class="o">=</span><span class="n">lw</span>
+
+    <span class="n">lw</span><span class="o">=</span><span class="n">n_y</span>
+    <span class="n">W1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">idx</span><span class="p">),</span> <span class="p">[</span><span class="n">lw</span><span class="p">,</span><span class="n">w</span><span class="p">],</span> <span class="n">initializer</span> <span class="o">=</span> <span class="n">W_init</span><span class="p">(</span><span class="n">seed</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">b1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">idx</span><span class="p">),</span> <span class="p">[</span><span class="n">lw</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">initializer</span> <span class="o">=</span> <span class="n">b_init</span><span class="p">())</span>
+    <span class="n">parameters</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;W&quot;</span><span class="p">:</span><span class="n">W1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span><span class="n">b1</span><span class="p">})</span>
+    <span class="n">activations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">activations</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">tf</span><span class="o">.</span><span class="n">reset_default_graph</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+    <span class="n">parameters</span><span class="p">,</span> <span class="n">activations</span> <span class="o">=</span> <span class="n">initialize_parameters</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span><span class="n">activations</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;W = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">layer</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;W&quot;</span><span class="p">]))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">layer</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;b&quot;</span><span class="p">]))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;f = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">layer</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+W = &lt;tf.Variable &#39;W1:0&#39; shape=(25, 12288) dtype=float32_ref&gt;
+b = &lt;tf.Variable &#39;b1:0&#39; shape=(25, 1) dtype=float32_ref&gt;
+f = &lt;function relu at 0x000001C1844C9A60&gt;
+W = &lt;tf.Variable &#39;W2:0&#39; shape=(12, 25) dtype=float32_ref&gt;
+b = &lt;tf.Variable &#39;b2:0&#39; shape=(12, 1) dtype=float32_ref&gt;
+f = &lt;function relu at 0x000001C1844C9A60&gt;
+W = &lt;tf.Variable &#39;W3:0&#39; shape=(6, 12) dtype=float32_ref&gt;
+b = &lt;tf.Variable &#39;b3:0&#39; shape=(6, 1) dtype=float32_ref&gt;
+f = None
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">forward_propagation</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">parameters</span><span class="p">,</span><span class="n">activations</span><span class="p">):</span>
+    <span class="n">A1</span> <span class="o">=</span> <span class="n">X</span>
+    <span class="n">Z1</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span><span class="n">activations</span><span class="p">):</span>
+        <span class="n">W1</span> <span class="o">=</span> <span class="n">layer</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;W&#39;</span><span class="p">]</span>
+        <span class="n">b1</span> <span class="o">=</span> <span class="n">layer</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;b&#39;</span><span class="p">]</span>
+        <span class="n">activation</span> <span class="o">=</span> <span class="n">layer</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">Z1</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">W1</span><span class="p">,</span><span class="n">A1</span><span class="p">),</span><span class="n">b1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">activation</span><span class="o">!=</span><span class="kc">None</span> <span class="p">:</span>
+            <span class="n">A1</span><span class="o">=</span><span class="n">activation</span><span class="p">(</span><span class="n">Z1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Z1</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">tf</span><span class="o">.</span><span class="n">reset_default_graph</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">create_placeholders</span><span class="p">()</span>
+    <span class="n">parameters</span><span class="p">,</span><span class="n">activations</span> <span class="o">=</span> <span class="n">initialize_parameters</span><span class="p">()</span>
+    <span class="n">Z3</span> <span class="o">=</span> <span class="n">forward_propagation</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span><span class="n">activations</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Z3 = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">Z3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Z3 = Tensor(&#34;Add_2:0&#34;, shape=(6, ?), dtype=float32)
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">compute_cost</span><span class="p">(</span><span class="n">Z1</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes the cost</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">    Z1 -- output of forward propagation (output of the last LINEAR unit), of shape (6, number of examples)</span>
+<span class="sd">    Y -- &quot;true&quot; labels vector placeholder, same shape as Z3</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    cost - Tensor of the cost function</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># to fit the tensorflow requirement for tf.nn.softmax_cross_entropy_with_logits(...,...)</span>
+    <span class="n">logits</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">Z1</span><span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+
+    <span class="n">cost</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax_cross_entropy_with_logits</span><span class="p">(</span><span class="n">logits</span> <span class="o">=</span> <span class="n">logits</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">cost</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">tf</span><span class="o">.</span><span class="n">reset_default_graph</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">create_placeholders</span><span class="p">()</span>
+    <span class="n">parameters</span><span class="p">,</span><span class="n">activations</span> <span class="o">=</span> <span class="n">initialize_parameters</span><span class="p">()</span>
+    <span class="n">Z1</span> <span class="o">=</span> <span class="n">forward_propagation</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span><span class="n">activations</span><span class="p">)</span>
+    <span class="n">cost</span> <span class="o">=</span> <span class="n">compute_cost</span><span class="p">(</span><span class="n">Z1</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;cost = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">cost</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+WARNING:tensorflow:From &lt;ipython-input-29-633496ab49e3&gt;:17: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See `tf.nn.softmax_cross_entropy_with_logits_v2`.
+
+cost = Tensor(&#34;Mean:0&#34;, shape=(), dtype=float32)
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_test</span><span class="p">,</span> <span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.0001</span><span class="p">,</span>
+      <span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">1500</span><span class="p">,</span> <span class="n">minibatch_size</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">print_cost</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+
+    <span class="n">ops</span><span class="o">.</span><span class="n">reset_default_graph</span><span class="p">()</span>                         <span class="c1"># to be able to rerun the model without overwriting tf variables</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">set_random_seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>                             <span class="c1"># to keep consistent results</span>
+    <span class="n">seed</span> <span class="o">=</span> <span class="mi">3</span>                                          <span class="c1"># to keep consistent results</span>
+    <span class="p">(</span><span class="n">n_x</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span>                          <span class="c1"># (n_x: input size, m : number of examples in the train set)</span>
+    <span class="n">n_y</span> <span class="o">=</span> <span class="n">Y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>                            <span class="c1"># n_y : output size</span>
+    <span class="n">costs</span> <span class="o">=</span> <span class="p">[]</span>                                        <span class="c1"># To keep track of the cost</span>
+
+    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">create_placeholders</span><span class="p">()</span>
+
+    <span class="n">parameters</span><span class="p">,</span><span class="n">activations</span> <span class="o">=</span> <span class="n">initialize_parameters</span><span class="p">()</span>
+    <span class="n">Z1</span> <span class="o">=</span> <span class="n">forward_propagation</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">parameters</span><span class="p">,</span><span class="n">activations</span><span class="p">)</span>
+    <span class="n">cost</span> <span class="o">=</span> <span class="n">compute_cost</span><span class="p">(</span><span class="n">Z1</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
+
+    <span class="n">optimizer</span> <span class="o">=</span>  <span class="n">get_optimizer</span><span class="p">(</span><span class="n">opti</span><span class="p">[</span><span class="s1">&#39;has-character&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])(</span><span class="n">learning_rate</span> <span class="o">=</span> <span class="n">learning_rate</span><span class="p">)</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
+
+    <span class="n">init</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">global_variables_initializer</span><span class="p">()</span>
+
+    <span class="c1"># Start the session to compute the tensorflow graph</span>
+    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+
+        <span class="c1"># Run the initialization</span>
+        <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">init</span><span class="p">)</span>
+
+        <span class="c1"># Do the training loop</span>
+        <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+
+            <span class="n">epoch_cost</span> <span class="o">=</span> <span class="mf">0.</span>                       <span class="c1"># Defines a cost related to an epoch</span>
+            <span class="n">num_minibatches</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span> <span class="o">/</span> <span class="n">minibatch_size</span><span class="p">)</span> <span class="c1"># number of minibatches of size minibatch_size in the train set</span>
+            <span class="n">seed</span> <span class="o">=</span> <span class="n">seed</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">minibatches</span> <span class="o">=</span> <span class="n">random_mini_batches</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">minibatch_size</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">minibatch</span> <span class="ow">in</span> <span class="n">minibatches</span><span class="p">:</span>
+
+                <span class="c1"># Select a minibatch</span>
+                <span class="p">(</span><span class="n">minibatch_X</span><span class="p">,</span> <span class="n">minibatch_Y</span><span class="p">)</span> <span class="o">=</span> <span class="n">minibatch</span>
+
+                <span class="c1"># IMPORTANT: The line that runs the graph on a minibatch.</span>
+                <span class="c1"># Run the session to execute the &quot;optimizer&quot; and the &quot;cost&quot;, the feedict should contain a minibatch for (X,Y).</span>
+                <span class="n">_</span> <span class="p">,</span> <span class="n">minibatch_cost</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">cost</span><span class="p">],</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">X</span><span class="p">:</span> <span class="n">minibatch_X</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">minibatch_Y</span><span class="p">})</span>
+
+                <span class="n">epoch_cost</span> <span class="o">+=</span> <span class="n">minibatch_cost</span> <span class="o">/</span> <span class="n">num_minibatches</span>
+
+            <span class="c1"># Print the cost every epoch</span>
+            <span class="k">if</span> <span class="n">print_cost</span> <span class="o">==</span> <span class="kc">True</span> <span class="ow">and</span> <span class="n">epoch</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Cost after epoch </span><span class="si">%i</span><span class="s2">: </span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">epoch_cost</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">print_cost</span> <span class="o">==</span> <span class="kc">True</span> <span class="ow">and</span> <span class="n">epoch</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">costs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">epoch_cost</span><span class="p">)</span>
+
+        <span class="c1"># plot the cost</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">costs</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;cost&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;iterations (per tens)&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Learning rate =&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">learning_rate</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+        <span class="c1"># lets save the parameters in a variable</span>
+        <span class="n">parameters</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Parameters have been trained!&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Calculate the correct predictions</span>
+        <span class="n">correct_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">Z1</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span>
+
+        <span class="c1"># Calculate accuracy on the test set</span>
+        <span class="n">accuracy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">correct_prediction</span><span class="p">,</span> <span class="s2">&quot;float&quot;</span><span class="p">))</span>
+
+        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Train Accuracy:&quot;</span><span class="p">,</span> <span class="n">accuracy</span><span class="o">.</span><span class="n">eval</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">Y_train</span><span class="p">}))</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Test Accuracy:&quot;</span><span class="p">,</span> <span class="n">accuracy</span><span class="o">.</span><span class="n">eval</span><span class="p">({</span><span class="n">X</span><span class="p">:</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">Y_test</span><span class="p">}))</span>
+
+        <span class="k">return</span> <span class="n">parameters</span><span class="p">,</span><span class="n">activations</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">h5py</span>
+<span class="k">def</span> <span class="nf">load_dataset</span><span class="p">():</span>
+    <span class="n">train_dataset</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;./datasets/train_signs.h5&#39;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    <span class="n">train_set_x_orig</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">[</span><span class="s2">&quot;train_set_x&quot;</span><span class="p">][:])</span> <span class="c1"># your train set features</span>
+    <span class="n">train_set_y_orig</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">[</span><span class="s2">&quot;train_set_y&quot;</span><span class="p">][:])</span> <span class="c1"># your train set labels</span>
+
+    <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;./datasets/test_signs.h5&#39;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    <span class="n">test_set_x_orig</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">[</span><span class="s2">&quot;test_set_x&quot;</span><span class="p">][:])</span> <span class="c1"># your test set features</span>
+    <span class="n">test_set_y_orig</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">[</span><span class="s2">&quot;test_set_y&quot;</span><span class="p">][:])</span> <span class="c1"># your test set labels</span>
+
+    <span class="n">classes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">[</span><span class="s2">&quot;list_classes&quot;</span><span class="p">][:])</span> <span class="c1"># the list of classes</span>
+
+    <span class="n">train_set_y_orig</span> <span class="o">=</span> <span class="n">train_set_y_orig</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">train_set_y_orig</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">test_set_y_orig</span> <span class="o">=</span> <span class="n">test_set_y_orig</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">test_set_y_orig</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+    <span class="k">return</span> <span class="n">train_set_x_orig</span><span class="p">,</span> <span class="n">train_set_y_orig</span><span class="p">,</span> <span class="n">test_set_x_orig</span><span class="p">,</span> <span class="n">test_set_y_orig</span><span class="p">,</span> <span class="n">classes</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Loading the dataset</span>
+<span class="n">X_train_orig</span><span class="p">,</span> <span class="n">Y_train_orig</span><span class="p">,</span> <span class="n">X_test_orig</span><span class="p">,</span> <span class="n">Y_test_orig</span><span class="p">,</span> <span class="n">classes</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Example of a picture</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">X_train_orig</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;y = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">Y_train_orig</span><span class="p">[:,</span> <span class="n">index</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+y = 5
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/jupyter_notebooks_NeuraNet_NeuralNet_40_1.png" src="../../_images/jupyter_notebooks_NeuraNet_NeuralNet_40_1.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">convert_to_one_hot</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">C</span><span class="p">)[</span><span class="n">Y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">T</span>
+    <span class="k">return</span> <span class="n">Y</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Flatten the training and test images</span>
+<span class="n">X_train_flatten</span> <span class="o">=</span> <span class="n">X_train_orig</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_train_orig</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="n">X_test_flatten</span> <span class="o">=</span> <span class="n">X_test_orig</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_test_orig</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="c1"># Normalize image vectors</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">X_train_flatten</span><span class="o">/</span><span class="mf">255.</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test_flatten</span><span class="o">/</span><span class="mf">255.</span>
+<span class="c1"># Convert training and test labels to one hot matrices</span>
+<span class="n">Y_train</span> <span class="o">=</span> <span class="n">convert_to_one_hot</span><span class="p">(</span><span class="n">Y_train_orig</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">Y_test</span> <span class="o">=</span> <span class="n">convert_to_one_hot</span><span class="p">(</span><span class="n">Y_test_orig</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;number of training examples = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;number of test examples = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;X_train shape: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Y_train shape: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">Y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;X_test shape: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Y_test shape: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">Y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+number of training examples = 1080
+number of test examples = 120
+X_train shape: (12288, 1080)
+Y_train shape: (6, 1080)
+X_test shape: (12288, 120)
+Y_test shape: (6, 120)
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">random_mini_batches</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">mini_batch_size</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a list of random minibatches from (X, Y)</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">    X -- input data, of shape (input size, number of examples)</span>
+<span class="sd">    Y -- true &quot;label&quot; vector (containing 0 if cat, 1 if non-cat), of shape (1, number of examples)</span>
+<span class="sd">    mini_batch_size - size of the mini-batches, integer</span>
+<span class="sd">    seed -- this is only for the purpose of grading, so that you&#39;re &quot;random minibatches are the same as ours.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    mini_batches -- list of synchronous (mini_batch_X, mini_batch_Y)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">m</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>                  <span class="c1"># number of training examples</span>
+    <span class="n">mini_batches</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+
+    <span class="c1"># Step 1: Shuffle (X, Y)</span>
+    <span class="n">permutation</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+    <span class="n">shuffled_X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="n">permutation</span><span class="p">]</span>
+    <span class="n">shuffled_Y</span> <span class="o">=</span> <span class="n">Y</span><span class="p">[:,</span> <span class="n">permutation</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">Y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">m</span><span class="p">))</span>
+
+    <span class="c1"># Step 2: Partition (shuffled_X, shuffled_Y). Minus the end case.</span>
+    <span class="n">num_complete_minibatches</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">m</span><span class="o">/</span><span class="n">mini_batch_size</span><span class="p">)</span> <span class="c1"># number of mini batches of size mini_batch_size in your partitionning</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_complete_minibatches</span><span class="p">):</span>
+        <span class="n">mini_batch_X</span> <span class="o">=</span> <span class="n">shuffled_X</span><span class="p">[:,</span> <span class="n">k</span> <span class="o">*</span> <span class="n">mini_batch_size</span> <span class="p">:</span> <span class="n">k</span> <span class="o">*</span> <span class="n">mini_batch_size</span> <span class="o">+</span> <span class="n">mini_batch_size</span><span class="p">]</span>
+        <span class="n">mini_batch_Y</span> <span class="o">=</span> <span class="n">shuffled_Y</span><span class="p">[:,</span> <span class="n">k</span> <span class="o">*</span> <span class="n">mini_batch_size</span> <span class="p">:</span> <span class="n">k</span> <span class="o">*</span> <span class="n">mini_batch_size</span> <span class="o">+</span> <span class="n">mini_batch_size</span><span class="p">]</span>
+        <span class="n">mini_batch</span> <span class="o">=</span> <span class="p">(</span><span class="n">mini_batch_X</span><span class="p">,</span> <span class="n">mini_batch_Y</span><span class="p">)</span>
+        <span class="n">mini_batches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mini_batch</span><span class="p">)</span>
+
+    <span class="c1"># Handling the end case (last mini-batch &lt; mini_batch_size)</span>
+    <span class="k">if</span> <span class="n">m</span> <span class="o">%</span> <span class="n">mini_batch_size</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">mini_batch_X</span> <span class="o">=</span> <span class="n">shuffled_X</span><span class="p">[:,</span> <span class="n">num_complete_minibatches</span> <span class="o">*</span> <span class="n">mini_batch_size</span> <span class="p">:</span> <span class="n">m</span><span class="p">]</span>
+        <span class="n">mini_batch_Y</span> <span class="o">=</span> <span class="n">shuffled_Y</span><span class="p">[:,</span> <span class="n">num_complete_minibatches</span> <span class="o">*</span> <span class="n">mini_batch_size</span> <span class="p">:</span> <span class="n">m</span><span class="p">]</span>
+        <span class="n">mini_batch</span> <span class="o">=</span> <span class="p">(</span><span class="n">mini_batch_X</span><span class="p">,</span> <span class="n">mini_batch_Y</span><span class="p">)</span>
+        <span class="n">mini_batches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mini_batch</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">mini_batches</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">parameters</span><span class="p">,</span><span class="n">activations</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Cost after epoch 0: 1.855702
+Cost after epoch 100: 1.016458
+Cost after epoch 200: 0.733102
+Cost after epoch 300: 0.572939
+Cost after epoch 400: 0.468774
+Cost after epoch 500: 0.381015
+Cost after epoch 600: 0.313829
+Cost after epoch 700: 0.254169
+Cost after epoch 800: 0.203800
+Cost after epoch 900: 0.166474
+Cost after epoch 1000: 0.141408
+Cost after epoch 1100: 0.107606
+Cost after epoch 1200: 0.086730
+Cost after epoch 1300: 0.061016
+Cost after epoch 1400: 0.050911
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/jupyter_notebooks_NeuraNet_NeuralNet_44_1.png" src="../../_images/jupyter_notebooks_NeuraNet_NeuralNet_44_1.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Parameters have been trained!
+Train Accuracy: 0.9990741
+Test Accuracy: 0.725
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">prepare_parameters_for_prediction</span><span class="p">(</span><span class="n">parameters</span><span class="p">):</span>
+    <span class="n">params</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">parameters</span><span class="p">:</span>
+        <span class="n">W1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">(</span><span class="n">layer</span><span class="p">[</span><span class="s1">&#39;W&#39;</span><span class="p">])</span>
+        <span class="n">b1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">(</span><span class="n">layer</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">])</span>
+        <span class="n">params</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;W&quot;</span><span class="p">:</span><span class="n">W1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span><span class="n">b1</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">params</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">params</span><span class="o">=</span><span class="n">prepare_parameters_for_prediction</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
+<span class="n">params</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[{&#39;W&#39;: &lt;tf.Tensor &#39;Const_2:0&#39; shape=(25, 12288) dtype=float32&gt;,
+  &#39;b&#39;: &lt;tf.Tensor &#39;Const_3:0&#39; shape=(25, 1) dtype=float32&gt;},
+ {&#39;W&#39;: &lt;tf.Tensor &#39;Const_4:0&#39; shape=(12, 25) dtype=float32&gt;,
+  &#39;b&#39;: &lt;tf.Tensor &#39;Const_5:0&#39; shape=(12, 1) dtype=float32&gt;},
+ {&#39;W&#39;: &lt;tf.Tensor &#39;Const_6:0&#39; shape=(6, 12) dtype=float32&gt;,
+  &#39;b&#39;: &lt;tf.Tensor &#39;Const_7:0&#39; shape=(6, 1) dtype=float32&gt;}]
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span><span class="n">activations</span><span class="p">):</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="s2">&quot;float&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">12288</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="n">z3</span> <span class="o">=</span> <span class="n">forward_propagation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">activations</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">z3</span><span class="p">)</span>
+
+    <span class="n">sess</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+    <span class="n">prediction</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">feed_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">X</span><span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">prediction</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">ndimage</span>
+
+<span class="c1">## START CODE HERE ## (PUT YOUR IMAGE NAME)</span>
+<span class="n">my_image</span> <span class="o">=</span> <span class="s2">&quot;thumbs_up.jpg&quot;</span>
+<span class="c1">## END CODE HERE ##</span>
+
+<span class="c1"># We preprocess your image to fit your algorithm.</span>
+<span class="n">fname</span> <span class="o">=</span> <span class="s2">&quot;./images/&quot;</span> <span class="o">+</span> <span class="n">my_image</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ndimage</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">flatten</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">my_image</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">misc</span><span class="o">.</span><span class="n">imresize</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span><span class="mi">64</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">64</span><span class="o">*</span><span class="mi">64</span><span class="o">*</span><span class="mi">3</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
+<span class="n">my_image_prediction</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">my_image</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span><span class="n">activations</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your algorithm predicts: y = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">my_image_prediction</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+C:\Users\pkapl\Anaconda3\envs\ds\lib\site-packages\ipykernel_launcher.py:11: DeprecationWarning: `imread` is deprecated!
+`imread` is deprecated in SciPy 1.0.0.
+Use ``matplotlib.pyplot.imread`` instead.
+  # This is added back by InteractiveShellApp.init_path()
+C:\Users\pkapl\Anaconda3\envs\ds\lib\site-packages\ipykernel_launcher.py:12: DeprecationWarning: `imresize` is deprecated!
+`imresize` is deprecated in SciPy 1.0.0, and will be removed in 1.3.0.
+Use Pillow instead: ``numpy.array(Image.fromarray(arr).resize())``.
+  if sys.path[0] == &#39;&#39;:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Your algorithm predicts: y = 3
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/jupyter_notebooks_NeuraNet_NeuralNet_48_2.png" src="../../_images/jupyter_notebooks_NeuraNet_NeuralNet_48_2.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Cognitum Services S.A.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

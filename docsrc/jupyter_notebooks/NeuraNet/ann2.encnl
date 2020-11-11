@@ -1,0 +1,19 @@
+
+Every basic-neural-net is a neural-net.
+
+If a neural-net has-part a neural-net-part then the neural-net-part is-part-of the neural-net.
+
+If a neural-net has-part a neural-net-part and a neural-net-part(1) connects-to a neural-net-part(2) then the neural-net has-part the neural-net-part(2).
+
+If a neural-net-input-layer connects-to a neural-net-part then the neural-net-part has-index equal-to 1.
+If a neural-net-part(1) connects-to a neural-net-part(2) and the neural-net-part(1) has-index equal-to the value(1) and the value(1) + 1 = the value(2) then the neural-net-part(2) has-index equal-to the value(2).
+
+Every neural-net-input-layer is a neural-net-part.
+Every neural-net-output-layer is a neural-net-part.
+Every neural-net-fragment is a neural-net-part.
+Every optimizer is a neural-net-part.
+Every initializer is a neural-net-part.
+
+Every basic-neural-net-input-layer is a neural-net-input-layer.
+Every basic-neural-net-output-layer is a neural-net-output-layer.
+Every multilayer-neural-net-fragment is a neural-net-fragment.
