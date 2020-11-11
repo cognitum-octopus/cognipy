@@ -77,8 +77,12 @@ How to cite CogniPy
 -------------------
 We would be grateful if scientific publications resulting from projects that make use of CogniPy would include the following sentence in the acknowledgments section: "This work was conducted using the CogniPy package, which is an open-source project maintained by [Cognitum Services S.A.](https://www.cognitum.eu)"
 
-
-
+Output (Pandas DataFrame):
++--+-------+---------+
+|  | says  | Instance|
++==+=======+=========+
+|0 | Hello | World   |
++--+-------+---------+
 
 .. toctree::
    :maxdepth: 5
