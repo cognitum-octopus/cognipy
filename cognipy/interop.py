@@ -51,6 +51,8 @@ def cognipy_call(uid,cmd,*args):
             return ParseException({"Errors":[
                     filter_dic(inner) for inner in edet[1]["InnerExceptions"]
                 ]})
+        elif edet[0]=='NotImplementedException':
+            return ValueError(edet[1]["Message"])
         return Exception(js)
 
     global cognipy_p

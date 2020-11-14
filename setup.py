@@ -8,7 +8,7 @@ setup(
     version='0.1.10',
     author="Cognitum Services S.A.",
     author_email="support@cognitum.eu",
-    description="Semantic Tech Reasoner and Editor",
+    description="CogniPy for Pandas, Semantic Tech Reasoner and Editor",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     url="https://github.com/cognitum-octopus/cognipy",
