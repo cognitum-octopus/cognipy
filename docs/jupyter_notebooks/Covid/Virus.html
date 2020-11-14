@@ -88,10 +88,8 @@
               
             
             
-              <p class="caption"><span class="caption-text">CogniPy Documentation:</span></p>
+              <p class="caption"><span class="caption-text">CogniPy:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Project description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../installation.html#cognipy"><strong>CogniPy</strong></a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../examples.html">Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../Safari/Safari.html">Safari</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../SolarSystem/SolarSystem.html">Solar System</a></li>
@@ -446,12 +444,12 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="k">import</span> <span class="n">Ontology</span>
-<span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="k">import</span> <span class="n">CQL</span>
-<span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="k">import</span> <span class="n">ABoxBatch</span>
-<span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="k">import</span> <span class="n">encode_string_for_graph_label</span>
-<span class="kn">from</span> <span class="nn">cognipy.edit</span> <span class="k">import</span> <span class="n">CnlEditBox</span>
-<span class="kn">from</span> <span class="nn">cognipy.edit</span> <span class="k">import</span> <span class="n">CnlQueryForConcept</span>
+<span></span><span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="kn">import</span> <span class="n">Ontology</span>
+<span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="kn">import</span> <span class="n">CQL</span>
+<span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="kn">import</span> <span class="n">ABoxBatch</span>
+<span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="kn">import</span> <span class="n">encode_string_for_graph_label</span>
+<span class="kn">from</span> <span class="nn">cognipy.edit</span> <span class="kn">import</span> <span class="n">CnlEditBox</span>
+<span class="kn">from</span> <span class="nn">cognipy.edit</span> <span class="kn">import</span> <span class="n">CnlQueryForConcept</span>
 
 <span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">import</span> <span class="nn">textwrap</span>
@@ -468,7 +466,7 @@ div.rendered_html tbody tr:hover {
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">encode_string_for_graph_label</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">),</span><span class="mi">40</span><span class="p">))</span>
 
-<span class="kn">from</span> <span class="nn">pint</span> <span class="k">import</span> <span class="n">UnitRegistry</span>
+<span class="kn">from</span> <span class="nn">pint</span> <span class="kn">import</span> <span class="n">UnitRegistry</span>
 <span class="n">ureg</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">()</span>
 <span class="n">Q</span> <span class="o">=</span> <span class="n">ureg</span><span class="o">.</span><span class="n">Quantity</span>
 
@@ -517,10 +515,10 @@ c:\users\pkapl\anaconda3\envs\makler\lib\site-packages\ipykernel_launcher.py:4: 
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">policies_cnl_lines</span><span class="o">=</span><span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">row</span> <span class="ow">in</span> <span class="n">policies</span><span class="p">[</span><span class="n">policies</span><span class="p">[</span><span class="s1">&#39;entry_type&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;new_entry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="n">policies_cnl_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Australia introduced Policy-</span><span class="si">{row.policy_id}</span><span class="s2">.&quot;</span><span class="p">)</span>
-    <span class="n">policies_cnl_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Policy-</span><span class="si">{row.policy_id}</span><span class="s2"> is a restriction and was-introduced equal-to </span><span class="si">{row.date_start}</span><span class="s2">.&quot;</span><span class="p">)</span>
+    <span class="n">policies_cnl_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Australia introduced Policy-</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">policy_id</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+    <span class="n">policies_cnl_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Policy-</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">policy_id</span><span class="si">}</span><span class="s2"> is a restriction and was-introduced equal-to </span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">date_start</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">row</span><span class="o">.</span><span class="n">date_end</span><span class="o">!=</span><span class="n">row</span><span class="o">.</span><span class="n">date_end</span><span class="p">:</span>
-        <span class="n">policies_cnl_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Policy-</span><span class="si">{row.policy_id}</span><span class="s2"> was-withdrawn  equal-to </span><span class="si">{row.date_end}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="n">policies_cnl_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Policy-</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">policy_id</span><span class="si">}</span><span class="s2"> was-withdrawn  equal-to </span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">date_end</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -6355,7 +6353,7 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
@@ -6391,7 +6389,7 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">timedelta</span>
+<span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span>
 </pre></div>
 </div>
 </div>
