@@ -98,14 +98,6 @@ class Ontology:
     def sparql_query_for_instances(self, cnl):
         return cognipy_call(self._uid,"SelectInstancesSPARQL",cnl,False)
 
-#TODO
-    def annotations_for_subject(self,subject,prop="", lang=""):
-        return self._to_pandas(robjects.r('ontorion.annotations.for.subject')(self._onto,subject,prop,lang))
-
-#TODO
-    def constrains_for_subject(self,concept):
-        return self._to_pandas(robjects.r('ontorion.constrains.for.subject')(self._onto,concept))
-
     def super_concepts_of(self, cnl,direct=False):
         """Get all the super-concepts of the given concept specification
 
@@ -191,16 +183,6 @@ class Ontology:
         if self._verbose:
             markdown = "("+inst+")"
             display(Markdown(markdown))
-
-#TODO
-    def setup_function(self,name, func):
-        """Sets the function up so it can be called from within the complex cnl rule
-
-        Args:
-            name (str): the name of the function
-            func : the function
-        """
-        robjects.globalenv[name]=func
 
     def sparql_query(self,query, asCNL = True, column_names=None):
         """Executes the SPARQL query
@@ -593,16 +575,3 @@ class ABoxBatch:
 
             markdown+=""
             display(Markdown(markdown))
-
-#TODO
-from functools import wraps
-
-def custom_predicate(onto):
-    def custom_inner_pred(func):
-        @wraps(func)
-        def wrapper(*args,**kwargs):
-            return func(*[onto._resolve_value(m) for m in args],**kwargs)
-
-        robjects.globalenv[func.__name__]=wrapper
-        return wrapper
-    return custom_inner_pred
