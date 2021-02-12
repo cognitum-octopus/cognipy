@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Covid Restrictions. &mdash; CogniPy 0.1.6 documentation</title>
   
@@ -17,7 +17,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -30,9 +33,7 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.14.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -54,7 +55,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> CogniPy
+            <a href="../../index.html" class="icon icon-home"> CogniPy
           
 
           
@@ -139,6 +140,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -152,7 +155,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/jupyter_notebooks/Covid/Virus.ipynb.txt" rel="nofollow"> View page source</a>
           
         
@@ -444,35 +447,35 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="kn">import</span> <span class="n">Ontology</span>
-<span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="kn">import</span> <span class="n">CQL</span>
-<span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="kn">import</span> <span class="n">ABoxBatch</span>
-<span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="kn">import</span> <span class="n">encode_string_for_graph_label</span>
-<span class="kn">from</span> <span class="nn">cognipy.edit</span> <span class="kn">import</span> <span class="n">CnlEditBox</span>
-<span class="kn">from</span> <span class="nn">cognipy.edit</span> <span class="kn">import</span> <span class="n">CnlQueryForConcept</span>
+<span></span>from cognipy.ontology import Ontology
+from cognipy.ontology import CQL
+from cognipy.ontology import ABoxBatch
+from cognipy.ontology import encode_string_for_graph_label
+from cognipy.edit import CnlEditBox
+from cognipy.edit import CnlQueryForConcept
 
-<span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">textwrap</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">pickle</span>
-<span class="kn">import</span> <span class="nn">datetime</span>
+import random
+import textwrap
+import numpy as np
+import pandas as pd
+import pickle
+import datetime
 
-<span class="k">def</span> <span class="nf">graph_attribute_formatter</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="nb">list</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="nb">set</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">&quot; | &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span><span class="n">encode_string_for_graph_label</span><span class="p">(</span><span class="n">graph_attribute_formatter</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span><span class="n">val</span><span class="p">)))</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="nb">dict</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">&quot; | &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot; : &quot;</span><span class="o">+</span><span class="n">encode_string_for_graph_label</span><span class="p">(</span><span class="n">graph_attribute_formatter</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">])),</span><span class="n">val</span><span class="o">.</span><span class="n">items</span><span class="p">())))</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">encode_string_for_graph_label</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">),</span><span class="mi">40</span><span class="p">))</span>
+def graph_attribute_formatter(val):
+    if isinstance(val,list) or isinstance(val,set):
+        return &quot; | &quot;.join(list(map(lambda i:encode_string_for_graph_label(graph_attribute_formatter(i)),val)))
+    elif isinstance(val,dict):
+        return &quot; | &quot;.join(list(map(lambda i:i[0]+&quot; : &quot;+encode_string_for_graph_label(graph_attribute_formatter(i[1])),val.items())))
+    else:
+        return encode_string_for_graph_label(textwrap.fill(str(val),40))
 
-<span class="kn">from</span> <span class="nn">pint</span> <span class="kn">import</span> <span class="n">UnitRegistry</span>
-<span class="n">ureg</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">()</span>
-<span class="n">Q</span> <span class="o">=</span> <span class="n">ureg</span><span class="o">.</span><span class="n">Quantity</span>
+from pint import UnitRegistry
+ureg = UnitRegistry()
+Q = ureg.Quantity
 
-<span class="k">def</span> <span class="nf">Qstr</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
-    <span class="k">return</span> <span class="s2">&quot;Q(&#39;&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;&#39;)&quot;</span>
-<span class="n">Q</span><span class="o">.</span><span class="fm">__repr__</span><span class="o">=</span><span class="n">Qstr</span>
+def Qstr(a):
+    return &quot;Q(&#39;&quot;+str(a)+&quot;&#39;)&quot;
+Q.__repr__=Qstr
 
 </pre></div>
 </div>
@@ -483,7 +486,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">policies</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/saudiwin/corona_tscs/master/data/CoronaNet/data_country/coronanet_release/coronanet_release_Australia.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;cp1252&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span></span>policies=pd.read_csv(&#39;https://raw.githubusercontent.com/saudiwin/corona_tscs/master/data/CoronaNet/data_country/coronanet_release/coronanet_release_Australia.csv&#39;, encoding=&#39;cp1252&#39;,index_col=0)
 </pre></div>
 </div>
 </div>
@@ -492,10 +495,10 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.width&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span></span>pd.set_option(&#39;display.max_rows&#39;, None)
+pd.set_option(&#39;display.max_columns&#39;, None)
+pd.set_option(&#39;display.width&#39;, None)
+pd.set_option(&#39;display.max_colwidth&#39;, -1)
 </pre></div>
 </div>
 </div>
@@ -513,12 +516,12 @@ c:\users\pkapl\anaconda3\envs\makler\lib\site-packages\ipykernel_launcher.py:4: 
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">policies_cnl_lines</span><span class="o">=</span><span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">row</span> <span class="ow">in</span> <span class="n">policies</span><span class="p">[</span><span class="n">policies</span><span class="p">[</span><span class="s1">&#39;entry_type&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;new_entry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="n">policies_cnl_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Australia introduced Policy-</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">policy_id</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-    <span class="n">policies_cnl_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Policy-</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">policy_id</span><span class="si">}</span><span class="s2"> is a restriction and was-introduced equal-to </span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">date_start</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">row</span><span class="o">.</span><span class="n">date_end</span><span class="o">!=</span><span class="n">row</span><span class="o">.</span><span class="n">date_end</span><span class="p">:</span>
-        <span class="n">policies_cnl_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Policy-</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">policy_id</span><span class="si">}</span><span class="s2"> was-withdrawn  equal-to </span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">date_end</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span></span>policies_cnl_lines=[]
+for i,row in policies[policies[&#39;entry_type&#39;]==&#39;new_entry&#39;].iterrows():
+    policies_cnl_lines.append(f&quot;Australia introduced Policy-{row.policy_id}.&quot;)
+    policies_cnl_lines.append(f&quot;Policy-{row.policy_id} is a restriction and was-introduced equal-to {row.date_start}.&quot;)
+    if not row.date_end!=row.date_end:
+        policies_cnl_lines.append(f&quot;Policy-{row.policy_id} was-withdrawn  equal-to {row.date_end}.&quot;)
 </pre></div>
 </div>
 </div>
@@ -527,7 +530,7 @@ c:\users\pkapl\anaconda3\envs\makler\lib\site-packages\ipykernel_launcher.py:4: 
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">policies_cnl_lines</span>
+<span></span>policies_cnl_lines
 </pre></div>
 </div>
 </div>
@@ -1545,12 +1548,12 @@ c:\users\pkapl\anaconda3\envs\makler\lib\site-packages\ipykernel_launcher.py:4: 
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">parts_editors</span><span class="o">=</span><span class="p">{}</span>
-<span class="n">parts_editors</span><span class="p">[</span><span class="s1">&#39;01&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">CnlEditBox</span><span class="p">(</span><span class="s1">&#39;countries.encnl&#39;</span><span class="p">)</span>
-<span class="n">parts_editors</span><span class="p">[</span><span class="s1">&#39;02&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">CnlEditBox</span><span class="p">(</span><span class="s1">&#39;border_cross_quarantine.encnl&#39;</span><span class="p">)</span>
-<span class="n">parts_editors</span><span class="p">[</span><span class="s1">&#39;03&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">CnlEditBox</span><span class="p">(</span><span class="s1">&#39;face_cover.encnl&#39;</span><span class="p">)</span>
-<span class="n">parts_editors</span><span class="p">[</span><span class="s1">&#39;04&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">CnlEditBox</span><span class="p">(</span><span class="s1">&#39;lockdown.encnl&#39;</span><span class="p">)</span>
-<span class="n">parts_editors</span><span class="p">[</span><span class="s1">&#39;05&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">CnlEditBox</span><span class="p">(</span><span class="s1">&#39;mass_coronavirus_testing.encnl&#39;</span><span class="p">)</span>
+<span></span>parts_editors={}
+parts_editors[&#39;01&#39;]=CnlEditBox(&#39;countries.encnl&#39;)
+parts_editors[&#39;02&#39;]=CnlEditBox(&#39;border_cross_quarantine.encnl&#39;)
+parts_editors[&#39;03&#39;]=CnlEditBox(&#39;face_cover.encnl&#39;)
+parts_editors[&#39;04&#39;]=CnlEditBox(&#39;lockdown.encnl&#39;)
+parts_editors[&#39;05&#39;]=CnlEditBox(&#39;mass_coronavirus_testing.encnl&#39;)
 </pre></div>
 </div>
 </div>
@@ -1892,7 +1895,7 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">parts_editors</span><span class="p">[</span><span class="s1">&#39;01&#39;</span><span class="p">]</span>
+<span></span>parts_editors[&#39;01&#39;]
 </pre></div>
 </div>
 </div>
@@ -1907,7 +1910,7 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">parts_editors</span><span class="p">[</span><span class="s1">&#39;02&#39;</span><span class="p">]</span>
+<span></span>parts_editors[&#39;02&#39;]
 </pre></div>
 </div>
 </div>
@@ -1922,7 +1925,7 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">parts_editors</span><span class="p">[</span><span class="s1">&#39;03&#39;</span><span class="p">]</span>
+<span></span>parts_editors[&#39;03&#39;]
 </pre></div>
 </div>
 </div>
@@ -1937,7 +1940,7 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">parts_editors</span><span class="p">[</span><span class="s1">&#39;04&#39;</span><span class="p">]</span>
+<span></span>parts_editors[&#39;04&#39;]
 </pre></div>
 </div>
 </div>
@@ -1952,7 +1955,7 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">parts_editors</span><span class="p">[</span><span class="s1">&#39;05&#39;</span><span class="p">]</span>
+<span></span>parts_editors[&#39;05&#39;]
 </pre></div>
 </div>
 </div>
@@ -1968,13 +1971,13 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">buildOntology</span><span class="p">(</span><span class="n">parts_editors</span><span class="p">,</span><span class="n">test_editor</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">Ontology</span><span class="p">(</span><span class="s2">&quot;cnl/string&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">parts_editors</span><span class="o">.</span><span class="n">values</span><span class="p">())</span><span class="o">+</span><span class="p">(</span><span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="n">test_editor</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">test_editor</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">policies_cnl_lines</span><span class="p">),</span>
-                    <span class="n">evaluator</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">e</span><span class="p">:</span><span class="nb">eval</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="nb">globals</span><span class="p">(),</span><span class="nb">locals</span><span class="p">()),</span>
-                    <span class="n">graph_attribute_formatter</span> <span class="o">=</span> <span class="n">graph_attribute_formatter</span><span class="p">)</span>
+<span></span>def buildOntology(parts_editors,test_editor=None):
+    return Ontology(&quot;cnl/string&quot;,
+                    &quot;\n\n&quot;.join(k.getvalue() for k in parts_editors.values())+(&#39;&#39; if test_editor is None else test_editor.getvalue()) + &#39;\n&#39;.join(policies_cnl_lines),
+                    evaluator = lambda e:eval(e,globals(),locals()),
+                    graph_attribute_formatter = graph_attribute_formatter)
 
-<span class="n">onto</span><span class="o">=</span><span class="n">buildOntology</span><span class="p">(</span><span class="n">parts_editors</span><span class="p">)</span>
+onto=buildOntology(parts_editors)
 </pre></div>
 </div>
 </div>
@@ -1984,7 +1987,7 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">onto</span><span class="o">.</span><span class="n">draw_graph</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="s1">&#39;force directed&#39;</span><span class="p">)</span>
+<span></span>onto.draw_graph(layout=&#39;force directed&#39;)
 </pre></div>
 </div>
 </div>
@@ -1994,8 +1997,8 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">regions</span><span class="o">=</span><span class="n">onto</span><span class="o">.</span><span class="n">select_instances_of</span><span class="p">(</span><span class="s2">&quot;region&quot;</span><span class="p">)</span>
-<span class="n">regions</span>
+<span></span>regions=onto.select_instances_of(&quot;region&quot;)
+regions
 </pre></div>
 </div>
 </div>
@@ -2097,12 +2100,12 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">df</span><span class="o">=</span><span class="n">onto</span><span class="o">.</span><span class="n">sparql_query</span><span class="p">(</span><span class="n">CQL</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;select ?region ?restriction ?date{</span>
-<span class="s2">                            ?region rdf:type &lt;region&gt;.</span>
-<span class="s2">                            ?restriction rdf:type &lt;restriction&gt;.</span>
-<span class="s2">                            ?region &lt;introduceds&gt; ?restriction.</span>
-<span class="s2">                            ?restriction &lt;was-introduced&gt; ?date.</span>
-<span class="s2">                        }&quot;&quot;&quot;</span><span class="p">))</span>
+<span></span>df=onto.sparql_query(CQL(&quot;&quot;&quot;select ?region ?restriction ?date{
+                            ?region rdf:type &lt;region&gt;.
+                            ?restriction rdf:type &lt;restriction&gt;.
+                            ?region &lt;introduceds&gt; ?restriction.
+                            ?restriction &lt;was-introduced&gt; ?date.
+                        }&quot;&quot;&quot;))
 </pre></div>
 </div>
 </div>
@@ -2111,8 +2114,8 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">/%m/%Y&#39;</span><span class="p">)))</span>
-<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span>df[&#39;date&#39;] = pd.to_datetime(pd.to_datetime(df[&#39;date&#39;]).apply(lambda x: x.strftime(&#39;%d/%m/%Y&#39;)))
+df.set_index(&#39;date&#39;,inplace=True)
 </pre></div>
 </div>
 </div>
@@ -2121,7 +2124,7 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">df</span>
+<span></span>df
 </pre></div>
 </div>
 </div>
@@ -4088,7 +4091,7 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">covid_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv&#39;</span><span class="p">)</span>
+<span></span>covid_data = pd.read_csv(&#39;https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv&#39;)
 </pre></div>
 </div>
 </div>
@@ -4097,8 +4100,8 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">per_country_covid_data</span><span class="o">=</span><span class="n">covid_data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;Lat&quot;</span><span class="p">,</span><span class="s2">&quot;Long&quot;</span><span class="p">,</span><span class="s2">&quot;Province/State&quot;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Country/Region&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="n">per_country_covid_data</span><span class="o">=</span><span class="n">per_country_covid_data</span><span class="p">[</span><span class="n">per_country_covid_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">regions</span><span class="p">[</span><span class="s2">&quot;Instance&quot;</span><span class="p">])]</span><span class="o">.</span><span class="n">T</span>
+<span></span>per_country_covid_data=covid_data.drop([&quot;Lat&quot;,&quot;Long&quot;,&quot;Province/State&quot;],axis=1).groupby(&quot;Country/Region&quot;).sum()
+per_country_covid_data=per_country_covid_data[per_country_covid_data.index.isin(regions[&quot;Instance&quot;])].T
 </pre></div>
 </div>
 </div>
@@ -4107,7 +4110,7 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">per_country_covid_data</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">per_country_covid_data</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span></span>per_country_covid_data.index = pd.to_datetime(per_country_covid_data.index)
 </pre></div>
 </div>
 </div>
@@ -4116,7 +4119,7 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">new_cases</span> <span class="o">=</span> <span class="n">per_country_covid_data</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span></span>new_cases = per_country_covid_data.diff(periods=1).dropna()
 </pre></div>
 </div>
 </div>
@@ -4125,7 +4128,7 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">new_cases</span>
+<span></span>new_cases
 </pre></div>
 </div>
 </div>
@@ -6353,8 +6356,8 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
+<span></span>from matplotlib import pyplot as plt
+%matplotlib inline
 </pre></div>
 </div>
 </div>
@@ -6363,16 +6366,16 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span></span>plt.figure(figsize=(12,8))
 
-<span class="n">rolling14</span> <span class="o">=</span> <span class="n">new_cases</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">rolling14</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rolling14</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">rolling14</span><span class="p">[</span><span class="n">column</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">column</span><span class="p">)</span>
+rolling14 = new_cases.rolling(window=14).mean()
+for column in rolling14.columns:
+    plt.plot(rolling14.index, rolling14[column], label=column)
 
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="c1">#plt.yscale(&quot;log&quot;)</span>
+plt.legend(loc=4)
+#plt.yscale(&quot;log&quot;)
 
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -6389,7 +6392,7 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span>
+<span></span>from datetime import timedelta
 </pre></div>
 </div>
 </div>
@@ -6398,21 +6401,21 @@ Welcome to CogniPy</div>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">column</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">rolling14</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rolling14</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">rolling14</span><span class="p">[</span><span class="n">column</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">column</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">datex</span><span class="p">,</span><span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;region&quot;</span><span class="p">]</span><span class="o">==</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-        <span class="n">datex</span><span class="o">=</span><span class="n">datex</span><span class="o">+</span><span class="n">timedelta</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">val</span> <span class="o">=</span> <span class="mf">0.0</span>
-        <span class="k">if</span> <span class="n">datex</span> <span class="ow">in</span> <span class="n">rolling14</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
-            <span class="n">val</span> <span class="o">=</span><span class="n">rolling14</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">datex</span><span class="p">]</span>
-        <span class="n">val</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="n">val</span><span class="o">!=</span><span class="n">val</span> <span class="k">else</span> <span class="n">val</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">datex</span><span class="p">,</span> <span class="n">val</span> <span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;|&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
-<span class="c1">#        plt.annotate(row.restriction, (datex, val), xytext=(-20,20),</span>
-<span class="c1">#            textcoords=&#39;offset points&#39;, ha=&#39;center&#39;, va=&#39;bottom&#39;, arrowprops=dict(arrowstyle=&#39;-&gt;&#39;,</span>
-<span class="c1">#            connectionstyle=&#39;arc3,rad=0.5&#39;, color=&#39;red&#39;))</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span></span>for i, column in enumerate(rolling14.columns):
+    plt.figure(figsize=(12,4))
+    plt.plot(rolling14.index, rolling14[column], label=column)
+    plt.legend()
+    for datex,row in df[df[&quot;region&quot;]==column].iterrows():
+        datex=datex+timedelta(1)
+        val = 0.0
+        if datex in rolling14[column].index:
+            val =rolling14[column].loc[datex]
+        val = 0.0 if val!=val else val
+        plt.scatter(datex, val , marker=&quot;|&quot;, s=500, c=&quot;red&quot;)
+#        plt.annotate(row.restriction, (datex, val), xytext=(-20,20),
+#            textcoords=&#39;offset points&#39;, ha=&#39;center&#39;, va=&#39;bottom&#39;, arrowprops=dict(arrowstyle=&#39;-&gt;&#39;,
+#            connectionstyle=&#39;arc3,rad=0.5&#39;, color=&#39;red&#39;))
+    plt.show()
 </pre></div>
 </div>
 </div>
@@ -6459,37 +6462,29 @@ Welcome to CogniPy</div>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../../grammar.html" class="btn btn-neutral float-right" title="Grammar" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../SolarSystem/SolarSystem.html" class="btn btn-neutral float-left" title="Solar System" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="../../grammar.html" class="btn btn-neutral float-right" title="Grammar" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../SolarSystem/SolarSystem.html" class="btn btn-neutral float-left" title="Solar System" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Cognitum Services S.A.
+        &#169; Copyright 2020, Cognitum Services S.A..
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

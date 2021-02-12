@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Solar System &mdash; CogniPy 0.1.6 documentation</title>
   
@@ -17,7 +17,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -30,9 +33,7 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.14.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -54,7 +55,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> CogniPy
+            <a href="../../index.html" class="icon icon-home"> CogniPy
           
 
           
@@ -146,6 +147,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -159,7 +162,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/jupyter_notebooks/SolarSystem/SolarSystem.ipynb.txt" rel="nofollow"> View page source</a>
           
         
@@ -451,18 +454,18 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="kn">import</span> <span class="n">Ontology</span> <span class="c1">#the ontology processing class</span>
-<span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="kn">import</span> <span class="n">CQL</span> <span class="c1">#SPARQL format tailored for Contolled Natural Language</span>
-<span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="kn">import</span> <span class="n">encode_string_for_graph_label</span> <span class="c1">#complex datatypes encoder for the graph labels in graph visualisation</span>
-<span class="kn">import</span> <span class="nn">textwrap</span>
+<span></span>from cognipy.ontology import Ontology #the ontology processing class
+from cognipy.ontology import CQL #SPARQL format tailored for Contolled Natural Language
+from cognipy.ontology import encode_string_for_graph_label #complex datatypes encoder for the graph labels in graph visualisation
+import textwrap
 
-<span class="k">def</span> <span class="nf">graph_attribute_formatter</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="nb">list</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="nb">set</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">&quot; | &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span><span class="n">encode_string_for_graph_label</span><span class="p">(</span><span class="n">graph_attribute_formatter</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span><span class="n">val</span><span class="p">)))</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="nb">dict</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">&quot; | &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot; : &quot;</span><span class="o">+</span><span class="n">encode_string_for_graph_label</span><span class="p">(</span><span class="n">graph_attribute_formatter</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">])),</span><span class="n">val</span><span class="o">.</span><span class="n">items</span><span class="p">())))</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">encode_string_for_graph_label</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">),</span><span class="mi">40</span><span class="p">))</span>
+def graph_attribute_formatter(val):
+    if isinstance(val,list) or isinstance(val,set):
+        return &quot; | &quot;.join(list(map(lambda i:encode_string_for_graph_label(graph_attribute_formatter(i)),val)))
+    elif isinstance(val,dict):
+        return &quot; | &quot;.join(list(map(lambda i:i[0]+&quot; : &quot;+encode_string_for_graph_label(graph_attribute_formatter(i[1])),val.items())))
+    else:
+        return encode_string_for_graph_label(textwrap.fill(str(val),40))
 </pre></div>
 </div>
 </div>
@@ -473,8 +476,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<span></span>import pandas as pd
+import os
 </pre></div>
 </div>
 </div>
@@ -483,11 +486,11 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;orbits.pkl&#39;</span><span class="p">):</span>
-    <span class="n">raw_orbit_data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;orbits.pkl&#39;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">raw_orbit_data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="s1">&#39;http://nineplanets.org/data.html&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">pd</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="n">raw_orbit_data</span><span class="p">,</span><span class="s1">&#39;orbits.pkl&#39;</span><span class="p">)</span>
+<span></span>if os.path.exists(&#39;orbits.pkl&#39;):
+    raw_orbit_data=pd.read_pickle(&#39;orbits.pkl&#39;)
+else:
+    raw_orbit_data=pd.read_html(&#39;http://nineplanets.org/data.html&#39;)[0]
+    pd.to_pickle(raw_orbit_data,&#39;orbits.pkl&#39;)
 </pre></div>
 </div>
 </div>
@@ -496,7 +499,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">raw_orbit_data</span>
+<span></span>raw_orbit_data
 </pre></div>
 </div>
 </div>
@@ -689,12 +692,12 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">renum</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">x</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;0&#39;</span><span class="o">+</span><span class="n">x</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;.&#39;</span> <span class="k">else</span> <span class="n">x</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="s1">&#39;0&#39;</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;.&#39;</span> <span class="k">else</span> <span class="n">x</span>
-    <span class="k">return</span> <span class="n">x</span>
+<span></span>def renum(x):
+    x=str(x)
+    x=x.strip().replace(&#39; &#39;,&#39;&#39;)
+    x=&#39;0&#39;+x if x[0]==&#39;.&#39; else x
+    x=x+&#39;0&#39; if x[-1]==&#39;.&#39; else x
+    return x
 </pre></div>
 </div>
 </div>
@@ -703,22 +706,22 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">orbits_to_cnl</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
-    <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">Name</span><span class="o">==</span><span class="n">row</span><span class="o">.</span><span class="n">Name</span><span class="p">:</span> <span class="c1">#Nan check</span>
-        <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">Orbits</span><span class="o">!=</span><span class="s1">&#39;-&#39;</span><span class="p">:</span>
-            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">Name</span><span class="si">}</span><span class="s2"> orbits </span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">Orbits</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">Name</span><span class="si">}</span><span class="s2"> has-index equal-to &#39;</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;#&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Distance (000 km)&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Distance (000 km)&#39;</span><span class="p">]:</span>
-                <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">Name</span><span class="si">}</span><span class="s2"> has-semimajor-axis-1000-km equal-to </span><span class="si">{</span><span class="n">renum</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Distance (000 km)&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;O_Period (days)&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;O_Period (days)&#39;</span><span class="p">]:</span>
-                <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">Name</span><span class="si">}</span><span class="s2"> has-period equal-to </span><span class="si">{</span><span class="n">renum</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;O_Period (days)&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Eccen&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Eccen&#39;</span><span class="p">]:</span>
-                <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">Name</span><span class="si">}</span><span class="s2"> has-eccentricity equal-to </span><span class="si">{</span><span class="n">renum</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Eccen&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">Discoverer</span><span class="o">!=</span><span class="s1">&#39;-&#39;</span><span class="p">:</span>
-                <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">Name</span><span class="si">}</span><span class="s2"> has-discoverer equal-to &#39;</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">Discoverer</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
-                <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">Name</span><span class="si">}</span><span class="s2"> has-discovery-year equal-to </span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">Date</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+<span></span>def orbits_to_cnl(row):
+    lines = []
+    if row.Name==row.Name: #Nan check
+        if row.Orbits!=&#39;-&#39;:
+            lines.append(f&quot;{row.Name} orbits {row.Orbits}.&quot;)
+            lines.append(f&quot;{row.Name} has-index equal-to &#39;{row[&#39;#&#39;]}&#39;.&quot;)
+            if row[&#39;Distance (000 km)&#39;]==row[&#39;Distance (000 km)&#39;]:
+                lines.append(f&quot;{row.Name} has-semimajor-axis-1000-km equal-to {renum(row[&#39;Distance (000 km)&#39;])}.&quot;)
+            if row[&#39;O_Period (days)&#39;]==row[&#39;O_Period (days)&#39;]:
+                lines.append(f&quot;{row.Name} has-period equal-to {renum(row[&#39;O_Period (days)&#39;])}.&quot;)
+            if row[&#39;Eccen&#39;]==row[&#39;Eccen&#39;]:
+                lines.append(f&quot;{row.Name} has-eccentricity equal-to {renum(row[&#39;Eccen&#39;])}.&quot;)
+            if row.Discoverer!=&#39;-&#39;:
+                lines.append(f&quot;{row.Name} has-discoverer equal-to &#39;{row.Discoverer.split(&#39;(&#39;)[0]}&#39;.&quot;)
+                lines.append(f&quot;{row.Name} has-discovery-year equal-to {row.Date}.&quot;)
+    return &#39;\n&#39;.join(lines)
 </pre></div>
 </div>
 </div>
@@ -727,8 +730,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">orbit_cnl</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">line</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">raw_orbit_data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">orbits_to_cnl</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">line</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">orbit_cnl</span><span class="p">[:</span><span class="mi">1000</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;...&quot;</span><span class="p">)</span>
+<span></span>orbit_cnl=&#39;\n&#39;.join(line for line in raw_orbit_data.apply(orbits_to_cnl,axis=1) if line!=&#39;&#39;)
+print(orbit_cnl[:1000]+&quot;...&quot;)
 </pre></div>
 </div>
 </div>
@@ -773,12 +776,12 @@ Saturn has-period equal-to 107...
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;physics.pkl&#39;</span><span class="p">):</span>
-    <span class="n">raw_physical_data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;physics.pkl&#39;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">raw_physical_data</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="s1">&#39;https://nineplanets.org/physical-solar-system-data/&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">raw_physical_data</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span><span class="s2">&quot;Radius&quot;</span><span class="p">,</span><span class="s2">&quot;Mass&quot;</span><span class="p">,</span><span class="s2">&quot;Dens&quot;</span><span class="p">,</span><span class="s2">&quot;Abo&quot;</span><span class="p">,</span><span class="s2">&quot;Vo&quot;</span><span class="p">,</span><span class="s2">&quot;Rotate&quot;</span><span class="p">,</span><span class="s2">&quot;Dimensions&quot;</span><span class="p">]</span>
-    <span class="n">pd</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="n">raw_physical_data</span><span class="p">,</span><span class="s1">&#39;physics.pkl&#39;</span><span class="p">)</span>
+<span></span>if os.path.exists(&#39;physics.pkl&#39;):
+    raw_physical_data=pd.read_pickle(&#39;physics.pkl&#39;)
+else:
+    raw_physical_data= pd.read_html(&#39;https://nineplanets.org/physical-solar-system-data/&#39;,header=[0,1])[0]
+    raw_physical_data.columns=[&quot;Name&quot;,&quot;Radius&quot;,&quot;Mass&quot;,&quot;Dens&quot;,&quot;Abo&quot;,&quot;Vo&quot;,&quot;Rotate&quot;,&quot;Dimensions&quot;]
+    pd.to_pickle(raw_physical_data,&#39;physics.pkl&#39;)
 </pre></div>
 </div>
 </div>
@@ -787,7 +790,7 @@ Saturn has-period equal-to 107...
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">raw_physical_data</span>
+<span></span>raw_physical_data
 </pre></div>
 </div>
 </div>
@@ -956,29 +959,29 @@ Saturn has-period equal-to 107...
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">physics_to_cnl</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
-    <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">Name</span><span class="o">==</span><span class="n">row</span><span class="o">.</span><span class="n">Name</span><span class="p">:</span> <span class="c1">#Nan check</span>
-        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">Name</span><span class="si">}</span><span class="s2"> has-radius equal-to </span><span class="si">{</span><span class="n">renum</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">Radius</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">Mass</span><span class="o">!=</span><span class="s1">&#39;?&#39;</span> <span class="ow">and</span> <span class="n">row</span><span class="o">.</span><span class="n">Mass</span><span class="o">==</span><span class="n">row</span><span class="o">.</span><span class="n">Mass</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">Mass</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;&lt;&#39;</span><span class="p">:</span>
-                <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">Name</span><span class="si">}</span><span class="s2"> has-mass-kg lower-than </span><span class="si">{</span><span class="n">renum</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">Mass</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">Name</span><span class="si">}</span><span class="s2"> has-mass-kg equal-to </span><span class="si">{</span><span class="n">renum</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">Mass</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">Dens</span><span class="o">!=</span><span class="s1">&#39;?&#39;</span> <span class="ow">and</span> <span class="n">row</span><span class="o">.</span><span class="n">Dens</span><span class="o">==</span><span class="n">row</span><span class="o">.</span><span class="n">Dens</span><span class="p">:</span>
-            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">Name</span><span class="si">}</span><span class="s2"> has-density equal-to </span><span class="si">{</span><span class="n">renum</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">Dens</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">Abo</span><span class="o">!=</span><span class="s1">&#39;?&#39;</span><span class="p">:</span>
-            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">Name</span><span class="si">}</span><span class="s2"> has-abo equal-to </span><span class="si">{</span><span class="n">renum</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">Abo</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">Vo</span><span class="o">!=</span><span class="s1">&#39;-&#39;</span> <span class="ow">and</span> <span class="n">row</span><span class="o">.</span><span class="n">Vo</span><span class="o">!=</span><span class="s1">&#39;?&#39;</span><span class="p">:</span>
-            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">Name</span><span class="si">}</span><span class="s2"> has-vo equal-to </span><span class="si">{</span><span class="n">renum</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">Vo</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">Rotate</span><span class="o">!=</span><span class="s1">&#39;?&#39;</span> <span class="ow">and</span> <span class="n">row</span><span class="o">.</span><span class="n">Rotate</span><span class="o">==</span><span class="n">row</span><span class="o">.</span><span class="n">Rotate</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">Rotate</span><span class="o">==</span><span class="s1">&#39;S&#39;</span><span class="p">:</span>
-                <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">Name</span><span class="si">}</span><span class="s2"> has-rotate equal-to &#39;Stable&#39;.&quot;</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">row</span><span class="o">.</span><span class="n">Rotate</span><span class="o">==</span><span class="s1">&#39;chaotic&#39;</span><span class="p">:</span>
-                <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">Name</span><span class="si">}</span><span class="s2"> has-rotate equal-to &#39;Chaotic&#39;.&quot;</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">Name</span><span class="si">}</span><span class="s2"> has-rotate equal-to </span><span class="si">{</span><span class="n">renum</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">Rotate</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+<span></span>def physics_to_cnl(row):
+    lines = []
+    if row.Name==row.Name: #Nan check
+        lines.append(f&quot;{row.Name} has-radius equal-to {renum(row.Radius)}.&quot;)
+        if row.Mass!=&#39;?&#39; and row.Mass==row.Mass:
+            if row.Mass[0]==&#39;&lt;&#39;:
+                lines.append(f&quot;{row.Name} has-mass-kg lower-than {renum(row.Mass[1:])}.&quot;)
+            else:
+                lines.append(f&quot;{row.Name} has-mass-kg equal-to {renum(row.Mass)}.&quot;)
+        if row.Dens!=&#39;?&#39; and row.Dens==row.Dens:
+            lines.append(f&quot;{row.Name} has-density equal-to {renum(row.Dens)}.&quot;)
+        if row.Abo!=&#39;?&#39;:
+            lines.append(f&quot;{row.Name} has-abo equal-to {renum(row.Abo)}.&quot;)
+        if row.Vo!=&#39;-&#39; and row.Vo!=&#39;?&#39;:
+            lines.append(f&quot;{row.Name} has-vo equal-to {renum(row.Vo)}.&quot;)
+        if row.Rotate!=&#39;?&#39; and row.Rotate==row.Rotate:
+            if row.Rotate==&#39;S&#39;:
+                lines.append(f&quot;{row.Name} has-rotate equal-to &#39;Stable&#39;.&quot;)
+            elif row.Rotate==&#39;chaotic&#39;:
+                lines.append(f&quot;{row.Name} has-rotate equal-to &#39;Chaotic&#39;.&quot;)
+            else:
+                lines.append(f&quot;{row.Name} has-rotate equal-to {renum(row.Rotate)}.&quot;)
+    return &#39;\n&#39;.join(lines)
 </pre></div>
 </div>
 </div>
@@ -987,8 +990,8 @@ Saturn has-period equal-to 107...
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">physics_cnl</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">line</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">raw_physical_data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">physics_to_cnl</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">line</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">physics_cnl</span><span class="p">[:</span><span class="mi">1000</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;...&quot;</span><span class="p">)</span>
+<span></span>physics_cnl = &#39;\n&#39;.join(line for line in raw_physical_data.apply(physics_to_cnl,axis=1) if line!=&#39;&#39;)
+print(physics_cnl[:1000]+&quot;...&quot;)
 </pre></div>
 </div>
 </div>
@@ -1038,19 +1041,19 @@ Jupiter has-density equal-...
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">%%writefile</span> solarsystem.encnl
+<span></span>%%writefile solarsystem.encnl
 
-<span class="n">Comment</span><span class="p">:</span> <span class="s1">&#39;Definition of a planet&#39;</span><span class="o">.</span>
-<span class="n">If</span> <span class="n">a</span> <span class="n">thing</span> <span class="n">orbits</span> <span class="n">a</span> <span class="n">star</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">thing</span> <span class="n">has</span><span class="o">-</span><span class="n">mass</span><span class="o">-</span><span class="n">kg</span> <span class="n">greater</span><span class="o">-</span><span class="n">than</span> <span class="mf">1.0e23</span> <span class="n">then</span> <span class="n">the</span> <span class="n">thing</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">planet</span><span class="o">.</span>
+Comment: &#39;Definition of a planet&#39;.
+If a thing orbits a star and the thing has-mass-kg greater-than 1.0e23 then the thing is a planet.
 
-<span class="n">Comment</span><span class="p">:</span> <span class="s1">&#39;Definition of a dwarf-planet&#39;</span><span class="o">.</span>
-<span class="n">If</span> <span class="n">a</span> <span class="n">thing</span> <span class="n">orbits</span> <span class="n">a</span> <span class="n">star</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">thing</span> <span class="n">has</span><span class="o">-</span><span class="n">mass</span><span class="o">-</span><span class="n">kg</span> <span class="n">greater</span><span class="o">-</span><span class="n">than</span> <span class="mf">1.0e21</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">thing</span> <span class="n">has</span><span class="o">-</span><span class="n">mass</span><span class="o">-</span><span class="n">kg</span> <span class="n">lower</span><span class="o">-</span><span class="n">than</span> <span class="mf">1.0e23</span> <span class="n">then</span> <span class="n">the</span> <span class="n">thing</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">dwarf</span><span class="o">-</span><span class="n">planet</span><span class="o">.</span>
+Comment: &#39;Definition of a dwarf-planet&#39;.
+If a thing orbits a star and the thing has-mass-kg greater-than 1.0e21 and the thing has-mass-kg lower-than 1.0e23 then the thing is a dwarf-planet.
 
-<span class="n">Comment</span><span class="p">:</span> <span class="s1">&#39;Definition of the moon&#39;</span><span class="o">.</span>
-<span class="n">If</span> <span class="n">a</span> <span class="n">thing</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">orbits</span> <span class="n">a</span> <span class="n">thing</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">thing</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="n">orbits</span> <span class="n">a</span> <span class="n">star</span> <span class="n">then</span> <span class="n">the</span> <span class="n">thing</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">moon</span><span class="o">.</span>
+Comment: &#39;Definition of the moon&#39;.
+If a thing(1) orbits a thing(2) and the thing(2) orbits a star then the thing(1) is a moon.
 
-<span class="n">Comment</span><span class="p">:</span> <span class="s1">&#39;All starts with the Sun&#39;</span><span class="o">.</span>
-<span class="n">Sun</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">star</span><span class="o">.</span>
+Comment: &#39;All starts with the Sun&#39;.
+Sun is a star.
 
 </pre></div>
 </div>
@@ -1071,9 +1074,9 @@ Overwriting solarsystem.encnl
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">onto</span><span class="o">=</span><span class="n">Ontology</span><span class="p">(</span><span class="s2">&quot;cnl/string&quot;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;solarsystem.encnl&quot;</span><span class="p">,</span><span class="s2">&quot;rt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="n">physics_cnl</span><span class="p">,</span><span class="n">orbit_cnl</span><span class="p">]),</span>
-                    <span class="n">evaluator</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">e</span><span class="p">:</span><span class="nb">eval</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="nb">globals</span><span class="p">(),</span><span class="nb">locals</span><span class="p">()),</span>
-                    <span class="n">graph_attribute_formatter</span> <span class="o">=</span> <span class="n">graph_attribute_formatter</span><span class="p">)</span>
+<span></span>onto=Ontology(&quot;cnl/string&quot;,&#39;\n&#39;.join([open(&quot;solarsystem.encnl&quot;,&quot;rt&quot;).read(), physics_cnl,orbit_cnl]),
+                    evaluator = lambda e:eval(e,globals(),locals()),
+                    graph_attribute_formatter = graph_attribute_formatter)
 </pre></div>
 </div>
 </div>
@@ -1085,7 +1088,7 @@ Overwriting solarsystem.encnl
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">onto</span><span class="o">.</span><span class="n">select_instances_of</span><span class="p">(</span><span class="s2">&quot;a star&quot;</span><span class="p">)</span>
+<span></span>onto.select_instances_of(&quot;a star&quot;)
 </pre></div>
 </div>
 </div>
@@ -1139,7 +1142,7 @@ Overwriting solarsystem.encnl
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">onto</span><span class="o">.</span><span class="n">select_instances_of</span><span class="p">(</span><span class="s2">&quot;a dwarf-planet&quot;</span><span class="p">)</span>
+<span></span>onto.select_instances_of(&quot;a dwarf-planet&quot;)
 </pre></div>
 </div>
 </div>
@@ -1209,7 +1212,7 @@ Overwriting solarsystem.encnl
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">onto</span><span class="o">.</span><span class="n">select_instances_of</span><span class="p">(</span><span class="s2">&quot;a planet&quot;</span><span class="p">)</span>
+<span></span>onto.select_instances_of(&quot;a planet&quot;)
 </pre></div>
 </div>
 </div>
@@ -1398,7 +1401,7 @@ Overwriting solarsystem.encnl
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">onto</span><span class="o">.</span><span class="n">select_instances_of</span><span class="p">(</span><span class="s2">&quot;a moon that orbits Jupiter&quot;</span><span class="p">)</span>
+<span></span>onto.select_instances_of(&quot;a moon that orbits Jupiter&quot;)
 </pre></div>
 </div>
 </div>
@@ -1879,7 +1882,7 @@ Overwriting solarsystem.encnl
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">onto</span><span class="o">.</span><span class="n">draw_graph</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="s1">&#39;force directed&#39;</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;relations&quot;</span><span class="p">})</span>
+<span></span>onto.draw_graph(layout=&#39;force directed&#39;,show={&quot;relations&quot;})
 </pre></div>
 </div>
 </div>
@@ -1909,37 +1912,29 @@ Overwriting solarsystem.encnl
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../Covid/Virus.html" class="btn btn-neutral float-right" title="Covid Restrictions." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../Safari/Safari.html" class="btn btn-neutral float-left" title="Safari" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="../Covid/Virus.html" class="btn btn-neutral float-right" title="Covid Restrictions." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../Safari/Safari.html" class="btn btn-neutral float-left" title="Safari" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Cognitum Services S.A.
+        &#169; Copyright 2020, Cognitum Services S.A..
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
