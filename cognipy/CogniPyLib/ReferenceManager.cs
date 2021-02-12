@@ -144,7 +144,7 @@ namespace CogniPy
                     catch (WebException ex)
                     {
                         // this code is add for the case in which a proxy with authentication is added but the proxy do not support HEAD requests. We can in this case try with a GET request to make it work.
-                        if ((ex.Response as HttpWebResponse).StatusCode == HttpStatusCode.ProxyAuthenticationRequired)
+                        if ((ex.Response is HttpWebResponse) && (ex.Response as HttpWebResponse).StatusCode == HttpStatusCode.ProxyAuthenticationRequired)
                         {
                             request = HttpWebRequest.Create(url);
                             request.Method = "GET";

@@ -185,7 +185,7 @@ namespace CogniPy
 
             if (!rm.LoadOntology(whatToLoad, tools, contentToLoad,
                 out brokenImports, out tags, out paragraph,
-                null, CogniPy.ARS.NameingConventionKind.Smart, null, true, loadAnnotations: loadAnns))
+                null, CogniPy.ARS.NameingConventionKind.CamelCase, null, true, loadAnnotations: loadAnns))
             {
                 var excepts = rm.GetExceptionsOnImports(contentToLoad);
                 if (excepts.Count() > 0)
