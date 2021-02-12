@@ -7,3 +7,4 @@ Examples
    jupyter_notebooks/Safari/Safari.ipynb
    jupyter_notebooks/SolarSystem/SolarSystem.ipynb
    jupyter_notebooks/Covid/Virus.ipynb
+   jupyter_notebooks/Pizza/Pizza.ipynb
