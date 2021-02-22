@@ -177,6 +177,11 @@
     <Compile Include="CogniPyStatement.cs" />
     <Compile Include="Encode\CRC.cs" />
     <Compile Include="Encode\MD5.cs" />
+    <Compile Include="Grammar\dl.lexer.cs" />
+    <Compile Include="Grammar\dl.parser.cs" />
+    <Compile Include="Grammar\endl.KeyWords.cs" />
+    <Compile Include="Grammar\endl.lexer.cs" />
+    <Compile Include="Grammar\endl.parser.cs" />
     <Compile Include="GraphEntity.cs" />
     <Compile Include="JenaRules\CalcDynamicDepths.cs" />
     <Compile Include="JenaRules\dl.to.jena.cs" />
@@ -224,9 +229,7 @@
     <Compile Include="CNL\dfa.cs" />
     <Compile Include="CNL\dl.ast.cs" />
     <Compile Include="CNL\dl.genericvisitor.cs" />
-    <Compile Include="CNL\dl.lexer.cs" />
     <Compile Include="CNL\dl.nameing.cs" />
-    <Compile Include="CNL\dl.parser.cs" />
     <Compile Include="CNL\dl.removedefaultpfx.cs" />
     <Compile Include="CNL\dl.serializer.cs" />
     <Compile Include="CNL\dl.setdefaultpfx.cs" />
@@ -251,10 +254,7 @@
     <Compile Include="CNL\EN.CNLFactory.cs" />
     <Compile Include="CNL\endict.cs" />
     <Compile Include="CNL\endl.ast.cs" />
-    <Compile Include="CNL\endl.KeyWords.cs" />
-    <Compile Include="CNL\endl.lexer.cs" />
     <Compile Include="CNL\endl.nameing.cs" />
-    <Compile Include="CNL\endl.parser.cs" />
     <Compile Include="CNL\endl.serializer.cs" />
     <Compile Include="CNL\endl.to.dl.cs" />
     <Compile Include="CNL\endl.visitor.cs" />

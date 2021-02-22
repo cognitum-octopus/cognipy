@@ -933,6 +933,18 @@ namespace CogniPy.CNL.EN
         public override string getVal() { return val.ToString(); }
     }
 
+    public partial class DecimalNumber : dataval
+    {
+        public DecimalNumber(Parser yyp) : base(yyp) { }
+        public string val;
+        public DecimalNumber(Parser yyp, string v) : base(yyp) { val = v; }
+        public override object accept(IVisitor v)
+        {
+            return v.Visit(this);
+        }
+        public override string getVal() { return val.ToString(); }
+    }
+
     public partial class StrData : dataval
     {
         public StrData(Parser yyp) : base(yyp) { }

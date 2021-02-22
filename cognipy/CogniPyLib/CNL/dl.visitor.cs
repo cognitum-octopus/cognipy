@@ -24,6 +24,7 @@
         object Visit(DifferentInstances e);
         object Visit(HasKey e);
         object Visit(Number e);
+        object Visit(DecimalNumber e);
         object Visit(String e);
         object Visit(Float e);
         object Visit(Bool e);

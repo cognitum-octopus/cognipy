@@ -603,9 +603,21 @@ namespace CogniPy.CNL.EN
         }
         public object Visit(CogniPy.CNL.DL.Number e)
         {
-            return new TransNumber() { val = e.val };
+            return new TransDecimalNumber() { val = e.val };
         }
 
+        class TransDecimalNumber : TransValue
+        {
+            public string val;
+            public override dataval dataval()
+            {
+                return new CNL.EN.DecimalNumber(null, val);
+            }
+        }
+        public object Visit(CogniPy.CNL.DL.DecimalNumber e)
+        {
+            return new TransDecimalNumber() { val = e.val };
+        }
         class TransBool : TransValue
         {
             public string val;

@@ -95,7 +95,7 @@ namespace CogniPyCLI
                         writer.WriteLine("@exception");
                         var w = new JsonTextWriter(writer);
                         JsonSerializer serializer = new JsonSerializer();
-                        serializer.Serialize(w,new object[] { ex.GetType().Name, ex });
+                        serializer.Serialize(w,new object[] { ex.GetType().Name, ex.Message, ex.StackTrace });
                     }
                 }
                 writer.WriteLine();

@@ -1202,6 +1202,7 @@ namespace CogniPy.ARS
         {
             int IntNumber;
             double DoubleNumber;
+            decimal DecimalNumber;
             if (owli.isInteger())
                 return new CNL.DL.Number(null, owli.getLiteral());
             else if (owli.isFloat() || owli.isDouble())
@@ -1210,8 +1211,8 @@ namespace CogniPy.ARS
                 return new CNL.DL.Number(null, owli.getLiteral());
             else if (!owli.ToString().Contains("^^xsd:decimal") && Double.TryParse(owli.getLiteral().Replace("\"", ""), out DoubleNumber))
                 return new CNL.DL.Number(null, owli.getLiteral());
-            else if (owli.ToString().Contains("^^xsd:decimal"))
-                throw new Exception("Cannot import xsd:decimal as this datatype has not been implemented.");
+            else if (owli.ToString().Contains("^^xsd:decimal") && decimal.TryParse(owli.getLiteral().Replace("\"", ""), out DecimalNumber))
+                return new CNL.DL.DecimalNumber(null, "$"+owli.getLiteral());
             else
                 Assert(false);
             return null;

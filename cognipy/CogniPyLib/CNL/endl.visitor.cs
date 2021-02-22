@@ -68,6 +68,7 @@
         object Visit(boundTotal p);
         object Visit(boundDataType p);
         object Visit(Number p);
+        object Visit(DecimalNumber p);
         object Visit(StrData p);
         object Visit(DateTimeData p);
         object Visit(Duration p);

@@ -478,6 +478,10 @@ namespace CogniPy.CNL.DL
             {
                 return new CNL.DL.Number(null) { val = obj.ToString() };
             }
+            if (obj.GetType() == typeof(decimal))
+            {
+                return new CNL.DL.DecimalNumber(null) { val = "$"+obj.ToString() };
+            }
             else if (obj.GetType() == typeof(string))
             {
                 return new CNL.DL.String(null) { val = "'" + obj.ToString().Replace("'", "''") + "'" };
@@ -509,6 +513,10 @@ namespace CogniPy.CNL.DL
             {
                 return int.Parse(val.getVal());
             }
+            if (val.GetType() == typeof(CNL.DL.DecimalNumber))
+            {
+                return decimal.Parse(val.getVal().Substring(1));
+            }
             else if (val.GetType() == typeof(CNL.DL.String))
             {
                 var v = val.getVal();
@@ -537,6 +545,8 @@ namespace CogniPy.CNL.DL
         {
             switch (typeTag)
             {
+                case "$":
+                    return new CNL.DL.DecimalNumber(null) { val = val };
                 case "I":
                     return new CNL.DL.Number(null) { val = val };
                 case "S":
@@ -576,6 +586,11 @@ namespace CogniPy.CNL.DL
         public double ToDouble()
         {
             return double.Parse(getVal(), en_cult.NumberFormat);
+        }
+
+        public decimal ToDecimal()
+        {
+            return decimal.Parse(getVal().Substring(1), en_cult.NumberFormat);
         }
 
         public int ToInt()
@@ -709,6 +724,19 @@ namespace CogniPy.CNL.DL
         public override string getVal() { return val.ToString(); }
         public override string getTypeTag() { return "I"; }
     }
+    public partial class DecimalNumber : Value
+    {
+        public DecimalNumber(Parser yyp) : base(yyp) { }
+        public string val;
+        public DecimalNumber(Parser yyp, string v) : base(yyp) { val = v; }
+        public override object accept(IVisitor v)
+        {
+            return v.Visit(this);
+        }
+        public override string getVal() { return val.ToString(); }
+        public override string getTypeTag() { return "$"; }
+    }
+
     public partial class String : Value
     {
         public String(Parser yyp) : base(yyp) { }

@@ -945,6 +945,11 @@ namespace CogniPy.ARS
             //return factory.getOWLLiteral(int.Parse(e.val));
             return factory.getOWLLiteral(e.ToInt());
         }
+        public object Visit(CogniPy.CNL.DL.DecimalNumber e)
+        {
+            //return factory.getOWLLiteral(int.Parse(e.val));
+            return getLiteralVal(e);
+        }
         public object Visit(CogniPy.CNL.DL.Bool e)
         {
             //object tt = factory.getOWLLiteral(bool.Parse(e.ToBool().ToString()));
@@ -961,6 +966,8 @@ namespace CogniPy.ARS
                 return factory.getOWLLiteral(v.ToString(), OWL2Datatype.XSD_STRING);
             else if (v is CNL.DL.Float)
                 return factory.getOWLLiteral(v.ToString(), OWL2Datatype.XSD_DOUBLE);
+            else if (v is CNL.DL.DecimalNumber)
+                return factory.getOWLLiteral(v.ToString(), OWL2Datatype.XSD_DECIMAL);
             else if (v is CNL.DL.Number)
                 return factory.getOWLLiteral(v.ToInt());
             else if (v is CNL.DL.DateTimeVal)

@@ -896,6 +896,9 @@ namespace CogniPy.CNL.EN
             Value v = null;
             switch (p.Kind)
             {
+                case "DEC":
+                    v = new CNL.DL.DecimalNumber(null, "$3.14");
+                    break;
                 case "NUM":
                     v = new CNL.DL.Number(null, "1");
                     break;
@@ -940,6 +943,10 @@ namespace CogniPy.CNL.EN
         public object Visit(Number p)
         {
             return new CNL.DL.Number(null, p.val);
+        }
+        public object Visit(DecimalNumber p)
+        {
+            return new CNL.DL.DecimalNumber(null, p.val);
         }
         public object Visit(Bool p)
         {

@@ -1335,6 +1335,10 @@ namespace CogniPy.CNL.EN
         {
             return p.getVal();
         }
+        public object Visit(DecimalNumber p)
+        {
+            return p.getVal();
+        }
         public object Visit(Bool p)
         {
             return p.getVal();

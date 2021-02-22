@@ -636,6 +636,32 @@ namespace CogniPy.CNL.DL
             }
             return sval;
         }
+        public object Visit(CogniPy.CNL.DL.DecimalNumber e)
+        {
+            var sval = e.val.ToString();
+            if (attributeName.get() != null)
+                dataValues.Add(Tuple.Create(e.getTypeTag(), attributeName.get(), sval));
+            if (!foundValues.ContainsKey(e.getTypeTag() + ":" + sval))
+                foundValues.Add(e.getTypeTag() + ":" + sval, e);
+            if (DeltaKind == "<" || DeltaKind == "≠")
+            {
+                var sval2 = (int.Parse(sval) - 1).ToString();
+                if (attributeName.get() != null)
+                    dataValues.Add(Tuple.Create(e.getTypeTag(), attributeName.get(), sval2));
+                if (!foundValues.ContainsKey(e.getTypeTag() + ":" + sval2))
+                    foundValues.Add(e.getTypeTag() + ":" + sval2, e);
+            }
+            if (DeltaKind == ">" || DeltaKind == "≠")
+            {
+                var sval2 = (int.Parse(sval) + 1).ToString();
+                if (attributeName.get() != null)
+                    dataValues.Add(Tuple.Create(e.getTypeTag(), attributeName.get(), sval2));
+                if (!foundValues.ContainsKey(e.getTypeTag() + ":" + sval2))
+                    foundValues.Add(e.getTypeTag() + ":" + sval2, e);
+            }
+            return sval;
+        }
+
         public object Visit(CogniPy.CNL.DL.String e)
         {
             var sval = e.val;

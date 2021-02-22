@@ -193,6 +193,10 @@ namespace CogniPy.CNL.DL
         {
             return e;
         }
+        public virtual object Visit(CogniPy.CNL.DL.DecimalNumber e)
+        {
+            return e;
+        }
         public virtual object Visit(CogniPy.CNL.DL.String e)
         {
             return e;
