@@ -9,7 +9,7 @@ using System.Reflection;
 //todo - check roles in ENDLPL - seems that it is a dead code
 //todo - MARK - should be realy unique
 
-namespace Ontorion.CNL.EN
+namespace CogniPy.CNL.EN
 {
     public class KeyWords
     {
