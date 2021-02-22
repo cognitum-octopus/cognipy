@@ -1278,6 +1278,9 @@ namespace CogniPy.CNL.EN
                 case "DBL":
                     sb.Append("real");
                     break;
+                case "DEC":
+                    sb.Append("decimal");
+                    break;
                 case "DTM":
                     sb.Append("datetime");
                     break;

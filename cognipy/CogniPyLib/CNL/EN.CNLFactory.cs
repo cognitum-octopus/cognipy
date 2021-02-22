@@ -229,9 +229,9 @@ namespace CogniPy.CNL.EN
             {
                 pfx = "BIGNAME";
             }
-            else if (prop == "DBL")
+            else if (prop == "DEC")
             {
-                pfx = "3.14";
+                pfx = "$3.14";
             }
             else if (prop == "DBL")
             {
@@ -303,7 +303,7 @@ namespace CogniPy.CNL.EN
 
         public bool TagIsDatatype(string prop)
         {
-            return prop == "DBL" || prop == "NAT" || prop == "NUM" || prop == "STR" || prop == "DTM" || prop == "DUR";
+            return prop == "DBL" || prop == "DEC" || prop == "NAT" || prop == "NUM" || prop == "STR" || prop == "DTM" || prop == "DUR";
         }
 
         public string[] GetTagSuffixes()
@@ -329,6 +329,10 @@ namespace CogniPy.CNL.EN
             else if (prop == "DBL")
             {
                 return "floating point number IEEE-754";
+            }
+            else if (prop == "DEC")
+            {
+                return "decimal number";
             }
             else if (prop == "NAT")
             {

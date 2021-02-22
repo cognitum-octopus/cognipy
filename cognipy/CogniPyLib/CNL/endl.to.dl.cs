@@ -896,9 +896,6 @@ namespace CogniPy.CNL.EN
             Value v = null;
             switch (p.Kind)
             {
-                case "DEC":
-                    v = new CNL.DL.DecimalNumber(null, "$3.14");
-                    break;
                 case "NUM":
                     v = new CNL.DL.Number(null, "1");
                     break;
@@ -907,6 +904,9 @@ namespace CogniPy.CNL.EN
                     break;
                 case "DBL":
                     v = new CNL.DL.Float(null, "3.14");
+                    break;
+                case "DEC":
+                    v = new CNL.DL.DecimalNumber(null, "$3.14");
                     break;
                 case "BOL":
                     v = new CNL.DL.Bool(null, "[1]");
@@ -944,10 +944,6 @@ namespace CogniPy.CNL.EN
         {
             return new CNL.DL.Number(null, p.val);
         }
-        public object Visit(DecimalNumber p)
-        {
-            return new CNL.DL.DecimalNumber(null, p.val);
-        }
         public object Visit(Bool p)
         {
             return new CNL.DL.Bool(null, p.val == "true" ? "[1]" : "[0]");
@@ -968,6 +964,10 @@ namespace CogniPy.CNL.EN
         public object Visit(Float p)
         {
             return new CNL.DL.Float(null, p.val);
+        }
+        public object Visit(DecimalNumber p)
+        {
+            return new CNL.DL.DecimalNumber(null, p.val);
         }
 
         ////////// SWRL /////////////////////////////////////////////////////////////////////
