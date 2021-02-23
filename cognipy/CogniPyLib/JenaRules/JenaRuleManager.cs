@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -17,8 +18,34 @@ using System.Threading;
 
 namespace CogniPy.Executing.HermiT
 {
+
     public static class RuleExtensions
     {
+        // from https://github.com/datastax/csharp-driver/blob/353f65ae28232b7dee9a3c91249faa586de875a1/src/Cassandra/DecimalTypeAdapter.cs
+        public static decimal BigDecimalToDecimal( byte[] Unscaled, int Scale)
+        {
+            var bigintBytes = new byte[Unscaled.Length];
+            Array.Copy(Unscaled, 0, bigintBytes, 0, bigintBytes.Length);
+
+            Array.Reverse(bigintBytes);
+            var bigInteger = new BigInteger(bigintBytes);
+            var isNegative = bigInteger < 0;
+
+            bigInteger = BigInteger.Abs(bigInteger);
+            bigintBytes = bigInteger.ToByteArray();
+            if (bigintBytes.Length > 13 || (bigintBytes.Length == 13 && bigintBytes[12] != 0))
+            {
+                throw new ArgumentOutOfRangeException(
+                    "decimalBuf",
+                    "this java.math.BigDecimal is too big to fit into System.Decimal");
+            }
+
+            var intArray = new int[3];
+            Buffer.BlockCopy(bigintBytes, 0, intArray, 0, Math.Min(12, bigintBytes.Length));
+
+            return new decimal(intArray[0], intArray[1], intArray[2], isNegative, (byte) Scale);
+        }
+
         public static object getValFromJenaLiteral(object val)
         {
             if (val is java.lang.Double)
@@ -27,6 +54,8 @@ namespace CogniPy.Executing.HermiT
                 val = (val as java.lang.Float).doubleValue();
             else if (val is float)
                 val = (double)val;
+            else if (val is java.math.BigDecimal)
+                val = BigDecimalToDecimal(((java.math.BigDecimal)val).unscaledValue().toByteArray(), ((java.math.BigDecimal)val).scale());
             else if (val is java.lang.Number)
                 val = (val as java.lang.Number).intValue();
             else if (val is java.lang.Integer)
