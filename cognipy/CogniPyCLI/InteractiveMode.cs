@@ -22,7 +22,7 @@ namespace CogniPyCLI
             Dictionary<string, CogniPySvr> clients = new Dictionary<string, CogniPySvr>();
 
             while (true)
-            {
+              {
                 var cmd = reader.ReadLine();
 
                 if (cmd == "@create")

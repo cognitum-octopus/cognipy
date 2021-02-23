@@ -950,8 +950,14 @@ namespace CogniPy
                                     string pfx = null;
                                     if (reff.Split('/') != null)
                                     {
-                                        var end = reff.Split('/').Last();
-                                        pfx = end.Replace("#", "").Replace("/", "") + Guid.NewGuid();
+                                        var spl = reff.Split('/');
+                                        var end = spl.Last();
+                                        if(end=="")
+                                        {
+                                            if (spl.Length > 1)
+                                                end = spl[spl.Length - 2];
+                                        }
+                                        pfx = end.Replace("#", "").Replace("/", "") + "PFX"+Guid.NewGuid().ToString().Replace("-","");
                                     }
                                     else
                                     {

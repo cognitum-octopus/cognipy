@@ -967,7 +967,7 @@ namespace CogniPy.ARS
             else if (v is CNL.DL.Float)
                 return factory.getOWLLiteral(v.ToString(), OWL2Datatype.XSD_DOUBLE);
             else if (v is CNL.DL.DecimalNumber)
-                return factory.getOWLLiteral(v.ToString(), OWL2Datatype.XSD_DECIMAL);
+                return factory.getOWLLiteral(v.ToString().Substring(1), OWL2Datatype.XSD_DECIMAL);
             else if (v is CNL.DL.Number)
                 return factory.getOWLLiteral(v.ToInt());
             else if (v is CNL.DL.DateTimeVal)
