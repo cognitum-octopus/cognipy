@@ -34,6 +34,7 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -453,18 +454,18 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>from cognipy.ontology import Ontology #the ontology processing class
-from cognipy.ontology import CQL #SPARQL format tailored for Contolled Natural Language
-from cognipy.ontology import encode_string_for_graph_label #complex datatypes encoder for the graph labels in graph visualisation
-import textwrap
+<span></span><span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="kn">import</span> <span class="n">Ontology</span> <span class="c1">#the ontology processing class</span>
+<span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="kn">import</span> <span class="n">CQL</span> <span class="c1">#SPARQL format tailored for Contolled Natural Language</span>
+<span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="kn">import</span> <span class="n">encode_string_for_graph_label</span> <span class="c1">#complex datatypes encoder for the graph labels in graph visualisation</span>
+<span class="kn">import</span> <span class="nn">textwrap</span>
 
-def graph_attribute_formatter(val):
-    if isinstance(val,list) or isinstance(val,set):
-        return &quot; | &quot;.join(list(map(lambda i:encode_string_for_graph_label(graph_attribute_formatter(i)),val)))
-    elif isinstance(val,dict):
-        return &quot; | &quot;.join(list(map(lambda i:i[0]+&quot; : &quot;+encode_string_for_graph_label(graph_attribute_formatter(i[1])),val.items())))
-    else:
-        return encode_string_for_graph_label(textwrap.fill(str(val),40))
+<span class="k">def</span> <span class="nf">graph_attribute_formatter</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="nb">list</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="nb">set</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot; | &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span><span class="n">encode_string_for_graph_label</span><span class="p">(</span><span class="n">graph_attribute_formatter</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span><span class="n">val</span><span class="p">)))</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="nb">dict</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot; | &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot; : &quot;</span><span class="o">+</span><span class="n">encode_string_for_graph_label</span><span class="p">(</span><span class="n">graph_attribute_formatter</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">])),</span><span class="n">val</span><span class="o">.</span><span class="n">items</span><span class="p">())))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">encode_string_for_graph_label</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">),</span><span class="mi">40</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -480,50 +481,50 @@ def graph_attribute_formatter(val):
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>%%writefile part_01.encnl
+<span></span><span class="o">%%writefile</span> part_01.encnl
 
-Namespace: &#39;http://cognitum.eu/african_wildlife&#39;.
+<span class="n">Namespace</span><span class="p">:</span> <span class="s1">&#39;http://cognitum.eu/african_wildlife&#39;</span><span class="o">.</span>
 
-Comment: &#39;Let&#39;s name our instances&#39;.
-Comment: &#39;Let&#39;s specify the hierarchy of beings&#39;.
-Comment: &#39;What is what?&#39;.
+<span class="n">Comment</span><span class="p">:</span> <span class="s1">&#39;Let&#39;</span><span class="n">s</span> <span class="n">name</span> <span class="n">our</span> <span class="n">instances</span><span class="s1">&#39;.</span>
+<span class="n">Comment</span><span class="p">:</span> <span class="s1">&#39;Let&#39;</span><span class="n">s</span> <span class="n">specify</span> <span class="n">the</span> <span class="n">hierarchy</span> <span class="n">of</span> <span class="n">beings</span><span class="s1">&#39;.</span>
+<span class="n">Comment</span><span class="p">:</span> <span class="s1">&#39;What is what?&#39;</span><span class="o">.</span>
 
-Every lion is an animal.
-Every giraffe is an animal.
+<span class="n">Every</span> <span class="n">lion</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">giraffe</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
 
-Every animal has a face.
+<span class="n">Every</span> <span class="n">animal</span> <span class="n">has</span> <span class="n">a</span> <span class="n">face</span><span class="o">.</span>
 
-Comment: &#39;Moreover&#39;.
-Every impala is an animal.
-Every omnivore is an animal.
-Every rock-dassie is an animal.
-Every warthog is an animal.
-Every carnivore is an animal.
-Every herbivore is an animal.
-Every elephant is a herbivore.
-Every lion is carnivore.
+<span class="n">Comment</span><span class="p">:</span> <span class="s1">&#39;Moreover&#39;</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">impala</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">omnivore</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">rock</span><span class="o">-</span><span class="n">dassie</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">warthog</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">carnivore</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">herbivore</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">elephant</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">herbivore</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">lion</span> <span class="ow">is</span> <span class="n">carnivore</span><span class="o">.</span>
 
-Comment: &#39;There are also plants there:&#39;.
-Every tree is a plant.
-Every grass is a plant.
-Every palm-tree is a plant.
+<span class="n">Comment</span><span class="p">:</span> <span class="s1">&#39;There are also plants there:&#39;</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">tree</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">grass</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">palm</span><span class="o">-</span><span class="n">tree</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">.</span>
 
-Every branch is a plant-part.
-Every leaf is a plant-part.
-Every twig is a plant-part.
+<span class="n">Every</span> <span class="n">branch</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">-</span><span class="n">part</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">leaf</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">-</span><span class="n">part</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">twig</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">-</span><span class="n">part</span><span class="o">.</span>
 
-Every phloem is a plant-part.
-Every root is a plant-part.
-Every parsnip is a root.
-Every stem is a plant-part.
-Every xylem is a plant-part.
-Every fruiting-body is a plant-part.
-Every berry is a fruiting-body.
-Every apple is a fruiting-body.
+<span class="n">Every</span> <span class="n">phloem</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">-</span><span class="n">part</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">root</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">-</span><span class="n">part</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">parsnip</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">root</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">stem</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">-</span><span class="n">part</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">xylem</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">-</span><span class="n">part</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">fruiting</span><span class="o">-</span><span class="n">body</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">-</span><span class="n">part</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">berry</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">fruiting</span><span class="o">-</span><span class="n">body</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">apple</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">fruiting</span><span class="o">-</span><span class="n">body</span><span class="o">.</span>
 
-Comment: &#39;We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words&#39;.
-Every tasty-plant is a plant.
-Every carnivorous-plant is a plant.
+<span class="n">Comment</span><span class="p">:</span> <span class="s1">&#39;We cannot use adjectives directly. To specify adjectives we need to transform them into sets that have form of buzzy-words&#39;</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">tasty</span><span class="o">-</span><span class="n">plant</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">carnivorous</span><span class="o">-</span><span class="n">plant</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">.</span>
 
 </pre></div>
 </div>
@@ -542,11 +543,11 @@ Overwriting part_01.encnl
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>onto=Ontology(&quot;cnl/file&quot;,&quot;part_01.encnl&quot;,
-                    evaluator = lambda e:eval(e,globals(),locals()),
-                    graph_attribute_formatter = graph_attribute_formatter)
+<span></span><span class="n">onto</span><span class="o">=</span><span class="n">Ontology</span><span class="p">(</span><span class="s2">&quot;cnl/file&quot;</span><span class="p">,</span><span class="s2">&quot;part_01.encnl&quot;</span><span class="p">,</span>
+                    <span class="n">evaluator</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">e</span><span class="p">:</span><span class="nb">eval</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="nb">globals</span><span class="p">(),</span><span class="nb">locals</span><span class="p">()),</span>
+                    <span class="n">graph_attribute_formatter</span> <span class="o">=</span> <span class="n">graph_attribute_formatter</span><span class="p">)</span>
 
-onto.draw_graph(layout=&#39;hierarchical&#39;)
+<span class="n">onto</span><span class="o">.</span><span class="n">draw_graph</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="s1">&#39;hierarchical&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -567,21 +568,21 @@ onto.draw_graph(layout=&#39;hierarchical&#39;)
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>%%writefile part_02.encnl
+<span></span><span class="o">%%writefile</span> part_02.encnl
 
-Every-single-thing that is a plant and-or is a plant-part is a herb.
-No herb is an animal.
+<span class="n">Every</span><span class="o">-</span><span class="n">single</span><span class="o">-</span><span class="n">thing</span> <span class="n">that</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span> <span class="ow">and</span><span class="o">-</span><span class="ow">or</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">plant</span><span class="o">-</span><span class="n">part</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">herb</span><span class="o">.</span>
+<span class="n">No</span> <span class="n">herb</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
 
-Every carnivore eats nothing-but animals.
-Every lion eats nothing-but herbivores.
+<span class="n">Every</span> <span class="n">carnivore</span> <span class="n">eats</span> <span class="n">nothing</span><span class="o">-</span><span class="n">but</span> <span class="n">animals</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">lion</span> <span class="n">eats</span> <span class="n">nothing</span><span class="o">-</span><span class="n">but</span> <span class="n">herbivores</span><span class="o">.</span>
 
-Every herbivore eats nothing-but herb.
+<span class="n">Every</span> <span class="n">herbivore</span> <span class="n">eats</span> <span class="n">nothing</span><span class="o">-</span><span class="n">but</span> <span class="n">herb</span><span class="o">.</span>
 
-Anything either is a carnivore, is a herbivore or is an omnivore or-something-else.
-Anything either is a branch, is a leaf or is a twig or-something-else.
+<span class="n">Anything</span> <span class="n">either</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">carnivore</span><span class="p">,</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">herbivore</span> <span class="ow">or</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">omnivore</span> <span class="ow">or</span><span class="o">-</span><span class="n">something</span><span class="o">-</span><span class="k">else</span><span class="o">.</span>
+<span class="n">Anything</span> <span class="n">either</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">branch</span><span class="p">,</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">leaf</span> <span class="ow">or</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">twig</span> <span class="ow">or</span><span class="o">-</span><span class="n">something</span><span class="o">-</span><span class="k">else</span><span class="o">.</span>
 
-No giraffe is a lion.
-Every palm-tree is not a tree.
+<span class="n">No</span> <span class="n">giraffe</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">lion</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">palm</span><span class="o">-</span><span class="n">tree</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">a</span> <span class="n">tree</span><span class="o">.</span>
 </pre></div>
 </div>
 </div>
@@ -599,13 +600,13 @@ Overwriting part_02.encnl
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>%%writefile test_01.encnl
+<span></span><span class="o">%%writefile</span> test_01.encnl
 
-Leo-01 is a lion.
-Leo-01 eats Sophie-01.
-Sophie-01 is a giraffe.
-Leo-01 eats Mary-01.
-Mary-01 is a palm-tree.
+<span class="n">Leo</span><span class="o">-</span><span class="mi">01</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">lion</span><span class="o">.</span>
+<span class="n">Leo</span><span class="o">-</span><span class="mi">01</span> <span class="n">eats</span> <span class="n">Sophie</span><span class="o">-</span><span class="mf">01.</span>
+<span class="n">Sophie</span><span class="o">-</span><span class="mi">01</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">giraffe</span><span class="o">.</span>
+<span class="n">Leo</span><span class="o">-</span><span class="mi">01</span> <span class="n">eats</span> <span class="n">Mary</span><span class="o">-</span><span class="mf">01.</span>
+<span class="n">Mary</span><span class="o">-</span><span class="mi">01</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">palm</span><span class="o">-</span><span class="n">tree</span><span class="o">.</span>
 </pre></div>
 </div>
 </div>
@@ -623,9 +624,9 @@ Overwriting test_01.encnl
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>onto=Ontology(&quot;cnl/string&quot;,&#39;\n&#39;.join(open(fn,&quot;rt&quot;).read() for fn in [&quot;part_01.encnl&quot;,&quot;part_02.encnl&quot;,&quot;test_01.encnl&quot;]),
-                    evaluator = lambda e:eval(e,globals(),locals()),
-                    graph_attribute_formatter = graph_attribute_formatter)
+<span></span><span class="n">onto</span><span class="o">=</span><span class="n">Ontology</span><span class="p">(</span><span class="s2">&quot;cnl/string&quot;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span><span class="s2">&quot;rt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="k">for</span> <span class="n">fn</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;part_01.encnl&quot;</span><span class="p">,</span><span class="s2">&quot;part_02.encnl&quot;</span><span class="p">,</span><span class="s2">&quot;test_01.encnl&quot;</span><span class="p">]),</span>
+                    <span class="n">evaluator</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">e</span><span class="p">:</span><span class="nb">eval</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="nb">globals</span><span class="p">(),</span><span class="nb">locals</span><span class="p">()),</span>
+                    <span class="n">graph_attribute_formatter</span> <span class="o">=</span> <span class="n">graph_attribute_formatter</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -635,18 +636,18 @@ Overwriting test_01.encnl
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>import json
+<span></span><span class="kn">import</span> <span class="nn">json</span>
 
-def printReasoningInfo(onto):
-    info=onto.reasoningInfo()
-    if info == &quot;&quot;:
-        print(&#39;all good!&#39;)
-    else:
-        print(json.dumps(json.loads(info), indent=2, sort_keys=True))
+<span class="k">def</span> <span class="nf">printReasoningInfo</span><span class="p">(</span><span class="n">onto</span><span class="p">):</span>
+    <span class="n">info</span><span class="o">=</span><span class="n">onto</span><span class="o">.</span><span class="n">reasoningInfo</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">info</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;all good!&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">info</span><span class="p">),</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 
-def printWhy(onto,fact):
-    info=json.loads(onto.why(fact))
-    print(json.dumps(info, indent=2, sort_keys=True))
+<span class="k">def</span> <span class="nf">printWhy</span><span class="p">(</span><span class="n">onto</span><span class="p">,</span><span class="n">fact</span><span class="p">):</span>
+    <span class="n">info</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">onto</span><span class="o">.</span><span class="n">why</span><span class="p">(</span><span class="n">fact</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -656,7 +657,7 @@ def printWhy(onto,fact):
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>printReasoningInfo(onto)
+<span></span><span class="n">printReasoningInfo</span><span class="p">(</span><span class="n">onto</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -685,7 +686,7 @@ def printWhy(onto,fact):
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>onto.draw_graph(layout=&#39;force directed&#39;)
+<span></span><span class="n">onto</span><span class="o">.</span><span class="n">draw_graph</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="s1">&#39;force directed&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -701,7 +702,7 @@ def printWhy(onto,fact):
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>printWhy(onto,&quot;Mary-01 is a animal?&quot;)
+<span></span><span class="n">printWhy</span><span class="p">(</span><span class="n">onto</span><span class="p">,</span><span class="s2">&quot;Mary-01 is a animal?&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -751,24 +752,24 @@ def printWhy(onto,fact):
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>%%writefile part_03.encnl
+<span></span><span class="o">%%writefile</span> part_03.encnl
 
-Every carnivorous-plant must eat an animal.
-Every carnivor must eat an animal.
-Every omnivore must eat a plant.
-Every branch must be-part-of a tree.
-Every plant-part must be-part-of a plant.
+<span class="n">Every</span> <span class="n">carnivorous</span><span class="o">-</span><span class="n">plant</span> <span class="n">must</span> <span class="n">eat</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">carnivor</span> <span class="n">must</span> <span class="n">eat</span> <span class="n">an</span> <span class="n">animal</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">omnivore</span> <span class="n">must</span> <span class="n">eat</span> <span class="n">a</span> <span class="n">plant</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">branch</span> <span class="n">must</span> <span class="n">be</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">a</span> <span class="n">tree</span><span class="o">.</span>
+<span class="n">Every</span> <span class="n">plant</span><span class="o">-</span><span class="n">part</span> <span class="n">must</span> <span class="n">be</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">a</span> <span class="n">plant</span><span class="o">.</span>
 
-Comment: &#39;Role equivalence and inverted roles&#39;.
-X has-part Y if-and-only-if Y is-part-of X.
-X eats Y if-and-only-if Y is-eaten-by X.
+<span class="n">Comment</span><span class="p">:</span> <span class="s1">&#39;Role equivalence and inverted roles&#39;</span><span class="o">.</span>
+<span class="n">X</span> <span class="n">has</span><span class="o">-</span><span class="n">part</span> <span class="n">Y</span> <span class="k">if</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">only</span><span class="o">-</span><span class="k">if</span> <span class="n">Y</span> <span class="ow">is</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">X</span><span class="o">.</span>
+<span class="n">X</span> <span class="n">eats</span> <span class="n">Y</span> <span class="k">if</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">only</span><span class="o">-</span><span class="k">if</span> <span class="n">Y</span> <span class="ow">is</span><span class="o">-</span><span class="n">eaten</span><span class="o">-</span><span class="n">by</span> <span class="n">X</span><span class="o">.</span>
 
-Comment: &#39;Role subsumptions&#39;.
-If X is-part-of Y then X is-part-of Y.
-If X has-part something that has-part Y then X has-part Y.
+<span class="n">Comment</span><span class="p">:</span> <span class="s1">&#39;Role subsumptions&#39;</span><span class="o">.</span>
+<span class="n">If</span> <span class="n">X</span> <span class="ow">is</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">Y</span> <span class="n">then</span> <span class="n">X</span> <span class="ow">is</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">Y</span><span class="o">.</span>
+<span class="n">If</span> <span class="n">X</span> <span class="n">has</span><span class="o">-</span><span class="n">part</span> <span class="n">something</span> <span class="n">that</span> <span class="n">has</span><span class="o">-</span><span class="n">part</span> <span class="n">Y</span> <span class="n">then</span> <span class="n">X</span> <span class="n">has</span><span class="o">-</span><span class="n">part</span> <span class="n">Y</span><span class="o">.</span>
 
-Comment: &#39;Complex role subsumptions&#39;.
-If X is-part-of something that is-part-of Y then X is-part-of Y.
+<span class="n">Comment</span><span class="p">:</span> <span class="s1">&#39;Complex role subsumptions&#39;</span><span class="o">.</span>
+<span class="n">If</span> <span class="n">X</span> <span class="ow">is</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">something</span> <span class="n">that</span> <span class="ow">is</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">Y</span> <span class="n">then</span> <span class="n">X</span> <span class="ow">is</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">Y</span><span class="o">.</span>
 </pre></div>
 </div>
 </div>
@@ -785,17 +786,17 @@ Overwriting part_03.encnl
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>%%writefile test_02.encnl
+<span></span><span class="o">%%writefile</span> test_02.encnl
 
-Leo-01 is a lion.
-Leo-01 eats Sophie-01.
-Sophie-01 is a giraffe.
-Sophie-01 eats Leaf-01.
-Mary-01 is a tree.
-Leaf-01 is a leaf and is-part-of Branch-02.
-Branch-02 is a branch and is-part-of Branch-01.
-Branch-01 is a branch and is-part-of Mary-01.
-Branch-03 is a branch.
+<span class="n">Leo</span><span class="o">-</span><span class="mi">01</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">lion</span><span class="o">.</span>
+<span class="n">Leo</span><span class="o">-</span><span class="mi">01</span> <span class="n">eats</span> <span class="n">Sophie</span><span class="o">-</span><span class="mf">01.</span>
+<span class="n">Sophie</span><span class="o">-</span><span class="mi">01</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">giraffe</span><span class="o">.</span>
+<span class="n">Sophie</span><span class="o">-</span><span class="mi">01</span> <span class="n">eats</span> <span class="n">Leaf</span><span class="o">-</span><span class="mf">01.</span>
+<span class="n">Mary</span><span class="o">-</span><span class="mi">01</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">tree</span><span class="o">.</span>
+<span class="n">Leaf</span><span class="o">-</span><span class="mi">01</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">leaf</span> <span class="ow">and</span> <span class="ow">is</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">Branch</span><span class="o">-</span><span class="mf">02.</span>
+<span class="n">Branch</span><span class="o">-</span><span class="mi">02</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">branch</span> <span class="ow">and</span> <span class="ow">is</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">Branch</span><span class="o">-</span><span class="mf">01.</span>
+<span class="n">Branch</span><span class="o">-</span><span class="mi">01</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">branch</span> <span class="ow">and</span> <span class="ow">is</span><span class="o">-</span><span class="n">part</span><span class="o">-</span><span class="n">of</span> <span class="n">Mary</span><span class="o">-</span><span class="mf">01.</span>
+<span class="n">Branch</span><span class="o">-</span><span class="mi">03</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">branch</span><span class="o">.</span>
 </pre></div>
 </div>
 </div>
@@ -812,9 +813,9 @@ Overwriting test_02.encnl
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>onto=Ontology(&quot;cnl/string&quot;,&#39;\n&#39;.join(open(fn,&quot;rt&quot;).read() for fn in [&quot;part_01.encnl&quot;,&quot;part_02.encnl&quot;,&quot;part_03.encnl&quot;,&quot;test_02.encnl&quot;]),
-                    evaluator = lambda e:eval(e,globals(),locals()),
-                    graph_attribute_formatter = graph_attribute_formatter)
+<span></span><span class="n">onto</span><span class="o">=</span><span class="n">Ontology</span><span class="p">(</span><span class="s2">&quot;cnl/string&quot;</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span><span class="s2">&quot;rt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="k">for</span> <span class="n">fn</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;part_01.encnl&quot;</span><span class="p">,</span><span class="s2">&quot;part_02.encnl&quot;</span><span class="p">,</span><span class="s2">&quot;part_03.encnl&quot;</span><span class="p">,</span><span class="s2">&quot;test_02.encnl&quot;</span><span class="p">]),</span>
+                    <span class="n">evaluator</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">e</span><span class="p">:</span><span class="nb">eval</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="nb">globals</span><span class="p">(),</span><span class="nb">locals</span><span class="p">()),</span>
+                    <span class="n">graph_attribute_formatter</span> <span class="o">=</span> <span class="n">graph_attribute_formatter</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -823,7 +824,7 @@ Overwriting test_02.encnl
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>printReasoningInfo(onto)
+<span></span><span class="n">printReasoningInfo</span><span class="p">(</span><span class="n">onto</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -857,7 +858,7 @@ Overwriting test_02.encnl
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>onto.draw_graph(layout=&quot;force directed&quot;)
+<span></span><span class="n">onto</span><span class="o">.</span><span class="n">draw_graph</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="s2">&quot;force directed&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -873,7 +874,7 @@ Overwriting test_02.encnl
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>onto.select_instances_of(&quot;eaten by Leo-01&quot;)
+<span></span><span class="n">onto</span><span class="o">.</span><span class="n">select_instances_of</span><span class="p">(</span><span class="s2">&quot;eaten by Leo-01&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -921,7 +922,7 @@ Overwriting test_02.encnl
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>print(onto.why(&quot;Leo-01 is an animal?&quot;))
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">onto</span><span class="o">.</span><span class="n">why</span><span class="p">(</span><span class="s2">&quot;Leo-01 is an animal?&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -942,11 +943,11 @@ Overwriting test_02.encnl
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>onto.sparql_query(CQL(&quot;&quot;&quot;select ?a1 ?a2 {
-                            ?a1 rdf:type &lt;animal&gt;.
-                            ?a2 rdf:type &lt;animal&gt;.
-                            ?a1 &lt;eats&gt; ?a2.
-                        }&quot;&quot;&quot;,&quot;http://cognitum.eu/african_wildlife#&quot;))
+<span></span><span class="n">onto</span><span class="o">.</span><span class="n">sparql_query</span><span class="p">(</span><span class="n">CQL</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;select ?a1 ?a2 {</span>
+<span class="s2">                            ?a1 rdf:type &lt;animal&gt;.</span>
+<span class="s2">                            ?a2 rdf:type &lt;animal&gt;.</span>
+<span class="s2">                            ?a1 &lt;eats&gt; ?a2.</span>
+<span class="s2">                        }&quot;&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;http://cognitum.eu/african_wildlife#&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -992,7 +993,7 @@ Overwriting test_02.encnl
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>print(onto.as_rdf())
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">onto</span><span class="o">.</span><span class="n">as_rdf</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>

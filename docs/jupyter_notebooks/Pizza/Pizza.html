@@ -34,12 +34,15 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Grammar" href="../../grammar.html" />
+    <link rel="prev" title="Covid Restrictions." href="../Covid/Virus.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -140,6 +143,8 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../examples.html">Examples</a> &raquo;</li>
         
       <li>&lt;no title&gt;</li>
     
@@ -435,7 +440,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>from cognipy.ontology import Ontology
+<span></span><span class="kn">from</span> <span class="nn">cognipy.ontology</span> <span class="kn">import</span> <span class="n">Ontology</span>
 </pre></div>
 </div>
 </div>
@@ -444,7 +449,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>onto = Ontology(&quot;rdf/uri&quot;,&quot;https://protege.stanford.edu/ontologies/pizza/pizza.owl&quot;)
+<span></span><span class="n">onto</span> <span class="o">=</span> <span class="n">Ontology</span><span class="p">(</span><span class="s2">&quot;rdf/uri&quot;</span><span class="p">,</span><span class="s2">&quot;https://protege.stanford.edu/ontologies/pizza/pizza.owl&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -453,7 +458,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>onto.draw_graph()
+<span></span><span class="n">onto</span><span class="o">.</span><span class="n">draw_graph</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -469,7 +474,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>print(onto.as_cnl())
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">onto</span><span class="o">.</span><span class="n">as_cnl</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1173,7 +1178,7 @@ be-topping-of Role: &#34;comment&#34;:rdfs &#39;Any given instance of topping sh
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>print(onto.as_rdf())
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">onto</span><span class="o">.</span><span class="n">as_rdf</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -3708,6 +3713,10 @@ be-topping-of Role: &#34;comment&#34;:rdfs &#39;Any given instance of topping sh
            
           </div>
           <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../../grammar.html" class="btn btn-neutral float-right" title="Grammar" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../Covid/Virus.html" class="btn btn-neutral float-left" title="Covid Restrictions." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 
