@@ -4,6 +4,9 @@
 
 .. title:: CogniPy for Pandas - In-memory Graph Database and Knowledge Graph with Natural Language Interface
 
+.. image:: _static/figures/cognipy_wide.png
+    :width: 300
+
 **CogniPy for Pandas**
 ======================
 
