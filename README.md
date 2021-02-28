@@ -1,4 +1,4 @@
-![CogniPy](./docsrc/_static/figures/cognipy_wide.png | width=200)
+![CogniPy](./docsrc/_static/figures/cognipy_wide.png)
 # CogniPy for Pandas - In-memory Graph Database and Knowledge Graph with Natural Language Interface
 
 ### Whats in the box
