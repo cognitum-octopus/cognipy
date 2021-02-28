@@ -65,6 +65,8 @@ Compiled documentation is stored on github pages here: [Cognipy Documentation](h
 ### How to cite CogniPy
 We would be grateful if scientific publications resulting from projects that make use of CogniPy would include the following sentence in the acknowledgments section: "This work was conducted using the CogniPy package, which is an open-source project maintained by [Cognitum Services S.A.](https://www.cognitum.eu) <https://www.cognitum.eu>"
 
+![Cognitum](https://www.cognitum.eu/img/logo.png)
+
 ### Contributors
 * Maintained by [Cognitum Services S.A.](https://www.cognitum.eu) <https://www.cognitum.eu>
 * Contact us: <office@cognitum.eu>
