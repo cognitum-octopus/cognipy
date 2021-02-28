@@ -67,6 +67,15 @@ In Jupyter you write ::
     print(onto.select_instances_of("a thing that says a word")[["says","Instance"]])
 
 
+Output (Pandas DataFrame):
+
++--+-------+---------+
+|  | says  | Instance|
++==+=======+=========+
+|0 | Hello | World   |
++--+-------+---------+
+
+
 Related research papers
 -----------------------
 
@@ -78,15 +87,11 @@ Related research papers
 
 How to cite CogniPy
 -------------------
-We would be grateful if scientific publications resulting from projects that make use of CogniPy would include the following sentence in the acknowledgments section: "This work was conducted using the CogniPy package, which is an open-source project maintained by [Cognitum Services S.A.](https://www.cognitum.eu)"
+We would be grateful if scientific publications resulting from projects that make use of CogniPy would include the following sentence in the acknowledgments section: "This work was conducted using the CogniPy package, which is an open-source project maintained by [Cognitum Services S.A.](https://www.cognitum.eu)" 
 
-Output (Pandas DataFrame):
+.. image :: https://www.cognitum.eu/img/logo.png
+    :width: 300
 
-+--+-------+---------+
-|  | says  | Instance|
-+==+=======+=========+
-|0 | Hello | World   |
-+--+-------+---------+
 
 .. toctree::
    :maxdepth: 5
