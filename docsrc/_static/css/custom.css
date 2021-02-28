@@ -9,3 +9,7 @@
 .comment {
     color: #999999;
 }
+
+.wy-side-nav-search, .wy-nav-top {
+    background: white;
+}
