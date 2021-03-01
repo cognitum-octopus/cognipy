@@ -14,6 +14,7 @@ import os
 import sys
 import sphinx_rtd_theme
 sys.path.insert(0, os.path.abspath('...'))
+from cognipy import __version__
 
 
 # -- Project information -----------------------------------------------------
@@ -21,9 +22,9 @@ sys.path.insert(0, os.path.abspath('...'))
 project = 'CogniPy'
 copyright = '2020, Cognitum Services S.A.'
 author = 'Cognitum Services S.A.'
-
 # The full version, including alpha/beta/rc tags
-release = '0.1.6'
+version = __version__
+release = version
 
 
 # -- General configuration ---------------------------------------------------
@@ -49,7 +50,11 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**.ipynb_checkpoints']
 #
 html_theme = 'sphinx_rtd_theme'
 html_logo = '_static/figures/logo.png'
-display_version = True
+
+html_theme_options = {
+    'logo_only': True,
+    'display_version': True,
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

@@ -1,11 +1,12 @@
 from setuptools import setup
+from cognipy import __version__
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
     name='cognipy',
-    version='0.1.13',
+    version=__version__,
     author="Cognitum Services S.A.",
     author_email="support@cognitum.eu",
     description="CogniPy for Pandas, Semantic Tech Reasoner and Editor",

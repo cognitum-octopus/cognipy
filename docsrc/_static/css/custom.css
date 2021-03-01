@@ -17,3 +17,8 @@
 .wy-nav-side {
     background: #142c40;
 }
+
+.wy-side-nav-search>a img.logo {
+    max-width: 175px;
+    padding: 0;
+}
