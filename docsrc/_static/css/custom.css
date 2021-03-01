@@ -10,3 +10,10 @@
     color: #999999;
 }
 
+.wy-side-nav-search, .wy-nav-top {
+    background: #3ebc92;
+}
+
+.wy-nav-side {
+    background: #142c40;
+}
