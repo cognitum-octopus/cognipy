@@ -669,6 +669,9 @@ namespace CogniPy
                             {
                                 try
                                 {
+                                    if (string.IsNullOrWhiteSpace(sentence.line))
+                                        continue;
+
                                     var ast = tools.GetEN2DLAst(sentence.line, true);
 
                                     if (!string.IsNullOrEmpty(defaultPfx))

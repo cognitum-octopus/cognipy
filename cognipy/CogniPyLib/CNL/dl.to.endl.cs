@@ -733,6 +733,8 @@ namespace CogniPy.CNL.EN
                     return new CNL.EN.boundTotal(null, "DTM");
                 else if (V is CNL.DL.Duration)
                     return new CNL.EN.boundTotal(null, "DUR");
+                else if (V is CNL.DL.DecimalNumber)
+                    return new CNL.EN.boundTotal(null, "DEC");
                 else
                 {
                     Assert(false);

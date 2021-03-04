@@ -76,6 +76,8 @@ class Ontology:
         elif source == "rdf/string":
             cognipy_call(self._uid, "LoadRdfFromString", arg,
                          loadAnnotations, modalCheck, passParamsAsCnl, stop_on_error)
+        else:
+            raise ValueError("Invalid source parameter")
 
         if self._verbose:
             cnl = self.as_cnl()
