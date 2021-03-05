@@ -91,7 +91,6 @@ class Ontology:
 
     def __del__(self):
         cognipy_delete(self._uid)
-        print("Bye")
 
     def __enter__(self):
         return self
@@ -416,21 +415,23 @@ class Ontology:
                 return q
             return "{SELECT "+v+" {{"+str.join("} UNION {", [singSpqr(x) for x in constrains])+"}}}"
 
+        SEP='\1'
+
         if showCnc or len(include) > 0:
             negres = self.sparql_query(
                 "select ?x ?y ?z {?x rdfs:subClassOf ?y. ?y rdfs:subClassOf ?z. ?x rdf:type owl:Class. ?y rdf:type owl:Class. ?z rdf:type owl:Class. filter (?x!=?y && ?y !=?z && ?x!=?z)}")
             for frm, mid, to in negres.values:
                 if frm not in exclude and to not in exclude and mid not in exclude:
-                    if not frm+":"+to in negsubsumptions:
-                        negsubsumptions.add(frm+":"+to)
+                    if not frm+SEP+to in negsubsumptions:
+                        negsubsumptions.add(frm+SEP+to)
 
             res = self.sparql_query(
                 "select ?x ?y {?x rdfs:subClassOf ?y. ?x rdf:type owl:Class. ?y rdf:type owl:Class.  filter (?x!=?y)}")
             for frm, to in res.values:
                 if canAdd(showCnc, frm, to):
-                    if not frm+":"+to in negsubsumptions:
-                        if not frm+":"+to in subsumptions:
-                            subsumptions.add(frm+":"+to)
+                    if not frm+SEP+to in negsubsumptions:
+                        if not frm+SEP+to in subsumptions:
+                            subsumptions.add(frm+SEP+to)
                             addSubsumption(graph, frm, to)
 
         xcspq = constrainsUnionSparql(constrains, "?x")
@@ -440,16 +441,16 @@ class Ontology:
                 "select ?x ?y ?z {?x rdf:type ?y. ?y rdfs:subClassOf ?z. ?x rdf:type owl:NamedIndividual. ?y rdf:type owl:Class. ?z rdf:type owl:Class. filter (?x!=?y && ?y !=?z && ?x!=?z)."+xcspq+" }")
             for frm, mid, to in negres.values:
                 if frm not in exclude and to not in exclude and mid not in exclude:
-                    if not frm+":"+to in negtypes:
-                        negtypes.add(frm+":"+to)
+                    if not frm+SEP+to in negtypes:
+                        negtypes.add(frm+SEP+to)
 
             res = self.sparql_query(
                 "select ?x ?y {?x rdf:type ?y. ?x rdf:type owl:NamedIndividual. ?y rdf:type owl:Class."+xcspq+"}")
             for frm, to in res.values:
                 if canAdd(showInst, frm, to):
-                    if not frm+":"+to in negtypes:
-                        if not frm+":"+to in instances:
-                            instances.add(frm+":"+to)
+                    if not frm+SEP+to in negtypes:
+                        if not frm+SEP+to in instances:
+                            instances.add(frm+SEP+to)
                             addInstanceOf(graph, frm, to)
 
         if showRels or len(include) > 0:
@@ -457,8 +458,8 @@ class Ontology:
                 "select ?x ?y ?r {?x ?r ?y. ?x rdf:type owl:NamedIndividual. ?y rdf:type owl:NamedIndividual. ?r rdf:type owl:ObjectProperty. "+xcspq+"}")
             for frm, to, rel in res.values:
                 if canAddR(showRels, frm, rel, to):
-                    if not frm+":"+rel+":"+to in relations:
-                        relations.add(frm+":"+rel+":"+to)
+                    if not frm+SEP+rel+SEP+to in relations:
+                        relations.add(frm+SEP+rel+SEP+to)
                         addAssertion(graph, labels, frm, to, rel)
 
         if showVals or len(include) > 0:
@@ -468,17 +469,21 @@ class Ontology:
             for frm, to, rel in res.values:
                 if canAdd(showVals, frm, rel):
                     to = self._graph_attribute_formatter(to)
-                    if not frm+":"+rel+":"+to in datavalues:
-                        datavalues.add(frm+":"+rel+":"+to)
-                        if(frm+":"+rel in datavaldic.keys()):
-                            datavaldic[frm+":" +
-                                       rel] = datavaldic[frm+":"+rel]+"|"+to
+                    if not frm+SEP+rel+SEP+to in datavalues:
+                        datavalues.add(frm+SEP+rel+SEP+to)
+                        if(frm+SEP+rel in datavaldic.keys()):
+                            datavaldic[frm+SEP +
+                                       rel] = datavaldic[frm+SEP+rel]+"|"+to
                         else:
-                            datavaldic[frm+":"+rel] = to
+                            datavaldic[frm+SEP+rel] = to
 
             for k in datavaldic.keys():
-                frm, rel = k.split(':')
-                addDataValue(graph, labels, frm, "{"+datavaldic[k]+"}", rel)
+                try:
+                    frm, rel = k.split(SEP)
+                    addDataValue(graph, labels, frm, "{"+datavaldic[k]+"}", rel)
+                except:
+                    print(k)
+                    raise
 
         graph.set_K("1")
         if layout == "hierarchical":
@@ -491,16 +496,16 @@ class Ontology:
 
         if filename is None:
             if format == "svg":
-                return graph.create_svg(prog='dot')
+                return graph.create_svg(prog='dot',encoding='utf8')
             elif format == "png":
-                return graph.create_png(prog='dot')
+                return graph.create_png(prog='dot',encoding='utf8')
             else:
                 raise ValueError("unknown image format")
         else:
             if format == "svg":
-                return graph.write_svg(filename, prog='dot')
+                return graph.write_svg(filename, prog='dot',encoding='utf8')
             elif format == "png":
-                return graph.write_png(filename, prog='dot')
+                return graph.write_png(filename, prog='dot',encoding='utf8')
             else:
                 raise ValueError("unknown image format")
 
