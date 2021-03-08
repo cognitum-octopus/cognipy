@@ -1110,6 +1110,8 @@ namespace CogniPy.ARS
             {
                 if (node.getBuiltInDatatype() == OWL2Datatype.XSD_DATE_TIME || node.getBuiltInDatatype() == OWL2Datatype.XSD_DATE_TIME_STAMP)
                     ret = new CNL.DL.TotalBound(null) { V = new CNL.DL.DateTimeVal(null, "2012-01-03") };
+                else if (node.getBuiltInDatatype() == OWL2Datatype.XSD_DECIMAL)
+                    ret = new CNL.DL.TotalBound(null) { V = new CNL.DL.DecimalNumber(null, "$3.14") };
                 else if (node.getBuiltInDatatype().isNumeric())
                     ret = new CNL.DL.TotalBound(null) { V = new CNL.DL.Number(null, "1") };
                 else if (node.isBoolean())

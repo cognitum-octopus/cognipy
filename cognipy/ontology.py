@@ -2,6 +2,7 @@ from IPython.display import display, Markdown, Latex
 import pandas as pd
 import textwrap
 import re
+import os
 
 import pydot
 from io import BytesIO
@@ -76,6 +77,10 @@ class Ontology:
         elif source == "rdf/string":
             cognipy_call(self._uid, "LoadRdfFromString", arg,
                          loadAnnotations, modalCheck, passParamsAsCnl, stop_on_error)
+        elif source == "rdf/file":
+            with open(arg,"rt") as f:
+                cognipy_call(self._uid, "LoadRdfFromString", f.read(),
+                             loadAnnotations, modalCheck, passParamsAsCnl, stop_on_error)
         else:
             raise ValueError("Invalid source parameter")
 
