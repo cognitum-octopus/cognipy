@@ -1521,7 +1521,7 @@ namespace CogniPy.ARS
                     ret = new CNL.DL.DateTimeVal(null, node.getLiteral());
                 else if (dt.getBuiltInDatatype()== OWL2Datatype.XSD_DECIMAL)
                     ret = new CNL.DL.DecimalNumber(null, "$"+node.getLiteral());
-                else if (dt.getBuiltInDatatype() == OWL2Datatype.XSD_DOUBLE)
+                else if ((dt.getBuiltInDatatype() == OWL2Datatype.XSD_DOUBLE) || (dt.getBuiltInDatatype() == OWL2Datatype.XSD_FLOAT))
                     ret = new CNL.DL.Float(null, node.getLiteral());
                 else if (dt.getBuiltInDatatype().isNumeric())
                     ret = new CNL.DL.Number(null, node.getLiteral());
