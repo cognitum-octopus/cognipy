@@ -123,7 +123,7 @@ class Ontology:
         return cognipy_call(self._uid, "GetSubConceptsOf", cnl, direct)
 
     def sparql_query_for_instances(self, cnl):
-        """Converst CNL concept definition into corresponding SPARQL query
+        """Converts CNL concept definition into corresponding SPARQL query
 
         Args:
             cnl (str): the cnl expression that evaluates to the concept definition
@@ -188,7 +188,7 @@ class Ontology:
         """
         return cognipy_call(self._uid, "Highlight", cnl)
 
-    def insert_cnl(self, cnl):
+    def insert_abox_cnl(self, cnl):
         """Inserts new knowledge into the ontology.
         Only A-Box is accepted here.
 
@@ -201,7 +201,7 @@ class Ontology:
                 '**Y**', 'Y').replace('\r\n', '<br>').replace("<br><br>", "<br>")
             display(Markdown(markdown))
 
-    def delete_cnl(self, cnl):
+    def delete_abox_cnl(self, cnl):
         """Deletes the specified knowledge from the ontology
         Only A-Box is accepted here.
 
@@ -215,7 +215,7 @@ class Ontology:
             display(Markdown(markdown))
 
     def delete_instance(self, inst):
-        """Deletes the specified instance  from the ontology including all the conncetions it has to other instances and concepts
+        """Deletes the specified instance  from the ontology including all the connections it has to other instances and concepts
 
         Args:
             inst (str): the cnl name of the instance
@@ -230,7 +230,7 @@ class Ontology:
 
         Args:
             query: the SPARQL query. YOu can directly use prefixes like: [rdf:,rdfs,owl:]
-            asCNL : should the result names be automatically converted  back to their CNL representation (defult) of they should remain being rdf identifiers.
+            asCNL : should the result names be automatically converted  back to their CNL representation (default) of they should remain being rdf identifiers.
             column_names : list of column names of the returned DataFrame
 
         Returns:

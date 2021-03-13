@@ -31,15 +31,9 @@ def test_sub_concepts_of(onto):
     assert onto.sub_concepts_of("word") == []
     assert onto.sub_concepts_of("animal") == ['omnivore', 'impala']
 
-#TODO
 def test_sparql_query_for_instances(onto):
-    assert type(onto.sparql_query_for_instances("World")) is str
-
-#TODO def test_annotations_for_subject():
-#     assert onto.annotations_for_subject()
-
-#TODO def test_constraints_for_subject():
-#     assert onto.constrains_for_subject("World"))
+     query = onto.sparql_query_for_instances("World")
+     assert onto.sparql_query(query)['z0'][0] == 'World'
 
 def test_super_concepts_of(onto):
     assert onto.super_concepts_of("omnivore") == ['animal']
@@ -58,16 +52,19 @@ def test_highlight(onto):
     assert onto.highlight("Hello is a word") == 'Hello **is** **a** word'
     assert onto.highlight("Hello is a word.") == 'Hello **is** **a** word.'
 
-def test_insert_cnl(onto):
-    onto.insert_cnl("Test says Hello.")
+def test_insert_abox_cnl(onto):
+    onto.insert_abox_cnl("Test says Hello.")
     assert "Test is an impala" in onto.as_cnl()
     assert "Test says Hello." in onto.as_cnl()
 
-#TODO def test_delete_cnl():
+def test_delete_abox_cnl(onto):
+    onto.delete_abox_cnl("World says Hello.")
+    assert "World says Hello." not in onto.as_cnl()
+    assert "Hello is a word" in onto.as_cnl()
 
-#TODO def test_delete_instance():
-
-#TODO def setup_function
+#TODO
+# def test_delete_instance():
+#     onto.delete_instance
 
 def test_sparql_query(onto):
     df = onto.sparql_query(CQL("""select ?a1 ?a2 {
@@ -238,7 +235,7 @@ def test_create_graph_relations(onto):
 def test_create_graph_attributes(onto):
     test_graph = pydot.Dot(graph_type='graph')
 
-    onto.insert_cnl("Test has-name equal-to 'test_name'.")
+    onto.insert_abox_cnl("Test has-name equal-to 'test_name'.")
 
     res = [['Test','test_name','has-name']]
     for frm, to, rel in res:
