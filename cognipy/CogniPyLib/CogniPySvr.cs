@@ -52,6 +52,7 @@ namespace CogniPy
         HashSet<string> instances = new HashSet<string>();
         HashSet<string> concepts = new HashSet<string>();
         HashSet<string> datatypes = new HashSet<string>();
+        CogniPy.CNL.AnnotationManager annotManToTranslate = null;
         Dictionary<string, Dictionary<string, List<AnnotationResult>>> annotations = new Dictionary<string, Dictionary<string, List<AnnotationResult>>>();
 
         static string KWDBEG = @"\b(?<!(\-|[A-z]|[0-9]))";
@@ -225,7 +226,7 @@ namespace CogniPy
         private void LoadAnnotations(CogniPy.CNL.DL.Paragraph paragraph)
         {
 
-            CogniPy.CNL.AnnotationManager annotManToTranslate = new AnnotationManager();
+            annotManToTranslate = new AnnotationManager();
 
             foreach (var stmt in paragraph.Statements)
             {
@@ -344,7 +345,7 @@ namespace CogniPy
         {
             if (_reasoner == null)
                 return "";
-            return reasoner.GetOWLXML(includeImplicitKnowledge);
+            return reasoner.GetOWLXML(includeImplicitKnowledge, annotManToTranslate);
         }
 
         public void SetProperty(string prop, string name, object val)

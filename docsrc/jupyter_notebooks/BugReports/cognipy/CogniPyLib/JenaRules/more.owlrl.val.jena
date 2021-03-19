@@ -1,0 +1,86 @@
+#---------------------------------------------------------
+# More Validation Template Rules (NOT COMPLETELY TESTED)
+#---------------------------------------------------------
+[validationMaxN: 
+	(?C rdfs:subClassOf ?R), 
+	(?R owl:onProperty ?P), 
+	(?R owl:maxCardinality ?N),
+	greaterThan(?N, 1), 
+	(?P rdf:type owl:DatatypeProperty),
+	(?X rdf:type ?C ), 
+	countLiteralValues(?X, ?P, ?M),	
+	lessThan(?N, ?M) 
+	-> ontologyError('too many values', 'Too many values on max-N property (prop, class)',?X, ?P, ?C )]
+
+[validationMax1:  
+	(?C rdfs:subClassOf ?R),
+	(?R owl:onProperty ?P), 
+	(?R owl:maxCardinality 1),
+	(?P rdf:type owl:DatatypeProperty),
+	(?X rdf:type ?C ), 
+	(?X ?P ?V), 
+	(?X ?P ?U), 
+	isLiteral(?V), 
+	isLiteral(?U), 
+	notEqual(?V, ?U) 
+	-> ontologyError('too many values', 'Clashing literal values for card1 property',?X, ?P, ?V, ?U)]
+
+[validationFP:  
+	(?P rdf:type owl:FunctionalProperty),
+	(?P rdf:type owl:DatatypeProperty),
+	(?X ?P ?V), 
+	(?X ?P ?U), 
+	isLiteral(?V), 
+	isLiteral(?U), 
+	notEqual(?V, ?U) 
+	-> ontologyError('too many values', 'Clashing literal values for functional property', ?X, ?P, ?V, ?U)]
+
+[validationMax1I: 
+	(?C rdfs:subClassOf ?R),
+	(?R owl:onProperty ?P), 
+	(?R owl:maxCardinality 1),
+	(?P rdf:type owl:ObjectProperty),
+	(?X rdf:type ?C ), 
+	(?X ?P ?V), 
+	(?X ?P ?U), 
+	notEqual(?V, ?U), 
+	(?U owl:differentFrom ?V) 
+	-> ontologyError('too many values', 'Clashing individual values for card1 property',?X, ?P, ?V, ?U)]
+
+[validationFPI: 
+	(?P rdf:type owl:FunctionalProperty),
+	(?P rdf:type owl:ObjectProperty),
+	(?X ?P ?V), 
+	(?X ?P ?U), 
+	notEqual(?V, ?U), 
+	(?U owl:differentFrom ?V) 
+	-> ontologyError('too many values', 'Clashing individual values for functional property',?X, ?P, ?V, ?U)]
+
+[validationDTP: 
+	(?P rdf:type owl:DatatypeProperty),
+	(?X ?P ?V), 
+	notLiteral(?V), 
+	notBNode(?V) 
+	-> ontologyError('range check', 'Object value for datatype property (prop, value)',?X, ?P, ?V)]
+
+[validationOP: 
+	(?P rdf:type owl:ObjectProperty),
+	(?X ?P ?V), 
+	isLiteral(?V) 
+	-> ontologyError('range check', 'Literal value for object property (prop, value)',?X , ?P, ?V)]
+
+[validationDTRange: 
+	(?P rdfs:range rdfs:Literal),
+	(?X ?P ?V), 
+	notLiteral(?V), 
+	notBNode(?V) 
+	-> ontologyError('range check', 'Incorrectly typed literal due to range rdsf:Literal (prop, value)',?X , ?P, ?V)]
+
+[validationAllFrom: 
+		(?C owl:equivalentClass ?R),
+		(?R owl:onProperty ?P), 
+		(?R owl:allValuesFrom rdfs:Literal),
+		(?X ?P ?V), 
+		(?X rdf:type ?C ), 
+		notDType(?V, rdfs:Literal) 
+		-> ontologyError('range check', 'Incorrectly typed literal due to allValuesFrom rdfs:Literal (prop, value)', ?X, ?P, ?V)]

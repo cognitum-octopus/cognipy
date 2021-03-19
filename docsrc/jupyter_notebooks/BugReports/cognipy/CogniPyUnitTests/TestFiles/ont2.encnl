@@ -1,0 +1,235 @@
+﻿Every-single-thing has-label nothing-but (some string value).
+Every deal-criteria is a network-component.
+Every operational-risk-network-component is a network-component.
+Every operational-risk-network-deal-criteria is a deal-criteria.
+Every operational-risk-network-deal-criteria is an operational-risk-network-component.
+Every operational-risk-top-outcome is an operational-risk-network-component.
+Operational-Risk is an operational-risk-top-outcome.
+Operational-Risk has-label equal-to 'Operational Risk'.
+Operational-Risk is a positive-outcome.
+Operational-Risk has-network-id equal-to 'Net-op'.
+Operational-Risk is a network.
+Every reputational-risk-component is a network-component.
+Every reputational-risk-network-deal-criteria is a deal-criteria.
+Every reputational-risk-network-deal-criteria is a reputational-risk-network-component.
+Every reputational-risk-top-outcome is a reputational-risk-network-component.
+Reputational-Risk is a reputational-risk-top-outcome.
+Reputational-Risk has-label equal-to 'Reputational Risk'.
+Reputational-Risk is a positive-outcome.
+Reputational-Risk has-network-id equal-to 'Net-re'.
+Reputational-Risk is a network.
+Every compliance-burden-network-component is a network-component.
+Every compliance-burden-network-deal-criteria is a deal-criteria.
+Every compliance-burden-network-deal-criteria is a compliance-burden-network-component.
+Every compliance-burden-top-outcome is a compliance-burden-network-component.
+Compliance-Burden is a compliance-burden-top-outcome.
+Compliance-Burden has-label equal-to 'Compliance Burden'.
+Compliance-Burden is a positive-outcome.
+Compliance-Burden has-network-id equal-to 'Net-co'.
+Compliance-Burden is a network.
+Every slider is a standalone-slider.
+Slider-1 is a slider.
+Slider-1 has-init-value equal-to 0.0.
+Slider-1 has-min-value equal-to 0.0.
+Slider-1 has-max-value equal-to 100.0.
+Slider-1 has-related-network equal-to 'Net-co'.
+Slider-2 is a slider.
+Slider-2 has-init-value equal-to 0.0.
+Slider-2 has-min-value equal-to 0.0.
+Slider-2 has-max-value equal-to 100.0.
+Slider-2 has-related-network equal-to 'Net-op'.
+Slider-3 is a slider.
+Slider-3 has-init-value equal-to 0.0.
+Slider-3 has-min-value equal-to 0.0.
+Slider-3 has-max-value equal-to 100.0.
+Slider-3 has-related-network equal-to 'Net-re'.
+Deal-Criteria-1 influences-with-weight-of-1 Operational-Risk.
+Deal-Criteria-2 influences-with-weight-of-1 Reputational-Risk.
+Deal-Criteria-3 influences-with-weight-of-1 Compliance-Burden.
+Deal-Criteria-4 influences-with-weight-of-1 Operational-Risk.
+Deal-Criteria-5 influences-with-weight-of-1 Reputational-Risk.
+Deal-Criteria-6 influences-with-weight-of-1 Compliance-Burden.
+Deal-Criteria-7 influences-with-weight-of-1 Operational-Risk.
+Deal-Criteria-8 influences-with-weight-of-1 Reputational-Risk.
+Deal-Criteria-9 influences-with-weight-of-1 Compliance-Burden.
+Deal-Criteria-10 influences-with-weight-of-1 Operational-Risk.
+Deal-Criteria-11 influences-with-weight-of-1 Reputational-Risk.
+Deal-Criteria-12 influences-with-weight-of-1 Compliance-Burden.
+Deal-Criteria-13 influences-with-weight-of-1 Operational-Risk.
+Deal-Criteria-14 influences-with-weight-of-1 Reputational-Risk.
+Deal-Criteria-15 influences-with-weight-of-1 Compliance-Burden.
+Deal-Criteria-16 influences-with-weight-of-1 Operational-Risk.
+Deal-Criteria-17 influences-with-weight-of-1 Reputational-Risk.
+Deal-Criteria-18 influences-with-weight-of-1 Compliance-Burden.
+Deal-Criteria-19 influences-with-weight-of-1 Operational-Risk.
+Deal-Criteria-20 influences-with-weight-of-1 Reputational-Risk.
+Deal-Criteria-21 influences-with-weight-of-1 Compliance-Burden.
+Deal-Criteria-22 influences-with-weight-of-1 Operational-Risk.
+Deal-Criteria-23 influences-with-weight-of-1 Reputational-Risk.
+Deal-Criteria-24 influences-with-weight-of-1 Compliance-Burden.
+Deal-Criteria-25 influences-with-weight-of-1 Operational-Risk.
+Deal-Criteria-26 influences-with-weight-of-1 Reputational-Risk.
+Deal-Criteria-27 influences-with-weight-of-1 Compliance-Burden.
+Deal-Criteria-1 is an operational-risk-network-deal-criteria.
+Deal-Criteria-1 is an operational-risk-network-component.
+Deal-Criteria-1 has-sql-name equal-to ''.
+Deal-Criteria-1 has-availability equal-to 'Data-Available'.
+Deal-Criteria-1 has-unit equal-to ''.
+Deal-Criteria-1 has-aggregation equal-to 'None'.
+Deal-Criteria-2 is a reputational-risk-network-deal-criteria.
+Deal-Criteria-2 is a reputational-risk-network-component.
+Deal-Criteria-2 has-sql-name equal-to ''.
+Deal-Criteria-2 has-availability equal-to 'Data-Available'.
+Deal-Criteria-2 has-unit equal-to ''.
+Deal-Criteria-2 has-aggregation equal-to 'None'.
+Deal-Criteria-3 is a compliance-burden-network-deal-criteria.
+Deal-Criteria-3 is a compliance-burden-network-component.
+Deal-Criteria-3 has-sql-name equal-to ''.
+Deal-Criteria-3 has-availability equal-to 'Data-Available'.
+Deal-Criteria-3 has-unit equal-to ''.
+Deal-Criteria-3 has-aggregation equal-to 'None'.
+Deal-Criteria-4 is an operational-risk-network-deal-criteria.
+Deal-Criteria-4 is an operational-risk-network-component.
+Deal-Criteria-4 has-sql-name equal-to ''.
+Deal-Criteria-4 has-availability equal-to 'Data-Available'.
+Deal-Criteria-4 has-unit equal-to ''.
+Deal-Criteria-4 has-aggregation equal-to 'None'.
+Deal-Criteria-5 is a reputational-risk-network-deal-criteria.
+Deal-Criteria-5 is a reputational-risk-network-component.
+Deal-Criteria-5 has-sql-name equal-to ''.
+Deal-Criteria-5 has-availability equal-to 'Data-Available'.
+Deal-Criteria-5 has-unit equal-to ''.
+Deal-Criteria-5 has-aggregation equal-to 'None'.
+Deal-Criteria-6 is a compliance-burden-network-deal-criteria.
+Deal-Criteria-6 is a compliance-burden-network-component.
+Deal-Criteria-6 has-sql-name equal-to ''.
+Deal-Criteria-6 has-availability equal-to 'Data-Available'.
+Deal-Criteria-6 has-unit equal-to ''.
+Deal-Criteria-6 has-aggregation equal-to 'None'.
+Deal-Criteria-7 is an operational-risk-network-deal-criteria.
+Deal-Criteria-7 is an operational-risk-network-component.
+Deal-Criteria-7 has-sql-name equal-to ''.
+Deal-Criteria-7 has-availability equal-to 'Data-Available'.
+Deal-Criteria-7 has-unit equal-to ''.
+Deal-Criteria-7 has-aggregation equal-to 'None'.
+Deal-Criteria-8 is a reputational-risk-network-deal-criteria.
+Deal-Criteria-8 is a reputational-risk-network-component.
+Deal-Criteria-8 has-sql-name equal-to ''.
+Deal-Criteria-8 has-availability equal-to 'Data-Available'.
+Deal-Criteria-8 has-unit equal-to ''.
+Deal-Criteria-8 has-aggregation equal-to 'None'.
+Deal-Criteria-9 is a compliance-burden-network-deal-criteria.
+Deal-Criteria-9 is a compliance-burden-network-component.
+Deal-Criteria-9 has-sql-name equal-to ''.
+Deal-Criteria-9 has-availability equal-to 'Data-Available'.
+Deal-Criteria-9 has-unit equal-to ''.
+Deal-Criteria-9 has-aggregation equal-to 'None'.
+Deal-Criteria-10 is an operational-risk-network-deal-criteria.
+Deal-Criteria-10 is an operational-risk-network-component.
+Deal-Criteria-10 has-sql-name equal-to ''.
+Deal-Criteria-10 has-availability equal-to 'Data-Available'.
+Deal-Criteria-10 has-unit equal-to ''.
+Deal-Criteria-10 has-aggregation equal-to 'None'.
+Deal-Criteria-11 is a reputational-risk-network-deal-criteria.
+Deal-Criteria-11 is a reputational-risk-network-component.
+Deal-Criteria-11 has-sql-name equal-to ''.
+Deal-Criteria-11 has-availability equal-to 'Data-Available'.
+Deal-Criteria-11 has-unit equal-to ''.
+Deal-Criteria-11 has-aggregation equal-to 'None'.
+Deal-Criteria-12 is a compliance-burden-network-deal-criteria.
+Deal-Criteria-12 is a compliance-burden-network-component.
+Deal-Criteria-12 has-sql-name equal-to ''.
+Deal-Criteria-12 has-availability equal-to 'Data-Available'.
+Deal-Criteria-12 has-unit equal-to ''.
+Deal-Criteria-12 has-aggregation equal-to 'None'.
+Deal-Criteria-13 is an operational-risk-network-deal-criteria.
+Deal-Criteria-13 is an operational-risk-network-component.
+Deal-Criteria-13 has-sql-name equal-to ''.
+Deal-Criteria-13 has-availability equal-to 'Data-Available'.
+Deal-Criteria-13 has-unit equal-to ''.
+Deal-Criteria-13 has-aggregation equal-to 'None'.
+Deal-Criteria-14 is a reputational-risk-network-deal-criteria.
+Deal-Criteria-14 is a reputational-risk-network-component.
+Deal-Criteria-14 has-sql-name equal-to ''.
+Deal-Criteria-14 has-availability equal-to 'Data-Available'.
+Deal-Criteria-14 has-unit equal-to ''.
+Deal-Criteria-14 has-aggregation equal-to 'None'.
+Deal-Criteria-15 is a compliance-burden-network-deal-criteria.
+Deal-Criteria-15 is a compliance-burden-network-component.
+Deal-Criteria-15 has-sql-name equal-to ''.
+Deal-Criteria-15 has-availability equal-to 'Data-Available'.
+Deal-Criteria-15 has-unit equal-to ''.
+Deal-Criteria-15 has-aggregation equal-to 'None'.
+Deal-Criteria-16 is an operational-risk-network-deal-criteria.
+Deal-Criteria-16 is an operational-risk-network-component.
+Deal-Criteria-16 has-sql-name equal-to ''.
+Deal-Criteria-16 has-availability equal-to 'Data-Available'.
+Deal-Criteria-16 has-unit equal-to ''.
+Deal-Criteria-16 has-aggregation equal-to 'None'.
+Deal-Criteria-17 is a reputational-risk-network-deal-criteria.
+Deal-Criteria-17 is a reputational-risk-network-component.
+Deal-Criteria-17 has-sql-name equal-to ''.
+Deal-Criteria-17 has-availability equal-to 'Data-Available'.
+Deal-Criteria-17 has-unit equal-to ''.
+Deal-Criteria-17 has-aggregation equal-to 'None'.
+Deal-Criteria-18 is a compliance-burden-network-deal-criteria.
+Deal-Criteria-18 is a compliance-burden-network-component.
+Deal-Criteria-18 has-sql-name equal-to ''.
+Deal-Criteria-18 has-availability equal-to 'Data-Available'.
+Deal-Criteria-18 has-unit equal-to ''.
+Deal-Criteria-18 has-aggregation equal-to 'None'.
+Deal-Criteria-19 is an operational-risk-network-deal-criteria.
+Deal-Criteria-19 is an operational-risk-network-component.
+Deal-Criteria-19 has-sql-name equal-to ''.
+Deal-Criteria-19 has-availability equal-to 'Data-Available'.
+Deal-Criteria-19 has-unit equal-to ''.
+Deal-Criteria-19 has-aggregation equal-to 'None'.
+Deal-Criteria-20 is a reputational-risk-network-deal-criteria.
+Deal-Criteria-20 is a reputational-risk-network-component.
+Deal-Criteria-20 has-sql-name equal-to ''.
+Deal-Criteria-20 has-availability equal-to 'Data-Available'.
+Deal-Criteria-20 has-unit equal-to ''.
+Deal-Criteria-20 has-aggregation equal-to 'None'.
+Deal-Criteria-21 is a compliance-burden-network-deal-criteria.
+Deal-Criteria-21 is a compliance-burden-network-component.
+Deal-Criteria-21 has-sql-name equal-to ''.
+Deal-Criteria-21 has-availability equal-to 'Data-Available'.
+Deal-Criteria-21 has-unit equal-to ''.
+Deal-Criteria-21 has-aggregation equal-to 'None'.
+Deal-Criteria-22 is an operational-risk-network-deal-criteria.
+Deal-Criteria-22 is an operational-risk-network-component.
+Deal-Criteria-22 has-sql-name equal-to ''.
+Deal-Criteria-22 has-availability equal-to 'Data-Available'.
+Deal-Criteria-22 has-unit equal-to ''.
+Deal-Criteria-22 has-aggregation equal-to 'None'.
+Deal-Criteria-23 is a reputational-risk-network-deal-criteria.
+Deal-Criteria-23 is a reputational-risk-network-component.
+Deal-Criteria-23 has-sql-name equal-to ''.
+Deal-Criteria-23 has-availability equal-to 'Data-Available'.
+Deal-Criteria-23 has-unit equal-to ''.
+Deal-Criteria-23 has-aggregation equal-to 'None'.
+Deal-Criteria-24 is a compliance-burden-network-deal-criteria.
+Deal-Criteria-24 is a compliance-burden-network-component.
+Deal-Criteria-24 has-sql-name equal-to ''.
+Deal-Criteria-24 has-availability equal-to 'Data-Available'.
+Deal-Criteria-24 has-unit equal-to ''.
+Deal-Criteria-24 has-aggregation equal-to 'None'.
+Deal-Criteria-25 is an operational-risk-network-deal-criteria.
+Deal-Criteria-25 is an operational-risk-network-component.
+Deal-Criteria-25 has-sql-name equal-to ''.
+Deal-Criteria-25 has-availability equal-to 'Data-Available'.
+Deal-Criteria-25 has-unit equal-to ''.
+Deal-Criteria-25 has-aggregation equal-to 'None'.
+Deal-Criteria-26 is a reputational-risk-network-deal-criteria.
+Deal-Criteria-26 is a reputational-risk-network-component.
+Deal-Criteria-26 has-sql-name equal-to ''.
+Deal-Criteria-26 has-availability equal-to 'Data-Available'.
+Deal-Criteria-26 has-unit equal-to ''.
+Deal-Criteria-26 has-aggregation equal-to 'None'.
+Deal-Criteria-27 is a compliance-burden-network-deal-criteria.
+Deal-Criteria-27 is a compliance-burden-network-component.
+Deal-Criteria-27 has-sql-name equal-to ''.
+Deal-Criteria-27 has-availability equal-to 'Data-Available'.
+Deal-Criteria-27 has-unit equal-to ''.
+Deal-Criteria-27 has-aggregation equal-to 'None'.
+

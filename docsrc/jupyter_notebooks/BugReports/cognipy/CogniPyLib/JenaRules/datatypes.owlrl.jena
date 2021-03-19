@@ -1,0 +1,9 @@
+#------------------------------
+#The Semantics of Datatypes 
+#------------------------------
+
+# all must be done procedurally
+#--TODO-- dt-type1 		T(dt, rdf:type, rdfs:Datatype) 	for each datatype dt supported in OWL 2 RL
+#--TODO-- dt-type2 		T(lt, rdf:type, dt) 	for each literal lt and each datatype dt supported in OWL 2 RL such that the data value of lt is contained in the value space of dt
+#--TODO-- dt-eq 		T(lt1, owl:sameAs, lt2) 	for all literals lt1 and lt2 with the same data value
+#--TODO-- dt-diff 		T(lt1, owl:differentFrom, lt2) 	for all literals lt1 and lt2 with different data values 

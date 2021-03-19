@@ -1,0 +1,1 @@
+..\..\IKVM\bin\ikvmc.exe -target:library -version:0.5.0.0 -out:elk.dll -r:../owlapi.dll elk-owlapi.jar lib\slf4j-api.jar lib\slf4j-nop-1.7.12.jar  

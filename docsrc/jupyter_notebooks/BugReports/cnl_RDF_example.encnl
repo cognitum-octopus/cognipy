@@ -1,0 +1,23 @@
+Comment: "   Not needed, only used to get a draw display
+Every class-string is a superclass.
+Every class-integer is a superclass.
+Every class-double is a superclass.
+Every class-float is a superclass.
+Every class-boolean is a superclass.
+Every class-duration is a superclass.
+Every class-datetime is a superclass.
+Every class-real is a superclass.
+Every class-decimal is a superclass.
+
+Every class-decimal has-account-id nothing-but (some decimal value).
+
+".
+Every class-decimal has-account-id nothing-but (some decimal value).
+Every class-double has-account-id nothing-but (some double value).
+Every class-float has-account-id nothing-but (some float value).
+Every class-string has-account-id nothing-but (some string value).
+Every class-integer has-account-id nothing-but (some integer value).
+Every class-boolean has-account-id nothing-but (some boolean value).
+Every class-duration has-account-id nothing-but (some duration value).
+Every class-datetime has-account-id nothing-but (some datetime value).
+Every class-real has-account-id nothing-but (some real value).

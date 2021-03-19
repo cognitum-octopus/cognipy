@@ -1,0 +1,65 @@
+#------------------------------
+#The Semantics of Classes 
+#------------------------------
+
+#TODO cls-thing 	ADD	T(owl:Thing, rdf:type, owl:Class)
+#TODO cls-nothing1 	ADD	T(owl:Nothing, rdf:type, owl:Class) 
+
+#[cls-int1: (?C owl:intersectionOf ?L), (?Y rdf:type ?N), listEntry(?L, 0, ?N) -> setupCommonToListAsSubject(?L, ?Y, ?C)]
+[cls-int1: (?C owl:intersectionOf ?L), (?Y rdf:type ?N), listEntry(?L, 0, ?N), listAllEntriesAre(?Y, ?L) -> listAllEntriesAre(?Y, ?L, ?C), (?Y rdf:type ?C)]
+
+[cls-int2: (?C owl:intersectionOf ?L), (?Y rdf:type ?C) -> listMapAsObject(?Y, rdf:type, ?L)]
+
+[cls-uni: (?C owl:unionOf ?L), listContains(?L, ?N), (?Y rdf:type ?N) -> (?Y rdf:type ?C)]
+
+[cls-svf1a: 
+	(?R owl:onProperty ?P),
+	(?R owl:someValuesFrom ?D),
+	(?X ?P ?A), (?A rdf:type ?D ) -> (?X rdf:type ?R )]
+
+[cls-svf1b: 
+	(?R owl:onProperty ?P),
+	(?R owl:someValuesFrom ?D),
+	(?P rdf:type owl:DatatypeProperty),
+	(?X ?P ?A), isDType(?A ?D ) -> (?X rdf:type ?R )]
+
+[cls-svf2: 
+	(?R owl:onProperty ?P),
+	(?R owl:someValuesFrom owl:Thing),
+	(?X ?P ?A) -> (?X rdf:type ?R )]
+
+[cls-avf: 
+	(?R owl:onProperty ?P),
+	(?R owl:allValuesFrom ?D),
+	(?X ?P ?Y), (?X rdf:type ?R ) -> (?Y rdf:type ?D )]
+
+[cls-hv1: 
+	(?R owl:onProperty ?P),
+	(?R owl:hasValue ?V),
+	(?X rdf:type ?R ) -> (?X ?P ?V )]
+
+[cls-hv2: 
+	(?R owl:onProperty ?P),	
+	(?R owl:hasValue ?V),
+	(?X ?P ?V ) -> (?X rdf:type ?R )]
+	
+[cls-maxc2: 
+	(?R owl:onProperty ?P),	
+	(?R owl:maxCardinality 1),
+	(?X rdf:type ?R ), (?X ?P ?Y1), (?X ?P ?Y2), notEqual(?Y1, ?Y2) -> (?Y1 owl:sameAs ?Y2)]
+
+[cls-maxqc3: 
+	(?R owl:maxQualifiedCardinality 1),
+	(?R owl:onProperty ?P),
+	(?R owl:onClass ?C),
+	(?X rdf:type ?R ), (?X ?P ?Y1), (?Y1 rdf:type ?C ), (?X ?P ?Y2), (?Y2 rdf:type ?C ), notEqual(?Y1 ?Y2) -> (?Y1 owl:sameAs ?Y2)]
+
+[cls-maxqc4: 
+	(?R owl:maxQualifiedCardinality 1),
+	(?R owl:onProperty ?P),
+	(?R owl:onClass owl:Thing),
+	(?X rdf:type ?R ), (?X ?P ?Y1), (?X ?P ?Y2), notEqual(?Y1 ?Y2) -> (?Y1 owl:sameAs ?Y2)]
+
+
+[cls-oo: (?C owl:oneOf ?l) -> listMapAsSubject(?l, rdf:type, ?C)]
+

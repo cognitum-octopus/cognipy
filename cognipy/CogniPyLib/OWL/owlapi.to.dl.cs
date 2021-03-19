@@ -135,7 +135,9 @@ namespace CogniPy.ARS
             ret = null;
             ontology.accept(this);
             _ontology = defaultOnt;
-            return ret as CogniPy.CNL.DL.Paragraph;
+            var x = ret as CogniPy.CNL.DL.Paragraph;
+            x.Statements.Insert(0, new CNL.DL.Annotation(null) { txt = "%Namespace:'" + defaultNs.Replace("'","''") + "'." });
+            return x;
         }
 
         public CNL.DL.Statement Convert(OWLAxiom axiom)

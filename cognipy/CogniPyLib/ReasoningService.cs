@@ -156,7 +156,15 @@ namespace CogniPy.Executing.HermiTClient
             return sb.ToString();
         }
 
-        public string GetOWLXML(bool includeImplicitValue, bool fresh = true)
+        public string GetOWLXML(bool includeImplicitValue, AnnotationManager annotMan)
+        {
+            XmlDocument XMLdoc = new XmlDocument();
+            string ontout = OWLConverter.GetOWLXML(GetParagraph(includeImplicitValue), false, "", invUriMappings, annotMan, this.ontologyBase);
+            XMLdoc.LoadXml(ontout);
+            return SerializeDoc(XMLdoc);
+        }
+
+        public string GetOWLXML2(bool includeImplicitValue, bool fresh = true)
         {
             {
                 OWLOntologyManager manager;

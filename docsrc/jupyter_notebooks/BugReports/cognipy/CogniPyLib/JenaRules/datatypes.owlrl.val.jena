@@ -1,0 +1,5 @@
+#------------------------------
+#The Semantics of Datatypes 
+#------------------------------
+
+#-TODO-[dt-not-type] :	T(lt, rdf:type, dt) 	false 

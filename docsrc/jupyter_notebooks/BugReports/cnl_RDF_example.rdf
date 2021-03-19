@@ -1,0 +1,134 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<rdf:RDF xmlns="http://www.cognitum.eu/onto#" xml:base="http://www.cognitum.eu/onto" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:Ontology rdf:about="http://www.cognitum.eu/onto#" />
+  <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+  <!-- http://www.cognitum.eu/onto#double -->
+  <rdfs:Datatype rdf:about="http://www.cognitum.eu/onto#double" />
+  <!-- http://www.cognitum.eu/onto#float -->
+  <rdfs:Datatype rdf:about="http://www.cognitum.eu/onto#float" />
+  <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+  <!-- http://www.cognitum.eu/onto#hasAccountId -->
+  <owl:DatatypeProperty rdf:about="http://www.cognitum.eu/onto#hasAccountId" />
+  <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+  <!-- http://www.cognitum.eu/onto#classBoolean -->
+  <owl:Class rdf:about="http://www.cognitum.eu/onto#classBoolean">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.cognitum.eu/onto#hasAccountId" />
+        <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#boolean" />
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <!-- http://www.cognitum.eu/onto#classDatetime -->
+  <owl:Class rdf:about="http://www.cognitum.eu/onto#classDatetime">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.cognitum.eu/onto#hasAccountId" />
+        <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime" />
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <!-- http://www.cognitum.eu/onto#classDecimal -->
+  <owl:Class rdf:about="http://www.cognitum.eu/onto#classDecimal">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.cognitum.eu/onto#hasAccountId" />
+        <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#decimal" />
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <!-- http://www.cognitum.eu/onto#classDouble -->
+  <owl:Class rdf:about="http://www.cognitum.eu/onto#classDouble">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.cognitum.eu/onto#hasAccountId" />
+        <owl:allValuesFrom rdf:resource="http://www.cognitum.eu/onto#double" />
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <!-- http://www.cognitum.eu/onto#classDuration -->
+  <owl:Class rdf:about="http://www.cognitum.eu/onto#classDuration">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.cognitum.eu/onto#hasAccountId" />
+        <owl:allValuesFrom rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral" />
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <!-- http://www.cognitum.eu/onto#classFloat -->
+  <owl:Class rdf:about="http://www.cognitum.eu/onto#classFloat">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.cognitum.eu/onto#hasAccountId" />
+        <owl:allValuesFrom rdf:resource="http://www.cognitum.eu/onto#float" />
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <!-- http://www.cognitum.eu/onto#classInteger -->
+  <owl:Class rdf:about="http://www.cognitum.eu/onto#classInteger">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.cognitum.eu/onto#hasAccountId" />
+        <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer" />
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <!-- http://www.cognitum.eu/onto#classReal -->
+  <owl:Class rdf:about="http://www.cognitum.eu/onto#classReal">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.cognitum.eu/onto#hasAccountId" />
+        <owl:allValuesFrom>
+          <rdfs:Datatype>
+            <owl:unionOf rdf:parseType="Collection">
+              <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double" />
+                <owl:withRestrictions rdf:parseType="Collection">
+                  <rdf:Description>
+                    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</xsd:minInclusive>
+                  </rdf:Description>
+                </owl:withRestrictions>
+              </rdfs:Datatype>
+              <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#double" />
+                <owl:withRestrictions rdf:parseType="Collection">
+                  <rdf:Description>
+                    <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</xsd:maxInclusive>
+                  </rdf:Description>
+                </owl:withRestrictions>
+              </rdfs:Datatype>
+            </owl:unionOf>
+          </rdfs:Datatype>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <!-- http://www.cognitum.eu/onto#classString -->
+  <owl:Class rdf:about="http://www.cognitum.eu/onto#classString">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.cognitum.eu/onto#hasAccountId" />
+        <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string" />
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+</rdf:RDF>
+<!-- Generated by the OWL API (version 3.5.1.c) http://owlapi.sourceforge.net -->

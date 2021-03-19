@@ -1,0 +1,25 @@
+%lexer cs0tokens // for subset of C# for class definitions
+%namespace YYClass
+%encoding ASCII
+%declare{
+	public string Out;
+}
+[ \t\n\r]	;
+yybegin	{ yytext ="yym.yy_begin"; return new ANY(); }
+yyl { yytext="(("+((cs0tokens)yym).Out+")yym)"; return new ANY(); }
+yyp { yytext="(("+((cs0tokens)yym).Out+")yyq)"; return new ANY(); }
+base	%BASE
+this	%THIS
+new		%NEW
+[a-zA-Z_][0-9a-zA-Z_]*	%ID
+"'"[^']*"'"	%ANY
+'"'[^"]*'"' %ANY
+:	%COLON
+;	%SEMICOLON
+"{"	%LBRACE
+"}"	%RBRACE
+"("	%LPAREN
+")"	%RPAREN
+"["	%LBRACK
+"]"	%RBRACK
+.	%ANY 

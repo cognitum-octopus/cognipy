@@ -1,0 +1,53 @@
+﻿Title: 'Semantic Forms Ontology'.
+Namespace: 'http://cognitum.eu/sfo'.
+
+
+If X follows Y then Y is-followed-by X.
+
+If a section is concerned by a form and the form concerns a subject then the subject has-section-concerned-by-something-that-concerns the section.
+
+X concerns Y if-and-only-if Y is-concerned-by X.
+
+Every field is an enumeration.
+
+Every next-form-instance is an enumeration.
+
+Every yes-no-answer is a field.
+
+Every yes-no-ns-answer is a field.
+
+Something is a yes-no-answer if-and-only-if-it is either Yes-Answer or Not-Answer.
+
+Something is a yes-no-ns-answer if-and-only-if-it is either Yes-Answer, Not-Answer or Not-Specified.
+
+Every form must concern a subject.
+
+Every form must concern a section.
+
+Every form must have-status a status.
+
+Every starting-form is a form.
+    
+Dynamic is a dynamic-event.
+
+Something is a status if-and-only-if-it is either Submitted or Non-Existing.
+
+Every-single-thing has-recommendation nothing-but recommendation.
+
+Every-single-thing has-irrelevant-recommendation nothing-but recommendation.
+
+If X recommends Y then Y is-recommended-by X.
+
+Every-single-thing subject-reference nothing-but Subject-Reference.
+
+Annotations:
+_Not-Specified Instance: "label":rdfs 'NIE OKREŚLONO'@pl
+_Not-Specified Instance: ada-label 'Not-Specified'@en
+_Not-Specified Instance: option-position '2'@pl
+_Yes-Answer Instance: "label":rdfs 'TAK'@pl
+_Yes-Answer Instance: ada-label 'YES'@en
+_Yes-Answer Instance: option-position '0'@pl
+_Not-Answer Instance: "label":rdfs 'NIE'@pl
+_Not-Answer Instance: ada-label 'NO'@en
+_Not-Answer Instance: option-position '1'@pl
+.

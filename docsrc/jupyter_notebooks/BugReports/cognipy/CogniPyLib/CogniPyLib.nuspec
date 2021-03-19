@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Cognitum</authors>
+    <owners>Cognitum</owners>
+    <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
+    <projectUrl>http://www.cognitum.eu/semantics/FluentEditor/</projectUrl>
+    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>The client for all Fluent Editor functionalities.</description>
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>Tag1 Tag2</tags>
+	<dependencies>
+            <dependency id="IKVM" version="8.1.5717.0" />
+   </dependencies>
+  </metadata>
+	  <files>
+		<file src="..\..\..\References\Reasoners\ELK\elk.dll" target="lib\net461" />
+		<file src="..\..\..\References\Reasoners\HermiT\hermit.dll" target="lib\net461" />
+		<file src="..\..\..\References\Jena\jena.dll" target="lib\net461" />
+		<file src="..\..\..\References\Reasoners\owlapi.dll" target="lib\net461" />		
+		<file src="bin\$configuration$\$id$.pdb" target="lib\net461" />
+
+		<!-- Files which should be copied to the output catalog of the target project have to be specified in FluentEditorClientLib.targets file: -->
+		<file src=".\FluentEditorClientLib.targets" target="Build"/>
+	  </files>
+</package>

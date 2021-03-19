@@ -1,0 +1,26 @@
+#------------------------------
+#The Semantics of Axioms about Properties 
+#------------------------------
+
+#--TODO-- handled procedurally prp-ap 		T(ap, rdf:type, owl:AnnotationProperty) 	for each built-in annotation property of OWL 2 RL
+
+[prp-dom:  (?P rdfs:domain ?C), (?X ?P ?Y) -> (?X rdf:type ?C )]
+[prp-rng:  (?P rdfs:range ?C), (?X ?P ?Y) -> (?Y rdf:type ?C )]
+[prp-fp:   (?P rdf:type owl:FunctionalProperty), (?A ?P ?B), notLiteral(?B), (?A ?P ?C), notLiteral(?C), notEqual(?B ?C) -> (?B owl:sameAs ?C)]
+[prp-ifp:  (?P rdf:type owl:InverseFunctionalProperty), (?A ?P ?B), (?C ?P ?B), notEqual(?A ?C) -> (?A owl:sameAs ?C)]
+
+[prp-symp: (?P rdf:type owl:SymmetricProperty), (?X ?P ?Y) -> (?Y ?P ?X)]
+
+[prp-trp:  (?P rdf:type owl:TransitiveProperty), (?X ?P ?Y), (?Y ?P ?Z) -> (?X ?P ?Z)]
+[prp-spo1: (?P rdfs:subPropertyOf ?Q), notEqual(?P ?Q), (?X ?P ?Y), notEqual(?Q,owl:topDataProperty), notEqual(?Q,owl:topObjectProperty) -> (?X ?Q ?Y)]
+
+#handled procedurally
+#[prp-spo2] - Role chains (owl:propertyChainAxiom)
+
+[prp-eqp1: (?P owl:equivalentProperty ?Q), notEqual(?P ?Q), (?X ?P ?Y) -> (?X ?Q ?Y)]
+[prp-eqp2: (?P owl:equivalentProperty ?Q), notEqual(?P ?Q), (?X ?Q ?Y) -> (?X ?P ?Y)]
+
+[prp-inv1: (?P owl:inverseOf ?Q), (?X ?P ?Y) -> (?Y ?Q ?X)]
+[prp-inv2: (?P owl:inverseOf ?Q), (?X ?Q ?Y) -> (?Y ?P ?X)]
+
+

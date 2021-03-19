@@ -1,9 +1,11 @@
-﻿using CogniPy.OWL;
+﻿using CogniPy.CNL;
+using CogniPy.OWL;
 using org.semanticweb.owlapi.apibinding;
 using org.semanticweb.owlapi.model;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Xml;
 
 namespace CogniPy
@@ -35,7 +37,7 @@ namespace CogniPy
 
         public static OWLOntology ontology = null;
 
-        public static string GetOWLXML(CNL.DL.Paragraph para, CNL.DL.Paragraph paraFromAnnotStatements, bool owlXml, string externext, Dictionary<string, string> invUriMappings, string ontologyBase = null, Dictionary<string, Tuple<string, string>> prefixes = null, string defaultGuid = null, Dictionary<string, List<string>> owlOntologyAnnotation = null, string generatedBy = "Cognitum FluentEditor2015")
+        public static string GetOWLXML(CNL.DL.Paragraph para, bool owlXml, string externext, Dictionary<string, string> invUriMappings, AnnotationManager annotMan, string ontologyBase = null, Dictionary<string, Tuple<string, string>> prefixes = null, string defaultGuid = null, Dictionary<string, List<string>> owlOntologyAnnotation = null, string generatedBy = "CogniPy")
         {
             prefixes = prefixes ?? new Dictionary<string, Tuple<string, string>>();
             if (ontologyBase == null)
@@ -99,63 +101,68 @@ namespace CogniPy
 
             transform.setOWLDataFactory(false, ontologyBase, df, owlxmlFormat, CNL.EN.CNLFactory.lex);
 
-            var conv = transform.Convert(para, paraFromAnnotStatements);
+            var paraFromAnnotStatements = annotMan.getDLAnnotationAxioms();
+            var stmts = para.Statements;
+            foreach (var p in paraFromAnnotStatements)
+                stmts.AddRange(p.Value);
+            var conv = transform.Convert( new CogniPy.CNL.DL.Paragraph(null){ Statements = stmts});
+
+            var om = new org.coode.xml.OWLOntologyXMLNamespaceManager(manager, ontology);
 
             foreach (var axiom in conv.axioms)
             {
                 if (axiom.comment != null)
                 {
-                    //    var dp = axiom.comment.IndexOf(':');
-                    //    var x = axiom.comment.Substring(0, dp);
-                    //    if (x.Trim() == "Namespace")
-                    //    {
-                    //        var ontologyIri = axiom.comment.Substring(dp + 1).Trim();
-                    //        if (ontologyIri.EndsWith(".")) ontologyIri = ontologyIri.Substring(0, ontologyIri.Length - 1);
-                    //        if (ontologyIri.StartsWith("\'") && ontologyIri.Length > 2)
-                    //            ontologyIri = ontologyIri.Substring(1, ontologyIri.Length - 2).Replace("\'\'", "\'");
-                    //        manager.removeOntology(ontology);
-                    //        ontology = manager.createOntology(IRI.create(ontologyIri));
-                    //        om = new org.coode.xml.OWLOntologyXMLNamespaceManager(manager, ontology);
-                    //        om.setDefaultNamespace(ontologyIri + "#");
-                    //        transform.setOWLDataFactory(df, om, CNL.EN.CNLFactory.lex);
-                    //    }
-                    //    else if (x.Trim() == "References")
-                    //    {
-                    //        var refs = ReferenceManager.ParseReferences(axiom.comment.Substring(dp));
-                    //        foreach (Match match in refs)
-                    //        {
-                    //            var onto = match.Groups["ont"].Value;
-                    //            if (onto.StartsWith("\'") && onto.Length > 2)
-                    //                onto = onto.Substring(1, onto.Length - 2).Replace("\'\'", "\'").Trim();
+                    var dp = axiom.comment.IndexOf(':');
+                    var x = axiom.comment.Substring(0, dp);
+                    if (x.Trim() == "Namespace")
+                    {
+                        var ontologyIri = axiom.comment.Substring(dp + 1).Trim();
+                        if (ontologyIri.EndsWith(".")) ontologyIri = ontologyIri.Substring(0, ontologyIri.Length - 1);
+                        if (ontologyIri.StartsWith("\'") && ontologyIri.Length > 2)
+                            ontologyIri = ontologyIri.Substring(1, ontologyIri.Length - 2).Replace("\'\'", "\'");
+                        manager.removeOntology(ontology);
+                        ontology = manager.createOntology(IRI.create(ontologyIri));
+                        om.setDefaultNamespace(ontologyIri + "#");
+                        transform.setOWLDataFactory(true,ontologyBase,df, owlxmlFormat, CNL.EN.CNLFactory.lex);
+                    }
+                    else if (x.Trim() == "References")
+                    {
+                        var refs = CNLTools.ParseReferences(axiom.comment.Substring(dp));
+                        foreach (Match match in refs)
+                        {
+                            var onto = match.Groups["ont"].Value;
+                            if (onto.StartsWith("\'") && onto.Length > 2)
+                                onto = onto.Substring(1, onto.Length - 2).Replace("\'\'", "\'").Trim();
 
-                    //            if (!string.IsNullOrEmpty(onto))
-                    //            {
-                    //                if (onto.ToLower().EndsWith(".encnl"))
-                    //                    onto = OWLConverter.PathToIRIString(onto.Substring(0, onto.Length - ".encnl".Length) + externext);
+                            if (!string.IsNullOrEmpty(onto))
+                            {
+                                if (onto.ToLower().EndsWith(".encnl"))
+                                    onto = OWLConverter.PathToIRIString(onto.Substring(0, onto.Length - ".encnl".Length) + externext);
 
 
-                    //                var ns = match.Groups["ns"].Value;
-                    //                if (ns.StartsWith("\'") && ns.Length > 2)
-                    //                    ns = ns.Substring(1, ns.Length - 2).Replace("\'\'", "\'").Trim();
-                    //                else
-                    //                    if (string.IsNullOrEmpty(ns))
-                    //                        ns = onto;
+                                var ns = match.Groups["ns"].Value;
+                                if (ns.StartsWith("\'") && ns.Length > 2)
+                                    ns = ns.Substring(1, ns.Length - 2).Replace("\'\'", "\'").Trim();
+                                else
+                                    if (string.IsNullOrEmpty(ns))
+                                    ns = onto;
 
-                    //                om.setPrefix(match.Groups["pfx"].Value, ns);
-                    //                owlxmlFormat.setPrefix(match.Groups["pfx"].Value, ns);
-                    //                var decl = manager.getOWLDataFactory().getOWLImportsDeclaration(OWLPathUriTools.Path2IRI(onto));
-                    //                manager.applyChange(new AddImport(ontology, decl));
-                    //            }
-                    //        }
-                    //    }
-                    //    else
-                    //    {
-                    //        //manager.applyChange(new AddOntologyAnnotation(
-                    //        //    ontology,
-                    //        //    manager.getOWLDataFactory().getOWLAnnotation(
-                    //        //         manager.getOWLDataFactory().getOWLAnnotationProperty(IRI.create(ontologyBase+x)),
-                    //        //         manager.getOWLDataFactory().getOWLLiteral(axiom.comment.Substring(dp)))));
-                    //    }
+                                om.setPrefix(match.Groups["pfx"].Value, ns);
+                                owlxmlFormat.setPrefix(match.Groups["pfx"].Value, ns);
+                                var decl = manager.getOWLDataFactory().getOWLImportsDeclaration(OWLPathUriTools.Path2IRI(onto));
+                                manager.applyChange(new AddImport(ontology, decl));
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //manager.applyChange(new AddOntologyAnnotation(
+                        //    ontology,
+                        //    manager.getOWLDataFactory().getOWLAnnotation(
+                        //         manager.getOWLDataFactory().getOWLAnnotationProperty(IRI.create(ontologyBase + x)),
+                        //         manager.getOWLDataFactory().getOWLLiteral(axiom.comment.Substring(dp)))));
+                    }
                 }
                 else if (axiom.axiom != null)
                     manager.addAxiom(ontology, axiom.axiom);
@@ -174,7 +181,7 @@ namespace CogniPy
                 if (elem is XmlComment)
                     retdoc.RemoveChild(elem as XmlComment);
             }
-            retdoc.AppendChild(retdoc.CreateComment("Generated by " + generatedBy + ", a part of Ontorion(TM) Knowledge Management Framework, (with support of OwlApi)"));
+            retdoc.AppendChild(retdoc.CreateComment("Generated by " + generatedBy + ", (with support from OwlApi)"));
 
             return SerializeDoc(retdoc);
         }

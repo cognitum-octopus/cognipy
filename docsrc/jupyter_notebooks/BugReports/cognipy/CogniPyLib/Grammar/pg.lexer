@@ -1,0 +1,37 @@
+%lexer ptokens // script for SymbolsGen input language Malcolm Crowe August 1995,1996,2000,2002
+//WARNING: If this is changed at all review the code in ParserGenerate.AssocType
+%declare{
+	public SymbolsGen m_sgen;
+}
+[ \t\n\r]		;				// comments are removed before Lexer sees it
+// the following tokens should only be recognised at the start of a line: this limitation is not implemented yet
+"%parser"	yyl.m_sgen.ParserDirective(); // supplies the name of the tokens file
+"%name"		yyl.m_sgen.SetName(); // supplies the name of parser
+"%partial"	yyl.m_sgen.SetPartial(); //enable partial mode
+"%namespace" yyl.m_sgen.SetNamespace();			// optional
+"%start"	yyl.m_sgen.SetStartSymbol(); 		// optional
+"%symbol"	yyl.m_sgen.ClassDefinition("SYMBOL");
+"%node"		yyl.m_sgen.ClassDefinition("");
+"%left".*	yyl.m_sgen.AssocType(Precedence.PrecType.left,5);
+"%right".* 	yyl.m_sgen.AssocType(Precedence.PrecType.right,6);
+"%before".*	yyl.m_sgen.AssocType(Precedence.PrecType.before,7);
+"%after".*	yyl.m_sgen.AssocType(Precedence.PrecType.after,6);
+"%nonassoc".*	yyl.m_sgen.AssocType(Precedence.PrecType.nonassoc,9);
+"%declare{"	yyl.m_sgen.Declare();
+"%{"		yyl.m_sgen.CopySegment();
+[A-Za-z0-9_.]+	{ return new CSymbol(yyl.m_sgen); }  // not Resolve()'d see ParseProduction
+"'"[^']+"'"	{ return new Literal(yyl.m_sgen); }		   // allow 'strings' as literals
+'"'[^"]+'"'	{ return new Literal(yyl.m_sgen); }		   // allow "strings" as literals in SymbolsGen
+[:;|]		%TOKEN
+// the following tokens can occur anywhere in a production right-hand-side
+<rhs> [ \t\n\r]		;				// comments are removed before Lexer sees it
+<rhs> "%prec"	{ return new PrecReference(yyl,yyl.m_sgen.m_lexer.Next()); } // can occur following a terminal: another terminal must follow
+<rhs> "%"[A-Za-z0-9_]+	{ return new ParserSimpleAction(yyl.m_sgen);  }
+<rhs> '{'			{ return new ParserOldAction(yyl.m_sgen); }
+<rhs> [A-Za-z0-9_]+	{ return new CSymbol(yyl.m_sgen); }  // not Resolve()'d see ParseProduction
+<rhs> "'"[^']+"'"	{ return new Literal(yyl.m_sgen); }		   // allow 'strings' as literals
+<rhs> '"'[^"]+'"'	{ return new Literal(yyl.m_sgen); }		   // allow "strings" as literals in SymbolsGen
+<rhs> [:;|]		%TOKEN
+// the following tokens can occur in a ParserDirective (%parser)
+<parser> [ \t\n\r]	;
+<parser> [-A-Za-z0-9_.]+	{ return new CSymbol(yyl.m_sgen); }
