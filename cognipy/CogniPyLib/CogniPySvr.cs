@@ -933,7 +933,7 @@ namespace CogniPy
                 Materialize();
             var res = reasoner.SparqlQuery(query, invUriMapping(), detectTypesOfNodes, defaultKindOfNode);
             var cols = res.GetCols();
-            var rows = res.GetRows().ToList();
+            var rows = res.GetRows(serializeDecimals).ToList();
             return Tuple.Create(cols, rows);
         }
 
@@ -1489,11 +1489,28 @@ namespace CogniPy
                 foreach (var xy in kv.Value.AttributeValues)
                 {
                     var v = xy.Value.ToArray();
-                    lst[colDic[xy.Key]] = v.Length == 1 ? (object)v[0] : (object)v;
+                    lst[colDic[xy.Key]] = v.Length == 1 ? (object)serializeDecimals(v[0]) : (object)serializeDecimals(v);
                 }
                 vals.Add(lst);
             }
             return Tuple.Create(cols, vals);
+        }
+
+        static object serializeDecimals(object v)
+        {
+            if (v is IEnumerable<object>)
+            {
+                List<object> r = new List<object>();
+                foreach(object x in (v as IEnumerable<object>))
+                    r.Add(serializeDecimals(x));
+                return r.ToArray();
+            }
+            else if (v is decimal)
+            {
+                return "`Decimal('" + v.ToString() + "')`";
+            }
+            else
+                return v;
         }
 
         public Tuple<List<string>, List<List<object>>> SparqlQueryForInstancesWithDetails_o(string query)

@@ -517,7 +517,7 @@ namespace CogniPy.Executing.HermiTClient
 
             //            public static object CommonLock = new object();
 
-            public IEnumerable<List<object>> GetRows()
+            public IEnumerable<List<object>> GetRows(Func<object,object> typeConverter)
             {
                 var keys = GetCols();
                 while (results.hasNext())
@@ -545,7 +545,7 @@ namespace CogniPy.Executing.HermiTClient
                             var v = CogniPy.SPARQL.SparqlNode.ToTypedValue((val as org.apache.jena.rdf.model.Literal).ToString());
                             if (v == null)
                                 v = JenaRuleManager.getObject(val.asNode());
-                            row.Add(v);
+                            row.Add(typeConverter(v));
                         }
                         else if (val.asNode() != null && val.asNode().isBlank())
                         {
