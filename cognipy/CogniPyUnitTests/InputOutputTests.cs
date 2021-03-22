@@ -104,5 +104,13 @@ namespace CogniPyUnitTests
             feClient.LoadCnlFromString(string.Join("\r\n", cnlSentences), true, true);
 
         }
+        
+        [Test]
+        public void LoadRdfOntologies()
+        {
+            var feClient = new CogniPySvr();
+            Assert.DoesNotThrow(() => feClient.LoadRdf("http://krr-nas.cs.ox.ac.uk/ontologies/lib/BAMS/neuron-ontology/2009-10-28/00006.owl", true, true,true));
+            Assert.DoesNotThrow(() => feClient.LoadRdf("http://krr-nas.cs.ox.ac.uk/ontologies/lib/BioPAX/biopax-level2/biopax-example-ecocyc-glycolysis/v1.0/00007.owl", true, true,true));
+        }
     }
 }
