@@ -1,0 +1,281 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#!/usr/bin/env python\n",
+    "# -*- coding: utf-8 -*-"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from cognipy.ontology import Ontology #the ontology processing class\n",
+    "from cognipy.ontology import CQL #SPARQL format tailored for Contolled Natural Language\n",
+    "from cognipy.ontology import encode_string_for_graph_label #complex datatypes encoder for the graph labels in graph visualisation\n",
+    "import textwrap\n",
+    "\n",
+    "def graph_attribute_formatter(val):\n",
+    "    if isinstance(val,list) or isinstance(val,set):\n",
+    "        return \" | \".join(list(map(lambda i:encode_string_for_graph_label(graph_attribute_formatter(i)),val)))\n",
+    "    elif isinstance(val,dict):\n",
+    "        return \" | \".join(list(map(lambda i:i[0]+\" : \"+encode_string_for_graph_label(graph_attribute_formatter(i[1])),val.items())))\n",
+    "    else:\n",
+    "        return encode_string_for_graph_label(textwrap.fill(str(val),40))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Overwriting RDF_example.encnl\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%writefile RDF_example.encnl\n",
+    "\n",
+    "Comment: \"   Not needed, only used to get a draw display\n",
+    "Every class-string is a superclass.\n",
+    "Every class-integer is a superclass.\n",
+    "Every class-double is a superclass.\n",
+    "Every class-float is a superclass.\n",
+    "Every class-boolean is a superclass.\n",
+    "Every class-duration is a superclass.\n",
+    "Every class-datetime is a superclass.\n",
+    "Every class-real is a superclass.\n",
+    "Every class-decimal is a superclass.\n",
+    "\n",
+    "Every class-decimal has-account-id nothing-but (some decimal value).\n",
+    "\n",
+    "\".\n",
+    "\n",
+    "Every class-decimal has-account-id nothing-but (some decimal value).\n",
+    "Every class-double has-account-id nothing-but (some double value).\n",
+    "Every class-float has-account-id nothing-but (some float value).\n",
+    "Every class-string has-account-id nothing-but (some string value).\n",
+    "Every class-integer has-account-id nothing-but (some integer value).\n",
+    "Every class-boolean has-account-id nothing-but (some boolean value).\n",
+    "Every class-duration has-account-id nothing-but (some duration value).\n",
+    "\n",
+    "Every class-datetime has-account-id nothing-but (some datetime value).\n",
+    "Every class-real has-account-id nothing-but (some real value)."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "onto=Ontology(\"cnl/file\",\"RDF_example.encnl\", \n",
+    "                    evaluator = lambda e:eval(e,globals(),locals()), \n",
+    "                    graph_attribute_formatter = graph_attribute_formatter)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "image/svg+xml": [
+       "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"8pt\" height=\"8pt\" viewBox=\"0.00 0.00 8.00 8.00\">\n",
+       "<g id=\"graph0\" class=\"graph\" transform=\"scale(1 1) rotate(0) translate(4 4)\">\n",
+       "<title>G</title>\n",
+       "<polygon fill=\"white\" stroke=\"none\" points=\"-4,4 -4,-4 4,-4 4,4 -4,4\"/>\n",
+       "</g>\n",
+       "</svg>"
+      ],
+      "text/plain": [
+       "<IPython.core.display.SVG object>"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "onto.draw_graph()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "old_cnl = onto.as_cnl()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Comment: \"   Not needed, only used to get a draw display\n",
+      "Every class-string is a superclass.\n",
+      "Every class-integer is a superclass.\n",
+      "Every class-double is a superclass.\n",
+      "Every class-float is a superclass.\n",
+      "Every class-boolean is a superclass.\n",
+      "Every class-duration is a superclass.\n",
+      "Every class-datetime is a superclass.\n",
+      "Every class-real is a superclass.\n",
+      "Every class-decimal is a superclass.\n",
+      "\n",
+      "Every class-decimal has-account-id nothing-but (some decimal value).\n",
+      "\n",
+      "\".\n",
+      "Every class-decimal has-account-id nothing-but (some decimal value).\n",
+      "Every class-double has-account-id nothing-but (some double value).\n",
+      "Every class-float has-account-id nothing-but (some float value).\n",
+      "Every class-string has-account-id nothing-but (some string value).\n",
+      "Every class-integer has-account-id nothing-but (some integer value).\n",
+      "Every class-boolean has-account-id nothing-but (some boolean value).\n",
+      "Every class-duration has-account-id nothing-but (some duration value).\n",
+      "Every class-datetime has-account-id nothing-but (some datetime value).\n",
+      "Every class-real has-account-id nothing-but (some real value).\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(onto.as_cnl())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "outputfilename  = 'cnl_RDF_example.encnl'\n",
+    "\n",
+    "file = open(outputfilename,\"w\", encoding=\"utf8\")\n",
+    "file.write(onto.as_cnl())\n",
+    "file.close()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "onto_cnl = Ontology(\"cnl/file\",\"cnl_RDF_example.encnl\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "outputfilename  = './cnl_RDF_example.rdf'\n",
+    "\n",
+    "file = open(outputfilename,\"w\", encoding=\"utf8\")\n",
+    "file.write(onto.as_rdf())\n",
+    "file.close()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "onto_rdf =  Ontology(\"rdf/file\",\"./cnl_RDF_example.rdf\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Every value-of double is something (some value).\n",
+      "Every value-of float is something (some value).\n",
+      "Every class-boolean has-account-id nothing-but (some boolean value).\n",
+      "Every class-datetime has-account-id nothing-but (some datetime value).\n",
+      "Every class-decimal has-account-id nothing-but (some decimal value).\n",
+      "Every class-double has-account-id nothing-but (some double value).\n",
+      "Every class-duration has-account-id nothing-but (some string value).\n",
+      "Every class-float has-account-id nothing-but (some float value).\n",
+      "Every class-integer has-account-id nothing-but (some integer value).\n",
+      "Every class-real has-account-id nothing-but (greater-or-equal-to 0 or lower-or-equal-to 0).\n",
+      "Every class-string has-account-id nothing-but (some string value).\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(onto_rdf.as_cnl())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "I see that the decimal class behaves differently (thanks!!), but at the moment it seems to be 'some integer value' ?\n",
+    "\n",
+    "double and float still look like they are not handled?\n",
+    "\n",
+    "    Every value-of double is something (some value).\n",
+    "    Every value-of float is something (some value).\n",
+    "    \n",
+    "real treated as (greater-or-equal-to 0 or lower-or-equal-to 0)? Is this a correct implementation?\n",
+    "\n",
+    "    Every classi has-account-id nothing-but (greater-or-equal-to 0 or lower-or-equal-to 0)."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
