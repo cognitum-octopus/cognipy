@@ -405,7 +405,7 @@ _Ala Instance: ""backwardCompatibleWith"":owl 'sdsgd'@ar
                 if (removeTrivials)
                     Assert.AreEqual(9, sentencesReturned.Count);
                 else
-                    Assert.AreEqual(12, sentencesReturned.Count);
+                    Assert.AreEqual(14, sentencesReturned.Count);
             }
             else
                 CollectionAssert.AreEquivalent(cnlSentences, sentencesReturned);
@@ -433,7 +433,7 @@ _Ala Instance: ""backwardCompatibleWith"":owl 'sdsgd'@ar
             Assert.AreEqual(sentencesReturned.Count, sentencesReturned.Distinct().ToList().Count, "There are duplicate senetences!");
 
             if (includeImplicit)
-                Assert.AreEqual(11, sentencesReturned.Count);
+                Assert.AreEqual(13, sentencesReturned.Count);
             else
                 CollectionAssert.AreEquivalent(cnlSentences, sentencesReturned.Select(s => s.CnlStatement));
         }

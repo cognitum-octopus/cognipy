@@ -725,7 +725,7 @@ namespace CogniPy
                         throw new AggregateParseException(SyntaxErrors);
 
                     if (dlast == null || dlast.Statements.Count == 0)
-                        throw new Exception("File is empty or all cnl sentences are incorrect.");
+                        throw new ParseException(txtToParse.Trim().Length==0?"Empty input": "All cnl sentences are incorrect." , 0, txtToParse);
 
                     if (String.IsNullOrEmpty(DefaultNamespace)) DefaultNamespace = "http://www.ontorion.com/ontologies/Ontology" + Guid.NewGuid().ToString("N");
 

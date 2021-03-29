@@ -705,7 +705,7 @@ namespace CogniPy.Executing.HermiTClient
 
             model = org.apache.jena.rdf.model.ModelFactory.createDefaultModel();
 
-            if (true)
+            if (false)
             {
                 blankStmts = new Dictionary<string, Statement>();
                 CNL.DL.Statement curstmt = null;
