@@ -1209,7 +1209,9 @@ namespace CogniPy.ARS
             decimal DecimalNumber;
             if (owli.isInteger())
                 return new CNL.DL.Number(null, owli.getLiteral());
-            else if (owli.isFloat() || owli.isDouble())
+            else if (owli.isFloat())
+                return new CNL.DL.Float(null, owli.parseFloat().ToString());
+            else if (owli.isDouble())
                 return new CNL.DL.Float(null, owli.parseDouble().ToString());
             else if (!owli.ToString().Contains("^^xsd:decimal") && Int32.TryParse(owli.getLiteral().Replace("\"", ""), out IntNumber))
                 return new CNL.DL.Number(null, owli.getLiteral());
@@ -1509,7 +1511,9 @@ namespace CogniPy.ARS
                 ret = new CNL.DL.String(null, node.getLiteral());
             else if (dt.isBottomEntity())
                 ret = new CNL.DL.String(null, node.getLiteral());
-            else if (dt.isDouble() || dt.isFloat())
+            else if (dt.isFloat())
+                ret = new CNL.DL.Float(null, node.parseFloat().ToString());
+            else if (dt.isDouble() )
                 ret = new CNL.DL.Float(null, node.parseDouble().ToString());
             else if (dt.isInteger())
                 ret = new CNL.DL.Number(null, node.getLiteral());

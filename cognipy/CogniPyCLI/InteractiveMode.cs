@@ -11,7 +11,7 @@ namespace CogniPyCLI
 {
     class InteractiveMode
     {
-        public static void EntryPoint(string[] args)
+         public static void EntryPoint(string[] args)
         {
             Stream inputStream = Console.OpenStandardInput();
             Stream outputStream = Console.OpenStandardOutput();
@@ -56,7 +56,11 @@ namespace CogniPyCLI
                                 break;
                             sb.Append(line);
                         }
-                        JsonSerializer serializer = new JsonSerializer();
+                        JsonSerializer serializer = JsonSerializer.Create(new JsonSerializerSettings
+                        {
+                            Formatting = Newtonsoft.Json.Formatting.Indented,
+                            ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                        });
                         var parms = serializer.Deserialize<object[]>(new JsonTextReader(new StringReader(sb.ToString())));
                         object ret = null;
                         try
@@ -94,7 +98,11 @@ namespace CogniPyCLI
 
                         writer.WriteLine("@exception");
                         var w = new JsonTextWriter(writer);
-                        JsonSerializer serializer = new JsonSerializer();
+                        JsonSerializer serializer = JsonSerializer.Create(new JsonSerializerSettings
+                        {
+                            Formatting = Newtonsoft.Json.Formatting.Indented,
+                            ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                        });
                         serializer.Serialize(w,new object[] { ex.GetType().Name, ex });
                     }
                 }
