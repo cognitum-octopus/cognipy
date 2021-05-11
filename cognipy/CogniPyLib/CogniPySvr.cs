@@ -163,13 +163,7 @@ namespace CogniPy
 
             return n;
         }
-
-
-        public void SetValue(string instance, string datarole, object val)
-        {
-            reasoner.SetValue(instance, datarole, val);
-        }
-
+        
         Exception LoadError = null;
 
         public Exception GetLoadError()
@@ -347,27 +341,7 @@ namespace CogniPy
                 return "";
             return reasoner.GetOWLXML(includeImplicitKnowledge, annotManToTranslate);
         }
-
-        public void SetProperty(string prop, string name, object val)
-        {
-            Outer.SetProperty(prop, name, val);
-        }
-
-        public object GetProperty(string prop, string name)
-        {
-            return Outer.GetProperty(prop, name);
-        }
-
-        public string[] ListProperties(string prop)
-        {
-            return Outer.ListProperties(prop);
-        }
-
-        public void ClearProperties(string prop)
-        {
-            Outer.ClearProperties(prop);
-        }
-
+        
         public string ToCNL(bool includeAnnotations)
         {
             return ToCNL(false, includeAnnotations);
@@ -679,11 +653,6 @@ namespace CogniPy
             return cnlList;
         }
 
-        public CogniPy.CNL.DL.Paragraph GetParagrah(bool includeImplicitKnowledge = true)
-        {
-            return reasoner.GetParagraph(includeImplicitKnowledge);
-        }
-
         public string[] SelectInstancesSPARQLDetails(string cnl)
         {
             var node = tools.GetEN2DLNode(cnl);
@@ -726,13 +695,7 @@ namespace CogniPy
             var querySelect = reasoner.SparqlTransform.ConvertToGetSuperconceptsOf(node, direct, false, 0, -1, true);
             return querySelect;
         }
-
-
-        private void InvalidateMaterialization()
-        {
-            alreadyMaterialized = false;
-        }
-
+        
         public IEnumerable<InstanceDescription> DescribeInstancesByName(IEnumerable<string> instances)
         {
             var instancesDeduped = new HashSet<string>(instances);
@@ -1151,16 +1114,6 @@ namespace CogniPy
             }
         }
 
-        public void SetProgress(double completed)
-        {
-            //  _ctrl.SetProgress(completed);
-        }
-
-        public void WriteMessage(int priority, string message)
-        {
-
-        }
-
         private class SimplePopulator : CogniPy.CNL.DL.Populator
         {
             CogniPySvr _parent;
@@ -1304,33 +1257,9 @@ namespace CogniPy
             return kwds.Replace(text, new MatchEvaluator((kw) => { return char.IsLetter(kw.Value.First()) ? "**" + kw.Value + "**" : kw.Value; })).Replace("\r\n", "\r\n\r\n");
         }
 
-        public HashSet<string> KnowledgeSplit(string knowledge)
-        {
-            var ret = new HashSet<string>();
-            var lines = SplitText(knowledge);
-
-            foreach (var l in lines)
-                ret.Add(l);
-
-            return ret;
-        }
-
-
-
         string toDL(string name, bool isRole)
         {
             return CogniPy.CNL.EN.ENNameingConvention.ToDL(new CogniPy.CNL.EN.EnName() { id = name }, isRole ? CogniPy.CNL.EN.endict.WordKind.PastParticiple : CogniPy.CNL.EN.endict.WordKind.NormalForm).id;
-        }
-
-        public void MergeWith(CogniPySvr x, bool materialize = true)
-        {
-            if (materialize)
-            {
-                Materialize();
-                x.Materialize();
-            }
-
-            reasoner.MergeWith(x.reasoner);
         }
 
         private CogniPySvr(CogniPySvr other)
@@ -1351,11 +1280,6 @@ namespace CogniPy
         {
             Materialize();
             return new CogniPySvr(this);
-        }
-
-        public string Kaka(string ka)
-        {
-            return "aaa";
         }
 
         object toVal(string v)
