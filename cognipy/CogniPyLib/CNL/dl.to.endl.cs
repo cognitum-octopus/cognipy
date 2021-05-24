@@ -397,8 +397,11 @@ namespace CogniPy.CNL.EN
             {
                 z.roles.Add((r.accept(this) as TransNode).role(false, false, false));
             }
-            bool inv = e.R is CogniPy.CNL.DL.RoleInversion;
-            object t = e.R.accept(this);
+            CogniPy.CNL.DL.Node f = e.R;
+            bool inv = f is CogniPy.CNL.DL.RoleInversion;
+            if (inv)
+                f = ((CogniPy.CNL.DL.RoleInversion)f).R;
+            object t = f.accept(this);
             Assert(t is TransNode);
             var rr = convertToRoleWithXY((t as TransNode).role(false, false, false));
             rr.inverse = inv;

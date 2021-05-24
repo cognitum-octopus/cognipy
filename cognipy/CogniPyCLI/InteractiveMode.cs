@@ -29,6 +29,11 @@ namespace CogniPyCLI
                 {
                     var uid = Guid.NewGuid().ToString();
                     var fe = new CogniPySvr();
+//TODO - debugger
+//                    fe.SetDebugListener((statementId, elements) =>
+//                    {
+//                    }, (s, c) => Tuple.Create(s, c));
+
                     clients.Add(uid, fe);
                     writer.Write(uid);
                 }
