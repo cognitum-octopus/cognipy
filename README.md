@@ -20,7 +20,7 @@ Prerequisites:
 + If you are on Mac or Linux You MUST have [mono installed](https://www.mono-project.com/) on your system.
 + Graph drawing based on [pydot](https://pypi.org/project/pydot/) that is dependent on GraphViz - you should try to download it and instally manually. Or just `conda install pydot graphviz`
 + Tested with Anaconda
-+ Tested on MacOS, Winows and Linux (UBuntu)
++ Tested on MacOS, Winows and Linux (Ubuntu)
 
 Install `cognipy` on your system using :
 ```
