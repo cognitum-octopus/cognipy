@@ -70,7 +70,7 @@ namespace CogniPyUnitTests
             {
                 Assert.IsTrue(!mergedCnl.Any(x => x == cnl));
             }
-            Assert.AreEqual(2, mergedCnl.Count());
+            Assert.AreEqual(3, mergedCnl.Count());
         }
 
         [Test]

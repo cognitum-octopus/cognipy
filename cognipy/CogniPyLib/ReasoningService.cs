@@ -848,16 +848,23 @@ namespace CogniPy.Executing.HermiTClient
                         }
                         else //instance type
                         {
+                            CNL.DL.Node C = null;
                             if (o.getURI() != org.apache.jena.vocabulary.OWL.Thing.getURI())
                             {
-                                var un = invtransform.renderEntity(s.getURI(), ARS.EntityKind.Instance);
-                                var st = new CNL.DL.InstanceOf(null)
-                                {
-                                    I = new CNL.DL.NamedInstance(null) { name = un },
-                                    C = new CNL.DL.Atomic(null) { id = invtransform.renderEntity(o.getURI(), ARS.EntityKind.Concept) }
-                                };
-                                inferfedAbox.Statements.Add(st);
+                                C = new CNL.DL.Atomic(null) { id = invtransform.renderEntity(o.getURI(), ARS.EntityKind.Concept) };
                             }
+                            else
+                            {
+                                C = new CNL.DL.Top(null) { };
+                            }
+
+                            var un = invtransform.renderEntity(s.getURI(), ARS.EntityKind.Instance);
+                            var st = new CNL.DL.InstanceOf(null)
+                            {
+                                I = new CNL.DL.NamedInstance(null) { name = un },
+                                C = C
+                            };
+                            inferfedAbox.Statements.Add(st);
                         }
                     }
                     else
