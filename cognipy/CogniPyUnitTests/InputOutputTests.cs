@@ -104,5 +104,15 @@ namespace CogniPyUnitTests
             feClient.LoadCnlFromString(string.Join("\r\n", cnlSentences), true, true);
 
         }
+        
+        [Test]
+        public void LoadRdfOntologies()
+        {
+            var feClient = new CogniPySvr();
+            
+            Assert.DoesNotThrow(() => feClient.LoadRdf(Path.Combine(AssemblyDirectory, "TestFiles", "AEO.owl"), true, true,true));
+            Assert.DoesNotThrow(() => feClient.LoadRdf(Path.Combine(AssemblyDirectory, "TestFiles", "biopax.owl"), true, true,true));
+            Assert.DoesNotThrow(() => feClient.LoadRdf(Path.Combine(AssemblyDirectory, "TestFiles", "BAMS.owl"), true, true,true));
+        }
     }
 }
