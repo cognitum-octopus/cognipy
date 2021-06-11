@@ -517,7 +517,7 @@ namespace CogniPy.Executing.HermiTClient
 
             //            public static object CommonLock = new object();
 
-            public IEnumerable<List<object>> GetRows(Func<object,object> typeConverter)
+            public IEnumerable<List<object>> GetRows(Func<object, object> typeConverter)
             {
                 var keys = GetCols();
                 while (results.hasNext())
@@ -3030,76 +3030,6 @@ namespace CogniPy.Executing.HermiTClient
             }
         }
 
-
-        //public void Reset(CNL.DL.Paragraph para, bool structural)
-        //{
-        //    SwrlBuiltinsExtractor swe = new SwrlBuiltinsExtractor();
-        //    var split = swe.Split(para);
-        //    sourceParagraph.Statements.AddRange(split.Item1.Statements);
-        //    swrlRulesWIthBuiltInsParagraph.Statements.AddRange(split.Item2.Statements);
-
-
-        //    manager = OWLManager.createOWLOntologyManager();
-        //    var df = manager.getOWLDataFactory();
-
-        //    manager.setOntologyFormat(ontology, owlxmlFormat);
-
-        //    transform.setOWLDataFactory(true, ontologyBase, df, owlxmlFormat, CNL.EN.CNLFactory.lex);
-        //    sparqlTransform.setOWLDataFactory(ontologyBase, df, owlxmlFormat, CNL.EN.CNLFactory.lex);
-
-        //    var conv = transform.Convert(sourceParagraph);
-        //    manager.addAxioms(ontology, Ontorion.ARS.Transform.GetJavaAxiomSet(conv.axioms));
-        //    manager.addAxioms(ontology, Ontorion.ARS.Transform.GetJavaAxiomSet(conv.additions));
-
-        //    invtransform = new Ontorion.ARS.InvTransform(manager, ontology, owlxmlFormat, CNL.EN.CNLFactory.lex, namc);
-        //    invtransform.InvUriMappings = invUriMappings;
-        //    invtransform.UriMappings = uriMappings;
-
-        //    try
-        //    {
-        //        if (structural)
-        //            reasoner = new StructuralReasoner(ontology, new SimpleConfiguration(new ProgressMonitor(this)), BufferingMode.BUFFERING);
-        //        else
-        //        {
-        //            OWL2ELProfile elProfile = new OWL2ELProfile();
-        //            OWLProfileReport report = elProfile.checkOntology(ontology);
-
-        //            bool inEl = true;
-        //            java.util.Iterator it = report.getViolations().iterator();
-        //            while (it.hasNext())
-        //            {
-        //                var v = (OWLProfileViolation)it.next();
-        //                if (!(v is UseOfUndeclaredClass) && !(v is UseOfNonAbsoluteIRI) && !(v is UseOfUndeclaredObjectProperty) && !(v is UseOfUndeclaredDataProperty))
-        //                {
-        //                    inEl = false;
-        //                    break;
-        //                }
-        //            }
-
-        //            if (inEl)
-        //            {
-        //                materializing_reasner_supports_sroiq = false;
-        //                structural_reasoner = new StructuralReasoner(ontology, new SimpleConfiguration(new ProgressMonitor(this)), BufferingMode.BUFFERING);
-        //                var configuration = new SimpleConfiguration(new ProgressMonitor(this));
-        //                OWLReasonerFactory rf = new org.semanticweb.elk.owlapi.ElkReasonerFactory();
-        //                reasoner = rf.createReasoner(ontology, configuration);
-        //            }
-        //            else
-        //            {
-        //                var configuration = new org.semanticweb.HermiT.Configuration();
-        //                configuration.reasonerProgressMonitor = new ProgressMonitor(this);
-        //                configuration.throwInconsistentOntologyException = false;
-        //                reasoner = new org.semanticweb.HermiT.Reasoner(configuration, ontology);
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new ReasoningServiceException(ex.Message.Replace("<" + ontologyIRI.toString() + "#", "'").Replace(">", "'") + ".");
-        //    }
-        //}
-
-
         public void RemoveRdfInstance(org.apache.jena.rdf.model.Model model2, org.apache.jena.rdf.model.Resource s)
         {
             model2.removeAll(s, null, null);
@@ -3108,10 +3038,56 @@ namespace CogniPy.Executing.HermiTClient
             sourceTriplets.RemoveWhere((t) => t.getObject().getURI() == sur || t.getSubject().getURI() == sur);
         }
 
+        class ContainInstanceVisitor : GenericVisitor
+        {
+            private string name;
+            private bool found = false;
+
+            public ContainInstanceVisitor(string name)
+            {
+                this.name = name;
+            }
+
+            public bool Found { get { return found; } }
+
+
+            public override object Visit(NamedInstance e)
+            {
+                this.found = this.found || (e.name == this.name);
+                return null;
+            }
+
+        }
+
+        static bool ContainsInstance(string name,Statement stmt)
+        {
+            ContainInstanceVisitor v = new ContainInstanceVisitor(name);
+            var p = new Paragraph(null) { Statements = new List<Statement>() { stmt } };
+            p.accept(v);
+            return v.Found;
+        }
+
         public void RemoveInstance(string name)
         {
             BuildModel();
             InvalidateSyncOntologyToModel();
+
+            lock (sourceParagraph)
+            { 
+                var para = new Paragraph(null) { Statements = sourceParagraph.Statements.FindAll((a) => ContainsInstance(name, a)) };
+                DLModSimplifier simli = new DLModSimplifier();
+                para = simli.Visit(para) as CNL.DL.Paragraph;
+
+                if (para.Statements.Any((s) => !IsABox(s) && !(s is CNL.DL.Annotation)))
+                {
+                    var ser = new Paragraph(null) { Statements = para.Statements.FindAll((s) => !IsABox(s) && !(s is CNL.DL.Annotation)) };
+                    var cnl = TheAccessObject.ToCNL(ser);
+                    throw new NotImplementedException($"Cannot remove {name} as it is used in [{cnl}]. One can delete instance if it is used in A-Box only.");
+                }
+
+                sourceParagraph.Statements.RemoveAll((a) => ContainsInstance(name,a));
+            }
+
             var inst = model.getResource(transform.getIRIFromDL(name, EntityKind.Instance).toString());
             RemoveRdfInstance(model, inst);
         }

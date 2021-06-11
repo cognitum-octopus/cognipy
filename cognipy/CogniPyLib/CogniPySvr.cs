@@ -359,6 +359,11 @@ namespace CogniPy
             return tools.GetENDLFromAst(stmt);
         }
 
+        public string ToCNL(CogniPy.CNL.DL.Paragraph para)
+        {
+            return tools.GetENDLFromAst(para);
+        }
+
         private bool isConcept(string conc)
         {
             return conc.StartsWith("a ") || conc.StartsWith("an ") || Char.IsLower(conc[0]);
