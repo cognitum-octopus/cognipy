@@ -11,30 +11,64 @@ import IPython
 from cognipy.interop import cognipy_create, cognipy_delete, cognipy_call
 
 
-def CQL(sparql, ns='http://www.cognitum.eu/onto#'):
+def CQL(cql, ns='http://www.cognitum.eu/onto#'):
+    """Converts CQL query into pure SPARQL by replacing CNL names into their IRI representations
+       Args:
+            cql (str): cql string
+            ns (str): namespace for CNL names into IRI expansion
+    """
     def CONC(str):
         return '<'+ns + str.split('-')[0]+"".join([x.title() for x in str.split('-')[1:]])+">"
 
     def my_replace(match):
         match = match.group()
         return CONC(match[1:-1])
-    return re.sub(r'\<[^\>:/]+\>', my_replace, sparql)
+    return re.sub(r'\<[^\>:/]+\>', my_replace, cql)
 
 
-def encode_string_for_graph_label(str):
-    return str.replace('{', '&#123;').replace('|', '&#124;').replace('}', '&#125;').replace('<', '&#60;').replace('>', '&#62;')
+def encode_string_for_graph_label(val):
+    """Encodes reserved graphviz characters"""
+    return val.replace('{', '&#123;').replace('|', '&#124;').replace('}', '&#125;').replace('<', '&#60;').replace('>', '&#62;')
 
+def default_graph_attribute_formatter(val):
+    """The default method of graph-attribute formatting"""
+    return encode_string_for_graph_label(textwrap.fill(str(val), 40))
+
+def basic_backquote_string_evaluator(val):
+    """The basic evaluator for backquoted strings"""
+    return eval(val,globals(),locals())
+
+def basic_graph_attribute_formatter(val):
+    """The basic method of graph-attribute formatting, taking into account basic collection types"""
+    if isinstance(val,list) or isinstance(val,set):
+        return " | ".join(list(map(lambda i:encode_string_for_graph_label(graph_attribute_formatter(i)),val)))
+    elif isinstance(val,dict):
+        return " | ".join(list(map(lambda i:i[0]+" : "+encode_string_for_graph_label(graph_attribute_formatter(i[1])),val.items())))
+    else:
+        return encode_string_for_graph_label(textwrap.fill(str(val),40))
 
 class Ontology:
     """
     A class used to represent an ontology. 
     This is the main entry point for the cognipy package. 
-    You can always have many ontology objects.
+    You can create many ontology objects and use them at the same time.
 
     Args:
-        source (str): 'cnl/file'|'cnl/string'|'rdf/uri'|'rdf/string'
+        source (str): 
+            'cnl/file' - local cnl file *.encnl
+            'cnl/string' - arg is a string ontology in a cnl format 
+            'rdf/uri' - uri to OWL/RDF or RDF/XML file
+            'rdf/string' - arf is a string ontology in OWL/RDF or RDF/XML format 
         arg (str): path/string/uri
-        verbose (bool) : should the content of the ontology be displayed
+        verbose (bool): should the content of the ontology be displayed
+        evaluator (function): a function that is used to evaluate string values within 
+            the ontology that are embrased with backquotes i.e.:`...`. 
+            It enables encoding complex structures within the ontology. 
+            Default = None - no backqueted string evaluation is performed.
+        graph_attribute_formatter (function) : a function that is used to format 
+            an attribute value when diagram is rendered
+        stop_on_error(bool): if True (default) the method with throw an error if any 
+            occured during the ontology loading process. 
     """
 
     def _resolve_str(self, v):
@@ -53,7 +87,7 @@ class Ontology:
         else:
             return self._resolve_str(col)
 
-    def __init__(self, source, arg, verbose=False, evaluator=None, graph_attribute_formatter=lambda val: encode_string_for_graph_label(textwrap.fill(str(val), 40)), stop_on_error=True):
+    def __init__(self, source, arg, verbose=False, evaluator=None, graph_attribute_formatter=default_graph_attribute_formatter, stop_on_error=True):
         loadAnnotations = True
         passParamsAsCnl = True
         modalCheck = True
@@ -145,6 +179,16 @@ class Ontology:
         return cognipy_call(self._uid, "GetSuperConceptsOf", cnl, direct)
 
     def instances_of(self, cnl, direct=False):
+        """Get list of all the instances of the given concept specification
+
+        Args:
+            cnl (str): the cnl expression that evaluates to the concept definition
+            direct (bool): if True, only the direct instances of the given concept 
+                specification will be returned
+
+        Returns:
+            List of all the instances of the given concept expression
+        """
         return cognipy_call(self._uid, "GetInstancesOf", cnl, direct)
 
     def _to_pandas(self, vals, cols):
@@ -153,7 +197,7 @@ class Ontology:
                      for item in row] for row in vals]
         return pd.DataFrame(vals, columns=cols)
 
-    def select_instances_of(self, cnl, set_resolver=lambda s: s):
+    def select_instances_of(self, cnl):
         """Get all the instances of the given concept specification
 
         Args:
@@ -202,8 +246,8 @@ class Ontology:
             display(Markdown(markdown))
 
     def delete_abox_cnl(self, cnl):
-        """Deletes the specified knowledge from the ontology
-        Only A-Box is accepted here.
+        """Deletes the specified knowledge from the A-Box ontology
+        Only A-Box is accepted here. The exception will be thrown if T-Box is given
 
         Args:
             cnl (str): the cnl string
@@ -214,11 +258,13 @@ class Ontology:
                 '**Y**', 'Y').replace('\r\n', '<br>').replace("<br><br>", "<br>")
             display(Markdown(markdown))
 
-    def delete_instance(self, inst):
-        """Deletes the specified instance  from the ontology including all the connections it has to other instances and concepts
+    def delete_abox_instance(self, inst):
+        """Deletes the specified instance from the A-Box of the ontology including all the connections 
+        it has to other instances and concepts. If the instance is involved in the T-Box definition the 
+        exception will be thrown.
 
         Args:
-            inst (str): the cnl name of the instance
+            inst (str): the cnl name of the instance.                 
         """
         cognipy_call(self._uid, "RemoveInstance", inst)
         if self._verbose:
@@ -230,8 +276,9 @@ class Ontology:
 
         Args:
             query: the SPARQL query. YOu can directly use prefixes like: [rdf:,rdfs,owl:]
-            asCNL : should the result names be automatically converted  back to their CNL representation (default) of they should remain being rdf identifiers.
-            column_names : list of column names of the returned DataFrame
+            asCNL : should the result names be automatically converted  back to their CNL representation (default) 
+                of they should remain being rdf identifiers.
+            column_names : (default=None). List of column names for the returned dataframe. If None, the names of the variables are used.
 
         Returns:
             Pandas DataFrame containing all the results of the query
@@ -252,7 +299,12 @@ class Ontology:
         self.super_concepts_of("a thing")
         return cognipy_call(self._uid, "GetReasoningInfo")
 
-    def create_graph(self, layout="hierarchical", show={"subsumptions", "types", "relations", "attributes"}, include={}, exclude={}, constrains=[], format="svg", filename=None, fontname=None, fontsize=11):
+    def create_graph(self, layout="hierarchical", 
+                    show={"subsumptions", "types", "relations", "attributes"}, 
+                    include={}, exclude={}, 
+                    constrains=[], 
+                    format="svg", 
+                    filename=None, fontname=None, fontsize=11):
         """Creates the ontology diagram as an image
 
         Args:
@@ -260,7 +312,13 @@ class Ontology:
             show(set(str)): one or more of strings {"subsumptions","types","relations","attributes"}
             include(set(str)): one or more names of entities that must be included (even if show argument says no)
             exclude(set(str)): one or more names of entities that must be excluded (even if show argument says yes)
+            constrains(list(str)): one or more complex concept expressions that constrain the list of instances to be displayed
+                                    this allows to create graphs that are focusing on specific instance. Multiple constrains 
+                                    are joined using OR expression
             format(str): format of the output image(one of: "svg"(default) ,"png")
+            filename(str): if None then output is returned, otherwize the output is written under the filename on the disk
+            fontname(str): if None then default font is used, otherwize the fontname is the name of the typeface to be used
+            fontsize(int): size of the font
         """
         showCnc = "subsumptions" in show
         showInst = "types" in show
@@ -518,20 +576,35 @@ class Ontology:
         """Draws the ontology
 
         Args:
-            layout(str): type of layout (one of: "hierarchical", "force directed")
-            show(set(str)): one or more of strings {"concepts","instances","relations","values"}
+            layout(str): type of layout (one of: "hierarchical"(default), "force directed")
+            show(set(str)): one or more of strings {"subsumptions","types","relations","attributes"}
             include(set(str)): one or more names of entities that must be included (even if show argument says no)
             exclude(set(str)): one or more names of entities that must be excluded (even if show argument says yes)
+            constrains(list(str)): one or more complex concept expressions that constrain the list of instances to be displayed
+                                    this allows to create graphs that are focusing on specific instance. Multiple constrains 
+                                    are joined using OR expression
+            fontname(str): if None then default font is used, otherwize the fontname is the name of the typeface to be used
+            fontsize(int): size of the font
         """
         return IPython.display.SVG(data=self.create_graph(layout, show, include, exclude, constrains, fontname=fontname, fontsize=fontsize))
 
 
 class ABoxBatch:
+    """
+    A class used to create batch for A-Box manipulations on the ontology
+    """
+    
     def __init__(self):
         self._rb = []
         self._insts = []
 
     def has_type(self, inst, cls):
+        """[inst] is [cls]. has-type relationship.
+
+        Args:
+            inst(str): instance name
+            cls(str): concept name
+        """
         self._rb.append("type")
         self._rb.append(inst)
         self._rb.append("")
@@ -539,6 +612,11 @@ class ABoxBatch:
         return self
 
     def same_as(self, inst, inst2):
+        """[inst] is [inst2]. same-as relationship.
+
+        Args:
+            inst,inst2(str): instance names
+        """
         self._rb.append("==")
         self._rb.append(inst)
         self._rb.append("")
@@ -546,6 +624,11 @@ class ABoxBatch:
         return self
 
     def different_from(self, inst, inst2):
+        """[inst] is not [inst2]. different-from relationship.
+
+        Args:
+            inst,inst2(str): instance names
+        """
         self._rb.append("!=")
         self._rb.append(inst)
         self._rb.append("")
@@ -553,6 +636,12 @@ class ABoxBatch:
         return self
 
     def relates(self, inst, prop, inst2):
+        """[inst] [prop] [inst2]. object relationship.
+
+        Args:
+            inst,inst2(str): instance names
+            prop(str): property name
+        """
         self._rb.append("R")
         self._rb.append(inst)
         self._rb.append(prop)
@@ -560,6 +649,13 @@ class ABoxBatch:
         return self
 
     def value(self, inst, prop, v):
+        """[inst] [prop] [v]. attribute.
+
+        Args:
+            inst(str): instance names
+            prop(str): property name
+            v(int,float,bool,str): an value for the instance property
+        """
         def tos(v):
             if(isinstance(v, int)):
                 return "I:"+str(v)
@@ -576,10 +672,20 @@ class ABoxBatch:
         self._rb.append(tos(v))
         return self
 
-    def delete_instance(self, name):
-        self._insts.append(name)
+    def delete_instance(self, inst):
+        """the instance to be deleted. Used only if delete is called
+
+        Args:
+            inst(str): instance name
+        """
+        self._insts.append(inst)
 
     def insert(self, onto):
+        """Inserts the current A-Box into the specific ontology
+
+        Args:
+            onto(Ontogy): ontology to be modified
+        """
         cognipy_call(onto._uid, "AssertionsInsert", self._rb)
         if onto._verbose:
             markdown = ''
@@ -601,6 +707,11 @@ class ABoxBatch:
             display(Markdown(markdown))
 
     def delete(self, onto):
+        """Deletes the current A-Box from the specific ontology
+
+        Args:
+            onto(Ontogy): ontology to be modified
+        """
         cognipy_call(onto._uid, "AssertionsDelete", self._rb)
         for inst in self._insts:
             cognipy_call(onto._uid, "RemoveInstance", inst)
