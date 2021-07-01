@@ -534,5 +534,25 @@ _Ala Instance: ""backwardCompatibleWith"":owl 'sdsgd'@ar
             var toCnlList = feClient.ToCNLList(includeImplicit, removeTrivials, true);
             Assert.AreEqual(1, toCnlList.Count(s => s.Contains("Annotations:")));
         }
+        
+        [Test]
+        public void AnnotationsTest()
+        {
+            var feClient = new CogniPySvr();
+            feClient.LoadRdf(Path.Combine(AssemblyDirectory, "TestFiles", "TestAnnotations.owl"), true, true, true);
+
+            var toRdf = feClient.ToRDF(true);
+
+            var annotations = new List<string>()
+            {
+                "<rdf:Description rdf:about=\"http://www.cognitum.eu/onto#bela\">",
+                "<rdfs:comment rdf:datatype=\"http://www.w3.org/2001/XMLSchema#string\">kaka maka</rdfs:comment>",
+                "<rdfs:comment xml:lang=\"en\">biba</rdfs:comment>",
+                "<rdf:Description rdf:about=\"http://www.cognitum.eu/onto#Ala\">",
+                "<owl:backwardCompatibleWith xml:lang=\"ar\">sdsgd</owl:backwardCompatibleWith>"
+            };
+            
+            Assert.IsFalse(!annotations.All(s=> toRdf.Contains(s)));
+        }
     }
 }
