@@ -1,0 +1,98 @@
+﻿<rdf:RDF xmlns="http://www.cognitum.eu/onto#" xml:base="http://www.cognitum.eu/onto" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+    <owl:Ontology rdf:about="http://www.cognitum.eu/onto#" />
+    <!-- 
+      ///////////////////////////////////////////////////////////////////////////////////////
+      //
+      // Object Properties
+      //
+      ///////////////////////////////////////////////////////////////////////////////////////
+       -->
+    <!-- http://www.cognitum.eu/onto#havas -->
+    <owl:ObjectProperty rdf:about="http://www.cognitum.eu/onto#havas" />
+    <!-- 
+      ///////////////////////////////////////////////////////////////////////////////////////
+      //
+      // Classes
+      //
+      ///////////////////////////////////////////////////////////////////////////////////////
+       -->
+    <!-- http://unknown.prefix/sfo#dataLocationForm -->
+    <owl:Class rdf:about="http://unknown.prefix/sfo#dataLocationForm">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing" />
+    </owl:Class>
+    <!-- http://www.cognitum.eu/onto#dataLocationForm -->
+    <owl:Class rdf:about="http://www.cognitum.eu/onto#dataLocationForm">
+        <rdfs:subClassOf rdf:resource="http://www.cognitum.eu/onto#form" />
+        <rdfs:subClassOf rdf:resource="http://www.cognitum.eu/onto#locationForm" />
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing" />
+    </owl:Class>
+    <!-- http://www.cognitum.eu/onto#form -->
+    <owl:Class rdf:about="http://www.cognitum.eu/onto#form">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing" />
+    </owl:Class>
+    <!-- http://www.cognitum.eu/onto#locationForm -->
+    <owl:Class rdf:about="http://www.cognitum.eu/onto#locationForm">
+        <rdfs:subClassOf rdf:resource="http://www.cognitum.eu/onto#form" />
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing" />
+    </owl:Class>
+    <!-- http://www.cognitum.eu/onto#miki -->
+    <owl:Class rdf:about="http://www.cognitum.eu/onto#miki">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing" />
+    </owl:Class>
+    <!-- 
+      ///////////////////////////////////////////////////////////////////////////////////////
+      //
+      // Individuals
+      //
+      ///////////////////////////////////////////////////////////////////////////////////////
+       -->
+    <!-- http://unknown.prefix/sfo#DataLocationForm -->
+    <owl:Thing rdf:about="http://unknown.prefix/sfo#DataLocationForm">
+        <rdf:type rdf:resource="http://www.cognitum.eu/onto#dataLocationForm" />
+        <rdf:type rdf:resource="http://www.cognitum.eu/onto#form" />
+        <rdf:type rdf:resource="http://www.cognitum.eu/onto#locationForm" />
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    </owl:Thing>
+    <!-- http://www.cognitum.eu/onto#Clone1 -->
+    <owl:Thing rdf:about="http://www.cognitum.eu/onto#Clone1">
+        <rdf:type rdf:resource="http://www.cognitum.eu/onto#form" />
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    </owl:Thing>
+    <!-- http://www.cognitum.eu/onto#Clone2 -->
+    <owl:Thing rdf:about="http://www.cognitum.eu/onto#Clone2">
+        <rdf:type rdf:resource="http://www.cognitum.eu/onto#form" />
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    </owl:Thing>
+    <!-- http://www.cognitum.eu/onto#DataLocationForm -->
+    <owl:Thing rdf:about="http://www.cognitum.eu/onto#DataLocationForm">
+        <rdf:type rdf:resource="http://unknown.prefix/sfo#dataLocationForm" />
+        <rdf:type rdf:resource="http://www.cognitum.eu/onto#dataLocationForm" />
+        <rdf:type rdf:resource="http://www.cognitum.eu/onto#form" />
+        <rdf:type rdf:resource="http://www.cognitum.eu/onto#locationForm" />
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    </owl:Thing>
+    <!-- http://www.cognitum.eu/onto#Kiki -->
+    <owl:Thing rdf:about="http://www.cognitum.eu/onto#Kiki">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.cognitum.eu/onto#havas" />
+                <owl:someValuesFrom rdf:resource="http://www.cognitum.eu/onto#miki" />
+            </owl:Restriction>
+        </rdf:type>
+    </owl:Thing>
+    <!-- 
+      ///////////////////////////////////////////////////////////////////////////////////////
+      //
+      // Annotations
+      //
+      ///////////////////////////////////////////////////////////////////////////////////////
+       -->
+    <rdf:Description rdf:about="http://www.cognitum.eu/onto#bela">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kaka maka</rdfs:comment>
+        <rdfs:comment xml:lang="en">biba</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.cognitum.eu/onto#Ala">
+        <owl:backwardCompatibleWith xml:lang="ar">sdsgd</owl:backwardCompatibleWith>
+    </rdf:Description>
+</rdf:RDF>
