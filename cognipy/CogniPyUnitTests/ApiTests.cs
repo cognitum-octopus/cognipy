@@ -552,7 +552,7 @@ _Ala Instance: ""backwardCompatibleWith"":owl 'sdsgd'@ar
                 "<owl:backwardCompatibleWith xml:lang=\"ar\">sdsgd</owl:backwardCompatibleWith>"
             };
             
-            Assert.IsFalse(!annotations.All(s=> toRdf.Contains(s)));
+            Assert.IsTrue(annotations.All(s=> toRdf.Contains(s)));
         }
     }
 }
