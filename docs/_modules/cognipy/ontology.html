@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>cognipy.ontology &mdash; CogniPy 0.1.18 documentation</title>
+  <title>cognipy.ontology &mdash; CogniPy 1.0.0 documentation</title>
   
 
   
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.1.18
+                1.0.0
               </div>
             
           
@@ -177,30 +177,64 @@
 <span class="kn">from</span> <span class="nn">cognipy.interop</span> <span class="kn">import</span> <span class="n">cognipy_create</span><span class="p">,</span> <span class="n">cognipy_delete</span><span class="p">,</span> <span class="n">cognipy_call</span>
 
 
-<div class="viewcode-block" id="CQL"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.CQL">[docs]</a><span class="k">def</span> <span class="nf">CQL</span><span class="p">(</span><span class="n">sparql</span><span class="p">,</span> <span class="n">ns</span><span class="o">=</span><span class="s1">&#39;http://www.cognitum.eu/onto#&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="CQL"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.CQL">[docs]</a><span class="k">def</span> <span class="nf">CQL</span><span class="p">(</span><span class="n">cql</span><span class="p">,</span> <span class="n">ns</span><span class="o">=</span><span class="s1">&#39;http://www.cognitum.eu/onto#&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Converts CQL query into pure SPARQL by replacing CNL names into their IRI representations</span>
+<span class="sd">       Args:</span>
+<span class="sd">            cql (str): cql string</span>
+<span class="sd">            ns (str): namespace for CNL names into IRI expansion</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">CONC</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
         <span class="k">return</span> <span class="s1">&#39;&lt;&#39;</span><span class="o">+</span><span class="n">ns</span> <span class="o">+</span> <span class="nb">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]])</span><span class="o">+</span><span class="s2">&quot;&gt;&quot;</span>
 
     <span class="k">def</span> <span class="nf">my_replace</span><span class="p">(</span><span class="n">match</span><span class="p">):</span>
         <span class="n">match</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">CONC</span><span class="p">(</span><span class="n">match</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\&lt;[^\&gt;:/]+\&gt;&#39;</span><span class="p">,</span> <span class="n">my_replace</span><span class="p">,</span> <span class="n">sparql</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\&lt;[^\&gt;:/]+\&gt;&#39;</span><span class="p">,</span> <span class="n">my_replace</span><span class="p">,</span> <span class="n">cql</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="encode_string_for_graph_label"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.encode_string_for_graph_label">[docs]</a><span class="k">def</span> <span class="nf">encode_string_for_graph_label</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;{&#39;</span><span class="p">,</span> <span class="s1">&#39;&amp;#123;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">,</span> <span class="s1">&#39;&amp;#124;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;}&#39;</span><span class="p">,</span> <span class="s1">&#39;&amp;#125;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&lt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&amp;#60;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&amp;#62;&#39;</span><span class="p">)</span></div>
+<div class="viewcode-block" id="encode_string_for_graph_label"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.encode_string_for_graph_label">[docs]</a><span class="k">def</span> <span class="nf">encode_string_for_graph_label</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Encodes reserved graphviz characters&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">val</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;{&#39;</span><span class="p">,</span> <span class="s1">&#39;&amp;#123;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">,</span> <span class="s1">&#39;&amp;#124;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;}&#39;</span><span class="p">,</span> <span class="s1">&#39;&amp;#125;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&lt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&amp;#60;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&amp;#62;&#39;</span><span class="p">)</span></div>
 
+<div class="viewcode-block" id="default_graph_attribute_formatter"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.default_graph_attribute_formatter">[docs]</a><span class="k">def</span> <span class="nf">default_graph_attribute_formatter</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The default method of graph-attribute formatting&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">encode_string_for_graph_label</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">),</span> <span class="mi">40</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="basic_backquote_string_evaluator"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.basic_backquote_string_evaluator">[docs]</a><span class="k">def</span> <span class="nf">basic_backquote_string_evaluator</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The basic evaluator for backquoted strings&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">eval</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="nb">globals</span><span class="p">(),</span><span class="nb">locals</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="basic_graph_attribute_formatter"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.basic_graph_attribute_formatter">[docs]</a><span class="k">def</span> <span class="nf">basic_graph_attribute_formatter</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;The basic method of graph-attribute formatting, taking into account basic collection types&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="nb">list</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="nb">set</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot; | &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span><span class="n">encode_string_for_graph_label</span><span class="p">(</span><span class="n">graph_attribute_formatter</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span><span class="n">val</span><span class="p">)))</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="nb">dict</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot; | &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot; : &quot;</span><span class="o">+</span><span class="n">encode_string_for_graph_label</span><span class="p">(</span><span class="n">graph_attribute_formatter</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">])),</span><span class="n">val</span><span class="o">.</span><span class="n">items</span><span class="p">())))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">encode_string_for_graph_label</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">),</span><span class="mi">40</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="Ontology"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.Ontology">[docs]</a><span class="k">class</span> <span class="nc">Ontology</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A class used to represent an ontology. </span>
 <span class="sd">    This is the main entry point for the cognipy package. </span>
-<span class="sd">    You can always have many ontology objects.</span>
+<span class="sd">    You can create many ontology objects and use them at the same time.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        source (str): &#39;cnl/file&#39;|&#39;cnl/string&#39;|&#39;rdf/uri&#39;|&#39;rdf/string&#39;</span>
+<span class="sd">        source (str): </span>
+<span class="sd">            &#39;cnl/file&#39; - local cnl file *.encnl</span>
+<span class="sd">            &#39;cnl/string&#39; - arg is a string ontology in a cnl format </span>
+<span class="sd">            &#39;rdf/uri&#39; - uri to OWL/RDF or RDF/XML file</span>
+<span class="sd">            &#39;rdf/string&#39; - arf is a string ontology in OWL/RDF or RDF/XML format </span>
 <span class="sd">        arg (str): path/string/uri</span>
-<span class="sd">        verbose (bool) : should the content of the ontology be displayed</span>
+<span class="sd">        verbose (bool): should the content of the ontology be displayed</span>
+<span class="sd">        evaluator (function): a function that is used to evaluate string values within </span>
+<span class="sd">            the ontology that are embrased with backquotes i.e.:`...`. </span>
+<span class="sd">            It enables encoding complex structures within the ontology. </span>
+<span class="sd">            Default = None - no backqueted string evaluation is performed.</span>
+<span class="sd">        graph_attribute_formatter (function) : a function that is used to format </span>
+<span class="sd">            an attribute value when diagram is rendered</span>
+<span class="sd">        stop_on_error(bool): if True (default) the method with throw an error if any </span>
+<span class="sd">            occured during the ontology loading process. </span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">_resolve_str</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
@@ -219,7 +253,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resolve_str</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">arg</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">evaluator</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">graph_attribute_formatter</span><span class="o">=</span><span class="k">lambda</span> <span class="n">val</span><span class="p">:</span> <span class="n">encode_string_for_graph_label</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">),</span> <span class="mi">40</span><span class="p">)),</span> <span class="n">stop_on_error</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">arg</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">evaluator</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">graph_attribute_formatter</span><span class="o">=</span><span class="n">default_graph_attribute_formatter</span><span class="p">,</span> <span class="n">stop_on_error</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="n">loadAnnotations</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="n">passParamsAsCnl</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="n">modalCheck</span> <span class="o">=</span> <span class="kc">True</span>
@@ -311,6 +345,16 @@
         <span class="k">return</span> <span class="n">cognipy_call</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_uid</span><span class="p">,</span> <span class="s2">&quot;GetSuperConceptsOf&quot;</span><span class="p">,</span> <span class="n">cnl</span><span class="p">,</span> <span class="n">direct</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Ontology.instances_of"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.Ontology.instances_of">[docs]</a>    <span class="k">def</span> <span class="nf">instances_of</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cnl</span><span class="p">,</span> <span class="n">direct</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get list of all the instances of the given concept specification</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            cnl (str): the cnl expression that evaluates to the concept definition</span>
+<span class="sd">            direct (bool): if True, only the direct instances of the given concept </span>
+<span class="sd">                specification will be returned</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of all the instances of the given concept expression</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">cognipy_call</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_uid</span><span class="p">,</span> <span class="s2">&quot;GetInstancesOf&quot;</span><span class="p">,</span> <span class="n">cnl</span><span class="p">,</span> <span class="n">direct</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_to_pandas</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vals</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
@@ -319,7 +363,7 @@
                      <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">vals</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Ontology.select_instances_of"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.Ontology.select_instances_of">[docs]</a>    <span class="k">def</span> <span class="nf">select_instances_of</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cnl</span><span class="p">,</span> <span class="n">set_resolver</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="p">):</span>
+<div class="viewcode-block" id="Ontology.select_instances_of"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.Ontology.select_instances_of">[docs]</a>    <span class="k">def</span> <span class="nf">select_instances_of</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cnl</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get all the instances of the given concept specification</span>
 
 <span class="sd">        Args:</span>
@@ -368,8 +412,8 @@
             <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">markdown</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="Ontology.delete_abox_cnl"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.Ontology.delete_abox_cnl">[docs]</a>    <span class="k">def</span> <span class="nf">delete_abox_cnl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cnl</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Deletes the specified knowledge from the ontology</span>
-<span class="sd">        Only A-Box is accepted here.</span>
+        <span class="sd">&quot;&quot;&quot;Deletes the specified knowledge from the A-Box ontology</span>
+<span class="sd">        Only A-Box is accepted here. The exception will be thrown if T-Box is given</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            cnl (str): the cnl string</span>
@@ -380,11 +424,13 @@
                 <span class="s1">&#39;**Y**&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\r\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;br&gt;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;br&gt;&lt;br&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">)</span>
             <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">markdown</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Ontology.delete_instance"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.Ontology.delete_instance">[docs]</a>    <span class="k">def</span> <span class="nf">delete_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inst</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Deletes the specified instance  from the ontology including all the connections it has to other instances and concepts</span>
+<div class="viewcode-block" id="Ontology.delete_abox_instance"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.Ontology.delete_abox_instance">[docs]</a>    <span class="k">def</span> <span class="nf">delete_abox_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inst</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Deletes the specified instance from the A-Box of the ontology including all the connections </span>
+<span class="sd">        it has to other instances and concepts. If the instance is involved in the T-Box definition the </span>
+<span class="sd">        exception will be thrown.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            inst (str): the cnl name of the instance</span>
+<span class="sd">            inst (str): the cnl name of the instance.                 </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">cognipy_call</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_uid</span><span class="p">,</span> <span class="s2">&quot;RemoveInstance&quot;</span><span class="p">,</span> <span class="n">inst</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span><span class="p">:</span>
@@ -396,8 +442,9 @@
 
 <span class="sd">        Args:</span>
 <span class="sd">            query: the SPARQL query. YOu can directly use prefixes like: [rdf:,rdfs,owl:]</span>
-<span class="sd">            asCNL : should the result names be automatically converted  back to their CNL representation (default) of they should remain being rdf identifiers.</span>
-<span class="sd">            column_names : list of column names of the returned DataFrame</span>
+<span class="sd">            asCNL : should the result names be automatically converted  back to their CNL representation (default) </span>
+<span class="sd">                of they should remain being rdf identifiers.</span>
+<span class="sd">            column_names : (default=None). List of column names for the returned dataframe. If None, the names of the variables are used.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Pandas DataFrame containing all the results of the query</span>
@@ -418,7 +465,12 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">super_concepts_of</span><span class="p">(</span><span class="s2">&quot;a thing&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">cognipy_call</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_uid</span><span class="p">,</span> <span class="s2">&quot;GetReasoningInfo&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Ontology.create_graph"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.Ontology.create_graph">[docs]</a>    <span class="k">def</span> <span class="nf">create_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;hierarchical&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;subsumptions&quot;</span><span class="p">,</span> <span class="s2">&quot;types&quot;</span><span class="p">,</span> <span class="s2">&quot;relations&quot;</span><span class="p">,</span> <span class="s2">&quot;attributes&quot;</span><span class="p">},</span> <span class="n">include</span><span class="o">=</span><span class="p">{},</span> <span class="n">exclude</span><span class="o">=</span><span class="p">{},</span> <span class="n">constrains</span><span class="o">=</span><span class="p">[],</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;svg&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fontname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">):</span>
+<div class="viewcode-block" id="Ontology.create_graph"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.Ontology.create_graph">[docs]</a>    <span class="k">def</span> <span class="nf">create_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;hierarchical&quot;</span><span class="p">,</span> 
+                    <span class="n">show</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;subsumptions&quot;</span><span class="p">,</span> <span class="s2">&quot;types&quot;</span><span class="p">,</span> <span class="s2">&quot;relations&quot;</span><span class="p">,</span> <span class="s2">&quot;attributes&quot;</span><span class="p">},</span> 
+                    <span class="n">include</span><span class="o">=</span><span class="p">{},</span> <span class="n">exclude</span><span class="o">=</span><span class="p">{},</span> 
+                    <span class="n">constrains</span><span class="o">=</span><span class="p">[],</span> 
+                    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;svg&quot;</span><span class="p">,</span> 
+                    <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fontname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Creates the ontology diagram as an image</span>
 
 <span class="sd">        Args:</span>
@@ -426,7 +478,13 @@
 <span class="sd">            show(set(str)): one or more of strings {&quot;subsumptions&quot;,&quot;types&quot;,&quot;relations&quot;,&quot;attributes&quot;}</span>
 <span class="sd">            include(set(str)): one or more names of entities that must be included (even if show argument says no)</span>
 <span class="sd">            exclude(set(str)): one or more names of entities that must be excluded (even if show argument says yes)</span>
+<span class="sd">            constrains(list(str)): one or more complex concept expressions that constrain the list of instances to be displayed</span>
+<span class="sd">                                    this allows to create graphs that are focusing on specific instance. Multiple constrains </span>
+<span class="sd">                                    are joined using OR expression</span>
 <span class="sd">            format(str): format of the output image(one of: &quot;svg&quot;(default) ,&quot;png&quot;)</span>
+<span class="sd">            filename(str): if None then output is returned, otherwize the output is written under the filename on the disk</span>
+<span class="sd">            fontname(str): if None then default font is used, otherwize the fontname is the name of the typeface to be used</span>
+<span class="sd">            fontsize(int): size of the font</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">showCnc</span> <span class="o">=</span> <span class="s2">&quot;subsumptions&quot;</span> <span class="ow">in</span> <span class="n">show</span>
         <span class="n">showInst</span> <span class="o">=</span> <span class="s2">&quot;types&quot;</span> <span class="ow">in</span> <span class="n">show</span>
@@ -684,20 +742,35 @@
         <span class="sd">&quot;&quot;&quot;Draws the ontology</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            layout(str): type of layout (one of: &quot;hierarchical&quot;, &quot;force directed&quot;)</span>
-<span class="sd">            show(set(str)): one or more of strings {&quot;concepts&quot;,&quot;instances&quot;,&quot;relations&quot;,&quot;values&quot;}</span>
+<span class="sd">            layout(str): type of layout (one of: &quot;hierarchical&quot;(default), &quot;force directed&quot;)</span>
+<span class="sd">            show(set(str)): one or more of strings {&quot;subsumptions&quot;,&quot;types&quot;,&quot;relations&quot;,&quot;attributes&quot;}</span>
 <span class="sd">            include(set(str)): one or more names of entities that must be included (even if show argument says no)</span>
 <span class="sd">            exclude(set(str)): one or more names of entities that must be excluded (even if show argument says yes)</span>
+<span class="sd">            constrains(list(str)): one or more complex concept expressions that constrain the list of instances to be displayed</span>
+<span class="sd">                                    this allows to create graphs that are focusing on specific instance. Multiple constrains </span>
+<span class="sd">                                    are joined using OR expression</span>
+<span class="sd">            fontname(str): if None then default font is used, otherwize the fontname is the name of the typeface to be used</span>
+<span class="sd">            fontsize(int): size of the font</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">SVG</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">create_graph</span><span class="p">(</span><span class="n">layout</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">include</span><span class="p">,</span> <span class="n">exclude</span><span class="p">,</span> <span class="n">constrains</span><span class="p">,</span> <span class="n">fontname</span><span class="o">=</span><span class="n">fontname</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">))</span></div></div>
 
 
 <div class="viewcode-block" id="ABoxBatch"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.ABoxBatch">[docs]</a><span class="k">class</span> <span class="nc">ABoxBatch</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class used to create batch for A-Box manipulations on the ontology</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rb</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_insts</span> <span class="o">=</span> <span class="p">[]</span>
 
 <div class="viewcode-block" id="ABoxBatch.has_type"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.ABoxBatch.has_type">[docs]</a>    <span class="k">def</span> <span class="nf">has_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inst</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;[inst] is [cls]. has-type relationship.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            inst(str): instance name</span>
+<span class="sd">            cls(str): concept name</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inst</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
@@ -705,6 +778,11 @@
         <span class="k">return</span> <span class="bp">self</span></div>
 
 <div class="viewcode-block" id="ABoxBatch.same_as"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.ABoxBatch.same_as">[docs]</a>    <span class="k">def</span> <span class="nf">same_as</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inst</span><span class="p">,</span> <span class="n">inst2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;[inst] is [inst2]. same-as relationship.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            inst,inst2(str): instance names</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;==&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inst</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
@@ -712,6 +790,11 @@
         <span class="k">return</span> <span class="bp">self</span></div>
 
 <div class="viewcode-block" id="ABoxBatch.different_from"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.ABoxBatch.different_from">[docs]</a>    <span class="k">def</span> <span class="nf">different_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inst</span><span class="p">,</span> <span class="n">inst2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;[inst] is not [inst2]. different-from relationship.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            inst,inst2(str): instance names</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;!=&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inst</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
@@ -719,6 +802,12 @@
         <span class="k">return</span> <span class="bp">self</span></div>
 
 <div class="viewcode-block" id="ABoxBatch.relates"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.ABoxBatch.relates">[docs]</a>    <span class="k">def</span> <span class="nf">relates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inst</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">inst2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;[inst] [prop] [inst2]. object relationship.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            inst,inst2(str): instance names</span>
+<span class="sd">            prop(str): property name</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;R&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inst</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prop</span><span class="p">)</span>
@@ -726,6 +815,13 @@
         <span class="k">return</span> <span class="bp">self</span></div>
 
 <div class="viewcode-block" id="ABoxBatch.value"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.ABoxBatch.value">[docs]</a>    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inst</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;[inst] [prop] [v]. attribute.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            inst(str): instance names</span>
+<span class="sd">            prop(str): property name</span>
+<span class="sd">            v(int,float,bool,str): an value for the instance property</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">def</span> <span class="nf">tos</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
             <span class="k">if</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">int</span><span class="p">)):</span>
                 <span class="k">return</span> <span class="s2">&quot;I:&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
@@ -742,10 +838,20 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_rb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tos</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="ABoxBatch.delete_instance"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.ABoxBatch.delete_instance">[docs]</a>    <span class="k">def</span> <span class="nf">delete_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_insts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></div>
+<div class="viewcode-block" id="ABoxBatch.delete_instance"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.ABoxBatch.delete_instance">[docs]</a>    <span class="k">def</span> <span class="nf">delete_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inst</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;the instance to be deleted. Used only if delete is called</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            inst(str): instance name</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_insts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inst</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="ABoxBatch.insert"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.ABoxBatch.insert">[docs]</a>    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">onto</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Inserts the current A-Box into the specific ontology</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            onto(Ontogy): ontology to be modified</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">cognipy_call</span><span class="p">(</span><span class="n">onto</span><span class="o">.</span><span class="n">_uid</span><span class="p">,</span> <span class="s2">&quot;AssertionsInsert&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rb</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">onto</span><span class="o">.</span><span class="n">_verbose</span><span class="p">:</span>
             <span class="n">markdown</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
@@ -767,6 +873,11 @@
             <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">markdown</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="ABoxBatch.delete"><a class="viewcode-back" href="../../cognipy.html#cognipy.ontology.ABoxBatch.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">onto</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Deletes the current A-Box from the specific ontology</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            onto(Ontogy): ontology to be modified</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">cognipy_call</span><span class="p">(</span><span class="n">onto</span><span class="o">.</span><span class="n">_uid</span><span class="p">,</span> <span class="s2">&quot;AssertionsDelete&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rb</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">inst</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_insts</span><span class="p">:</span>
             <span class="n">cognipy_call</span><span class="p">(</span><span class="n">onto</span><span class="o">.</span><span class="n">_uid</span><span class="p">,</span> <span class="s2">&quot;RemoveInstance&quot;</span><span class="p">,</span> <span class="n">inst</span><span class="p">)</span>

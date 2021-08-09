@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>cognipy.ontology &mdash; CogniPy 0.1.18 documentation</title>
+  <title>cognipy.ontology &mdash; CogniPy 1.0.0 documentation</title>
   
 
   
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                0.1.18
+                1.0.0
               </div>
             
           
@@ -201,64 +201,133 @@
 <dt id="cognipy.ontology.ABoxBatch">
 <em class="property">class </em><code class="sig-prename descclassname">cognipy.ontology.</code><code class="sig-name descname">ABoxBatch</code><a class="reference internal" href="_modules/cognipy/ontology.html#ABoxBatch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.ABoxBatch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class used to create batch for A-Box manipulations on the ontology</p>
 <dl class="py method">
 <dt id="cognipy.ontology.ABoxBatch.delete">
 <code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">onto</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#ABoxBatch.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.ABoxBatch.delete" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Deletes the current A-Box from the specific ontology</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>onto(Ontogy): ontology to be modified</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="cognipy.ontology.ABoxBatch.delete_instance">
-<code class="sig-name descname">delete_instance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#ABoxBatch.delete_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.ABoxBatch.delete_instance" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-name descname">delete_instance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inst</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#ABoxBatch.delete_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.ABoxBatch.delete_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>the instance to be deleted. Used only if delete is called</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>inst(str): instance name</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="cognipy.ontology.ABoxBatch.different_from">
 <code class="sig-name descname">different_from</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inst</span></em>, <em class="sig-param"><span class="n">inst2</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#ABoxBatch.different_from"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.ABoxBatch.different_from" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>[inst] is not [inst2]. different-from relationship.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>inst,inst2(str): instance names</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="cognipy.ontology.ABoxBatch.has_type">
 <code class="sig-name descname">has_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inst</span></em>, <em class="sig-param"><span class="n">cls</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#ABoxBatch.has_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.ABoxBatch.has_type" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>[inst] is [cls]. has-type relationship.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>inst(str): instance name
+cls(str): concept name</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="cognipy.ontology.ABoxBatch.insert">
 <code class="sig-name descname">insert</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">onto</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#ABoxBatch.insert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.ABoxBatch.insert" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Inserts the current A-Box into the specific ontology</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>onto(Ontogy): ontology to be modified</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="cognipy.ontology.ABoxBatch.relates">
 <code class="sig-name descname">relates</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inst</span></em>, <em class="sig-param"><span class="n">prop</span></em>, <em class="sig-param"><span class="n">inst2</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#ABoxBatch.relates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.ABoxBatch.relates" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>[inst] [prop] [inst2]. object relationship.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>inst,inst2(str): instance names
+prop(str): property name</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="cognipy.ontology.ABoxBatch.same_as">
 <code class="sig-name descname">same_as</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inst</span></em>, <em class="sig-param"><span class="n">inst2</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#ABoxBatch.same_as"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.ABoxBatch.same_as" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>[inst] is [inst2]. same-as relationship.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>inst,inst2(str): instance names</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="cognipy.ontology.ABoxBatch.value">
 <code class="sig-name descname">value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inst</span></em>, <em class="sig-param"><span class="n">prop</span></em>, <em class="sig-param"><span class="n">v</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#ABoxBatch.value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.ABoxBatch.value" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>[inst] [prop] [v]. attribute.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>inst(str): instance names
+prop(str): property name
+v(int,float,bool,str): an value for the instance property</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
 <dt id="cognipy.ontology.CQL">
-<code class="sig-prename descclassname">cognipy.ontology.</code><code class="sig-name descname">CQL</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sparql</span></em>, <em class="sig-param"><span class="n">ns</span><span class="o">=</span><span class="default_value">'http://www.cognitum.eu/onto#'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#CQL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.CQL" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">cognipy.ontology.</code><code class="sig-name descname">CQL</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cql</span></em>, <em class="sig-param"><span class="n">ns</span><span class="o">=</span><span class="default_value">'http://www.cognitum.eu/onto#'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#CQL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.CQL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts CQL query into pure SPARQL by replacing CNL names into their IRI representations
+Args:</p>
+<blockquote>
+<div><p>cql (str): cql string
+ns (str): namespace for CNL names into IRI expansion</p>
+</div></blockquote>
+</dd></dl>
 
 <dl class="py class">
 <dt id="cognipy.ontology.Ontology">
-<em class="property">class </em><code class="sig-prename descclassname">cognipy.ontology.</code><code class="sig-name descname">Ontology</code><span class="sig-paren">(</span><em class="sig-param">source</em>, <em class="sig-param">arg</em>, <em class="sig-param">verbose=False</em>, <em class="sig-param">evaluator=None</em>, <em class="sig-param">graph_attribute_formatter=&lt;function Ontology.&lt;lambda&gt;&gt;</em>, <em class="sig-param">stop_on_error=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#Ontology"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.Ontology" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">cognipy.ontology.</code><code class="sig-name descname">Ontology</code><span class="sig-paren">(</span><em class="sig-param">source</em>, <em class="sig-param">arg</em>, <em class="sig-param">verbose=False</em>, <em class="sig-param">evaluator=None</em>, <em class="sig-param">graph_attribute_formatter=&lt;function default_graph_attribute_formatter&gt;</em>, <em class="sig-param">stop_on_error=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#Ontology"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.Ontology" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class used to represent an ontology. 
 This is the main entry point for the cognipy package. 
-You can always have many ontology objects.</p>
+You can create many ontology objects and use them at the same time.</p>
+<dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>source (str): </dt><dd><p>‘cnl/file’ - local cnl file <a href="#id1"><span class="problematic" id="id2">*</span></a>.encnl
+‘cnl/string’ - arg is a string ontology in a cnl format 
+‘rdf/uri’ - uri to OWL/RDF or RDF/XML file
+‘rdf/string’ - arf is a string ontology in OWL/RDF or RDF/XML format</p>
+</dd>
+</dl>
+<p>arg (str): path/string/uri
+verbose (bool): should the content of the ontology be displayed
+evaluator (function): a function that is used to evaluate string values within</p>
+<blockquote>
+<div><p>the ontology that are embrased with backquotes i.e.:<cite>…</cite>. 
+It enables encoding complex structures within the ontology. 
+Default = None - no backqueted string evaluation is performed.</p>
+</div></blockquote>
 <dl class="simple">
-<dt>Args:</dt><dd><p>source (str): ‘cnl/file’|’cnl/string’|’rdf/uri’|’rdf/string’
-arg (str): path/string/uri
-verbose (bool) : should the content of the ontology be displayed</p>
+<dt>graph_attribute_formatter (function)<span class="classifier">a function that is used to format </span></dt><dd><p>an attribute value when diagram is rendered</p>
+</dd>
+<dt>stop_on_error(bool): if True (default) the method with throw an error if any </dt><dd><p>occured during the ontology loading process.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 <dl class="py method">
@@ -289,12 +358,20 @@ verbose (bool) : should the content of the ontology be displayed</p>
 <dt id="cognipy.ontology.Ontology.create_graph">
 <code class="sig-name descname">create_graph</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">layout</span><span class="o">=</span><span class="default_value">'hierarchical'</span></em>, <em class="sig-param"><span class="n">show</span><span class="o">=</span><span class="default_value">{'attributes', 'relations', 'subsumptions', 'types'}</span></em>, <em class="sig-param"><span class="n">include</span><span class="o">=</span><span class="default_value">{}</span></em>, <em class="sig-param"><span class="n">exclude</span><span class="o">=</span><span class="default_value">{}</span></em>, <em class="sig-param"><span class="n">constrains</span><span class="o">=</span><span class="default_value">[]</span></em>, <em class="sig-param"><span class="n">format</span><span class="o">=</span><span class="default_value">'svg'</span></em>, <em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fontname</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fontsize</span><span class="o">=</span><span class="default_value">11</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#Ontology.create_graph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.Ontology.create_graph" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates the ontology diagram as an image</p>
-<dl class="simple">
+<dl>
 <dt>Args:</dt><dd><p>layout(str): type of layout (one of: “hierarchical”(default), “force directed”)
 show(set(str)): one or more of strings {“subsumptions”,”types”,”relations”,”attributes”}
 include(set(str)): one or more names of entities that must be included (even if show argument says no)
 exclude(set(str)): one or more names of entities that must be excluded (even if show argument says yes)
-format(str): format of the output image(one of: “svg”(default) ,”png”)</p>
+constrains(list(str)): one or more complex concept expressions that constrain the list of instances to be displayed</p>
+<blockquote>
+<div><p>this allows to create graphs that are focusing on specific instance. Multiple constrains 
+are joined using OR expression</p>
+</div></blockquote>
+<p>format(str): format of the output image(one of: “svg”(default) ,”png”)
+filename(str): if None then output is returned, otherwize the output is written under the filename on the disk
+fontname(str): if None then default font is used, otherwize the fontname is the name of the typeface to be used
+fontsize(int): size of the font</p>
 </dd>
 </dl>
 </dd></dl>
@@ -302,8 +379,8 @@ format(str): format of the output image(one of: “svg”(default) ,”png”)</
 <dl class="py method">
 <dt id="cognipy.ontology.Ontology.delete_abox_cnl">
 <code class="sig-name descname">delete_abox_cnl</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cnl</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#Ontology.delete_abox_cnl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.Ontology.delete_abox_cnl" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deletes the specified knowledge from the ontology
-Only A-Box is accepted here.</p>
+<dd><p>Deletes the specified knowledge from the A-Box ontology
+Only A-Box is accepted here. The exception will be thrown if T-Box is given</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>cnl (str): the cnl string</p>
 </dd>
@@ -311,11 +388,13 @@ Only A-Box is accepted here.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="cognipy.ontology.Ontology.delete_instance">
-<code class="sig-name descname">delete_instance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inst</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#Ontology.delete_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.Ontology.delete_instance" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deletes the specified instance  from the ontology including all the connections it has to other instances and concepts</p>
+<dt id="cognipy.ontology.Ontology.delete_abox_instance">
+<code class="sig-name descname">delete_abox_instance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inst</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#Ontology.delete_abox_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.Ontology.delete_abox_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the specified instance from the A-Box of the ontology including all the connections 
+it has to other instances and concepts. If the instance is involved in the T-Box definition the 
+exception will be thrown.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>inst (str): the cnl name of the instance</p>
+<dt>Args:</dt><dd><p>inst (str): the cnl name of the instance.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -324,11 +403,18 @@ Only A-Box is accepted here.</p>
 <dt id="cognipy.ontology.Ontology.draw_graph">
 <code class="sig-name descname">draw_graph</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">layout</span><span class="o">=</span><span class="default_value">'hierarchical'</span></em>, <em class="sig-param"><span class="n">show</span><span class="o">=</span><span class="default_value">{'attributes', 'relations', 'subsumptions', 'types'}</span></em>, <em class="sig-param"><span class="n">include</span><span class="o">=</span><span class="default_value">{}</span></em>, <em class="sig-param"><span class="n">exclude</span><span class="o">=</span><span class="default_value">{}</span></em>, <em class="sig-param"><span class="n">constrains</span><span class="o">=</span><span class="default_value">[]</span></em>, <em class="sig-param"><span class="n">fontname</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fontsize</span><span class="o">=</span><span class="default_value">11</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#Ontology.draw_graph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.Ontology.draw_graph" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws the ontology</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>layout(str): type of layout (one of: “hierarchical”, “force directed”)
-show(set(str)): one or more of strings {“concepts”,”instances”,”relations”,”values”}
+<dl>
+<dt>Args:</dt><dd><p>layout(str): type of layout (one of: “hierarchical”(default), “force directed”)
+show(set(str)): one or more of strings {“subsumptions”,”types”,”relations”,”attributes”}
 include(set(str)): one or more names of entities that must be included (even if show argument says no)
-exclude(set(str)): one or more names of entities that must be excluded (even if show argument says yes)</p>
+exclude(set(str)): one or more names of entities that must be excluded (even if show argument says yes)
+constrains(list(str)): one or more complex concept expressions that constrain the list of instances to be displayed</p>
+<blockquote>
+<div><p>this allows to create graphs that are focusing on specific instance. Multiple constrains 
+are joined using OR expression</p>
+</div></blockquote>
+<p>fontname(str): if None then default font is used, otherwize the fontname is the name of the typeface to be used
+fontsize(int): size of the font</p>
 </dd>
 </dl>
 </dd></dl>
@@ -365,7 +451,18 @@ Only A-Box is accepted here.</p>
 <dl class="py method">
 <dt id="cognipy.ontology.Ontology.instances_of">
 <code class="sig-name descname">instances_of</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cnl</span></em>, <em class="sig-param"><span class="n">direct</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#Ontology.instances_of"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.Ontology.instances_of" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get list of all the instances of the given concept specification</p>
+<dl>
+<dt>Args:</dt><dd><p>cnl (str): the cnl expression that evaluates to the concept definition
+direct (bool): if True, only the direct instances of the given concept</p>
+<blockquote>
+<div><p>specification will be returned</p>
+</div></blockquote>
+</dd>
+<dt>Returns:</dt><dd><p>List of all the instances of the given concept expression</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="cognipy.ontology.Ontology.reasoningInfo">
@@ -374,7 +471,7 @@ Only A-Box is accepted here.</p>
 
 <dl class="py method">
 <dt id="cognipy.ontology.Ontology.select_instances_of">
-<code class="sig-name descname">select_instances_of</code><span class="sig-paren">(</span><em class="sig-param">cnl</em>, <em class="sig-param">set_resolver=&lt;function Ontology.&lt;lambda&gt;&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#Ontology.select_instances_of"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.Ontology.select_instances_of" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">select_instances_of</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cnl</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#Ontology.select_instances_of"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.Ontology.select_instances_of" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all the instances of the given concept specification</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>cnl (str): the cnl expression that evaluates to the concept definition</p>
@@ -388,10 +485,13 @@ Only A-Box is accepted here.</p>
 <dt id="cognipy.ontology.Ontology.sparql_query">
 <code class="sig-name descname">sparql_query</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">query</span></em>, <em class="sig-param"><span class="n">asCNL</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">column_names</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#Ontology.sparql_query"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.Ontology.sparql_query" title="Permalink to this definition">¶</a></dt>
 <dd><p>Executes the SPARQL query</p>
-<dl class="simple">
+<dl>
 <dt>Args:</dt><dd><p>query: the SPARQL query. YOu can directly use prefixes like: [rdf:,rdfs,owl:]
-asCNL : should the result names be automatically converted  back to their CNL representation (default) of they should remain being rdf identifiers.
-column_names : list of column names of the returned DataFrame</p>
+asCNL : should the result names be automatically converted  back to their CNL representation (default)</p>
+<blockquote>
+<div><p>of they should remain being rdf identifiers.</p>
+</div></blockquote>
+<p>column_names : (default=None). List of column names for the returned dataframe. If None, the names of the variables are used.</p>
 </dd>
 <dt>Returns:</dt><dd><p>Pandas DataFrame containing all the results of the query</p>
 </dd>
@@ -447,9 +547,28 @@ column_names : list of column names of the returned DataFrame</p>
 </dd></dl>
 
 <dl class="py function">
+<dt id="cognipy.ontology.basic_backquote_string_evaluator">
+<code class="sig-prename descclassname">cognipy.ontology.</code><code class="sig-name descname">basic_backquote_string_evaluator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">val</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#basic_backquote_string_evaluator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.basic_backquote_string_evaluator" title="Permalink to this definition">¶</a></dt>
+<dd><p>The basic evaluator for backquoted strings</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cognipy.ontology.basic_graph_attribute_formatter">
+<code class="sig-prename descclassname">cognipy.ontology.</code><code class="sig-name descname">basic_graph_attribute_formatter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">val</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#basic_graph_attribute_formatter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.basic_graph_attribute_formatter" title="Permalink to this definition">¶</a></dt>
+<dd><p>The basic method of graph-attribute formatting, taking into account basic collection types</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cognipy.ontology.default_graph_attribute_formatter">
+<code class="sig-prename descclassname">cognipy.ontology.</code><code class="sig-name descname">default_graph_attribute_formatter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">val</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#default_graph_attribute_formatter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.default_graph_attribute_formatter" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default method of graph-attribute formatting</p>
+</dd></dl>
+
+<dl class="py function">
 <dt id="cognipy.ontology.encode_string_for_graph_label">
-<code class="sig-prename descclassname">cognipy.ontology.</code><code class="sig-name descname">encode_string_for_graph_label</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">str</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#encode_string_for_graph_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.encode_string_for_graph_label" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">cognipy.ontology.</code><code class="sig-name descname">encode_string_for_graph_label</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">val</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cognipy/ontology.html#encode_string_for_graph_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cognipy.ontology.encode_string_for_graph_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encodes reserved graphviz characters</p>
+</dd></dl>
 
 </div>
 
