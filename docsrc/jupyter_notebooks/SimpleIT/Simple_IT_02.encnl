@@ -1,0 +1,95 @@
+Title: 'Simple IT Infrastructure'.
+Author: 'Cognitum'.
+
+Comment: 'Sample IT ontology'.
+Namespace: 'http://ontorion.com/IT_Infra'.
+
+Part-1:  Server--------------------------------.
+Comment: ////// Examples of Possible Questions ////////////
+ * Who-Or-What is a server ?            
+ * Who-Or-What is hosted by Server-1 ?  
+ * Who-Or-What runs-on Server-2 ?         
+//////////////////////////////////////////////////////////.
+ 
+Server-1 is a server.
+Server-1 hosts Application-1.
+Application-3 is hosted by Server-1.
+
+Server-2 is a server.
+Server-2 hosts Application-2.
+
+Every server should host an application.
+Every server must have-status a thing that is either Operable or Inoperable. 
+ 
+If a server hosts an application then the application runs-on the server. 
+
+Part-2: Application---------------------------.
+Comment: ////// Examples of Possible Questions ////////////
+ * Who-Or-What serves a customer ?
+ * Who-Or-What serves Customer-1 ?           
+ * Who-Or-What is served by Application-2 ?  
+///////////////////////////////////////////////////////////.
+
+Application-1 is an application.
+Application-1 serves Customer-1.
+
+Application-2 is an application.
+Application-2 serves Customer-1 and serves Customer-2.
+
+Application-3 is an application.
+Application-3 serves Customer-3 and serves Customer-4.
+
+Every application should serve a customer.
+Every application must be hosted by a server.
+
+Every application must have-status a thing that is either Operable or Inoperable. 
+
+Part-3: Customers------------------------------.
+Comment: ////// Examples of Possible Questions ////////////
+ * Who-Or-What is a customer that has-priority Low ?          
+ * Who-Or-What is a high-priority-customer ?                   
+ * Who-Or-What serves a customer that has-priority Critical ? 
+ * Who-Or-What serves a customer that is a high-priority-customer ?  
+//////////////////////////////////////////////////////////.
+
+Customer-1 is a customer.
+Customer-1 has-priority Critical.
+
+Customer-2 is a customer.
+Customer-2 has-priority Medium.
+
+Customer-3 is a customer and has-priority Low.
+
+Customer-4 is a customer and has-priority Critical.
+
+
+Every customer must have-priority a priority.
+Something is a priority if-and-only-if-it is either Critical or Medium or Low. 
+Every customer that has-priority Critical is a high-priority-customer.
+Every customer should be served by an application.
+
+Part-4: Power Node------------------------------.
+Comment: ////// Examples of Possible Questions ////////////
+ * Who-Or-What connects Server-1?
+ * Who-Or-What is connected by Powernode-1?
+//////////////////////////////////////////////////////////.
+
+Powernode-1 is a powernode.
+Powernode-1 connects Server-1.
+
+Powernode-2 is a powernode.
+Powernode-2 connects Server-1.
+
+Powernode-3 is a powernode.
+Powernode-3 connects Server-2.
+
+Powernode-4 is a powernode.
+Powernode-4 connects Server-2.
+
+Every powernode connects nothing-but server. 
+Every powernode must have-status a thing that is either Operable or Inoperable. 
+
+
+
+
+
