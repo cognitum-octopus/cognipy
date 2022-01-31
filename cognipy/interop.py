@@ -55,7 +55,9 @@ def cognipy_call(uid,cmd,*args):
         elif edet[0]=='NotImplementedException':
             return ValueError(edet[1]["Message"])
         elif edet[0]=='FileNotFoundException':
-            return FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT), edet[1]["FileNotFound_FileName"])
+            return FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT), edet[1]["Message"])
+        elif edet[0]=='DirectoryNotFoundException':
+            return FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT), edet[1]["Message"])
         return Exception(js)
 
     global cognipy_p
