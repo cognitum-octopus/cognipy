@@ -960,8 +960,8 @@ namespace Tools
                 Matching(true);
                 if (!Match(ref rv, (Dfa)m_tokens.starts[m_state]))
                 {
-                    if (yypos == 0)
-                        System.Console.Write("Check text encoding.. ");
+//                    if (yypos == 0)
+//                        System.Console.Write("Check text encoding.. ");
                     int c = PeekChar();
                     m_tokens.erh.Error(new CSToolsStopException(2, this, "illegal character <" + (char)c + "> " + c));
                     return null;
@@ -1119,6 +1119,7 @@ namespace Tools
             // 4.5b
             if (erh.throwExceptions)
                 throw this; // we expect Parser.Parse() to catch this but stop the parse
+            erh.Report(this);
         }
     }
 
@@ -1126,6 +1127,7 @@ namespace Tools
     {
         public int counter = 0;
         public bool throwExceptions = false;
+        public ArrayList exceptions = new ArrayList();
         public ErrorHandler() { }
         public ErrorHandler(bool ee) { throwExceptions = ee; }
         public virtual void Error(CSToolsException e)
@@ -1135,7 +1137,7 @@ namespace Tools
         }
         public virtual void Report(CSToolsException e)
         {
-            //Console.WriteLine(e.Message); 
+            exceptions.Add(e);
         }
     }
 }
