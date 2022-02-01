@@ -7,5 +7,11 @@
 	-> ontologyError('conflict', 'Individual a member of disjoint classes', ?I, ?X, ?Y )]
 
 [cax-adc: 
-	(?x rdf:type owl:AllDisjointClasses), (?x owl:members ?L), listTestSubjectPairewise(rdf:type, ?L)
-	-> ontologyError('conflict', 'Individual a member of disjoint classes',?I, ?X ?Y )]
+        (?DIS rdf:type owl:AllDisjointClasses)
+       (?DIS owl:members ?L),
+		(?I rdf:type ?X), 
+		listContains(?L, ?X), 
+		(?I rdf:type ?Y), 
+		notEqual(?X ?Y), 
+		listContains(?L, ?Y) 
+		-> ontologyError('conflict', 'Individual a member of disjoint classes', ?I, ?X, ?Y )]
