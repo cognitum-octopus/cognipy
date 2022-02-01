@@ -755,7 +755,8 @@ namespace CogniPy
                         ExceptionsOnImports[rootontology ?? source].Add(e);
                     }
 
-                    brokenImports = BrokenImports[source];
+                    if(BrokenImports.ContainsKey(source))
+                        brokenImports = BrokenImports[source];
                     return false;
                 }
             }

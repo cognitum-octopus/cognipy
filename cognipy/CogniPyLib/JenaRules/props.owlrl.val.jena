@@ -13,7 +13,7 @@
 	(?X ?P ?Y), 
 	(?Y ?P ?X), 
 	notEqual(?X ?Y) 
-	-> ontologyError('assymetry violation', 'The property is assymetric', ?X, ?Y, ?P )]
+	-> ontologyError('asymetry violation', 'The property is asymetric', ?X, ?Y, ?P )]
 
 [prp-pdw: 
 	(?P1 owl:propertyDisjointWith ?P2),
