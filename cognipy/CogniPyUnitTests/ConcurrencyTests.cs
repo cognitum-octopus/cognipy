@@ -96,7 +96,7 @@ Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3
         [Test]
         public void CloneReasonerInternalCacheTest()
         {
-            var proto = InitializeClient("RODO.encnl");
+            var proto = InitializeClient("TestOnto2.encnl");
 
             Stopwatch sw = new Stopwatch();
             sw.Start();
@@ -142,7 +142,7 @@ Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3
             var clonesPerThread = 200;
             var tasks = new Thread[numberOfThreads];
 
-            var proto = InitializeClient("WingsTelstraModelWithGraph.encnl");
+            var proto = InitializeClient("TestOnto.encnl");
             for (int i = 0; i < numberOfThreads; i++)
                 tasks[i] = new Thread(() =>
                 {
@@ -169,7 +169,7 @@ Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3
         public void ModalitiesConcurrencyTest()
         {
             var numberOfThreads = 12;
-            var proto = InitializeClient("RODO.encnl");
+            var proto = InitializeClient("TestOnto2.encnl");
             Func<Guid, string> toAddString = (guid) =>
              {
                  var uri = "http://www.sfo.cognitum.eu/Survey/" + guid.ToString();
@@ -265,14 +265,14 @@ Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3
                             instance = ins[0];
                         reasoner.GetSubConceptsOf(concept, direct);
                     }
-                    reasoner.KnowledgeInsert("Duda-" + taskid.ToString() + "-" + j.ToString() + " to-nasz Pan.", false, true);
-                    var qq = reasoner.GetInstancesOf("a thing that to-nasz Pan", false);
+                    reasoner.KnowledgeInsert("Lion-" + taskid.ToString() + "-" + j.ToString() + " is-our King.", false, true);
+                    var qq = reasoner.GetInstancesOf("a thing that is-our King", false);
                     if (j < k)
                         Assert.AreEqual(qq.Count, j + 1);
                     else
                     {
                         Assert.AreEqual(qq.Count, k + 1);
-                        reasoner.KnowledgeDelete(qq[0] + " to-nasz Pan.", true);
+                        reasoner.KnowledgeDelete(qq[0] + " is-our King.", true);
                     }
                 }
 
@@ -300,7 +300,7 @@ Element-2-1-Section-D-13-09-2018-T-17-0-30[<http://www.sfo.cognitum.eu/Survey/c3
         [Test]
         public void LongAnnotationLoadingTimeBug()
         {
-            var reasoner = InitializeClient("RODO.encnl", false);
+            var reasoner = InitializeClient("TestOnto2.encnl", false);
             var result = reasoner.GetSubConceptsOf("a starting-form[sfo]", true);
         }
     }
