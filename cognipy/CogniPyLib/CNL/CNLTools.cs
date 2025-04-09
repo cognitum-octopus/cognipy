@@ -1923,85 +1923,128 @@ namespace CogniPy.CNL
 
         private static int lastNounIdx = 0;
 
+        public List<string> example_nouns = new List<string>() {
+            "cat",
+            "dog",
+            "monkey",
+            "giraffe",
+            "bird",
+            "fly",
+            "snake",
+            "elephant",
+            "mouse",
+        };
+
+        public void reset_random_seed(Int64 seed)
+        {
+            rnd = new Random((int)seed);
+        }
+
+        public void set_example_nouns(List<string> nouns)
+        {
+            example_nouns = nouns;
+            lastNounIdx = 0;
+        }
+
         private string make_noun()
         {
-            int r = rnd.Next(9);
+            int r = rnd.Next(example_nouns.Count);
             while (r == lastNounIdx)
-                r = rnd.Next(9);
+                r = rnd.Next(example_nouns.Count);
             lastNounIdx = r;
-            switch (r)
-            {
-                case 0: return "cat";
-                case 1: return "dog";
-                case 2: return "monkey";
-                case 3: return "giraffe";
-                case 4: return "bird";
-                case 5: return "fly";
-                case 6: return "snake";
-                case 7: return "elephant";
-                default: return "mouse";
-            }
+            return example_nouns[r];
         }
 
         private static int lastRoleIdx = 0;
 
+        public List<string> example_roles = new List<string>()
+        {
+            "listen-to",
+            "love",
+            "like",
+            "dislike",
+            "eat",
+            "hate",
+        };
+
+        public void set_example_roles(List<string> roles)
+        {
+            example_roles = roles;
+            lastRoleIdx = 0;
+        }
+
         private string make_role()
         {
-            int r = rnd.Next(6);
+            int r = rnd.Next(example_roles.Count);
             while (r == lastRoleIdx)
-                r = rnd.Next(6);
+                r = rnd.Next(example_roles.Count);
             lastRoleIdx = r;
-            switch (r)
-            {
-                case 0: return "listen-to";
-                case 1: return "love";
-                case 2: return "like";
-                case 3: return "dislike";
-                case 4: return "eat";
-                default: return "hate";
-            }
+            return example_roles[r];
         }
 
         private static int lastDataRoleIdx = 0;
 
-        private string make_datarole()
+        public List<string> example_dataroles = new List<string>()
         {
-            int r = rnd.Next(6);
+               "have-age:N",
+               "have-temperature:N",
+               "have-height:N",
+               "have-width:N",
+               "have-volume:N",
+               "have-speed:N",
+               "have-description:S",
+        };
+
+        public void set_example_dataroles(List<string> dataroles)
+        {
+            example_dataroles = dataroles;
+            lastDataRoleIdx = 0;
+        }
+
+        private string make_datarole(out string tpy)
+        {
+            int r = rnd.Next(example_dataroles.Count);
             while (r == lastDataRoleIdx)
-                r = rnd.Next(6);
+                r = rnd.Next(example_dataroles.Count);
             lastDataRoleIdx = r;
-            switch (r)
-            {
-                case 0: return "have-age";
-                case 1: return "have-temperature";
-                case 2: return "have-height";
-                case 3: return "have-width";
-                case 4: return "have-volume";
-                default: return "have-speed";
-            }
+            var prt = example_dataroles[r].Split(':');
+            var rolename = prt[0];
+            if (prt.Length > 1)
+                tpy = prt[1];
+            else
+                tpy = "N";
+            return rolename;
         }
 
         private static int lastBigNameIdx = 0;
 
+        public List<string> example_big_names = new List<string>()
+        {
+            "John",
+            "Mary",
+            "Mickey",
+            "Jerry",
+            "Leon",
+            "Paul",
+            "Caroline",
+            "Sylvia",
+            "Cloe",
+            "Rene",
+        };
+
+        public void set_example_big_names(List<string> big_names)
+        {
+            example_big_names = big_names;
+            lastBigNameIdx = 0;
+        }
+
         private string make_big_name()
         {
-            int r = rnd.Next(10);
+            int r = rnd.Next(example_big_names.Count);
             while (r == lastBigNameIdx)
-                r = rnd.Next(10);
+                r = rnd.Next(example_big_names.Count);
             lastBigNameIdx = r;
-            switch (r)
-            {
-                case 0: return "John";
-                case 1: return "Mary";
-                case 2: return "Mickey";
-                case 3: return "Jerry";
-                case 4: return "Leon";
-                case 5: return "Paul";
-                case 6: return "Caroline";
-                case 7: return "Sylvia";
-                case 8: return "Cloe";
-                default: return "Rene";
-            }
+            return example_big_names[r];
         }
 
         public string GenerateAssert1()
@@ -2012,13 +2055,88 @@ namespace CogniPy.CNL
             return GetENDLFromAst(ex);
         }
 
+        public int min_int = -100;
+        public int max_int = 100;
+
+        private int random_int()
+        {
+            return (min_int+rnd.Next(max_int- min_int));
+        }
+
+        public double min_float = -2.0;
+        public double max_float = 2.0;
+
+        private double random_double()
+        {
+            return (min_float + rnd.NextDouble()*(max_float - min_float));
+        }
+
+        private static int lastStringIdx = 0;
+
+
+        public List<string> example_string_values = new List<string>()
+        {
+            "Lorem ipsum dolor sit amet,",
+            "consectetur adipiscing elit,",
+            "sed do eiusmod tempor incididunt",
+            "ut labore et dolore magna aliqua.",
+            "Ut enim ad minim veniam, quis nostrud",
+            "exercitation ullamco laboris",
+            "nisi ut aliquip ex ea commodo consequat.",
+            "Duis aute irure dolor in reprehenderit",
+            "in voluptate velit esse",
+            "cillum dolore",
+            "eu fugiat nulla pariatur.",
+            "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+        };
+
+        public void set_example_strings(List<string> strings)
+        {
+            example_string_values = strings;
+            lastStringIdx = 0;
+        }
+
+        private string random_string()
+        {
+            int r = rnd.Next(example_string_values.Count);
+            while (r == lastStringIdx)
+                r = rnd.Next(example_string_values.Count);
+            lastStringIdx = r;
+            return example_string_values[r];
+        }
+
+        private DL.Value make_value(string tpy)
+        {
+            if (tpy == "N")
+                return DL.Value.FromObject(random_int());
+            else if (tpy == "S")
+                return DL.Value.FromObject(random_string());
+            else if (tpy == "F")
+                return DL.Value.FromObject(random_double());
+            else
+                throw new NotImplementedException();
+        }
+
+
+        private string random_one_of(string[] strings)
+        {
+            var r = rnd.Next(strings.Length);
+            return strings[r];
+        }
+
+        private DL.Facet make_facet(string tpy)
+        {
+            return new DL.Facet(null, random_one_of(new string[] { "<", ">", "≥", "≤" }), make_value(tpy));
+        }
+
         public string GenerateValueAssert1()
         {
+            string tpy;
             var ex = new DL.Subsumption(null,
                 new DL.InstanceSet(null, new DL.InstanceList(null, new DL.NamedInstance(null) { name = make_big_name() + "^" })),
                 new DL.SomeValueRestriction(null,
-                    new DL.Atomic(null) { id = make_datarole() },
-                    new DL.ValueSet(null, new DL.ValueList(null, new DL.Number(null, rnd.Next(10).ToString())))),
+                    new DL.Atomic(null) { id = make_datarole(out tpy) },
+                    new DL.ValueSet(null, new DL.ValueList(null, make_value(tpy)))),
                 DL.Statement.Modality.IS);
             return GetENDLFromAst(ex);
         }
@@ -2085,11 +2203,12 @@ namespace CogniPy.CNL
 
         public string GenerateEveryValue2()
         {
+            string tpy;
             var ex = new DL.Subsumption(null,
                 new DL.Atomic(null) { id = make_noun() + "^" },
                 new DL.SomeValueRestriction(null,
-                    new DL.Atomic(null) { id = make_datarole() },
-                new DL.BoundFacets(null, new DL.FacetList(null, new DL.Facet(null, "<", new DL.Number(null, rnd.Next(10).ToString()))))),
+                    new DL.Atomic(null) { id = make_datarole(out tpy) },
+                new DL.BoundFacets(null, new DL.FacetList(null, make_facet(tpy)))),
                 DL.Statement.Modality.IS);
             return GetENDLFromAst(ex);
         }
@@ -2107,11 +2226,12 @@ namespace CogniPy.CNL
 
         public string GenerateEveryOnlyValue()
         {
+            string tpy;
             var ex = new DL.Subsumption(null,
                 new DL.Atomic(null) { id = make_noun() + "^" },
                 new DL.OnlyValueRestriction(null,
-                    new DL.Atomic(null) { id = make_datarole() },
-                new DL.BoundFacets(null, new DL.FacetList(null, new DL.Facet(null, "<", new DL.Number(null, rnd.Next(10).ToString()))))),
+                    new DL.Atomic(null) { id = make_datarole(out tpy) },
+                new DL.BoundFacets(null, new DL.FacetList(null, make_facet(tpy)))),
                 DL.Statement.Modality.IS);
             return GetENDLFromAst(ex);
         }
@@ -2195,7 +2315,7 @@ namespace CogniPy.CNL
             return GetENDLFromAst(ex);
         }
 
-        public string GenerateComplexRoleSubsumption(int n)
+        public string GenerateComplexRoleSubsumption(System.Int64 n)
         {
             var chain = new DL.RoleChain(null) { List = new List<DL.Node>() };
             for (int i = 0; i < n; i++)
@@ -2226,9 +2346,10 @@ namespace CogniPy.CNL
 
         public string GenerateSwrlWithBuiltins1()
         {
+            string tpy;
             var t1 = make_noun();
-            var p1 = new DL.ID(null) { yytext = make_datarole() };
-            var p2 = new DL.ID(null) { yytext = make_datarole() };
+            var p1 = new DL.ID(null) { yytext = make_datarole(out tpy) };
+            var p2 = new DL.ID(null) { yytext = make_datarole(out tpy) };
             var t2 = make_noun();
             var c1 = new DL.Atomic(null, new DL.ID(null) { yytext = t1 });
             var c2 = new DL.Atomic(null, new DL.ID(null) { yytext = t2 });
@@ -2258,11 +2379,12 @@ namespace CogniPy.CNL
 
         public string GenerateSwrlWithBuiltins2()
         {
+            string tpy;
             var t1 = make_noun();
-            var p1 = new DL.ID(null) { yytext = make_datarole() };
-            var p2 = new DL.ID(null) { yytext = make_datarole() };
-            var p3 = new DL.ID(null) { yytext = make_datarole() };
-            var p4 = new DL.ID(null) { yytext = make_datarole() + "^" };
+            var p1 = new DL.ID(null) { yytext = make_datarole(out tpy) };
+            var p2 = new DL.ID(null) { yytext = make_datarole(out tpy) };
+            var p3 = new DL.ID(null) { yytext = make_datarole(out tpy) };
+            var p4 = new DL.ID(null) { yytext = make_datarole(out tpy) + "^" };
             var c1 = new DL.Atomic(null, new DL.ID(null) { yytext = t1 });
             var v1 = new DL.ID(null) { yytext = t1 + "_0" };
             var v2 = new DL.ID(null) { yytext = "val" + "_0" };
@@ -2291,9 +2413,10 @@ namespace CogniPy.CNL
 
         public string GenerateSwrlWithUnaryBuiltinNamed(string builtinname)
         {
+            string tpy;
             var t1 = make_noun();
-            var p1 = new DL.ID(null) { yytext = make_datarole() };
-            var p4 = new DL.ID(null) { yytext = make_datarole() + "^" };
+            var p1 = new DL.ID(null) { yytext = make_datarole(out tpy) };
+            var p4 = new DL.ID(null) { yytext = make_datarole(out tpy) + "^" };
             var c1 = new DL.Atomic(null, new DL.ID(null) { yytext = t1 });
             var v1 = new DL.ID(null) { yytext = t1 + "_0" };
             var v2 = new DL.ID(null) { yytext = "val" + "_0" };
@@ -2318,10 +2441,11 @@ namespace CogniPy.CNL
 
         public string GenerateSwrlWithBinaryBuiltinNamed(string builtinname)
         {
+            string tpy;
             var t1 = make_noun();
-            var p1 = new DL.ID(null) { yytext = make_datarole() };
-            var p2 = new DL.ID(null) { yytext = make_datarole() };
-            var p4 = new DL.ID(null) { yytext = make_datarole() + "^" };
+            var p1 = new DL.ID(null) { yytext = make_datarole(out tpy) };
+            var p2 = new DL.ID(null) { yytext = make_datarole(out tpy) };
+            var p4 = new DL.ID(null) { yytext = make_datarole(out tpy) + "^" };
             var c1 = new DL.Atomic(null, new DL.ID(null) { yytext = t1 });
             var v1 = new DL.ID(null) { yytext = t1 + "_0" };
             var v2 = new DL.ID(null) { yytext = "val" + "_0" };
@@ -2348,9 +2472,10 @@ namespace CogniPy.CNL
 
         public string GenerateSwrl8()
         {
+            string tpy;
             var t1 = make_noun();
-            var p1 = new DL.ID(null) { yytext = make_datarole() + "^" };
-            var p2 = new DL.ID(null) { yytext = make_datarole() };
+            var p1 = new DL.ID(null) { yytext = make_datarole(out tpy) + "^" };
+            var p2 = new DL.ID(null) { yytext = make_datarole(out tpy) };
             var t2 = make_noun();
             var c1 = new DL.Atomic(null, new DL.ID(null) { yytext = t1 });
             var v1 = new DL.ID(null) { yytext = t1 + "_0" };
@@ -2373,12 +2498,13 @@ namespace CogniPy.CNL
 
         public string GenerateSwrl7()
         {
+            string tpy;
             var t0 = make_noun();
             var c0 = new DL.Atomic(null, new DL.ID(null) { yytext = t0 });
 
             var c1 = new DL.OnlyValueRestriction(null,
-                    new DL.Atomic(null) { id = make_datarole() },
-                new DL.BoundFacets(null, new DL.FacetList(null, new DL.Facet(null, "<", new DL.Number(null, rnd.Next(10).ToString())))));
+                    new DL.Atomic(null) { id = make_datarole(out tpy) },
+                new DL.BoundFacets(null, new DL.FacetList(null, make_facet(tpy))));
 
             var t2 = make_noun() + "^";
             var c2 = new DL.Atomic(null, new DL.ID(null) { yytext = t2 });

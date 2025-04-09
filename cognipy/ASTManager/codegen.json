@@ -1,0 +1,243 @@
+{
+  "seed": 1234,
+  "nouns": [
+    "cat",
+    "dog",
+    "monkey",
+    "giraffe",
+    "bird",
+    "fly",
+    "snake",
+    "elephant",
+    "mouse"
+  ],
+  "roles": [
+    "listen-to",
+    "love",
+    "like",
+    "dislike",
+    "eat",
+    "hate"
+  ],
+  "dataroles": [
+    "have-age",
+    "have-temperature:F",
+    "have-height",
+    "have-width",
+    "have-volume",
+    "have-speed:F",
+    "have-description:S"
+  ],
+  "big_names": [
+    "John",
+    "Mary",
+    "Mickey",
+    "Jerry",
+    "Leon",
+    "Paul",
+    "Caroline",
+    "Sylvia",
+    "Cloe",
+    "Rene"
+  ],
+  "min_int":-100,
+  "max_int":100,
+  "min_float":-2.0,
+  "max_float":2.0,
+  "strings":[
+    "Lorem ipsum dolor sit amet,",
+    "consectetur adipiscing elit,",
+    "sed do eiusmod tempor incididunt",
+    "ut labore et dolore magna aliqua.",
+    "Ut enim ad minim veniam, quis nostrud",
+    "exercitation ullamco laboris",
+    "nisi ut aliquip ex ea commodo consequat.",
+    "Duis aute irure dolor in reprehenderit",
+    "in voluptate velit esse",
+    "cillum dolore",
+    "eu fugiat nulla pariatur.",
+    "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+  ],
+  "generators": [
+    {
+      "name": "GenerateAssert1",
+      "args": [],
+      "cnt":20
+    },
+    {
+      "name": "GenerateValueAssert1",
+      "args": [],
+      "cnt":20
+    },
+    {
+      "name": "GenerateAssert2",
+      "args": [],
+      "cnt":20
+    },
+    {
+      "name": "GenerateAssertOnly",
+      "args": [],
+      "cnt":20
+    },
+    {
+      "name": "GenerateNegativeAssert1",
+      "args": [],
+      "cnt":20
+    },
+    {
+      "name": "GenerateNegativeAssert2",
+      "args": [],
+      "cnt":20
+    },
+    {
+      "name": "GenerateEvery1",
+      "args": [],
+      "cnt":5
+    },
+    {
+      "name": "GenerateEvery2",
+      "args": [],
+      "cnt":5
+    },
+    {
+      "name": "GenerateEveryValue2",
+      "args": [],
+      "cnt":5
+    },
+    {
+      "name": "GenerateEveryOnly",
+      "args": [],
+      "cnt":5
+    },
+    {
+      "name": "GenerateEvery3",
+      "args": [],
+      "cnt":5
+    },
+    {
+      "name": "GenerateEquiv1",
+      "args": [],
+      "cnt":3
+    },
+    {
+      "name": "GenerateEquiv2",
+      "args": [],
+      "cnt":3
+    },
+    {
+      "name": "GenerateDisjoint1",
+      "args": [],
+      "cnt":3
+    },
+    {
+      "name": "GenerateDisjoint2",
+      "args": [],
+      "cnt":3
+    },
+    {
+      "name": "GenerateEverySingle1",
+      "args": [],
+      "cnt":3
+    },
+    {
+      "name": "GenerateEverySingle2",
+      "args": [],
+      "cnt":3
+    },
+    {
+      "name": "GenerateComplexRoleSubsumption",
+      "args": [2],
+      "cnt":1
+    },
+    {
+      "name": "GenerateComplexRoleSubsumption",
+      "args": [3],
+      "cnt":1
+    },
+    {
+      "name": "GenerateComplexRoleSubsumption",
+      "args": [4],
+      "cnt":1
+    },
+    {
+      "name": "GenerateComplexRoleSubsumption",
+      "args": [5],
+      "cnt":1
+    },
+    {
+      "name": "GenerateEquivalentRoles",
+      "args": [],
+      "cnt":3
+    },
+    {
+      "name": "GenerateDisjointRoles",
+      "args": [],
+      "cnt":3
+    },
+    {
+      "name": "GenerateSwrlWithBuiltins1",
+      "args": [],
+      "cnt":5
+    },
+    {
+      "name": "GenerateSwrlWithBuiltins2",
+      "args": [],
+      "cnt":5
+    },
+    {
+      "name": "GenerateSwrlWithUnaryBuiltinNamed",
+      "args": ["sine-of"],
+      "cnt":2
+    },
+    {
+      "name": "GenerateSwrlWithUnaryBuiltinNamed",
+      "args": ["ends-with-string"],
+      "cnt":2
+    },
+    {
+      "name": "GenerateSwrlWithBinaryBuiltinNamed",
+      "args": ["raised-to-the-power-of"],
+      "cnt":2
+    },
+    {
+      "name": "GenerateSwrl8",
+      "args": [],
+      "cnt":5
+    },
+    {
+      "name": "GenerateSwrl7",
+      "args": [],
+      "cnt":5
+    },
+    {
+      "name": "GenerateSwrl6",
+      "args": [],
+      "cnt":5
+    },
+    {
+      "name": "GenerateSwrl5",
+      "args": [],
+      "cnt":5
+    },
+    {
+      "name": "GenerateSwrl4",
+      "args": [],
+      "cnt":5
+    },
+    {
+      "name": "GenerateSwrl3",
+      "args": [],
+      "cnt":5
+    },
+    {
+      "name": "GenerateSwrl2",
+      "args": [],
+      "cnt":5
+    },
+    {
+      "name": "GenerateSwrl1",
+      "args": [],
+      "cnt":5
+    }
+    ]
+}

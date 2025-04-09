@@ -169,10 +169,10 @@ namespace CogniPy.CNL.DL
             using (isKindOf.set("D"))
             {
                 e.R.accept(this);
-                return e;
             }
             e.I.accept(this);
             e.V.accept(this);
+            return e;
         }
 
         public virtual object Visit(CogniPy.CNL.DL.SameInstances e)

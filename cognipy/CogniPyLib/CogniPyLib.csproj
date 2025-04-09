@@ -171,6 +171,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ASTTools\dl.mangler.cs" />
     <Compile Include="CNL\DLModSimplifier.cs" />
     <Compile Include="CNL\SwrlBuiltinsExtractor.cs" />
     <Compile Include="CogniPyGraphEntity.cs" />

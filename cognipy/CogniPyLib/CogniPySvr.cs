@@ -31,7 +31,7 @@ namespace CogniPy
         }
 
         CogniPy.ReferenceManager.ReferenceTags tags = new CogniPy.ReferenceManager.ReferenceTags();
-        CNLTools tools = null;
+        public CNLTools tools = null;
 
         Dictionary<string, string> AllReferences;
         //        static SpellFactory engine = null;
@@ -1043,6 +1043,8 @@ namespace CogniPy
                     select tools.Morphology(new string[] { l }, "", "NormalForm", false).First()).ToArray();
         }
 
+
+
         ///////////// AP
 
         public string DLFromUri(string uri, string type)
@@ -1094,6 +1096,21 @@ namespace CogniPy
             return allParts.Combine().id;
         }
 
+
+        public string MangleCnl(string cnl, bool mangleInstances = true, bool mangleConcepts = true, bool mangleRoles = true, bool mangleDataRoles = true)
+        {
+            var eparagraph = tools.GetENAst(cnl, true) as CogniPy.CNL.EN.paragraph;
+            var paragraph = tools.GetDLAstFromEnAst(eparagraph);
+            var para2 = new CogniPy.CNL.DL.Paragraph(null) { Statements = new List<CogniPy.CNL.DL.Statement>() };
+            foreach (var stmt in paragraph.Statements)
+            {
+                if (!(stmt is CogniPy.CNL.DL.Annotation))
+                    para2.Statements.Add(stmt);
+            }
+            CogniPy.ASTTools.NameMangler nameMangler = new CogniPy.ASTTools.NameMangler(mangleInstances, mangleConcepts, mangleRoles, mangleDataRoles);
+            nameMangler.Visit(para2);
+            return tools.GetENDLFromAst(para2);
+        }
 
         public HashSet<string> SplitText(string stxt)
         {
@@ -1223,6 +1240,11 @@ namespace CogniPy
                 }
             }
             throw new InvalidOperationException();
+        }
+
+        public CNL.DL.Paragraph GetParagraph()
+        {
+            return reasoner.GetParagraph(false);
         }
 
         public string[] AutoComplete(string full)

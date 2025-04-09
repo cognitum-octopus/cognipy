@@ -1,0 +1,229 @@
+Jerry is a mouse.
+Rene is a giraffe.
+Cloe is a bird.
+Caroline is a monkey.
+Leon is an elephant.
+Rene is a bird.
+Sylvia is a snake.
+Paul is a cat.
+John is a dog.
+Sylvia is a fly.
+Paul is a dog.
+Caroline is an elephant.
+Mickey is a giraffe.
+Cloe is a snake.
+Leon is a bird.
+Rene is a monkey.
+Mickey is a giraffe.
+Caroline is a fly.
+Cloe is a bird.
+Mary is a mouse.
+Paul has-width equal-to -66.
+Sylvia has-volume equal-to -37.
+Cloe has-width equal-to 77.
+Mickey has-speed equal-to -0.592741954416382.
+Mary has-height equal-to -75.
+John has-width equal-to -75.
+Sylvia has-description equal-to 'Ut enim ad minim veniam, quis nostrud'.
+John has-width equal-to -5.
+Mickey has-height equal-to -9.
+Leon has-volume equal-to 21.
+Mary has-age equal-to -81.
+Paul has-description equal-to 'Lorem ipsum dolor sit amet,'.
+Caroline has-volume equal-to 44.
+Cloe has-age equal-to -92.
+Paul has-width equal-to -37.
+Leon has-height equal-to -29.
+Paul has-temperature equal-to -1.4051420555474.
+Cloe has-speed equal-to 0.161979497485785.
+Leon has-description equal-to 'Duis aute irure dolor in reprehenderit'.
+John has-height equal-to 45.
+Paul loves a cat.
+Rene hates a fly.
+Caroline eats a giraffe.
+Mickey dislikes a bird.
+Mary hates a mouse.
+Rene eats a cat.
+Mickey listens-to a mouse.
+Cloe loves a giraffe.
+Mickey dislikes a cat.
+John likes a dog.
+Leon hates a bird.
+Paul likes a giraffe.
+Sylvia eats a snake.
+Leon dislikes a fly.
+Jerry likes a cat.
+Caroline loves a monkey.
+Leon dislikes a dog.
+Mary eats a bird.
+Cloe listens-to a monkey.
+Sylvia eats a snake.
+Cloe likes nothing-but cats.
+Jerry loves nothing-but flies.
+Leon dislikes nothing-but monkeys.
+Paul listens-to nothing-but flies.
+Cloe hates nothing-but monkeys.
+Sylvia likes nothing-but giraffes.
+John eats nothing-but elephants.
+Caroline loves nothing-but birds.
+Sylvia likes nothing-but mice.
+Rene eats nothing-but dogs.
+Jerry listens-to nothing-but elephants.
+John eats nothing-but cats.
+Cloe loves nothing-but flies.
+John listens-to nothing-but snakes.
+Rene eats nothing-but birds.
+Sylvia loves nothing-but giraffes.
+Mary dislikes nothing-but dogs.
+Leon eats nothing-but elephants.
+Paul loves nothing-but monkeys.
+Cloe listens-to nothing-but elephants.
+Caroline is not a bird.
+Mickey is not a fly.
+Mary is not a giraffe.
+Paul is not a cat.
+Cloe is not a fly.
+John is not a dog.
+Sylvia is not a cat.
+Paul is not a mouse.
+Cloe is not a dog.
+Leon is not a fly.
+Rene is not a giraffe.
+Mickey is not a cat.
+Jerry is not a monkey.
+Rene is not a bird.
+Caroline is not a mouse.
+Cloe is not a monkey.
+John is not a bird.
+Caroline is not a mouse.
+Paul is not an elephant.
+Sylvia is not a mouse.
+Paul dislikes something that is not a snake.
+Caroline loves something that is not a fly.
+Jerry likes something that is not a bird.
+Cloe loves something that is not a monkey.
+Leon hates something that is not a cat.
+Caroline dislikes something that is not a monkey.
+Mary loves something that is not a giraffe.
+John listens-to something that is not a monkey.
+Rene dislikes something that is not a bird.
+Caroline loves something that is not a fly.
+Sylvia listens-to something that is not an elephant.
+Mickey eats something that is not a bird.
+Jerry dislikes something that is not an elephant.
+Mickey eats something that is not a bird.
+Sylvia hates something that is not a monkey.
+Mickey dislikes something that is not a mouse.
+Leon loves something that is not a snake.
+Mickey likes something that is not a bird.
+Caroline hates something that is not an elephant.
+Paul eats something that is not a fly.
+Every cat is a monkey.
+Every dog is a bird.
+Every mouse is a snake.
+Every mouse is an elephant.
+Every snake is an elephant.
+Every mouse loves an elephant.
+Every bird likes an elephant.
+Every fly hates an elephant.
+Every fly likes a bird.
+Every giraffe hates a snake.
+Every dog has-volume greater-or-equal-to 82.
+Every mouse has-width greater-or-equal-to -73.
+Every bird has-height greater-or-equal-to 34.
+Every dog has-volume lower-or-equal-to -23.
+Every bird has-height lower-or-equal-to -94.
+Every elephant loves nothing-but giraffes.
+Every fly hates nothing-but cats.
+Every snake eats nothing-but elephants.
+Every fly dislikes nothing-but monkeys.
+Every fly listens-to nothing-but monkeys.
+Every mouse is loved by something that is a monkey and eats a dog.
+Every giraffe is listened-to by something that is a bird and dislikes a snake.
+Every mouse is liked by something that is a cat and dislikes a snake.
+Every giraffe is loved by something that is a cat and listens-to a bird.
+Every cat is loved by something that is a snake and hates a monkey.
+Something is a bird if-and-only-if-it is a fly.
+Something is a bird if-and-only-if-it is a giraffe.
+Something is a dog if-and-only-if-it is a cat.
+Something is a dog if-and-only-if-it eats a fly.
+Something is a dog if-and-only-if-it loves an elephant.
+Something is a bird if-and-only-if-it listens-to a cat.
+No elephant is a cat.
+No bird is a snake.
+No bird is a monkey.
+No elephant loves a snake.
+No dog eats a snake.
+No mouse dislikes a monkey.
+Every-single-thing that likes a dog is a snake.
+Every-single-thing that hates a cat is a monkey.
+Every-single-thing that dislikes a cat is a giraffe.
+Every-single-thing that listens-to a snake eats a cat.
+Every-single-thing that loves a mouse eats a snake.
+Every-single-thing that loves a bird hates a dog.
+If X eats something that loves Y then X eats Y.
+If X listens-to something that loves something that likes Y then X eats Y.
+If X listens-to something that hates something that listens-to something that dislikes Y then X listens-to Y.
+If X eats something that loves something that hates something that likes something that loves Y then X likes Y.
+X dislikes Y if-and-only-if X eats Y.
+X likes Y if-and-only-if X dislikes Y.
+X hates Y if-and-only-if X eats Y.
+If X likes Y then X does-not listen-to Y.
+If X eats Y then X does-not love Y.
+If X listens-to Y then X does-not hate Y.
+If a monkey has-speed equal-to the value(1) and a snake has-age equal-to the value(2) and the value(2) is lower-than the value(1) then the monkey loves the snake.
+If a mouse has-temperature equal-to the value(1) and a giraffe has-height equal-to the value(2) and the value(2) is lower-than the value(1) then the mouse dislikes the giraffe.
+If a mouse has-speed equal-to the value(1) and a bird has-temperature equal-to the value(2) and the value(2) is lower-than the value(1) then the mouse listens-to the bird.
+If an elephant has-age equal-to the value(1) and a fly has-width equal-to the value(2) and the value(2) is lower-than the value(1) then the elephant hates the fly.
+If a monkey has-height equal-to the value(1) and an elephant has-speed equal-to the value(2) and the value(2) is lower-than the value(1) then the monkey eats the elephant.
+If a snake has-height equal-to the value(1) and the snake has-volume equal-to the value(2) and the snake has-speed equal-to the value(3) and the value(1) plus the value(2) plus the value(3) is equal-to the value(4) then the snake has-temperature equal-to the value(4).
+If a monkey has-speed equal-to the value(1) and the monkey has-width equal-to the value(2) and the monkey has-speed equal-to the value(3) and the value(1) plus the value(2) plus the value(3) is equal-to the value(4) then the monkey has-height equal-to the value(4).
+If an elephant has-temperature equal-to the value(1) and the elephant has-volume equal-to the value(2) and the elephant has-height equal-to the value(3) and the value(1) plus the value(2) plus the value(3) is equal-to the value(4) then the elephant has-width equal-to the value(4).
+If a monkey has-temperature equal-to the value(1) and the monkey has-height equal-to the value(2) and the monkey has-temperature equal-to the value(3) and the value(1) plus the value(2) plus the value(3) is equal-to the value(4) then the monkey has-speed equal-to the value(4).
+If a dog has-temperature equal-to the value(1) and the dog has-height equal-to the value(2) and the dog has-temperature equal-to the value(3) and the value(1) plus the value(2) plus the value(3) is equal-to the value(4) then the dog has-width equal-to the value(4).
+If an elephant has-temperature equal-to the value(1) and sine-of the value(1) is equal-to the value(2) then the elephant has-speed equal-to the value(2).
+If a fly has-temperature equal-to the value(1) and sine-of the value(1) is equal-to the value(2) then the fly has-volume equal-to the value(2).
+If a cat has-temperature equal-to the value(1) and the value(2) ends-with-string the value(1) then the cat has-age equal-to the value(2).
+If a mouse has-temperature equal-to the value(1) and the value(2) ends-with-string the value(1) then the mouse has-speed equal-to the value(2).
+If a bird has-temperature equal-to the value(1) and the bird has-width equal-to the value(2) and the value(1) raised-to-the-power-of the value(2) is equal-to the value(3) then the bird has-temperature equal-to the value(3).
+If a dog has-speed equal-to the value(1) and the dog has-volume equal-to the value(2) and the value(1) raised-to-the-power-of the value(2) is equal-to the value(3) then the dog has-age equal-to the value(3).
+If an elephant has-height equal-to the value(1) then the elephant has-speed equal-to the value(1).
+If a fly has-height equal-to the value(1) then the fly has-width equal-to the value(1).
+If a bird has-description equal-to the value(1) then the bird has-height equal-to the value(1).
+If a giraffe has-speed equal-to the value(1) then the giraffe has-age equal-to the value(1).
+If a fly has-volume equal-to the value(1) then the fly has-temperature equal-to the value(1).
+If a giraffe is a thing that has-volume nothing-but lower-than -34 then the giraffe is an elephant.
+If a cat is a thing that has-temperature nothing-but lower-than 1.92750658650301 then the cat is a fly.
+If a bird is a thing that has-description nothing-but lower-or-equal-to 'Lorem ipsum dolor sit amet,' then the bird is a snake.
+If a mouse is a thing that has-speed nothing-but lower-than -0.0861310838191449 then the mouse is an elephant.
+If a bird is a thing that has-age nothing-but greater-than 3 then the bird is a snake.
+If an elephant is a dog then the elephant is a bird.
+If a dog is a cat then the dog is an elephant.
+If a bird is a cat then the bird is a dog.
+If a mouse is a monkey then the mouse is a fly.
+If a giraffe is a monkey then the giraffe is a giraffe.
+If a bird exists then the bird is a dog.
+If a giraffe exists then the giraffe is an elephant.
+If a snake exists then the snake is a fly.
+If a snake exists then the snake is a monkey.
+If a snake exists then the snake is an elephant.
+If a giraffe likes a snake then the giraffe eats the snake.
+If a bird listens-to an elephant then the bird loves the elephant.
+If a bird likes an elephant then the bird dislikes the elephant.
+If a bird likes a fly then the bird eats the fly.
+If an elephant loves a fly then the elephant eats the fly.
+If a dog(1) likes a dog(2) then the dog(1) hates the dog(2).
+If an elephant(1) eats an elephant(2) then the elephant(1) listens-to the elephant(2).
+If a monkey(1) hates a monkey(2) then the monkey(1) eats the monkey(2).
+If a giraffe(1) dislikes a giraffe(2) then the giraffe(1) loves the giraffe(2).
+If a cat(1) eats a cat(2) then the cat(1) loves the cat(2).
+If a bird hates a fly then the fly is a monkey.
+If a fly loves a cat then the cat is a snake.
+If a giraffe likes an elephant then the elephant is a mouse.
+If a dog dislikes a bird then the bird is a fly.
+If a cat hates an elephant then the elephant is a snake.
+If a dog is-the-same-as a cat then the cat is a mouse.
+If a monkey is-the-same-as an elephant then the elephant is a dog.
+If an elephant is-the-same-as a giraffe then the giraffe is a fly.
+If a dog is-the-same-as a fly then the fly is a dog.
+If a snake is-the-same-as a bird then the bird is a monkey.
