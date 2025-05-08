@@ -300,7 +300,7 @@ _Ala Instance: ""backwardCompatibleWith"":owl 'sdsgd'@ar
         public void CloneReasonerBigOntologyTest()
         {
             var feClient = new CogniPySvr();
-            feClient.LoadCnl(Path.Combine(AssemblyDirectory, "TestFiles", "RODO.encnl"), true, true);
+            feClient.LoadCnl(Path.Combine(AssemblyDirectory, "TestFiles", "TestOnto2.encnl"), true, true);
 
             var clone1 = feClient.CloneForAboxChangesOnly();
             var toAdd = new List<string>() {
