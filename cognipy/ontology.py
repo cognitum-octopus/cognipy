@@ -220,6 +220,28 @@ class Ontology:
             List[str]: autocompletions
         """
         return list(cognipy_call(self._uid, "AutoComplete", str))
+    
+    def examples(self, genset):
+        """Generated examples configured in genset json string
+
+        Args:
+            genset (str - json): configuration string
+
+        Returns:
+            str: cnl with all the examples
+        """
+        return cognipy_call(self._uid, "GenerateExamples", genset)
+    
+    def split(self, cnl):
+        """Splits the given cnl into its components
+
+        Args:
+            cnl (str): the cnl string
+
+        Returns:
+            str: the list of components
+        """
+        return list(cognipy_call(self._uid, "SplitText", cnl))
 
     def highlight(self, cnl):
         """Gives the Markdown of the given cnl
