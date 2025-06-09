@@ -231,6 +231,8 @@ namespace CogniPy.Executing.HermiTClient
             {
                 if (stmt is Annotation)
                     continue;
+                if (stmt.modality != Statement.Modality.IS)
+                    continue;
                 OWLOntologyManager manager = null;
                 OWLOntology ontology = null;
                 manager = OWLManager.createOWLOntologyManager();
@@ -1609,7 +1611,9 @@ namespace CogniPy.Executing.HermiTClient
                     if (seen.Contains(derivation))
                     {
                         strWriter.Write(new string(' ', margin));
+                        strWriter.Write("{");
                         strWriter.WriteLine(JESC("alreadyShown") + ":" + JESC(triple2Cnl(match, infGraph)));
+                        strWriter.WriteLine("}");
                     }
                     else
                     {

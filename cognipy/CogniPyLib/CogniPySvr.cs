@@ -3,8 +3,10 @@ using CogniPy.CNL;
 using CogniPy.Executing.HermiTClient;
 using CogniPy.models;
 using CogniPy.Splitting;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -299,7 +301,7 @@ namespace CogniPy
         void LoadCnlFromString(string cnl, CogniPy.CNL.DL.Paragraph impliAst, bool throwOnException, bool loadAnns, bool materialize, bool modalChecker)
         {
             Load(ReferenceManager.WhatToLoad.CnlFromString, cnl, impliAst, throwOnException, loadAnns, materialize, modalChecker);
-        }
+         }
 
         internal void GetOwlUriMapping(ref Dictionary<Tuple<EntityKind, string>, string> owlMapping, ReferenceManager.ReferenceTags tag)
         {
@@ -909,7 +911,7 @@ namespace CogniPy
         {
             Materialize();
             return reasoner.GetReasoningInfo();
-        }
+         }
 
         public Tuple<List<string>, List<List<object>>> GetAnnotationsForSubject(string subj, string prop = "", string lang = "")
         {
@@ -1112,7 +1114,7 @@ namespace CogniPy
             return tools.GetENDLFromAst(para2);
         }
 
-        public HashSet<string> SplitText(string stxt)
+        public string[] SplitText(string stxt)
         {
             try
             {
@@ -1126,7 +1128,7 @@ namespace CogniPy
                             newScript.Add(tools.GetENFromAstSentence(stmt, true));
                     }
                 }
-                return newScript;
+                return newScript.ToArray();
             }
             catch
             {
@@ -1578,5 +1580,64 @@ namespace CogniPy
         }
 
 
+        public string GenerateExamples(string gensetjson)
+        {
+            JsonSerializer serializer = JsonSerializer.Create(new JsonSerializerSettings
+            {
+                Formatting = Newtonsoft.Json.Formatting.Indented,
+                ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            });
+            var genset = serializer.Deserialize<ExampleGeneratorSetup>(new JsonTextReader(new StringReader(gensetjson)));
+            tools.reset_random_seed(genset.seed);
+            tools.set_example_big_names(new List<string>(genset.big_names));
+            tools.set_example_nouns(new List<string>(genset.nouns));
+            tools.set_example_roles(new List<string>(genset.roles));
+            tools.set_example_dataroles(new List<string>(genset.dataroles));
+            tools.set_example_strings(new List<string>(genset.strings));
+            tools.min_int = (int)genset.min_int;
+            tools.max_int = (int)genset.max_int;
+            tools.min_float = genset.min_float;
+            tools.max_float = genset.max_float;
+            var sb = new StringBuilder();
+            foreach (var gen in genset.generators)
+            {
+                for (int i = 0; i < gen.cnt; i++)
+                {
+                    var method = tools.GetType().GetMethod(gen.name);
+                    var ptp = method.GetParameters();
+                    var cps = new List<object>();
+                    if (gen.args != null)
+                        cps = new List<object>(gen.args);
+
+                    var ret = method.Invoke(tools, cps.ToArray()) as string;
+                    sb.AppendLine(ret);
+                }
+            }
+            return sb.Replace("^", "").ToString();
+        }
+
     }
+
+    public class Generator
+    {
+        public string name;
+        public object[] args = null;
+        public int cnt = 1;
+    }
+
+    public class ExampleGeneratorSetup
+    {
+        public Int64 seed;
+        public string[] nouns;
+        public string[] roles;
+        public string[] dataroles;
+        public string[] big_names;
+        public string[] strings;
+        public Int64 min_int;
+        public Int64 max_int;
+        public double min_float;
+        public double max_float;
+        public Generator[] generators;
+    }
+
 }
