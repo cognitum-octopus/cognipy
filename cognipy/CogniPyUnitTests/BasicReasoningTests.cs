@@ -37,7 +37,7 @@ namespace CogniPyUnitTests
             {
                 feClient.LoadCnlFromString(string.Join("\r\n", "Every man is a human-being"), true, true);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return;
             }
@@ -70,7 +70,7 @@ namespace CogniPyUnitTests
             {
                 feClient.LoadCnlFromString(knowledge, true, true);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return;
             }
@@ -85,7 +85,7 @@ namespace CogniPyUnitTests
             {
                 feClient.KnowledgeInsert("Every man is a human-being.", true, true);
             }
-            catch (InvalidOperationException ex)
+            catch (InvalidOperationException)
             {
                 return;
             }

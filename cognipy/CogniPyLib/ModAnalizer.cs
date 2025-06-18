@@ -1,13 +1,13 @@
 ﻿//#define USE_SWRL
 
-using Ontorion.CNL.DL;
+using CogniPy.CNL.DL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Ontorion.Splitting
-{
+namespace CogniPy.Splitting
+{ 
     public class ModAnalizer : IVisitor
     {
         VisitingParam<LocalityKind> lockind = new VisitingParam<LocalityKind>(LocalityKind.Bottom);
@@ -30,9 +30,9 @@ namespace Ontorion.Splitting
             return CreateNull();
         }
 
-        public static Ontorion.ARS.EntityKind ParseSubjectKind(string kind)
+        public static CogniPy.ARS.EntityKind ParseSubjectKind(string kind)
         {
-            Ontorion.ARS.EntityKind result;
+            CogniPy.ARS.EntityKind result;
             if (Enum.TryParse(kind, out result))
             {
                 return result;
@@ -226,6 +226,11 @@ namespace Ontorion.Splitting
         }
 
         public object Visit(CNL.DL.Float e)
+        {
+            return CreateNull();
+        }
+
+        public object Visit(CNL.DL.DecimalNumber e)
         {
             return CreateNull();
         }
@@ -977,7 +982,6 @@ namespace Ontorion.Splitting
             ret.Sort(cmp);
             return ret;
         }
-
 
 
     }

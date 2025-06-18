@@ -4,6 +4,7 @@ using CogniPy.Executing.HermiTClient;
 using CogniPy.models;
 using CogniPy.Splitting;
 using Newtonsoft.Json;
+using org.apache.commons.codec.digest;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -116,10 +117,71 @@ namespace CogniPy
         //    }
         //}
 
-        public string GetStatementId(string cnlStatement)
+        public string GetDescriptionLogic(string cnlStatement)
         {
             var dlAst = tools.GetEN2DLAst(cnlStatement);
-            return tools.SerializeDLAst(dlAst).Replace("\r\n", "");
+            return tools.SerializeDLAst(dlAst);
+        }
+
+        Splitting.Modularizer splitter = null;
+
+        public void LoadModularizer()
+        {
+            var ast = reasoner.GetParagraph(false);
+            splitter = new Splitting.Memory.MemoryModularizer();
+
+            DLModSimplifier simli = new DLModSimplifier();
+            var nstmt = simli.Visit(ast) as CNL.DL.Paragraph;
+            ScriptSet toInsert = new ScriptSet();
+            foreach (var stmt in nstmt.Statements)
+                toInsert.Add(new ScriptLine(DLToys.MakeExpressionFromStatement(stmt)));
+
+            splitter.Begin();
+            splitter.Insert(from i in toInsert.LogicSet() select new ScriptLine(i), false);
+            splitter.Apply();
+        }
+
+        public string Simplify(string cnl)
+        {
+            var tikast = tools.GetEN2DLAst(cnl, true);
+            DLModSimplifier simli = new DLModSimplifier();
+            var nstmt = simli.Visit(tikast) as CNL.DL.Paragraph;
+            return tools.GetENDLFromAst(nstmt, true);
+        }
+
+        public string GetModule(string cnl, string[] signature)
+        {
+
+            HashSet<string> sign = new HashSet<string>(signature);
+            if (!string.IsNullOrWhiteSpace(cnl))
+            {
+                var tikast = tools.GetEN2DLAst(cnl, true);
+                foreach (var stmt in tikast.Statements)
+                    foreach (var s in new ScriptLine(DLToys.MakeExpressionFromStatement(stmt)).GetSignature())
+                        sign.Add(s);
+            }
+
+            if (splitter == null)
+                LoadModularizer();
+
+            var module = splitter.GetModule(sign, LocalityKind.Bottom, -1, true, false);
+            var modscr = string.Join("\r\n", from s in module select s.Logic());
+            if (string.IsNullOrWhiteSpace(modscr))
+                return "";
+            return tools.GetENDLFromAst(tools.GetDLAst(modscr));
+        }
+
+        public string[] GetSignature(string cnl)
+        {
+            HashSet<string> sign = new HashSet<string>();
+            if (!string.IsNullOrWhiteSpace(cnl))
+            {
+                var tikast = tools.GetEN2DLAst(cnl, true);
+                foreach (var stmt in tikast.Statements)
+                    foreach (var s in new ScriptLine(DLToys.MakeExpressionFromStatement(stmt)).GetSignature())
+                        sign.Add(s);
+            }
+            return sign.ToArray();
         }
 
         //      bool traceOn = true;

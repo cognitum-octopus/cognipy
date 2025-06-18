@@ -91,7 +91,7 @@ namespace CogniPyUnitTests
                     "If a man has-friend a woman and the woman has-name equal-to 'Mary' then the man is an happy-man."
             };
             var feClient = new CogniPySvr();
-            var ruleId = feClient.GetStatementId(cnlSentences[4]);
+            var ruleId = feClient.GetDescriptionLogic(cnlSentences[4]).Replace("\n","");
             feClient.SetDebugListener((statementId, elements) =>
             {
                 Assert.AreEqual(ruleId, statementId);

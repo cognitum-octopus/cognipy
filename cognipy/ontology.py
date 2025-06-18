@@ -2,14 +2,11 @@ from IPython.display import display, Markdown, Latex
 import pandas as pd
 import textwrap
 import re
-import os
 
 import pydot
-from io import BytesIO
 import IPython
 
 from cognipy.interop import cognipy_create, cognipy_delete, cognipy_call
-
 
 def CQL(cql, ns='http://www.cognitum.eu/onto#'):
     """Converts CQL query into pure SPARQL by replacing CNL names into their IRI representations
@@ -191,6 +188,7 @@ class Ontology:
         """
         return cognipy_call(self._uid, "GetInstancesOf", cnl, direct)
 
+
     def _to_pandas(self, vals, cols):
         if self._evaluator is not None:
             vals = [[self._resolve_value(item)
@@ -326,7 +324,11 @@ class Ontology:
                     include={}, exclude={}, 
                     constrains=[], 
                     format="svg", 
-                    filename=None, fontname=None, fontsize=11):
+                    filename=None, fontname=None, fontsize=11,
+                    subsumption_edge_color = "black",
+                    relation_edge_color = "black",
+                    concept_color = "aliceblue",
+                    instance_color = "whitesmoke"):
         """Creates the ontology diagram as an image
 
         Args:
@@ -341,16 +343,15 @@ class Ontology:
             filename(str): if None then output is returned, otherwize the output is written under the filename on the disk
             fontname(str): if None then default font is used, otherwize the fontname is the name of the typeface to be used
             fontsize(int): size of the font
+            subsumption_edge_color(str): color of the subsumption edges (default: "black")
+            relation_edge_color(str): color of the relation edges (default: "black")
+            concept_color(str): color of the concept nodes (default: "aliceblue")
+            instance_color(str): color of the instance nodes (default: "whitesmoke")
         """
         showCnc = "subsumptions" in show
         showInst = "types" in show
         showRels = "relations" in show
         showVals = "attributes" in show
-
-        SubsumptionEdgeColor = "black"
-        RelationEdgeColor = "black"
-        ConceptColor = "aliceblue"
-        InstanceColor = "whitesmoke"
 
         def addEdge(graph, frm, to):
             n = graph.get_node(frm)
@@ -411,13 +412,13 @@ class Ontology:
             e.set_dir("back")
             e.set_arrowtail("empty")
             e.set_style("dashed")
-            e.set_color(SubsumptionEdgeColor)
+            e.set_color(subsumption_edge_color)
 
             toN.set_style('filled')
-            toN.set_fillcolor(ConceptColor)
+            toN.set_fillcolor(concept_color)
 
             frmN.set_style('filled')
-            frmN.set_fillcolor(InstanceColor)
+            frmN.set_fillcolor(instance_color)
 
         def addSubsumption(graph, frm, to):
             frmN, e, toN = addEdge(graph, frm, to)
@@ -425,13 +426,13 @@ class Ontology:
             e.set_dir("back")
             e.set_arrowtail("empty")
             e.set_style("solid")
-            e.set_color(SubsumptionEdgeColor)
+            e.set_color(subsumption_edge_color)
 
             toN.set_style('filled')
-            toN.set_fillcolor(ConceptColor)
+            toN.set_fillcolor(concept_color)
 
             frmN.set_style('filled')
-            frmN.set_fillcolor(ConceptColor)
+            frmN.set_fillcolor(concept_color)
 
         def addLabel(labels, frmN, frm, str):
             if(frm not in labels.keys()):
@@ -458,19 +459,19 @@ class Ontology:
             e.set_dir("forward")
             e.set_arrowhead("open")
             e.set_style("solid")
-            e.set_color(RelationEdgeColor)
+            e.set_color(relation_edge_color)
             e.set_label(etx)
 
             toN.set_style('filled')
-            toN.set_fillcolor(InstanceColor)
+            toN.set_fillcolor(instance_color)
 
             frmN.set_style('filled')
-            frmN.set_fillcolor(InstanceColor)
+            frmN.set_fillcolor(instance_color)
 
         def addDataValue(graph, labels, frm, val, etx):
             frmN = addNode(graph, frm)
             frmN.set_style('filled')
-            frmN.set_fillcolor(InstanceColor)
+            frmN.set_fillcolor(instance_color)
             addLabel(labels, frmN, frm, etx+"|"+val)
 
         graph = pydot.Dot(graph_type='graph')
@@ -594,7 +595,14 @@ class Ontology:
             else:
                 raise ValueError("unknown image format")
 
-    def draw_graph(self, layout="hierarchical", show={"subsumptions", "types", "relations", "attributes"}, include={}, exclude={}, constrains=[], fontname=None, fontsize=11):
+    def draw_graph(self, layout="hierarchical", 
+                   show={"subsumptions", "types", "relations", "attributes"}, 
+                   include={}, exclude={}, constrains=[], 
+                   fontname=None, fontsize=11,
+                   subsumption_edge_color = "black",
+                   relation_edge_color = "black",
+                   concept_color = "aliceblue",
+                   instance_color = "whitesmoke"):
         """Draws the ontology
 
         Args:
@@ -607,157 +615,55 @@ class Ontology:
                                     are joined using OR expression
             fontname(str): if None then default font is used, otherwize the fontname is the name of the typeface to be used
             fontsize(int): size of the font
+            subsumption_edge_color(str): color of the subsumption edges (default: "black")
+            relation_edge_color(str): color of the relation edges (default: "black")
+            concept_color(str): color of the concept nodes (default: "aliceblue")
+            instance_color(str): color of the instance nodes (default: "whitesmoke")
         """
-        return IPython.display.SVG(data=self.create_graph(layout, show, include, exclude, constrains, fontname=fontname, fontsize=fontsize))
+        return IPython.display.SVG(data=self.create_graph(layout, show, include, exclude, constrains, fontname=fontname, fontsize=fontsize,subsumption_edge_color=subsumption_edge_color,relation_edge_color=relation_edge_color,concept_color=concept_color,instance_color=instance_color))    
+
+    def get_signature(self, cnl):
+        """Get signature of the given concept specification.
+
+        Args:
+            cnl (str): cnl expressions
+
+        Returns:
+            The signature of the cnl.
+        """
+        return cognipy_call(self._uid, "GetSignature", cnl)
+
+    def get_module(self, cnl, signature=[]):
+        """Get module of the given concept specification.
+
+        Args:
+            cnl (str): cnl expressions
+            signature (list of str): the signature of the concept expression
+
+        Returns:
+            The module of the cnl and signature.
+        """
+        return cognipy_call(self._uid, "GetModule", cnl, signature)
 
 
-class ABoxBatch:
-    """
-    A class used to create batch for A-Box manipulations on the ontology
-    """
+    def simplify(self, cnl):
+        """Simplify the given concept specification.
+
+        Args:
+            cnl (str):  cnl expressions
+
+        Returns:
+            The simplified version of the given concept expression as a string.
+        """
+        return cognipy_call(self._uid, "Simplify", cnl)
     
-    def __init__(self):
-        self._rb = []
-        self._insts = []
-
-    def has_type(self, inst, cls):
-        """[inst] is [cls]. has-type relationship.
+    def description_logic(self,cnl):
+        """Get the description logic of the ontology.
 
         Args:
-            inst(str): instance name
-            cls(str): concept name
+            cnl (str): cnl expressions
+        
+        Returns:
+            str: The description logic form of the ontology.
         """
-        self._rb.append("type")
-        self._rb.append(inst)
-        self._rb.append("")
-        self._rb.append(cls)
-        return self
-
-    def same_as(self, inst, inst2):
-        """[inst] is [inst2]. same-as relationship.
-
-        Args:
-            inst,inst2(str): instance names
-        """
-        self._rb.append("==")
-        self._rb.append(inst)
-        self._rb.append("")
-        self._rb.append(inst2)
-        return self
-
-    def different_from(self, inst, inst2):
-        """[inst] is not [inst2]. different-from relationship.
-
-        Args:
-            inst,inst2(str): instance names
-        """
-        self._rb.append("!=")
-        self._rb.append(inst)
-        self._rb.append("")
-        self._rb.append(inst2)
-        return self
-
-    def relates(self, inst, prop, inst2):
-        """[inst] [prop] [inst2]. object relationship.
-
-        Args:
-            inst,inst2(str): instance names
-            prop(str): property name
-        """
-        self._rb.append("R")
-        self._rb.append(inst)
-        self._rb.append(prop)
-        self._rb.append(inst2)
-        return self
-
-    def value(self, inst, prop, v):
-        """[inst] [prop] [v]. attribute.
-
-        Args:
-            inst(str): instance names
-            prop(str): property name
-            v(int,float,bool,str): an value for the instance property
-        """
-        def tos(v):
-            if(isinstance(v, int)):
-                return "I:"+str(v)
-            elif(isinstance(v, float)):
-                return "F:"+str(v)
-            elif(isinstance(v, bool)):
-                return "B:"+"[1]" if v else "[0]"
-            else:
-                return "S:'"+str(v)+"'"
-
-        self._rb.append("D")
-        self._rb.append(inst)
-        self._rb.append(prop)
-        self._rb.append(tos(v))
-        return self
-
-    def delete_instance(self, inst):
-        """the instance to be deleted. Used only if delete is called
-
-        Args:
-            inst(str): instance name
-        """
-        self._insts.append(inst)
-
-    def insert(self, onto):
-        """Inserts the current A-Box into the specific ontology
-
-        Args:
-            onto(Ontogy): ontology to be modified
-        """
-        cognipy_call(onto._uid, "AssertionsInsert", self._rb)
-        if onto._verbose:
-            markdown = ''
-            for i in range(0, len(self._rb), 4):
-                if self._rb[i] == "type":
-                    markdown += self._rb[i+3]+"("+self._rb[i+1]+")"
-                elif self._rb[i] == "==":
-                    markdown += self._rb[i+1]+"=="+self._rb[i+3]
-                elif self._rb[i] == "!=":
-                    markdown += self._rb[i+1]+"!="+self._rb[i+3]
-                elif self._rb[i] == "R":
-                    markdown += self._rb[i+2] + \
-                        "("+self._rb[i+1]+","+self._rb[i+3]+")"
-                else:
-                    markdown += self._rb[i+2] + \
-                        "("+self._rb[i+1]+","+self._rb[i+3]+")"
-                markdown += "<br>"
-            markdown += ""
-            display(Markdown(markdown))
-
-    def delete(self, onto):
-        """Deletes the current A-Box from the specific ontology
-
-        Args:
-            onto(Ontogy): ontology to be modified
-        """
-        cognipy_call(onto._uid, "AssertionsDelete", self._rb)
-        for inst in self._insts:
-            cognipy_call(onto._uid, "RemoveInstance", inst)
-
-        if onto._verbose:
-            markdown = ''
-            for i in range(0, len(self._rb), 4):
-                if self._rb[i] == "type":
-                    markdown += self._rb[i+3]+"("+self._rb[i+1]+")"
-                elif self._rb[i] == "==":
-                    markdown += self._rb[i+1]+"=="+self._rb[i+3]
-                elif self._rb[i] == "!=":
-                    markdown += self._rb[i+1]+"!="+self._rb[i+3]
-                elif self._rb[i] == "R":
-                    markdown += self._rb[i+2] + \
-                        "("+self._rb[i+1]+","+self._rb[i+3]+")"
-                else:
-                    markdown += self._rb[i+2] + \
-                        "("+self._rb[i+1]+","+self._rb[i+3]+")"
-                markdown += "<br>"
-
-            for inst in self._insts:
-                markdown += "*("+inst+")"
-                markdown += "<br>"
-
-            markdown += ""
-            display(Markdown(markdown))
+        return cognipy_call(self._uid, "GetDescriptionLogic", cnl)

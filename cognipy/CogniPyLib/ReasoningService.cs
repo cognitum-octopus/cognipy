@@ -2460,11 +2460,14 @@ namespace CogniPy.Executing.HermiTClient
         }
 
 
+        /*
         public bool IsTrue(CogniPy.CNL.DL.Paragraph stmt)
         {
+            BuildModel();
             var ecls = transform.Convert(stmt).axioms.First().axiom;
             return reasoner.isEntailed(ecls);
         }
+        */
 
         public List<string> GetEquivalentConcepts(CogniPy.CNL.DL.Node e, bool includeTopBot = true)
         {

@@ -75,7 +75,17 @@ namespace CogniPy.Splitting
             return ser.GetSignature();
         }
 
-        /////////////////
+        public static List<List<string>> GetModulationFromStatement(Statement stmt, LocalityKind localityKind, out bool ret)
+        {
+            ret = true;
+            if (stmt is SwrlStatement)
+                stmt = TransformSwrlToDL(stmt as SwrlStatement);
+
+            return GetModulationFromStatement2(stmt, localityKind);
+//            return AnalizeLocality(stmt, localityKind, out ret);
+        }
+
+    /////////////////
 
 
         class DLLink : CNL.DL.Node
@@ -741,5 +751,14 @@ namespace CogniPy.Splitting
             return CreateNull();
         }
 
+        public static List<List<string>> GetModulationFromStatement2(Statement stmt, LocalityKind localityKind)
+        {
+            return new ModAnalizer().AnalizeLocality(stmt, localityKind);
+        }
+
+        public static bool IsAny2(List<List<string>> s)
+        {
+            return ModAnalizer.IsAny(s);
+        }
     }
 }

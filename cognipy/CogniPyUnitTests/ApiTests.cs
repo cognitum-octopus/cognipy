@@ -397,7 +397,7 @@ _Ala Instance: ""backwardCompatibleWith"":owl 'sdsgd'@ar
             var feClient = new CogniPySvr();
             feClient.SetDebugListener((statementId, elements) =>
             {
-                int x = 10;
+                int _ = 10;
             }, (s, c) => Tuple.Create(s, c));
             feClient.LoadCnlFromString(string.Join("\r\n", cnlSentences.Union<string>(new List<string>() { "Comment: This comment should not be returned." })), true, true);
             var sentencesReturned = feClient.ToCNLList(includeImplicit, removeTrivials, true);

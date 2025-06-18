@@ -159,6 +159,9 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="NMemory, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6a46696d54971e6d, processorArchitecture=MSIL">
+      <HintPath>..\packages\NMemory.1.1.2\lib\net45\NMemory.dll</HintPath>
+    </Reference>
     <Reference Include="owlapi">
       <HintPath>Reasoners\owlapi.dll</HintPath>
     </Reference>
@@ -166,6 +169,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Numerics" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -195,6 +199,9 @@
     <Compile Include="JenaRules\JenaRuleManager.cs" />
     <Compile Include="JenaRules\ReactiveRuleCompiler.cs" />
     <Compile Include="JenaRules\SwrlIterateProc.cs" />
+    <Compile Include="MemoryModularizer.cs" />
+    <Compile Include="ModAnalizer.cs" />
+    <Compile Include="Modularizer.cs" />
     <Compile Include="OWL\dl.to.ow.nc.cs" />
     <Compile Include="OWL\dl.to.owlapi.cs" />
     <Compile Include="OWL\dl.to.sparql.cs" />
@@ -250,6 +257,7 @@
     <Compile Include="dl.standardized.serializer.cs" />
     <Compile Include="FullUriVisitor.cs" />
     <Compile Include="ModalityVisitory.cs" />
+    <Compile Include="ScriptSet.cs" />
     <Compile Include="Taxonomy\SortedCollection.cs" />
     <Compile Include="Taxonomy\SortedObservableCollection.cs" />
     <Compile Include="Taxonomy\TaxonomyInterface.cs" />
