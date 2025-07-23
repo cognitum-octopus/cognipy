@@ -207,6 +207,12 @@ namespace CogniPy
             LoadCnlFromString(cnl, null,throwOnError, loadAnnotations, materialize, modalChecker);
         }
 
+        public string GetRoleForm(string name, bool inverted)
+        {
+            var enN = CogniPy.CNL.EN.ENNameingConvention.FromDL(new CogniPy.CNL.DL.DlName() { id = name }, inverted ? CogniPy.CNL.EN.endict.WordKind.SimplePast : CogniPy.CNL.EN.endict.WordKind.PastParticiple, false);
+            return enN.id;
+        }
+
         public string CnlFromUri(string uri, string type)
         {
             var n = reasoner.renderEntityFromUri(uri, (type == null || type == "instance") ? CogniPy.ARS.EntityKind.Instance : (type == "concept" ? CogniPy.ARS.EntityKind.Concept : CogniPy.ARS.EntityKind.Role));

@@ -168,7 +168,7 @@ namespace CogniPy.CNL
         static string allSubjectQuotedStart = @"(""|{""|The-""|THE-""|the-""|_"")";
         static string allPossibleSubjectEnd = @"(""|""}|"")";
         static string allPossibleReferenceEnding = @"\[[^\s\]]*\]|:[^\s]*";
-        public static Regex w3cAnnotRg = new Regex(@"^\s*(\r\n)?(?<annotated>((" + allSubjectQuotedStart + @"?[^""]*" + allPossibleSubjectEnd + @")(" + allPossibleReferenceEnding + @")?\s|([\S]*)))(?<annotatedKind>[^:]*):\s*(?<type>\S*)\s+[""']?(?<value>(((?<=[""'])([^""']|\\'|\\"")*(?=[""'])))|([0-9-\.,]*))[""']?(@(?<language>[a-zA-Z-]*))?\s*($|(?<dot>\.))",
+        public static Regex w3cAnnotRg = new Regex(@"^\s*(\r\n)?(?<annotated>((" + allSubjectQuotedStart + @"?[^""]*" + allPossibleSubjectEnd + @")(" + allPossibleReferenceEnding + @")?\s|([\S]*)))(?<annotatedKind>[^:]*):\s*(?<type>\S*)\s+[""']?(?<value>((?<=['])([^']|\\'\\')*(?=['])|(?<=[""])([^""] |\\""\\"")*(?=[""]))|([0-9-\.,]*))[""']?(@(?<language>[a-zA-Z-]*))?\s*($|(?<dot>\.))",
  RegexOptions.Compiled |
  RegexOptions.Multiline);
 

@@ -11,8 +11,18 @@ namespace ConsoleApp1
     internal class Program
     {
         static void Main(string[] args)
-        { 
-            var cnlSentences = new List<string>() {
+        {
+            var feClient = new CogniPySvr();
+
+            if(true)
+            {
+                feClient.LoadCnl("D:\\ROOT\\causalspark\\gUFO\\gufo.encnl", true, true);
+                feClient.GetAnnotationValue("partition", "\"comment\"[rdfs]", "en", "Concept");
+            }
+
+            if (false)
+            {
+                var cnlSentences = new List<string>() {
                     "Example-Sport-Enterprise is a sport-enterprise .",
                     "Example-Person-01 is a person.",
                     "If a sport-enterprise exists then it must be-true-that the person holds-senior-leadership-role-in the sport-enterprise and the person is-responsible-for Sustainability.",
@@ -25,15 +35,15 @@ namespace ConsoleApp1
                     "Example-Website-Proof-01 is a holds-senior-leadership-role-in-proof and has-subject Example-Person-01 and has-object Example-Sport-Enterprise."
             };
 
-            var feClient = new CogniPySvr();
-            feClient.LoadCnlFromString(string.Join("\r\n", cnlSentences), true, true,true);
-            feClient.GetSuperConceptsOf("a thing", false);
-            Console.WriteLine(feClient.GetReasoningInfo());
+                feClient.LoadCnlFromString(string.Join("\r\n", cnlSentences), true, true, true);
+                feClient.GetSuperConceptsOf("a thing", false);
+                Console.WriteLine(feClient.GetReasoningInfo());
 
-            feClient.LoadModularizer();
-            var mod = feClient.GetModule("", new string[] { "Girls" });
+                feClient.LoadModularizer();
+                var mod = feClient.GetModule("", new string[] { "Girls" });
 
-            Console.WriteLine(mod);
+                Console.WriteLine(mod);
+            }
 
         }
     }

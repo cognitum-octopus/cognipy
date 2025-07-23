@@ -667,3 +667,37 @@ class Ontology:
             str: The description logic form of the ontology.
         """
         return cognipy_call(self._uid, "GetDescriptionLogic", cnl)
+    
+    def get_annotation(self, subject, prop, lang=None, type=None):
+        """Get the annotation of the given concept specification.
+
+        Args:
+            subject (str): The subject of the annotation.
+            prop (str): The property of the annotation.
+            lang (str): The language of the annotation.
+            type (str): The type of the annotation (default: "string").
+
+        Returns:
+            The annotation of the cnl.
+        """
+        return cognipy_call(self._uid, "GetAnnotationValue", subject, prop, lang, type)
+    
+    def annotations_for_subject(self,subject,prop="", lang=""):
+        val = cognipy_call(self._uid, "GetAnnotationsForSubject", subject,prop,lang)
+        return self._to_pandas(val["Item2"], val["Item1"])
+
+    def constrains_for_subject(self,concept):
+        val = cognipy_call(self._uid, "GetConstrainsForSubject", concept)
+        return self._to_pandas(val["Item2"], val["Item1"])
+
+    def get_role_form(self, name, inverted=False):
+        """Get the role form of the given concept specification.
+
+        Args:
+            name (str): The name of the role.
+            inverted (bool): Whether the role is inverted (default: False).
+
+        Returns:
+            The role form of the cnl.
+        """
+        return cognipy_call(self._uid, "GetRoleForm", name, inverted)
