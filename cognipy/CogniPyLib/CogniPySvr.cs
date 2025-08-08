@@ -12,6 +12,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
+using static CogniPy.Splitting.ScriptLine;
 
 namespace CogniPy
 {
@@ -117,10 +118,17 @@ namespace CogniPy
         //    }
         //}
 
-        public string GetDescriptionLogic(string cnlStatement)
+        public string ToDescriptionLogic(string cnlStatement)
         {
             var dlAst = tools.GetEN2DLAst(cnlStatement);
             return tools.SerializeDLAst(dlAst);
+        }
+
+        public string FromDescriptionLogic(string dlStatement)
+        {
+            if (string.IsNullOrWhiteSpace(dlStatement))
+                return "";
+            return tools.GetENDLFromAst(tools.GetDLAst(dlStatement));
         }
 
         Splitting.Modularizer splitter = null;
@@ -139,6 +147,15 @@ namespace CogniPy
             splitter.Begin();
             splitter.Insert(from i in toInsert.LogicSet() select new ScriptLine(i), false);
             splitter.Apply();
+        }
+
+        public List<List<LociNode>> GetLoci(string logic)
+        {
+            var sl = new ScriptLine(logic);
+            var r = new List<List<LociNode>>();
+            r.Add(sl.GetLoci(LocalityKind.Top));
+            r.Add(sl.GetLoci(LocalityKind.Bottom));
+            return r;
         }
 
         public string Simplify(string cnl)

@@ -649,6 +649,16 @@ namespace CogniPy.Splitting
                 }
                 return Intersect(A, B);
             }
+            else if (isLocalInstanceName(I))
+            {
+                var inter = lockind.get() == LocalityKind.Top ? AnalizeConTop(R, "R") : CreateNull();
+                return Cumulate(CreateSimple("I" + ":" + I), inter);
+            }
+            else if (isLocalInstanceName(J))
+            {
+                var inter = lockind.get() == LocalityKind.Top ? AnalizeConTop(R, "R") : CreateNull();
+                return Cumulate(CreateSimple("I" + ":" + J), inter);
+            }
             else
             {
                 if (lockind.get() == LocalityKind.Top)
@@ -656,7 +666,6 @@ namespace CogniPy.Splitting
                     return AnalizeConTop(R, "R");
                 }
             }
-
             return CreateNull();
         }
 

@@ -657,7 +657,7 @@ class Ontology:
         """
         return cognipy_call(self._uid, "Simplify", cnl)
     
-    def description_logic(self,cnl):
+    def to_description_logic(self,cnl):
         """Get the description logic of the ontology.
 
         Args:
@@ -666,8 +666,30 @@ class Ontology:
         Returns:
             str: The description logic form of the ontology.
         """
-        return cognipy_call(self._uid, "GetDescriptionLogic", cnl)
-    
+        return cognipy_call(self._uid, "ToDescriptionLogic", cnl)
+
+    def from_description_logic(self,dl):
+        """Get the cnl from the description logic.
+
+        Args:
+            dl (str): description logic expressions
+
+        Returns:
+            str: The cnl form of the ontology.
+        """
+        return cognipy_call(self._uid, "FromDescriptionLogic", dl)
+
+    def get_loci(self,dl):
+        """Get modular loci from the description logic.
+
+        Args:
+            dl (str): description logic expressions
+
+        Returns:
+           List[List[loci]] : The modular loci of the description logic.
+        """
+        return cognipy_call(self._uid, "GetLoci", dl)
+
     def get_annotation(self, subject, prop, lang=None, type=None):
         """Get the annotation of the given concept specification.
 
