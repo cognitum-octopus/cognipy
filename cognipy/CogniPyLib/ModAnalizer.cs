@@ -620,21 +620,20 @@ namespace CogniPy.Splitting
 
         public List<List<string>> INSOF(CNL.DL.Node C, string I)
         {
-            if (isLocalInstanceName(I))
-            {
+//            if (isLocalInstanceName(I))
+//            {
                 // for local instance we have e.I [= e.C where e.I = (e.I | BOT)
                 return SUBS(I, C);
-            }
-            else
-                return AnalizeConTop(C, "C");
+//            }
+//            else
+//                return AnalizeConTop(C, "C");
         }
 
         List<List<string>> RELINST(string I, CNL.DL.Node R, string J)
         {
-            if (isLocalInstanceName(I) && isLocalInstanceName(J))
+            if (   (isLocalInstanceName(I) && isLocalInstanceName(J))
+                || (!isLocalInstanceName(I) && !isLocalInstanceName(J)))
             {
-                // for local instance we have e.I = E R. J where e.I = (e.I | BOT)
-
                 List<List<string>> A;
                 List<List<string>> B;
                 {
@@ -659,13 +658,13 @@ namespace CogniPy.Splitting
                 var inter = lockind.get() == LocalityKind.Top ? AnalizeConTop(R, "R") : CreateNull();
                 return Cumulate(CreateSimple("I" + ":" + J), inter);
             }
-            else
+/*            else
             {
                 if (lockind.get() == LocalityKind.Top)
                 {
                     return AnalizeConTop(R, "R");
                 }
-            }
+            }*/
             return CreateNull();
         }
 
@@ -720,20 +719,20 @@ namespace CogniPy.Splitting
         List<List<string>> INSVAL(string I, CNL.DL.Node D)
         {
 
-            if (isLocalInstanceName(I))
-            {
+//            if (isLocalInstanceName(I))
+//            {
                 var inter = lockind.get() == LocalityKind.Top ? AnalizeConTop(D, "D") : CreateNull();
                 return Cumulate(CreateSimple("I" + ":" + I), inter);
-            }
-            else
-            {
-                if (lockind.get() == LocalityKind.Top)
-                {
-                    return AnalizeConTop(D, "D");
-                }
-            }
+//            }
+//            else
+//            {
+//                if (lockind.get() == LocalityKind.Top)
+//                {
+//                    return AnalizeConTop(D, "D");
+//                }
+//            }
 
-            return CreateNull();
+//            return CreateNull();
         }
 
         List<List<string>> ATOM(string id)
