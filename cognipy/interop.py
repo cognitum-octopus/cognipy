@@ -26,10 +26,16 @@ def cognipy_create():
 
 def cognipy_delete(uid):
     global cognipy_p
-    cognipy_p.stdin.write(("@delete\r\n"+uid+"\r\n").encode())
-    cognipy_p.stdin.flush()
-    cognipy_p.stdout.readline()
-    cognipy_p.stdout.readline()
+    try:
+        if cognipy_p and cognipy_p.poll() is None:  # Check if process is still running
+            cognipy_p.stdin.write(("@delete\r\n"+uid+"\r\n").encode())
+            cognipy_p.stdin.flush()
+            cognipy_p.stdout.readline()
+            cognipy_p.stdout.readline()
+    except (OSError, ValueError, AttributeError) as e:
+        # During Python exit, pipes might be closed or invalid
+        # Silently ignore these errors during cleanup
+        pass
 
 @atexit.register
 def cognipy_close():

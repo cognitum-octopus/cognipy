@@ -1201,26 +1201,7 @@ namespace CogniPy
 
         public string[] SplitText(string stxt)
         {
-            try
-            {
-                HashSet<string> newScript = new HashSet<string>();
-                if (stxt.Trim() != "")
-                {
-                    lock (tools)
-                    {
-                        var ast = tools.GetENAst(stxt, true) as CogniPy.CNL.EN.paragraph;
-                        foreach (var stmt in ast.sentences)
-                            newScript.Add(tools.GetENFromAstSentence(stmt, true));
-                    }
-                }
-                return newScript.ToArray();
-            }
-            catch
-            {
-                //if (showBox)
-                //    MessageBox.Show(this, "There are errors in the knowledge. Please fix them.", "Errors!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
-            }
+            return tools.SplitENIntoLines(stxt).ToArray();
         }
 
         private class SimplePopulator : CogniPy.CNL.DL.Populator

@@ -613,7 +613,7 @@ namespace CogniPy
                                         if (!new Uri(onto, UriKind.RelativeOrAbsolute).IsAbsoluteUri)
                                         {
                                             var filePathLoc = (!fromString) ? source : _currentFilePath;
-                                            onto = System.IO.Path.GetFullPath(System.IO.Path.Combine(System.IO.Path.GetDirectoryName(filePathLoc), onto));
+                                            onto = System.IO.Path.GetFullPath(System.IO.Path.Combine(filePathLoc==null?Directory.GetCurrentDirectory(): System.IO.Path.GetDirectoryName(filePathLoc), onto));
                                         }
 
                                         if (onto == _currentFilePath) // the file we need to analyze next is the same as the current file. Skip
