@@ -39,9 +39,14 @@ def cognipy_delete(uid):
 
 @atexit.register
 def cognipy_close():
-    global cognipy_p
-    cognipy_p.stdin.write(("@exit\r\n").encode())
-    cognipy_p.stdin.flush()
+    try:
+        global cognipy_p
+        cognipy_p.stdin.write(("@exit\r\n").encode())
+        cognipy_p.stdin.flush()
+    except (OSError, ValueError, AttributeError) as e:
+        # During Python exit, pipes might be closed or invalid
+        # Silently ignore these errors during cleanup
+        pass
 
 class ParseException(Exception):
     pass
