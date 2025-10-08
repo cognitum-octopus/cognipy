@@ -328,7 +328,8 @@ class Ontology:
                     subsumption_edge_color = "black",
                     relation_edge_color = "black",
                     concept_color = "aliceblue",
-                    instance_color = "whitesmoke"):
+                    instance_color = "whitesmoke",
+                    background_color = "white"):
         """Creates the ontology diagram as an image
 
         Args:
@@ -450,6 +451,7 @@ class Ontology:
 
             e = pydot.Edge(frmN, toN)
             graph.add_edge(e)
+            graph.set_bgcolor(background_color)
 
             e.set_penwidth(0.5)
             if fontname is not None:
