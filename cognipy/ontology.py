@@ -451,7 +451,6 @@ class Ontology:
 
             e = pydot.Edge(frmN, toN)
             graph.add_edge(e)
-            graph.set_bgcolor(background_color)
 
             e.set_penwidth(0.5)
             if fontname is not None:
@@ -477,6 +476,7 @@ class Ontology:
             addLabel(labels, frmN, frm, etx+"|"+val)
 
         graph = pydot.Dot(graph_type='graph')
+        graph.set_bgcolor(background_color)
         negsubsumptions = set([])
         negtypes = set([])
         subsumptions = set([])
