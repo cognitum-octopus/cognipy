@@ -80,7 +80,7 @@ namespace CogniPy.Splitting
             if (isTautology)
             {
                 return new List<LociNode>(new LociNode[]{ new LociNode(){
-                                symbol="\0", loci = "\0", num_loci = 1, expression=reexpr}});
+                                symbol="*", loci = "*", num_loci = 1, expression=reexpr}});
             }
             else
             {
