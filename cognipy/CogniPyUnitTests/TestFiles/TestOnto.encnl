@@ -1,0 +1,117 @@
+﻿Every-single-thing has-label nothing-but (some string value).
+
+Every deal-criteria is a network-component.
+
+
+Comment: Dummy dumdum network.
+
+Every dummy-dumdum-network-component is a network-component.
+Every dummy-dumdum-network-deal-criteria is a deal-criteria.
+Every dummy-dumdum-network-deal-criteria is a dummy-dumdum-network-component.
+Every dummy-dumdum-top-outcome is a dummy-dumdum-network-component.
+
+Dummy-Dumdum is a dummy-dumdum-top-outcome.
+Dummy-Dumdum has-label equal-to 'Dummy Dumdum'.
+Dummy-Dumdum is a positive-outcome.
+Dummy-Dumdum has-network-id equal-to 'Net-op' .
+Dummy-Dumdum is a network .
+
+Comment: Reputational Dumdum network.
+Every reputational-dumdum-component is a network-component.
+Every reputational-dumdum-network-deal-criteria is a deal-criteria.
+Every reputational-dumdum-network-deal-criteria is a reputational-dumdum-network-component.
+Every reputational-dumdum-top-outcome is a reputational-dumdum-network-component.
+
+Reputational-Dumdum is a reputational-dumdum-top-outcome.
+Reputational-Dumdum has-label equal-to 'Reputational Dumdum'.
+Reputational-Dumdum is a positive-outcome.
+Reputational-Dumdum has-network-id equal-to 'Net-re' .
+Reputational-Dumdum is a network .
+
+Comment: Dummydum Burden network.
+Every dummydum-burden-network-component is a network-component.
+Every dummydum-burden-network-deal-criteria is a deal-criteria.
+Every dummydum-burden-network-deal-criteria is a dummydum-burden-network-component.
+Every dummydum-burden-top-outcome is a dummydum-burden-network-component.
+
+Dummydum-Burden is a dummydum-burden-top-outcome.
+Dummydum-Burden has-label equal-to 'Dummydum Burden'.
+Dummydum-Burden is a positive-outcome.
+Dummydum-Burden has-network-id equal-to 'Net-co' .
+Dummydum-Burden is a network .
+
+Comment: Lorem ipsum dolor sit amet .
+Every slider is a standalone-slider.
+
+Slider-1 is a slider.
+Slider-1 has-init-value equal-to 0.0 .
+Slider-1 has-min-value equal-to 0.0 .
+Slider-1 has-max-value equal-to 100.0 .
+Slider-1 has-related-network equal-to 'Net-co' .
+
+Slider-2 is a slider.
+Slider-2 has-init-value equal-to 0.0 .
+Slider-2 has-min-value equal-to 0.0 .
+Slider-2 has-max-value equal-to 100.0 .
+Slider-2 has-related-network equal-to 'Net-op' .
+
+Slider-3 is a slider.
+Slider-3 has-init-value equal-to 0.0 .
+Slider-3 has-min-value equal-to 0.0 .
+Slider-3 has-max-value equal-to 100.0 .
+Slider-3 has-related-network equal-to 'Net-re' .
+
+Comment: Lorem ipsum dolor sit amet .
+Comment: Lorem ipsum dolor sit amet .
+Deal-Criteria-1 influences-with-weight-of-1 Dummy-Dumdum.
+Deal-Criteria-2 influences-with-weight-of-1 Reputational-Dumdum.
+Deal-Criteria-3 influences-with-weight-of-1 Dummydum-Burden.
+Comment: Lorem ipsum dolor sit amet .
+Deal-Criteria-4 influences-with-weight-of-1 Dummy-Dumdum.
+Deal-Criteria-5 influences-with-weight-of-1 Reputational-Dumdum.
+Deal-Criteria-6 influences-with-weight-of-1 Dummydum-Burden.
+Comment: Lorem ipsum dolor sit amet .
+Deal-Criteria-7 influences-with-weight-of-1 Dummy-Dumdum.
+Deal-Criteria-8 influences-with-weight-of-1 Reputational-Dumdum.
+Deal-Criteria-9 influences-with-weight-of-1 Dummydum-Burden.
+Comment: Lorem ipsum dolor sit amet .
+Deal-Criteria-10 influences-with-weight-of-1 Dummy-Dumdum.
+Deal-Criteria-11 influences-with-weight-of-1 Reputational-Dumdum.
+Deal-Criteria-12 influences-with-weight-of-1 Dummydum-Burden.
+Comment: Lorem ipsum dolor sit amet .
+Deal-Criteria-13 influences-with-weight-of-1 Dummy-Dumdum.
+Deal-Criteria-14 influences-with-weight-of-1 Reputational-Dumdum.
+Deal-Criteria-15 influences-with-weight-of-1 Dummydum-Burden.
+Comment: Lorem ipsum dolor sit amet .
+Deal-Criteria-16 influences-with-weight-of-1 Dummy-Dumdum.
+Deal-Criteria-17 influences-with-weight-of-1 Reputational-Dumdum.
+Deal-Criteria-18 influences-with-weight-of-1 Dummydum-Burden.
+Comment: Lorem ipsum dolor sit amet .
+Deal-Criteria-19 influences-with-weight-of-1 Dummy-Dumdum.
+Deal-Criteria-20 influences-with-weight-of-1 Reputational-Dumdum.
+Deal-Criteria-21 influences-with-weight-of-1 Dummydum-Burden.
+Comment: Lorem ipsum dolor sit amet .
+Deal-Criteria-22 influences-with-weight-of-1 Dummy-Dumdum.
+Deal-Criteria-23 influences-with-weight-of-1 Reputational-Dumdum.
+Deal-Criteria-24 influences-with-weight-of-1 Dummydum-Burden.
+Comment: Lorem ipsum dolor sit amet .
+Deal-Criteria-25 influences-with-weight-of-1 Dummy-Dumdum.
+Deal-Criteria-26 influences-with-weight-of-1 Reputational-Dumdum.
+Deal-Criteria-27 influences-with-weight-of-1 Dummydum-Burden.
+
+
+ 
+Annotations:
+_Dummy-Dumdum Instance: network-description 'Network of dummy dumdum.'@en
+_Dummy-Dumdum Instance: network-label 'Dummy Dumdum'@en
+_Reputational-Dumdum Instance: network-description 'Network of reputational dumdum.'@en
+_Reputational-Dumdum Instance: network-label 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'@en
+_Compliance-Burden Instance: network-description 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'@en
+_Compliance-Burden Instance: network-label 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'@en
+_Slider-1 Instance: slider-label 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'@en
+_Slider-1 Instance: slider-verbal-levels 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'@en
+_Slider-2 Instance: slider-label 'Dummy Dumdum Mitigation'@en
+_Slider-2 Instance: slider-verbal-levels 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'@en
+_Slider-3 Instance: slider-label 'Reputational Dumdum Mitigation'@en
+_Slider-3 Instance: slider-verbal-levels 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'@en
+.

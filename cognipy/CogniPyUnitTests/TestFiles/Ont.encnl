@@ -1,0 +1,1838 @@
+Every element-1-form is a form[sfo].
+Every element-1-1-section is a section[sfo].
+Every field-1-1-1 is a field[sfo].
+Something is a field-1-1-1 if-and-only-if-it is either Answer-1-1-1-18, Answer-1-1-1-9, Answer-1-1-1-8, Answer-1-1-1-7, Answer-1-1-1-13, Answer-1-1-1-2, Answer-1-1-1-1, Answer-1-1-1-12, Answer-1-1-1-11, Answer-1-1-1-10, Answer-1-1-1-17, Answer-1-1-1-6, Answer-1-1-1-16, Answer-1-1-1-5, Answer-1-1-1-15, Answer-1-1-1-4, Answer-1-1-1-14 or Answer-1-1-1-3.
+Every field-1-1-2 is a field[sfo].
+Something is a field-1-1-2 if-and-only-if-it is either Answer-1-1-2-2 or Answer-1-1-2-1.
+Every field-1-1-3 is a field[sfo].
+Something is a field-1-1-3 if-and-only-if-it is either Answer-1-1-3-4, Answer-1-1-3-3, Answer-1-1-3-2, Answer-1-1-3-1 or Answer-1-1-3-5.
+Every field-1-1-4 is a field[sfo].
+Something is a field-1-1-4 if-and-only-if-it is either Answer-1-1-4-1, Answer-1-1-4-2, Answer-1-1-4-3 or Answer-1-1-4-4.
+Every field-1-1-5 is a field[sfo].
+Something is a field-1-1-5 if-and-only-if-it is either Answer-1-1-5-3, Answer-1-1-5-4, Answer-1-1-5-5, Answer-1-1-5-1 or Answer-1-1-5-2.
+Every field-1-1-7 is a field[sfo].
+Something is a field-1-1-7 if-and-only-if-it is either Answer-1-1-7-5, Answer-1-1-7-3, Answer-1-1-7-4, Answer-1-1-7-1 or Answer-1-1-7-2.
+Every element-2-form is a form[sfo].
+Every element-2-1-section is a section[sfo].
+Every field-2-1-1 is a field[sfo].
+Something is a field-2-1-1 if-and-only-if-it is either Answer-2-1-1-4, Answer-2-1-1-5, Answer-2-1-1-2, Answer-2-1-1-3 or Answer-2-1-1-1.
+Answer-2-1-1-1 recommends[sfo] Recommendation-1.
+Answer-2-1-1-2 recommends[sfo] Recommendation-2.
+Answer-2-1-1-3 recommends[sfo] Recommendation-3.
+Answer-2-1-1-4 recommends[sfo] Recommendation-2.
+Answer-2-1-1-5 recommends[sfo] Recommendation-4.
+Dynamic[sfo] has-field-2-1-1 Answer-2-1-1-1.
+Dynamic[sfo] has-field-2-1-1 Answer-2-1-1-2.
+Dynamic[sfo] has-field-2-1-1 Answer-2-1-1-3.
+Dynamic[sfo] has-field-2-1-1 Answer-2-1-1-4.
+Every field-2-1-2 is a field[sfo].
+Something is a field-2-1-2 if-and-only-if-it is either Answer-2-1-2-2, Answer-2-1-2-1, Answer-2-1-2-4, Answer-2-1-2-3 or Answer-2-1-2-5.
+Answer-2-1-2-1 recommends[sfo] Recommendation-5.
+Answer-2-1-2-2 recommends[sfo] Recommendation-2.
+Answer-2-1-2-3 recommends[sfo] Recommendation-3.
+Answer-2-1-2-4 recommends[sfo] Recommendation-6.
+Answer-2-1-2-5 recommends[sfo] Recommendation-4.
+Every field-2-1-3 is a field[sfo].
+Something is a field-2-1-3 if-and-only-if-it is either Answer-2-1-3-2, Answer-2-1-3-3, Answer-2-1-3-1, Answer-2-1-3-4 or Answer-2-1-3-5.
+Answer-2-1-3-1 recommends[sfo] Recommendation-7.
+Answer-2-1-3-2 recommends[sfo] Recommendation-2.
+Answer-2-1-3-3 recommends[sfo] Recommendation-2.
+Answer-2-1-3-4 recommends[sfo] Recommendation-8.
+Answer-2-1-3-5 recommends[sfo] Recommendation-9.
+Every field-2-1-4 is a field[sfo].
+Something is a field-2-1-4 if-and-only-if-it is either Answer-2-1-4-5, Answer-2-1-4-3, Answer-2-1-4-4, Answer-2-1-4-1 or Answer-2-1-4-2.
+Answer-2-1-4-1 recommends[sfo] Recommendation-10.
+Answer-2-1-4-2 recommends[sfo] Recommendation-10.
+Answer-2-1-4-3 recommends[sfo] Recommendation-10.
+Answer-2-1-4-4 recommends[sfo] Recommendation-10.
+Answer-2-1-4-5 recommends[sfo] Recommendation-10.
+Every field-2-1-5 is a field[sfo].
+Something is a field-2-1-5 if-and-only-if-it is either Answer-2-1-5-5, Answer-2-1-5-4, Answer-2-1-5-3, Answer-2-1-5-2 or Answer-2-1-5-1.
+Answer-2-1-5-1 recommends[sfo] Recommendation-2.
+Answer-2-1-5-1 recommends[sfo] Recommendation-11.
+Answer-2-1-5-2 recommends[sfo] Recommendation-2.
+Answer-2-1-5-2 recommends[sfo] Recommendation-11.
+Answer-2-1-5-3 recommends[sfo] Recommendation-2.
+Answer-2-1-5-3 recommends[sfo] Recommendation-11.
+Answer-2-1-5-4 recommends[sfo] Recommendation-2.
+Answer-2-1-5-4 recommends[sfo] Recommendation-11.
+Answer-2-1-5-5 recommends[sfo] Recommendation-11.
+Every field-2-1-6 is a field[sfo].
+Something is a field-2-1-6 if-and-only-if-it is either Answer-2-1-6-5, Answer-2-1-6-3, Answer-2-1-6-4, Answer-2-1-6-1 or Answer-2-1-6-2.
+Answer-2-1-6-1 recommends[sfo] Recommendation-3.
+Answer-2-1-6-2 recommends[sfo] Recommendation-3.
+Answer-2-1-6-3 recommends[sfo] Recommendation-3.
+Answer-2-1-6-4 recommends[sfo] Recommendation-4.
+Answer-2-1-6-4 recommends[sfo] Recommendation-3.
+Answer-2-1-6-5 recommends[sfo] Recommendation-3.
+Every field-2-1-7 is a field[sfo].
+Something is a field-2-1-7 if-and-only-if-it is either Answer-2-1-7-5, Answer-2-1-7-4, Answer-2-1-7-1, Answer-2-1-7-3 or Answer-2-1-7-2.
+Answer-2-1-7-1 recommends[sfo] Recommendation-12.
+Answer-2-1-7-1 recommends[sfo] Recommendation-13.
+Answer-2-1-7-2 recommends[sfo] Recommendation-12.
+Answer-2-1-7-2 recommends[sfo] Recommendation-13.
+Answer-2-1-7-3 recommends[sfo] Recommendation-12.
+Answer-2-1-7-4 recommends[sfo] Recommendation-13.
+Answer-2-1-7-5 recommends[sfo] Recommendation-12.
+Answer-2-1-7-5 recommends[sfo] Recommendation-13.
+Every field-2-1-8 is a field[sfo].
+Something is a field-2-1-8 if-and-only-if-it is either Answer-2-1-8-2, Answer-2-1-8-1, Answer-2-1-8-4, Answer-2-1-8-3 or Answer-2-1-8-5.
+Answer-2-1-8-1 recommends[sfo] Recommendation-8.
+Answer-2-1-8-1 recommends[sfo] Recommendation-4.
+Answer-2-1-8-2 recommends[sfo] Recommendation-8.
+Answer-2-1-8-2 recommends[sfo] Recommendation-4.
+Answer-2-1-8-3 recommends[sfo] Recommendation-8.
+Answer-2-1-8-3 recommends[sfo] Recommendation-4.
+Answer-2-1-8-4 recommends[sfo] Recommendation-8.
+Answer-2-1-8-5 recommends[sfo] Recommendation-14.
+Every field-2-1-9 is a field[sfo].
+Something is a field-2-1-9 if-and-only-if-it is either Answer-2-1-9-2, Answer-2-1-9-3 or Answer-2-1-9-1.
+Answer-2-1-9-1 recommends[sfo] Recommendation-2.
+Answer-2-1-9-1 recommends[sfo] Recommendation-11.
+Answer-2-1-9-2 recommends[sfo] Recommendation-2.
+Answer-2-1-9-2 recommends[sfo] Recommendation-11.
+Answer-2-1-9-3 recommends[sfo] Recommendation-2.
+Answer-2-1-9-3 recommends[sfo] Recommendation-11.
+Dynamic[sfo] has-field-2-1-9 Answer-2-1-9-2.
+Every field-2-1-10 is a field[sfo].
+Something is a field-2-1-10 if-and-only-if-it is either Answer-2-1-10-1, Answer-2-1-10-2, Answer-2-1-10-3, Answer-2-1-10-4 or Answer-2-1-10-5.
+Answer-2-1-10-1 recommends[sfo] Recommendation-8.
+Answer-2-1-10-1 recommends[sfo] Recommendation-9.
+Answer-2-1-10-2 recommends[sfo] Recommendation-8.
+Answer-2-1-10-2 recommends[sfo] Recommendation-9.
+Answer-2-1-10-3 recommends[sfo] Recommendation-8.
+Answer-2-1-10-3 recommends[sfo] Recommendation-9.
+Answer-2-1-10-4 recommends[sfo] Recommendation-2.
+Answer-2-1-10-4 recommends[sfo] Recommendation-11.
+Answer-2-1-10-4 recommends[sfo] Recommendation-14.
+Answer-2-1-10-5 recommends[sfo] Recommendation-9.
+Answer-2-1-10-5 recommends[sfo] Recommendation-14.
+Every field-2-1-11 is a field[sfo].
+Something is a field-2-1-11 if-and-only-if-it is either Answer-2-1-11-5, Answer-2-1-11-2, Answer-2-1-11-1, Answer-2-1-11-4 or Answer-2-1-11-3.
+Answer-2-1-11-1 recommends[sfo] Recommendation-2.
+Answer-2-1-11-1 recommends[sfo] Recommendation-11.
+Answer-2-1-11-2 recommends[sfo] Recommendation-2.
+Answer-2-1-11-2 recommends[sfo] Recommendation-11.
+Answer-2-1-11-3 recommends[sfo] Recommendation-2.
+Answer-2-1-11-3 recommends[sfo] Recommendation-11.
+Answer-2-1-11-4 recommends[sfo] Recommendation-2.
+Answer-2-1-11-4 recommends[sfo] Recommendation-11.
+Answer-2-1-11-5 recommends[sfo] Recommendation-2.
+Answer-2-1-11-5 recommends[sfo] Recommendation-11.
+Dynamic[sfo] has-field-2-1-11 Answer-2-1-11-1.
+Dynamic[sfo] has-field-2-1-11 Answer-2-1-11-2.
+Dynamic[sfo] has-field-2-1-11 Answer-2-1-11-3.
+Dynamic[sfo] has-field-2-1-11 Answer-2-1-11-4.
+Every field-2-1-12 is a field[sfo].
+Something is a field-2-1-12 if-and-only-if-it is either Answer-2-1-12-1, Answer-2-1-12-3, Answer-2-1-12-2, Answer-2-1-12-5 or Answer-2-1-12-4.
+Answer-2-1-12-1 recommends[sfo] Recommendation-15.
+Answer-2-1-12-1 recommends[sfo] Recommendation-8.
+Answer-2-1-12-1 recommends[sfo] Recommendation-16.
+Answer-2-1-12-2 recommends[sfo] Recommendation-15.
+Answer-2-1-12-2 recommends[sfo] Recommendation-8.
+Answer-2-1-12-2 recommends[sfo] Recommendation-16.
+Answer-2-1-12-3 recommends[sfo] Recommendation-15.
+Answer-2-1-12-3 recommends[sfo] Recommendation-8.
+Answer-2-1-12-3 recommends[sfo] Recommendation-16.
+Answer-2-1-12-4 recommends[sfo] Recommendation-15.
+Answer-2-1-12-4 recommends[sfo] Recommendation-8.
+Answer-2-1-12-4 recommends[sfo] Recommendation-16.
+Answer-2-1-12-5 recommends[sfo] Recommendation-15.
+Answer-2-1-12-5 recommends[sfo] Recommendation-8.
+Answer-2-1-12-5 recommends[sfo] Recommendation-16.
+Every field-2-1-13 is a field[sfo].
+Something is a field-2-1-13 if-and-only-if-it is either Answer-2-1-13-5, Answer-2-1-13-3, Answer-2-1-13-4, Answer-2-1-13-1 or Answer-2-1-13-2.
+Answer-2-1-13-1 recommends[sfo] Recommendation-14.
+Answer-2-1-13-2 recommends[sfo] Recommendation-14.
+Answer-2-1-13-3 recommends[sfo] Recommendation-4.
+Answer-2-1-13-3 recommends[sfo] Recommendation-3.
+Answer-2-1-13-4 recommends[sfo] Recommendation-4.
+Answer-2-1-13-4 recommends[sfo] Recommendation-3.
+Answer-2-1-13-5 recommends[sfo] Recommendation-4.
+Answer-2-1-13-5 recommends[sfo] Recommendation-14.
+Every element-2-1-ext-1-section is a section[sfo].
+Every field-2-1-ext-1-1 is a field[sfo].
+Something is a field-2-1-ext-1-1 if-and-only-if-it is either Answer-2-1-Ext-1-1-2, Answer-2-1-Ext-1-1-3 or Answer-2-1-Ext-1-1-1.
+Every element-2-1-ext-2-section is a section[sfo].
+Every field-2-1-ext-2-1 is a field[sfo].
+Something is a field-2-1-ext-2-1 if-and-only-if-it is either Answer-2-1-Ext-2-1-1, Answer-2-1-Ext-2-1-2 or Answer-2-1-Ext-2-1-3.
+Every element-2-1-ext-3-section is a section[sfo].
+Every field-2-1-ext-3-1 is a field[sfo].
+Something is a field-2-1-ext-3-1 if-and-only-if-it is either Answer-2-1-Ext-3-1-2, Answer-2-1-Ext-3-1-3 or Answer-2-1-Ext-3-1-1.
+Every element-2-1-ext-4-section is a section[sfo].
+Every field-2-1-ext-4-1 is a field[sfo].
+Something is a field-2-1-ext-4-1 if-and-only-if-it is either Answer-2-1-Ext-4-1-3, Answer-2-1-Ext-4-1-1 or Answer-2-1-Ext-4-1-2.
+Every element-2-1-ext-5-section is a section[sfo].
+Every field-2-1-ext-5-1 is a field[sfo].
+Something is a field-2-1-ext-5-1 if-and-only-if-it is either Answer-2-1-Ext-5-1-3, Answer-2-1-Ext-5-1-2 or Answer-2-1-Ext-5-1-1.
+Every field-2-1-ext-5-2 is a field[sfo].
+Something is a field-2-1-ext-5-2 if-and-only-if-it is either Answer-2-1-Ext-5-2-1, Answer-2-1-Ext-5-2-2 or Answer-2-1-Ext-5-2-3.
+Every field-2-1-ext-5-3 is a field[sfo].
+Something is a field-2-1-ext-5-3 if-and-only-if-it is either Answer-2-1-Ext-5-3-1, Answer-2-1-Ext-5-3-2 or Answer-2-1-Ext-5-3-3.
+Every element-2-1-ext-6-section is a section[sfo].
+Every field-2-1-ext-6-1 is a field[sfo].
+Something is a field-2-1-ext-6-1 if-and-only-if-it is either Answer-2-1-Ext-6-1-2, Answer-2-1-Ext-6-1-1 or Answer-2-1-Ext-6-1-3.
+Every element-2-1-ext-7-section is a section[sfo].
+Every field-2-1-ext-7-1 is a field[sfo].
+Something is a field-2-1-ext-7-1 if-and-only-if-it is either Answer-2-1-Ext-7-1-1, Answer-2-1-Ext-7-1-3 or Answer-2-1-Ext-7-1-2.
+Every element-2-1-ext-8-section is a section[sfo].
+Every field-2-1-ext-8-1 is a field[sfo].
+Something is a field-2-1-ext-8-1 if-and-only-if-it is either Answer-2-1-Ext-8-1-2, Answer-2-1-Ext-8-1-1 or Answer-2-1-Ext-8-1-3.
+Every element-2-1-ext-9-section is a section[sfo].
+Every field-2-1-ext-9-1 is a field[sfo].
+Something is a field-2-1-ext-9-1 if-and-only-if-it is either Answer-2-1-Ext-9-1-3, Answer-2-1-Ext-9-1-2 or Answer-2-1-Ext-9-1-1.
+Every element-1-form is a starting-form[sfo].
+If X follows[sfo] Y then Y is-followed-by[sfo] X.
+X concerns[sfo] Y if-and-only-if Y is-concerned-by[sfo] X.
+Every field[sfo] is an enumeration[sfo].
+Every next-form-instance[sfo] is an enumeration[sfo].
+Every yes-no-answer[sfo] is a field[sfo].
+Every yes-no-ns-answer[sfo] is a field[sfo].
+Something is a yes-no-answer[sfo] if-and-only-if-it is either Yes-Answer[sfo] or Not-Answer[sfo].
+Something is a yes-no-ns-answer[sfo] if-and-only-if-it is either Yes-Answer[sfo], Not-Answer[sfo] or Not-Specified[sfo].
+Every starting-form[sfo] is a form[sfo].
+Dynamic[sfo] is a dynamic-event[sfo].
+Something is a status[sfo] if-and-only-if-it is either Submitted[sfo] or Non-Existing[sfo].
+Every-single-thing has-recommendation[sfo] nothing-but recommendations[sfo].
+If X recommends[sfo] Y then Y is-recommended-by[sfo] X.
+Answer-1-1-1-18 is something.
+Answer-1-1-1-18 is a field[sfo].
+Answer-1-1-1-18 is an enumeration[sfo].
+Answer-1-1-1-18 is a field-1-1-1.
+Answer-1-1-1-9 is something.
+Answer-1-1-1-9 is a field[sfo].
+Answer-1-1-1-9 is an enumeration[sfo].
+Answer-1-1-1-9 is a field-1-1-1.
+Answer-1-1-1-8 is something.
+Answer-1-1-1-8 is a field[sfo].
+Answer-1-1-1-8 is an enumeration[sfo].
+Answer-1-1-1-8 is a field-1-1-1.
+Answer-1-1-1-7 is something.
+Answer-1-1-1-7 is a field[sfo].
+Answer-1-1-1-7 is an enumeration[sfo].
+Answer-1-1-1-7 is a field-1-1-1.
+Answer-1-1-1-13 is something.
+Answer-1-1-1-13 is a field[sfo].
+Answer-1-1-1-13 is an enumeration[sfo].
+Answer-1-1-1-13 is a field-1-1-1.
+Answer-1-1-1-2 is something.
+Answer-1-1-1-2 is a field[sfo].
+Answer-1-1-1-2 is an enumeration[sfo].
+Answer-1-1-1-2 is a field-1-1-1.
+Answer-1-1-1-1 is something.
+Answer-1-1-1-1 is a field[sfo].
+Answer-1-1-1-1 is an enumeration[sfo].
+Answer-1-1-1-1 is a field-1-1-1.
+Answer-1-1-1-12 is something.
+Answer-1-1-1-12 is a field[sfo].
+Answer-1-1-1-12 is an enumeration[sfo].
+Answer-1-1-1-12 is a field-1-1-1.
+Answer-1-1-1-11 is something.
+Answer-1-1-1-11 is a field[sfo].
+Answer-1-1-1-11 is an enumeration[sfo].
+Answer-1-1-1-11 is a field-1-1-1.
+Answer-1-1-1-10 is something.
+Answer-1-1-1-10 is a field[sfo].
+Answer-1-1-1-10 is an enumeration[sfo].
+Answer-1-1-1-10 is a field-1-1-1.
+Answer-1-1-1-17 is something.
+Answer-1-1-1-17 is a field[sfo].
+Answer-1-1-1-17 is an enumeration[sfo].
+Answer-1-1-1-17 is a field-1-1-1.
+Answer-1-1-1-6 is something.
+Answer-1-1-1-6 is a field[sfo].
+Answer-1-1-1-6 is an enumeration[sfo].
+Answer-1-1-1-6 is a field-1-1-1.
+Answer-1-1-1-16 is something.
+Answer-1-1-1-16 is a field[sfo].
+Answer-1-1-1-16 is an enumeration[sfo].
+Answer-1-1-1-16 is a field-1-1-1.
+Answer-1-1-1-5 is something.
+Answer-1-1-1-5 is a field[sfo].
+Answer-1-1-1-5 is an enumeration[sfo].
+Answer-1-1-1-5 is a field-1-1-1.
+Answer-1-1-1-15 is something.
+Answer-1-1-1-15 is a field[sfo].
+Answer-1-1-1-15 is an enumeration[sfo].
+Answer-1-1-1-15 is a field-1-1-1.
+Answer-1-1-1-4 is something.
+Answer-1-1-1-4 is a field[sfo].
+Answer-1-1-1-4 is an enumeration[sfo].
+Answer-1-1-1-4 is a field-1-1-1.
+Answer-1-1-1-14 is something.
+Answer-1-1-1-14 is a field[sfo].
+Answer-1-1-1-14 is an enumeration[sfo].
+Answer-1-1-1-14 is a field-1-1-1.
+Answer-1-1-1-3 is something.
+Answer-1-1-1-3 is a field[sfo].
+Answer-1-1-1-3 is an enumeration[sfo].
+Answer-1-1-1-3 is a field-1-1-1.
+Answer-1-1-2-2 is something.
+Answer-1-1-2-2 is a field[sfo].
+Answer-1-1-2-2 is an enumeration[sfo].
+Answer-1-1-2-2 is a field-1-1-2.
+Answer-1-1-2-1 is something.
+Answer-1-1-2-1 is a field[sfo].
+Answer-1-1-2-1 is an enumeration[sfo].
+Answer-1-1-2-1 is a field-1-1-2.
+Answer-1-1-3-4 is something.
+Answer-1-1-3-4 is a field-1-1-3.
+Answer-1-1-3-4 is a field[sfo].
+Answer-1-1-3-4 is an enumeration[sfo].
+Answer-1-1-3-3 is something.
+Answer-1-1-3-3 is a field-1-1-3.
+Answer-1-1-3-3 is a field[sfo].
+Answer-1-1-3-3 is an enumeration[sfo].
+Answer-1-1-3-2 is something.
+Answer-1-1-3-2 is a field-1-1-3.
+Answer-1-1-3-2 is a field[sfo].
+Answer-1-1-3-2 is an enumeration[sfo].
+Answer-1-1-3-1 is something.
+Answer-1-1-3-1 is a field-1-1-3.
+Answer-1-1-3-1 is a field[sfo].
+Answer-1-1-3-1 is an enumeration[sfo].
+Answer-1-1-3-5 is something.
+Answer-1-1-3-5 is a field-1-1-3.
+Answer-1-1-3-5 is a field[sfo].
+Answer-1-1-3-5 is an enumeration[sfo].
+Answer-1-1-4-1 is something.
+Answer-1-1-4-1 is a field-1-1-4.
+Answer-1-1-4-1 is a field[sfo].
+Answer-1-1-4-1 is an enumeration[sfo].
+Answer-1-1-4-2 is something.
+Answer-1-1-4-2 is a field-1-1-4.
+Answer-1-1-4-2 is a field[sfo].
+Answer-1-1-4-2 is an enumeration[sfo].
+Answer-1-1-4-3 is something.
+Answer-1-1-4-3 is a field-1-1-4.
+Answer-1-1-4-3 is a field[sfo].
+Answer-1-1-4-3 is an enumeration[sfo].
+Answer-1-1-4-4 is something.
+Answer-1-1-4-4 is a field-1-1-4.
+Answer-1-1-4-4 is a field[sfo].
+Answer-1-1-4-4 is an enumeration[sfo].
+Answer-1-1-5-3 is something.
+Answer-1-1-5-3 is a field-1-1-5.
+Answer-1-1-5-3 is a field[sfo].
+Answer-1-1-5-3 is an enumeration[sfo].
+Answer-1-1-5-4 is something.
+Answer-1-1-5-4 is a field-1-1-5.
+Answer-1-1-5-4 is a field[sfo].
+Answer-1-1-5-4 is an enumeration[sfo].
+Answer-1-1-5-5 is something.
+Answer-1-1-5-5 is a field-1-1-5.
+Answer-1-1-5-5 is a field[sfo].
+Answer-1-1-5-5 is an enumeration[sfo].
+Answer-1-1-5-1 is something.
+Answer-1-1-5-1 is a field-1-1-5.
+Answer-1-1-5-1 is a field[sfo].
+Answer-1-1-5-1 is an enumeration[sfo].
+Answer-1-1-5-2 is something.
+Answer-1-1-5-2 is a field-1-1-5.
+Answer-1-1-5-2 is a field[sfo].
+Answer-1-1-5-2 is an enumeration[sfo].
+Answer-1-1-7-5 is something.
+Answer-1-1-7-5 is a field-1-1-7.
+Answer-1-1-7-5 is a field[sfo].
+Answer-1-1-7-5 is an enumeration[sfo].
+Answer-1-1-7-3 is something.
+Answer-1-1-7-3 is a field-1-1-7.
+Answer-1-1-7-3 is a field[sfo].
+Answer-1-1-7-3 is an enumeration[sfo].
+Answer-1-1-7-4 is something.
+Answer-1-1-7-4 is a field-1-1-7.
+Answer-1-1-7-4 is a field[sfo].
+Answer-1-1-7-4 is an enumeration[sfo].
+Answer-1-1-7-1 is something.
+Answer-1-1-7-1 is a field-1-1-7.
+Answer-1-1-7-1 is a field[sfo].
+Answer-1-1-7-1 is an enumeration[sfo].
+Answer-1-1-7-2 is something.
+Answer-1-1-7-2 is a field-1-1-7.
+Answer-1-1-7-2 is a field[sfo].
+Answer-1-1-7-2 is an enumeration[sfo].
+Answer-2-1-1-4 is something.
+Answer-2-1-1-4 is a field-2-1-1.
+Answer-2-1-1-4 is a field[sfo].
+Answer-2-1-1-4 is an enumeration[sfo].
+Answer-2-1-1-5 is something.
+Answer-2-1-1-5 is a field-2-1-1.
+Answer-2-1-1-5 is a field[sfo].
+Answer-2-1-1-5 is an enumeration[sfo].
+Answer-2-1-1-2 is something.
+Answer-2-1-1-2 is a field-2-1-1.
+Answer-2-1-1-2 is a field[sfo].
+Answer-2-1-1-2 is an enumeration[sfo].
+Answer-2-1-1-3 is something.
+Answer-2-1-1-3 is a field-2-1-1.
+Answer-2-1-1-3 is a field[sfo].
+Answer-2-1-1-3 is an enumeration[sfo].
+Answer-2-1-1-1 is something.
+Answer-2-1-1-1 is a field-2-1-1.
+Answer-2-1-1-1 is a field[sfo].
+Answer-2-1-1-1 is an enumeration[sfo].
+Recommendation-1 is something.
+Recommendation-2 is something.
+Recommendation-3 is something.
+Recommendation-4 is something.
+Dynamic[sfo] is something.
+Answer-2-1-2-2 is something.
+Answer-2-1-2-2 is a field[sfo].
+Answer-2-1-2-2 is a field-2-1-2.
+Answer-2-1-2-2 is an enumeration[sfo].
+Answer-2-1-2-1 is something.
+Answer-2-1-2-1 is a field[sfo].
+Answer-2-1-2-1 is a field-2-1-2.
+Answer-2-1-2-1 is an enumeration[sfo].
+Answer-2-1-2-4 is something.
+Answer-2-1-2-4 is a field[sfo].
+Answer-2-1-2-4 is a field-2-1-2.
+Answer-2-1-2-4 is an enumeration[sfo].
+Answer-2-1-2-3 is something.
+Answer-2-1-2-3 is a field[sfo].
+Answer-2-1-2-3 is a field-2-1-2.
+Answer-2-1-2-3 is an enumeration[sfo].
+Answer-2-1-2-5 is something.
+Answer-2-1-2-5 is a field[sfo].
+Answer-2-1-2-5 is a field-2-1-2.
+Answer-2-1-2-5 is an enumeration[sfo].
+Recommendation-5 is something.
+Recommendation-6 is something.
+Answer-2-1-3-2 is something.
+Answer-2-1-3-2 is a field[sfo].
+Answer-2-1-3-2 is an enumeration[sfo].
+Answer-2-1-3-2 is a field-2-1-3.
+Answer-2-1-3-3 is something.
+Answer-2-1-3-3 is a field[sfo].
+Answer-2-1-3-3 is an enumeration[sfo].
+Answer-2-1-3-3 is a field-2-1-3.
+Answer-2-1-3-1 is something.
+Answer-2-1-3-1 is a field[sfo].
+Answer-2-1-3-1 is an enumeration[sfo].
+Answer-2-1-3-1 is a field-2-1-3.
+Answer-2-1-3-4 is something.
+Answer-2-1-3-4 is a field[sfo].
+Answer-2-1-3-4 is an enumeration[sfo].
+Answer-2-1-3-4 is a field-2-1-3.
+Answer-2-1-3-5 is something.
+Answer-2-1-3-5 is a field[sfo].
+Answer-2-1-3-5 is an enumeration[sfo].
+Answer-2-1-3-5 is a field-2-1-3.
+Recommendation-7 is something.
+Recommendation-8 is something.
+Recommendation-9 is something.
+Answer-2-1-4-5 is something.
+Answer-2-1-4-5 is a field[sfo].
+Answer-2-1-4-5 is an enumeration[sfo].
+Answer-2-1-4-5 is a field-2-1-4.
+Answer-2-1-4-3 is something.
+Answer-2-1-4-3 is a field[sfo].
+Answer-2-1-4-3 is an enumeration[sfo].
+Answer-2-1-4-3 is a field-2-1-4.
+Answer-2-1-4-4 is something.
+Answer-2-1-4-4 is a field[sfo].
+Answer-2-1-4-4 is an enumeration[sfo].
+Answer-2-1-4-4 is a field-2-1-4.
+Answer-2-1-4-1 is something.
+Answer-2-1-4-1 is a field[sfo].
+Answer-2-1-4-1 is an enumeration[sfo].
+Answer-2-1-4-1 is a field-2-1-4.
+Answer-2-1-4-2 is something.
+Answer-2-1-4-2 is a field[sfo].
+Answer-2-1-4-2 is an enumeration[sfo].
+Answer-2-1-4-2 is a field-2-1-4.
+Recommendation-10 is something.
+Answer-2-1-5-5 is something.
+Answer-2-1-5-5 is a field[sfo].
+Answer-2-1-5-5 is an enumeration[sfo].
+Answer-2-1-5-5 is a field-2-1-5.
+Answer-2-1-5-4 is something.
+Answer-2-1-5-4 is a field[sfo].
+Answer-2-1-5-4 is an enumeration[sfo].
+Answer-2-1-5-4 is a field-2-1-5.
+Answer-2-1-5-3 is something.
+Answer-2-1-5-3 is a field[sfo].
+Answer-2-1-5-3 is an enumeration[sfo].
+Answer-2-1-5-3 is a field-2-1-5.
+Answer-2-1-5-2 is something.
+Answer-2-1-5-2 is a field[sfo].
+Answer-2-1-5-2 is an enumeration[sfo].
+Answer-2-1-5-2 is a field-2-1-5.
+Answer-2-1-5-1 is something.
+Answer-2-1-5-1 is a field[sfo].
+Answer-2-1-5-1 is an enumeration[sfo].
+Answer-2-1-5-1 is a field-2-1-5.
+Recommendation-11 is something.
+Answer-2-1-6-5 is something.
+Answer-2-1-6-5 is a field-2-1-6.
+Answer-2-1-6-5 is a field[sfo].
+Answer-2-1-6-5 is an enumeration[sfo].
+Answer-2-1-6-3 is something.
+Answer-2-1-6-3 is a field-2-1-6.
+Answer-2-1-6-3 is a field[sfo].
+Answer-2-1-6-3 is an enumeration[sfo].
+Answer-2-1-6-4 is something.
+Answer-2-1-6-4 is a field-2-1-6.
+Answer-2-1-6-4 is a field[sfo].
+Answer-2-1-6-4 is an enumeration[sfo].
+Answer-2-1-6-1 is something.
+Answer-2-1-6-1 is a field-2-1-6.
+Answer-2-1-6-1 is a field[sfo].
+Answer-2-1-6-1 is an enumeration[sfo].
+Answer-2-1-6-2 is something.
+Answer-2-1-6-2 is a field-2-1-6.
+Answer-2-1-6-2 is a field[sfo].
+Answer-2-1-6-2 is an enumeration[sfo].
+Answer-2-1-7-5 is something.
+Answer-2-1-7-5 is a field[sfo].
+Answer-2-1-7-5 is a field-2-1-7.
+Answer-2-1-7-5 is an enumeration[sfo].
+Answer-2-1-7-4 is something.
+Answer-2-1-7-4 is a field[sfo].
+Answer-2-1-7-4 is a field-2-1-7.
+Answer-2-1-7-4 is an enumeration[sfo].
+Answer-2-1-7-1 is something.
+Answer-2-1-7-1 is a field[sfo].
+Answer-2-1-7-1 is a field-2-1-7.
+Answer-2-1-7-1 is an enumeration[sfo].
+Answer-2-1-7-3 is something.
+Answer-2-1-7-3 is a field[sfo].
+Answer-2-1-7-3 is a field-2-1-7.
+Answer-2-1-7-3 is an enumeration[sfo].
+Answer-2-1-7-2 is something.
+Answer-2-1-7-2 is a field[sfo].
+Answer-2-1-7-2 is a field-2-1-7.
+Answer-2-1-7-2 is an enumeration[sfo].
+Recommendation-12 is something.
+Recommendation-13 is something.
+Answer-2-1-8-2 is something.
+Answer-2-1-8-2 is a field[sfo].
+Answer-2-1-8-2 is a field-2-1-8.
+Answer-2-1-8-2 is an enumeration[sfo].
+Answer-2-1-8-1 is something.
+Answer-2-1-8-1 is a field[sfo].
+Answer-2-1-8-1 is a field-2-1-8.
+Answer-2-1-8-1 is an enumeration[sfo].
+Answer-2-1-8-4 is something.
+Answer-2-1-8-4 is a field[sfo].
+Answer-2-1-8-4 is a field-2-1-8.
+Answer-2-1-8-4 is an enumeration[sfo].
+Answer-2-1-8-3 is something.
+Answer-2-1-8-3 is a field[sfo].
+Answer-2-1-8-3 is a field-2-1-8.
+Answer-2-1-8-3 is an enumeration[sfo].
+Answer-2-1-8-5 is something.
+Answer-2-1-8-5 is a field[sfo].
+Answer-2-1-8-5 is a field-2-1-8.
+Answer-2-1-8-5 is an enumeration[sfo].
+Recommendation-14 is something.
+Answer-2-1-9-2 is something.
+Answer-2-1-9-2 is a field[sfo].
+Answer-2-1-9-2 is a field-2-1-9.
+Answer-2-1-9-2 is an enumeration[sfo].
+Answer-2-1-9-3 is something.
+Answer-2-1-9-3 is a field[sfo].
+Answer-2-1-9-3 is a field-2-1-9.
+Answer-2-1-9-3 is an enumeration[sfo].
+Answer-2-1-9-1 is something.
+Answer-2-1-9-1 is a field[sfo].
+Answer-2-1-9-1 is a field-2-1-9.
+Answer-2-1-9-1 is an enumeration[sfo].
+Answer-2-1-10-1 is something.
+Answer-2-1-10-1 is a field[sfo].
+Answer-2-1-10-1 is an enumeration[sfo].
+Answer-2-1-10-1 is a field-2-1-10.
+Answer-2-1-10-2 is something.
+Answer-2-1-10-2 is a field[sfo].
+Answer-2-1-10-2 is an enumeration[sfo].
+Answer-2-1-10-2 is a field-2-1-10.
+Answer-2-1-10-3 is something.
+Answer-2-1-10-3 is a field[sfo].
+Answer-2-1-10-3 is an enumeration[sfo].
+Answer-2-1-10-3 is a field-2-1-10.
+Answer-2-1-10-4 is something.
+Answer-2-1-10-4 is a field[sfo].
+Answer-2-1-10-4 is an enumeration[sfo].
+Answer-2-1-10-4 is a field-2-1-10.
+Answer-2-1-10-5 is something.
+Answer-2-1-10-5 is a field[sfo].
+Answer-2-1-10-5 is an enumeration[sfo].
+Answer-2-1-10-5 is a field-2-1-10.
+Answer-2-1-11-5 is something.
+Answer-2-1-11-5 is a field[sfo].
+Answer-2-1-11-5 is a field-2-1-11.
+Answer-2-1-11-5 is an enumeration[sfo].
+Answer-2-1-11-2 is something.
+Answer-2-1-11-2 is a field[sfo].
+Answer-2-1-11-2 is a field-2-1-11.
+Answer-2-1-11-2 is an enumeration[sfo].
+Answer-2-1-11-1 is something.
+Answer-2-1-11-1 is a field[sfo].
+Answer-2-1-11-1 is a field-2-1-11.
+Answer-2-1-11-1 is an enumeration[sfo].
+Answer-2-1-11-4 is something.
+Answer-2-1-11-4 is a field[sfo].
+Answer-2-1-11-4 is a field-2-1-11.
+Answer-2-1-11-4 is an enumeration[sfo].
+Answer-2-1-11-3 is something.
+Answer-2-1-11-3 is a field[sfo].
+Answer-2-1-11-3 is a field-2-1-11.
+Answer-2-1-11-3 is an enumeration[sfo].
+Answer-2-1-12-1 is something.
+Answer-2-1-12-1 is a field[sfo].
+Answer-2-1-12-1 is a field-2-1-12.
+Answer-2-1-12-1 is an enumeration[sfo].
+Answer-2-1-12-3 is something.
+Answer-2-1-12-3 is a field[sfo].
+Answer-2-1-12-3 is a field-2-1-12.
+Answer-2-1-12-3 is an enumeration[sfo].
+Answer-2-1-12-2 is something.
+Answer-2-1-12-2 is a field[sfo].
+Answer-2-1-12-2 is a field-2-1-12.
+Answer-2-1-12-2 is an enumeration[sfo].
+Answer-2-1-12-5 is something.
+Answer-2-1-12-5 is a field[sfo].
+Answer-2-1-12-5 is a field-2-1-12.
+Answer-2-1-12-5 is an enumeration[sfo].
+Answer-2-1-12-4 is something.
+Answer-2-1-12-4 is a field[sfo].
+Answer-2-1-12-4 is a field-2-1-12.
+Answer-2-1-12-4 is an enumeration[sfo].
+Recommendation-15 is something.
+Recommendation-16 is something.
+Answer-2-1-13-5 is something.
+Answer-2-1-13-5 is a field-2-1-13.
+Answer-2-1-13-5 is a field[sfo].
+Answer-2-1-13-5 is an enumeration[sfo].
+Answer-2-1-13-3 is something.
+Answer-2-1-13-3 is a field-2-1-13.
+Answer-2-1-13-3 is a field[sfo].
+Answer-2-1-13-3 is an enumeration[sfo].
+Answer-2-1-13-4 is something.
+Answer-2-1-13-4 is a field-2-1-13.
+Answer-2-1-13-4 is a field[sfo].
+Answer-2-1-13-4 is an enumeration[sfo].
+Answer-2-1-13-1 is something.
+Answer-2-1-13-1 is a field-2-1-13.
+Answer-2-1-13-1 is a field[sfo].
+Answer-2-1-13-1 is an enumeration[sfo].
+Answer-2-1-13-2 is something.
+Answer-2-1-13-2 is a field-2-1-13.
+Answer-2-1-13-2 is a field[sfo].
+Answer-2-1-13-2 is an enumeration[sfo].
+Answer-2-1-Ext-1-1-2 is something.
+Answer-2-1-Ext-1-1-2 is a field-2-1-ext-1-1.
+Answer-2-1-Ext-1-1-2 is a field[sfo].
+Answer-2-1-Ext-1-1-2 is an enumeration[sfo].
+Answer-2-1-Ext-1-1-3 is something.
+Answer-2-1-Ext-1-1-3 is a field-2-1-ext-1-1.
+Answer-2-1-Ext-1-1-3 is a field[sfo].
+Answer-2-1-Ext-1-1-3 is an enumeration[sfo].
+Answer-2-1-Ext-1-1-1 is something.
+Answer-2-1-Ext-1-1-1 is a field-2-1-ext-1-1.
+Answer-2-1-Ext-1-1-1 is a field[sfo].
+Answer-2-1-Ext-1-1-1 is an enumeration[sfo].
+Answer-2-1-Ext-2-1-1 is something.
+Answer-2-1-Ext-2-1-1 is a field[sfo].
+Answer-2-1-Ext-2-1-1 is a field-2-1-ext-2-1.
+Answer-2-1-Ext-2-1-1 is an enumeration[sfo].
+Answer-2-1-Ext-2-1-2 is something.
+Answer-2-1-Ext-2-1-2 is a field[sfo].
+Answer-2-1-Ext-2-1-2 is a field-2-1-ext-2-1.
+Answer-2-1-Ext-2-1-2 is an enumeration[sfo].
+Answer-2-1-Ext-2-1-3 is something.
+Answer-2-1-Ext-2-1-3 is a field[sfo].
+Answer-2-1-Ext-2-1-3 is a field-2-1-ext-2-1.
+Answer-2-1-Ext-2-1-3 is an enumeration[sfo].
+Answer-2-1-Ext-3-1-2 is something.
+Answer-2-1-Ext-3-1-2 is a field-2-1-ext-3-1.
+Answer-2-1-Ext-3-1-2 is a field[sfo].
+Answer-2-1-Ext-3-1-2 is an enumeration[sfo].
+Answer-2-1-Ext-3-1-3 is something.
+Answer-2-1-Ext-3-1-3 is a field-2-1-ext-3-1.
+Answer-2-1-Ext-3-1-3 is a field[sfo].
+Answer-2-1-Ext-3-1-3 is an enumeration[sfo].
+Answer-2-1-Ext-3-1-1 is something.
+Answer-2-1-Ext-3-1-1 is a field-2-1-ext-3-1.
+Answer-2-1-Ext-3-1-1 is a field[sfo].
+Answer-2-1-Ext-3-1-1 is an enumeration[sfo].
+Answer-2-1-Ext-4-1-3 is something.
+Answer-2-1-Ext-4-1-3 is a field-2-1-ext-4-1.
+Answer-2-1-Ext-4-1-3 is a field[sfo].
+Answer-2-1-Ext-4-1-3 is an enumeration[sfo].
+Answer-2-1-Ext-4-1-1 is something.
+Answer-2-1-Ext-4-1-1 is a field-2-1-ext-4-1.
+Answer-2-1-Ext-4-1-1 is a field[sfo].
+Answer-2-1-Ext-4-1-1 is an enumeration[sfo].
+Answer-2-1-Ext-4-1-2 is something.
+Answer-2-1-Ext-4-1-2 is a field-2-1-ext-4-1.
+Answer-2-1-Ext-4-1-2 is a field[sfo].
+Answer-2-1-Ext-4-1-2 is an enumeration[sfo].
+Answer-2-1-Ext-5-1-3 is something.
+Answer-2-1-Ext-5-1-3 is a field[sfo].
+Answer-2-1-Ext-5-1-3 is a field-2-1-ext-5-1.
+Answer-2-1-Ext-5-1-3 is an enumeration[sfo].
+Answer-2-1-Ext-5-1-2 is something.
+Answer-2-1-Ext-5-1-2 is a field[sfo].
+Answer-2-1-Ext-5-1-2 is a field-2-1-ext-5-1.
+Answer-2-1-Ext-5-1-2 is an enumeration[sfo].
+Answer-2-1-Ext-5-1-1 is something.
+Answer-2-1-Ext-5-1-1 is a field[sfo].
+Answer-2-1-Ext-5-1-1 is a field-2-1-ext-5-1.
+Answer-2-1-Ext-5-1-1 is an enumeration[sfo].
+Answer-2-1-Ext-5-2-1 is something.
+Answer-2-1-Ext-5-2-1 is a field[sfo].
+Answer-2-1-Ext-5-2-1 is an enumeration[sfo].
+Answer-2-1-Ext-5-2-1 is a field-2-1-ext-5-2.
+Answer-2-1-Ext-5-2-2 is something.
+Answer-2-1-Ext-5-2-2 is a field[sfo].
+Answer-2-1-Ext-5-2-2 is an enumeration[sfo].
+Answer-2-1-Ext-5-2-2 is a field-2-1-ext-5-2.
+Answer-2-1-Ext-5-2-3 is something.
+Answer-2-1-Ext-5-2-3 is a field[sfo].
+Answer-2-1-Ext-5-2-3 is an enumeration[sfo].
+Answer-2-1-Ext-5-2-3 is a field-2-1-ext-5-2.
+Answer-2-1-Ext-5-3-1 is something.
+Answer-2-1-Ext-5-3-1 is a field[sfo].
+Answer-2-1-Ext-5-3-1 is a field-2-1-ext-5-3.
+Answer-2-1-Ext-5-3-1 is an enumeration[sfo].
+Answer-2-1-Ext-5-3-2 is something.
+Answer-2-1-Ext-5-3-2 is a field[sfo].
+Answer-2-1-Ext-5-3-2 is a field-2-1-ext-5-3.
+Answer-2-1-Ext-5-3-2 is an enumeration[sfo].
+Answer-2-1-Ext-5-3-3 is something.
+Answer-2-1-Ext-5-3-3 is a field[sfo].
+Answer-2-1-Ext-5-3-3 is a field-2-1-ext-5-3.
+Answer-2-1-Ext-5-3-3 is an enumeration[sfo].
+Answer-2-1-Ext-6-1-2 is something.
+Answer-2-1-Ext-6-1-2 is a field[sfo].
+Answer-2-1-Ext-6-1-2 is a field-2-1-ext-6-1.
+Answer-2-1-Ext-6-1-2 is an enumeration[sfo].
+Answer-2-1-Ext-6-1-1 is something.
+Answer-2-1-Ext-6-1-1 is a field[sfo].
+Answer-2-1-Ext-6-1-1 is a field-2-1-ext-6-1.
+Answer-2-1-Ext-6-1-1 is an enumeration[sfo].
+Answer-2-1-Ext-6-1-3 is something.
+Answer-2-1-Ext-6-1-3 is a field[sfo].
+Answer-2-1-Ext-6-1-3 is a field-2-1-ext-6-1.
+Answer-2-1-Ext-6-1-3 is an enumeration[sfo].
+Answer-2-1-Ext-7-1-1 is something.
+Answer-2-1-Ext-7-1-1 is a field-2-1-ext-7-1.
+Answer-2-1-Ext-7-1-1 is a field[sfo].
+Answer-2-1-Ext-7-1-1 is an enumeration[sfo].
+Answer-2-1-Ext-7-1-3 is something.
+Answer-2-1-Ext-7-1-3 is a field-2-1-ext-7-1.
+Answer-2-1-Ext-7-1-3 is a field[sfo].
+Answer-2-1-Ext-7-1-3 is an enumeration[sfo].
+Answer-2-1-Ext-7-1-2 is something.
+Answer-2-1-Ext-7-1-2 is a field-2-1-ext-7-1.
+Answer-2-1-Ext-7-1-2 is a field[sfo].
+Answer-2-1-Ext-7-1-2 is an enumeration[sfo].
+Answer-2-1-Ext-8-1-2 is a field-2-1-ext-8-1.
+Answer-2-1-Ext-8-1-2 is something.
+Answer-2-1-Ext-8-1-2 is a field[sfo].
+Answer-2-1-Ext-8-1-2 is an enumeration[sfo].
+Answer-2-1-Ext-8-1-1 is a field-2-1-ext-8-1.
+Answer-2-1-Ext-8-1-1 is something.
+Answer-2-1-Ext-8-1-1 is a field[sfo].
+Answer-2-1-Ext-8-1-1 is an enumeration[sfo].
+Answer-2-1-Ext-8-1-3 is a field-2-1-ext-8-1.
+Answer-2-1-Ext-8-1-3 is something.
+Answer-2-1-Ext-8-1-3 is a field[sfo].
+Answer-2-1-Ext-8-1-3 is an enumeration[sfo].
+Answer-2-1-Ext-9-1-3 is something.
+Answer-2-1-Ext-9-1-3 is a field[sfo].
+Answer-2-1-Ext-9-1-3 is an enumeration[sfo].
+Answer-2-1-Ext-9-1-3 is a field-2-1-ext-9-1.
+Answer-2-1-Ext-9-1-2 is something.
+Answer-2-1-Ext-9-1-2 is a field[sfo].
+Answer-2-1-Ext-9-1-2 is an enumeration[sfo].
+Answer-2-1-Ext-9-1-2 is a field-2-1-ext-9-1.
+Answer-2-1-Ext-9-1-1 is something.
+Answer-2-1-Ext-9-1-1 is a field[sfo].
+Answer-2-1-Ext-9-1-1 is an enumeration[sfo].
+Answer-2-1-Ext-9-1-1 is a field-2-1-ext-9-1.
+Yes-Answer[sfo] is something.
+Yes-Answer[sfo] is a yes-no-answer[sfo].
+Yes-Answer[sfo] is a yes-no-ns-answer[sfo].
+Yes-Answer[sfo] is a field[sfo].
+Yes-Answer[sfo] is an enumeration[sfo].
+Not-Answer[sfo] is something.
+Not-Answer[sfo] is a yes-no-answer[sfo].
+Not-Answer[sfo] is a yes-no-ns-answer[sfo].
+Not-Answer[sfo] is a field[sfo].
+Not-Answer[sfo] is an enumeration[sfo].
+Not-Specified[sfo] is something.
+Not-Specified[sfo] is a yes-no-ns-answer[sfo].
+Not-Specified[sfo] is a field[sfo].
+Not-Specified[sfo] is an enumeration[sfo].
+Submitted[sfo] is something.
+Submitted[sfo] is a status[sfo].
+Non-Existing[sfo] is something.
+Non-Existing[sfo] is a status[sfo].
+Recommendation-1 is-recommended-by[sfo] Answer-2-1-1-1.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-2-2.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-5-4.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-5-3.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-5-2.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-5-1.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-3-2.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-3-3.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-9-2.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-1-4.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-11-5.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-9-3.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-1-2.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-10-4.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-11-2.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-11-1.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-11-4.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-11-3.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-9-1.
+Recommendation-3 is-recommended-by[sfo] Answer-2-1-13-3.
+Recommendation-3 is-recommended-by[sfo] Answer-2-1-13-4.
+Recommendation-3 is-recommended-by[sfo] Answer-2-1-2-3.
+Recommendation-3 is-recommended-by[sfo] Answer-2-1-6-5.
+Recommendation-3 is-recommended-by[sfo] Answer-2-1-1-3.
+Recommendation-3 is-recommended-by[sfo] Answer-2-1-6-3.
+Recommendation-3 is-recommended-by[sfo] Answer-2-1-6-4.
+Recommendation-3 is-recommended-by[sfo] Answer-2-1-6-1.
+Recommendation-3 is-recommended-by[sfo] Answer-2-1-6-2.
+Recommendation-4 is-recommended-by[sfo] Answer-2-1-13-5.
+Recommendation-4 is-recommended-by[sfo] Answer-2-1-13-3.
+Recommendation-4 is-recommended-by[sfo] Answer-2-1-13-4.
+Recommendation-4 is-recommended-by[sfo] Answer-2-1-1-5.
+Recommendation-4 is-recommended-by[sfo] Answer-2-1-8-2.
+Recommendation-4 is-recommended-by[sfo] Answer-2-1-8-1.
+Recommendation-4 is-recommended-by[sfo] Answer-2-1-8-3.
+Recommendation-4 is-recommended-by[sfo] Answer-2-1-6-4.
+Recommendation-4 is-recommended-by[sfo] Answer-2-1-2-5.
+Recommendation-5 is-recommended-by[sfo] Answer-2-1-2-1.
+Recommendation-6 is-recommended-by[sfo] Answer-2-1-2-4.
+Recommendation-7 is-recommended-by[sfo] Answer-2-1-3-1.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-12-1.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-12-3.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-12-2.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-12-5.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-12-4.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-10-1.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-10-2.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-10-3.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-3-4.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-8-2.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-8-1.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-8-4.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-8-3.
+Recommendation-9 is-recommended-by[sfo] Answer-2-1-10-1.
+Recommendation-9 is-recommended-by[sfo] Answer-2-1-10-2.
+Recommendation-9 is-recommended-by[sfo] Answer-2-1-10-3.
+Recommendation-9 is-recommended-by[sfo] Answer-2-1-3-5.
+Recommendation-9 is-recommended-by[sfo] Answer-2-1-10-5.
+Recommendation-10 is-recommended-by[sfo] Answer-2-1-4-5.
+Recommendation-10 is-recommended-by[sfo] Answer-2-1-4-3.
+Recommendation-10 is-recommended-by[sfo] Answer-2-1-4-4.
+Recommendation-10 is-recommended-by[sfo] Answer-2-1-4-1.
+Recommendation-10 is-recommended-by[sfo] Answer-2-1-4-2.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-5-5.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-5-4.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-5-3.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-5-2.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-5-1.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-9-2.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-11-5.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-9-3.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-10-4.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-11-2.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-11-1.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-11-4.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-11-3.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-9-1.
+Recommendation-12 is-recommended-by[sfo] Answer-2-1-7-5.
+Recommendation-12 is-recommended-by[sfo] Answer-2-1-7-1.
+Recommendation-12 is-recommended-by[sfo] Answer-2-1-7-3.
+Recommendation-12 is-recommended-by[sfo] Answer-2-1-7-2.
+Recommendation-13 is-recommended-by[sfo] Answer-2-1-7-5.
+Recommendation-13 is-recommended-by[sfo] Answer-2-1-7-4.
+Recommendation-13 is-recommended-by[sfo] Answer-2-1-7-1.
+Recommendation-13 is-recommended-by[sfo] Answer-2-1-7-2.
+Recommendation-14 is-recommended-by[sfo] Answer-2-1-13-5.
+Recommendation-14 is-recommended-by[sfo] Answer-2-1-13-1.
+Recommendation-14 is-recommended-by[sfo] Answer-2-1-13-2.
+Recommendation-14 is-recommended-by[sfo] Answer-2-1-10-4.
+Recommendation-14 is-recommended-by[sfo] Answer-2-1-10-5.
+Recommendation-14 is-recommended-by[sfo] Answer-2-1-8-5.
+Recommendation-15 is-recommended-by[sfo] Answer-2-1-12-1.
+Recommendation-15 is-recommended-by[sfo] Answer-2-1-12-3.
+Recommendation-15 is-recommended-by[sfo] Answer-2-1-12-2.
+Recommendation-15 is-recommended-by[sfo] Answer-2-1-12-5.
+Recommendation-15 is-recommended-by[sfo] Answer-2-1-12-4.
+Recommendation-16 is-recommended-by[sfo] Answer-2-1-12-1.
+Recommendation-16 is-recommended-by[sfo] Answer-2-1-12-3.
+Recommendation-16 is-recommended-by[sfo] Answer-2-1-12-2.
+Recommendation-16 is-recommended-by[sfo] Answer-2-1-12-5.
+Recommendation-16 is-recommended-by[sfo] Answer-2-1-12-4.
+Every form[sfo] is something.
+Every section[sfo] is something.
+Every enumeration[sfo] is something.
+Every yes-no-answer[sfo] is a yes-no-ns-answer[sfo].
+Every dynamic-event[sfo] is something.
+Every status[sfo] is something.
+Every recommendation[sfo] is something.
+X is-concerned-by[sfo] Y if-and-only-if Y concerns[sfo] X.
+X recommends[sfo] Y if-and-only-if Y recommends[sfo] X.
+X has-field-2-1-1 Y if-and-only-if Y has-field-2-1-1 X.
+X has-field-2-1-9 Y if-and-only-if Y has-field-2-1-9 X.
+X has-field-2-1-11 Y if-and-only-if Y has-field-2-1-11 X.
+X follows[sfo] Y if-and-only-if Y follows[sfo] X.
+X is-followed-by[sfo] Y if-and-only-if Y is-followed-by[sfo] X.
+X concerns[sfo] Y if-and-only-if Y concerns[sfo] X.
+X concerns[sfo] Y if-and-only-if Y is-concerned-by[sfo] X.
+X is-concerned-by[sfo] Y if-and-only-if Y is-concerned-by[sfo] X.
+X has-recommendation[sfo] Y if-and-only-if Y has-recommendation[sfo] X.
+X is-recommended-by[sfo] Y if-and-only-if Y is-recommended-by[sfo] X.
+If X has-field-2-1-1 Y then X "<->" Y.
+If X has-field-2-1-9 Y then X "<->" Y.
+If X has-field-2-1-11 Y then X "<->" Y.
+If X is-followed-by[sfo] Y then X "<->" Y.
+If X concerns[sfo] Y then X "<->" Y.
+If X is-concerned-by[sfo] Y then X "<->" Y.
+If X has-recommendation[sfo] Y then X "<->" Y.
+If X is-recommended-by[sfo] Y then X "<->" Y.
+Every element-2-form is something.
+Every element-2-1-section is something.
+Every element-2-1-ext-1-section is something.
+Every element-2-1-ext-2-section is something.
+Every element-2-1-ext-3-section is something.
+Every element-2-1-ext-4-section is something.
+Every element-2-1-ext-5-section is something.
+Every element-2-1-ext-6-section is something.
+Every element-2-1-ext-7-section is something.
+Every element-2-1-ext-8-section is something.
+Every element-2-1-ext-9-section is something.
+Every element-1-form is something.
+Every subject[sfo] is something.
+Every element-1-form must concern[sfo] an element-1-1-section.
+Every element-1-1-section must have-field-1-1-1 a field-1-1-1.
+Every element-1-1-section must have-field-1-1-2 a field-1-1-2.
+Every element-1-1-section must have-field-1-1-3 a field-1-1-3.
+Every element-1-1-section must have-field-1-1-4 a field-1-1-4.
+Every element-1-1-section must have-field-1-1-5 a field-1-1-5.
+Every element-1-1-section must have-field-1-1-6 (some string value).
+Every element-1-1-section must have-field-1-1-7 a field-1-1-7.
+Every element-2-form must concern[sfo] an element-2-1-section.
+Every element-2-1-section must have-field-2-1-1 a field-2-1-1.
+Every element-2-1-section must have-field-2-1-2 a field-2-1-2.
+Every element-2-1-section must have-field-2-1-3 a field-2-1-3.
+Every element-2-1-section must have-field-2-1-4 a field-2-1-4.
+Every element-2-1-section must have-field-2-1-5 a field-2-1-5.
+Every element-2-1-section must have-field-2-1-6 a field-2-1-6.
+Every element-2-1-section must have-field-2-1-7 a field-2-1-7.
+Every element-2-1-section must have-field-2-1-8 a field-2-1-8.
+Every element-2-1-section must have-field-2-1-9 a field-2-1-9.
+Every element-2-1-section must have-field-2-1-10 a field-2-1-10.
+Every element-2-1-section must have-field-2-1-11 a field-2-1-11.
+Every element-2-1-section must have-field-2-1-12 a field-2-1-12.
+Every element-2-1-section must have-field-2-1-13 a field-2-1-13.
+Every element-2-1-ext-1-section must have-field-2-1-ext-1-1 a field-2-1-ext-1-1.
+Every element-2-1-ext-2-section must have-field-2-1-ext-2-1 a field-2-1-ext-2-1.
+Every element-2-1-ext-3-section must have-field-2-1-ext-3-1 a field-2-1-ext-3-1.
+Every element-2-1-ext-4-section must have-field-2-1-ext-4-1 a field-2-1-ext-4-1.
+Every element-2-1-ext-5-section must have-field-2-1-ext-5-1 a field-2-1-ext-5-1.
+Every element-2-1-ext-5-section must have-field-2-1-ext-5-2 a field-2-1-ext-5-2.
+Every element-2-1-ext-5-section must have-field-2-1-ext-5-3 a field-2-1-ext-5-3.
+Every element-2-1-ext-6-section must have-field-2-1-ext-6-1 a field-2-1-ext-6-1.
+Every element-2-1-ext-7-section must have-field-2-1-ext-7-1 a field-2-1-ext-7-1.
+Every element-2-1-ext-8-section must have-field-2-1-ext-8-1 a field-2-1-ext-8-1.
+Every element-2-1-ext-9-section must have-field-2-1-ext-9-1 a field-2-1-ext-9-1.
+If an element-2-form concerns[sfo] an element-2-1-section and the element-2-1-section has-field-2-1-1 Answer-2-1-1-1 then the element-2-1-section is an element-2-1-ext-1-section.
+If an element-2-form concerns[sfo] an element-2-1-section and the element-2-1-section has-field-2-1-1 Answer-2-1-1-2 then the element-2-1-section is an element-2-1-ext-2-section.
+If an element-2-form concerns[sfo] an element-2-1-section and the element-2-1-section has-field-2-1-1 Answer-2-1-1-3 then the element-2-1-section is an element-2-1-ext-3-section.
+If an element-2-form concerns[sfo] an element-2-1-section and the element-2-1-section has-field-2-1-1 Answer-2-1-1-4 then the element-2-1-section is an element-2-1-ext-4-section.
+If an element-2-form concerns[sfo] an element-2-1-section and the element-2-1-section has-field-2-1-9 Answer-2-1-9-2 then the element-2-1-section is an element-2-1-ext-5-section.
+If an element-2-form concerns[sfo] an element-2-1-section and the element-2-1-section has-field-2-1-11 Answer-2-1-11-1 then the element-2-1-section is an element-2-1-ext-6-section.
+If an element-2-form concerns[sfo] an element-2-1-section and the element-2-1-section has-field-2-1-11 Answer-2-1-11-2 then the element-2-1-section is an element-2-1-ext-7-section.
+If an element-2-form concerns[sfo] an element-2-1-section and the element-2-1-section has-field-2-1-11 Answer-2-1-11-3 then the element-2-1-section is an element-2-1-ext-8-section.
+If an element-2-form concerns[sfo] an element-2-1-section and the element-2-1-section has-field-2-1-11 Answer-2-1-11-4 then the element-2-1-section is an element-2-1-ext-9-section.
+If an element-1-form has-status[sfo] Submitted[sfo] then Element-2-Form follows[sfo] the element-1-form.
+If a form[sfo] concerns[sfo] a section[sfo] and the form[sfo] concerns[sfo] a subject[sfo] then the subject[sfo] has-section-concerned-by-something-that-concerns[sfo] the section[sfo].
+Every form[sfo] must concern[sfo] a subject[sfo].
+Every form[sfo] must concern[sfo] a section[sfo].
+Every form[sfo] must have-status[sfo] a status[sfo].
+If X has-field-2-1-2 Y then X "<->" Y.
+Answer-2-1-10-3 recommends[sfo] Recommendation-9.
+Answer-2-1-10-3 recommends[sfo] Recommendation-8.
+Answer-2-1-10-3 is something.
+Answer-2-1-10-3 is a field-2-1-10.
+Answer-2-1-10-3 is a field[sfo].
+Answer-2-1-10-3 is an enumeration[sfo].
+Element-1-1-Section-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>] is an element-1-1-section.
+Element-1-1-Section-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>] is something.
+Element-1-1-Section-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>] has-field-1-1-7 Answer-1-1-7-1.
+Element-1-1-Section-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>] has-field-1-1-7 Answer-1-1-7-5.
+Element-1-1-Section-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>] has-field-1-1-2 Answer-1-1-2-1.
+Element-1-1-Section-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>] has-field-1-1-7 Answer-1-1-7-3.
+Element-1-1-Section-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>] has-field-1-1-1 Answer-1-1-1-1.
+Element-1-1-Section-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>] has-field-1-1-6 equal-to 'Banana'.
+Element-1-1-Section-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>] has-field-1-1-4 Answer-1-1-4-1.
+Element-1-1-Section-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>] has-field-1-1-5 Answer-1-1-5-1.
+Element-1-1-Section-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>] has-field-1-1-3 Answer-1-1-3-1.
+Answer-2-1-2-1 recommends[sfo] Recommendation-5.
+Answer-2-1-2-1 is something.
+Answer-2-1-2-1 is a field-2-1-2.
+Answer-2-1-2-1 is a field[sfo].
+Answer-2-1-2-1 is an enumeration[sfo].
+Answer-2-1-8-3 recommends[sfo] Recommendation-8.
+Answer-2-1-8-3 recommends[sfo] Recommendation-4.
+Answer-2-1-8-3 is something.
+Answer-2-1-8-3 is a field-2-1-8.
+Answer-2-1-8-3 is a field[sfo].
+Answer-2-1-8-3 is an enumeration[sfo].
+Answer-2-1-4-4 recommends[sfo] Recommendation-10.
+Answer-2-1-4-4 is something.
+Answer-2-1-4-4 is a field-2-1-4.
+Answer-2-1-4-4 is a field[sfo].
+Answer-2-1-4-4 is an enumeration[sfo].
+Answer-1-1-4-3 is something.
+Answer-1-1-4-3 is a field-1-1-4.
+Answer-1-1-4-3 is a field[sfo].
+Answer-1-1-4-3 is an enumeration[sfo].
+If X has-field-1-1-2 Y then X "<->" Y.
+Answer-2-1-11-4 recommends[sfo] Recommendation-2.
+Answer-2-1-11-4 recommends[sfo] Recommendation-11.
+Answer-2-1-11-4 is something.
+Answer-2-1-11-4 is a field-2-1-11.
+Answer-2-1-11-4 is a field[sfo].
+Answer-2-1-11-4 is an enumeration[sfo].
+Answer-2-1-Ext-8-1-1 is something.
+Answer-2-1-Ext-8-1-1 is a field-2-1-ext-8-1.
+Answer-2-1-Ext-8-1-1 is a field[sfo].
+Answer-2-1-Ext-8-1-1 is an enumeration[sfo].
+Answer-2-1-Ext-3-1-1 is something.
+Answer-2-1-Ext-3-1-1 is a field-2-1-ext-3-1.
+Answer-2-1-Ext-3-1-1 is a field[sfo].
+Answer-2-1-Ext-3-1-1 is an enumeration[sfo].
+Answer-2-1-3-2 recommends[sfo] Recommendation-2.
+Answer-2-1-3-2 is something.
+Answer-2-1-3-2 is a field-2-1-3.
+Answer-2-1-3-2 is a field[sfo].
+Answer-2-1-3-2 is an enumeration[sfo].
+Recommendation-15 is-recommended-by[sfo] Answer-2-1-12-5.
+Recommendation-15 is-recommended-by[sfo] Answer-2-1-12-4.
+Recommendation-15 is-recommended-by[sfo] Answer-2-1-12-3.
+Recommendation-15 is-recommended-by[sfo] Answer-2-1-12-2.
+Recommendation-15 is-recommended-by[sfo] Answer-2-1-12-1.
+Recommendation-15 is something.
+Answer-2-1-Ext-5-1-3 is something.
+Answer-2-1-Ext-5-1-3 is a field-2-1-ext-5-1.
+Answer-2-1-Ext-5-1-3 is a field[sfo].
+Answer-2-1-Ext-5-1-3 is an enumeration[sfo].
+Answer-2-1-5-5 recommends[sfo] Recommendation-11.
+Answer-2-1-5-5 is something.
+Answer-2-1-5-5 is a field-2-1-5.
+Answer-2-1-5-5 is a field[sfo].
+Answer-2-1-5-5 is an enumeration[sfo].
+Answer-1-1-5-4 is something.
+Answer-1-1-5-4 is a field-1-1-5.
+Answer-1-1-5-4 is a field[sfo].
+Answer-1-1-5-4 is an enumeration[sfo].
+Answer-1-1-1-5 is something.
+Answer-1-1-1-5 is a field-1-1-1.
+Answer-1-1-1-5 is a field[sfo].
+Answer-1-1-1-5 is an enumeration[sfo].
+If X has-field-2-1-8 Y then X "<->" Y.
+Answer-2-1-Ext-7-1-1 is something.
+Answer-2-1-Ext-7-1-1 is a field-2-1-ext-7-1.
+Answer-2-1-Ext-7-1-1 is a field[sfo].
+Answer-2-1-Ext-7-1-1 is an enumeration[sfo].
+Answer-1-1-1-14 is something.
+Answer-1-1-1-14 is a field-1-1-1.
+Answer-1-1-1-14 is a field[sfo].
+Answer-1-1-1-14 is an enumeration[sfo].
+Answer-2-1-12-1 recommends[sfo] Recommendation-8.
+Answer-2-1-12-1 recommends[sfo] Recommendation-16.
+Answer-2-1-12-1 recommends[sfo] Recommendation-15.
+Answer-2-1-12-1 is something.
+Answer-2-1-12-1 is a field-2-1-12.
+Answer-2-1-12-1 is a field[sfo].
+Answer-2-1-12-1 is an enumeration[sfo].
+Answer-2-1-Ext-9-1-3 is something.
+Answer-2-1-Ext-9-1-3 is a field-2-1-ext-9-1.
+Answer-2-1-Ext-9-1-3 is a field[sfo].
+Answer-2-1-Ext-9-1-3 is an enumeration[sfo].
+Answer-2-1-Ext-4-1-3 is something.
+Answer-2-1-Ext-4-1-3 is a field-2-1-ext-4-1.
+Answer-2-1-Ext-4-1-3 is a field[sfo].
+Answer-2-1-Ext-4-1-3 is an enumeration[sfo].
+Recommendation-5 is-recommended-by[sfo] Answer-2-1-2-1.
+Recommendation-5 is something.
+If X has-field-2-1-10 Y then X "<->" Y.
+Answer-2-1-13-2 recommends[sfo] Recommendation-14.
+Answer-2-1-13-2 is something.
+Answer-2-1-13-2 is a field-2-1-13.
+Answer-2-1-13-2 is a field[sfo].
+Answer-2-1-13-2 is an enumeration[sfo].
+Recommendation-10 is-recommended-by[sfo] Answer-2-1-4-5.
+Recommendation-10 is-recommended-by[sfo] Answer-2-1-4-4.
+Recommendation-10 is-recommended-by[sfo] Answer-2-1-4-3.
+Recommendation-10 is-recommended-by[sfo] Answer-2-1-4-2.
+Recommendation-10 is-recommended-by[sfo] Answer-2-1-4-1.
+Recommendation-10 is something.
+If X recommends[sfo] Y then X "<->" Y.
+Answer-2-1-1-1 recommends[sfo] Recommendation-1.
+Answer-2-1-1-1 is something.
+Answer-2-1-1-1 is a field-2-1-1.
+Answer-2-1-1-1 is a field[sfo].
+Answer-2-1-1-1 is an enumeration[sfo].
+Answer-2-1-Ext-5-3-1 is something.
+Answer-2-1-Ext-5-3-1 is a field-2-1-ext-5-3.
+Answer-2-1-Ext-5-3-1 is a field[sfo].
+Answer-2-1-Ext-5-3-1 is an enumeration[sfo].
+Answer-2-1-7-3 recommends[sfo] Recommendation-12.
+Answer-2-1-7-3 is something.
+Answer-2-1-7-3 is a field-2-1-7.
+Answer-2-1-7-3 is a field[sfo].
+Answer-2-1-7-3 is an enumeration[sfo].
+Answer-1-1-7-2 is something.
+Answer-1-1-7-2 is a field-1-1-7.
+Answer-1-1-7-2 is a field[sfo].
+Answer-1-1-7-2 is an enumeration[sfo].
+Answer-1-1-3-3 is something.
+Answer-1-1-3-3 is a field-1-1-3.
+Answer-1-1-3-3 is a field[sfo].
+Answer-1-1-3-3 is an enumeration[sfo].
+Element-2-Form-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] has-status[sfo] Submitted[sfo].
+Element-2-Form-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] follows[sfo] Element-1-Form-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>].
+Element-2-Form-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] concerns[sfo] Element-2-1-Section-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>].
+Element-2-Form-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] concerns[sfo] Survey[<http://www.sfo.cognitum.eu/Test/1#>].
+Element-2-Form-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] is something.
+Element-2-Form-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] is an element-2-form.
+If X has-field-2-1-3 Y then X "<->" Y.
+Answer-2-1-6-1 recommends[sfo] Recommendation-3.
+Answer-2-1-6-1 is something.
+Answer-2-1-6-1 is a field-2-1-6.
+Answer-2-1-6-1 is a field[sfo].
+Answer-2-1-6-1 is an enumeration[sfo].
+Answer-2-1-10-4 recommends[sfo] Recommendation-2.
+Answer-2-1-10-4 recommends[sfo] Recommendation-14.
+Answer-2-1-10-4 recommends[sfo] Recommendation-11.
+Answer-2-1-10-4 is something.
+Answer-2-1-10-4 is a field-2-1-10.
+Answer-2-1-10-4 is a field[sfo].
+Answer-2-1-10-4 is an enumeration[sfo].
+Answer-2-1-2-2 recommends[sfo] Recommendation-2.
+Answer-2-1-2-2 is something.
+Answer-2-1-2-2 is a field-2-1-2.
+Answer-2-1-2-2 is a field[sfo].
+Answer-2-1-2-2 is an enumeration[sfo].
+Answer-1-1-2-1 is something.
+Answer-1-1-2-1 is a field-1-1-2.
+Answer-1-1-2-1 is a field[sfo].
+Answer-1-1-2-1 is an enumeration[sfo].
+Answer-2-1-8-4 recommends[sfo] Recommendation-8.
+Answer-2-1-8-4 is something.
+Answer-2-1-8-4 is a field-2-1-8.
+Answer-2-1-8-4 is a field[sfo].
+Answer-2-1-8-4 is an enumeration[sfo].
+Answer-2-1-4-5 recommends[sfo] Recommendation-10.
+Answer-2-1-4-5 is something.
+Answer-2-1-4-5 is a field-2-1-4.
+Answer-2-1-4-5 is a field[sfo].
+Answer-2-1-4-5 is an enumeration[sfo].
+Answer-1-1-4-4 is something.
+Answer-1-1-4-4 is a field-1-1-4.
+Answer-1-1-4-4 is a field[sfo].
+Answer-1-1-4-4 is an enumeration[sfo].
+Answer-2-1-11-5 recommends[sfo] Recommendation-2.
+Answer-2-1-11-5 recommends[sfo] Recommendation-11.
+Answer-2-1-11-5 is something.
+Answer-2-1-11-5 is a field-2-1-11.
+Answer-2-1-11-5 is a field[sfo].
+Answer-2-1-11-5 is an enumeration[sfo].
+Answer-2-1-Ext-8-1-2 is something.
+Answer-2-1-Ext-8-1-2 is a field-2-1-ext-8-1.
+Answer-2-1-Ext-8-1-2 is a field[sfo].
+Answer-2-1-Ext-8-1-2 is an enumeration[sfo].
+Answer-2-1-Ext-3-1-2 is something.
+Answer-2-1-Ext-3-1-2 is a field-2-1-ext-3-1.
+Answer-2-1-Ext-3-1-2 is a field[sfo].
+Answer-2-1-Ext-3-1-2 is an enumeration[sfo].
+If X has-field-1-1-3 Y then X "<->" Y.
+Answer-2-1-3-3 recommends[sfo] Recommendation-2.
+Answer-2-1-3-3 is something.
+Answer-2-1-3-3 is a field-2-1-3.
+Answer-2-1-3-3 is a field[sfo].
+Answer-2-1-3-3 is an enumeration[sfo].
+If X is-concerned-by[sfo] Y then X "<->" Y.
+Recommendation-16 is-recommended-by[sfo] Answer-2-1-12-5.
+Recommendation-16 is-recommended-by[sfo] Answer-2-1-12-4.
+Recommendation-16 is-recommended-by[sfo] Answer-2-1-12-3.
+Recommendation-16 is-recommended-by[sfo] Answer-2-1-12-2.
+Recommendation-16 is-recommended-by[sfo] Answer-2-1-12-1.
+Recommendation-16 is something.
+Answer-1-1-5-5 is something.
+Answer-1-1-5-5 is a field-1-1-5.
+Answer-1-1-5-5 is a field[sfo].
+Answer-1-1-5-5 is an enumeration[sfo].
+Answer-1-1-1-6 is something.
+Answer-1-1-1-6 is a field-1-1-1.
+Answer-1-1-1-6 is a field[sfo].
+Answer-1-1-1-6 is an enumeration[sfo].
+If X has-field-2-1-9 Y then X "<->" Y.
+Answer-2-1-Ext-7-1-2 is something.
+Answer-2-1-Ext-7-1-2 is a field-2-1-ext-7-1.
+Answer-2-1-Ext-7-1-2 is a field[sfo].
+Answer-2-1-Ext-7-1-2 is an enumeration[sfo].
+Answer-1-1-1-15 is something.
+Answer-1-1-1-15 is a field-1-1-1.
+Answer-1-1-1-15 is a field[sfo].
+Answer-1-1-1-15 is an enumeration[sfo].
+Answer-2-1-12-2 recommends[sfo] Recommendation-8.
+Answer-2-1-12-2 recommends[sfo] Recommendation-16.
+Answer-2-1-12-2 recommends[sfo] Recommendation-15.
+Answer-2-1-12-2 is something.
+Answer-2-1-12-2 is a field-2-1-12.
+Answer-2-1-12-2 is a field[sfo].
+Answer-2-1-12-2 is an enumeration[sfo].
+Recommendation-6 is-recommended-by[sfo] Answer-2-1-2-4.
+Recommendation-6 is something.
+Answer-2-1-Ext-5-2-1 is something.
+Answer-2-1-Ext-5-2-1 is a field-2-1-ext-5-2.
+Answer-2-1-Ext-5-2-1 is a field[sfo].
+Answer-2-1-Ext-5-2-1 is an enumeration[sfo].
+If X has-field-2-1-11 Y then X "<->" Y.
+Answer-2-1-13-3 recommends[sfo] Recommendation-4.
+Answer-2-1-13-3 recommends[sfo] Recommendation-3.
+Answer-2-1-13-3 is something.
+Answer-2-1-13-3 is a field-2-1-13.
+Answer-2-1-13-3 is a field[sfo].
+Answer-2-1-13-3 is an enumeration[sfo].
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-5-1.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-11-2.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-5-4.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-5-2.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-10-4.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-9-2.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-11-3.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-5-5.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-11-5.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-11-1.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-5-3.
+Recommendation-11 is something.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-9-1.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-9-3.
+Recommendation-11 is-recommended-by[sfo] Answer-2-1-11-4.
+Answer-2-1-5-1 recommends[sfo] Recommendation-2.
+Answer-2-1-5-1 recommends[sfo] Recommendation-11.
+Answer-2-1-5-1 is something.
+Answer-2-1-5-1 is a field-2-1-5.
+Answer-2-1-5-1 is a field[sfo].
+Answer-2-1-5-1 is an enumeration[sfo].
+Answer-2-1-1-2 recommends[sfo] Recommendation-2.
+Answer-2-1-1-2 is something.
+Answer-2-1-1-2 is a field-2-1-1.
+Answer-2-1-1-2 is a field[sfo].
+Answer-2-1-1-2 is an enumeration[sfo].
+Answer-1-1-1-1 is something.
+Answer-1-1-1-1 is a field-1-1-1.
+Answer-1-1-1-1 is a field[sfo].
+Answer-1-1-1-1 is an enumeration[sfo].
+Non-Existing[sfo] is something.
+Non-Existing[sfo] is a status[sfo].
+Answer-2-1-Ext-5-3-2 is something.
+Answer-2-1-Ext-5-3-2 is a field-2-1-ext-5-3.
+Answer-2-1-Ext-5-3-2 is a field[sfo].
+Answer-2-1-Ext-5-3-2 is an enumeration[sfo].
+Answer-2-1-7-4 recommends[sfo] Recommendation-13.
+Answer-2-1-7-4 is something.
+Answer-2-1-7-4 is a field-2-1-7.
+Answer-2-1-7-4 is a field[sfo].
+Answer-2-1-7-4 is an enumeration[sfo].
+Answer-1-1-7-3 is something.
+Answer-1-1-7-3 is a field-1-1-7.
+Answer-1-1-7-3 is a field[sfo].
+Answer-1-1-7-3 is an enumeration[sfo].
+Answer-2-1-Ext-2-1-1 is something.
+Answer-2-1-Ext-2-1-1 is a field-2-1-ext-2-1.
+Answer-2-1-Ext-2-1-1 is a field[sfo].
+Answer-2-1-Ext-2-1-1 is an enumeration[sfo].
+Answer-1-1-3-4 is something.
+Answer-1-1-3-4 is a field-1-1-3.
+Answer-1-1-3-4 is a field[sfo].
+Answer-1-1-3-4 is an enumeration[sfo].
+If X has-field-2-1-4 Y then X "<->" Y.
+Answer-2-1-6-2 recommends[sfo] Recommendation-3.
+Answer-2-1-6-2 is something.
+Answer-2-1-6-2 is a field-2-1-6.
+Answer-2-1-6-2 is a field[sfo].
+Answer-2-1-6-2 is an enumeration[sfo].
+Answer-2-1-10-5 recommends[sfo] Recommendation-9.
+Answer-2-1-10-5 recommends[sfo] Recommendation-14.
+Answer-2-1-10-5 is something.
+Answer-2-1-10-5 is a field-2-1-10.
+Answer-2-1-10-5 is a field[sfo].
+Answer-2-1-10-5 is an enumeration[sfo].
+Answer-1-1-1-10 is something.
+Answer-1-1-1-10 is a field-1-1-1.
+Answer-1-1-1-10 is a field[sfo].
+Answer-1-1-1-10 is an enumeration[sfo].
+Answer-2-1-2-3 recommends[sfo] Recommendation-3.
+Answer-2-1-2-3 is something.
+Answer-2-1-2-3 is a field-2-1-2.
+Answer-2-1-2-3 is a field[sfo].
+Answer-2-1-2-3 is an enumeration[sfo].
+Answer-1-1-2-2 is something.
+Answer-1-1-2-2 is a field-1-1-2.
+Answer-1-1-2-2 is a field[sfo].
+Answer-1-1-2-2 is an enumeration[sfo].
+Answer-2-1-8-5 recommends[sfo] Recommendation-14.
+Answer-2-1-8-5 is something.
+Answer-2-1-8-5 is a field-2-1-8.
+Answer-2-1-8-5 is a field[sfo].
+Answer-2-1-8-5 is an enumeration[sfo].
+Recommendation-1 is-recommended-by[sfo] Answer-2-1-1-1.
+Recommendation-1 is something.
+Answer-2-1-Ext-6-1-1 is something.
+Answer-2-1-Ext-6-1-1 is a field-2-1-ext-6-1.
+Answer-2-1-Ext-6-1-1 is a field[sfo].
+Answer-2-1-Ext-6-1-1 is an enumeration[sfo].
+Answer-2-1-Ext-1-1-1 is something.
+Answer-2-1-Ext-1-1-1 is a field-2-1-ext-1-1.
+Answer-2-1-Ext-1-1-1 is a field[sfo].
+Answer-2-1-Ext-1-1-1 is an enumeration[sfo].
+Answer-2-1-Ext-8-1-3 is something.
+Answer-2-1-Ext-8-1-3 is a field-2-1-ext-8-1.
+Answer-2-1-Ext-8-1-3 is a field[sfo].
+Answer-2-1-Ext-8-1-3 is an enumeration[sfo].
+Answer-2-1-Ext-3-1-3 is something.
+Answer-2-1-Ext-3-1-3 is a field-2-1-ext-3-1.
+Answer-2-1-Ext-3-1-3 is a field[sfo].
+Answer-2-1-Ext-3-1-3 is an enumeration[sfo].
+If X has-field-1-1-4 Y then X "<->" Y.
+Answer-2-1-3-4 recommends[sfo] Recommendation-8.
+Answer-2-1-3-4 is something.
+Answer-2-1-3-4 is a field-2-1-3.
+Answer-2-1-3-4 is a field[sfo].
+Answer-2-1-3-4 is an enumeration[sfo].
+Answer-1-1-1-7 is something.
+Answer-1-1-1-7 is a field-1-1-1.
+Answer-1-1-1-7 is a field[sfo].
+Answer-1-1-1-7 is an enumeration[sfo].
+Submitted[sfo] is something.
+Submitted[sfo] is a status[sfo].
+Answer-2-1-Ext-7-1-3 is something.
+Answer-2-1-Ext-7-1-3 is a field-2-1-ext-7-1.
+Answer-2-1-Ext-7-1-3 is a field[sfo].
+Answer-2-1-Ext-7-1-3 is an enumeration[sfo].
+Answer-1-1-1-16 is something.
+Answer-1-1-1-16 is a field-1-1-1.
+Answer-1-1-1-16 is a field[sfo].
+Answer-1-1-1-16 is an enumeration[sfo].
+Answer-2-1-12-3 recommends[sfo] Recommendation-8.
+Answer-2-1-12-3 recommends[sfo] Recommendation-16.
+Answer-2-1-12-3 recommends[sfo] Recommendation-15.
+Answer-2-1-12-3 is something.
+Answer-2-1-12-3 is a field-2-1-12.
+Answer-2-1-12-3 is a field[sfo].
+Answer-2-1-12-3 is an enumeration[sfo].
+Answer-2-1-4-1 recommends[sfo] Recommendation-10.
+Answer-2-1-4-1 is something.
+Answer-2-1-4-1 is a field-2-1-4.
+Answer-2-1-4-1 is a field[sfo].
+Answer-2-1-4-1 is an enumeration[sfo].
+Recommendation-7 is-recommended-by[sfo] Answer-2-1-3-1.
+Recommendation-7 is something.
+Answer-2-1-Ext-5-2-2 is something.
+Answer-2-1-Ext-5-2-2 is a field-2-1-ext-5-2.
+Answer-2-1-Ext-5-2-2 is a field[sfo].
+Answer-2-1-Ext-5-2-2 is an enumeration[sfo].
+If X has-field-2-1-12 Y then X "<->" Y.
+Answer-2-1-11-1 recommends[sfo] Recommendation-2.
+Answer-2-1-11-1 recommends[sfo] Recommendation-11.
+Answer-2-1-11-1 is something.
+Answer-2-1-11-1 is a field-2-1-11.
+Answer-2-1-11-1 is a field[sfo].
+Answer-2-1-11-1 is an enumeration[sfo].
+Not-Answer[sfo] is something.
+Not-Answer[sfo] is a yes-no-ns-answer[sfo].
+Not-Answer[sfo] is a yes-no-answer[sfo].
+Not-Answer[sfo] is a field[sfo].
+Not-Answer[sfo] is an enumeration[sfo].
+If X is-followed-by[sfo] Y then X "<->" Y.
+Answer-2-1-9-1 recommends[sfo] Recommendation-2.
+Answer-2-1-9-1 recommends[sfo] Recommendation-11.
+Answer-2-1-9-1 is something.
+Answer-2-1-9-1 is a field-2-1-9.
+Answer-2-1-9-1 is a field[sfo].
+Answer-2-1-9-1 is an enumeration[sfo].
+Answer-2-1-13-4 recommends[sfo] Recommendation-4.
+Answer-2-1-13-4 recommends[sfo] Recommendation-3.
+Answer-2-1-13-4 is something.
+Answer-2-1-13-4 is a field-2-1-13.
+Answer-2-1-13-4 is a field[sfo].
+Answer-2-1-13-4 is an enumeration[sfo].
+Recommendation-12 is-recommended-by[sfo] Answer-2-1-7-5.
+Recommendation-12 is-recommended-by[sfo] Answer-2-1-7-3.
+Recommendation-12 is-recommended-by[sfo] Answer-2-1-7-2.
+Recommendation-12 is-recommended-by[sfo] Answer-2-1-7-1.
+Recommendation-12 is something.
+Answer-2-1-5-2 recommends[sfo] Recommendation-2.
+Answer-2-1-5-2 recommends[sfo] Recommendation-11.
+Answer-2-1-5-2 is something.
+Answer-2-1-5-2 is a field-2-1-5.
+Answer-2-1-5-2 is a field[sfo].
+Answer-2-1-5-2 is an enumeration[sfo].
+Answer-1-1-5-1 is something.
+Answer-1-1-5-1 is a field-1-1-5.
+Answer-1-1-5-1 is a field[sfo].
+Answer-1-1-5-1 is an enumeration[sfo].
+Answer-2-1-1-3 recommends[sfo] Recommendation-3.
+Answer-2-1-1-3 is something.
+Answer-2-1-1-3 is a field-2-1-1.
+Answer-2-1-1-3 is a field[sfo].
+Answer-2-1-1-3 is an enumeration[sfo].
+Answer-1-1-1-2 is something.
+Answer-1-1-1-2 is a field-1-1-1.
+Answer-1-1-1-2 is a field[sfo].
+Answer-1-1-1-2 is an enumeration[sfo].
+Answer-2-1-Ext-5-3-3 is something.
+Answer-2-1-Ext-5-3-3 is a field-2-1-ext-5-3.
+Answer-2-1-Ext-5-3-3 is a field[sfo].
+Answer-2-1-Ext-5-3-3 is an enumeration[sfo].
+Answer-2-1-7-5 recommends[sfo] Recommendation-13.
+Answer-2-1-7-5 recommends[sfo] Recommendation-12.
+Answer-2-1-7-5 is something.
+Answer-2-1-7-5 is a field-2-1-7.
+Answer-2-1-7-5 is a field[sfo].
+Answer-2-1-7-5 is an enumeration[sfo].
+Answer-1-1-7-4 is something.
+Answer-1-1-7-4 is a field-1-1-7.
+Answer-1-1-7-4 is a field[sfo].
+Answer-1-1-7-4 is an enumeration[sfo].
+Answer-2-1-Ext-2-1-2 is something.
+Answer-2-1-Ext-2-1-2 is a field-2-1-ext-2-1.
+Answer-2-1-Ext-2-1-2 is a field[sfo].
+Answer-2-1-Ext-2-1-2 is an enumeration[sfo].
+Answer-1-1-3-5 is something.
+Answer-1-1-3-5 is a field-1-1-3.
+Answer-1-1-3-5 is a field[sfo].
+Answer-1-1-3-5 is an enumeration[sfo].
+If X has-field-2-1-5 Y then X "<->" Y.
+Answer-2-1-6-3 recommends[sfo] Recommendation-3.
+Answer-2-1-6-3 is something.
+Answer-2-1-6-3 is a field-2-1-6.
+Answer-2-1-6-3 is a field[sfo].
+Answer-2-1-6-3 is an enumeration[sfo].
+Answer-1-1-1-11 is something.
+Answer-1-1-1-11 is a field-1-1-1.
+Answer-1-1-1-11 is a field[sfo].
+Answer-1-1-1-11 is an enumeration[sfo].
+Answer-2-1-2-4 recommends[sfo] Recommendation-6.
+Answer-2-1-2-4 is something.
+Answer-2-1-2-4 is a field-2-1-2.
+Answer-2-1-2-4 is a field[sfo].
+Answer-2-1-2-4 is an enumeration[sfo].
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-11-4.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-5-2.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-1-4.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-10-4.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-5-3.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-11-3.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-11-2.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-9-1.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-1-2.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-3-2.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-9-2.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-5-1.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-3-3.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-2-2.
+Recommendation-2 is something.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-11-5.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-9-3.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-11-1.
+Recommendation-2 is-recommended-by[sfo] Answer-2-1-5-4.
+Answer-2-1-Ext-6-1-2 is something.
+Answer-2-1-Ext-6-1-2 is a field-2-1-ext-6-1.
+Answer-2-1-Ext-6-1-2 is a field[sfo].
+Answer-2-1-Ext-6-1-2 is an enumeration[sfo].
+Answer-2-1-Ext-1-1-2 is something.
+Answer-2-1-Ext-1-1-2 is a field-2-1-ext-1-1.
+Answer-2-1-Ext-1-1-2 is a field[sfo].
+Answer-2-1-Ext-1-1-2 is an enumeration[sfo].
+If X has-field-1-1-5 Y then X "<->" Y.
+Answer-2-1-3-5 recommends[sfo] Recommendation-9.
+Answer-2-1-3-5 is something.
+Answer-2-1-3-5 is a field-2-1-3.
+Answer-2-1-3-5 is a field[sfo].
+Answer-2-1-3-5 is an enumeration[sfo].
+Survey[<http://www.sfo.cognitum.eu/Test/1#>] is a submitted-patient.
+Survey[<http://www.sfo.cognitum.eu/Test/1#>] is something.
+Survey[<http://www.sfo.cognitum.eu/Test/1#>] is a subject[sfo].
+Answer-1-1-1-8 is something.
+Answer-1-1-1-8 is a field-1-1-1.
+Answer-1-1-1-8 is a field[sfo].
+Answer-1-1-1-8 is an enumeration[sfo].
+Answer-2-1-10-1 recommends[sfo] Recommendation-9.
+Answer-2-1-10-1 recommends[sfo] Recommendation-8.
+Answer-2-1-10-1 is something.
+Answer-2-1-10-1 is a field-2-1-10.
+Answer-2-1-10-1 is a field[sfo].
+Answer-2-1-10-1 is an enumeration[sfo].
+Answer-2-1-8-1 recommends[sfo] Recommendation-8.
+Answer-2-1-8-1 recommends[sfo] Recommendation-4.
+Answer-2-1-8-1 is something.
+Answer-2-1-8-1 is a field-2-1-8.
+Answer-2-1-8-1 is a field[sfo].
+Answer-2-1-8-1 is an enumeration[sfo].
+Answer-1-1-1-17 is something.
+Answer-1-1-1-17 is a field-1-1-1.
+Answer-1-1-1-17 is a field[sfo].
+Answer-1-1-1-17 is an enumeration[sfo].
+Answer-2-1-12-4 recommends[sfo] Recommendation-8.
+Answer-2-1-12-4 recommends[sfo] Recommendation-16.
+Answer-2-1-12-4 recommends[sfo] Recommendation-15.
+Answer-2-1-12-4 is something.
+Answer-2-1-12-4 is a field-2-1-12.
+Answer-2-1-12-4 is a field[sfo].
+Answer-2-1-12-4 is an enumeration[sfo].
+Answer-2-1-4-2 recommends[sfo] Recommendation-10.
+Answer-2-1-4-2 is something.
+Answer-2-1-4-2 is a field-2-1-4.
+Answer-2-1-4-2 is a field[sfo].
+Answer-2-1-4-2 is an enumeration[sfo].
+Answer-1-1-4-1 is something.
+Answer-1-1-4-1 is a field-1-1-4.
+Answer-1-1-4-1 is a field[sfo].
+Answer-1-1-4-1 is an enumeration[sfo].
+If X follows[sfo] Y then X "<->" Y.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-12-2.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-12-5.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-8-3.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-10-1.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-8-2.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-10-3.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-12-1.
+Recommendation-8 is something.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-12-4.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-8-1.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-10-2.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-8-4.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-12-3.
+Recommendation-8 is-recommended-by[sfo] Answer-2-1-3-4.
+Answer-2-1-Ext-5-2-3 is something.
+Answer-2-1-Ext-5-2-3 is a field-2-1-ext-5-2.
+Answer-2-1-Ext-5-2-3 is a field[sfo].
+Answer-2-1-Ext-5-2-3 is an enumeration[sfo].
+If X has-field-2-1-13 Y then X "<->" Y.
+Answer-2-1-11-2 recommends[sfo] Recommendation-2.
+Answer-2-1-11-2 recommends[sfo] Recommendation-11.
+Answer-2-1-11-2 is something.
+Answer-2-1-11-2 is a field-2-1-11.
+Answer-2-1-11-2 is a field[sfo].
+Answer-2-1-11-2 is an enumeration[sfo].
+If X has-field-2-1-ext-1-1 Y then X "<->" Y.
+Answer-2-1-9-2 recommends[sfo] Recommendation-2.
+Answer-2-1-9-2 recommends[sfo] Recommendation-11.
+Answer-2-1-9-2 is something.
+Answer-2-1-9-2 is a field-2-1-9.
+Answer-2-1-9-2 is a field[sfo].
+Answer-2-1-9-2 is an enumeration[sfo].
+Answer-2-1-13-5 recommends[sfo] Recommendation-4.
+Answer-2-1-13-5 recommends[sfo] Recommendation-14.
+Answer-2-1-13-5 is something.
+Answer-2-1-13-5 is a field-2-1-13.
+Answer-2-1-13-5 is a field[sfo].
+Answer-2-1-13-5 is an enumeration[sfo].
+Recommendation-13 is-recommended-by[sfo] Answer-2-1-7-5.
+Recommendation-13 is-recommended-by[sfo] Answer-2-1-7-4.
+Recommendation-13 is-recommended-by[sfo] Answer-2-1-7-2.
+Recommendation-13 is-recommended-by[sfo] Answer-2-1-7-1.
+Recommendation-13 is something.
+Answer-2-1-Ext-5-1-1 is something.
+Answer-2-1-Ext-5-1-1 is a field-2-1-ext-5-1.
+Answer-2-1-Ext-5-1-1 is a field[sfo].
+Answer-2-1-Ext-5-1-1 is an enumeration[sfo].
+Answer-2-1-5-3 recommends[sfo] Recommendation-2.
+Answer-2-1-5-3 recommends[sfo] Recommendation-11.
+Answer-2-1-5-3 is something.
+Answer-2-1-5-3 is a field-2-1-5.
+Answer-2-1-5-3 is a field[sfo].
+Answer-2-1-5-3 is an enumeration[sfo].
+Answer-1-1-5-2 is something.
+Answer-1-1-5-2 is a field-1-1-5.
+Answer-1-1-5-2 is a field[sfo].
+Answer-1-1-5-2 is an enumeration[sfo].
+Answer-2-1-1-4 recommends[sfo] Recommendation-2.
+Answer-2-1-1-4 is something.
+Answer-2-1-1-4 is a field-2-1-1.
+Answer-2-1-1-4 is a field[sfo].
+Answer-2-1-1-4 is an enumeration[sfo].
+Answer-1-1-1-3 is something.
+Answer-1-1-1-3 is a field-1-1-1.
+Answer-1-1-1-3 is a field[sfo].
+Answer-1-1-1-3 is an enumeration[sfo].
+Yes-Answer[sfo] is something.
+Yes-Answer[sfo] is a yes-no-ns-answer[sfo].
+Yes-Answer[sfo] is a yes-no-answer[sfo].
+Yes-Answer[sfo] is a field[sfo].
+Yes-Answer[sfo] is an enumeration[sfo].
+Answer-1-1-7-5 is something.
+Answer-1-1-7-5 is a field-1-1-7.
+Answer-1-1-7-5 is a field[sfo].
+Answer-1-1-7-5 is an enumeration[sfo].
+Answer-2-1-Ext-2-1-3 is something.
+Answer-2-1-Ext-2-1-3 is a field-2-1-ext-2-1.
+Answer-2-1-Ext-2-1-3 is a field[sfo].
+Answer-2-1-Ext-2-1-3 is an enumeration[sfo].
+Element-1-Form-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>] has-status[sfo] Submitted[sfo].
+Element-1-Form-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>] concerns[sfo] Element-1-1-Section-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>].
+Element-1-Form-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>] concerns[sfo] Survey[<http://www.sfo.cognitum.eu/Test/1#>].
+Element-1-Form-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>] is something.
+Element-1-Form-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>] is an element-1-form.
+If X has-field-2-1-6 Y then X "<->" Y.
+Not-Specified[sfo] is something.
+Not-Specified[sfo] is a yes-no-ns-answer[sfo].
+Not-Specified[sfo] is a field[sfo].
+Not-Specified[sfo] is an enumeration[sfo].
+Dynamic[sfo] has-field-2-1-9 Answer-2-1-9-2.
+Dynamic[sfo] is something.
+Dynamic[sfo] has-field-2-1-11 Answer-2-1-11-3.
+Dynamic[sfo] has-field-2-1-11 Answer-2-1-11-4.
+Dynamic[sfo] has-field-2-1-11 Answer-2-1-11-1.
+Dynamic[sfo] has-field-2-1-1 Answer-2-1-1-4.
+Dynamic[sfo] has-field-2-1-1 Answer-2-1-1-1.
+Dynamic[sfo] has-field-2-1-11 Answer-2-1-11-2.
+Dynamic[sfo] is a dynamic-event[sfo].
+Dynamic[sfo] has-field-2-1-1 Answer-2-1-1-3.
+Dynamic[sfo] has-field-2-1-1 Answer-2-1-1-2.
+Answer-2-1-6-4 recommends[sfo] Recommendation-4.
+Answer-2-1-6-4 recommends[sfo] Recommendation-3.
+Answer-2-1-6-4 is something.
+Answer-2-1-6-4 is a field-2-1-6.
+Answer-2-1-6-4 is a field[sfo].
+Answer-2-1-6-4 is an enumeration[sfo].
+Answer-1-1-1-12 is something.
+Answer-1-1-1-12 is a field-1-1-1.
+Answer-1-1-1-12 is a field[sfo].
+Answer-1-1-1-12 is an enumeration[sfo].
+Answer-2-1-2-5 recommends[sfo] Recommendation-4.
+Answer-2-1-2-5 is something.
+Answer-2-1-2-5 is a field-2-1-2.
+Answer-2-1-2-5 is a field[sfo].
+Answer-2-1-2-5 is an enumeration[sfo].
+Answer-2-1-Ext-9-1-1 is something.
+Answer-2-1-Ext-9-1-1 is a field-2-1-ext-9-1.
+Answer-2-1-Ext-9-1-1 is a field[sfo].
+Answer-2-1-Ext-9-1-1 is an enumeration[sfo].
+Answer-2-1-Ext-4-1-1 is something.
+Answer-2-1-Ext-4-1-1 is a field-2-1-ext-4-1.
+Answer-2-1-Ext-4-1-1 is a field[sfo].
+Answer-2-1-Ext-4-1-1 is an enumeration[sfo].
+Recommendation-3 is-recommended-by[sfo] Answer-2-1-6-1.
+Recommendation-3 is-recommended-by[sfo] Answer-2-1-13-4.
+Recommendation-3 is-recommended-by[sfo] Answer-2-1-1-3.
+Recommendation-3 is-recommended-by[sfo] Answer-2-1-13-3.
+Recommendation-3 is-recommended-by[sfo] Answer-2-1-6-5.
+Recommendation-3 is-recommended-by[sfo] Answer-2-1-6-4.
+Recommendation-3 is-recommended-by[sfo] Answer-2-1-6-3.
+Recommendation-3 is something.
+Recommendation-3 is-recommended-by[sfo] Answer-2-1-2-3.
+Recommendation-3 is-recommended-by[sfo] Answer-2-1-6-2.
+Answer-2-1-Ext-6-1-3 is something.
+Answer-2-1-Ext-6-1-3 is a field-2-1-ext-6-1.
+Answer-2-1-Ext-6-1-3 is a field[sfo].
+Answer-2-1-Ext-6-1-3 is an enumeration[sfo].
+Answer-2-1-Ext-1-1-3 is something.
+Answer-2-1-Ext-1-1-3 is a field-2-1-ext-1-1.
+Answer-2-1-Ext-1-1-3 is a field[sfo].
+Answer-2-1-Ext-1-1-3 is an enumeration[sfo].
+If X is-recommended-by[sfo] Y then X "<->" Y.
+If X has-field-1-1-6 equal-to Y then X "<->" equal-to Y.
+Answer-2-1-7-1 recommends[sfo] Recommendation-13.
+Answer-2-1-7-1 recommends[sfo] Recommendation-12.
+Answer-2-1-7-1 is something.
+Answer-2-1-7-1 is a field-2-1-7.
+Answer-2-1-7-1 is a field[sfo].
+Answer-2-1-7-1 is an enumeration[sfo].
+Answer-1-1-1-9 is something.
+Answer-1-1-1-9 is a field-1-1-1.
+Answer-1-1-1-9 is a field[sfo].
+Answer-1-1-1-9 is an enumeration[sfo].
+Answer-1-1-3-1 is something.
+Answer-1-1-3-1 is a field-1-1-3.
+Answer-1-1-3-1 is a field[sfo].
+Answer-1-1-3-1 is an enumeration[sfo].
+Element-2-1-Section-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] has-field-2-1-9 Answer-2-1-9-1.
+Element-2-1-Section-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] has-field-2-1-7 Answer-2-1-7-1.
+Element-2-1-Section-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] has-field-2-1-4 Answer-2-1-4-1.
+Element-2-1-Section-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] has-field-2-1-11 Answer-2-1-11-5.
+Element-2-1-Section-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] is something.
+Element-2-1-Section-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] has-field-2-1-6 Answer-2-1-6-1.
+Element-2-1-Section-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] has-field-2-1-1 Answer-2-1-1-1.
+Element-2-1-Section-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] has-field-2-1-ext-1-1 Answer-2-1-Ext-1-1-1.
+Element-2-1-Section-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] has-field-2-1-10 Answer-2-1-10-1.
+Element-2-1-Section-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] has-field-2-1-2 Answer-2-1-2-1.
+Element-2-1-Section-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] has-field-2-1-12 Answer-2-1-12-2.
+Element-2-1-Section-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] has-field-2-1-8 Answer-2-1-8-1.
+Element-2-1-Section-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] has-field-2-1-13 Answer-2-1-13-3.
+Element-2-1-Section-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] has-field-2-1-5 Answer-2-1-5-1.
+Element-2-1-Section-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] has-field-2-1-3 Answer-2-1-3-1.
+Element-2-1-Section-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] is an element-2-1-section.
+If X has-status[sfo] Y then X "<->" Y.
+If X has-field-2-1-1 Y then X "<->" Y.
+Answer-2-1-10-2 recommends[sfo] Recommendation-9.
+Answer-2-1-10-2 recommends[sfo] Recommendation-8.
+Answer-2-1-10-2 is something.
+Answer-2-1-10-2 is a field-2-1-10.
+Answer-2-1-10-2 is a field[sfo].
+Answer-2-1-10-2 is an enumeration[sfo].
+If X concerns[sfo] Y then X "<->" Y.
+If X has-recommendation[sfo] Y then X "<->" Y.
+Answer-2-1-8-2 recommends[sfo] Recommendation-8.
+Answer-2-1-8-2 recommends[sfo] Recommendation-4.
+Answer-2-1-8-2 is something.
+Answer-2-1-8-2 is a field-2-1-8.
+Answer-2-1-8-2 is a field[sfo].
+Answer-2-1-8-2 is an enumeration[sfo].
+Answer-1-1-1-18 is something.
+Answer-1-1-1-18 is a field-1-1-1.
+Answer-1-1-1-18 is a field[sfo].
+Answer-1-1-1-18 is an enumeration[sfo].
+Answer-2-1-12-5 recommends[sfo] Recommendation-8.
+Answer-2-1-12-5 recommends[sfo] Recommendation-16.
+Answer-2-1-12-5 recommends[sfo] Recommendation-15.
+Answer-2-1-12-5 is something.
+Answer-2-1-12-5 is a field-2-1-12.
+Answer-2-1-12-5 is a field[sfo].
+Answer-2-1-12-5 is an enumeration[sfo].
+Answer-2-1-4-3 recommends[sfo] Recommendation-10.
+Answer-2-1-4-3 is something.
+Answer-2-1-4-3 is a field-2-1-4.
+Answer-2-1-4-3 is a field[sfo].
+Answer-2-1-4-3 is an enumeration[sfo].
+Answer-1-1-4-2 is something.
+Answer-1-1-4-2 is a field-1-1-4.
+Answer-1-1-4-2 is a field[sfo].
+Answer-1-1-4-2 is an enumeration[sfo].
+Recommendation-9 is-recommended-by[sfo] Answer-2-1-3-5.
+Recommendation-9 is-recommended-by[sfo] Answer-2-1-10-5.
+Recommendation-9 is-recommended-by[sfo] Answer-2-1-10-3.
+Recommendation-9 is-recommended-by[sfo] Answer-2-1-10-2.
+Recommendation-9 is-recommended-by[sfo] Answer-2-1-10-1.
+Recommendation-9 is something.
+Answer-2-1-11-3 recommends[sfo] Recommendation-2.
+Answer-2-1-11-3 recommends[sfo] Recommendation-11.
+Answer-2-1-11-3 is something.
+Answer-2-1-11-3 is a field-2-1-11.
+Answer-2-1-11-3 is a field[sfo].
+Answer-2-1-11-3 is an enumeration[sfo].
+If X has-field-1-1-1 Y then X "<->" Y.
+Answer-2-1-3-1 recommends[sfo] Recommendation-7.
+Answer-2-1-3-1 is something.
+Answer-2-1-3-1 is a field-2-1-3.
+Answer-2-1-3-1 is a field[sfo].
+Answer-2-1-3-1 is an enumeration[sfo].
+Answer-2-1-9-3 recommends[sfo] Recommendation-2.
+Answer-2-1-9-3 recommends[sfo] Recommendation-11.
+Answer-2-1-9-3 is something.
+Answer-2-1-9-3 is a field-2-1-9.
+Answer-2-1-9-3 is a field[sfo].
+Answer-2-1-9-3 is an enumeration[sfo].
+Recommendation-14 is-recommended-by[sfo] Answer-2-1-8-5.
+Recommendation-14 is-recommended-by[sfo] Answer-2-1-13-5.
+Recommendation-14 is-recommended-by[sfo] Answer-2-1-13-2.
+Recommendation-14 is-recommended-by[sfo] Answer-2-1-13-1.
+Recommendation-14 is-recommended-by[sfo] Answer-2-1-10-5.
+Recommendation-14 is-recommended-by[sfo] Answer-2-1-10-4.
+Recommendation-14 is something.
+Answer-2-1-Ext-5-1-2 is something.
+Answer-2-1-Ext-5-1-2 is a field-2-1-ext-5-1.
+Answer-2-1-Ext-5-1-2 is a field[sfo].
+Answer-2-1-Ext-5-1-2 is an enumeration[sfo].
+Answer-2-1-5-4 recommends[sfo] Recommendation-2.
+Answer-2-1-5-4 recommends[sfo] Recommendation-11.
+Answer-2-1-5-4 is something.
+Answer-2-1-5-4 is a field-2-1-5.
+Answer-2-1-5-4 is a field[sfo].
+Answer-2-1-5-4 is an enumeration[sfo].
+Answer-1-1-5-3 is something.
+Answer-1-1-5-3 is a field-1-1-5.
+Answer-1-1-5-3 is a field[sfo].
+Answer-1-1-5-3 is an enumeration[sfo].
+Answer-2-1-1-5 recommends[sfo] Recommendation-4.
+Answer-2-1-1-5 is something.
+Answer-2-1-1-5 is a field-2-1-1.
+Answer-2-1-1-5 is a field[sfo].
+Answer-2-1-1-5 is an enumeration[sfo].
+Answer-1-1-1-4 is something.
+Answer-1-1-1-4 is a field-1-1-1.
+Answer-1-1-1-4 is a field[sfo].
+Answer-1-1-1-4 is an enumeration[sfo].
+If X has-field-2-1-7 Y then X "<->" Y.
+Answer-2-1-6-5 recommends[sfo] Recommendation-3.
+Answer-2-1-6-5 is something.
+Answer-2-1-6-5 is a field-2-1-6.
+Answer-2-1-6-5 is a field[sfo].
+Answer-2-1-6-5 is an enumeration[sfo].
+Answer-1-1-1-13 is something.
+Answer-1-1-1-13 is a field-1-1-1.
+Answer-1-1-1-13 is a field[sfo].
+Answer-1-1-1-13 is an enumeration[sfo].
+Answer-2-1-Ext-9-1-2 is something.
+Answer-2-1-Ext-9-1-2 is a field-2-1-ext-9-1.
+Answer-2-1-Ext-9-1-2 is a field[sfo].
+Answer-2-1-Ext-9-1-2 is an enumeration[sfo].
+Answer-2-1-Ext-4-1-2 is something.
+Answer-2-1-Ext-4-1-2 is a field-2-1-ext-4-1.
+Answer-2-1-Ext-4-1-2 is a field[sfo].
+Answer-2-1-Ext-4-1-2 is an enumeration[sfo].
+Recommendation-4 is-recommended-by[sfo] Answer-2-1-8-2.
+Recommendation-4 is-recommended-by[sfo] Answer-2-1-2-5.
+Recommendation-4 is-recommended-by[sfo] Answer-2-1-13-5.
+Recommendation-4 is-recommended-by[sfo] Answer-2-1-13-3.
+Recommendation-4 is-recommended-by[sfo] Answer-2-1-13-4.
+Recommendation-4 is-recommended-by[sfo] Answer-2-1-6-4.
+Recommendation-4 is-recommended-by[sfo] Answer-2-1-8-1.
+Recommendation-4 is-recommended-by[sfo] Answer-2-1-8-3.
+Recommendation-4 is-recommended-by[sfo] Answer-2-1-1-5.
+Recommendation-4 is something.
+If X has-field-1-1-7 Y then X "<->" Y.
+Answer-2-1-13-1 recommends[sfo] Recommendation-14.
+Answer-2-1-13-1 is something.
+Answer-2-1-13-1 is a field-2-1-13.
+Answer-2-1-13-1 is a field[sfo].
+Answer-2-1-13-1 is an enumeration[sfo].
+Answer-2-1-7-2 recommends[sfo] Recommendation-13.
+Answer-2-1-7-2 recommends[sfo] Recommendation-12.
+Answer-2-1-7-2 is something.
+Answer-2-1-7-2 is a field-2-1-7.
+Answer-2-1-7-2 is a field[sfo].
+Answer-2-1-7-2 is an enumeration[sfo].
+Answer-1-1-7-1 is something.
+Answer-1-1-7-1 is a field-1-1-7.
+Answer-1-1-7-1 is a field[sfo].
+Answer-1-1-7-1 is an enumeration[sfo].
+Answer-1-1-3-2 is something.
+Answer-1-1-3-2 is a field-1-1-3.
+Answer-1-1-3-2 is a field[sfo].
+Answer-1-1-3-2 is an enumeration[sfo].
+If X has-section-concerned-by-something-that-concerns[sfo] Y then X "<->" Y.
+Survey[<http://www.sfo.cognitum.eu/Test/1#>] has-section-concerned-by-something-that-concerns[sfo] Element-1-1-Section-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>].
+Survey[<http://www.sfo.cognitum.eu/Test/1#>] is-concerned-by[sfo] Element-2-Form-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>].
+Survey[<http://www.sfo.cognitum.eu/Test/1#>] has-section-concerned-by-something-that-concerns[sfo] Element-2-1-Section-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>].
+Survey[<http://www.sfo.cognitum.eu/Test/1#>] is-concerned-by[sfo] Element-1-Form-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>].
+Element-2-Form is something.
+Element-2-Form follows[sfo] Element-1-Form-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>].
+Element-1-1-Section-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>] is-concerned-by[sfo] Element-1-Form-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>].
+Element-1-1-Section-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>] is a section[sfo].
+Element-2-Form-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] is a form[sfo].
+Element-1-Form-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>] is-followed-by[sfo] Element-2-Form-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>].
+Element-1-Form-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>] is-followed-by[sfo] Element-2-Form.
+Element-1-Form-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>] is a starting-form[sfo].
+Element-1-Form-D-31-08-2018-T-8-8-53[<http://www.sfo.cognitum.eu/Test/1#>] is a form[sfo].
+Element-2-1-Section-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] is-concerned-by[sfo] Element-2-Form-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>].
+Element-2-1-Section-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] is an element-2-1-ext-1-section.
+Element-2-1-Section-D-31-08-2018-T-8-8-56[<http://www.sfo.cognitum.eu/Test/1#>] is a section[sfo].
+
+References:
+  [sfo] ('SFO.encnl')
+.
